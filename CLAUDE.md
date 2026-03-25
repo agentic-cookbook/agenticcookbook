@@ -254,6 +254,53 @@ Platform-specific:
 - **Android**: Set `android:supportsRtl="true"` in manifest. Use `start`/`end` instead of `left`/`right` in layouts. Force RTL in developer options for testing.
 - **Web**: Use `dir="rtl"` attribute. Use CSS logical properties (`margin-inline-start` not `margin-left`, `padding-inline-end` not `padding-right`).
 
+### 15. Respect accessibility display options
+
+Components MUST respond to platform accessibility and display settings. Each spec SHOULD document which options are relevant in its **Accessibility Options** section.
+
+#### Apple (SwiftUI environment values)
+
+| Setting | Environment Key | What to do |
+|---------|----------------|------------|
+| Reduce Motion | `\.accessibilityReduceMotion` | Replace animations with crossfades or instant transitions |
+| Reduce Transparency | `\.accessibilityReduceTransparency` | Use opaque backgrounds instead of blurs/vibrancy |
+| Differentiate Without Color | `\.accessibilityDifferentiateWithoutColor` | Add icons/shapes/patterns alongside color indicators |
+| Increase Contrast | `\.colorSchemeContrast` | Use higher-contrast color pairs |
+| Bold Text | `isBoldTextEnabled` | System handles via Dynamic Type; ensure custom fonts respond |
+| Invert Colors | `isInvertColorsEnabled` | Mark images/video with `accessibilityIgnoresInvertColors` |
+| Grayscale | `isGrayscaleEnabled` | Ensure UI is usable without color |
+| VoiceOver | `isVoiceOverRunning` | All elements have labels, hints, traits |
+| Switch Control | `isSwitchControlRunning` | All interactive elements are reachable |
+| Cross-Fade Transitions | `prefersCrossFadeTransitions` | Use cross-fade instead of slide/zoom transitions |
+| Mono Audio | `isMonoAudioEnabled` | Ensure audio content is listenable in mono |
+| Closed Captions | `isClosedCaptioningEnabled` | Show captions for audio/video content |
+
+#### Android
+
+| Setting | API | What to do |
+|---------|-----|------------|
+| Remove Animations | `animator_duration_scale == 0` | Disable all custom animations |
+| Font Scale | `Configuration.fontScale` | Ensure layouts don't break at 2× font size |
+| High Contrast Text | System setting | Ensure text meets WCAG AA contrast ratios |
+| Color Inversion | `ACCESSIBILITY_DISPLAY_INVERSION_ENABLED` | Mark media with `importantForAccessibility` |
+| Color Correction | System setting | Ensure UI is usable in deuteranopia/protanopia/tritanopia modes |
+| TalkBack | `AccessibilityManager` | All elements have `contentDescription`, proper roles |
+| Switch Access | `AccessibilityManager` | All interactive elements are focusable and reachable |
+| Dark Theme | `Configuration.uiMode` | Full dark theme support |
+| Display Size | `displayMetrics.density` | Layouts must not break at larger display sizes |
+
+#### Web (CSS media queries + JS)
+
+| Setting | Media Query / API | What to do |
+|---------|-------------------|------------|
+| Reduced Motion | `prefers-reduced-motion: reduce` | Disable/simplify CSS animations and JS transitions |
+| High Contrast | `prefers-contrast: more` | Increase border widths, use higher-contrast colors |
+| Forced Colors | `forced-colors: active` | Respect system color palette (Windows High Contrast) |
+| Dark Mode | `prefers-color-scheme: dark` | Full dark theme support |
+| Reduced Transparency | `prefers-reduced-transparency: reduce` | Use opaque backgrounds |
+| Reduced Data | `prefers-reduced-data: reduce` | Lazy-load images, reduce asset sizes |
+| Screen Reader | ARIA roles + `aria-live` | Announce dynamic content changes, proper landmarks |
+
 If any verification step fails, fix the issue before considering the work complete.
 
 ## Testing components
