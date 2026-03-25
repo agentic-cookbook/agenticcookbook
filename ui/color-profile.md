@@ -1,0 +1,131 @@
+# Color Profile
+
+---
+version: 1.0.0
+status: accepted
+created: 2026-03-25
+last-updated: 2026-03-25
+author: claude-code
+copyright: 2026 Mike Fullerton / Temporal
+platforms: [iOS, macOS, watchOS, tvOS, visionOS, Android, Web]
+tags: [theme, colors, profiles, terminal, editor, customization]
+dependencies: []
+---
+
+## Overview
+
+A named color palette defining foreground, background, cursor, selection, and 16 ANSI colors. Used for terminal emulators, code editors, or any component that needs switchable color themes. Includes a set of built-in presets (Solarized, Dracula, Nord, etc.) and supports user-created custom profiles.
+
+## Behavioral Requirements
+
+### Profile structure
+
+- **REQ-001**: Each profile MUST have: a unique ID (UUID), a display name, an appearance preference (dark/light/auto), font name, font size, cursor style, a color palette, and a deletable flag.
+- **REQ-002**: The color palette MUST contain: foreground, background, cursor, and selection colors as `#rrggbb` hex strings, plus an array of exactly 16 ANSI colors (indices 0–15: 8 normal + 8 bright).
+
+### Built-in profiles
+
+- **REQ-003**: The app MUST ship with at least these built-in profiles (non-deletable, non-editable):
+
+  | Name | Appearance | Background | Foreground |
+  |------|-----------|-----------|-----------|
+  | Solarized Dark | dark | #002b36 | #839496 |
+  | Solarized Light | light | #fdf6e3 | #657b83 |
+  | Dracula | dark | #282a36 | #f8f8f2 |
+  | Nord | dark | #2e3440 | #d8dee9 |
+  | Tokyo Night | dark | #1a1b26 | #a9b1d6 |
+  | GitHub Light | light | #ffffff | #24292e |
+  | Gruvbox Dark | dark | #282828 | #ebdbb2 |
+  | Catppuccin Mocha | dark | #1e1e2e | #cdd6f4 |
+
+- **REQ-004**: Built-in profiles MUST have stable, fixed UUIDs so references survive app updates.
+
+### User profiles
+
+- **REQ-005**: Users MUST be able to duplicate any profile to create a custom copy.
+- **REQ-006**: Custom profiles MUST be editable: name, appearance, font size, cursor style.
+- **REQ-007**: Custom profiles MUST be deletable. Built-in profiles MUST NOT be deletable.
+
+### Active profile
+
+- **REQ-008**: Exactly one profile MUST be active at a time. The active profile ID MUST be persisted in user settings.
+- **REQ-009**: If the stored active profile ID is invalid (deleted or not found), the app MUST fall back to the first built-in profile (Solarized Dark).
+
+### Appearance mode
+
+- **REQ-010**: Profiles with `auto` appearance MUST follow the system dark/light mode — using a dark profile when in dark mode and a light profile when in light mode. The specific dark/light mapping is a **Design Decision**.
+
+## Appearance
+
+### Profile list (in settings)
+
+- Each row shows: circular color swatch (background color), profile name, appearance badge (D/L/A)
+- Active profile is highlighted
+- Built-in profiles grouped first, then custom profiles
+
+### Profile detail editor
+
+- **General**: Name field (editable for custom, read-only for built-in), appearance picker
+- **Font**: Font name (read-only), size stepper (range: 8–72pt, default: 13pt)
+- **Cursor**: Style picker (block, underline, bar)
+- **Colors**: Swatches for FG/BG/cursor/selection, 4×4 grid for 16 ANSI colors
+- **Preview**: Sample terminal text with profile colors applied
+
+## States
+
+| State | Behavior |
+|-------|----------|
+| No custom profiles | Only built-in profiles shown |
+| Profile selected | Detail editor shows profile settings |
+| Profile duplicated | New profile created with " Copy" suffix, auto-selected |
+| Profile deleted | Selection falls back to previous or first built-in |
+| Active profile changed | All consumers immediately update their colors |
+
+## Accessibility
+
+- **REQ-011**: Color swatches MUST have accessible labels describing the color (e.g., "Background: dark blue").
+- **REQ-012**: The profile list MUST be keyboard-navigable.
+
+## Conformance Test Vectors
+
+| ID | Requirements | Input | Expected |
+|----|-------------|-------|----------|
+| profile-001 | REQ-003 | Launch fresh app | 8 built-in profiles available |
+| profile-002 | REQ-004 | Reference Solarized Dark by UUID across updates | UUID is stable |
+| profile-003 | REQ-005 | Duplicate Dracula | New "Dracula Copy" profile created, editable, deletable |
+| profile-004 | REQ-007 | Attempt to delete Solarized Dark | Delete action disabled/hidden |
+| profile-005 | REQ-009 | Set active profile to invalid UUID | Falls back to Solarized Dark |
+| profile-006 | REQ-010 | Set profile to auto, switch system to dark mode | Dark-appropriate colors applied |
+
+## Edge Cases
+
+- **Many custom profiles**: List SHOULD scroll; performance SHOULD remain smooth with 50+ profiles.
+- **Profile storage corruption**: Fall back to built-in defaults.
+- **Hex color parsing**: `#rrggbb` and `rrggbb` formats MUST both be accepted. Invalid hex returns nil/default.
+
+## Logging
+
+Subsystem: `{{bundle_id}}` | Category: `ColorProfile`
+
+| Event | Level | Message |
+|-------|-------|---------|
+| Active profile changed | debug | `ColorProfile: active profile changed to "{{name}}" ({{id}})` |
+| Profile duplicated | debug | `ColorProfile: duplicated "{{source}}" as "{{new}}"` |
+| Profile deleted | debug | `ColorProfile: deleted "{{name}}" ({{id}})` |
+| Fallback to default | debug | `ColorProfile: invalid active ID, falling back to Solarized Dark` |
+
+## Platform Notes
+
+- **Swift**: `struct ColorProfile: Codable, Identifiable, Equatable` with `TerminalColorPalette` sub-struct. Store profiles in `UserDefaults` as JSON or in app's document package. Use `NSColor(hex:)` extension for parsing. Apply to SwiftTerm via `installColors()`.
+- **Kotlin**: `data class ColorProfile` with `@Serializable`. Store in SharedPreferences as JSON. Parse hex with `Color(android.graphics.Color.parseColor("#rrggbb"))`.
+- **TypeScript**: Interface with hex string fields. Store in localStorage as JSON. Parse with CSS `color` property directly.
+
+## Design Decisions
+
+_None yet._
+
+## Changelog
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 1.0.0 | 2026-03-25 | Initial spec, extracted from scratching-post TerminalProfile + ProfilesSettingsView |
