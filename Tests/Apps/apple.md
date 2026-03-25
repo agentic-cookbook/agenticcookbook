@@ -75,6 +75,9 @@ An XcodeGen-generated Xcode project with app targets for all five Apple platform
 
 ```yaml
 name: LitterboxTests
+settings:
+  base:
+    GENERATE_INFOPLIST_FILE: YES
 options:
   bundleIdPrefix: com.litterbox.test
   deploymentTarget:
@@ -231,10 +234,10 @@ Subsystem: `{{bundle_id}}` | Category: `ComponentCatalog`
 # Generate the Xcode project
 cd Tests/Projects/Apple && xcodegen generate
 
-# Build all targets
-xcodebuild -project LitterboxTests.xcodeproj -scheme LitterboxTestiOS -destination 'platform=iOS Simulator,name=iPhone 16' build
+# Build all targets (use the latest available simulator names for your Xcode version)
+xcodebuild -project LitterboxTests.xcodeproj -scheme LitterboxTestiOS -destination 'platform=iOS Simulator,name=iPhone 17 Pro' build
 xcodebuild -project LitterboxTests.xcodeproj -scheme LitterboxTestMac build
-xcodebuild -project LitterboxTests.xcodeproj -scheme LitterboxTestWatch -destination 'platform=watchOS Simulator,name=Apple Watch Series 10 (46mm)' build
+xcodebuild -project LitterboxTests.xcodeproj -scheme LitterboxTestWatch -destination 'platform=watchOS Simulator,name=Apple Watch Series 11 (46mm)' build
 xcodebuild -project LitterboxTests.xcodeproj -scheme LitterboxTestTV -destination 'platform=tvOS Simulator,name=Apple TV 4K (3rd generation)' build
 xcodebuild -project LitterboxTests.xcodeproj -scheme LitterboxTestVision -destination 'platform=visionOS Simulator,name=Apple Vision Pro' build
 ```
