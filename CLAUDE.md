@@ -200,6 +200,38 @@ Every generated artifact must be verified. The verification method depends on wh
 
 If any verification step fails, fix the issue before considering the work complete.
 
+### 10. Deep linking
+
+All significant feature points and views MUST be deep linkable using the platform's native URL/deep link mechanism. This ensures features are reachable from external sources (notifications, widgets, other apps, web links).
+
+- **Apple**: Universal Links + custom URL schemes. Use `onOpenURL` in SwiftUI, `NavigationPath` for state restoration.
+- **Android**: App Links + intent filters. Use Navigation component deep link support.
+- **Web**: URL routing (React Router, Next.js routing, etc.). Every view should have a unique, shareable URL.
+
+Each spec SHOULD include a **Deep Linking** section defining the URL patterns for the component or flow.
+
+### 11. Scriptable and automatable
+
+Components and flows SHOULD be scriptable and automatable where the platform supports it. Automation-first design enables power users, testing, and accessibility.
+
+- **macOS**: Expose actions via `AppIntents` for Shortcuts. Support AppleScript via `NSScriptCommand` where appropriate.
+- **iOS**: `AppIntents` framework for Shortcuts and Siri integration.
+- **Android**: `AppActions` for Google Assistant. `Intent`-based automation support.
+- **Web**: Exposed API endpoints or query parameter-driven actions.
+
+### 12. Accessibility from day one
+
+All components MUST integrate with platform accessibility APIs from the initial implementation — not as a follow-up task. This includes:
+
+- Semantic roles and labels on all interactive elements
+- VoiceOver (Apple) / TalkBack (Android) / screen reader (Web) full support
+- Keyboard and switch control navigation for all interactive elements
+- Dynamic Type / font scaling support — layouts MUST NOT break at larger text sizes
+- Sufficient color contrast (WCAG AA minimum: 4.5:1 for text, 3:1 for large text)
+- Meaningful focus order that follows visual layout
+
+If any verification step fails, fix the issue before considering the work complete.
+
 ## Testing components
 
 Test app specs live in `Tests/Apps/`. Each spec describes how to generate an IDE project for a platform to visually test components in a catalog app.
