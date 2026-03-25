@@ -1,144 +1,237 @@
 ---
 name: litterbox-import
-version: 1
-description: Explore a repo, extract reusable components into litterbox specs, and improve existing specs with discovered patterns
+version: 2
+description: Deep codebase analysis and component extraction — uses git history, Roadmaps, LSP, and code churn to discover reusable specs
 disable-model-invocation: true
-allowed-tools: Read, Glob, Grep, Bash(git log *), Bash(ls *), Agent, Write, Edit
+allowed-tools: Read, Glob, Grep, Bash(git *), Bash(ls *), Bash(wc *), Bash(xcodebuild *), Bash(swift *), Bash(cat *), Agent, Write, Edit, LSP
 argument-hint: [path to repo to analyze]
 ---
 
-# Litterbox Import
+# Litterbox Import v2
 
-You are analyzing an existing codebase to discover reusable UI components, patterns, and recipes that should be extracted into the litterbox spec library. You also compare what you find against existing litterbox specs to identify improvements or new options.
+You are performing a deep analysis of an existing codebase to discover reusable UI components, patterns, and recipes for extraction into the litterbox spec library. This is a one-shot, maximum-depth analysis — use every tool available.
 
 ## Inputs
 
 The user will provide a **repo path** to analyze (e.g., `../temporal`, `../Whippet`). If not provided, assume the current working directory.
 
+## Critical lessons from v1
+
+The first version of this skill was too shallow. It scanned file names and skimmed code, missing:
+- **Feature bundles**: Related files (terminal + profiles + settings + session manager) that form a single extractable feature
+- **Design intent**: Why features were built the way they were (found in Roadmaps and git history)
+- **Configuration surfaces**: Settings, options, and flags that shape component behavior
+- **Composition patterns**: How components call each other (revealed by LSP call hierarchy)
+
+**The goal is not to list files — it's to discover the feature bundles and their complete surface area.**
+
 ## Process
 
-### Phase 1: Discover existing litterbox specs
+### Phase 0: Project Context
 
-Read `../litterbox/CLAUDE.md` to understand the rules and spec format. Then scan `../litterbox/ui/` and `../litterbox/ui/Recipes/` to build an inventory of existing specs.
+Before looking at any code, understand the project.
 
-### Phase 2: Explore the target repo
+1. Read `CLAUDE.md` and `README.md` (if they exist)
+2. Auto-discover Roadmap files:
+   - Check for `Roadmaps/` directory
+   - Read ALL `*-Roadmap.md` and `*/Roadmap.md` files found there
+   - Each Roadmap IS a documented feature with acceptance criteria, architecture decisions, and implementation steps — this is primary context
+3. Run project structure commands:
+   ```bash
+   git log --oneline -50                              # Recent history
+   git shortlog -s -n                                 # Contributors
+   git log --all --format='%D' | grep -oP '[^ ,]+' | sort -u  # Branches
+   ```
+4. Detect platform and build system:
+   - Check for `Package.swift` → run `swift package dump-package | head -100`
+   - Check for `*.xcodeproj` → run `xcodebuild -project <path> -list`
+   - Check for `build.gradle.kts` → Kotlin/Android
+   - Check for `package.json` → Web/Node
+5. Read the litterbox CLAUDE.md, template, and scan existing specs in `../litterbox/ui/` and `../litterbox/ui/Recipes/`
 
-Launch up to 3 Explore agents in parallel to analyze the target repo. Each agent focuses on a different aspect:
+**Output of Phase 0**: A brief project profile — what it is, what platforms, what build system, what features are documented in Roadmaps.
 
-**Agent 1 — UI Components**
-Search for reusable UI components: custom views, controls, buttons, inputs, cards, dialogs, sheets, navigation patterns. Look for:
-- SwiftUI `View` structs, `ViewModifier`s, `ButtonStyle`s
-- Compose `@Composable` functions, custom `Modifier`s
-- React components (`.tsx` files in `components/` directories)
-- Anything that looks like a design system or shared UI kit
+### Phase 1: Structural Analysis
 
-For each component found, note:
-- File path and name
-- What it does (one sentence)
-- Which platforms it exists on
-- How polished/reusable it is (quick hack vs production-quality)
-- Whether it matches an existing litterbox spec
+Quantitative analysis to identify what matters most.
 
-**Agent 2 — Recipes and Flows**
-Search for multi-component flows and patterns: settings screens, onboarding flows, auth flows, list/detail patterns, navigation structures, modal presentations, error handling patterns. Look for:
-- View controllers / screens / pages that compose multiple components
-- Navigation patterns (tab bars, sidebars, split views)
-- Data flow patterns (loading → content → error states)
-- Common UI recipes that appear across the app
+Launch **3 parallel agents**:
 
-**Agent 3 — Infrastructure Patterns**
-Search for cross-cutting patterns: feature flag usage, analytics events, debug panels, logging patterns, dependency injection setup, localization approach, accessibility implementation. Look for:
-- How the app handles feature flags (if at all)
-- Analytics event tracking patterns
-- Localization approach (hardcoded strings vs i18n)
-- Accessibility implementation quality
-- Error handling patterns
+**Agent 1 — Code Churn & History**
+```bash
+# Top 30 most-changed files (these are the important ones)
+git log --name-only --pretty=format: | sort | uniq -c | sort -rn | head -30
 
-### Phase 3: Compare and categorize
+# File creation timeline (when features were added)
+git log --diff-filter=A --name-only --format='--- %ai ---' | head -200
 
-Categorize findings into three buckets:
+# Recent feature commits (grouped by message pattern)
+git log --oneline -100
 
-#### A. New specs to create
-Components or recipes found in the repo that have **no matching litterbox spec**. These are candidates for extraction. For each:
-- Describe the component/recipe
-- Assess reusability (is this app-specific or genuinely reusable?)
-- Note which platforms it currently exists on
-- Draft the spec name and a one-line description
+# Commit message patterns (PR refs, issue numbers, feature keywords)
+git log --oneline --all | grep -iE '(feat|add|implement|create|build|fix|refactor)' | head -50
+```
 
-#### B. Improvements to existing specs
-Components found in the repo that **match an existing litterbox spec** but the repo's implementation has features, patterns, or options the spec doesn't cover. For each:
-- Name the existing spec
-- Describe what the repo does differently or better
-- Propose specific additions to the spec (new REQ-NNN, new states, new platform notes)
+Identify: Which files are actively maintained? Which are stable/finished? Which are experimental?
 
-#### C. New options for existing specs
-Variations or configurations discovered in the repo that suggest an existing spec should support **options or variants**. For example:
-- A button that sometimes shows an icon and sometimes doesn't → spec should document icon as an option
-- A settings window that uses tabs instead of a sidebar on some platforms → spec should document both layouts
-- A component that has a compact and expanded mode → spec should define both modes
+**Agent 2 — Type Inventory via LSP**
+Use LSP `workspaceSymbol` to get a complete type inventory:
+- All `struct`s (especially those conforming to `View`)
+- All `class`es (especially `ObservableObject`, `ViewModel`)
+- All `protocol`s (interfaces/contracts)
+- All `enum`s (state machines, configuration)
 
-### Phase 4: Present findings
+Group types by file and purpose. Identify: views, models, managers, providers, utilities.
 
-Present a structured report to the user:
+**Agent 3 — Dependency & File Metrics**
+```bash
+# File sizes (complexity proxy)
+find <repo> -name '*.swift' -o -name '*.kt' -o -name '*.tsx' -o -name '*.ts' | xargs wc -l | sort -rn | head -30
+
+# Import/dependency analysis
+grep -rn '^import ' <repo>/Sources/ --include='*.swift' | sort | uniq -c | sort -rn
+
+# Settings/configuration surface
+grep -rn '@AppStorage\|UserDefaults\|SharedPreferences\|localStorage' <repo> --include='*.swift' --include='*.kt' --include='*.ts' --include='*.tsx' | head -50
+
+# Accessibility audit
+grep -rn 'accessibilityLabel\|accessibilityValue\|accessibilityHint\|contentDescription\|aria-label' <repo> --include='*.swift' --include='*.kt' --include='*.tsx' | wc -l
+
+# Localization audit
+grep -rn 'NSLocalizedString\|String(localized\|strings\.xml\|i18n\|intl' <repo> --include='*.swift' --include='*.kt' --include='*.tsx' | wc -l
+```
+
+**Output of Phase 1**: Ranked list of important files, complete type inventory, dependency map, configuration surface, and infrastructure audit scores.
+
+### Phase 2: Feature Discovery
+
+Deep, commit-aware feature identification.
+
+**From Roadmaps** (primary source when available):
+- Each Roadmap defines a feature with: goal, acceptance criteria, implementation steps, architecture decisions, verification strategy
+- Map Roadmap steps to the files they touched (use `git log --all -- <file>` cross-referenced with Roadmap PR/issue numbers)
+- The Roadmap's acceptance criteria become spec REQ-NNN candidates
+
+**From git history** (when no Roadmaps):
+- Group commits by feature using patterns: PR merge commits, issue references, branch names, commit message prefixes
+- For each feature group, identify the implementing files
+- Read the key commits to understand design intent
+
+**From LSP call hierarchy**:
+- For each major View/Screen type, use LSP `callHierarchy` (outgoing) to trace what it calls
+- This reveals natural bundles: `ProjectWindowView` → `FileTreeView` → `DirectoryWatchCoordinator` → `FileSystemWatcher` + `FileTreeCache`
+- The call graph IS the bundle graph
+
+Launch **3 parallel agents** for feature analysis, each handling a subset of the identified features/areas.
+
+### Phase 3: Deep Code Analysis
+
+For each candidate feature bundle, read EVERY file fully. Do not skim.
+
+For each file in the bundle:
+1. Read the complete source code
+2. Use LSP `findReferences` on the main public types to understand coupling — is this type used only within the bundle (loosely coupled, good for extraction) or across the entire app (tightly coupled, needs careful extraction)?
+3. Grep for ALL settings that configure this feature:
+   ```bash
+   grep -n '@AppStorage\|UserDefaults\|SettingsKeys\|settings\.' <file>
+   ```
+4. Grep for logging patterns:
+   ```bash
+   grep -n 'Logger\|Log\.\|os\.log\|NSLog\|print(' <file>
+   ```
+5. Check for accessibility:
+   ```bash
+   grep -n 'accessibility\|VoiceOver\|isAccessibility' <file>
+   ```
+6. Note: error handling strategy, async patterns, DI approach, state management pattern
+
+**Output of Phase 3**: Per-feature dossier with: all files, all types, all settings, all logging, accessibility status, coupling assessment.
+
+### Phase 4: Bundle & Relate
+
+Synthesize findings into extractable spec bundles.
+
+For each bundle:
+1. **Core component**: The main view/screen
+2. **Supporting types**: Models, managers, providers, utilities
+3. **Settings surface**: All configurable options (with their keys and defaults)
+4. **Dependencies**: Other bundles this one depends on
+5. **Infrastructure compliance**: Which litterbox rules are already met, which are missing
+6. **Roadmap context**: If a Roadmap exists, include its acceptance criteria and architecture decisions
+
+Compare each bundle against existing litterbox specs:
+- Read the existing spec fully
+- Read the repo's implementation fully
+- Side-by-side comparison: what does the repo do that the spec doesn't cover?
+
+### Phase 5: Report & Act
+
+Present the complete findings using this format:
 
 ```
 # Litterbox Import: [Repo Name]
 
 Analyzed: [repo path]
 Platform(s): [detected platforms]
-Components found: [count]
-Recipes found: [count]
+Build system: [SPM / Xcode / Gradle / npm]
+Commits analyzed: [count]
+Roadmaps found: [count]
+Files analyzed: [count]
+Types discovered: [count]
 
-## A. New Specs to Create
+## Project Profile
+[2-3 sentences about what this project is and its architecture]
 
-### 1. [Component Name]
-- **Found in**: [file path(s)]
-- **Description**: [what it does]
-- **Platforms**: [which platforms it exists on]
-- **Reusability**: High / Medium / Low
-- **Proposed spec**: `ui/[name].md`
+## Feature Bundles Discovered
 
-### 2. ...
+### Bundle 1: [Feature Name]
+- **Roadmap**: [roadmap file, if exists]
+- **Core files**: [list with line counts]
+- **Settings**: [all configurable options with keys and defaults]
+- **Dependencies**: [other bundles or external libraries]
+- **Infrastructure audit**:
+  - Logging: ✅/❌ (describe what exists)
+  - Accessibility: ✅/❌ (describe what exists)
+  - Localization: ✅/❌
+  - Feature flags: ✅/❌
+  - Error handling: [pattern used]
+- **Existing litterbox spec match**: [spec name] or None
+- **Proposed spec**: `ui/[name].md` or `ui/Recipes/[name].md`
+- **Key requirements to extract** (from code + Roadmap):
+  - REQ-001: [requirement from acceptance criteria or observed behavior]
+  - REQ-002: ...
 
-## B. Improvements to Existing Specs
+### Bundle 2: ...
 
-### 1. [Existing Spec Name] (`ui/[name].md`)
-- **Found in**: [file path(s)]
-- **What's different**: [description]
-- **Proposed changes**:
-  - Add REQ-NNN: [new requirement]
-  - Add state: [new state]
-  - Update platform notes: [detail]
+## Improvements to Existing Specs
 
-### 2. ...
+### [Spec Name] v[current] → v[proposed]
+- **What the repo adds**: [description]
+- **Proposed new requirements**:
+  - REQ-NNN: [new requirement]
+- **Proposed new platform notes**: [detail]
 
-## C. New Options for Existing Specs
-
-### 1. [Existing Spec Name] (`ui/[name].md`)
-- **Variation found**: [description]
-- **Proposed option**: [how to parameterize it in the spec]
-
-### 2. ...
+## Infrastructure Gaps
+- Localization: [status across all bundles]
+- Accessibility: [status]
+- Feature flags: [status]
+- Analytics: [status]
 
 ## Recommendations
-
-[Prioritized list of which specs to create or update first, based on reusability and how many projects would benefit]
+[Prioritized list: what to extract first and why]
 ```
 
-### Phase 5: Act on approvals
-
-After presenting findings, ask the user which items to act on. For approved items:
-
-- **New specs**: Create the spec file in `../litterbox/ui/` or `../litterbox/ui/Recipes/` using the template format, pre-populated with what was learned from the repo's implementation.
-- **Improvements**: Edit the existing spec file to add new requirements, states, or platform notes. Bump the version.
-- **New options**: Edit the existing spec file to document the option/variant. Bump the version.
-
-For each change, commit per Rule 7 (small, atomic commits).
+After presenting findings, ask which items to act on. For approved items, create/update specs and commit individually.
 
 ## Important Notes
 
-- Focus on **genuinely reusable** components, not app-specific one-offs. A "UserProfileCard" is app-specific; a "DetailCard" with configurable layout is reusable.
-- When assessing reusability, consider: would at least 2 of the user's projects benefit from this spec?
-- Don't propose extracting components that are trivially simple (a single `Text` with styling). Focus on components with meaningful behavior, state, or composition.
-- When finding improvements, verify the repo's approach is actually better — not just different. Check against the best practices references.
-- Respect the existing spec format: frontmatter, REQ-NNN, RFC 2119 keywords, test vectors, logging section, etc.
+- **Read code, don't scan file names.** The first version of this skill scanned file names and missed everything important. Read every file in a candidate bundle fully.
+- **Bundle related things together.** A file tree browser is useless without its sync mechanism, its settings, and its git status integration. These are one spec, not four.
+- **Roadmaps are primary context.** If a Roadmap exists for a feature, it tells you WHY the feature exists, WHAT it should do, and HOW it was designed. Use this to write better specs.
+- **Git history reveals intent.** Commit messages explain why code was written the way it was. Recent commits show active development areas. Old, unchanged code is stable (good for extraction).
+- **LSP reveals composition.** Call hierarchy shows how components compose naturally — follow the call graph to find bundle boundaries.
+- **Settings are part of the component.** Every `@AppStorage`, `UserDefaults`, or config option that affects a component is part of that component's spec. Don't split settings from the component they configure.
+- **Assess infrastructure compliance.** For each bundle, check which litterbox rules are already met and which are missing. This becomes part of the spec's gap analysis.
+- See `${CLAUDE_SKILL_DIR}/references/extraction-criteria.md` for extraction criteria.
+- See `${CLAUDE_SKILL_DIR}/references/analysis-techniques.md` for specific commands and LSP operations.
+- See `${CLAUDE_SKILL_DIR}/references/roadmap-integration.md` for how to read and use Roadmap files.
