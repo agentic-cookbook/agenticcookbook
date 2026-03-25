@@ -1,13 +1,21 @@
 ---
 name: litterbox-import
-version: 3
+version: 3.1.0
 description: Deep codebase analysis and component extraction — uses git history, Roadmaps, LSP, Swift compiler, pbxproj parsing, and code churn
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Bash(git *), Bash(ls *), Bash(wc *), Bash(xcodebuild *), Bash(swift *), Bash(swiftc *), Bash(cat *), Bash(plutil *), Bash(jq *), Bash(grep *), Bash(find *), Bash(awk *), Bash(gh *), Agent, Write, Edit, LSP
-argument-hint: [path to repo to analyze]
+argument-hint: [path to repo to analyze] [--version]
 ---
 
-# Litterbox Import v3
+# Litterbox Import v3.1.0
+
+## Startup
+
+**First action**: If the argument is `--version`, print `litterbox-import v3.1.0` and stop — do not run the skill.
+
+Otherwise, print `litterbox-import v3.1.0` as the first line of output, then proceed.
+
+## Overview
 
 You are performing a deep analysis of an existing codebase to discover reusable UI components, patterns, and recipes for extraction into the litterbox spec library. This is a one-shot, maximum-depth analysis — use every tool available.
 
