@@ -1,7 +1,7 @@
 # Package Document
 
 ---
-version: 1.0.0
+version: 1.0.1
 status: accepted
 created: 2026-03-25
 last-updated: 2026-03-25
@@ -259,10 +259,11 @@ Subsystem: `{{bundle_id}}` | Category: `PackageDocument`
 
 ## Design Decisions
 
-_None yet — decisions made during implementation should be recorded here._
+**Document creation flows are in `menu-commands.md`**: This spec covers the read/write/migration lifecycle of package documents. The "New Project" and "New Workspace" creation flows (NSOpenPanel, git validation, NSSavePanel) are documented in `ui/Recipes/menu-commands.md` since they involve menu command structure and file picker UX, not just persistence.
 
 ## Changelog
 
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0.0 | 2026-03-25 | Initial spec, derived from scratching-post ProjectDocument, WorkspaceDocument, SQLiteProjectStore, SQLiteWorkspaceStore, and UTType+Catnip |
+| 1.0.1 | 2026-03-25 | Added Design Decision cross-referencing menu-commands.md for creation flows |
