@@ -84,6 +84,19 @@ Document which accessibility display options (Rule 15) this component responds t
 | Increase Contrast | |
 | Differentiate Without Color | |
 
+## Feature Flags
+
+| Flag Key | Default | Description |
+|----------|---------|-------------|
+| `{{app_prefix}}.component_name` | `true` | Enables this component |
+
+## Analytics
+
+| Event | Properties | When |
+|-------|-----------|------|
+| `component_name.viewed` | `{}` | Component appears on screen |
+| `component_name.interacted` | `{ action: string }` | User interacts with component |
+
 ## Privacy
 
 - **Data collected**: None / describe what is collected
