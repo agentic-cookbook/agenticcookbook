@@ -230,6 +230,30 @@ All components MUST integrate with platform accessibility APIs from the initial 
 - Sufficient color contrast (WCAG AA minimum: 4.5:1 for text, 3:1 for large text)
 - Meaningful focus order that follows visual layout
 
+### 13. Localizability
+
+All user-facing strings MUST be localizable from the start — no hardcoded strings.
+
+- **Apple**: Use `String(localized:)` (Swift 5.7+) or `NSLocalizedString`. Store strings in `.xcstrings` (Xcode 15+) or `.strings` files.
+- **Android**: Use `strings.xml` resource files. Reference via `R.string.*` or `stringResource()` in Compose.
+- **Web**: Use an i18n library (`react-intl`, `i18next`, `FormatJS`). Extract all strings into message catalogs.
+
+Specs SHOULD use `{{placeholder}}` tokens for user-facing string keys (e.g., `{{settings_title}}`) so implementers know which strings need localization entries.
+
+### 14. Right-to-left layout support
+
+All layouts MUST support RTL languages correctly:
+
+- Use **leading/trailing** (not left/right) for all alignment and padding
+- Mirror icons and controls that have directional meaning (e.g., forward/back arrows)
+- Do NOT mirror non-directional icons (e.g., checkmarks, clocks)
+- Test with RTL locale enabled as part of verification
+
+Platform-specific:
+- **Apple**: Use `.environment(\.layoutDirection, .rightToLeft)` in previews. SwiftUI handles leading/trailing automatically.
+- **Android**: Set `android:supportsRtl="true"` in manifest. Use `start`/`end` instead of `left`/`right` in layouts. Force RTL in developer options for testing.
+- **Web**: Use `dir="rtl"` attribute. Use CSS logical properties (`margin-inline-start` not `margin-left`, `padding-inline-end` not `padding-right`).
+
 If any verification step fails, fix the issue before considering the work complete.
 
 ## Testing components
