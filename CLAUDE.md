@@ -26,6 +26,10 @@ When implementing any feature or component, first check ../litterbox/ for an exi
 
 Use `ui/_template.md` as a starting point. Each spec should be self-contained — include concrete values inline rather than referencing external tokens. A good spec is unambiguous enough that any LLM can implement it without follow-up questions.
 
+### Recipes
+
+Recipes live in `ui/Recipes/` and are specs that combine multiple individual components into a complete flow or feature. A recipe references component specs from `ui/` and describes how they compose together — layout, navigation, data flow, and interaction between components. When implementing a recipe, first implement any referenced components that don't already exist in the project, then assemble them per the recipe.
+
 ## Rules
 
 All projects consuming this repo must follow these rules when implementing components.
