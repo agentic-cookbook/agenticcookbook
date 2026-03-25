@@ -1,7 +1,7 @@
 # Settings Window
 
 ---
-version: 1.1.0
+version: 1.2.0
 status: accepted
 created: 2026-03-25
 last-updated: 2026-03-25
@@ -43,6 +43,9 @@ A standard desktop application settings/preferences window. Opens from the conve
   - macOS/iOS: `UserDefaults` / `@AppStorage`
   - Windows: Registry or app config file
   - Web/Electron: `localStorage` or `electron-store`
+- **REQ-016**: Settings keys MUST be centralized in an enum or struct of static constants (e.g., `SettingsKeys.general.startupBehavior`). This prevents key duplication and typos across the app.
+- **REQ-017**: Apps with documents or projects SHOULD support per-document settings in addition to app-wide settings. Per-document settings MUST be presented as a sheet (not mixed into the main settings window), typically triggered by a toolbar gear button.
+- **REQ-018**: The content panel SHOULD use `Form` with `Section` blocks for grouping related settings with clear section headers.
 
 ## Appearance
 
@@ -158,7 +161,7 @@ All category names and setting labels MUST also be localizable — they are app-
 
 ## Platform Notes
 
-- **SwiftUI (macOS)**: Use `NavigationSplitView` with `.navigationSplitViewStyle(.balanced)`. Register `⌘,` via `Settings` scene (preferred) or `.commands` modifier with `CommandGroup(replacing: .appSettings)`. For single-instance enforcement, use `Window` scene with `defaultPosition` and `handlesExternalEvents`. Use `@AppStorage` for binding settings. Frame autosave via `SceneStorage` or `WindowGroup(id:)`.
+- **SwiftUI (macOS)**: Use `NavigationSplitView` with `.navigationSplitViewStyle(.balanced)`. Register `⌘,` via `Settings` scene (preferred) or `.commands` modifier with `CommandGroup(replacing: .appSettings)`. For single-instance enforcement, use `Window` scene with `defaultPosition` and `handlesExternalEvents`. Use `@AppStorage` with centralized `SettingsKeys` constants for binding settings. Use `Form { Section("Header") { ... } }` for content panel layout. Frame autosave via `SceneStorage` or `WindowGroup(id:)`. For per-document settings, present `ProjectSettingsView` as `.sheet(isPresented:)` from a toolbar gear button.
 - **Compose (Windows)**: Use `Window` with `rememberWindowState()` for position/size persistence. Use a `Row` with a `LazyColumn` sidebar and content panel. Store settings in a preferences file. Register `Ctrl+,` via `MenuBar` and keyboard shortcut handler.
 - **React/Electron (Desktop)**: Use a `BrowserWindow` with `show: false` initially. Track instance to prevent duplicates. Use CSS Grid or Flexbox for the split layout. Persist settings in `electron-store` or `localStorage`. Register shortcut via `globalShortcut` or menu accelerator.
 
@@ -172,3 +175,4 @@ _None yet — decisions made during implementation should be recorded here._
 |---------|------|---------|
 | 1.0.0 | 2026-03-25 | Initial spec |
 | 1.1.0 | 2026-03-25 | Added deep linking, localization, accessibility options, privacy sections |
+| 1.2.0 | 2026-03-25 | Added centralized settings keys (REQ-016), per-document settings (REQ-017), Form+Section layout (REQ-018) |
