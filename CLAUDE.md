@@ -301,6 +301,44 @@ Components MUST respond to platform accessibility and display settings. Each spe
 | Reduced Data | `prefers-reduced-data: reduce` | Lazy-load images, reduce asset sizes |
 | Screen Reader | ARIA roles + `aria-live` | Announce dynamic content changes, proper landmarks |
 
+### 16. User safety and privacy by default
+
+All implementations MUST follow these privacy and safety principles.
+
+#### Data minimization
+- Collect only what is needed for the feature to function
+- Do not persist data beyond its useful lifetime
+- Prefer on-device processing over server-side when possible
+
+#### Transparency
+- All data collection MUST be documented in the spec's **Privacy** section
+- The user MUST be informed before any data leaves the device
+- Provide clear, accessible privacy controls within the app
+
+#### Consent
+- Opt-in, not opt-out, for any non-essential data collection
+- Platform permission prompts MUST include a clear purpose string:
+  - Apple: `NS*UsageDescription` keys with human-readable explanations
+  - Android: Runtime permission requests with rationale dialogs
+  - Web: Permission API with explanation UI before requesting
+- Honor "deny" responses gracefully — the app MUST remain functional with reduced capabilities, never crash or nag
+
+#### Security
+- All network communication MUST use TLS/HTTPS
+- Sensitive data (tokens, credentials, PII) MUST use platform secure storage:
+  - Apple: Keychain Services
+  - Android: EncryptedSharedPreferences / Android Keystore
+  - Web: HttpOnly secure cookies — never `localStorage` for tokens
+- No logging of PII or sensitive data, even at debug level
+- Sanitize all user input before display (prevent XSS, injection)
+
+#### Platform privacy features
+- **Apple**: Support App Tracking Transparency, App Privacy Report, Private Relay compatibility
+- **Android**: Respect scoped storage, support per-app language preferences, honor permission denials gracefully
+- **Web**: Respect Do Not Track header, support Content Security Policy, minimize third-party scripts
+
+Each spec SHOULD include a **Privacy** section documenting what data is collected, why, and how it's stored.
+
 If any verification step fails, fix the issue before considering the work complete.
 
 ## Testing components
