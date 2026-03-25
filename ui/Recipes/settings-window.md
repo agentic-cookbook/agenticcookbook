@@ -1,7 +1,7 @@
 # Settings Window
 
 ---
-version: 1.2.0
+version: 1.3.0
 status: accepted
 created: 2026-03-25
 last-updated: 2026-03-25
@@ -39,10 +39,11 @@ A standard desktop application settings/preferences window. Opens from the conve
 - **REQ-008**: The sidebar MUST display a vertical list of category names. The first category MUST be selected by default.
 - **REQ-009**: Selecting a category MUST update the content panel to show that category's settings.
 - **REQ-010**: The content panel MUST scroll vertically if its content exceeds the panel height.
-- **REQ-011**: Settings MUST be read from and written to the platform's standard persistence layer:
-  - macOS/iOS: `UserDefaults` / `@AppStorage`
+- **REQ-011**: Settings MUST be read from and written to a persistence layer. The storage backend SHOULD be abstracted behind an interface so it can be swapped without changing consumers. Common backends:
+  - macOS/iOS: `UserDefaults` / `@AppStorage` (default), or SQLite for apps that need migration-safe structured storage
   - Windows: Registry or app config file
   - Web/Electron: `localStorage` or `electron-store`
+  - Note: apps MAY migrate from one backend to another (e.g., UserDefaults → SQLite) — see `settings-keys.md` for key preservation during migration
 - **REQ-016**: Settings keys MUST be centralized in an enum or struct of static constants (e.g., `SettingsKeys.general.startupBehavior`). This prevents key duplication and typos across the app.
 - **REQ-017**: Apps with documents or projects SHOULD support per-document settings in addition to app-wide settings. Per-document settings MUST be presented as a sheet (not mixed into the main settings window), typically triggered by a toolbar gear button.
 - **REQ-018**: The content panel SHOULD use `Form` with `Section` blocks for grouping related settings with clear section headers.
@@ -64,7 +65,8 @@ A standard desktop application settings/preferences window. Opens from the conve
 ├────────────┴─────────────────────────────────┤
 ```
 
-- **Layout**: Horizontal split view — sidebar on left, content panel on right
+- **Layout variant — Sidebar** (default, for 4+ categories): Horizontal split view — sidebar on left, content panel on right
+- **Layout variant — Tab bar** (for fewer categories or per platform convention): Horizontal tab bar at top, content panel below. Use when there are fewer than 5 categories or when the platform convention prefers tabs (e.g., macOS System Settings pre-Ventura). This is a **Design Decision** — document which variant is chosen.
 - **Sidebar width**: Fixed or narrow resizable range (150–220pt)
 - **Sidebar selection**: Platform-native selection highlight
 - **Content layout**: Labeled rows — label on left, control on right. Group related settings with section headers.
@@ -176,3 +178,4 @@ _None yet — decisions made during implementation should be recorded here._
 | 1.0.0 | 2026-03-25 | Initial spec |
 | 1.1.0 | 2026-03-25 | Added deep linking, localization, accessibility options, privacy sections |
 | 1.2.0 | 2026-03-25 | Added centralized settings keys (REQ-016), per-document settings (REQ-017), Form+Section layout (REQ-018) |
+| 1.3.0 | 2026-03-25 | Made storage backend agnostic in REQ-011 (SQLite migration path), added tab-bar layout variant |
