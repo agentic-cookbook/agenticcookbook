@@ -30,6 +30,57 @@ Use `ui/_template.md` as a starting point. Each spec should be self-contained �
 
 Recipes live in `ui/Recipes/` and are specs that combine multiple individual components into a complete flow or feature. A recipe references component specs from `ui/` and describes how they compose together — layout, navigation, data flow, and interaction between components. When implementing a recipe, first implement any referenced components that don't already exist in the project, then assemble them per the recipe.
 
+### Spec format
+
+All specs (components and recipes) follow the same format, aligned with the [temporal-platform](../temporal-platform) spec conventions. Specs are plain Markdown with a YAML frontmatter block. The primary consumer is an LLM reading prose + examples, not a code generator parsing a schema.
+
+#### Frontmatter
+
+```yaml
+---
+version: 1.0.0
+status: draft | review | accepted | deprecated
+last-updated: YYYY-MM-DD
+dependencies:
+  - ui/other-component.md@1.0.0
+---
+```
+
+- **version**: Semver. Bump major for breaking changes, minor for new requirements, patch for clarifications.
+- **status**: `draft` (work in progress), `review` (ready for feedback), `accepted` (stable, safe to implement), `deprecated` (superseded).
+- **dependencies**: Other specs this spec references, with version pins. Omit if none.
+
+#### Requirements
+
+Use RFC 2119 keywords (`MUST`, `MUST NOT`, `SHOULD`, `SHOULD NOT`, `MAY`) for all behavioral requirements. Each requirement is numbered sequentially as `REQ-001`, `REQ-002`, etc. This makes requirements unambiguous, testable, and referenceable from test vectors.
+
+#### Placeholder tokens
+
+Use `{{placeholder}}` tokens for values that are app-specific and resolved at implementation time. Examples: `{{bundle_id}}`, `{{app_name}}`, `{{primary_color}}`.
+
+#### Test vectors
+
+Each spec includes a **Conformance Test Vectors** section with concrete input/output pairs linked to REQ-NNN numbers. This is the machine-verifiable part of the spec — the LLM can implement these as unit tests to confirm correct behavior.
+
+For complex components, test vectors may also be published as separate JSON files in a `vectors/` directory for machine consumption.
+
+#### Standard sections
+
+Specs SHOULD include these sections in order (omit sections that don't apply):
+
+1. **Overview** — purpose, scope, when to use
+2. **Terminology** — domain-specific terms (if any)
+3. **Behavioral Requirements** — REQ-NNN with RFC 2119 keywords
+4. **Appearance** — visual spec with concrete values
+5. **States** — state table with appearance/behavior changes
+6. **Accessibility** — roles, labels, keyboard nav, tap targets
+7. **Conformance Test Vectors** — input/output pairs linked to REQ-NNN
+8. **Edge Cases** — boundary conditions, error states
+9. **Logging** — spec-defined log messages (see Rule 9)
+10. **Platform Notes** — Swift, Kotlin, TypeScript guidance
+11. **Design Decisions** — LLM-made choices that need user approval (see Rule 6)
+12. **Changelog** — version history
+
 ## Rules
 
 All projects consuming this repo must follow these rules when implementing components.
@@ -99,7 +150,7 @@ Every component and flow must be instrumented with structured logging using the 
 ```markdown
 ## Logging
 
-Subsystem: `{app bundle ID}` | Category: `PrimaryButton`
+Subsystem: `{{bundle_id}}` | Category: `PrimaryButton`
 
 | Event | Level | Message |
 |-------|-------|---------|

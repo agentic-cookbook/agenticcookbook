@@ -1,13 +1,21 @@
 # ComponentName
 
+---
+version: 1.0.0
+status: draft
+last-updated: YYYY-MM-DD
+dependencies: []
+---
+
+## Overview
+
 Brief description of what this component is and when to use it.
 
-## Behavior
+## Behavioral Requirements
 
-- What happens on tap/click
-- Loading states and transitions
-- Interaction with other components
-- Animation details (duration, easing)
+- **REQ-001**: Component MUST ...
+- **REQ-002**: Component SHOULD ...
+- **REQ-003**: Component MAY ...
 
 ## Appearance
 
@@ -37,16 +45,36 @@ Brief description of what this component is and when to use it.
 - Announce state changes (e.g., loading, disabled)
 - Minimum tap target: 44×44pt
 
+## Conformance Test Vectors
+
+| ID | Requirements | Input | Expected |
+|----|-------------|-------|----------|
+| component-001 | REQ-001 | | |
+
+## Edge Cases
+
+- Describe boundary conditions, error states, unexpected input
+
 ## Logging
 
-Subsystem: `{app bundle ID}` | Category: `ComponentName`
+Subsystem: `{{bundle_id}}` | Category: `ComponentName`
 
 | Event | Level | Message |
 |-------|-------|---------|
 | | debug | `ComponentName: ` |
 
-## Platform notes
+## Platform Notes
 
 - **SwiftUI**:
 - **Compose**:
 - **React/Web**:
+
+## Design Decisions
+
+Record any decisions made during implementation that affect visual or behavioral outcome. Each decision should be approved by the user.
+
+## Changelog
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 1.0.0 | YYYY-MM-DD | Initial spec |
