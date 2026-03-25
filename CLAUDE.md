@@ -432,6 +432,10 @@ Canonical docs the code review step (Rule 8) checks against. When reviewing an i
 - [OWASP Mobile Security (MASVS)](https://mas.owasp.org/MASVS/)
 - [OWASP Mobile Testing Guide (MASTG)](https://mas.owasp.org/MASTG/)
 
+## Engineering Principles
+
+All implementations MUST follow the engineering principles documented in [`engineering-principles.md`](engineering-principles.md). Key principles: simplicity, composition over inheritance, dependency injection, immutability by default, fail fast, idempotency, and design for deletion. The review skill (`/litterbox-review`) checks compliance.
+
 ## Testing components
 
 Test app specs live in `Tests/Apps/`. Each spec describes how to generate an IDE project for a platform to visually test components in a catalog app.
