@@ -401,6 +401,25 @@ All apps MUST include a debug-only configuration panel accessible in debug/devel
 
 See `ui/Recipes/debug-panel.md` for the full spec.
 
+### 21. Linting from day one
+
+All generated projects MUST include best-in-class linting and formatting tools configured from initial project generation. Linters MUST run automatically (pre-commit hook or build phase) and MUST be configured with strict rulesets.
+
+**Per-platform:**
+
+| Platform | Linter | Formatter | Configuration |
+|----------|--------|-----------|---------------|
+| **Swift** | [SwiftLint](https://github.com/realm/SwiftLint) | [swift-format](https://github.com/swiftlang/swift-format) | `.swiftlint.yml` at project root. Enable `strict` mode. Add as SPM plugin or Xcode build phase. |
+| **Kotlin** | [ktlint](https://pinterest.github.io/ktlint/) | ktlint (built-in) | `.editorconfig` at project root. Add as Gradle plugin (`org.jlleitschuh.gradle.ktlint`). |
+| **TypeScript/JS** | [ESLint](https://eslint.org/) | [Prettier](https://prettier.io/) | `eslint.config.js` + `.prettierrc`. Use `eslint-config-prettier` to avoid conflicts. Add as `package.json` scripts + pre-commit hook. |
+| **CSS** | [Stylelint](https://stylelint.io/) | Prettier | `.stylelintrc.json`. Add alongside ESLint for web projects. |
+
+**Requirements:**
+- **REQ**: Linter configuration MUST be committed to the repo — not left as a local-only setup.
+- **REQ**: Linting MUST run as part of the build or pre-commit process. Developers and LLMs MUST NOT need to remember to run it manually.
+- **REQ**: The configuration SHOULD use the community-standard strict ruleset as a baseline, with project-specific overrides documented.
+- **REQ**: Formatting MUST be auto-fixable — running the formatter should fix all style issues without manual intervention.
+
 If any verification step fails, fix the issue before considering the work complete.
 
 ## Best Practices References
