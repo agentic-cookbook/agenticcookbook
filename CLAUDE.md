@@ -339,6 +339,49 @@ All implementations MUST follow these privacy and safety principles.
 
 Each spec SHOULD include a **Privacy** section documenting what data is collected, why, and how it's stored.
 
+### 17. Feature flags
+
+All features MUST be gated behind feature flags from initial implementation. This enables incremental rollout, kill switches, and A/B testing.
+
+**Pattern:**
+1. Define a **protocol/interface** (e.g., `FeatureFlagProvider`) with: `isEnabled(key) -> Bool`, `allFlags() -> [String: Bool]`
+2. Provide a **local implementation** as default — flags stored on-device, no backend dependency
+3. Backend implementation can be swapped in later via dependency injection (the interface is the contract)
+
+**Per-platform defaults:**
+- **Apple**: Protocol + `UserDefaults`-backed implementation
+- **Android**: Interface + `SharedPreferences`-backed implementation
+- **Web**: TypeScript interface + `localStorage`-backed implementation
+
+Each spec SHOULD list its feature flag keys in a **Feature Flags** section.
+
+### 18. Analytics
+
+All significant user actions MUST be instrumented with analytics events via an interface. No direct coupling to any analytics backend.
+
+**Pattern:**
+1. Define a **protocol/interface** (e.g., `AnalyticsProvider`) with: `track(event, properties)`, `identify(userId)`, `screen(name)`
+2. Provide a **logging-only implementation** as default — events logged at debug level via the platform logger (Rule 9), no network calls
+3. Backend implementation (Mixpanel, Amplitude, PostHog, etc.) can be swapped in later
+
+**Per-platform defaults:**
+- **Apple**: Protocol + `os.log`-backed implementation
+- **Android**: Interface + `Timber`-backed implementation
+- **Web**: TypeScript interface + `console`-backed implementation
+
+Each spec SHOULD define analytics events in an **Analytics** section with event names and property schemas.
+
+### 19. A/B testing
+
+Features that may need experimentation SHOULD support variant assignment via an interface.
+
+**Pattern:**
+1. Define a **protocol/interface** (e.g., `ExperimentProvider`) with: `variant(experimentKey) -> String`, `isInExperiment(key) -> Bool`
+2. Provide a **local implementation** as default — variants configured via debug panel or config file
+3. Backend implementation can be swapped in later
+
+A/B test variants SHOULD be documented in the spec when the component has multiple possible presentations or behaviors.
+
 If any verification step fails, fix the issue before considering the work complete.
 
 ## Best Practices References
