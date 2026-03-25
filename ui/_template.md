@@ -60,6 +60,37 @@ Brief description of what this component is and when to use it.
 
 - Describe boundary conditions, error states, unexpected input
 
+## Deep Linking
+
+| Platform | URL Pattern |
+|----------|-------------|
+| Apple | `{{app_scheme}}://component-name` |
+| Android | `https://{{app_domain}}/component-name` |
+| Web | `/component-name` |
+
+## Localization
+
+| String Key | Default (en) | Context |
+|-----------|-------------|---------|
+| | | |
+
+## Accessibility Options
+
+Document which accessibility display options (Rule 15) this component responds to:
+
+| Option | Behavior |
+|--------|----------|
+| Reduce Motion | |
+| Increase Contrast | |
+| Differentiate Without Color | |
+
+## Privacy
+
+- **Data collected**: None / describe what is collected
+- **Storage**: Where and how data is stored
+- **Transmission**: Whether data leaves the device
+- **Retention**: How long data is kept
+
 ## Logging
 
 Subsystem: `{{bundle_id}}` | Category: `ComponentName`
