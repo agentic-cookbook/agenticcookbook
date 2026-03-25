@@ -382,6 +382,25 @@ Features that may need experimentation SHOULD support variant assignment via an 
 
 A/B test variants SHOULD be documented in the spec when the component has multiple possible presentations or behaviors.
 
+### 20. Debug mode
+
+All apps MUST include a debug-only configuration panel accessible in debug/development builds. It MUST NOT be accessible or compiled into release builds.
+
+**The debug panel provides:**
+- **Feature flag overrides**: Toggle flags on/off, see current state
+- **Analytics event log**: Live list of tracked events with properties
+- **A/B test variant picker**: Manually assign experiment variants
+- **Backend configuration**: Point feature flags/analytics/experiments at different backends (local, staging, production)
+- **Environment info**: App version, build number, OS version, device info
+
+**Access method:**
+- **Apple (iOS)**: Shake gesture, guarded by `#if DEBUG`
+- **Apple (macOS)**: Debug menu item, guarded by `#if DEBUG`
+- **Android**: Shake gesture or hidden tap gesture, guarded by `BuildConfig.DEBUG`
+- **Web**: `/debug` route or keyboard shortcut (e.g., `Ctrl+Shift+D`), guarded by `process.env.NODE_ENV === 'development'`
+
+See `ui/Recipes/debug-panel.md` for the full spec.
+
 If any verification step fails, fix the issue before considering the work complete.
 
 ## Best Practices References
