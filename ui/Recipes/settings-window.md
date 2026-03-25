@@ -1,7 +1,7 @@
 # Settings Window
 
 ---
-version: 1.0.0
+version: 1.1.0
 status: accepted
 created: 2026-03-25
 last-updated: 2026-03-25
@@ -121,6 +121,41 @@ Subsystem: `{{bundle_id}}` | Category: `SettingsWindow`
 | Setting changed | debug | `SettingsWindow: changed "{{key}}" from "{{oldValue}}" to "{{newValue}}"` |
 | Frame saved | debug | `SettingsWindow: frame saved ({{x}}, {{y}}, {{width}}×{{height}})` |
 
+## Deep Linking
+
+| Platform | URL Pattern | Behavior |
+|----------|-------------|----------|
+| Apple | `{{app_scheme}}://settings` or `{{app_scheme}}://settings/{{category}}` | Opens settings window, optionally navigates to a specific category |
+| Windows | Command-line flag `--settings` or `--settings={{category}}` | Opens settings on launch |
+| Web/Electron | `/settings` or `/settings/{{category}}` | Routes to settings view |
+
+## Localization
+
+| String Key | Default (en) | Context |
+|-----------|-------------|---------|
+| `settings.window_title` | Settings | Window title bar |
+| `settings.no_categories` | No settings categories available | Empty state when no categories defined |
+| `settings.no_settings` | No settings available | Empty state when a category has no settings |
+| `settings.select_category` | Select a Category | Placeholder in detail panel before selection |
+
+All category names and setting labels MUST also be localizable — they are app-specific and defined at implementation time.
+
+## Accessibility Options
+
+| Option | Behavior |
+|--------|----------|
+| Reduce Motion | Sidebar selection change updates content panel instantly (no slide transition) |
+| Reduce Transparency | Sidebar and content panel use opaque backgrounds |
+| Increase Contrast | Sidebar selection highlight and control borders use higher-contrast colors |
+| VoiceOver / TalkBack | Category list announces selection, setting labels and values announced, state changes announced |
+
+## Privacy
+
+- **Data collected**: User preferences (setting values only)
+- **Storage**: Platform standard persistence (`UserDefaults`, registry, `localStorage`) — on-device only
+- **Transmission**: None — settings do not leave the device
+- **Retention**: Persisted until user changes or app is uninstalled
+
 ## Platform Notes
 
 - **SwiftUI (macOS)**: Use `NavigationSplitView` with `.navigationSplitViewStyle(.balanced)`. Register `⌘,` via `Settings` scene (preferred) or `.commands` modifier with `CommandGroup(replacing: .appSettings)`. For single-instance enforcement, use `Window` scene with `defaultPosition` and `handlesExternalEvents`. Use `@AppStorage` for binding settings. Frame autosave via `SceneStorage` or `WindowGroup(id:)`.
@@ -136,3 +171,4 @@ _None yet — decisions made during implementation should be recorded here._
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0.0 | 2026-03-25 | Initial spec |
+| 1.1.0 | 2026-03-25 | Added deep linking, localization, accessibility options, privacy sections |
