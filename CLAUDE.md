@@ -341,6 +341,35 @@ Each spec SHOULD include a **Privacy** section documenting what data is collecte
 
 If any verification step fails, fix the issue before considering the work complete.
 
+## Best Practices References
+
+Canonical docs the code review step (Rule 8) checks against. When reviewing an implementation, verify compliance with the relevant platform guides.
+
+### Apple
+- [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
+- [Swift API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/)
+- [Accessibility](https://developer.apple.com/documentation/accessibility)
+- [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/)
+- [SwiftUI Performance](https://developer.apple.com/documentation/Xcode/understanding-and-improving-swiftui-performance)
+
+### Android
+- [Material Design 3](https://m3.material.io/)
+- [Architecture Recommendations](https://developer.android.com/topic/architecture/recommendations)
+- [Kotlin Coding Conventions](https://kotlinlang.org/docs/coding-conventions.html)
+- [Accessibility](https://developer.android.com/guide/topics/ui/accessibility)
+- [Google Play Developer Policy](https://support.google.com/googleplay/android-developer/answer/10144311)
+
+### Web
+- [WCAG 2.1](https://www.w3.org/TR/WCAG21/)
+- [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/)
+- [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+- [MDN Web Docs](https://developer.mozilla.org/en-US/)
+
+### Cross-platform
+- [Nielsen Norman Usability Heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/)
+- [OWASP Mobile Security (MASVS)](https://mas.owasp.org/MASVS/)
+- [OWASP Mobile Testing Guide (MASTG)](https://mas.owasp.org/MASTG/)
+
 ## Testing components
 
 Test app specs live in `Tests/Apps/`. Each spec describes how to generate an IDE project for a platform to visually test components in a catalog app.
