@@ -1,7 +1,7 @@
 # AI Settings Panel
 
 ---
-version: 1.0.0
+version: 1.0.1
 status: accepted
 created: 2026-03-25
 last-updated: 2026-03-25
@@ -319,10 +319,11 @@ Subsystem: `{{bundle_id}}` | Category: `AISettingsPanel`
 
 ## Design Decisions
 
-_None yet — decisions made during implementation should be recorded here._
+**UI-stub implementation**: The initial implementation from scratching-post is UI-only — settings are stored via `@AppStorage` but no actual AI provider calls are wired up. The `AIProvider` protocol, concrete provider implementations (Claude, OpenAI, Local), connection testing, and dynamic model fetching are all spec-only requirements awaiting implementation. The settings UI is functional and persists values, but the values are not consumed by any AI integration code yet.
 
 ## Changelog
 
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0.0 | 2026-03-25 | Initial spec: settings UI, AI provider interface pattern, security requirements, connection testing |
+| 1.0.1 | 2026-03-25 | Added Design Decision noting current implementation is UI-stub only |
