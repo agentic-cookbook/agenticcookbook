@@ -72,6 +72,41 @@ These decisions must be recorded in the component spec under a **Design Decision
 
 Commits in this repo must be small and represent exactly one logical or conceptual change. A single change may touch multiple spec files if they are part of the same concept. Commits should happen automatically as work progresses — do not batch up multiple unrelated changes.
 
+### 9. Instrumented logging for all flows
+
+Every component and flow must be instrumented with structured logging using the platform's best-in-class logging framework:
+
+- **Apple**: `os.log` (`Logger` from the `os` module) — use a subsystem matching the bundle ID and a category per component/flow
+- **Android/Kotlin**: `Timber` (or `android.util.Log` if no dependency is desired)
+- **Web/JS/TS**: `console` with structured prefixes, or a logger like `pino`/`winston` in Node contexts
+
+**Log level**: Use `debug` level for all UI flow instrumentation. This keeps logs silent in production but visible when an LLM (or developer) is iterating on the component in a debug build.
+
+**What to log**: State transitions, user interactions, async task start/completion/failure, and any branching logic. Example for a button:
+
+```
+[Debug] PrimaryButton: tapped, starting async action
+[Debug] PrimaryButton: async action completed (success, 230ms)
+[Debug] PrimaryButton: state changed to disabled
+```
+
+**Spec-defined log messages**: Each component spec must define the exact log messages in a **Logging** section. This eliminates ambiguity — the LLM can build, run, and grep for expected log output to verify correct behavior without visual inspection. Example spec section:
+
+```markdown
+## Logging
+
+Subsystem: `com.litterbox.test` | Category: `PrimaryButton`
+
+| Event | Level | Message |
+|-------|-------|---------|
+| Tap | debug | `PrimaryButton: tapped, starting async action` |
+| Action success | debug | `PrimaryButton: async action completed (success, {duration}ms)` |
+| Action failure | debug | `PrimaryButton: async action failed ({error})` |
+| State change | debug | `PrimaryButton: state changed to {state}` |
+```
+
+This logging output becomes a verification tool — after running the test app, the LLM can check logs to confirm the component executed the correct flow.
+
 ### 8. Post-generation verification
 
 Every generated artifact must be verified. The verification method depends on what was generated:

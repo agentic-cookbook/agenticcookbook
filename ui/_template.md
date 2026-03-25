@@ -37,6 +37,14 @@ Brief description of what this component is and when to use it.
 - Announce state changes (e.g., loading, disabled)
 - Minimum tap target: 44×44pt
 
+## Logging
+
+Subsystem: `com.litterbox.test` | Category: `ComponentName`
+
+| Event | Level | Message |
+|-------|-------|---------|
+| | debug | `ComponentName: ` |
+
 ## Platform notes
 
 - **SwiftUI**:
