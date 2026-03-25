@@ -6,12 +6,18 @@ A library of UI component specifications for Claude Code. This repo contains no 
 
 ### In consuming projects
 
-Add these lines to your project's `CLAUDE.md`:
+Add this section to your project's `CLAUDE.md`:
 
-```
-Component specs are at ../litterbox/ — when implementing a component from a spec, read the spec file and implement it idiomatically for this project's platform.
+```markdown
+## Shared Component Specs
 
-When implementing any feature or component, first check ../litterbox/ for an existing spec. If no spec exists for what you're building, offer to create a detailed spec following the litterbox repo's template (../litterbox/ui/_template.md) and save it back to that repo.
+This project uses component specs from the [litterbox](https://github.com/mikefullerton/litterbox) repo.
+
+- **Expected path**: `../litterbox/`
+- **Repo**: `git@github.com:mikefullerton/litterbox.git`
+- Before reading any spec, verify `../litterbox/` exists. If it doesn't, ask the user whether to clone it.
+- Component specs are in `../litterbox/` — read the spec and implement idiomatically for this project's platform.
+- When implementing any feature or component, first check for an existing spec. If none exists, offer to create one following `../litterbox/ui/_template.md` and save it back to that repo.
 ```
 
 ### Implementing a component from a spec
@@ -32,7 +38,7 @@ Recipes live in `ui/Recipes/` and are specs that combine multiple individual com
 
 ### Spec format
 
-All specs (components and recipes) follow the same format, aligned with the [temporal-platform](../temporal-platform) spec conventions. Specs are plain Markdown with a YAML frontmatter block. The primary consumer is an LLM reading prose + examples, not a code generator parsing a schema.
+All specs (components and recipes) follow the same format. Specs are plain Markdown with a YAML frontmatter block. The primary consumer is an LLM reading prose + examples, not a code generator parsing a schema.
 
 #### Frontmatter
 
@@ -40,7 +46,12 @@ All specs (components and recipes) follow the same format, aligned with the [tem
 ---
 version: 1.0.0
 status: draft | review | accepted | deprecated
+created: YYYY-MM-DD
 last-updated: YYYY-MM-DD
+author: Name or claude-code
+copyright: 2026 Mike Fullerton / Temporal
+platforms: [macOS, iOS, watchOS, tvOS, visionOS, Android, Web]
+tags: [category, feature-area]
 dependencies:
   - ui/other-component.md@1.0.0
 ---
@@ -48,6 +59,12 @@ dependencies:
 
 - **version**: Semver. Bump major for breaking changes, minor for new requirements, patch for clarifications.
 - **status**: `draft` (work in progress), `review` (ready for feedback), `accepted` (stable, safe to implement), `deprecated` (superseded).
+- **created**: Date the spec was first written (immutable).
+- **last-updated**: Date of the most recent change.
+- **author**: Who wrote the spec — a person's name or `claude-code`.
+- **copyright**: Always `YYYY Mike Fullerton / Temporal` with the current year.
+- **platforms**: Which platforms this spec targets. Helps the LLM skip irrelevant platform notes.
+- **tags**: Freeform labels for discoverability.
 - **dependencies**: Other specs this spec references, with version pins. Omit if none.
 
 #### Requirements

@@ -3,7 +3,12 @@
 ---
 version: 1.0.0
 status: draft
+created: YYYY-MM-DD
 last-updated: YYYY-MM-DD
+author:
+copyright: YYYY Mike Fullerton / Temporal
+platforms: []
+tags: []
 dependencies: []
 ---
 

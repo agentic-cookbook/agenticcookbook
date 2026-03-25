@@ -3,7 +3,12 @@
 ---
 version: 1.0.0
 status: accepted
+created: 2026-03-25
 last-updated: 2026-03-25
+author: claude-code
+copyright: 2026 Mike Fullerton / Temporal
+platforms: [macOS, Windows, Linux]
+tags: [window-management, preferences, settings]
 dependencies: []
 ---
 
