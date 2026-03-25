@@ -6,10 +6,12 @@ A library of UI component specifications for Claude Code. This repo contains no 
 
 ### In consuming projects
 
-Add this line to your project's `CLAUDE.md`:
+Add these lines to your project's `CLAUDE.md`:
 
 ```
-UI component specs are at ../litterbox/ui/ — when implementing a component from a spec, read the spec file and implement it idiomatically for this project's platform.
+Component specs are at ../litterbox/ — when implementing a component from a spec, read the spec file and implement it idiomatically for this project's platform.
+
+When implementing any feature or component, first check ../litterbox/ for an existing spec. If no spec exists for what you're building, offer to create a detailed spec following the litterbox repo's template (../litterbox/ui/_template.md) and save it back to that repo.
 ```
 
 ### Implementing a component from a spec
@@ -80,6 +82,11 @@ Every generated artifact must be verified. The verification method depends on wh
 - **Accessibility audit**: Verify VoiceOver/TalkBack labels exist, tap targets meet platform minimums (44pt iOS, 48dp Android), contrast ratios are sufficient.
 - **Preview rendering**: For SwiftUI, verify `#Preview` blocks render without crashes. For Compose, verify `@Preview` functions compile.
 - **Catalog entry**: Build and run the test app from `Tests/` to visually confirm the component renders correctly in all states.
+- **Snapshot tests**: Capture reference images of each component in all states. On subsequent generations, compare against reference snapshots to detect visual regressions. Use the platform-appropriate snapshot library:
+  - **Swift**: [swift-snapshot-testing](https://github.com/pointfreeco/swift-snapshot-testing) — captures SwiftUI views as images, supports per-device and per-OS snapshots
+  - **Compose/Android**: [Paparazzi](https://github.com/cashapp/paparazzi) — renders Compose components off-device, no emulator required
+  - **Web/React**: [Playwright](https://playwright.dev/) screenshot comparison or [Storybook](https://storybook.js.org/) visual tests
+  - Reference snapshots are stored in the test project alongside the component catalog. On first run, snapshots are recorded. On subsequent runs, differences are flagged for review.
 
 If any verification step fails, fix the issue before considering the work complete.
 
