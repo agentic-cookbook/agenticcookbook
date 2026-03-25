@@ -1,7 +1,7 @@
 # Project Window
 
 ---
-version: 1.0.0
+version: 1.1.0
 status: accepted
 created: 2026-03-25
 last-updated: 2026-03-25
@@ -289,10 +289,13 @@ Subsystem: `{{bundle_id}}` | Category: `ProjectWindow`
 
 ## Design Decisions
 
-_None yet — decisions made during implementation should be recorded here._
+**Fixed 2-pane detail layout**: The current spec uses a fixed VSplitView with editor (top) and terminal (bottom). A future version MAY evolve to a flexible N-pane layout supporting arbitrary pane configurations (file editor, terminal sessions, IDE integration panes). When this ships, the spec should be updated to document `PaneType` enum and `PaneLayout` struct.
+
+**File tree default width**: Currently defaulting to 20% (`fileTreeProportion = 0.20`). Some implementations may prefer 40% for better file name readability. This is configurable per-project — the default can be adjusted based on user feedback.
 
 ## Changelog
 
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0.0 | 2026-03-25 | Initial spec, derived from scratching-post ProjectWindowView layout and ProjectSettings model |
+| 1.1.0 | 2026-03-25 | Added Design Decisions: fixed vs flexible pane layout, file tree default width |
