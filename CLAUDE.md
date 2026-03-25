@@ -195,6 +195,9 @@ Every generated artifact must be verified. The verification method depends on wh
   - **Web/React**: [Playwright](https://playwright.dev/) screenshot comparison or [Storybook](https://storybook.js.org/) visual tests
   - Reference snapshots are stored in the test project alongside the component catalog. On first run, snapshots are recorded. On subsequent runs, differences are flagged for review.
 
+- **Run and verify logs**: After building, run the test app and verify that spec-defined log messages appear in the output. Use `log stream --predicate 'subsystem == "{{bundle_id}}"' --level debug` (macOS), `adb logcat` (Android), or browser console (Web) to capture and grep for expected messages.
+- **Code review against best practices**: Review the implementation against the platform's best practices references (see Best Practices References section below). Check for: HIG/Material compliance, accessibility guideline adherence, security best practices (OWASP), and coding convention conformance.
+
 If any verification step fails, fix the issue before considering the work complete.
 
 ## Testing components
