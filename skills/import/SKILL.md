@@ -1,13 +1,13 @@
 ---
 name: litterbox-import
-version: 2
-description: Deep codebase analysis and component extraction — uses git history, Roadmaps, LSP, and code churn to discover reusable specs
+version: 3
+description: Deep codebase analysis and component extraction — uses git history, Roadmaps, LSP, Swift compiler, pbxproj parsing, and code churn
 disable-model-invocation: true
-allowed-tools: Read, Glob, Grep, Bash(git *), Bash(ls *), Bash(wc *), Bash(xcodebuild *), Bash(swift *), Bash(cat *), Agent, Write, Edit, LSP
+allowed-tools: Read, Glob, Grep, Bash(git *), Bash(ls *), Bash(wc *), Bash(xcodebuild *), Bash(swift *), Bash(swiftc *), Bash(cat *), Bash(plutil *), Bash(jq *), Bash(grep *), Bash(find *), Bash(awk *), Bash(gh *), Agent, Write, Edit, LSP
 argument-hint: [path to repo to analyze]
 ---
 
-# Litterbox Import v2
+# Litterbox Import v3
 
 You are performing a deep analysis of an existing codebase to discover reusable UI components, patterns, and recipes for extraction into the litterbox spec library. This is a one-shot, maximum-depth analysis — use every tool available.
 
@@ -74,7 +74,8 @@ git log --oneline --all | grep -iE '(feat|add|implement|create|build|fix|refacto
 
 Identify: Which files are actively maintained? Which are stable/finished? Which are experimental?
 
-**Agent 2 — Type Inventory via LSP**
+**Agent 2 — Type Inventory & Project Structure**
+
 Use LSP `workspaceSymbol` to get a complete type inventory:
 - All `struct`s (especially those conforming to `View`)
 - All `class`es (especially `ObservableObject`, `ViewModel`)
@@ -83,13 +84,29 @@ Use LSP `workspaceSymbol` to get a complete type inventory:
 
 Group types by file and purpose. Identify: views, models, managers, providers, utilities.
 
-**Agent 3 — Dependency & File Metrics**
+If an `.xcodeproj` exists, parse the project file for file grouping:
+```bash
+# Convert pbxproj to JSON and extract file groups
+plutil -convert json -o /tmp/proj.json <repo>/*.xcodeproj/project.pbxproj
+jq '.objects | to_entries[] | select(.value.isa == "PBXGroup") | {name: .value.name, path: .value.path, children: .value.children}' /tmp/proj.json
+```
+File groups in Xcode often reflect intentional feature separation — a group named "Terminal" containing 5 files IS a bundle.
+
+Also extract target membership to identify dead code:
+```bash
+jq '.objects | to_entries[] | select(.value.isa == "PBXSourcesBuildPhase") | .value.files' /tmp/proj.json
+```
+
+**Agent 3 — Dependency, Metrics & Infrastructure Audit**
 ```bash
 # File sizes (complexity proxy)
 find <repo> -name '*.swift' -o -name '*.kt' -o -name '*.tsx' -o -name '*.ts' | xargs wc -l | sort -rn | head -30
 
+# Function count per file (complexity proxy)
+for f in $(find <repo> -name '*.swift'); do echo "$(grep -c 'func ' $f) $f"; done | sort -rn | head -20
+
 # Import/dependency analysis
-grep -rn '^import ' <repo>/Sources/ --include='*.swift' | sort | uniq -c | sort -rn
+grep -rn '^import ' <repo> --include='*.swift' | sort | uniq -c | sort -rn
 
 # Settings/configuration surface
 grep -rn '@AppStorage\|UserDefaults\|SharedPreferences\|localStorage' <repo> --include='*.swift' --include='*.kt' --include='*.ts' --include='*.tsx' | head -50
@@ -99,9 +116,19 @@ grep -rn 'accessibilityLabel\|accessibilityValue\|accessibilityHint\|contentDesc
 
 # Localization audit
 grep -rn 'NSLocalizedString\|String(localized\|strings\.xml\|i18n\|intl' <repo> --include='*.swift' --include='*.kt' --include='*.tsx' | wc -l
+
+# Documentation comment coverage
+grep -rn '/// ' --include='*.swift' <repo> | wc -l
+
+# Test file discovery
+find <repo> -name '*Tests.swift' -o -name '*Test.swift' -o -name '*Spec.swift'
+
+# GitHub PR/issue history (if remote exists)
+gh api repos/{owner}/{repo}/pulls?state=all&per_page=50 --jq '.[] | {number, title, merged_at}' 2>/dev/null
+gh api repos/{owner}/{repo}/issues?state=all&per_page=50 --jq '.[] | {number, title, labels: [.labels[].name]}' 2>/dev/null
 ```
 
-**Output of Phase 1**: Ranked list of important files, complete type inventory, dependency map, configuration surface, and infrastructure audit scores.
+**Output of Phase 1**: Ranked list of important files, complete type inventory, pbxproj file groups, dependency map, complexity scores, configuration surface, infrastructure audit scores, test coverage map, PR/issue history.
 
 ### Phase 2: Feature Discovery
 
@@ -129,23 +156,46 @@ Launch **3 parallel agents** for feature analysis, each handling a subset of the
 For each candidate feature bundle, read EVERY file fully. Do not skim.
 
 For each file in the bundle:
-1. Read the complete source code
-2. Use LSP `findReferences` on the main public types to understand coupling — is this type used only within the bundle (loosely coupled, good for extraction) or across the entire app (tightly coupled, needs careful extraction)?
-3. Grep for ALL settings that configure this feature:
+
+**Code reading (mandatory):**
+1. Read the complete source code — do NOT skim
+2. Extract `///` documentation comments — these describe intent better than implementation
+
+**Compiler-assisted analysis (Swift projects):**
+3. Run `swiftc -print-ast <file>` to get precise declarations with access levels, conformances, and generics
+4. Run `swiftc -scan-dependencies <file>` to get the import graph as JSON — reveals hidden dependencies (macros, link libraries)
+
+**LSP analysis:**
+5. Use LSP `findReferences` on the main public types to understand coupling — is this type used only within the bundle (loosely coupled, good for extraction) or across the entire app (tightly coupled, needs careful extraction)?
+6. Use LSP `callHierarchy` on key entry points to trace composition chains
+
+**Pattern detection:**
+7. Grep for ALL settings that configure this feature:
    ```bash
    grep -n '@AppStorage\|UserDefaults\|SettingsKeys\|settings\.' <file>
    ```
-4. Grep for logging patterns:
+8. Grep for logging patterns:
    ```bash
    grep -n 'Logger\|Log\.\|os\.log\|NSLog\|print(' <file>
    ```
-5. Check for accessibility:
+9. Check for accessibility:
    ```bash
    grep -n 'accessibility\|VoiceOver\|isAccessibility' <file>
    ```
-6. Note: error handling strategy, async patterns, DI approach, state management pattern
+10. Note: error handling strategy, async patterns, DI approach, state management pattern
 
-**Output of Phase 3**: Per-feature dossier with: all files, all types, all settings, all logging, accessibility status, coupling assessment.
+**Test analysis:**
+11. Find and read test files for this feature:
+    ```bash
+    find <repo> -name '*<FeatureName>*Test*' -o -name '*<FeatureName>*Spec*'
+    ```
+    Test names describe expected behavior → these become spec conformance test vectors.
+    Tested public API = the extraction-safe surface.
+
+**Complexity assessment:**
+12. Calculate per-file: line count, function count, max nesting depth. High-complexity files are higher-value extraction candidates.
+
+**Output of Phase 3**: Per-feature dossier with: all files, all types (with access levels and conformances), all settings, all logging, accessibility status, coupling assessment, test coverage, complexity scores, doc comment summary.
 
 ### Phase 4: Bundle & Relate
 
@@ -158,6 +208,12 @@ For each bundle:
 4. **Dependencies**: Other bundles this one depends on
 5. **Infrastructure compliance**: Which litterbox rules are already met, which are missing
 6. **Roadmap context**: If a Roadmap exists, include its acceptance criteria and architecture decisions
+
+**Cross-reference with structural analysis:**
+7. **Validate against pbxproj groups**: Do the discovered bundles match Xcode file groups? If a group contains files from multiple bundles, reconsider the boundaries.
+8. **Validate against PR history**: Does each bundle correspond to one or a few PRs? If so, the PR descriptions provide additional context for the spec.
+9. **Include complexity scores**: Higher complexity bundles are more valuable to spec (more decisions to preserve).
+10. **Include test coverage**: Bundles with tests are better extraction candidates — the tests validate the spec.
 
 Compare each bundle against existing litterbox specs:
 - Read the existing spec fully

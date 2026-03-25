@@ -122,11 +122,96 @@ grep -rn 'async\|await\|Task {\|DispatchQueue\|viewModelScope\|launch {' --inclu
 grep -rn '^protocol \|^interface ' --include='*.swift' --include='*.kt'
 ```
 
-## File Metrics
+## Swift Compiler Analysis
+
+```bash
+# Import graph (JSON) — reveals hidden dependencies, macros, link libraries
+swiftc -scan-dependencies <file.swift> 2>&1 | jq '.'
+
+# Full AST declarations — precise types, conformances, generics, access levels
+swiftc -print-ast <file.swift>
+
+# Type checking diagnostics (without linking)
+swiftc -typecheck <file.swift>
+
+# Module interface (public API surface only)
+swiftc -emit-module-interface-path /tmp/out.swiftinterface <file.swift>
+
+# API descriptor (JSON public API)
+swiftc -emit-api-descriptor-path /tmp/out.json <file.swift>
+```
+
+## Xcode Project File Parsing
+
+```bash
+# Convert pbxproj to JSON
+plutil -convert json -o /tmp/proj.json <repo>/*.xcodeproj/project.pbxproj
+
+# Extract file groups (often match feature bundles)
+jq '.objects | to_entries[] | select(.value.isa == "PBXGroup") | {name: .value.name, path: .value.path, children: .value.children}' /tmp/proj.json
+
+# Extract source files per target
+jq '.objects | to_entries[] | select(.value.isa == "PBXSourcesBuildPhase") | .value.files' /tmp/proj.json
+
+# Extract framework dependencies
+jq '.objects | to_entries[] | select(.value.isa == "PBXFrameworksBuildPhase") | .value.files' /tmp/proj.json
+
+# Find files in project but not in any build phase (possible dead code)
+# Compare PBXFileReference entries against PBXBuildFile entries
+```
+
+## GitHub API Analysis
+
+```bash
+# Repo metadata
+gh api repos/{owner}/{repo} --jq '{name, description, language, default_branch}'
+
+# PR history (feature boundaries)
+gh api repos/{owner}/{repo}/pulls?state=all&per_page=100 --jq '.[] | {number, title, merged_at, body}'
+
+# Issue history (bugs and design decisions)
+gh api repos/{owner}/{repo}/issues?state=all&per_page=100 --jq '.[] | {number, title, labels: [.labels[].name], body}'
+
+# Code search (find patterns across the repo)
+gh search code "FeatureFlag" --repo {owner}/{repo} --json path,textMatches
+```
+
+## Test File Analysis
+
+```bash
+# Find test files
+find <repo> -name '*Tests.swift' -o -name '*Test.swift' -o -name '*Spec.swift'
+find <repo> -name '*Test.kt' -o -name '*Spec.kt'
+find <repo> -name '*.test.tsx' -o -name '*.spec.tsx' -o -name '*.test.ts'
+
+# Extract test function names (describe expected behavior)
+grep -rn 'func test\|it("\|describe("\|test("' --include='*.swift' --include='*.kt' --include='*.tsx' --include='*.ts'
+```
+
+## Documentation Comment Extraction
+
+```bash
+# Swift doc comments
+grep -rn '/// ' --include='*.swift' <repo>
+
+# Kotlin doc comments
+grep -rn '/** \|* ' --include='*.kt' <repo>
+
+# JSDoc comments
+grep -rn '/\*\*\|* @' --include='*.tsx' --include='*.ts' <repo>
+```
+
+## File Metrics & Complexity
 
 ```bash
 # Lines of code per file (complexity proxy)
 find <repo> -name '*.swift' -o -name '*.kt' -o -name '*.tsx' | xargs wc -l | sort -rn | head -30
+
+# Function count per file
+for f in $(find <repo> -name '*.swift'); do echo "$(grep -c 'func ' "$f") $f"; done | sort -rn | head -20
+
+# Max nesting depth per file (deeper = more complex)
+for f in $(find <repo> -name '*.swift'); do echo "$(awk '/{/{d++} /}/{d--} d>m{m=d} END{print m}' "$f") $f"; done | sort -rn | head -20
 
 # File count by extension
 find <repo> -type f | sed 's/.*\.//' | sort | uniq -c | sort -rn
