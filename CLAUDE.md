@@ -451,6 +451,15 @@ Canonical docs the code review step (Rule 8) checks against. When reviewing an i
 - [OWASP Mobile Security (MASVS)](https://mas.owasp.org/MASVS/)
 - [OWASP Mobile Testing Guide (MASTG)](https://mas.owasp.org/MASTG/)
 
+## Skill & Agent Conventions
+
+All skills and agents created in this repo MUST follow these conventions:
+
+- **Versioned**: Every skill MUST have a semantic version in its frontmatter (`version:` field) AND in the title heading (e.g., `# Skill Name v1.2.0`).
+- **Bump on change**: Every modification to a skill MUST increment the version. Patch for fixes, minor for new features, major for breaking changes.
+- **Print version on start**: When the skill begins execution, it MUST print the skill name and version as its first output (e.g., `litterbox-import v3.1.0`).
+- **`--version` parameter**: Every skill MUST respond to a `--version` argument. If `--version` is passed, print the version and exit immediately — do not run the skill.
+
 ## Engineering Principles
 
 All implementations MUST follow the engineering principles documented in [`engineering-principles.md`](engineering-principles.md). Key principles: simplicity, composition over inheritance, dependency injection, immutability by default, fail fast, idempotency, and design for deletion. The review skill (`/litterbox-review`) checks compliance.
