@@ -1,19 +1,20 @@
 ---
 name: litterbox-import
-version: 3.1.0
-description: Deep codebase analysis and component extraction — uses git history, Roadmaps, LSP, Swift compiler, pbxproj parsing, and code churn
+version: 3.2.0
+description: Deep codebase analysis and component extraction using git, Roadmaps, LSP, and code churn
 disable-model-invocation: true
+context: fork
 allowed-tools: Read, Glob, Grep, Bash(git *), Bash(ls *), Bash(wc *), Bash(xcodebuild *), Bash(swift *), Bash(swiftc *), Bash(cat *), Bash(plutil *), Bash(jq *), Bash(grep *), Bash(find *), Bash(awk *), Bash(gh *), Agent, Write, Edit, LSP
 argument-hint: [path to repo to analyze] [--version]
 ---
 
-# Litterbox Import v3.1.0
+# Litterbox Import v3.2.0
 
 ## Startup
 
-**First action**: If the argument is `--version`, print `litterbox-import v3.1.0` and stop — do not run the skill.
+**First action**: If the argument is `--version`, print `litterbox-import v3.2.0` and stop — do not run the skill.
 
-Otherwise, print `litterbox-import v3.1.0` as the first line of output, then proceed.
+Otherwise, print `litterbox-import v3.2.0` as the first line of output, then proceed.
 
 ## Overview
 
@@ -33,11 +34,31 @@ The first version of this skill was too shallow. It scanned file names and skimm
 
 **The goal is not to list files — it's to discover the feature bundles and their complete surface area.**
 
+## Prerequisites & Assumptions
+
+**Directory layout assumption**: This skill assumes the litterbox repo is a sibling directory to the target repo (i.e., `../litterbox/` from the target). If it's not, the user must provide the litterbox path. Before reading any litterbox files, verify the path exists — if not, ask the user.
+
+## Fallbacks
+
+Not all tools are available in every project. Degrade gracefully:
+
+| Tool | Check | If unavailable |
+|------|-------|---------------|
+| `git` | `which git` | Stop with error — git is required for history analysis |
+| LSP | Attempt `workspaceSymbol` | Skip LSP phases, note in report: "LSP unavailable — type analysis based on grep only" |
+| `swiftc` | `which swiftc` | Skip compiler analysis (AST, dependency scanning), note in report |
+| `xcodebuild` | `which xcodebuild` | Skip Xcode-specific analysis, note in report |
+| `gh` | `gh auth status` | Skip GitHub API queries, note in report |
+| `plutil` / `jq` | `which plutil && which jq` | Skip pbxproj parsing, note in report |
+| Roadmaps directory | `ls Roadmaps/` | Skip Roadmap phase, rely on git history for feature discovery |
+
+Never fail silently — always note skipped analysis in the final report so the user knows what's missing.
+
 ## Process
 
 ### Phase 0: Project Context
 
-Before looking at any code, understand the project.
+Before looking at any code, understand the project. See `${CLAUDE_SKILL_DIR}/references/roadmap-integration.md` for how to read Roadmap files.
 
 1. Read `CLAUDE.md` and `README.md` (if they exist)
 2. Auto-discover Roadmap files:
@@ -55,13 +76,13 @@ Before looking at any code, understand the project.
    - Check for `*.xcodeproj` → run `xcodebuild -project <path> -list`
    - Check for `build.gradle.kts` → Kotlin/Android
    - Check for `package.json` → Web/Node
-5. Read the litterbox CLAUDE.md, template, and scan existing specs in `../litterbox/ui/` and `../litterbox/ui/Recipes/`
+5. Locate the litterbox repo (default: `../litterbox/`). Read its CLAUDE.md, template, and scan existing specs in `ui/` and `ui/Recipes/`
 
 **Output of Phase 0**: A brief project profile — what it is, what platforms, what build system, what features are documented in Roadmaps.
 
 ### Phase 1: Structural Analysis
 
-Quantitative analysis to identify what matters most.
+Quantitative analysis to identify what matters most. See `${CLAUDE_SKILL_DIR}/references/analysis-techniques.md` for the full command reference.
 
 Launch **3 parallel agents**:
 
@@ -159,6 +180,8 @@ Deep, commit-aware feature identification.
 
 Launch **3 parallel agents** for feature analysis, each handling a subset of the identified features/areas.
 
+**Checkpoint**: After Phase 2 completes, present the discovered feature bundles to the user as a numbered list. Ask which bundles to deep-analyze in Phase 3. This prevents unbounded reading — the user selects which bundles are worth the deep dive. If the user says "all", proceed with all. Cap at 15 bundles maximum for Phase 3.
+
 ### Phase 3: Deep Code Analysis
 
 For each candidate feature bundle, read EVERY file fully. Do not skim.
@@ -207,7 +230,7 @@ For each file in the bundle:
 
 ### Phase 4: Bundle & Relate
 
-Synthesize findings into extractable spec bundles.
+Synthesize findings into extractable spec bundles. See `${CLAUDE_SKILL_DIR}/references/extraction-criteria.md` for extraction and bundling criteria.
 
 For each bundle:
 1. **Core component**: The main view/screen
@@ -285,6 +308,12 @@ Types discovered: [count]
 [Prioritized list: what to extract first and why]
 ```
 
+**Validation before presenting**: Before showing the report, sanity-check:
+- Every file in the top 20 code-churn list is accounted for in at least one bundle (if not, investigate why)
+- Bundle count is reasonable relative to project size (typically 5–15 bundles for a medium project)
+- No high-churn file is left as an isolated component when it should be part of a bundle
+- Any skipped analysis (missing tools) is noted in an "Analysis Limitations" section
+
 After presenting findings, ask which items to act on. For approved items, create/update specs and commit individually.
 
 ## Important Notes
@@ -296,6 +325,3 @@ After presenting findings, ask which items to act on. For approved items, create
 - **LSP reveals composition.** Call hierarchy shows how components compose naturally — follow the call graph to find bundle boundaries.
 - **Settings are part of the component.** Every `@AppStorage`, `UserDefaults`, or config option that affects a component is part of that component's spec. Don't split settings from the component they configure.
 - **Assess infrastructure compliance.** For each bundle, check which litterbox rules are already met and which are missing. This becomes part of the spec's gap analysis.
-- See `${CLAUDE_SKILL_DIR}/references/extraction-criteria.md` for extraction criteria.
-- See `${CLAUDE_SKILL_DIR}/references/analysis-techniques.md` for specific commands and LSP operations.
-- See `${CLAUDE_SKILL_DIR}/references/roadmap-integration.md` for how to read and use Roadmap files.
