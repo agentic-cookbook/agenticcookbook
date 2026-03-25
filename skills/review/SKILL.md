@@ -1,13 +1,21 @@
 ---
 name: litterbox-review
-version: 1
+version: 1.1.0
 description: Review a generated implementation against all litterbox rules, best practices, and engineering principles
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Bash(git diff *), Bash(git log *), Agent
-argument-hint: [path to spec] [path to implementation directory]
+argument-hint: [path to spec] [path to implementation directory] [--version]
 ---
 
-# Litterbox Implementation Review
+# Litterbox Implementation Review v1.1.0
+
+## Startup
+
+**First action**: If the argument is `--version`, print `litterbox-review v1.1.0` and stop — do not run the skill.
+
+Otherwise, print `litterbox-review v1.1.0` as the first line of output, then proceed.
+
+## Overview
 
 You are reviewing a generated implementation against the litterbox component spec library rules, best practices references, and engineering principles.
 
