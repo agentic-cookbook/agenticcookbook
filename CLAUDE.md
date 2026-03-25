@@ -95,7 +95,7 @@ Every component and flow must be instrumented with structured logging using the 
 ```markdown
 ## Logging
 
-Subsystem: `com.litterbox.test` | Category: `PrimaryButton`
+Subsystem: `{app bundle ID}` | Category: `PrimaryButton`
 
 | Event | Level | Message |
 |-------|-------|---------|

@@ -39,7 +39,7 @@ Brief description of what this component is and when to use it.
 
 ## Logging
 
-Subsystem: `com.litterbox.test` | Category: `ComponentName`
+Subsystem: `{app bundle ID}` | Category: `ComponentName`
 
 | Event | Level | Message |
 |-------|-------|---------|
