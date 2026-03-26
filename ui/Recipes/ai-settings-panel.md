@@ -1,7 +1,7 @@
 # AI Settings Panel
 
 ---
-version: 1.0.1
+version: 1.0.2
 status: accepted
 created: 2026-03-25
 last-updated: 2026-03-25
@@ -57,7 +57,11 @@ This is BOTH a settings UI spec AND an interface design for AI integration. The 
   - Apple: Keychain Services
   - Android: EncryptedSharedPreferences / Android Keystore
   - Web: HttpOnly secure cookies (server-assisted) — NEVER `localStorage` or `sessionStorage`
-- **REQ-009**: API keys MUST NOT be stored in UserDefaults, SharedPreferences, localStorage, or any unencrypted persistence layer.
+- **REQ-009**: API keys MUST NOT be stored in UserDefaults, SharedPreferences, localStorage, SQLite, or any unencrypted persistence layer.
+- **REQ-009a**: Non-sensitive AI settings (provider, model, endpoint URL, timeout, enable toggle) follow the settings window storage tier:
+  - **Simple**: `UserDefaults` / `@AppStorage` (macOS/iOS), `SharedPreferences` / `DataStore` (Android), `localStorage` (Web)
+  - **Complex**: SQLite or equivalent structured database — appropriate for apps that already use SQLite for other persistence, need migration-safe schema changes, or store settings alongside relational data
+  - Either tier is conformant. The choice SHOULD be consistent with the app's overall settings storage strategy (see `settings-window.md` REQ-011).
 - **REQ-010**: API keys MUST NOT appear in any log output, crash reports, analytics events, or debug panel displays — even at debug level.
 - **REQ-011**: The API key field MUST NOT be pre-populated with the full key value when revisiting the panel. It SHOULD display a masked placeholder (e.g., "••••••••••••abcd" showing only the last 4 characters) if a key is stored, or be empty if no key is stored.
 
@@ -251,7 +255,7 @@ With Local/Custom provider selected, the Endpoint section appears:
 - **Secure storage unavailable**: If Keychain/EncryptedSharedPreferences is unavailable (e.g., locked device, sandboxing issue), the panel MUST show an error message: "Unable to store credentials securely. Please check your device settings." It MUST NOT fall back to insecure storage.
 - **Provider API rate-limited during model fetch**: Fall back to hardcoded defaults. Log at debug level. Do not show an error to the user.
 - **Empty API key submitted for test**: Test Connection button SHOULD be disabled when the API key field is empty (except for Local provider which may not require a key).
-- **Migration from insecure storage**: If an older version stored keys in UserDefaults/localStorage, the implementation SHOULD migrate them to secure storage on first launch and delete the insecure copy.
+- **Migration from insecure storage**: If an older version stored keys in UserDefaults, SQLite, localStorage, or any unencrypted layer, the implementation SHOULD migrate them to secure storage on first launch and delete the insecure copy.
 
 ## Logging
 
@@ -297,7 +301,7 @@ Subsystem: `{{bundle_id}}` | Category: `AISettingsPanel`
 - **Sensitive data**: API keys are classified as sensitive credentials.
 - **Storage**:
   - API keys: Platform secure storage ONLY (Keychain, EncryptedSharedPreferences, HttpOnly cookies). See REQ-008, REQ-009.
-  - Non-sensitive preferences (provider, model, endpoint URL, timeout, enable toggle): Platform standard persistence (UserDefaults / SharedPreferences / localStorage).
+  - Non-sensitive preferences (provider, model, endpoint URL, timeout, enable toggle): Either simple tier (UserDefaults / SharedPreferences / localStorage) or complex tier (SQLite) — see REQ-009a.
   - Connection status: In-memory only, not persisted.
 - **Transmission**: API keys are transmitted only to the configured provider endpoint over TLS/HTTPS. They are never sent to analytics, crash reporting, or any other service.
 - **Retention**: Preferences persist until the user changes them or the app is uninstalled. API keys persist in secure storage until explicitly removed by the user or app uninstall.
@@ -305,7 +309,7 @@ Subsystem: `{{bundle_id}}` | Category: `AISettingsPanel`
 
 ## Platform Notes
 
-- **SwiftUI (macOS / iOS / visionOS)**: Implement as a `Form` with `Section` groups inside the settings window's content panel. Use `SecureField` for the API key. Store the API key via `KeychainAccess` or direct Security framework calls (`SecItemAdd`, `SecItemCopyMatching`). Non-sensitive settings use `@AppStorage`. For the provider picker, use `Picker` with `.pickerStyle(.menu)`. Status dot: `Circle().fill(color).frame(width: 8, height: 8)`. Connection test: use `async/await` with `Task` and `withTaskCancellationHandler` for debounce. Dynamic model fetch: `URLSession` with `JSONDecoder`. Timeout: use `URLRequest.timeoutInterval`. For the enable/disable dimming, apply `.disabled(!isAIEnabled)` and `.opacity(isAIEnabled ? 1.0 : 0.4)` to the sections below the toggle.
+- **SwiftUI (macOS / iOS / visionOS)**: Implement as a `Form` with `Section` groups inside the settings window's content panel. Use `SecureField` for the API key. Store the API key via `KeychainAccess` or direct Security framework calls (`SecItemAdd`, `SecItemCopyMatching`). Non-sensitive settings use either `@AppStorage` (simple tier) or SQLite via the app's database manager (complex tier) — see REQ-009a. For the provider picker, use `Picker` with `.pickerStyle(.menu)`. Status dot: `Circle().fill(color).frame(width: 8, height: 8)`. Connection test: use `async/await` with `Task` and `withTaskCancellationHandler` for debounce. Dynamic model fetch: `URLSession` with `JSONDecoder`. Timeout: use `URLRequest.timeoutInterval`. For the enable/disable dimming, apply `.disabled(!isAIEnabled)` and `.opacity(isAIEnabled ? 1.0 : 0.4)` to the sections below the toggle.
 - **Compose (Android)**: Use `Column` with `Card` sections. API key field: `OutlinedTextField` with `visualTransformation = PasswordVisualTransformation()`. Store key via `EncryptedSharedPreferences` from `androidx.security.crypto`. Non-sensitive settings in `DataStore` or `SharedPreferences`. Provider picker: `ExposedDropdownMenuBox`. Status dot: `Canvas` with `drawCircle`. Connection test: `viewModelScope.launch` with `withTimeout`. Debounce with `Flow.debounce(2000)`. Disable controls via `enabled = isAIEnabled` parameter and alpha modifier.
 - **React / Web**: Use a form with `<select>` for pickers, `<input type="password">` for API key. API key storage: send to a server endpoint that stores in an HttpOnly secure cookie or server-side encrypted store — NEVER use `localStorage` or `sessionStorage` for API keys. Non-sensitive settings: `localStorage`. Status dot: `<span>` with CSS `border-radius: 50%` and background color. Connection test: `fetch` with `AbortController` for timeout and cancellation. Debounce: `setTimeout`/`clearTimeout` or a utility like `lodash.debounce`.
 
@@ -327,3 +331,4 @@ Subsystem: `{{bundle_id}}` | Category: `AISettingsPanel`
 |---------|------|---------|
 | 1.0.0 | 2026-03-25 | Initial spec: settings UI, AI provider interface pattern, security requirements, connection testing |
 | 1.0.1 | 2026-03-25 | Added Design Decision noting current implementation is UI-stub only |
+| 1.0.2 | 2026-03-26 | Added two-tier storage model for non-sensitive settings (REQ-009a): simple (UserDefaults) or complex (SQLite). Clarified SQLite is explicitly excluded from acceptable API key storage in REQ-009. |
