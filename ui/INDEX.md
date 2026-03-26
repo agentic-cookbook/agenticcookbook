@@ -14,6 +14,7 @@ Reusable visual building blocks composed into larger layouts.
 | [status-bar.md](status-bar.md) | 1.0.0 | Slim animated bar indicating background operations |
 | [git-status-indicator.md](git-status-indicator.md) | 1.0.0 | Semantic git file status with colors, characters, and directory rollup |
 | [color-profile.md](color-profile.md) | 1.0.0 | Named color palette (foreground, background, cursor, selection, 16 ANSI colors) |
+| [ai-chat-control.md](ai-chat-control.md) | 1.0.0 | Compact inline chat control for conversing with a configured AI provider |
 
 ## Panels & Panes
 
@@ -25,7 +26,7 @@ Content areas that compose into windows.
 | [Recipes/code-editor-pane.md](Recipes/code-editor-pane.md) | 1.0.0 | Source code editor with syntax highlighting, minimap, and auto-save |
 | [Recipes/terminal-pane.md](Recipes/terminal-pane.md) | 1.0.0 | Multi-session PTY-backed terminal pane |
 | [Recipes/inspector-panel.md](Recipes/inspector-panel.md) | 1.0.0 | Right-side sliding panel for selected item metadata |
-| [Recipes/ai-settings-panel.md](Recipes/ai-settings-panel.md) | 1.0.2 | Settings panel for AI/LLM provider configuration |
+| [Recipes/ai-settings-panel.md](Recipes/ai-settings-panel.md) | 1.1.0 | Settings panel for AI/LLM provider configuration |
 | [Recipes/debug-panel.md](Recipes/debug-panel.md) | 1.0.0 | Debug-only panel for feature flags, analytics, and runtime overrides |
 
 ## Windows
