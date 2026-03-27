@@ -3,6 +3,7 @@ import { useContent } from '../../contexts/ContentContext'
 import Breadcrumbs from '../layout/Breadcrumbs'
 import TableOfContents from '../layout/TableOfContents'
 import FrontmatterDisplay from './FrontmatterDisplay'
+import DependencyPanel from './DependencyPanel'
 
 export default function DocPage() {
   const { pathname } = useLocation()
@@ -32,6 +33,10 @@ export default function DocPage() {
         <article
           className="prose prose-slate dark:prose-invert max-w-none prose-headings:scroll-mt-20 prose-a:text-sky-600 dark:prose-a:text-sky-400 prose-code:before:content-none prose-code:after:content-none"
           dangerouslySetInnerHTML={{ __html: entry.html }}
+        />
+        <DependencyPanel
+          dependsOn={entry.frontmatter['depends-on']}
+          related={entry.frontmatter.related}
         />
       </div>
       <TableOfContents headings={entry.headings} />
