@@ -74,7 +74,7 @@ body {
 .prose {
   --tw-prose-body: var(--color-text-primary);
   --tw-prose-headings: var(--color-text-primary);
-  --tw-prose-links: var(--color-text-primary);
+  --tw-prose-links: var(--color-text-secondary);
   --tw-prose-bold: var(--color-text-primary);
   --tw-prose-code: var(--color-text-primary);
   --tw-prose-pre-bg: var(--color-surface-raised);

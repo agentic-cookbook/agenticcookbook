@@ -32,7 +32,7 @@ export default function App() {
               onMenuToggle={() => setSidebarOpen(!sidebarOpen)}
               onSearchOpen={() => setSearchOpen(true)}
             />
-            <div className="mx-auto flex max-w-[90rem]">
+            <div className="flex">
               <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
               <main className="flex-1 min-w-0">
                 <Routes>

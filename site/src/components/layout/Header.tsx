@@ -36,7 +36,7 @@ export default function Header({ onMenuToggle, onSearchOpen }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface)]/90 backdrop-blur">
-      <div className="mx-auto flex h-14 max-w-[90rem] items-center gap-4 px-4 lg:px-8">
+      <div className="flex h-14 items-center gap-4 px-4 lg:px-8">
         {/* Mobile menu button */}
         <button
           onClick={onMenuToggle}
