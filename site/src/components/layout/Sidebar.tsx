@@ -133,7 +133,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 
   return (
     <>
-      <aside className="hidden lg:block w-64 shrink-0 border-r border-[var(--color-border-subtle)] overflow-y-auto sticky top-14 h-[calc(100vh-3.5rem)]">
+      <aside className="hidden lg:block w-80 shrink-0 border-r border-[var(--color-border-subtle)] overflow-y-auto sticky top-14 h-[calc(100vh-3.5rem)]">
         {nav}
       </aside>
 

@@ -10,6 +10,7 @@ function EntryMeta({ entry }: { entry: CookbookEntry }) {
   const fm = entry.frontmatter
   const rows: [string, string][] = []
 
+  if (fm.summary) rows.push(['summary', fm.summary])
   rows.push(['version', fm.version])
   if (fm.status !== 'accepted') rows.push(['status', fm.status])
   if (fm.platforms.length > 0) rows.push(['platforms', fm.platforms.join(', ')])
