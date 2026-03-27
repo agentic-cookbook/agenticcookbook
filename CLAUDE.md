@@ -26,6 +26,7 @@ All specs use hierarchical numbering: `SPEC-X` (spec) or `SPEC-X.Y` (spec.sectio
 | SPEC-4 | status-bar.md |
 | SPEC-5 | git-status-indicator.md |
 | SPEC-6 | color-profile.md |
+| SPEC-7 | ai-chat-control.md |
 | SPEC-10 | file-tree-browser.md |
 | SPEC-11 | code-editor-pane.md |
 | SPEC-12 | terminal-pane.md |
@@ -44,7 +45,7 @@ All specs use hierarchical numbering: `SPEC-X` (spec) or `SPEC-X.Y` (spec.sectio
 | SPEC-40 | app-lifecycle.md |
 | SPEC-41 | menu-commands.md |
 
-Cross-reference using `SPEC-` notation: "See SPEC-20" means project-window.md. "See SPEC-5.3" means git-status-indicator.md section 3. Ranges 7-9, 16-19, 24-29, 35-39 are reserved for future specs in each category.
+Cross-reference using `SPEC-` notation: "See SPEC-20" means project-window.md. "See SPEC-5.3" means git-status-indicator.md section 3. Ranges 8-9, 16-19, 24-29, 35-39 are reserved for future specs in each category.
 
 ### Litterbox-specific additions
 
