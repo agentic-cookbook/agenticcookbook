@@ -2,6 +2,107 @@
 
 A library of UI component specifications for Claude Code. This repo contains no code — only markdown specs that describe how components should look, behave, and be implemented on each platform.
 
+## Guidelines
+
+This project follows the shared guidelines installed from [cat-herding](../cat-herding) at `~/.claude/guidelines/`. Before implementing any spec, read:
+
+- `~/.claude/guidelines/general.md` — Rules 1-21 (native controls, testing, verification, accessibility, privacy, etc.)
+- `~/.claude/guidelines/specs.md` — Spec writing format (frontmatter, REQ-NNN, test vectors, standard sections)
+- `~/.claude/guidelines/engineering-principles.md` — Core engineering principles
+- `~/.claude/guidelines/best-practices-references.md` — Platform best practices for code review
+- Platform-specific guideline matching the target platform (`swift.md`, `kotlin.md`, `typescript.md`)
+
+Also read the local [`engineering-principles.md`](engineering-principles.md) which has expanded rationale and sources for each principle. The review skill (`/litterbox-review`) checks compliance.
+
+### Spec Numbering Scheme
+
+All specs use hierarchical numbering: `SPEC-X` (spec) or `SPEC-X.Y` (spec.section/requirement). The top-level number identifies the spec per [`ui/INDEX.md`](ui/INDEX.md):
+
+| ID | Spec |
+|----|------|
+| SPEC-1 | empty-state.md |
+| SPEC-2 | collapsible-pane-header.md |
+| SPEC-3 | metadata-line.md |
+| SPEC-4 | status-bar.md |
+| SPEC-5 | git-status-indicator.md |
+| SPEC-6 | color-profile.md |
+| SPEC-10 | file-tree-browser.md |
+| SPEC-11 | code-editor-pane.md |
+| SPEC-12 | terminal-pane.md |
+| SPEC-13 | inspector-panel.md |
+| SPEC-14 | ai-settings-panel.md |
+| SPEC-15 | debug-panel.md |
+| SPEC-20 | project-window.md |
+| SPEC-21 | workspace-window.md |
+| SPEC-22 | settings-window.md |
+| SPEC-23 | standalone-terminal-window.md |
+| SPEC-30 | logging.md |
+| SPEC-31 | settings-keys.md |
+| SPEC-32 | window-frame-persistence.md |
+| SPEC-33 | directory-sync.md |
+| SPEC-34 | package-document.md |
+| SPEC-40 | app-lifecycle.md |
+| SPEC-41 | menu-commands.md |
+
+Cross-reference using `SPEC-` notation: "See SPEC-20" means project-window.md. "See SPEC-5.3" means git-status-indicator.md section 3. Ranges 7-9, 16-19, 24-29, 35-39 are reserved for future specs in each category.
+
+### Litterbox-specific additions
+
+These supplement the global guidelines for UI component work:
+
+**Instant responsiveness** — UI must feel instantly responsive. Tap targets should react on press (not on release), transitions should begin immediately, and layouts should never visibly reflow after appearing.
+
+**Component verification (extends Rule 8)** — In addition to the standard verification steps, component implementations require:
+- **Preview rendering**: For SwiftUI, verify `#Preview` blocks render without crashes. For Compose, verify `@Preview` functions compile.
+- **Catalog entry**: Build and run the test app from `Tests/` to visually confirm the component renders correctly in all states.
+- **Snapshot tests**: Capture reference images in all states. Compare against reference snapshots on subsequent generations.
+  - **Swift**: [swift-snapshot-testing](https://github.com/pointfreeco/swift-snapshot-testing)
+  - **Compose/Android**: [Paparazzi](https://github.com/cashapp/paparazzi)
+  - **Web/React**: [Playwright](https://playwright.dev/) screenshot comparison or [Storybook](https://storybook.js.org/) visual tests
+  - Reference snapshots are stored in the test project alongside the component catalog.
+
+### Litterbox-specific spec format overrides
+
+The global `specs.md` guideline defines the canonical spec format. Litterbox specs use these overrides:
+
+- **platforms**: Use Apple sub-platforms: `[macOS, iOS, watchOS, tvOS, visionOS, Android, Web]` (not the generic `[Apple, Android, Windows, Web]`)
+- **dependencies**: Reference paths relative to this repo: `ui/other-component.md@1.0.0`
+
+## Git Workflow
+
+**Owner edits** (you, interactively) go direct to main. **Claude Code sessions and external contributions** go through a branch + PR via worktree.
+
+### Branch naming
+
+| Change type | Branch pattern | Example |
+|---|---|---|
+| New spec | `spec/<kebab-name>` | `spec/toolbar-buttons` |
+| Spec revision | `revise/<kebab-name>` | `revise/settings-window` |
+| Multi-spec change | `feature/<description>` | `feature/accessibility-audit` |
+| Skill change | `skill/<skill-name>` | `skill/litterbox-plan-spec` |
+
+### Worktree flow
+
+Worktrees go in `../litterbox-wt/` so the main working tree always stays on main (consuming projects read `../litterbox/`).
+
+1. `git worktree add ../litterbox-wt/<branch-name> -b <branch>`
+2. Do all work in `../litterbox-wt/<branch-name>/`
+3. Update `ui/INDEX.md` and the CLAUDE.md `SPEC-` numbering table on the branch
+4. Commit, push, create PR with `gh pr create`
+5. Review and merge: `gh pr merge --squash`
+6. Clean up: `git worktree remove ../litterbox-wt/<branch-name>`
+7. Pull main: `git -C /Users/mfullerton/projects/litterbox pull`
+
+### Merge strategy
+
+Squash merge to main. Commit message conventions:
+- New spec: `Add <name> <component|recipe> spec`
+- Revision: `Bump <name> to v<X.Y.Z>: <description>`
+
+### INDEX.md rule
+
+Every branch that adds, removes, or modifies a spec MUST update `ui/INDEX.md` and the CLAUDE.md `SPEC-` numbering table before opening the PR. `SPEC-` numbers are stable — never reuse a number, even if the spec is removed. Merge conflicts in INDEX.md are resolved by keeping both additions.
+
 ## How to use this repo
 
 ### In consuming projects
@@ -36,421 +137,6 @@ Use `ui/_template.md` as a starting point. Each spec should be self-contained �
 
 Recipes live in `ui/Recipes/` and are specs that combine multiple individual components into a complete flow or feature. A recipe references component specs from `ui/` and describes how they compose together — layout, navigation, data flow, and interaction between components. When implementing a recipe, first implement any referenced components that don't already exist in the project, then assemble them per the recipe.
 
-### Spec format
-
-All specs (components and recipes) follow the same format. Specs are plain Markdown with a YAML frontmatter block. The primary consumer is an LLM reading prose + examples, not a code generator parsing a schema.
-
-#### Frontmatter
-
-```yaml
----
-version: 1.0.0
-status: draft | review | accepted | deprecated
-created: YYYY-MM-DD
-last-updated: YYYY-MM-DD
-author: Name or claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [macOS, iOS, watchOS, tvOS, visionOS, Android, Web]
-tags: [category, feature-area]
-dependencies:
-  - ui/other-component.md@1.0.0
----
-```
-
-- **version**: Semver. Bump major for breaking changes, minor for new requirements, patch for clarifications.
-- **status**: `draft` (work in progress), `review` (ready for feedback), `accepted` (stable, safe to implement), `deprecated` (superseded).
-- **created**: Date the spec was first written (immutable).
-- **last-updated**: Date of the most recent change.
-- **author**: Who wrote the spec — a person's name or `claude-code`.
-- **copyright**: Always `YYYY Mike Fullerton / Temporal` with the current year.
-- **platforms**: Which platforms this spec targets. Helps the LLM skip irrelevant platform notes.
-- **tags**: Freeform labels for discoverability.
-- **dependencies**: Other specs this spec references, with version pins. Omit if none.
-
-#### Requirements
-
-Use RFC 2119 keywords (`MUST`, `MUST NOT`, `SHOULD`, `SHOULD NOT`, `MAY`) for all behavioral requirements. Each requirement is numbered sequentially as `REQ-001`, `REQ-002`, etc. This makes requirements unambiguous, testable, and referenceable from test vectors.
-
-#### Placeholder tokens
-
-Use `{{placeholder}}` tokens for values that are app-specific and resolved at implementation time. Examples: `{{bundle_id}}`, `{{app_name}}`, `{{primary_color}}`.
-
-#### Test vectors
-
-Each spec includes a **Conformance Test Vectors** section with concrete input/output pairs linked to REQ-NNN numbers. This is the machine-verifiable part of the spec — the LLM can implement these as unit tests to confirm correct behavior.
-
-For complex components, test vectors may also be published as separate JSON files in a `vectors/` directory for machine consumption.
-
-#### Standard sections
-
-Specs SHOULD include these sections in order (omit sections that don't apply):
-
-1. **Overview** — purpose, scope, when to use
-2. **Terminology** — domain-specific terms (if any)
-3. **Behavioral Requirements** — REQ-NNN with RFC 2119 keywords
-4. **Appearance** — visual spec with concrete values
-5. **States** — state table with appearance/behavior changes
-6. **Accessibility** — roles, labels, keyboard nav, tap targets
-7. **Conformance Test Vectors** — input/output pairs linked to REQ-NNN
-8. **Edge Cases** — boundary conditions, error states
-9. **Logging** — spec-defined log messages (see Rule 9)
-10. **Platform Notes** — Swift, Kotlin, TypeScript guidance
-11. **Design Decisions** — LLM-made choices that need user approval (see Rule 6)
-12. **Changelog** — version history
-
-## Rules
-
-All projects consuming this repo must follow these rules when implementing components.
-
-### 1. Prefer native controls
-
-Always use the platform's built-in controls, views, view controllers, behaviors, and layout primitives before implementing custom versions. Examples: `NavigationSplitView` over a custom sidebar, `UIAlertController` over a custom dialog, `Material3` components over custom Compose widgets.
-
-When generating a component, explicitly note in the output which native controls are being used and why. If there is any ambiguity about whether a native control fits the spec, ask the user before proceeding.
-
-### 1.1. For novel components, prefer proven open-source solutions
-
-When no native control exists, research battle-tested open-source libraries and present options to the user before building a custom solution. A custom implementation can always be chosen instead, but it should be a deliberate decision, not a default.
-
-### 2. Instant responsiveness
-
-UI must feel instantly responsive. Tap targets should react on press (not on release), transitions should begin immediately, and layouts should never visibly reflow after appearing.
-
-### 3. No blocking the main thread
-
-All lengthy work must run on background threads or tasks using the platform's best-in-class async primitives — Swift Concurrency (`async`/`await`, `Task`, actors), Kotlin Coroutines (`viewModelScope`, `Dispatchers.IO`), Web Workers, `Promise`/`async` in JS/TS. Never block the main/UI thread.
-
-### 4. Always show progress
-
-When the UI is waiting on an async task:
-- Show **determinate progress** (progress bar with percentage) when the total work is known
-- Show **indeterminate progress** (spinner, skeleton, shimmer) when it is not
-- Never show a frozen or unresponsive UI during a wait
-
-### 5. Comprehensive unit testing
-
-All implementations should be unit tested as thoroughly as possible. UI tests are notoriously difficult and fragile — prioritize unit tests over UI tests. Test component logic, state transitions, edge cases, and accessibility properties. Every component implementation should include a corresponding test file.
-
-### 6. Surface all design decisions
-
-When generating a component, any decision made by the LLM that contributes to the visual or behavioral outcome must be explicitly noted and approved by the user. Examples:
-- Choosing a gear icon for a settings button
-- Picking a specific animation curve or duration
-- Selecting a particular layout pattern when the spec is ambiguous
-
-These decisions must be recorded in the component spec under a **Design Decisions** section so that repeated generations — or generations on other platforms — produce consistent results.
-
-### 7. Small, atomic commits
-
-Commits in this repo must be small and represent exactly one logical or conceptual change. A single change may touch multiple spec files if they are part of the same concept. Commits should happen automatically as work progresses — do not batch up multiple unrelated changes.
-
-### 9. Instrumented logging for all flows
-
-Every component and flow must be instrumented with structured logging using the platform's best-in-class logging framework:
-
-- **Apple**: `os.log` (`Logger` from the `os` module) — use a subsystem matching the bundle ID and a category per component/flow
-- **Android/Kotlin**: `Timber` (or `android.util.Log` if no dependency is desired)
-- **Web/JS/TS**: `console` with structured prefixes, or a logger like `pino`/`winston` in Node contexts
-
-**Log level**: Use `debug` level for all UI flow instrumentation. This keeps logs silent in production but visible when an LLM (or developer) is iterating on the component in a debug build.
-
-**What to log**: State transitions, user interactions, async task start/completion/failure, and any branching logic. Example for a button:
-
-```
-[Debug] PrimaryButton: tapped, starting async action
-[Debug] PrimaryButton: async action completed (success, 230ms)
-[Debug] PrimaryButton: state changed to disabled
-```
-
-**Spec-defined log messages**: Each component spec must define the exact log messages in a **Logging** section. This eliminates ambiguity — the LLM can build, run, and grep for expected log output to verify correct behavior without visual inspection. Example spec section:
-
-```markdown
-## Logging
-
-Subsystem: `{{bundle_id}}` | Category: `PrimaryButton`
-
-| Event | Level | Message |
-|-------|-------|---------|
-| Tap | debug | `PrimaryButton: tapped, starting async action` |
-| Action success | debug | `PrimaryButton: async action completed (success, {duration}ms)` |
-| Action failure | debug | `PrimaryButton: async action failed ({error})` |
-| State change | debug | `PrimaryButton: state changed to {state}` |
-```
-
-This logging output becomes a verification tool — after running the test app, the LLM can check logs to confirm the component executed the correct flow.
-
-### 8. Post-generation verification
-
-Every generated artifact must be verified. The verification method depends on what was generated:
-
-- **Component code**: Build the project for all target platforms (`xcodebuild`, `./gradlew build`, `npm run build`). A component that doesn't compile is not done.
-- **Unit tests**: Run the full test suite. All tests must pass.
-- **Lint/format**: Run the platform's standard linter (`swiftlint`, `ktlint`, `eslint`) if configured in the project.
-- **Accessibility audit**: Verify VoiceOver/TalkBack labels exist, tap targets meet platform minimums (44pt iOS, 48dp Android), contrast ratios are sufficient.
-- **Preview rendering**: For SwiftUI, verify `#Preview` blocks render without crashes. For Compose, verify `@Preview` functions compile.
-- **Catalog entry**: Build and run the test app from `Tests/` to visually confirm the component renders correctly in all states.
-- **Snapshot tests**: Capture reference images of each component in all states. On subsequent generations, compare against reference snapshots to detect visual regressions. Use the platform-appropriate snapshot library:
-  - **Swift**: [swift-snapshot-testing](https://github.com/pointfreeco/swift-snapshot-testing) — captures SwiftUI views as images, supports per-device and per-OS snapshots
-  - **Compose/Android**: [Paparazzi](https://github.com/cashapp/paparazzi) — renders Compose components off-device, no emulator required
-  - **Web/React**: [Playwright](https://playwright.dev/) screenshot comparison or [Storybook](https://storybook.js.org/) visual tests
-  - Reference snapshots are stored in the test project alongside the component catalog. On first run, snapshots are recorded. On subsequent runs, differences are flagged for review.
-
-- **Run and verify logs**: After building, run the test app and verify that spec-defined log messages appear in the output. Use `log stream --predicate 'subsystem == "{{bundle_id}}"' --level debug` (macOS), `adb logcat` (Android), or browser console (Web) to capture and grep for expected messages.
-- **Code review against best practices**: Review the implementation against the platform's best practices references (see Best Practices References section below). Check for: HIG/Material compliance, accessibility guideline adherence, security best practices (OWASP), and coding convention conformance.
-
-If any verification step fails, fix the issue before considering the work complete.
-
-### 10. Deep linking
-
-All significant feature points and views MUST be deep linkable using the platform's native URL/deep link mechanism. This ensures features are reachable from external sources (notifications, widgets, other apps, web links).
-
-- **Apple**: Universal Links + custom URL schemes. Use `onOpenURL` in SwiftUI, `NavigationPath` for state restoration.
-- **Android**: App Links + intent filters. Use Navigation component deep link support.
-- **Web**: URL routing (React Router, Next.js routing, etc.). Every view should have a unique, shareable URL.
-
-Each spec SHOULD include a **Deep Linking** section defining the URL patterns for the component or flow.
-
-### 11. Scriptable and automatable
-
-Components and flows SHOULD be scriptable and automatable where the platform supports it. Automation-first design enables power users, testing, and accessibility.
-
-- **macOS**: Expose actions via `AppIntents` for Shortcuts. Support AppleScript via `NSScriptCommand` where appropriate.
-- **iOS**: `AppIntents` framework for Shortcuts and Siri integration.
-- **Android**: `AppActions` for Google Assistant. `Intent`-based automation support.
-- **Web**: Exposed API endpoints or query parameter-driven actions.
-
-### 12. Accessibility from day one
-
-All components MUST integrate with platform accessibility APIs from the initial implementation — not as a follow-up task. This includes:
-
-- Semantic roles and labels on all interactive elements
-- VoiceOver (Apple) / TalkBack (Android) / screen reader (Web) full support
-- Keyboard and switch control navigation for all interactive elements
-- Dynamic Type / font scaling support — layouts MUST NOT break at larger text sizes
-- Sufficient color contrast (WCAG AA minimum: 4.5:1 for text, 3:1 for large text)
-- Meaningful focus order that follows visual layout
-
-### 13. Localizability
-
-All user-facing strings MUST be localizable from the start — no hardcoded strings.
-
-- **Apple**: Use `String(localized:)` (Swift 5.7+) or `NSLocalizedString`. Store strings in `.xcstrings` (Xcode 15+) or `.strings` files.
-- **Android**: Use `strings.xml` resource files. Reference via `R.string.*` or `stringResource()` in Compose.
-- **Web**: Use an i18n library (`react-intl`, `i18next`, `FormatJS`). Extract all strings into message catalogs.
-
-Specs SHOULD use `{{placeholder}}` tokens for user-facing string keys (e.g., `{{settings_title}}`) so implementers know which strings need localization entries.
-
-### 14. Right-to-left layout support
-
-All layouts MUST support RTL languages correctly:
-
-- Use **leading/trailing** (not left/right) for all alignment and padding
-- Mirror icons and controls that have directional meaning (e.g., forward/back arrows)
-- Do NOT mirror non-directional icons (e.g., checkmarks, clocks)
-- Test with RTL locale enabled as part of verification
-
-Platform-specific:
-- **Apple**: Use `.environment(\.layoutDirection, .rightToLeft)` in previews. SwiftUI handles leading/trailing automatically.
-- **Android**: Set `android:supportsRtl="true"` in manifest. Use `start`/`end` instead of `left`/`right` in layouts. Force RTL in developer options for testing.
-- **Web**: Use `dir="rtl"` attribute. Use CSS logical properties (`margin-inline-start` not `margin-left`, `padding-inline-end` not `padding-right`).
-
-### 15. Respect accessibility display options
-
-Components MUST respond to platform accessibility and display settings. Each spec SHOULD document which options are relevant in its **Accessibility Options** section.
-
-#### Apple (SwiftUI environment values)
-
-| Setting | Environment Key | What to do |
-|---------|----------------|------------|
-| Reduce Motion | `\.accessibilityReduceMotion` | Replace animations with crossfades or instant transitions |
-| Reduce Transparency | `\.accessibilityReduceTransparency` | Use opaque backgrounds instead of blurs/vibrancy |
-| Differentiate Without Color | `\.accessibilityDifferentiateWithoutColor` | Add icons/shapes/patterns alongside color indicators |
-| Increase Contrast | `\.colorSchemeContrast` | Use higher-contrast color pairs |
-| Bold Text | `isBoldTextEnabled` | System handles via Dynamic Type; ensure custom fonts respond |
-| Invert Colors | `isInvertColorsEnabled` | Mark images/video with `accessibilityIgnoresInvertColors` |
-| Grayscale | `isGrayscaleEnabled` | Ensure UI is usable without color |
-| VoiceOver | `isVoiceOverRunning` | All elements have labels, hints, traits |
-| Switch Control | `isSwitchControlRunning` | All interactive elements are reachable |
-| Cross-Fade Transitions | `prefersCrossFadeTransitions` | Use cross-fade instead of slide/zoom transitions |
-| Mono Audio | `isMonoAudioEnabled` | Ensure audio content is listenable in mono |
-| Closed Captions | `isClosedCaptioningEnabled` | Show captions for audio/video content |
-
-#### Android
-
-| Setting | API | What to do |
-|---------|-----|------------|
-| Remove Animations | `animator_duration_scale == 0` | Disable all custom animations |
-| Font Scale | `Configuration.fontScale` | Ensure layouts don't break at 2× font size |
-| High Contrast Text | System setting | Ensure text meets WCAG AA contrast ratios |
-| Color Inversion | `ACCESSIBILITY_DISPLAY_INVERSION_ENABLED` | Mark media with `importantForAccessibility` |
-| Color Correction | System setting | Ensure UI is usable in deuteranopia/protanopia/tritanopia modes |
-| TalkBack | `AccessibilityManager` | All elements have `contentDescription`, proper roles |
-| Switch Access | `AccessibilityManager` | All interactive elements are focusable and reachable |
-| Dark Theme | `Configuration.uiMode` | Full dark theme support |
-| Display Size | `displayMetrics.density` | Layouts must not break at larger display sizes |
-
-#### Web (CSS media queries + JS)
-
-| Setting | Media Query / API | What to do |
-|---------|-------------------|------------|
-| Reduced Motion | `prefers-reduced-motion: reduce` | Disable/simplify CSS animations and JS transitions |
-| High Contrast | `prefers-contrast: more` | Increase border widths, use higher-contrast colors |
-| Forced Colors | `forced-colors: active` | Respect system color palette (Windows High Contrast) |
-| Dark Mode | `prefers-color-scheme: dark` | Full dark theme support |
-| Reduced Transparency | `prefers-reduced-transparency: reduce` | Use opaque backgrounds |
-| Reduced Data | `prefers-reduced-data: reduce` | Lazy-load images, reduce asset sizes |
-| Screen Reader | ARIA roles + `aria-live` | Announce dynamic content changes, proper landmarks |
-
-### 16. User safety and privacy by default
-
-All implementations MUST follow these privacy and safety principles.
-
-#### Data minimization
-- Collect only what is needed for the feature to function
-- Do not persist data beyond its useful lifetime
-- Prefer on-device processing over server-side when possible
-
-#### Transparency
-- All data collection MUST be documented in the spec's **Privacy** section
-- The user MUST be informed before any data leaves the device
-- Provide clear, accessible privacy controls within the app
-
-#### Consent
-- Opt-in, not opt-out, for any non-essential data collection
-- Platform permission prompts MUST include a clear purpose string:
-  - Apple: `NS*UsageDescription` keys with human-readable explanations
-  - Android: Runtime permission requests with rationale dialogs
-  - Web: Permission API with explanation UI before requesting
-- Honor "deny" responses gracefully — the app MUST remain functional with reduced capabilities, never crash or nag
-
-#### Security
-- All network communication MUST use TLS/HTTPS
-- Sensitive data (tokens, credentials, PII) MUST use platform secure storage:
-  - Apple: Keychain Services
-  - Android: EncryptedSharedPreferences / Android Keystore
-  - Web: HttpOnly secure cookies — never `localStorage` for tokens
-- No logging of PII or sensitive data, even at debug level
-- Sanitize all user input before display (prevent XSS, injection)
-
-#### Platform privacy features
-- **Apple**: Support App Tracking Transparency, App Privacy Report, Private Relay compatibility
-- **Android**: Respect scoped storage, support per-app language preferences, honor permission denials gracefully
-- **Web**: Respect Do Not Track header, support Content Security Policy, minimize third-party scripts
-
-Each spec SHOULD include a **Privacy** section documenting what data is collected, why, and how it's stored.
-
-### 17. Feature flags
-
-All features MUST be gated behind feature flags from initial implementation. This enables incremental rollout, kill switches, and A/B testing.
-
-**Pattern:**
-1. Define a **protocol/interface** (e.g., `FeatureFlagProvider`) with: `isEnabled(key) -> Bool`, `allFlags() -> [String: Bool]`
-2. Provide a **local implementation** as default — flags stored on-device, no backend dependency
-3. Backend implementation can be swapped in later via dependency injection (the interface is the contract)
-
-**Per-platform defaults:**
-- **Apple**: Protocol + `UserDefaults`-backed implementation
-- **Android**: Interface + `SharedPreferences`-backed implementation
-- **Web**: TypeScript interface + `localStorage`-backed implementation
-
-Each spec SHOULD list its feature flag keys in a **Feature Flags** section.
-
-### 18. Analytics
-
-All significant user actions MUST be instrumented with analytics events via an interface. No direct coupling to any analytics backend.
-
-**Pattern:**
-1. Define a **protocol/interface** (e.g., `AnalyticsProvider`) with: `track(event, properties)`, `identify(userId)`, `screen(name)`
-2. Provide a **logging-only implementation** as default — events logged at debug level via the platform logger (Rule 9), no network calls
-3. Backend implementation (Mixpanel, Amplitude, PostHog, etc.) can be swapped in later
-
-**Per-platform defaults:**
-- **Apple**: Protocol + `os.log`-backed implementation
-- **Android**: Interface + `Timber`-backed implementation
-- **Web**: TypeScript interface + `console`-backed implementation
-
-Each spec SHOULD define analytics events in an **Analytics** section with event names and property schemas.
-
-### 19. A/B testing
-
-Features that may need experimentation SHOULD support variant assignment via an interface.
-
-**Pattern:**
-1. Define a **protocol/interface** (e.g., `ExperimentProvider`) with: `variant(experimentKey) -> String`, `isInExperiment(key) -> Bool`
-2. Provide a **local implementation** as default — variants configured via debug panel or config file
-3. Backend implementation can be swapped in later
-
-A/B test variants SHOULD be documented in the spec when the component has multiple possible presentations or behaviors.
-
-### 20. Debug mode
-
-All apps MUST include a debug-only configuration panel accessible in debug/development builds. It MUST NOT be accessible or compiled into release builds.
-
-**The debug panel provides:**
-- **Feature flag overrides**: Toggle flags on/off, see current state
-- **Analytics event log**: Live list of tracked events with properties
-- **A/B test variant picker**: Manually assign experiment variants
-- **Backend configuration**: Point feature flags/analytics/experiments at different backends (local, staging, production)
-- **Environment info**: App version, build number, OS version, device info
-
-**Access method:**
-- **Apple (iOS)**: Shake gesture, guarded by `#if DEBUG`
-- **Apple (macOS)**: Debug menu item, guarded by `#if DEBUG`
-- **Android**: Shake gesture or hidden tap gesture, guarded by `BuildConfig.DEBUG`
-- **Web**: `/debug` route or keyboard shortcut (e.g., `Ctrl+Shift+D`), guarded by `process.env.NODE_ENV === 'development'`
-
-See `ui/Recipes/debug-panel.md` for the full spec.
-
-### 21. Linting from day one
-
-All generated projects MUST include best-in-class linting and formatting tools configured from initial project generation. Linters MUST run automatically (pre-commit hook or build phase) and MUST be configured with strict rulesets.
-
-**Per-platform:**
-
-| Platform | Linter | Formatter | Configuration |
-|----------|--------|-----------|---------------|
-| **Swift** | [SwiftLint](https://github.com/realm/SwiftLint) | [swift-format](https://github.com/swiftlang/swift-format) | `.swiftlint.yml` at project root. Enable `strict` mode. Add as SPM plugin or Xcode build phase. |
-| **Kotlin** | [ktlint](https://pinterest.github.io/ktlint/) | ktlint (built-in) | `.editorconfig` at project root. Add as Gradle plugin (`org.jlleitschuh.gradle.ktlint`). |
-| **TypeScript/JS** | [ESLint](https://eslint.org/) | [Prettier](https://prettier.io/) | `eslint.config.js` + `.prettierrc`. Use `eslint-config-prettier` to avoid conflicts. Add as `package.json` scripts + pre-commit hook. |
-| **CSS** | [Stylelint](https://stylelint.io/) | Prettier | `.stylelintrc.json`. Add alongside ESLint for web projects. |
-
-**Requirements:**
-- **REQ**: Linter configuration MUST be committed to the repo — not left as a local-only setup.
-- **REQ**: Linting MUST run as part of the build or pre-commit process. Developers and LLMs MUST NOT need to remember to run it manually.
-- **REQ**: The configuration SHOULD use the community-standard strict ruleset as a baseline, with project-specific overrides documented.
-- **REQ**: Formatting MUST be auto-fixable — running the formatter should fix all style issues without manual intervention.
-
-If any verification step fails, fix the issue before considering the work complete.
-
-## Best Practices References
-
-Canonical docs the code review step (Rule 8) checks against. When reviewing an implementation, verify compliance with the relevant platform guides.
-
-### Apple
-- [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
-- [Swift API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/)
-- [Accessibility](https://developer.apple.com/documentation/accessibility)
-- [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/)
-- [SwiftUI Performance](https://developer.apple.com/documentation/Xcode/understanding-and-improving-swiftui-performance)
-
-### Android
-- [Material Design 3](https://m3.material.io/)
-- [Architecture Recommendations](https://developer.android.com/topic/architecture/recommendations)
-- [Kotlin Coding Conventions](https://kotlinlang.org/docs/coding-conventions.html)
-- [Accessibility](https://developer.android.com/guide/topics/ui/accessibility)
-- [Google Play Developer Policy](https://support.google.com/googleplay/android-developer/answer/10144311)
-
-### Web
-- [WCAG 2.1](https://www.w3.org/TR/WCAG21/)
-- [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/)
-- [OWASP Top 10](https://owasp.org/www-project-top-ten/)
-- [MDN Web Docs](https://developer.mozilla.org/en-US/)
-
-### Cross-platform
-- [Nielsen Norman Usability Heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/)
-- [OWASP Mobile Security (MASVS)](https://mas.owasp.org/MASVS/)
-- [OWASP Mobile Testing Guide (MASTG)](https://mas.owasp.org/MASTG/)
-
 ## Skill & Agent Conventions
 
 All skills and agents created in this repo MUST follow these conventions:
@@ -459,10 +145,6 @@ All skills and agents created in this repo MUST follow these conventions:
 - **Bump on change**: Every modification to a skill MUST increment the version. Patch for fixes, minor for new features, major for breaking changes.
 - **Print version on start**: When the skill begins execution, it MUST print the skill name and version as its first output (e.g., `litterbox-import v3.1.0`).
 - **`--version` parameter**: Every skill MUST respond to a `--version` argument. If `--version` is passed, print the version and exit immediately — do not run the skill.
-
-## Engineering Principles
-
-All implementations MUST follow the engineering principles documented in [`engineering-principles.md`](engineering-principles.md). Key principles: simplicity, composition over inheritance, dependency injection, immutability by default, fail fast, idempotency, and design for deletion. The review skill (`/litterbox-review`) checks compliance.
 
 ## Testing components
 
