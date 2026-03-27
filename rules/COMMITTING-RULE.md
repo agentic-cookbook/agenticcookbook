@@ -8,19 +8,11 @@ This rule enforces the git workflow for all code changes. Every change flows thr
 
 Before writing any code, you MUST set up the working environment:
 
-1. **Create a worktree** from the project's main branch:
-   ```
-   git worktree add ../<project>-wt/<branch-name> -b <branch>
-   ```
-   All work happens in the worktree. Never commit directly to the main branch.
+1. **Create a worktree** from the project's main branch using `git worktree add`. All work happens in the worktree. Never commit directly to the main branch.
 
-2. **Create a draft PR** immediately — before any code is written:
-   ```
-   git commit --allow-empty -m "Start: <description>"
-   git push -u origin <branch>
-   gh pr create --draft --title "<title>" --body "<initial description>"
-   ```
-   The PR serves as the living record of the work from the very first moment.
+2. **Create a draft PR** immediately — before any code is written. Make an empty commit, push the branch, and create the PR with `gh pr create --draft`. The PR serves as the living record of the work from the very first moment.
+
+3. **Verify** — confirm the draft PR URL was returned and the remote branch exists before proceeding to any code changes. If either failed, fix the issue before continuing.
 
 ### Branch Naming
 
@@ -39,8 +31,8 @@ Follow the project's branch naming convention. If none exists, use:
 While working, you MUST follow this cycle for every logical change:
 
 1. **Commit** — small, atomic commits. One logical change per commit. Write a clear commit message describing the what and why.
-2. **Push** — push after every commit. The remote branch MUST always reflect the current state of work.
-3. **Document** — update the PR description or add a PR comment when a commit introduces a notable change, design decision, or deviation from the plan.
+2. **Push** — push after every commit. Verify the push succeeded before continuing. The remote branch MUST always reflect the current state of work.
+3. **Document** — add a PR comment for any commit that adds or removes files, changes a public interface, or deviates from the plan. Update the PR description when the overall scope or approach changes.
 
 Do not accumulate uncommitted work. Do not batch unrelated changes into a single commit. Do not push only at the end.
 
@@ -52,10 +44,7 @@ When all work is done:
 
 1. **Final verification** — build passes, tests pass, lint is clean.
 2. **Update the PR** — ensure the PR description accurately summarizes the full set of changes. Add a test plan if not already present.
-3. **Mark ready for review** — remove the draft status:
-   ```
-   gh pr ready
-   ```
+3. **Mark ready for review** — remove the draft status via `gh pr ready`.
 
 ---
 
@@ -75,18 +64,9 @@ If the project has no required checks, proceed directly to merge.
 
 ## Merge and Clean Up
 
-1. **Merge** the PR using the project's preferred merge strategy. Default to squash merge:
-   ```
-   gh pr merge --squash
-   ```
-2. **Clean up** the worktree:
-   ```
-   git worktree remove ../<project>-wt/<branch-name>
-   ```
-3. **Pull main** to sync:
-   ```
-   git pull
-   ```
+1. **Merge** the PR using the project's preferred merge strategy. Default to squash merge via `gh pr merge --squash`.
+2. **Clean up** the worktree via `git worktree remove`.
+3. **Pull main** to sync via `git pull`.
 
 ---
 
