@@ -28,7 +28,7 @@ function DirLink({ node, depth = 0 }: { node: NavNode; depth?: number }) {
                 ? 'font-medium text-[var(--color-text-primary)]'
                 : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
           }`}
-          style={{ paddingInlineStart: `${(depth + 1) * 0.875}rem` }}
+          style={{ paddingInlineStart: '0.875rem' }}
         >
           {isSelected && (
             <span className="absolute left-0 top-1 bottom-1 w-px bg-[var(--color-accent)]" />
