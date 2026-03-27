@@ -1,14 +1,35 @@
+import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router'
+import { ThemeProvider } from './contexts/ThemeContext'
+import { ContentProvider } from './contexts/ContentContext'
+import Header from './components/layout/Header'
+import Sidebar from './components/layout/Sidebar'
+import DocPage from './components/content/DocPage'
+
 export default function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [_searchOpen, setSearchOpen] = useState(false)
+
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
-          Agentic Cookbook
-        </h1>
-        <p className="mt-2 text-slate-500 dark:text-slate-400">
-          Site scaffolding ready. Content pipeline next.
-        </p>
-      </div>
-    </div>
+    <BrowserRouter>
+      <ThemeProvider>
+        <ContentProvider>
+          <div className="min-h-screen">
+            <Header
+              onMenuToggle={() => setSidebarOpen(!sidebarOpen)}
+              onSearchOpen={() => setSearchOpen(true)}
+            />
+            <div className="mx-auto flex max-w-[90rem]">
+              <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+              <main className="flex-1 min-w-0">
+                <Routes>
+                  <Route path="/*" element={<DocPage />} />
+                </Routes>
+              </main>
+            </div>
+          </div>
+        </ContentProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   )
 }
