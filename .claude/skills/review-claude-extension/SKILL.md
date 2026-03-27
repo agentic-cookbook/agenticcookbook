@@ -1,8 +1,8 @@
 ---
 name: review-claude-extension
-version: "2"
-description: "Review a Claude Code skill or agent against Anthropic's official best practices. Use when you want to validate a skill/agent design, check for anti-patterns, or ensure compliance with the skills specification. Triggers on 'review this skill', 'check my agent', 'validate this extension', or /review-claude-extension."
-argument-hint: "<path-to-skill-or-agent>"
+version: "3"
+description: "Review a Claude Code skill, agent, or rule file against best practices. Use when you want to validate a skill/agent/rule design, check for anti-patterns, or ensure compliance with specifications. Triggers on 'review this skill', 'check my agent', 'review this rule', 'validate this extension', or /review-claude-extension."
+argument-hint: "<path-to-skill-agent-or-rule>"
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, WebFetch, Bash(wc *)
 context: fork
@@ -12,7 +12,7 @@ context: fork
 
 If `$ARGUMENTS` is `--version`, respond with exactly:
 
-> review-claude-extension v2
+> review-claude-extension v3
 
 Then stop. Do not continue with the rest of the skill.
 
@@ -20,13 +20,13 @@ Then stop. Do not continue with the rest of the skill.
 
 # Review Claude Extension
 
-Review a Claude Code skill or agent against Anthropic's official best practices and structural requirements. Produces a structured report with PASS/WARN/FAIL ratings and actionable recommendations.
+Review a Claude Code skill, agent, or rule file against best practices and structural requirements. Produces a structured report with PASS/WARN/FAIL ratings and actionable recommendations.
 
 ## Guards
 
-- **Read-only**: Do NOT modify any files in the reviewed skill or agent
+- **Read-only**: Do NOT modify any files in the reviewed target
 - **No output files**: Print the review report to the console only
-- **Fail fast**: If the target path is invalid or has no SKILL.md / agent .md, stop immediately with a clear error
+- **Fail fast**: If the target path is invalid or has no recognizable extension type, stop immediately with a clear error
 
 ---
 
@@ -38,9 +38,10 @@ Use `$ARGUMENTS` as the path to the skill or agent to review.
 1. Check if the path points to a directory containing `SKILL.md` → it's a **skill**
 2. Check if the path points to a `.md` file → read its frontmatter; if it contains `tools`, `disallowedTools`, or `permissionMode`, it's an **agent**
 3. Check if the path points to a directory containing a `.md` file with agent frontmatter → it's an **agent**
-4. If none match, print an error and **STOP**:
+4. Check if the path points to a `.md` file that is NOT a skill or agent (no skill/agent frontmatter) → it's a **rule**
+5. If none match, print an error and **STOP**:
    ```
-   ERROR: No SKILL.md or agent definition found at: <path>
+   ERROR: No skill, agent, or rule file found at: <path>
    ```
 
 ### If `$ARGUMENTS` is empty:
@@ -49,10 +50,10 @@ Use `$ARGUMENTS` as the path to the skill or agent to review.
 3. Check if the current directory is inside `.claude/agents/` and contains a `.md` file
 4. If nothing found, print an error and **STOP**:
    ```
-   ERROR: No skill or agent found. Provide a path: /review-claude-extension <path>
+   ERROR: No skill, agent, or rule found. Provide a path: /review-claude-extension <path>
    ```
 
-Set `TARGET_TYPE` to either `skill` or `agent`.
+Set `TARGET_TYPE` to `skill`, `agent`, or `rule`.
 
 ---
 
@@ -60,6 +61,7 @@ Set `TARGET_TYPE` to either `skill` or `agent`.
 
 1. If **skill**: Read `SKILL.md` and all files in the skill directory recursively (references/, scripts/, examples/)
 2. If **agent**: Read the agent `.md` file
+3. If **rule**: Read the rule `.md` file
 3. Parse the YAML frontmatter — extract all fields
 4. Count the total lines of the main file (SKILL.md or agent .md)
 5. List all supporting files found
@@ -67,7 +69,7 @@ Set `TARGET_TYPE` to either `skill` or `agent`.
 Print a brief header:
 ```
 === REVIEW: <name> ===
-Type: <Skill|Agent>
+Type: <Skill|Agent|Rule>
 Path: <path>
 Files: <count> (<file list>)
 Lines: <main file line count>
@@ -93,6 +95,7 @@ Load the review criteria:
 - Read `${CLAUDE_SKILL_DIR}/references/review-checklist.md` — the comprehensive checklist
 - Read `${CLAUDE_SKILL_DIR}/references/skill-structure-reference.md` (if skill)
 - Read `${CLAUDE_SKILL_DIR}/references/agent-structure-reference.md` (if agent)
+- Read `${CLAUDE_SKILL_DIR}/references/rule-structure-reference.md` (if rule)
 
 Evaluate every applicable criterion from the checklist against the target. For each check:
 
@@ -102,10 +105,11 @@ Evaluate every applicable criterion from the checklist against the target. For e
 4. For subjective checks (C01 single responsibility, B02 native capabilities), explain your reasoning and prefer WARN over FAIL when uncertain
 
 ### Sections to evaluate:
-- **Structure & Format** (S01–S12) — always
+- **Structure & Format** (S01–S12) — always (some criteria are skill-specific and N/A for rules)
 - **Content Quality** (C01–C10) — always
-- **Best Practices** (B01–B12) — always
+- **Best Practices** (B01–B12) — always (some criteria are skill-specific and N/A for rules)
 - **Agent-Specific** (A01–A08) — only if TARGET_TYPE is `agent`
+- **Rule-Specific** (R01–R12) — only if TARGET_TYPE is `rule`
 
 ---
 
@@ -137,6 +141,12 @@ Print the full report to the console using this format:
 [PASS] A01: name and description present
 [WARN] A06: No maxTurns set — agent could run indefinitely
        -> Add maxTurns: <suggested-value> for bounded execution
+...
+
+--- RULE-SPECIFIC ---  (only if rule)
+[PASS] R01: Clear title/heading present
+[FAIL] R05: File references not explicit — says "read the principles" without listing paths
+       -> List every file path the LLM must read
 ...
 ```
 
