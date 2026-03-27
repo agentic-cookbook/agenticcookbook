@@ -35,12 +35,12 @@ export default function Header({ onMenuToggle, onSearchOpen }: HeaderProps) {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 dark:border-slate-700 bg-white/75 dark:bg-slate-950/75 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-[90rem] items-center gap-4 px-4 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface)]/90 backdrop-blur">
+      <div className="mx-auto flex h-14 max-w-[90rem] items-center gap-4 px-4 lg:px-8">
         {/* Mobile menu button */}
         <button
           onClick={onMenuToggle}
-          className="lg:hidden -ml-2 p-2 text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
+          className="lg:hidden -ml-2 p-2 text-[var(--color-text-dim)] hover:text-[var(--color-text-primary)]"
           aria-label="Toggle navigation"
         >
           <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -49,20 +49,20 @@ export default function Header({ onMenuToggle, onSearchOpen }: HeaderProps) {
         </button>
 
         {/* Logo */}
-        <Link to="/" className="text-lg font-bold text-slate-900 dark:text-white shrink-0">
-          Agentic Cookbook
+        <Link to="/" className="shrink-0" style={{ fontFamily: 'var(--font-display)' }}>
+          <span className="text-xl text-[var(--color-text-primary)]">Agentic Cookbook</span>
         </Link>
 
         {/* Section tabs */}
-        <nav className="hidden lg:flex items-center gap-1 ml-4">
+        <nav className="hidden lg:flex items-center gap-1 ml-6">
           {SECTIONS.map(({ label, path }) => (
             <Link
               key={path}
               to={path}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+              className={`px-3 py-1 rounded-md font-mono text-xs font-medium transition-colors ${
                 activeSection === path
-                  ? 'bg-sky-100 text-sky-700 dark:bg-sky-900 dark:text-sky-300'
-                  : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
+                  ? 'bg-[var(--color-accent-dim)] text-[var(--color-accent)]'
+                  : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
               }`}
             >
               {label}
@@ -75,14 +75,14 @@ export default function Header({ onMenuToggle, onSearchOpen }: HeaderProps) {
         {/* Search trigger */}
         <button
           onClick={onSearchOpen}
-          className="flex items-center gap-2 rounded-lg border border-slate-200 dark:border-slate-700 px-3 py-1.5 text-sm text-slate-400 hover:border-slate-300 dark:hover:border-slate-600 transition-colors"
+          className="flex items-center gap-2 rounded-lg border border-[var(--color-border)] px-3 py-1.5 text-sm text-[var(--color-text-dim)] hover:border-[var(--color-text-dim)] transition-colors"
         >
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
-          <span className="hidden sm:inline">Search...</span>
-          <kbd className="hidden sm:inline-flex items-center gap-0.5 rounded border border-slate-200 dark:border-slate-600 px-1.5 py-0.5 text-xs text-slate-400">
-            <span className="text-xs">&#8984;</span>K
+          <span className="hidden sm:inline font-mono text-xs">Search...</span>
+          <kbd className="hidden sm:inline-flex items-center gap-0.5 rounded border border-[var(--color-border)] px-1.5 py-0.5 font-mono text-[10px] text-[var(--color-text-dim)]">
+            <span>&#8984;</span>K
           </kbd>
         </button>
 
@@ -92,7 +92,7 @@ export default function Header({ onMenuToggle, onSearchOpen }: HeaderProps) {
         {/* Theme toggle */}
         <button
           onClick={toggle}
-          className="p-2 text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
+          className="p-2 text-[var(--color-text-dim)] hover:text-[var(--color-text-primary)]"
           aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
         >
           {theme === 'light' ? (

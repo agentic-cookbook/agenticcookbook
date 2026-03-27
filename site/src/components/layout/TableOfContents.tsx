@@ -33,21 +33,21 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
   if (headings.length === 0) return null
 
   return (
-    <aside className="hidden xl:block w-56 shrink-0 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto py-8 pr-4">
-      <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">
+    <aside className="hidden xl:block w-56 shrink-0 sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto py-8 pr-4">
+      <h4 className="font-mono text-[10px] font-medium uppercase tracking-widest text-[var(--color-text-dim)] mb-3">
         On this page
       </h4>
-      <ul className="space-y-1">
+      <ul className="flex flex-col gap-1 border-l border-[var(--color-border-subtle)]">
         {headings.map((heading) => (
-          <li key={heading.id}>
+          <li key={heading.id} className="-ml-px">
             <a
               href={`#${heading.id}`}
-              className={`block text-sm transition-colors ${
-                heading.depth === 3 ? 'pl-3' : ''
+              className={`block border-l py-0.5 text-sm transition-colors ${
+                heading.depth === 3 ? 'pl-6' : 'pl-3'
               } ${
                 activeId === heading.id
-                  ? 'text-sky-600 dark:text-sky-400 font-medium border-l-2 border-sky-500 pl-2'
-                  : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 border-l-2 border-transparent pl-2'
+                  ? 'border-[var(--color-accent)] text-[var(--color-text-primary)] font-medium'
+                  : 'border-transparent text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)]'
               }`}
               onClick={(e) => {
                 e.preventDefault()

@@ -11,21 +11,19 @@ export default function Breadcrumbs({ slug }: BreadcrumbsProps) {
 
   return (
     <nav aria-label="Breadcrumb" className="mb-4">
-      <ol className="flex items-center gap-1 text-sm text-slate-500 dark:text-slate-400">
+      <ol className="flex items-center gap-1 font-mono text-xs text-[var(--color-text-dim)]">
         <li>
-          <Link to="/" className="hover:text-slate-700 dark:hover:text-slate-300">
+          <Link to="/" className="hover:text-[var(--color-text-secondary)]">
             Home
           </Link>
         </li>
         {crumbs.map((crumb, i) => (
           <li key={crumb.path} className="flex items-center gap-1">
-            <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
+            <span className="text-[var(--color-border)]">/</span>
             {i === crumbs.length - 1 ? (
-              <span className="text-slate-700 dark:text-slate-300 font-medium">{crumb.label}</span>
+              <span className="text-[var(--color-text-secondary)]">{crumb.label}</span>
             ) : (
-              <Link to={crumb.path} className="hover:text-slate-700 dark:hover:text-slate-300">
+              <Link to={crumb.path} className="hover:text-[var(--color-text-secondary)]">
                 {crumb.label}
               </Link>
             )}

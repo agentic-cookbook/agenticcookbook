@@ -19,21 +19,21 @@ export default function DependencyPanel({ dependsOn, related }: DependencyPanelP
   if (deps.length === 0 && rels.length === 0) return null
 
   return (
-    <div className="mt-8 border-t border-slate-200 dark:border-slate-700 pt-6 space-y-6">
+    <div className="mt-8 border-t border-[var(--color-border-subtle)] pt-6 space-y-6">
       {deps.length > 0 && (
         <div>
-          <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Prerequisites</h3>
+          <h3 className="font-mono text-xs font-medium uppercase tracking-widest text-[var(--color-text-dim)] mb-2">Prerequisites</h3>
           <ul className="space-y-1">
             {deps.map((entry) => (
               <li key={entry.domain}>
                 <Link
                   to={entry.slug}
-                  className="text-sm text-sky-600 dark:text-sky-400 hover:underline"
+                  className="text-sm text-[var(--color-accent)] hover:underline"
                 >
                   {entry.frontmatter.title}
                 </Link>
                 {entry.frontmatter.summary && (
-                  <span className="text-sm text-slate-500 dark:text-slate-400 ml-2">
+                  <span className="text-sm text-[var(--color-text-dim)] ml-2">
                     — {entry.frontmatter.summary}
                   </span>
                 )}
@@ -44,13 +44,13 @@ export default function DependencyPanel({ dependsOn, related }: DependencyPanelP
       )}
       {rels.length > 0 && (
         <div>
-          <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Related</h3>
+          <h3 className="font-mono text-xs font-medium uppercase tracking-widest text-[var(--color-text-dim)] mb-2">Related</h3>
           <ul className="space-y-1">
             {rels.map((entry) => (
               <li key={entry.domain}>
                 <Link
                   to={entry.slug}
-                  className="text-sm text-sky-600 dark:text-sky-400 hover:underline"
+                  className="text-sm text-[var(--color-accent)] hover:underline"
                 >
                   {entry.frontmatter.title}
                 </Link>

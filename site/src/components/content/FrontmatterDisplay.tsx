@@ -17,16 +17,16 @@ export default function FrontmatterDisplay({ frontmatter }: FrontmatterDisplayPr
   return (
     <div className="mb-6">
       <div className="flex flex-wrap items-center gap-2 mb-2">
-        <span className="text-xs font-medium uppercase tracking-wider text-slate-400 dark:text-slate-500">
+        <span className="font-mono text-[10px] font-medium uppercase tracking-widest text-[var(--color-text-dim)]">
           {TYPE_LABELS[frontmatter.type] ?? frontmatter.type}
         </span>
         <StatusBadge status={frontmatter.status} />
-        <span className="text-xs text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">
+        <span className="font-mono text-[10px] text-[var(--color-text-dim)] bg-[var(--color-surface-raised)] px-1.5 py-0.5 rounded border border-[var(--color-border-subtle)]">
           v{frontmatter.version}
         </span>
       </div>
       {frontmatter.summary && (
-        <p className="text-slate-600 dark:text-slate-400 text-sm">
+        <p className="text-[var(--color-text-secondary)] text-sm">
           {frontmatter.summary}
         </p>
       )}
@@ -35,7 +35,7 @@ export default function FrontmatterDisplay({ frontmatter }: FrontmatterDisplayPr
           {frontmatter.platforms.map((p) => (
             <span
               key={p}
-              className="text-xs px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
+              className="font-mono text-[10px] px-2 py-0.5 rounded-full bg-[var(--color-surface-raised)] border border-[var(--color-border-subtle)] text-[var(--color-text-secondary)]"
             >
               {p}
             </span>
