@@ -251,9 +251,9 @@ Window
     └── Settings form for selected category
 ```
 
-## SPEC- Numbering
+## RECIPE- Numbering
 
-Every spec gets a stable `SPEC-N` identifier. Numbers are assigned by category range and never reused:
+Every recipe gets a stable `RECIPE-N` identifier. Numbers are assigned by category range and never reused:
 
 | Range | Category |
 |-------|----------|
@@ -263,11 +263,11 @@ Every spec gets a stable `SPEC-N` identifier. Numbers are assigned by category r
 | 30-39 | Infrastructure & Patterns |
 | 40-49 | App-Level |
 
-When adding a new spec, pick the next available number in the appropriate range. Update both:
-- `ui/INDEX.md` — add the row to the correct category table
+When adding a new recipe, pick the next available number in the appropriate range. Update both:
+- `recipies/ui/INDEX.md` — add the row to the correct category table
 - `CLAUDE.md` — add the row to the numbering table
 
-Cross-reference other specs using `SPEC-N.Y` notation: `SPEC-20` is project-window.md, `SPEC-20.3` is its third section.
+Cross-reference other recipes using `RECIPE-N.Y` notation: `RECIPE-20` is RECIPE-20-project-window.md, `RECIPE-20.3` is its third section.
 
 ## Contribution Workflow
 
@@ -290,7 +290,7 @@ This repo uses a branch + PR workflow for all non-owner contributions.
 
 2. **Write the spec** in the worktree directory. Copy `ui/_template.md` as your starting point.
 
-3. **Update the index**: add your spec to `ui/INDEX.md` and the CLAUDE.md `SPEC-` numbering table.
+3. **Update the index**: add your recipe to `recipies/ui/INDEX.md` and the CLAUDE.md `RECIPE-` numbering table.
 
 4. **Set status to `review`** in frontmatter before opening the PR.
 

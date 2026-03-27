@@ -162,7 +162,7 @@ CompletionOptions {
 │  └────────────────────────────────────────────┘  │
 │                                                  │
 │  ┌─ Quick Chat ───────────────────────────────┐  │
-│  │ (see ai-chat-control.md SPEC-7)            │  │
+│  │ (see ai-chat-control.md RECIPE-7)            │  │
 │  └────────────────────────────────────────────┘  │
 │                                                  │
 └──────────────────────────────────────────────────┘
@@ -214,7 +214,7 @@ With Custom provider selected, the Endpoint section appears above Quick Chat:
 
 ### Quick Chat
 
-- **REQ-040**: The panel MUST include an inline chat control (see `ai-chat-control.md` SPEC-7) at the bottom of the panel, below all configuration fields. This allows the user to verify the configuration by sending a real message.
+- **REQ-040**: The panel MUST include an inline chat control (see `ai-chat-control.md` RECIPE-7) at the bottom of the panel, below all configuration fields. This allows the user to verify the configuration by sending a real message.
 - **REQ-041**: The chat control MUST respect the "Enable AI Features" toggle — when AI features are disabled, sending messages MUST be blocked with an inline error message.
 
 ## Conformance Test Vectors

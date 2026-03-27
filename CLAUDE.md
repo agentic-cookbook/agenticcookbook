@@ -14,38 +14,38 @@ This project follows the shared guidelines installed from [cat-herding](../cat-h
 
 Also read the local [`engineering-principles.md`](engineering-principles.md) which has expanded rationale and sources for each principle. The review skill (`/litterbox-review`) checks compliance.
 
-### Spec Numbering Scheme
+### Recipe Numbering Scheme
 
-All specs use hierarchical numbering: `SPEC-X` (spec) or `SPEC-X.Y` (spec.section/requirement). The top-level number identifies the spec per [`ui/INDEX.md`](ui/INDEX.md):
+All recipes use hierarchical numbering: `RECIPE-X` (recipe) or `RECIPE-X.Y` (recipe.section/requirement). The top-level number identifies the recipe per [`recipies/ui/INDEX.md`](recipies/ui/INDEX.md):
 
-| ID | Spec |
-|----|------|
-| SPEC-1 | empty-state.md |
-| SPEC-2 | collapsible-pane-header.md |
-| SPEC-3 | metadata-line.md |
-| SPEC-4 | status-bar.md |
-| SPEC-5 | git-status-indicator.md |
-| SPEC-6 | color-profile.md |
-| SPEC-7 | ai-chat-control.md |
-| SPEC-10 | file-tree-browser.md |
-| SPEC-11 | code-editor-pane.md |
-| SPEC-12 | terminal-pane.md |
-| SPEC-13 | inspector-panel.md |
-| SPEC-14 | ai-settings-panel.md |
-| SPEC-15 | debug-panel.md |
-| SPEC-20 | project-window.md |
-| SPEC-21 | workspace-window.md |
-| SPEC-22 | settings-window.md |
-| SPEC-23 | standalone-terminal-window.md |
-| SPEC-30 | logging.md |
-| SPEC-31 | settings-keys.md |
-| SPEC-32 | window-frame-persistence.md |
-| SPEC-33 | directory-sync.md |
-| SPEC-34 | package-document.md |
-| SPEC-40 | app-lifecycle.md |
-| SPEC-41 | menu-commands.md |
+| ID | Recipe |
+|----|--------|
+| RECIPE-1 | empty-state |
+| RECIPE-2 | collapsible-pane-header |
+| RECIPE-3 | metadata-line |
+| RECIPE-4 | status-bar |
+| RECIPE-5 | git-status-indicator |
+| RECIPE-6 | color-profile |
+| RECIPE-7 | ai-chat-control |
+| RECIPE-10 | file-tree-browser |
+| RECIPE-11 | code-editor-pane |
+| RECIPE-12 | terminal-pane |
+| RECIPE-13 | inspector-panel |
+| RECIPE-14 | ai-settings-panel |
+| RECIPE-15 | debug-panel |
+| RECIPE-20 | project-window |
+| RECIPE-21 | workspace-window |
+| RECIPE-22 | settings-window |
+| RECIPE-23 | standalone-terminal-window |
+| RECIPE-30 | logging |
+| RECIPE-31 | settings-keys |
+| RECIPE-32 | window-frame-persistence |
+| RECIPE-33 | directory-sync |
+| RECIPE-34 | package-document |
+| RECIPE-40 | app-lifecycle |
+| RECIPE-41 | menu-commands |
 
-Cross-reference using `SPEC-` notation: "See SPEC-20" means project-window.md. "See SPEC-5.3" means git-status-indicator.md section 3. Ranges 8-9, 16-19, 24-29, 35-39 are reserved for future specs in each category.
+Cross-reference using `RECIPE-` notation: "See RECIPE-20" means RECIPE-20-project-window.md. "See RECIPE-5.3" means RECIPE-5-git-status-indicator.md section 3. Ranges 8-9, 16-19, 24-29, 35-39 are reserved for future recipes in each category.
 
 ### Workflow Specs
 
@@ -102,7 +102,7 @@ Worktrees go in `../litterbox-wt/` so the main working tree always stays on main
 
 1. `git worktree add ../litterbox-wt/<branch-name> -b <branch>`
 2. Do all work in `../litterbox-wt/<branch-name>/`
-3. Update `ui/INDEX.md` and the CLAUDE.md `SPEC-` numbering table on the branch
+3. Update `recipies/ui/INDEX.md` and the CLAUDE.md `RECIPE-` numbering table on the branch
 4. Commit, push, create PR with `gh pr create`
 5. Review and merge: `gh pr merge --squash`
 6. Clean up: `git worktree remove ../litterbox-wt/<branch-name>`
@@ -116,7 +116,7 @@ Squash merge to main. Commit message conventions:
 
 ### INDEX.md rule
 
-Every branch that adds, removes, or modifies a spec MUST update `ui/INDEX.md` and the CLAUDE.md `SPEC-` numbering table before opening the PR. `SPEC-` numbers are stable — never reuse a number, even if the spec is removed. Merge conflicts in INDEX.md are resolved by keeping both additions.
+Every branch that adds, removes, or modifies a recipe MUST update `recipies/ui/INDEX.md` and the CLAUDE.md `RECIPE-` numbering table before opening the PR. `RECIPE-` numbers are stable — never reuse a number, even if the recipe is removed. Merge conflicts in INDEX.md are resolved by keeping both additions.
 
 ## How to use this repo
 
