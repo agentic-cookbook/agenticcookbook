@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { useContent } from '../../contexts/ContentContext'
 import type { NavNode } from '../../types/cookbook'
@@ -8,7 +7,7 @@ interface SidebarProps {
   onClose: () => void
 }
 
-/** Leaf item in the nav tree */
+/** Leaf item — clickable link */
 function NavLeaf({ node }: { node: NavNode }) {
   const { pathname } = useLocation()
   const isActive = pathname === node.path
@@ -30,80 +29,42 @@ function NavLeaf({ node }: { node: NavNode }) {
   )
 }
 
-/** Collapsible group within a section (e.g. Testing, Security under Guidelines) */
+/** Subsection group label (e.g. Testing, Security under Guidelines) — always expanded */
 function NavGroup({ node }: { node: NavNode }) {
-  const { pathname } = useLocation()
-  const isExpanded = pathname.startsWith(node.path + '/') || pathname === node.path
-  const [open, setOpen] = useState(isExpanded)
-
   return (
     <li className="-ml-px">
-      <button
-        onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between border-l border-transparent py-1 pl-4 text-sm font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
-      >
-        <span>{node.label}</span>
-        <svg
-          className={`mr-1 h-3 w-3 shrink-0 text-[var(--color-text-dim)] transition-transform duration-150 ${open ? 'rotate-90' : ''}`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2.5}
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-      {open && (
-        <ul className="flex flex-col gap-0 border-l border-[var(--color-border-subtle)] ml-4">
-          {node.children.map((child) =>
-            child.children.length > 0 ? (
-              <NavGroup key={child.path} node={child} />
-            ) : (
-              <NavLeaf key={child.path} node={child} />
-            ),
-          )}
-        </ul>
-      )}
+      <span className="block border-l border-transparent py-1 pl-4 text-sm font-medium text-[var(--color-text-secondary)]">
+        {node.label}
+      </span>
+      <ul className="flex flex-col border-l border-[var(--color-border-subtle)] ml-4">
+        {node.children.map((child) =>
+          child.children.length > 0 ? (
+            <NavGroup key={child.path} node={child} />
+          ) : (
+            <NavLeaf key={child.path} node={child} />
+          ),
+        )}
+      </ul>
     </li>
   )
 }
 
-/** Top-level section (Principles, Guidelines, etc.) */
+/** Top-level section (Principles, Guidelines, etc.) — always expanded, static label */
 function NavSection({ node }: { node: NavNode }) {
-  const { pathname } = useLocation()
-  const isExpanded = pathname.startsWith(node.path + '/') || pathname === node.path
-  const [open, setOpen] = useState(isExpanded)
-
   return (
-    <div className="flex flex-col gap-2">
-      <button
-        onClick={() => setOpen(!open)}
-        className="flex items-center justify-between"
-      >
-        <h3 className="font-mono text-xs font-medium uppercase tracking-widest text-[var(--color-text-dim)]">
-          {node.label}
-        </h3>
-        <svg
-          className={`h-3 w-3 text-[var(--color-text-dim)] transition-transform duration-150 ${open ? 'rotate-90' : ''}`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2.5}
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-      {open && (
-        <ul className="flex flex-col gap-0 border-l border-[var(--color-border)]">
-          {node.children.map((child) =>
-            child.children.length > 0 ? (
-              <NavGroup key={child.path} node={child} />
-            ) : (
-              <NavLeaf key={child.path} node={child} />
-            ),
-          )}
-        </ul>
-      )}
+    <div className="flex flex-col gap-3">
+      <h3 className="font-mono text-xs font-medium uppercase tracking-widest text-[var(--color-text-dim)]">
+        {node.label}
+      </h3>
+      <ul className="flex flex-col border-l border-[var(--color-border)]">
+        {node.children.map((child) =>
+          child.children.length > 0 ? (
+            <NavGroup key={child.path} node={child} />
+          ) : (
+            <NavLeaf key={child.path} node={child} />
+          ),
+        )}
+      </ul>
     </div>
   )
 }
@@ -122,7 +83,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className="hidden lg:block w-64 shrink-0 border-r border-[var(--color-border-subtle)] overflow-y-auto sticky top-16 h-[calc(100vh-4rem)]">
+      <aside className="hidden lg:block w-64 shrink-0 border-r border-[var(--color-border-subtle)] overflow-y-auto sticky top-14 h-[calc(100vh-3.5rem)]">
         {nav}
       </aside>
 
