@@ -68,7 +68,7 @@ This phase happens inside a worktree established by WF-1 (Branching Strategy) an
 
 - **REQ-001**: Claude Code MUST read and restate the user's request in its own words to confirm understanding. Do not proceed until the user confirms the restatement is accurate.
 - **REQ-002**: Claude Code MUST identify the scope boundaries — what is and is not included in this task. State these explicitly and get user confirmation.
-- **REQ-003**: If the task references an existing spec (from litterbox or the project), Claude Code MUST read the spec before proceeding.
+- **REQ-003**: If the task references an existing recipe (from the cookbook or the project), Claude Code MUST read the recipe before proceeding.
 
 **Exit criteria**: User has confirmed Claude Code's understanding of the request and scope.
 
@@ -81,7 +81,7 @@ This phase happens inside a worktree established by WF-1 (Branching Strategy) an
   - Shared utilities, helpers, or base classes that should be reused
   - Established patterns (naming conventions, file organization, dependency injection setup)
   - Test infrastructure and existing test patterns
-- **REQ-005**: Claude Code MUST check for existing specs in the litterbox repo (`../litterbox/ui/`) that cover the component or feature being built. If a spec exists, it MUST be followed.
+- **REQ-005**: Claude Code MUST check for existing recipes in `cookbook/recipes/` that cover the component or feature being built. If a recipe exists, it MUST be followed.
 - **REQ-006**: Claude Code SHOULD identify code that would be affected by the change — callers, dependents, tests that might break.
 - **REQ-007**: Claude Code MUST NOT propose creating new utilities, abstractions, or patterns when suitable ones already exist in the codebase. Reuse first.
 
@@ -152,7 +152,7 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 | plan-001 | REQ-001 | User describes a feature | Claude Code restates the request and waits for confirmation |
 | plan-002 | REQ-002 | Feature with ambiguous scope | Claude Code explicitly states what is and isn't included |
 | plan-003 | REQ-004 | Feature similar to existing code | Claude Code finds and references existing implementation |
-| plan-004 | REQ-005 | Feature has a litterbox spec | Claude Code reads the spec before planning |
+| plan-004 | REQ-005 | Feature has a cookbook recipe | Claude Code reads the recipe before planning |
 | plan-005 | REQ-007 | Utility function already exists in codebase | Claude Code proposes reusing it, not creating a new one |
 | plan-006 | REQ-008, REQ-013 | Planning begins | Claude Code presents full checklist in one consolidated prompt |
 | plan-007 | REQ-010 | Opt-in item (e.g., logging) | Claude Code informs user it's included, asks to confirm or opt out |
@@ -171,7 +171,7 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 - **No existing code to explore**: For greenfield features in new projects, Phase 2 focuses on understanding project conventions and tech stack rather than existing implementations.
 - **Conflicting guidelines**: If two guidelines conflict for the current task (e.g., simplicity vs. accessibility requirements), surface the conflict to the user and record the resolution in the plan.
 - **User declines all opt-in items**: This is valid. Record the decisions and proceed. The "Always" items still apply.
-- **Spec doesn't exist**: If a litterbox spec should exist but doesn't, offer to create one (following the litterbox authoring workflow) before or alongside the implementation.
+- **Recipe doesn't exist**: If a cookbook recipe should exist but doesn't, offer to create one (using `cookbook/recipes/_template.md`) before or alongside the implementation.
 
 ## Tool Notes
 
