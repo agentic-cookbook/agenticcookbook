@@ -7,13 +7,40 @@ interface SidebarProps {
   onClose: () => void
 }
 
-/** Directory node — only directories appear in the sidebar */
-function DirLink({ node, depth = 0 }: { node: NavNode; depth?: number }) {
+/** Leaf file link */
+function FileLink({ node }: { node: NavNode }) {
+  const { pathname } = useLocation()
+  const isSelected = pathname === node.path
+
+  return (
+    <li>
+      <Link
+        to={node.path}
+        aria-current={isSelected ? 'page' : undefined}
+        className={`relative block py-0.5 text-sm transition-colors ${
+          isSelected
+            ? 'font-semibold text-[var(--color-text-primary)]'
+            : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
+        }`}
+        style={{ paddingInlineStart: '0.875rem' }}
+      >
+        {isSelected && (
+          <span className="absolute left-0 top-0.5 bottom-0.5 w-px bg-[var(--color-accent)]" />
+        )}
+        {node.label}
+      </Link>
+    </li>
+  )
+}
+
+/** Directory node — shows dir name + child files and subdirs */
+function DirLink({ node }: { node: NavNode }) {
   const { pathname } = useLocation()
   const isSelected = pathname === node.path
   const isAncestor = pathname.startsWith(node.path + '/')
 
   const childDirs = node.children.filter((c) => c.children.length > 0)
+  const childFiles = node.children.filter((c) => c.children.length === 0)
 
   return (
     <>
@@ -36,11 +63,14 @@ function DirLink({ node, depth = 0 }: { node: NavNode; depth?: number }) {
           {node.label}
         </Link>
       </li>
-      {childDirs.length > 0 && (
+      {(childDirs.length > 0 || childFiles.length > 0) && (
         <li>
           <ul className="flex flex-col border-l border-[var(--color-border)] ml-3.5">
+            {childFiles.map((child) => (
+              <FileLink key={child.path} node={child} />
+            ))}
             {childDirs.map((child) => (
-              <DirLink key={child.path} node={child} depth={depth + 1} />
+              <DirLink key={child.path} node={child} />
             ))}
           </ul>
         </li>
@@ -49,13 +79,14 @@ function DirLink({ node, depth = 0 }: { node: NavNode; depth?: number }) {
   )
 }
 
-/** Top-level section header with always-visible vertical bar */
+/** Top-level section — shows header, then files + subdirs */
 function NavSection({ node }: { node: NavNode }) {
   const { pathname } = useLocation()
   const isSelected = pathname === node.path
   const isInSection = pathname.startsWith(node.path + '/')
 
   const childDirs = node.children.filter((c) => c.children.length > 0)
+  const childFiles = node.children.filter((c) => c.children.length === 0)
 
   return (
     <div className="flex flex-col gap-3">
@@ -67,6 +98,9 @@ function NavSection({ node }: { node: NavNode }) {
         {node.label}
       </h3>
       <ul className="flex flex-col border-l border-[var(--color-border)]">
+        {childFiles.map((child) => (
+          <FileLink key={child.path} node={child} />
+        ))}
         {childDirs.map((child) => (
           <DirLink key={child.path} node={child} />
         ))}
@@ -82,7 +116,6 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 
   const nav = (
     <nav className="flex flex-col gap-6 px-6 py-6 overflow-y-auto h-full" data-autoscroll="true">
-      {/* Overview — above all sections */}
       <div className="flex flex-col gap-3">
         <h3 className={`font-mono text-xs font-medium uppercase tracking-widest transition-colors ${
           isOverviewSelected ? 'text-[var(--color-text-secondary)]' : 'text-[var(--color-text-dim)]'
@@ -100,12 +133,10 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 
   return (
     <>
-      {/* Desktop sidebar */}
       <aside className="hidden lg:block w-64 shrink-0 border-r border-[var(--color-border-subtle)] overflow-y-auto sticky top-14 h-[calc(100vh-3.5rem)]">
         {nav}
       </aside>
 
-      {/* Mobile overlay */}
       {open && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div className="fixed inset-0 bg-black/50" onClick={onClose} />
