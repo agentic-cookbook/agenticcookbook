@@ -14,7 +14,7 @@ tags: [checklist, guidelines, cross-reference]
 
 ## Overview
 
-A shared checklist of all GUIDE-x.y guidelines that Claude Code MUST evaluate for applicability during a development session. Each workflow recipe (WF-1 through WF-5) references this checklist rather than duplicating it. When guidelines change, only this file needs updating.
+A shared checklist of all guide.* guidelines that Claude Code MUST evaluate for applicability during a development session. Each workflow recipe (WF-1 through WF-5) references this checklist rather than duplicating it. When guidelines change, only this file needs updating.
 
 During the **Code Planning** phase (WF-2), Claude Code MUST walk through this checklist with the user, asking them to opt in or opt out of each applicable concern. The decisions are recorded and carried forward through implementation (WF-3), verification (WF-4), and review (WF-5).
 
@@ -35,21 +35,21 @@ These guidelines are always applicable. Claude Code MUST follow them without ask
 
 | ID | Guideline | Summary | Workflow Phases |
 |----|-----------|---------|-----------------|
-| GUIDE-1.1 | Native controls | Prefer platform built-in frameworks | WF-3 |
-| GUIDE-1.3 | Surface design decisions | Note and get approval for all behavioral/structural choices | WF-2, WF-3 |
-| GUIDE-1.4 | No blocking main thread | All lengthy work on background threads | WF-3 |
-| GUIDE-1.7 | Small atomic commits | One logical change per commit | WF-1, WF-3 |
-| GUIDE-1.8 | Post-generation verification | Build, test, lint, log verify, a11y audit, code review | WF-4 |
-| GUIDE-1.21 | Linting from day one | Linter configured, runs on build or pre-commit | WF-3, WF-4 |
-| GUIDE-2.1 | Simplicity | No interleaving of concerns | WF-2, WF-3 |
-| GUIDE-2.2 | Work, Right, Fast | Three sequential phases — never skip phase 2 | WF-3 |
-| GUIDE-2.4 | Dependency injection | Receive dependencies from outside | WF-2, WF-3 |
-| GUIDE-2.5 | Immutability by default | Default to immutable values | WF-3 |
-| GUIDE-2.6 | Fail fast | Detect invalid state at point of origin | WF-3 |
-| GUIDE-2.8 | Design for deletion | Build disposable, not reusable | WF-2, WF-3 |
-| GUIDE-2.9 | YAGNI | Build for today's known requirements | WF-2, WF-3 |
-| GUIDE-2.10 | Explicit over implicit | Visible dependencies, clear intent | WF-3 |
-| GUIDE-2.13 | Separation of concerns | One reason to change per module | WF-2, WF-3 |
+| guide.core.general.prefer-native-controls-and-libraries | Native controls | Prefer platform built-in frameworks | WF-3 |
+| guide.core.general.surface-all-design-decisions | Surface design decisions | Note and get approval for all behavioral/structural choices | WF-2, WF-3 |
+| guide.core.general.no-blocking-the-main-thread | No blocking main thread | All lengthy work on background threads | WF-3 |
+| guide.core.general.small-atomic-commits | Small atomic commits | One logical change per commit | WF-1, WF-3 |
+| guide.core.general.post-generation-verification | Post-generation verification | Build, test, lint, log verify, a11y audit, code review | WF-4 |
+| guide.core.general.linting-from-day-one | Linting from day one | Linter configured, runs on build or pre-commit | WF-3, WF-4 |
+| guide.core.principles.simplicity | Simplicity | No interleaving of concerns | WF-2, WF-3 |
+| guide.core.principles.make-it-work-make-it-right-make-it-fast | Work, Right, Fast | Three sequential phases — never skip phase 2 | WF-3 |
+| guide.core.principles.dependency-injection | Dependency injection | Receive dependencies from outside | WF-2, WF-3 |
+| guide.core.principles.immutability-by-default | Immutability by default | Default to immutable values | WF-3 |
+| guide.core.principles.fail-fast | Fail fast | Detect invalid state at point of origin | WF-3 |
+| guide.core.principles.design-for-deletion | Design for deletion | Build disposable, not reusable | WF-2, WF-3 |
+| guide.core.principles.yagni | YAGNI | Build for today's known requirements | WF-2, WF-3 |
+| guide.core.principles.explicit-over-implicit | Explicit over implicit | Visible dependencies, clear intent | WF-3 |
+| guide.core.principles.separation-of-concerns | Separation of concerns | One reason to change per module | WF-2, WF-3 |
 
 ### Testing (Always Apply)
 
@@ -57,13 +57,13 @@ Testing guidelines are always applicable when writing code. The scope and depth 
 
 | ID | Guideline | Summary | Workflow Phases |
 |----|-----------|---------|-----------------|
-| GUIDE-1.6 | Comprehensive unit testing | Prioritize unit tests, test state transitions and edge cases | WF-3, WF-4 |
-| GUIDE-14.2 | Test pyramid | 80% unit / 15% integration / 5% E2E | WF-2, WF-3 |
-| GUIDE-14.3 | Properties of good tests | Isolated, deterministic, fast, behavioral, readable | WF-3, WF-4 |
-| GUIDE-14.4 | Unit test patterns | Arrange-Act-Assert, one concept per test | WF-3 |
-| GUIDE-14.9 | Flaky test prevention | No shared state, no timing, no real network in unit tests | WF-3 |
-| GUIDE-14.10 | Test data | Builder pattern, no magic fixtures | WF-3 |
-| GUIDE-14.11 | Testing workflow | Write tests alongside code, validate with mutation testing | WF-3, WF-4 |
+| guide.core.general.comprehensive-unit-testing | Comprehensive unit testing | Prioritize unit tests, test state transitions and edge cases | WF-3, WF-4 |
+| guide.domain.testing.test-pyramid | Test pyramid | 80% unit / 15% integration / 5% E2E | WF-2, WF-3 |
+| guide.domain.testing.properties-of-good-tests | Properties of good tests | Isolated, deterministic, fast, behavioral, readable | WF-3, WF-4 |
+| guide.domain.testing.unit-test-patterns | Unit test patterns | Arrange-Act-Assert, one concept per test | WF-3 |
+| guide.domain.testing.flaky-test-prevention | Flaky test prevention | No shared state, no timing, no real network in unit tests | WF-3 |
+| guide.domain.testing.test-data | Test data | Builder pattern, no magic fixtures | WF-3 |
+| guide.domain.testing.the-testing-workflow | Testing workflow | Write tests alongside code, validate with mutation testing | WF-3, WF-4 |
 
 ### Opt-In Concerns (Ask the User)
 
@@ -71,22 +71,22 @@ These concerns apply to many but not all features. Claude Code MUST ask the user
 
 | ID | Guideline | Summary | Default | Prompt Template | Workflow Phases |
 |----|-----------|---------|---------|-----------------|-----------------|
-| GUIDE-1.5 | Show progress | Determinate or indeterminate progress for async work | Opt-in | "Does this feature involve async operations that need progress indication?" | WF-2, WF-3 |
-| GUIDE-1.9 | Instrumented logging | Structured logging for all components and flows | Opt-in | "This feature will include structured logging per GUIDE-1.9. Any components that should be excluded?" | WF-2, WF-3, WF-4 |
-| GUIDE-1.10 | Deep linking | All significant views must be deep linkable | Ask | "Should the views in this feature be deep linkable?" | WF-2, WF-3 |
-| GUIDE-1.11 | Scriptable/automatable | Components scriptable via platform mechanisms | Opt-out | "Does this feature need scripting/automation support (Shortcuts, intents)?" | WF-2, WF-3 |
-| GUIDE-1.12 | Accessibility | Platform accessibility APIs from day one | Opt-in | "This feature will include full accessibility support. Any constraints?" | WF-2, WF-3, WF-4 |
-| GUIDE-1.13 | Localizability | All user-facing strings localizable | Opt-in | "This feature will use localized strings. Confirm or opt out." | WF-2, WF-3 |
-| GUIDE-1.14 | RTL layout | Support right-to-left languages | Opt-in | "This feature will support RTL layouts. Confirm or opt out." | WF-2, WF-3 |
-| GUIDE-1.15 | Accessibility display options | Respond to reduced motion, high contrast, etc. | Opt-in | "This feature will respect accessibility display options. Confirm or opt out." | WF-2, WF-3 |
-| GUIDE-1.16 | Privacy/security | Data minimization, secure storage, no PII logging | Opt-in | "Does this feature collect, store, or transmit user data?" | WF-2, WF-3, WF-5 |
-| GUIDE-1.17 | Feature flags | All features gated behind feature flags | Opt-in | "This feature will be gated behind a feature flag. Confirm or opt out." | WF-2, WF-3 |
-| GUIDE-1.18 | Analytics | Significant user actions instrumented | Ask | "Which user actions in this feature should be tracked for analytics?" | WF-2, WF-3 |
-| GUIDE-1.19 | A/B testing | Variant assignment support | Opt-out | "Does this feature need A/B testing / experimentation support?" | WF-2, WF-3 |
-| GUIDE-1.20 | Debug mode | Debug panel entries for flags, analytics, experiments | Opt-in | "This feature will include debug panel entries. Confirm or opt out." | WF-2, WF-3 |
-| GUIDE-14.5 | Property-based testing | For parsers, serializers, data transformers | Ask | "Does this feature include data transformations that would benefit from property-based testing?" | WF-2, WF-3 |
-| GUIDE-14.6 | Mutation testing | Validate tests catch bugs | Ask | "Should we run mutation testing to validate test quality?" | WF-4 |
-| GUIDE-14.8 | Security testing | SAST, dependency scanning | Ask | "Should we run security scans (Semgrep, dependency audit)?" | WF-4 |
+| guide.core.general.always-show-progress | Show progress | Determinate or indeterminate progress for async work | Opt-in | "Does this feature involve async operations that need progress indication?" | WF-2, WF-3 |
+| guide.core.general.instrumented-logging | Instrumented logging | Structured logging for all components and flows | Opt-in | "This feature will include structured logging per guide.core.general.instrumented-logging. Any components that should be excluded?" | WF-2, WF-3, WF-4 |
+| guide.core.general.deep-linking | Deep linking | All significant views must be deep linkable | Ask | "Should the views in this feature be deep linkable?" | WF-2, WF-3 |
+| guide.core.general.scriptable-and-automatable | Scriptable/automatable | Components scriptable via platform mechanisms | Opt-out | "Does this feature need scripting/automation support (Shortcuts, intents)?" | WF-2, WF-3 |
+| guide.core.general.accessibility-from-day-one | Accessibility | Platform accessibility APIs from day one | Opt-in | "This feature will include full accessibility support. Any constraints?" | WF-2, WF-3, WF-4 |
+| guide.core.general.localizability | Localizability | All user-facing strings localizable | Opt-in | "This feature will use localized strings. Confirm or opt out." | WF-2, WF-3 |
+| guide.core.general.rtl-layout-support | RTL layout | Support right-to-left languages | Opt-in | "This feature will support RTL layouts. Confirm or opt out." | WF-2, WF-3 |
+| guide.core.general.respect-accessibility-display-options | Accessibility display options | Respond to reduced motion, high contrast, etc. | Opt-in | "This feature will respect accessibility display options. Confirm or opt out." | WF-2, WF-3 |
+| guide.core.general.privacy-and-security-by-default | Privacy/security | Data minimization, secure storage, no PII logging | Opt-in | "Does this feature collect, store, or transmit user data?" | WF-2, WF-3, WF-5 |
+| guide.core.general.feature-flags | Feature flags | All features gated behind feature flags | Opt-in | "This feature will be gated behind a feature flag. Confirm or opt out." | WF-2, WF-3 |
+| guide.core.general.analytics | Analytics | Significant user actions instrumented | Ask | "Which user actions in this feature should be tracked for analytics?" | WF-2, WF-3 |
+| guide.core.general.ab-testing | A/B testing | Variant assignment support | Opt-out | "Does this feature need A/B testing / experimentation support?" | WF-2, WF-3 |
+| guide.core.general.debug-mode | Debug mode | Debug panel entries for flags, analytics, experiments | Opt-in | "This feature will include debug panel entries. Confirm or opt out." | WF-2, WF-3 |
+| guide.domain.testing.property-based-testing | Property-based testing | For parsers, serializers, data transformers | Ask | "Does this feature include data transformations that would benefit from property-based testing?" | WF-2, WF-3 |
+| guide.domain.testing.mutation-testing | Mutation testing | Validate tests catch bugs | Ask | "Should we run mutation testing to validate test quality?" | WF-4 |
+| guide.domain.testing.security-testing | Security testing | SAST, dependency scanning | Ask | "Should we run security scans (Semgrep, dependency audit)?" | WF-4 |
 
 ## How to Use This Checklist
 

@@ -25,7 +25,7 @@ This phase happens inside a worktree established by WF-1 (Branching Strategy) an
 
 | Term | Definition |
 |------|-----------|
-| Guideline checklist | The shared [guideline-checklist.md](guideline-checklist.md) listing all GUIDE-x.y guidelines with opt-in/opt-out defaults |
+| Guideline checklist | The shared [guideline-checklist.md](guideline-checklist.md) listing all guide.* guidelines with opt-in/opt-out defaults |
 | Plan document | The output of this phase — a structured description of what will be built, how, and which guidelines apply |
 | Applicability scan | The process of evaluating each checklist item for relevance to the current task |
 
@@ -118,7 +118,7 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 | Phase | Checklist Items | Notes |
 |-------|----------------|-------|
 | Phase 3 | All items | Full checklist scan — this is the primary phase for checklist evaluation |
-| Phase 5 | GUIDE-2.1 (Simplicity), GUIDE-2.9 (YAGNI) | Plan should reflect simplest viable approach |
+| Phase 5 | guide.core.principles.simplicity (Simplicity), guide.core.principles.yagni (YAGNI) | Plan should reflect simplest viable approach |
 
 ## Conformance Test Vectors
 
@@ -161,7 +161,7 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 **Approved**: pending
 
 **Decision**: Planning is strictly read-only — no code or file modifications.
-**Rationale**: Separating planning from implementation prevents premature commitment to an approach. It's cheaper to change a plan than to rewrite code. This mirrors the principle of small, reversible decisions (GUIDE-2.11).
+**Rationale**: Separating planning from implementation prevents premature commitment to an approach. It's cheaper to change a plan than to rewrite code. This mirrors the principle of small, reversible decisions (guide.core.principles.small-reversible-decisions).
 **Approved**: pending
 
 **Decision**: Plan must be approved before implementation begins.

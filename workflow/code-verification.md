@@ -19,7 +19,7 @@ dependencies:
 
 ## Overview
 
-Defines the post-implementation validation phase where Claude Code systematically verifies that all code is correct, all guidelines are followed, all tests pass and are meaningful, and the codebase is ready for review. This phase implements the six-step post-generation verification from GUIDE-1.8 and extends it with mutation testing, security scanning, and guideline compliance checking.
+Defines the post-implementation validation phase where Claude Code systematically verifies that all code is correct, all guidelines are followed, all tests pass and are meaningful, and the codebase is ready for review. This phase implements the six-step post-generation verification from guide.core.general.post-generation-verification and extends it with mutation testing, security scanning, and guideline compliance checking.
 
 This phase runs after WF-3 (Code Implementation) and before WF-5 (Code Review).
 
@@ -70,7 +70,7 @@ This phase runs after WF-3 (Code Implementation) and before WF-5 (Code Review).
 
 - **REQ-008**: Claude Code MUST run the project's linter on all new and modified files. All lint errors MUST be resolved.
 - **REQ-009**: Claude Code MUST run the project's formatter and commit any formatting changes.
-- **REQ-010**: If the project does not have a linter configured, Claude Code SHOULD note this in the PR and recommend adding one (per GUIDE-1.21).
+- **REQ-010**: If the project does not have a linter configured, Claude Code SHOULD note this in the PR and recommend adding one (per guide.core.general.linting-from-day-one).
 
 **Exit criteria**: Zero lint errors on new and modified files.
 
@@ -78,10 +78,10 @@ This phase runs after WF-3 (Code Implementation) and before WF-5 (Code Review).
 
 **Entry criteria**: Phase 3 complete. Lint clean.
 
-- **REQ-011**: If logging was opted in during planning, Claude Code MUST verify that all components and flows include structured logging per GUIDE-1.9.
+- **REQ-011**: If logging was opted in during planning, Claude Code MUST verify that all components and flows include structured logging per guide.core.general.instrumented-logging.
 - **REQ-012**: Claude Code MUST build and run the application (or tests that exercise the new code) and grep the output for expected log messages from the implementation.
 - **REQ-013**: If expected log messages are missing, Claude Code MUST investigate and fix the logging.
-- **REQ-014**: Claude Code MUST verify that no PII is logged, even at debug level (GUIDE-1.16.4).
+- **REQ-014**: Claude Code MUST verify that no PII is logged, even at debug level (guide.core.general.privacy-and-security-by-default).
 
 **Exit criteria**: All expected log messages verified in output. No PII in logs.
 
@@ -108,14 +108,14 @@ This phase runs after WF-3 (Code Implementation) and before WF-5 (Code Review).
 
   | Concern | Verification |
   |---------|-------------|
-  | Logging (GUIDE-1.9) | All components have structured logging |
-  | Deep linking (GUIDE-1.10) | URL patterns implemented per spec |
-  | Accessibility (GUIDE-1.12) | All views accessible (Phase 5) |
-  | Localization (GUIDE-1.13) | All strings use localization APIs |
-  | RTL layout (GUIDE-1.14) | Leading/trailing used, not left/right |
-  | Feature flags (GUIDE-1.17) | Feature gated behind flag |
-  | Analytics (GUIDE-1.18) | Events instrumented per plan |
-  | Privacy (GUIDE-1.16) | Secure storage, no PII leaks |
+  | Logging (guide.core.general.instrumented-logging) | All components have structured logging |
+  | Deep linking (guide.core.general.deep-linking) | URL patterns implemented per spec |
+  | Accessibility (guide.core.general.accessibility-from-day-one) | All views accessible (Phase 5) |
+  | Localization (guide.core.general.localizability) | All strings use localization APIs |
+  | RTL layout (guide.core.general.rtl-layout-support) | Leading/trailing used, not left/right |
+  | Feature flags (guide.core.general.feature-flags) | Feature gated behind flag |
+  | Analytics (guide.core.general.analytics) | Events instrumented per plan |
+  | Privacy (guide.core.general.privacy-and-security-by-default) | Secure storage, no PII leaks |
 
 - **REQ-019**: Claude Code MUST verify that opted-out concerns were not accidentally implemented. Unused code is a maintenance burden.
 - **REQ-020**: Claude Code MUST compile a compliance summary listing each guideline and its status (pass/fail/not-applicable).
@@ -165,13 +165,13 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 
 | Phase | Checklist Items | Notes |
 |-------|----------------|-------|
-| Phase 1 | GUIDE-1.8.1 (Build) | Build all target platforms |
-| Phase 2 | GUIDE-1.8.2 (Test), GUIDE-1.6, GUIDE-14.2-14.4 | Full test suite + coverage |
-| Phase 3 | GUIDE-1.8.3 (Lint), GUIDE-1.21 | Linter + formatter |
-| Phase 4 | GUIDE-1.8.4 (Log verify), GUIDE-1.9, GUIDE-1.16.4 | Log messages + no PII |
-| Phase 5 | GUIDE-1.8.5 (A11y audit), GUIDE-1.12, GUIDE-1.15 | Full accessibility check |
+| Phase 1 | guide.core.general.post-generation-verification.1 (Build) | Build all target platforms |
+| Phase 2 | guide.core.general.post-generation-verification.2 (Test), guide.core.general.comprehensive-unit-testing, guide.domain.testing.test-pyramid-14.4 | Full test suite + coverage |
+| Phase 3 | guide.core.general.post-generation-verification.3 (Lint), guide.core.general.linting-from-day-one | Linter + formatter |
+| Phase 4 | guide.core.general.post-generation-verification.4 (Log verify), guide.core.general.instrumented-logging, guide.core.general.privacy-and-security-by-default | Log messages + no PII |
+| Phase 5 | guide.core.general.post-generation-verification.5 (A11y audit), guide.core.general.accessibility-from-day-one, guide.core.general.respect-accessibility-display-options | Full accessibility check |
 | Phase 6 | All opted-in items | Compliance verification |
-| Phase 7 | GUIDE-14.6, GUIDE-14.8, GUIDE-14.5 | Mutation, security, property testing |
+| Phase 7 | guide.domain.testing.mutation-testing, guide.domain.testing.security-testing, guide.domain.testing.property-based-testing | Mutation, security, property testing |
 
 ## Conformance Test Vectors
 
@@ -203,7 +203,7 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 
 - **Build tools**: `xcodebuild` (Apple), `./gradlew build` (Android), `npm run build` (Web), `dotnet build` (.NET)
 - **Test runners**: `swift test` / `xcodebuild test`, `./gradlew test`, `npm test` / `npx vitest`, `dotnet test`
-- **Linters**: SwiftLint, ktlint, ESLint, Roslyn Analyzers (see GUIDE-1.21)
+- **Linters**: SwiftLint, ktlint, ESLint, Roslyn Analyzers (see guide.core.general.linting-from-day-one)
 - **Mutation testing**: muter (Swift), Pitest (Kotlin), Stryker (TS/JS/.NET), mutmut (Python)
 - **Security scanning**: Semgrep (`semgrep scan --config=auto .`), platform-specific dependency scanners
 - **gh**: Use `gh pr comment` to post the verification summary

@@ -27,7 +27,7 @@ This phase produces production-ready code that is then validated by WF-4 (Code V
 | Term | Definition |
 |------|-----------|
 | Approved plan | The plan document from WF-2 that the user has explicitly approved |
-| Phase 1/2/3 | The Make It Work / Make It Right / Make It Fast phases from GUIDE-2.2 |
+| Phase 1/2/3 | The Make It Work / Make It Right / Make It Fast phases from guide.core.principles.make-it-work-make-it-right-make-it-fast |
 | Plan deviation | Any change to the implementation that differs from the approved plan |
 
 ## Inputs
@@ -59,7 +59,7 @@ This phase produces production-ready code that is then validated by WF-4 (Code V
 **Entry criteria**: Phase 1 complete. Core functionality works and tests pass.
 
 - **REQ-009**: Claude Code MUST handle edge cases identified in the plan and any new ones discovered during Phase 1 implementation.
-- **REQ-010**: Claude Code MUST refactor for clarity — apply separation of concerns (GUIDE-2.13), clean up naming, ensure the code is readable and maintainable.
+- **REQ-010**: Claude Code MUST refactor for clarity — apply separation of concerns (guide.core.principles.separation-of-concerns), clean up naming, ensure the code is readable and maintainable.
 - **REQ-011**: Claude Code MUST add error handling appropriate to each boundary: user input validation, network error handling, missing data fallbacks.
 - **REQ-012**: Claude Code MUST add tests for edge cases and error paths added in this phase.
 - **REQ-013**: Claude Code SHOULD review the code for guideline compliance at this point — verify all opted-in concerns are addressed before moving to Phase 3.
@@ -99,11 +99,11 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 
 | Phase | Checklist Items | Notes |
 |-------|----------------|-------|
-| Phase 1 | GUIDE-1.1 (native controls), GUIDE-1.4 (no blocking main thread), GUIDE-2.4 (DI), GUIDE-2.5 (immutability) | Core engineering during implementation |
-| Phase 1 | GUIDE-1.6 (unit testing), GUIDE-14.4 (test patterns), GUIDE-14.9 (no flaky tests), GUIDE-14.10 (test data) | Tests written alongside code |
+| Phase 1 | guide.core.general.prefer-native-controls-and-libraries (native controls), guide.core.general.no-blocking-the-main-thread (no blocking main thread), guide.core.principles.dependency-injection (DI), guide.core.principles.immutability-by-default (immutability) | Core engineering during implementation |
+| Phase 1 | guide.core.general.comprehensive-unit-testing (unit testing), guide.domain.testing.unit-test-patterns (test patterns), guide.domain.testing.flaky-test-prevention (no flaky tests), guide.domain.testing.test-data (test data) | Tests written alongside code |
 | Phase 1 | All opted-in items from WF-2 | Logging, accessibility, deep linking, feature flags, etc. |
-| Phase 2 | GUIDE-2.6 (fail fast), GUIDE-2.13 (separation of concerns), GUIDE-2.10 (explicit over implicit) | Refactoring and error handling |
-| Phase 3 | GUIDE-2.12 (tight feedback loops) | Performance measurement and optimization |
+| Phase 2 | guide.core.principles.fail-fast (fail fast), guide.core.principles.separation-of-concerns (separation of concerns), guide.core.principles.explicit-over-implicit (explicit over implicit) | Refactoring and error handling |
+| Phase 3 | guide.core.principles.tight-feedback-loops (tight feedback loops) | Performance measurement and optimization |
 
 ## Conformance Test Vectors
 
@@ -130,7 +130,7 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 - **Plan references outdated code**: If the plan references a function or file that was modified since planning, Claude Code MUST check the current state and adapt. If the change is significant, treat it as a plan deviation (REQ-018).
 - **Circular dependency discovered**: If implementing the plan creates a circular dependency, stop and raise it with the user. This is a major plan deviation.
 - **Test infrastructure missing**: If the project lacks test infrastructure (no test runner, no test directory), set it up before writing tests. This is part of delivering working code, not scope creep.
-- **External service unavailable**: If the implementation depends on an external service that is unavailable during development, use a fake/stub (GUIDE-14.7) and note this in the PR.
+- **External service unavailable**: If the implementation depends on an external service that is unavailable during development, use a fake/stub (guide.domain.testing.test-doubles) and note this in the PR.
 
 ## Tool Notes
 
@@ -141,11 +141,11 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 ## Design Decisions
 
 **Decision**: Tests written alongside code, not in a separate phase after implementation.
-**Rationale**: Writing tests after all implementation is done creates a temptation to skip or rush them. Writing tests alongside code catches bugs earlier, serves as design feedback (hard-to-test code = bad design), and ensures no code ships untested. Aligns with GUIDE-14.11 (testing workflow).
+**Rationale**: Writing tests after all implementation is done creates a temptation to skip or rush them. Writing tests alongside code catches bugs earlier, serves as design feedback (hard-to-test code = bad design), and ensures no code ships untested. Aligns with guide.domain.testing.the-testing-workflow (testing workflow).
 **Approved**: pending
 
 **Decision**: Phase 3 (Make It Fast) is conditional on evidence, not automatic.
-**Rationale**: Premature optimization wastes time and harms readability (GUIDE-2.2). Most code is fast enough without optimization. Phase 3 only activates when measurement proves a problem exists.
+**Rationale**: Premature optimization wastes time and harms readability (guide.core.principles.make-it-work-make-it-right-make-it-fast). Most code is fast enough without optimization. Phase 3 only activates when measurement proves a problem exists.
 **Approved**: pending
 
 **Decision**: Minor plan deviations can proceed; major ones require returning to WF-2.
