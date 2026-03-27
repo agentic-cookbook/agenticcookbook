@@ -1,0 +1,63 @@
+# Concurrency
+
+All lengthy work must run on background threads/tasks using platform async primitives. Never block the main/UI thread. Show progress (determinate or indeterminate) when the UI is waiting on an async task.
+
+## Swift
+
+Use Swift Concurrency (`async`/`await`, `Task`, actors) for all async work. Never block the main thread. Use `@MainActor` for UI updates.
+
+## Kotlin
+
+Use Kotlin Coroutines for all async work. Run I/O on `Dispatchers.IO`. Use `viewModelScope` for ViewModel-scoped coroutines. Never block the main thread.
+
+```kotlin
+viewModelScope.launch(Dispatchers.IO) {
+    val result = repository.fetch()
+    withContext(Dispatchers.Main) { updateUi(result) }
+}
+```
+
+## TypeScript
+
+Use `Promise`/`async`/`await` for async operations. Use Web Workers for CPU-intensive tasks. Never block the main thread.
+
+## C#
+
+Use `async`/`await` for all async work. Never block the main thread.
+
+- `ConfigureAwait(false)` in library code to avoid capturing the synchronization context
+- Never use `.Result` or `.Wait()` — causes deadlocks
+- Never use `async void` except for event handlers
+- Accept `CancellationToken` in all async APIs
+- Use `ValueTask<T>` only when the method frequently completes synchronously
+- Use `Task.Run` for CPU-bound work, never on the UI thread
+
+```csharp
+// Library code — ConfigureAwait(false)
+public async Task<Data> FetchAsync(CancellationToken ct = default)
+{
+    var response = await _client.GetAsync(url, ct).ConfigureAwait(false);
+    return await ParseAsync(response, ct).ConfigureAwait(false);
+}
+
+// Application code — no ConfigureAwait needed
+public async Task OnLoadAsync()
+{
+    var data = await _service.FetchAsync();
+    UpdateUI(data);
+}
+```
+
+## Windows
+
+Same async/await conventions as C# above. For WinUI 3 specifically:
+
+- Use `DispatcherQueue.TryEnqueue` to marshal work back to the UI thread from background tasks
+- Never access UI elements from non-UI threads
+
+```csharp
+DispatcherQueue.TryEnqueue(() =>
+{
+    StatusText.Text = "Updated from background";
+});
+```
