@@ -1,42 +1,9 @@
-import { useState } from 'react'
 import { useLocation } from 'react-router'
 import { useContent } from '../../contexts/ContentContext'
 import Breadcrumbs from '../layout/Breadcrumbs'
 import TableOfContents from '../layout/TableOfContents'
 import type { CookbookEntry } from '../../types/cookbook'
 
-/** Sections shown in the summary (before "Details") */
-const SUMMARY_SECTIONS = new Set([
-  'overview',
-  'terminology',
-  'appearance',
-])
-
-/**
- * Split HTML into summary and details at h2 boundaries.
- * Summary = h1 + overview/terminology/appearance sections.
- * Details = everything else.
- */
-function splitHtml(html: string): { summary: string; details: string } {
-  const parts = html.split(/(?=<h2[\s>])/i)
-  let summary = ''
-  let details = ''
-
-  for (const part of parts) {
-    const idMatch = part.match(/<h2[^>]*id="([^"]*)"/)
-    const id = idMatch?.[1]?.toLowerCase() ?? ''
-
-    if (!id) {
-      summary += part
-    } else if (SUMMARY_SECTIONS.has(id)) {
-      summary += part
-    } else {
-      details += part
-    }
-  }
-
-  return { summary, details }
-}
 
 /** Metadata block */
 function EntryMeta({ entry }: { entry: CookbookEntry }) {
@@ -65,43 +32,15 @@ function EntryMeta({ entry }: { entry: CookbookEntry }) {
   )
 }
 
-/** Single entry with summary + Details disclosure */
+/** Single entry — metadata block then full content */
 function EntryView({ entry }: { entry: CookbookEntry }) {
-  const [detailsOpen, setDetailsOpen] = useState(false)
-  const { summary, details } = splitHtml(entry.html)
-
   return (
     <div>
+      <EntryMeta entry={entry} />
       <article
         className="prose max-w-none prose-headings:scroll-mt-20 prose-code:before:content-none prose-code:after:content-none"
-        dangerouslySetInnerHTML={{ __html: summary }}
+        dangerouslySetInnerHTML={{ __html: entry.html }}
       />
-      <EntryMeta entry={entry} />
-      {details && (
-        <div className="mt-2">
-          <button
-            onClick={() => setDetailsOpen(!detailsOpen)}
-            className="flex items-center gap-1.5 font-mono text-xs font-medium text-[var(--color-accent)] hover:underline"
-          >
-            <svg
-              className={`h-3 w-3 transition-transform duration-150 ${detailsOpen ? 'rotate-90' : ''}`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2.5}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-            Details
-          </button>
-          {detailsOpen && (
-            <article
-              className="prose max-w-none prose-headings:scroll-mt-20 prose-code:before:content-none prose-code:after:content-none mt-4"
-              dangerouslySetInnerHTML={{ __html: details }}
-            />
-          )}
-        </div>
-      )}
     </div>
   )
 }
