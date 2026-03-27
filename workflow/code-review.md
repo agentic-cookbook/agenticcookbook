@@ -65,13 +65,13 @@ Referenced from WF-1 (Branching Strategy) Phase 3 as the gate before marking a P
   - Python: `~/.claude/guidelines/python.md`
   - C#: `~/.claude/guidelines/csharp.md`
 
-- **REQ-005**: Claude Code MUST check for violations of the engineering principles (CG-2.x):
-  - Unnecessary complexity (CG-2.1)
-  - Premature abstraction or speculative generality (CG-2.9)
-  - Implicit dependencies or hidden state (CG-2.10)
-  - Mixed concerns in a single module (CG-2.13)
-  - Deep inheritance hierarchies (CG-2.3)
-  - Mutable shared state (CG-2.5)
+- **REQ-005**: Claude Code MUST check for violations of the engineering principles (GUIDE-2.x):
+  - Unnecessary complexity (GUIDE-2.1)
+  - Premature abstraction or speculative generality (GUIDE-2.9)
+  - Implicit dependencies or hidden state (GUIDE-2.10)
+  - Mixed concerns in a single module (GUIDE-2.13)
+  - Deep inheritance hierarchies (GUIDE-2.3)
+  - Mutable shared state (GUIDE-2.5)
 
 - **REQ-006**: Claude Code MUST verify naming quality:
   - Types, functions, and variables have descriptive names that reveal intent
@@ -101,9 +101,9 @@ Referenced from WF-1 (Branching Strategy) Phase 3 as the gate before marking a P
   9. Using components with known vulnerabilities
   10. Insufficient logging and monitoring
 
-- **REQ-009**: Claude Code MUST verify that user input is validated and sanitized at system boundaries (CG-1.16.6).
-- **REQ-010**: Claude Code MUST verify that credentials and tokens use platform secure storage (CG-1.16.3), not plain text or UserDefaults/SharedPreferences.
-- **REQ-011**: If the code handles network requests, Claude Code MUST verify TLS-only (CG-1.16.5) and proper error handling of network failures.
+- **REQ-009**: Claude Code MUST verify that user input is validated and sanitized at system boundaries (GUIDE-1.16.6).
+- **REQ-010**: Claude Code MUST verify that credentials and tokens use platform secure storage (GUIDE-1.16.3), not plain text or UserDefaults/SharedPreferences.
+- **REQ-011**: If the code handles network requests, Claude Code MUST verify TLS-only (GUIDE-1.16.5) and proper error handling of network failures.
 
 **Exit criteria**: No security vulnerabilities in new code.
 
@@ -112,11 +112,11 @@ Referenced from WF-1 (Branching Strategy) Phase 3 as the gate before marking a P
 **Entry criteria**: Phase 3 complete.
 
 - **REQ-012**: Claude Code MUST review test quality, not just test existence:
-  - Tests verify behavior, not implementation details (CG-14.3 "behavioral")
-  - Tests would survive a refactoring of internals (CG-14.3 "structure-insensitive")
-  - Tests are readable — a failing test tells you what broke (CG-14.3 "readable", "specific")
-  - No logic in tests — no `if`, `for`, `try/catch` (CG-14.4)
-  - Each test has one assertion concept (CG-14.4)
+  - Tests verify behavior, not implementation details (GUIDE-14.3 "behavioral")
+  - Tests would survive a refactoring of internals (GUIDE-14.3 "structure-insensitive")
+  - Tests are readable — a failing test tells you what broke (GUIDE-14.3 "readable", "specific")
+  - No logic in tests — no `if`, `for`, `try/catch` (GUIDE-14.4)
+  - Each test has one assertion concept (GUIDE-14.4)
 
 - **REQ-013**: Claude Code MUST verify test coverage completeness:
   - Every public API method has at least one test
@@ -125,9 +125,9 @@ Referenced from WF-1 (Branching Strategy) Phase 3 as the gate before marking a P
   - Error paths have tests (not just happy paths)
 
 - **REQ-014**: Claude Code MUST verify that test doubles are used appropriately:
-  - Fakes preferred over mocks (CG-14.7)
-  - Third-party dependencies wrapped behind interfaces, not mocked directly (CG-14.7)
-  - No shared mutable state between tests (CG-14.9)
+  - Fakes preferred over mocks (GUIDE-14.7)
+  - Third-party dependencies wrapped behind interfaces, not mocked directly (GUIDE-14.7)
+  - No shared mutable state between tests (GUIDE-14.9)
 
 **Exit criteria**: Tests are meaningful, comprehensive, and well-structured.
 
@@ -163,9 +163,9 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 
 | Phase | Checklist Items | Notes |
 |-------|----------------|-------|
-| Phase 2 | CG-2.1, CG-2.3, CG-2.5, CG-2.9, CG-2.10, CG-2.13 | Engineering principles |
-| Phase 3 | CG-1.16 (all subsections) | Privacy and security |
-| Phase 4 | CG-14.3, CG-14.4, CG-14.7, CG-14.9 | Test quality |
+| Phase 2 | GUIDE-2.1, GUIDE-2.3, GUIDE-2.5, GUIDE-2.9, GUIDE-2.10, GUIDE-2.13 | Engineering principles |
+| Phase 3 | GUIDE-1.16 (all subsections) | Privacy and security |
+| Phase 4 | GUIDE-14.3, GUIDE-14.4, GUIDE-14.7, GUIDE-14.9 | Test quality |
 | Phase 5 | All opted-in items from WF-2 | Final compliance check |
 
 ## Conformance Test Vectors
@@ -189,7 +189,7 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 
 - **Self-review bias**: Claude Code reviewing its own code risks confirmation bias. Mitigate by using objective checklists (this spec) rather than subjective judgment. Each phase has concrete criteria.
 - **Review finds too many issues**: If review reveals pervasive quality problems, this may indicate the implementation phase was rushed. Discuss with the user whether to fix incrementally or reconsider the approach.
-- **Platform-specific guidelines not available**: If the project uses a language/framework without a guideline file, apply general engineering principles (CG-2.x) and note the gap in the review summary.
+- **Platform-specific guidelines not available**: If the project uses a language/framework without a guideline file, apply general engineering principles (GUIDE-2.x) and note the gap in the review summary.
 - **No changes needed**: If review finds no issues, that's a valid outcome. Post the summary confirming all checks passed.
 
 ## Tool Notes

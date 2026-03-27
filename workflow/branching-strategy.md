@@ -119,9 +119,9 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 
 | Phase | Checklist Items | Notes |
 |-------|----------------|-------|
-| Phase 2 | CG-1.7 (atomic commits) | Every commit is one logical change |
+| Phase 2 | GUIDE-1.7 (atomic commits) | Every commit is one logical change |
 | Phase 3 | All opted-in items from WF-2 | Review verifies compliance |
-| Phase 4 | CG-1.7 (atomic commits) | Squash merge produces one clean commit on main |
+| Phase 4 | GUIDE-1.7 (atomic commits) | Squash merge produces one clean commit on main |
 
 ## Conformance Test Vectors
 

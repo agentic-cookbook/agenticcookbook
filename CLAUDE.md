@@ -59,7 +59,7 @@ Process-oriented recipes describing how Claude Code AI sessions should develop c
 | WF-4 | code-verification.md |
 | WF-5 | code-review.md |
 
-Cross-reference using `WF-` notation: "See WF-2" means code-planning.md. "See WF-2.3" means code-planning.md Phase 3. The shared [guideline-checklist.md](workflow/guideline-checklist.md) maps all CG-x.y guidelines to workflow phases.
+Cross-reference using `WF-` notation: "See WF-2" means code-planning.md. "See WF-2.3" means code-planning.md Phase 3. The shared [guideline-checklist.md](workflow/guideline-checklist.md) maps all GUIDE-x.y guidelines to workflow phases.
 
 ### Litterbox-specific additions
 

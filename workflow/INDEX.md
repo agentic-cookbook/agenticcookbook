@@ -1,6 +1,6 @@
 # Workflow Index
 
-Process-oriented recipes describing how Claude Code AI sessions should develop code in consuming projects. These workflows complement the [CG-x.y guidelines](~/.claude/guidelines/) by providing orchestration: *when* and *in what order* to apply those guidelines.
+Process-oriented recipes describing how Claude Code AI sessions should develop code in consuming projects. These workflows complement the [GUIDE-x.y guidelines](~/.claude/guidelines/) by providing orchestration: *when* and *in what order* to apply those guidelines.
 
 Cross-reference using `WF-` notation: "See WF-2" means code-planning.md. "See WF-2.3" means code-planning.md Phase 3. `WF-` numbers are stable — never reuse a number, even if a workflow is removed.
 
@@ -25,7 +25,7 @@ WF-1 establishes the worktree and draft PR. WF-2 through WF-5 execute inside tha
 | File | Description |
 |------|-------------|
 | [_template.md](_template.md) | Starting point for new workflow specs — copy, don't edit |
-| [guideline-checklist.md](guideline-checklist.md) | Shared opt-in/opt-out cross-reference for all CG-x.y guidelines |
+| [guideline-checklist.md](guideline-checklist.md) | Shared opt-in/opt-out cross-reference for all GUIDE-x.y guidelines |
 
 ## Workflows
 

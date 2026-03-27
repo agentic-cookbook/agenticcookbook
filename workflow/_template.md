@@ -59,7 +59,7 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 
 | Phase | Checklist Items | Notes |
 |-------|----------------|-------|
-| Phase 1 | CG-x.y, CG-x.y | Phase-specific guidance |
+| Phase 1 | GUIDE-x.y, GUIDE-x.y | Phase-specific guidance |
 
 ## Conformance Test Vectors
 

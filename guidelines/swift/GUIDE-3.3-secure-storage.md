@@ -1,0 +1,3 @@
+# GUIDE-3.3. Secure Storage
+
+Use Keychain Services for tokens, credentials, and any sensitive data. Never store secrets in UserDefaults or plists.
