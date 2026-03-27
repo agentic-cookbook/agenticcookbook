@@ -1,24 +1,23 @@
 ---
 name: import-agentic-cookbook
-version: "5.0.0"
+version: "5.1.0"
 description: "Import the agentic cookbook into your project. Sets up CLAUDE.md and configures your participation tier."
 argument-hint: "[--version]"
 disable-model-invocation: true
-allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(mkdir *), Bash(ls *), AskUserQuestion
-context: fork
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(mkdir *), Bash(ls *), AskUserQuestion, Skill
 ---
 
-# Import Agentic Cookbook v5.0.0
+# Import Agentic Cookbook v5.1.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `import-agentic-cookbook v5.0.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `import-agentic-cookbook v5.1.0` and stop — do not run the skill.
 
-Otherwise, print `import-agentic-cookbook v5.0.0` as the first line of output, then proceed.
+Otherwise, print `import-agentic-cookbook v5.1.0` as the first line of output, then proceed.
 
 ## Overview
 
-Import the agentic cookbook into your project. This skill updates your project's CLAUDE.md to reference the cookbook, then directs you to run the tier configuration flow to install the appropriate rules.
+Import the agentic cookbook into your project. This skill updates your project's CLAUDE.md to reference the cookbook, then runs the tier configuration flow to install the appropriate rules.
 
 ## Usage
 
@@ -57,25 +56,24 @@ This project uses the [agentic-cookbook](https://github.com/mikefullerton/agenti
 - **Cookbook path**: `../agentic-cookbook/`
 - **Tier**: (set by /configure-agentic-cookbook)
 
-Run `/configure-agentic-cookbook` to select your participation tier and install rules.
+Run `/configure-agentic-cookbook` to change your participation tier.
 ```
 
 ## Step 3: Run Configuration
 
-Print: "CLAUDE.md updated. Now run `/configure-agentic-cookbook` to select your participation tier and install rules."
+Ask the user: "Would you like to select your participation tier now?"
 
-Do NOT run tier selection — that is `/configure-agentic-cookbook`'s job.
+- If **yes**: invoke `/configure-agentic-cookbook` using the Skill tool. This will handle tier selection, rule copying, and updating CLAUDE.md with the tier details.
+- If **no**: default to **Tier 2 (Guidelines)** and invoke `/configure-agentic-cookbook 2` using the Skill tool. Print: "Defaulting to Tier 2 (Guidelines). Run `/configure-agentic-cookbook` anytime to change."
 
 ## Step 4: Print Summary
 
 ```
 === Agentic Cookbook Imported ===
 CLAUDE.md: updated with cookbook reference
-Next step: run /configure-agentic-cookbook to select your tier
+Tier: configured by /configure-agentic-cookbook
 ```
 
 ## Guards
 
 - **Do not modify the cookbook repo.** Only read from `../agentic-cookbook/`.
-- **Do not select a tier** — that is `/configure-agentic-cookbook`'s job.
-- **Do not copy rule files** — that is `/configure-agentic-cookbook`'s job.
