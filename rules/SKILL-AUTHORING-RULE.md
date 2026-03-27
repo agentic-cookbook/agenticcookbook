@@ -13,7 +13,7 @@ You are creating, renaming, or modifying a Claude Code skill. You MUST follow ev
 
 ## Creating the Skill
 
-5. **Follow the skill structure reference** at `.claude/skills/review-claude-extension/references/skill-structure-reference.md` for frontmatter fields, directory layout, and conventions.
+5. **Follow the skill structure reference** at `.claude/skills/lint-skill/references/skill-structure-reference.md` for frontmatter fields, directory layout, and conventions.
 6. **Follow the versioning rule** at `rules/SKILL-VERSIONING-RULE.md` — version in frontmatter, --version parameter, print version on invocation.
 7. **Use `$ARGUMENTS`** for any skill that accepts input. Do not describe argument handling in prose without referencing `$ARGUMENTS` or positional variables (`$0`, `$1`).
 8. **Use `${CLAUDE_SKILL_DIR}`** for references to the skill's own supporting files. Use repo-relative or `../agentic-cookbook/` paths for cookbook content.

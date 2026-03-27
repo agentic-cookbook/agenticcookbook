@@ -41,7 +41,7 @@ Consuming projects choose a tier. Each is additive.
 | 3 | Recipes | `rules/RECIPE-CONSUMER-RULE.md` | + Recipe search, conformance, opportunity flagging |
 | 4 | Contributor | `rules/CONTRIBUTOR-RULE.md` | + Create/enhance recipes, PR workflow |
 
-Install: `/install-agentic-cookbook` from the consuming project. Change tier: `/configure-agentic-cookbook`.
+Onboard: `/import-agentic-cookbook` from the consuming project. Change tier: `/configure-agentic-cookbook`.
 
 ## Skills
 

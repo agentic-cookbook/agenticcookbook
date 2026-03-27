@@ -1,6 +1,6 @@
 ---
 name: configure-agentic-cookbook
-version: "1.0.0"
+version: "1.1.0"
 description: "Change your agentic cookbook participation tier. Upgrade or downgrade between principles, guidelines, recipes, and contributor levels."
 argument-hint: "[tier-number] [--version]"
 disable-model-invocation: true
@@ -8,13 +8,13 @@ allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(rm *), Bash(ls *)
 context: fork
 ---
 
-# Configure Agentic Cookbook v1.0.0
+# Configure Agentic Cookbook v1.1.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `configure-agentic-cookbook v1.0.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `configure-agentic-cookbook v1.1.0` and stop — do not run the skill.
 
-Otherwise, print `configure-agentic-cookbook v1.0.0` as the first line of output, then proceed.
+Otherwise, print `configure-agentic-cookbook v1.1.0` as the first line of output, then proceed.
 
 ## Usage
 
@@ -37,7 +37,7 @@ Check `.claude/rules/` in the current project for which rule files are installed
 | `PRINCIPLES-RULE.md` present | Tier 1 — Principles Only |
 | None of the above | Not installed |
 
-If not installed, print: "No agentic cookbook rules found. Run `/install-agentic-cookbook` first." and stop.
+If not installed, this is a first-time configuration. Print: `No existing tier detected — first-time setup.` Set current tier to 0 and proceed to Step 2.
 
 Also check whether `COMMITTING-RULE.md` is present (this is independent of tier).
 
@@ -60,7 +60,9 @@ If the selected tier equals the current tier, print: `Already at tier <N> (<Name
 
 **Verify** `../agentic-cookbook/` exists before copying any files. If missing, print an error and stop.
 
-**If upgrading** (new tier > current tier): copy the additional rule files from `../agentic-cookbook/rules/` into `.claude/rules/`.
+**Create the rules directory** if it doesn't exist: `mkdir -p .claude/rules`
+
+**If upgrading** (new tier > current tier, or first-time setup from tier 0): copy the appropriate rule files from `../agentic-cookbook/rules/` into `.claude/rules/`.
 
 | Tier | Rule files (cumulative) |
 |------|------------------------|
@@ -114,7 +116,7 @@ If no, remove `.claude/rules/COMMITTING-RULE.md`.
 
 If `CLAUDE.md` does not exist in the project root, create it with a project title heading (`# <Project Name>`) and the cookbook section below. If `CLAUDE.md` exists but has no `## Agentic Cookbook` section, append the section below to the end of the file. If the section already exists, replace it in place.
 
-Replace the tier info, rule list, and available skills to match the new tier. If the committing rule is installed, include it in the rules list with `*(optional — structured git workflow)*`. Use the same format as `install-agentic-cookbook` Step 3:
+Replace the tier info, rule list, and available skills to match the new tier. If the committing rule is installed, include it in the rules list with `*(optional — structured git workflow)*`. Use this format:
 
 ```markdown
 ## Agentic Cookbook
