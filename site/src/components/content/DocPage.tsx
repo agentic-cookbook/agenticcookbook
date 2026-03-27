@@ -4,18 +4,12 @@ import Breadcrumbs from '../layout/Breadcrumbs'
 import TableOfContents from '../layout/TableOfContents'
 import FrontmatterDisplay from './FrontmatterDisplay'
 import DependencyPanel from './DependencyPanel'
-import HomePage from '../sections/HomePage'
 
 export default function DocPage() {
   const { pathname } = useLocation()
   const { getBySlug } = useContent()
 
-  // Home route gets a designed landing page
-  if (pathname === '/') {
-    return <HomePage />
-  }
-
-  const slug = pathname.replace(/\/$/, '')
+  const slug = pathname === '/' ? '/' : pathname.replace(/\/$/, '')
   const entry = getBySlug(slug)
 
   if (!entry) {
