@@ -1,5 +1,6 @@
-import { Link, useLocation } from 'react-router'
+import { Link, useLocation, useSearchParams } from 'react-router'
 import { useTheme } from '../../contexts/ThemeContext'
+import PlatformFilter from '../content/PlatformFilter'
 
 const SECTIONS = [
   { label: 'Principles', path: '/principles' },
@@ -17,8 +18,21 @@ interface HeaderProps {
 export default function Header({ onMenuToggle, onSearchOpen }: HeaderProps) {
   const { pathname } = useLocation()
   const { theme, toggle } = useTheme()
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const activeSection = '/' + pathname.split('/').filter(Boolean)[0]
+  const selectedPlatforms = searchParams.get('platform')?.split(',').filter(Boolean) ?? []
+
+  function handlePlatformChange(platforms: string[]) {
+    setSearchParams((prev) => {
+      if (platforms.length === 0) {
+        prev.delete('platform')
+      } else {
+        prev.set('platform', platforms.join(','))
+      }
+      return prev
+    })
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 dark:border-slate-700 bg-white/75 dark:bg-slate-950/75 backdrop-blur">
@@ -71,6 +85,9 @@ export default function Header({ onMenuToggle, onSearchOpen }: HeaderProps) {
             <span className="text-xs">&#8984;</span>K
           </kbd>
         </button>
+
+        {/* Platform filter */}
+        <PlatformFilter selected={selectedPlatforms} onChange={handlePlatformChange} />
 
         {/* Theme toggle */}
         <button
