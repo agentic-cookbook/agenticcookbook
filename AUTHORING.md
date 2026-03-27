@@ -19,9 +19,11 @@ This guide is for Claude Code sessions and external contributors working in a co
 |------|-----------|-------------|
 | Component | `ui/` | Self-contained, reusable UI building blocks (buttons, badges, status bars) |
 | Recipe | `ui/Recipes/` | Composite flows that combine components into a feature (windows, panels, lifecycle patterns) |
-| Template | `ui/_template.md` | Starting point for all new specs — copy, don't edit |
+| Workflow | `workflow/` | Development process recipes for Claude Code AI sessions |
+| Template | `ui/_template.md` | Starting point for new UI specs — copy, don't edit |
+| Workflow Template | `workflow/_template.md` | Starting point for new workflow specs — copy, don't edit |
 
-**Components** are leaf nodes — they have no dependencies on other specs in this repo (though they may reference platform controls). **Recipes** compose components and may depend on other specs.
+**Components** are leaf nodes — they have no dependencies on other specs in this repo (though they may reference platform controls). **Recipes** compose components and may depend on other specs. **Workflows** describe development processes, not software artifacts — they use `WF-` numbering and a workflow-specific template with Inputs, Phases, and Guideline Cross-Reference sections instead of Appearance and States.
 
 ## File Naming
 

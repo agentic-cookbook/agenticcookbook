@@ -1,0 +1,38 @@
+# Workflow Index
+
+Process-oriented recipes describing how Claude Code AI sessions should develop code in consuming projects. These workflows complement the [CG-x.y guidelines](~/.claude/guidelines/) by providing orchestration: *when* and *in what order* to apply those guidelines.
+
+Cross-reference using `WF-` notation: "See WF-2" means code-planning.md. "See WF-2.3" means code-planning.md Phase 3. `WF-` numbers are stable — never reuse a number, even if a workflow is removed.
+
+**Maintenance**: This index MUST be updated on the same branch as any workflow change. The CLAUDE.md `WF-` numbering table must stay in sync.
+
+## Development Lifecycle
+
+The five workflows form a pipeline. Every coding session flows through them in order:
+
+```
+WF-1 Branching Strategy (wraps all phases)
+ ├── WF-2 Code Planning
+ ├── WF-3 Code Implementation
+ ├── WF-4 Code Verification
+ └── WF-5 Code Review
+```
+
+WF-1 establishes the worktree and draft PR. WF-2 through WF-5 execute inside that worktree. When WF-5 passes, WF-1 marks the PR ready and merges.
+
+## Shared Resources
+
+| File | Description |
+|------|-------------|
+| [_template.md](_template.md) | Starting point for new workflow specs — copy, don't edit |
+| [guideline-checklist.md](guideline-checklist.md) | Shared opt-in/opt-out cross-reference for all CG-x.y guidelines |
+
+## Workflows
+
+| ID | Spec | Version | Description |
+|----|------|---------|-------------|
+| WF-1 | [branching-strategy.md](branching-strategy.md) | 1.0.0 | Worktree + draft PR lifecycle for AI sessions |
+| WF-2 | [code-planning.md](code-planning.md) | 1.0.0 | Pre-implementation decision-making and guideline applicability |
+| WF-3 | [code-implementation.md](code-implementation.md) | 1.0.0 | Disciplined phased execution of the plan |
+| WF-4 | [code-verification.md](code-verification.md) | 1.0.0 | Post-implementation validation and testing |
+| WF-5 | [code-review.md](code-review.md) | 1.0.0 | Structured review process for AI-generated code |
