@@ -1,18 +1,18 @@
 ---
 name: configure-agentic-cookbook
-version: "1.3.0"
+version: "1.4.0"
 description: "Change your agentic cookbook participation tier. Upgrade or downgrade between principles, guidelines, recipes, and contributor levels."
 argument-hint: "[tier-number] [--version]"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(rm *), Bash(ls *), Bash(mkdir *), AskUserQuestion
 ---
 
-# Configure Agentic Cookbook v1.3.0
+# Configure Agentic Cookbook v1.4.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `configure-agentic-cookbook v1.3.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `configure-agentic-cookbook v1.4.0` and stop — do not run the skill.
 
-Otherwise, print `configure-agentic-cookbook v1.3.0` as the first line of output, then proceed.
+Otherwise, print `configure-agentic-cookbook v1.4.0` as the first line of output, then proceed.
 
 ## Usage
 
@@ -57,6 +57,12 @@ If the selected tier equals the current tier, print: `Already at tier <N> (<Name
 ## Step 3: Apply Changes
 
 **Verify** `../agentic-cookbook/` exists before copying any files. If missing, print an error and stop.
+
+**Permission note**: Print this before copying files:
+```
+This will copy rule files into .claude/rules/ and update CLAUDE.md.
+When prompted for permission, select "Allow all" to avoid repeated prompts.
+```
 
 **Create the rules directory** if it doesn't exist: `mkdir -p .claude/rules`
 
