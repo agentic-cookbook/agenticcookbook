@@ -50,12 +50,12 @@ Landing page: `cookbook/index.md`
 
 ### Worktree flow
 
-1. `git worktree add ../litterbox-wt/<branch-name> -b <branch>`
+1. `git worktree add ../agentic-cookbook-wt/<branch-name> -b <branch>`
 2. Do all work in the worktree
 3. Update `cookbook/index.md` if adding new content
 4. Commit, push, create PR with `gh pr create`
 5. Squash merge: `gh pr merge --squash`
-6. Clean up: `git worktree remove ../litterbox-wt/<branch-name>`
+6. Clean up: `git worktree remove ../agentic-cookbook-wt/<branch-name>`
 7. Pull main: `git pull`
 
 ## How to Use This Repo
@@ -69,7 +69,7 @@ Add to your project's `CLAUDE.md`:
 
 This project uses the [agentic-cookbook](https://github.com/mikefullerton/agentic-cookboox) repo.
 
-- **Expected path**: `../litterbox/`
+- **Expected path**: `../agentic-cookbook/`
 - Before reading any cookbook content, verify the path exists.
 - Read `cookbook/index.md` for the full table of contents.
 - When implementing a feature, check for existing recipes and guidelines.
