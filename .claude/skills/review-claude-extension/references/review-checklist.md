@@ -28,7 +28,7 @@ Severity levels:
 | S09 | Directory name matches `name` field | Compare directory basename to frontmatter `name` | WARN |
 | S10 | `argument-hint` present if `$ARGUMENTS` used | SKILL.md uses `$ARGUMENTS` or `$1`, `$2` but frontmatter lacks `argument-hint:` | WARN |
 | S11 | Correct file location | Skill is in `.claude/skills/` or `~/.claude/skills/`; agent is in `.claude/agents/` | WARN |
-| S12 | Only recognized frontmatter fields | Check against known fields: name, description, argument-hint, disable-model-invocation, user-invocable, allowed-tools, model, effort, context, agent, hooks | WARN |
+| S12 | Only recognized frontmatter fields | Check against known fields: name, description, argument-hint, disable-model-invocation, user-invocable, allowed-tools, model, effort, context, agent, hooks, paths, shell | WARN |
 
 ---
 

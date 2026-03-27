@@ -27,13 +27,15 @@
 | `context` | string | — | Set to `fork` to run in an isolated subagent context |
 | `agent` | string | — | Specify subagent type when using `context: fork` |
 | `hooks` | object | — | Lifecycle hooks (preInvoke, postInvoke) |
+| `paths` | list | — | Glob patterns limiting auto-activation to matching file paths |
+| `shell` | string | `bash` | Shell for inline commands (`bash` or `powershell`) |
 
 ## String Substitutions
 
 | Variable | Expands to |
 |----------|-----------|
 | `$ARGUMENTS` | Full argument string passed after `/skill-name` |
-| `$1`, `$2`, ... `$N` | Positional arguments (space-separated) |
+| `$0`, `$1`, ... `$N` | Positional arguments (0-based, space-separated) |
 | `${CLAUDE_SESSION_ID}` | Current session ID |
 | `${CLAUDE_SKILL_DIR}` | Absolute path to this skill's directory |
 

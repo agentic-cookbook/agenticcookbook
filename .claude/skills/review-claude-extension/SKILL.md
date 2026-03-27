@@ -1,9 +1,7 @@
 ---
 name: review-claude-extension
-version: "3"
-description: "Review a Claude Code skill, agent, or rule file against best practices. Use when you want to validate a skill/agent/rule design, check for anti-patterns, or ensure compliance with specifications. Triggers on 'review this skill', 'check my agent', 'review this rule', 'validate this extension', or /review-claude-extension."
+description: "Review a Claude Code skill, agent, or rule against best practices. Triggers on 'review this skill', 'check my agent', 'review this rule', or /review-claude-extension."
 argument-hint: "<path-to-skill-agent-or-rule>"
-disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, WebFetch, Bash(wc *)
 context: fork
 ---
@@ -12,7 +10,7 @@ context: fork
 
 If `$ARGUMENTS` is `--version`, respond with exactly:
 
-> review-claude-extension v3
+> review-claude-extension v3.1
 
 Then stop. Do not continue with the rest of the skill.
 
@@ -62,9 +60,9 @@ Set `TARGET_TYPE` to `skill`, `agent`, or `rule`.
 1. If **skill**: Read `SKILL.md` and all files in the skill directory recursively (references/, scripts/, examples/)
 2. If **agent**: Read the agent `.md` file
 3. If **rule**: Read the rule `.md` file
-3. Parse the YAML frontmatter — extract all fields
-4. Count the total lines of the main file (SKILL.md or agent .md)
-5. List all supporting files found
+4. Parse the YAML frontmatter — extract all fields
+5. Count the total lines of the main file (SKILL.md, agent .md, or rule .md)
+6. List all supporting files found
 
 Print a brief header:
 ```
@@ -115,7 +113,7 @@ Evaluate every applicable criterion from the checklist against the target. For e
 
 ## Step 5: Print the Review Report
 
-Print the full report to the console using this format:
+Print the full report to the console. The format below is illustrative — use actual criterion descriptions from the checklist:
 
 ```
 --- STRUCTURE & FORMAT ---
