@@ -1,0 +1,31 @@
+---
+id: 495000e6-a1fc-4b43-8999-23089505559c
+title: "For novel components, prefer proven open-source solutions"
+domain: cookbook.principles.open-source-preference
+type: principle
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "When no native solution exists, research battle-tested open-source libraries and present options to the user before b..."
+platforms: []
+tags: 
+  - open-source-preference
+depends-on: []
+related: []
+references: []
+---
+
+# For novel components, prefer proven open-source solutions
+
+When no native solution exists, research battle-tested open-source libraries and present options to the user before building a custom solution. A custom implementation can always be chosen instead, but it should be a deliberate decision, not a default.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
