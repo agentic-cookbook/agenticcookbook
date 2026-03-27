@@ -60,28 +60,43 @@ Landing page: `cookbook/index.md`
 
 ## How to Use This Repo
 
-### In consuming projects
+### Quick start for consuming projects
 
-Add to your project's `CLAUDE.md`:
+1. Clone the cookbook as a sibling to your project:
+   ```bash
+   cd ~/projects
+   git clone git@github.com:mikefullerton/agentic-cookbook.git
+   ```
 
-```markdown
-## Agentic Cookbook
+2. From your project directory, run the onboarding wizard:
+   ```
+   /install-agentic-cookbook
+   ```
 
-This project uses the [agentic-cookbook](https://github.com/mikefullerton/agentic-cookboox) repo.
+3. The wizard asks your participation tier and configures everything:
 
-- **Expected path**: `../agentic-cookbook/`
-- Before reading any cookbook content, verify the path exists.
-- Read `cookbook/index.md` for the full table of contents.
-- When implementing a feature, check for existing recipes and guidelines.
-- Follow `rules/conventions.md` for file format rules.
-```
+   | Tier | Name | What you get |
+   |------|------|-------------|
+   | 1 | Principles | 18 engineering principles guide planning and coding |
+   | 2 | Guidelines | + Full guideline checklist, verification workflow |
+   | 3 | Recipes | + Recipe search, conformance, opportunity flagging |
+   | 4 | Contributor | + Create/enhance recipes, PR workflow to the cookbook |
 
-### Implementing from a recipe
+   Each tier is additive — tier 3 includes everything from tiers 1 and 2.
 
-1. Read the recipe file in `cookbook/recipes/`
-2. Implement using the project's native UI framework
-3. Follow the recipe's values, behavior, and states exactly
-4. Check `cookbook/guidelines/` for applicable topic guidelines (testing, accessibility, etc.)
+4. To change your tier later: `/configure-agentic-cookbook`
+
+### Skills
+
+| Skill | Tier | Purpose |
+|-------|------|---------|
+| `/install-agentic-cookbook` | — | Onboarding wizard |
+| `/configure-agentic-cookbook` | — | Change participation tier |
+| `/review-with-agentic-cookbook-guidelines` | 2+ | Review implementation against guidelines |
+| `/review-claude-extension` | — | Review any skill, agent, or rule file |
+| `/import-agentic-cookbook` | 4 | Deep codebase analysis for recipe extraction |
+| `/plan-agentic-cookbook-recipe` | 4 | Interactive recipe design |
+| `/contribute-to-agentic-cookbook` | 4 | Create a PR to the cookbook |
 
 ### Writing new content
 
