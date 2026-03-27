@@ -93,6 +93,33 @@ export default function DocPage() {
   return <ContentPage entries={dirEntries} slug={slug} />
 }
 
+/** Recipe metadata header */
+function RecipeMeta({ entry }: { entry: CookbookEntry }) {
+  const fm = entry.frontmatter
+  const rows: [string, string][] = []
+
+  rows.push(['version', fm.version])
+  if (fm.status !== 'accepted') rows.push(['status', fm.status])
+  if (fm.platforms.length > 0) rows.push(['platforms', fm.platforms.join(', ')])
+  if (fm.tags.length > 0) rows.push(['tags', fm.tags.join(', ')])
+  if (fm.author) rows.push(['author', fm.author])
+  rows.push(['modified', fm.modified])
+  if (fm.references.length > 0) rows.push(['references', fm.references.join(', ')])
+
+  return (
+    <div className="rounded-md border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] px-4 py-3 mb-6">
+      <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 font-mono text-[11px]">
+        {rows.map(([label, value]) => (
+          <div key={label} className="contents">
+            <dt className="text-[var(--color-text-dim)] text-right">{label}</dt>
+            <dd className="text-[var(--color-text-secondary)]">{value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  )
+}
+
 /** A single recipe entry with summary/details split */
 function RecipeEntry({ entry }: { entry: CookbookEntry }) {
   const [detailsOpen, setDetailsOpen] = useState(false)
@@ -104,8 +131,9 @@ function RecipeEntry({ entry }: { entry: CookbookEntry }) {
         className="prose max-w-none prose-headings:scroll-mt-20 prose-code:before:content-none prose-code:after:content-none"
         dangerouslySetInnerHTML={{ __html: summary }}
       />
+      <RecipeMeta entry={entry} />
       {details && (
-        <div className="mt-4">
+        <div className="mt-2">
           <button
             onClick={() => setDetailsOpen(!detailsOpen)}
             className="flex items-center gap-1.5 font-mono text-xs font-medium text-[var(--color-accent)] hover:underline"
