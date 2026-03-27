@@ -10,24 +10,30 @@ interface SidebarProps {
 /** Directory node — only directories appear in the sidebar */
 function DirLink({ node, depth = 0 }: { node: NavNode; depth?: number }) {
   const { pathname } = useLocation()
-  const isActive = pathname === node.path || pathname.startsWith(node.path + '/')
+  const isSelected = pathname === node.path
+  const isAncestor = pathname.startsWith(node.path + '/')
 
-  // Only show nodes that have children (i.e. directories)
   const childDirs = node.children.filter((c) => c.children.length > 0)
 
   return (
     <>
-      <li className="-ml-px">
+      <li>
         <Link
           to={node.path}
-          aria-current={isActive && pathname === node.path ? 'page' : undefined}
-          className={`block border-l py-1 text-sm transition-colors ${
-            isActive
-              ? 'border-[var(--color-accent)] font-semibold text-[var(--color-text-primary)]'
-              : 'border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:border-[var(--color-border)]'
+          aria-current={isSelected ? 'page' : undefined}
+          className={`relative block py-1 text-sm transition-colors ${
+            isSelected
+              ? 'font-semibold text-[var(--color-text-primary)]'
+              : isAncestor
+                ? 'font-medium text-[var(--color-text-primary)]'
+                : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
           }`}
           style={{ paddingInlineStart: `${(depth + 1) * 0.875}rem` }}
         >
+          {/* Selected indicator — overlays the parent border-l */}
+          {isSelected && (
+            <span className="absolute left-0 top-1 bottom-1 w-px bg-[var(--color-accent)]" />
+          )}
           {node.label}
         </Link>
       </li>
@@ -38,35 +44,45 @@ function DirLink({ node, depth = 0 }: { node: NavNode; depth?: number }) {
   )
 }
 
-/** Top-level section header */
+/** Top-level section header with always-visible vertical bar and "Overview" link */
 function NavSection({ node }: { node: NavNode }) {
   const { pathname } = useLocation()
-  const isActive = pathname === node.path
+  const isSelected = pathname === node.path
+  const isInSection = pathname.startsWith(node.path + '/')
 
-  // Child directories only
   const childDirs = node.children.filter((c) => c.children.length > 0)
-  // If no child directories, this section is flat (like Principles) — still show it as a clickable link
-  const hasSubdirs = childDirs.length > 0
 
   return (
     <div className="flex flex-col gap-3">
-      <Link
-        to={node.path}
-        className={`font-mono text-xs font-medium uppercase tracking-widest transition-colors ${
-          isActive
-            ? 'text-[var(--color-accent)]'
-            : 'text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)]'
-        }`}
-      >
+      <h3 className={`font-mono text-xs font-medium uppercase tracking-widest transition-colors ${
+        isSelected || isInSection
+          ? 'text-[var(--color-text-secondary)]'
+          : 'text-[var(--color-text-dim)]'
+      }`}>
         {node.label}
-      </Link>
-      {hasSubdirs && (
-        <ul className="flex flex-col border-l border-[var(--color-border)]">
-          {childDirs.map((child) => (
-            <DirLink key={child.path} node={child} />
-          ))}
-        </ul>
-      )}
+      </h3>
+      <ul className="flex flex-col border-l border-[var(--color-border)]">
+        {/* Overview link — always first */}
+        <li>
+          <Link
+            to={node.path}
+            aria-current={isSelected ? 'page' : undefined}
+            className={`relative block py-1 pl-3.5 text-sm transition-colors ${
+              isSelected
+                ? 'font-semibold text-[var(--color-text-primary)]'
+                : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
+            }`}
+          >
+            {isSelected && (
+              <span className="absolute left-0 top-1 bottom-1 w-px bg-[var(--color-accent)]" />
+            )}
+            Overview
+          </Link>
+        </li>
+        {childDirs.map((child) => (
+          <DirLink key={child.path} node={child} />
+        ))}
+      </ul>
     </div>
   )
 }
