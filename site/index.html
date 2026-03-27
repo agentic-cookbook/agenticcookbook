@@ -7,6 +7,15 @@
   <meta name="description" content="Principles, guidelines, recipes, and workflows for AI-assisted multi-platform development.">
 </head>
 <body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+  <script>
+    // Prevent flash of wrong theme
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme:dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    } catch(e) {}
+  </script>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
