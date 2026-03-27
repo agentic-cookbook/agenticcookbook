@@ -68,9 +68,13 @@ export default function DocPage() {
     return <ContentPage entries={[entry]} slug={slug} />
   }
 
-  // Directory — collect all entries under this path, sorted by slug
+  // Directory — collect only direct child entries, sorted by slug
   const dirEntries = entries
-    .filter((e) => e.slug.startsWith(slug + '/'))
+    .filter((e) => {
+      if (!e.slug.startsWith(slug + '/')) return false
+      const rest = e.slug.slice(slug.length + 1)
+      return !rest.includes('/')
+    })
     .sort((a, b) => a.slug.localeCompare(b.slug))
 
   if (dirEntries.length === 0) {
