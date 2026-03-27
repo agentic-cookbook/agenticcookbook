@@ -1,10 +1,9 @@
-# Review Checklist for Claude Code Skills, Agents & Rules
+# Lint Checklist for Claude Code Skills
 
-> Last updated: 2026-03-21
+> Last updated: 2026-03-27
 > Sources:
 > - https://code.claude.com/docs/en/skills
 > - https://code.claude.com/docs/en/best-practices
-> - https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf
 
 Severity levels:
 - **FAIL** — violates a hard requirement; must fix
@@ -27,7 +26,7 @@ Severity levels:
 | S08 | SKILL.md references its supporting files | If references/ exists, SKILL.md mentions those files or uses `${CLAUDE_SKILL_DIR}` to load them | WARN |
 | S09 | Directory name matches `name` field | Compare directory basename to frontmatter `name` | WARN |
 | S10 | `argument-hint` present if `$ARGUMENTS` used | SKILL.md uses `$ARGUMENTS` or `$1`, `$2` but frontmatter lacks `argument-hint:` | WARN |
-| S11 | Correct file location | Skill is in `.claude/skills/` or `~/.claude/skills/`; agent is in `.claude/agents/` | WARN |
+| S11 | Correct file location | Skill is in `.claude/skills/` or `~/.claude/skills/` | WARN |
 | S12 | Only recognized frontmatter fields | Check against known fields: name, description, argument-hint, disable-model-invocation, user-invocable, allowed-tools, model, effort, context, agent, hooks, paths, shell | WARN |
 
 ---
@@ -65,37 +64,3 @@ Severity levels:
 | B10 | Model override appropriate | If `model:` is set, it matches the skill's complexity (don't use opus for trivial tasks) | WARN |
 | B11 | Dynamic context injection correct | If `` !`command` `` syntax is used, the command is safe, fast, and deterministic | WARN |
 | B12 | Description concise for context budget | Description is under ~200 characters to avoid consuming excessive context | WARN |
-
----
-
-## Agent-Specific
-
-| ID  | Criterion | How to check | Severity |
-|-----|-----------|-------------|----------|
-| A01 | `name` and `description` frontmatter present | Agent .md file has both fields | FAIL |
-| A02 | Tool access appropriately restricted | `tools` or `disallowedTools` limits access for specialized agents | WARN |
-| A03 | `model` field specified if beneficial | Agent benefits from a specific model for its task | INFO |
-| A04 | System prompt is clear and focused | Markdown body gives the agent a clear role and scope | WARN |
-| A05 | `permissionMode` set appropriately | `plan` for read-only agents, `bypassPermissions` for fully automated | WARN |
-| A06 | `maxTurns` set for bounded tasks | Simple agents that should finish quickly have a turn limit | WARN |
-| A07 | `skills` lists preloaded skills if needed | Agent that needs domain knowledge has relevant skills preloaded | INFO |
-| A08 | `memory` scope appropriate | If agent accumulates knowledge, memory is scoped correctly | INFO |
-
----
-
-## Rule-Specific
-
-| ID  | Criterion | How to check | Severity |
-|-----|-----------|-------------|----------|
-| R01 | Clear title/heading | File starts with a heading that identifies the rule's purpose | WARN |
-| R02 | Imperative tone throughout | Uses RFC 2119 keywords (MUST, MUST NOT, SHOULD, MAY); not advisory or suggestive | WARN |
-| R03 | Steps are numbered or clearly separated | If procedural, steps are in a clear sequence with headings or numbered list | WARN |
-| R04 | No vague directives | Every instruction is concrete and actionable; no "handle appropriately" or "write good code" | FAIL |
-| R05 | File references are explicit | If the rule says to read files, every file path is listed explicitly — no "read the principles" without paths | FAIL |
-| R06 | No contradictory instructions | Rule does not say "always do X" then later "never do X" or otherwise conflict with itself | FAIL |
-| R07 | Single concern | Rule addresses one coherent concern (planning, implementing, reviewing) — not a grab-bag | WARN |
-| R08 | Enforcement mechanism present | Rule includes steps to verify compliance — not just "do X" but "verify X was done" | WARN |
-| R09 | Not a CLAUDE.md dump | Content is rule-appropriate, not project configuration that belongs in CLAUDE.md | WARN |
-| R10 | Reasonable length | Rule is long enough to be complete but not so long it gets ignored; under ~300 lines for a single rule file | WARN |
-| R11 | "MUST NOT" section present | Rule explicitly states what the LLM must NOT do — common mistakes and anti-patterns | WARN |
-| R12 | Deterministic — no ambiguity | An LLM following the rule would produce consistent behavior across sessions; no room for interpretation on critical steps | WARN |
