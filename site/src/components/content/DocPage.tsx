@@ -82,25 +82,14 @@ export default function DocPage() {
           <Link
             key={child.slug}
             to={child.slug}
-            className="group flex items-center gap-3 py-2.5 border-b border-[var(--color-border-subtle)] last:border-b-0 transition-colors"
+            className="group flex items-center gap-3 py-2.5 border-b border-[var(--color-border-subtle)] last:border-b-0"
           >
-            <div className="flex-1 min-w-0">
-              <span className="text-sm text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors">
-                {child.frontmatter.title}
-              </span>
-            </div>
+            <span className="text-sm text-[var(--color-accent)] group-hover:underline">
+              {child.frontmatter.title}
+            </span>
             {child.frontmatter.status !== 'accepted' && (
               <StatusBadge status={child.frontmatter.status} />
             )}
-            <svg
-              className="h-4 w-4 shrink-0 text-[var(--color-text-dim)] group-hover:text-[var(--color-accent)] transition-colors"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
           </Link>
         ))}
       </div>
