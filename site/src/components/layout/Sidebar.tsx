@@ -7,64 +7,66 @@ interface SidebarProps {
   onClose: () => void
 }
 
-/** Leaf item — clickable link */
-function NavLeaf({ node }: { node: NavNode }) {
+/** Directory node — only directories appear in the sidebar */
+function DirLink({ node, depth = 0 }: { node: NavNode; depth?: number }) {
+  const { pathname } = useLocation()
+  const isActive = pathname === node.path || pathname.startsWith(node.path + '/')
+
+  // Only show nodes that have children (i.e. directories)
+  const childDirs = node.children.filter((c) => c.children.length > 0)
+
+  return (
+    <>
+      <li className="-ml-px">
+        <Link
+          to={node.path}
+          aria-current={isActive && pathname === node.path ? 'page' : undefined}
+          className={`block border-l py-1 text-sm transition-colors ${
+            isActive
+              ? 'border-[var(--color-accent)] font-semibold text-[var(--color-text-primary)]'
+              : 'border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:border-[var(--color-border)]'
+          }`}
+          style={{ paddingInlineStart: `${(depth + 1) * 0.875}rem` }}
+        >
+          {node.label}
+        </Link>
+      </li>
+      {childDirs.map((child) => (
+        <DirLink key={child.path} node={child} depth={depth + 1} />
+      ))}
+    </>
+  )
+}
+
+/** Top-level section header */
+function NavSection({ node }: { node: NavNode }) {
   const { pathname } = useLocation()
   const isActive = pathname === node.path
 
+  // Child directories only
+  const childDirs = node.children.filter((c) => c.children.length > 0)
+  // If no child directories, this section is flat (like Principles) — still show it as a clickable link
+  const hasSubdirs = childDirs.length > 0
+
   return (
-    <li className="-ml-px">
+    <div className="flex flex-col gap-3">
       <Link
         to={node.path}
-        aria-current={isActive ? 'page' : undefined}
-        className={`block border-l py-1 pl-4 text-sm transition-colors ${
+        className={`font-mono text-xs font-medium uppercase tracking-widest transition-colors ${
           isActive
-            ? 'border-[var(--color-accent)] font-semibold text-[var(--color-text-primary)]'
-            : 'border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:border-[var(--color-border)]'
+            ? 'text-[var(--color-accent)]'
+            : 'text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)]'
         }`}
       >
         {node.label}
       </Link>
-    </li>
-  )
-}
-
-/** Subsection group label (e.g. Testing, Security under Guidelines) — always expanded */
-function NavGroup({ node }: { node: NavNode }) {
-  return (
-    <li className="-ml-px">
-      <span className="block border-l border-transparent py-1 pl-4 text-sm font-medium text-[var(--color-text-secondary)]">
-        {node.label}
-      </span>
-      <ul className="flex flex-col border-l border-[var(--color-border-subtle)] ml-4">
-        {node.children.map((child) =>
-          child.children.length > 0 ? (
-            <NavGroup key={child.path} node={child} />
-          ) : (
-            <NavLeaf key={child.path} node={child} />
-          ),
-        )}
-      </ul>
-    </li>
-  )
-}
-
-/** Top-level section (Principles, Guidelines, etc.) — always expanded, static label */
-function NavSection({ node }: { node: NavNode }) {
-  return (
-    <div className="flex flex-col gap-3">
-      <h3 className="font-mono text-xs font-medium uppercase tracking-widest text-[var(--color-text-dim)]">
-        {node.label}
-      </h3>
-      <ul className="flex flex-col border-l border-[var(--color-border)]">
-        {node.children.map((child) =>
-          child.children.length > 0 ? (
-            <NavGroup key={child.path} node={child} />
-          ) : (
-            <NavLeaf key={child.path} node={child} />
-          ),
-        )}
-      </ul>
+      {hasSubdirs && (
+        <ul className="flex flex-col border-l border-[var(--color-border)]">
+          {childDirs.map((child) => (
+            <DirLink key={child.path} node={child} />
+          ))}
+        </ul>
+      )}
     </div>
   )
 }
