@@ -82,6 +82,30 @@ Validate the response is 1, 2, 3, or 4. If invalid, ask again.
 
 ---
 
+## Step 1b: Ask About Committing Rule (Optional)
+
+After the tier is selected, use AskUserQuestion to offer the committing rule:
+
+```
+Optional: Install the committing rule for your project?
+
+The committing rule enforces a structured git workflow in YOUR project:
+- All work happens in a git worktree (never directly on main)
+- A draft PR is created before any code is written
+- Every change is committed, pushed, and documented in the PR
+- The PR is marked ready when work is complete
+- The PR is merged after any required checks pass
+
+This is independent of your participation tier — it governs how you
+commit to your own repo, not how you interact with the cookbook.
+
+Install the committing rule? (y/n):
+```
+
+Record the answer. If yes, `COMMITTING-RULE.md` will be copied alongside the tier rules in Step 2.
+
+---
+
 ## Step 2: Install Rule Files
 
 Based on the selected tier, copy the appropriate rule files from `../agentic-cookbook/rules/` into the project's `.claude/rules/` directory.
@@ -100,6 +124,8 @@ mkdir -p .claude/rules
 | 2 | `PRINCIPLES-RULE.md`, `GUIDELINE-CONSUMER-RULE.md` |
 | 3 | `PRINCIPLES-RULE.md`, `GUIDELINE-CONSUMER-RULE.md`, `RECIPE-CONSUMER-RULE.md` |
 | 4 | `PRINCIPLES-RULE.md`, `GUIDELINE-CONSUMER-RULE.md`, `RECIPE-CONSUMER-RULE.md`, `CONTRIBUTOR-RULE.md`, `SKILL-VERSIONING-RULE.md` |
+
+If the user opted in to the committing rule in Step 1b, also copy `COMMITTING-RULE.md` regardless of tier.
 
 Copy each file:
 
@@ -235,6 +261,14 @@ Full cookbook access: principles, guidelines, recipe conformance, plus the abili
 > To change your tier, run `/configure-agentic-cookbook`
 ```
 
+### Committing rule (conditional)
+
+If the user opted in to the committing rule in Step 1b, add this line to the "Installed rules" list in whichever tier template was used:
+
+```markdown
+- `.claude/rules/COMMITTING-RULE.md` *(optional — structured git workflow)*
+```
+
 ---
 
 ## Step 4: Verify Installation
@@ -254,6 +288,7 @@ After verification passes, print:
 ```
 === Agentic Cookbook Installed ===
 Tier: <N> (<Name>)
+Committing rule: installed / not installed
 Rules installed: <comma-separated list of filenames>
 CLAUDE.md: updated
 Available skills: <comma-separated list, or "none" for tier 1>
