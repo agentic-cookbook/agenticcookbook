@@ -1,3 +1,28 @@
+---
+id: 6fba028d-fe54-48cc-9868-538b36916d72
+title: "Code Planning"
+domain: cookbook.workflow.code-planning
+type: workflow
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: []
+tags: 
+  - code-planning
+depends-on: []
+related: 
+  - guide.core.principles.simplicity
+  - guide.core.principles.small-reversible-decisions
+  - guide.core.principles.yagni
+references: []
+---
+
 # Code Planning
 
 ---

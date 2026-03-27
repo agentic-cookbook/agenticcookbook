@@ -1,3 +1,26 @@
+---
+id: a8f9c003-e970-4f28-bb7d-30a23b891b3f
+title: "Test Pyramid"
+domain: cookbook.guidelines.testing.test-pyramid
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Follow the Google SWE Book ratio: **80% unit / 15% integration / 5% E2E**."
+platforms: []
+tags: 
+  - test-pyramid
+  - testing
+depends-on: []
+related: []
+references: []
+---
+
 # Test Pyramid
 
 Follow the Google SWE Book ratio: **80% unit / 15% integration / 5% E2E**.

@@ -1,3 +1,30 @@
+---
+id: 22f1ca04-2d1d-4faf-8bf0-c6abcd60802c
+title: "Sensitive Data"
+domain: cookbook.guidelines.security.sensitive-data
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Minimize what you collect, encrypt what you keep, never log what you shouldn't."
+platforms: 
+  - typescript
+  - web
+tags: 
+  - security
+  - sensitive-data
+depends-on: []
+related: []
+references: 
+  - https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html
+  - https://csrc.nist.gov/publications/detail/sp/800-122/final
+---
+
 # Sensitive Data
 
 Minimize what you collect, encrypt what you keep, never log what you shouldn't.

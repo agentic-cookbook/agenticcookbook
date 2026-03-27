@@ -1,3 +1,31 @@
+---
+id: cef41f52-bfc6-4ff0-bb67-eb52521c7391
+title: "Retry and Resilience"
+domain: cookbook.guidelines.networking.retry-and-resilience
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Not every failure is permanent. Retry transient failures with exponential backoff and jitter."
+platforms: 
+  - typescript
+  - web
+tags: 
+  - networking
+  - retry-and-resilience
+depends-on: []
+related: []
+references: 
+  - https://docs.aws.amazon.com/general/latest/gr/api-retries.html
+  - https://learn.microsoft.com/en-us/azure/architecture/best-practices/transient-faults
+  - https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker
+---
+
 # Retry and Resilience
 
 Not every failure is permanent. Retry transient failures with exponential backoff and jitter.

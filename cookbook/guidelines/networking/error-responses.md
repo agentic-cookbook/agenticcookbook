@@ -1,3 +1,27 @@
+---
+id: 631b7b61-985a-4f5d-9c44-2cfbfdb9091b
+title: "Error Responses"
+domain: cookbook.guidelines.networking.error-responses
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Use [RFC 9457 Problem Details](https://www.rfc-editor.org/rfc/rfc9457) format with"
+platforms: []
+tags: 
+  - error-responses
+  - networking
+depends-on: []
+related: []
+references: 
+  - https://www.rfc-editor.org/rfc/rfc9457
+---
+
 # Error Responses
 
 Use [RFC 9457 Problem Details](https://www.rfc-editor.org/rfc/rfc9457) format with

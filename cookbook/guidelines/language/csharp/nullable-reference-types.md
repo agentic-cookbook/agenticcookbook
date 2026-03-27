@@ -1,3 +1,27 @@
+---
+id: af8a4221-90b7-434f-b2a4-64c86a072386
+title: "Nullable Reference Types"
+domain: cookbook.guidelines.language.csharp.nullable-reference-types
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Enable `<Nullable>enable</Nullable>` in all projects. Treat warnings as design signals — `string` means non-null, `st..."
+platforms: []
+tags: 
+  - csharp
+  - language
+  - nullable-reference-types
+depends-on: []
+related: []
+references: []
+---
+
 # Nullable Reference Types
 
 Enable `<Nullable>enable</Nullable>` in all projects. Treat warnings as design signals — `string` means non-null, `string?` means nullable.

@@ -1,3 +1,32 @@
+---
+id: 4cb7c242-3ade-4d59-9c74-67c1d5f9c107
+title: "RTL layout support"
+domain: cookbook.guidelines.internationalization.rtl-support
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "All layouts MUST support right-to-left languages:"
+platforms: 
+  - csharp
+  - kotlin
+  - swift
+  - typescript
+  - web
+  - windows
+tags: 
+  - internationalization
+  - rtl-support
+depends-on: []
+related: []
+references: []
+---
+
 # RTL layout support
 
 All layouts MUST support right-to-left languages:

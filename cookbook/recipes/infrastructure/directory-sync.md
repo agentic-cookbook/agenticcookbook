@@ -1,3 +1,30 @@
+---
+id: 63659e2c-215a-44ed-b330-2bca8d88bd9a
+title: "Directory Sync / Watch Lifecycle"
+domain: cookbook.recipes.infrastructure.directory-sync
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - ios
+  - macos
+  - swift
+  - typescript
+tags: 
+  - directory-sync
+  - infrastructure
+depends-on: []
+related: []
+references: []
+---
+
 # Directory Sync / Watch Lifecycle
 
 ---

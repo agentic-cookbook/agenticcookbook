@@ -1,3 +1,28 @@
+---
+id: b20d2528-fd14-404e-99bc-a1295256aa46
+title: "Frontmatter"
+domain: contributing.frontmatter
+type: reference
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Every spec starts with a YAML frontmatter block:"
+platforms: 
+  - kotlin
+  - web
+  - windows
+tags: 
+  - frontmatter
+depends-on: []
+related: []
+references: []
+---
+
 # Frontmatter
 
 Every spec starts with a YAML frontmatter block:

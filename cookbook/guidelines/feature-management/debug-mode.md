@@ -1,3 +1,32 @@
+---
+id: e446ee3e-b8f2-40e7-b93d-3113e6a95e5d
+title: "Debug mode"
+domain: cookbook.guidelines.feature-management.debug-mode
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Apps MUST include a debug-only configuration panel (not in release builds):"
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - typescript
+  - web
+  - windows
+tags: 
+  - debug-mode
+  - feature-management
+depends-on: []
+related: []
+references: []
+---
+
 # Debug mode
 
 Apps MUST include a debug-only configuration panel (not in release builds):

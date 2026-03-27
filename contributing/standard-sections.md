@@ -1,3 +1,28 @@
+---
+id: c5a8990d-bae3-4fc8-bfa9-822a82cb8d18
+title: "Standard Sections"
+domain: contributing.standard-sections
+type: reference
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Include these sections in order (omit those that do not apply):"
+platforms: 
+  - kotlin
+  - swift
+  - typescript
+tags: 
+  - standard-sections
+depends-on: []
+related: []
+references: []
+---
+
 # Standard Sections
 
 Include these sections in order (omit those that do not apply):

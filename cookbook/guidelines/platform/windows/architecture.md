@@ -1,3 +1,29 @@
+---
+id: fa2196e4-9513-4b23-b805-f5f5f099e5ff
+title: "Architecture"
+domain: cookbook.guidelines.platform.windows.architecture
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Use MVVM with [CommunityToolkit.Mvvm](https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/) — source-gener..."
+platforms: []
+tags: 
+  - architecture
+  - platform
+  - windows
+depends-on: []
+related: []
+references: 
+  - https://github.com/microsoft/TemplateStudio
+  - https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/
+---
+
 # Architecture
 
 Use MVVM with [CommunityToolkit.Mvvm](https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/) — source-generated `ObservableObject`, `RelayCommand`, and messaging.

@@ -1,3 +1,33 @@
+---
+id: d4b2fbc3-d814-44f7-a1cf-b59bd5eeb757
+title: "Metadata Line"
+domain: cookbook.recipes.ui.component.metadata-line
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - swift
+  - typescript
+  - web
+tags: 
+  - component
+  - metadata-line
+  - ui
+depends-on: []
+related: []
+references: []
+---
+
 # Metadata Line
 
 ---

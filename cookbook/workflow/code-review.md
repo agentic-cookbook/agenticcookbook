@@ -1,3 +1,40 @@
+---
+id: a5dc2751-9332-46be-86aa-649e51c237dc
+title: "Code Review"
+domain: cookbook.workflow.code-review
+type: workflow
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - kotlin
+  - python
+  - swift
+  - typescript
+tags: 
+  - code-review
+depends-on: []
+related: 
+  - guide.core.general.privacy-and-security-by-default
+  - guide.core.principles.composition-over-inheritance
+  - guide.core.principles.explicit-over-implicit
+  - guide.core.principles.immutability-by-default
+  - guide.core.principles.separation-of-concerns
+  - guide.core.principles.simplicity
+  - guide.core.principles.yagni
+  - guide.domain.testing.flaky-test-prevention
+  - guide.domain.testing.properties-of-good-tests
+  - guide.domain.testing.test-doubles
+  - guide.domain.testing.unit-test-patterns
+references: []
+---
+
 # Code Review
 
 ---

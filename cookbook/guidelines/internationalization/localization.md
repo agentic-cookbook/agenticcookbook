@@ -1,3 +1,32 @@
+---
+id: 57cbdb9d-4cf7-4a39-bdd8-99d28be983ca
+title: "Localizability"
+domain: cookbook.guidelines.internationalization.localization
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "All user-facing strings MUST be localizable — no hardcoded strings:"
+platforms: 
+  - csharp
+  - kotlin
+  - swift
+  - typescript
+  - web
+  - windows
+tags: 
+  - internationalization
+  - localization
+depends-on: []
+related: []
+references: []
+---
+
 # Localizability
 
 All user-facing strings MUST be localizable — no hardcoded strings:

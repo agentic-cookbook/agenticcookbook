@@ -1,3 +1,25 @@
+---
+id: ffa8565d-b105-4758-b850-9d9b8119b838
+title: "Make It Work, Make It Right, Make It Fast"
+domain: cookbook.principles.make-it-work-make-it-right-make-it-fast
+type: principle
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Separate correctness, design quality, and performance into sequential phases:"
+platforms: []
+tags: 
+  - make-it-work-make-it-right-make-it-fast
+depends-on: []
+related: []
+references: []
+---
+
 # Make It Work, Make It Right, Make It Fast
 
 Separate correctness, design quality, and performance into sequential phases:

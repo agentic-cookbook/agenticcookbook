@@ -1,3 +1,39 @@
+---
+id: 734f7c30-8cf2-4284-8276-267d62c3c49c
+title: "Test Doubles"
+domain: cookbook.guidelines.testing.test-doubles
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Use [Martin Fowler's taxonomy](https://martinfowler.com/bliki/TestDouble.html):"
+platforms: 
+  - csharp
+  - kotlin
+  - python
+  - swift
+  - typescript
+  - web
+tags: 
+  - test-doubles
+  - testing
+depends-on: []
+related: []
+references: 
+  - https://github.com/apple/swift-testing
+  - https://github.com/cashapp/turbine
+  - https://github.com/pytest-dev/pytest-mock
+  - https://martinfowler.com/bliki/TestDouble.html
+  - https://mockk.io/
+  - https://nsubstitute.github.io/
+  - https://vitest.dev/guide/mocking.html
+---
+
 # Test Doubles
 
 Use [Martin Fowler's taxonomy](https://martinfowler.com/bliki/TestDouble.html):

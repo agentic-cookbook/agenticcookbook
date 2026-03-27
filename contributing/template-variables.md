@@ -1,3 +1,25 @@
+---
+id: 131daee5-d621-4836-a022-a783e4b4a48d
+title: "Template Variables"
+domain: contributing.template-variables
+type: reference
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Specs use `{{placeholder}}` tokens for consumer-specific values:"
+platforms: []
+tags: 
+  - template-variables
+depends-on: []
+related: []
+references: []
+---
+
 # Template Variables
 
 Specs use `{{placeholder}}` tokens for consumer-specific values:

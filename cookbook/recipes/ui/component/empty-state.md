@@ -1,3 +1,33 @@
+---
+id: ce2af25c-4f18-41ae-91b9-342e363449b3
+title: "Empty State"
+domain: cookbook.recipes.ui.component.empty-state
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - swift
+  - typescript
+  - web
+tags: 
+  - component
+  - empty-state
+  - ui
+depends-on: []
+related: []
+references: []
+---
+
 # Empty State
 
 ---

@@ -1,3 +1,26 @@
+---
+id: 49399746-a81f-4163-8b07-0cfa11d87c2e
+title: "API Design"
+domain: cookbook.guidelines.networking.api-design
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Use REST with consistent conventions. Follow the platform API guidelines (Microsoft, Google,"
+platforms: []
+tags: 
+  - api-design
+  - networking
+depends-on: []
+related: []
+references: []
+---
+
 # API Design
 
 Use REST with consistent conventions. Follow the platform API guidelines (Microsoft, Google,

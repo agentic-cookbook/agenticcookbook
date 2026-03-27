@@ -1,3 +1,37 @@
+---
+id: 1971d5c6-592d-4959-aa2c-33ea4ff17d0d
+title: "Typography"
+domain: cookbook.guidelines.ui.typography
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Use the platform's system font. Establish a type scale with clear roles — don't invent"
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - typescript
+  - web
+  - windows
+tags: 
+  - typography
+  - ui
+depends-on: []
+related: 
+  - guide.core.general.accessibility-from-day-one
+references: 
+  - https://developer.apple.com/design/human-interface-guidelines/typography
+  - https://learn.microsoft.com/en-us/windows/apps/design/style/typography
+  - https://m3.material.io/styles/typography/type-scale-tokens
+  - https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html
+---
+
 # Typography
 
 Use the platform's system font. Establish a type scale with clear roles — don't invent

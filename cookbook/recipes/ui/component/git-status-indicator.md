@@ -1,3 +1,33 @@
+---
+id: 561a27f4-f019-4d3a-96eb-c18d37b16b61
+title: "Git Status Indicator"
+domain: cookbook.recipes.ui.component.git-status-indicator
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - swift
+  - typescript
+  - web
+tags: 
+  - component
+  - git-status-indicator
+  - ui
+depends-on: []
+related: []
+references: []
+---
+
 # Git Status Indicator
 
 ---

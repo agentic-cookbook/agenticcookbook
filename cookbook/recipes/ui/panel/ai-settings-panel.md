@@ -1,3 +1,34 @@
+---
+id: 24eb3821-0f66-4acf-bff0-5797982bb60d
+title: "AI Settings Panel"
+domain: cookbook.recipes.ui.panel.ai-settings-panel
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Settings panel for AI/LLM provider configuration with multi-provider support"
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - swift
+  - typescript
+  - web
+tags: 
+  - ai-settings-panel
+  - panel
+  - ui
+depends-on: []
+related: 
+  - recipe.ui.component.ai-chat-control
+references: []
+---
+
 # AI Settings Panel
 
 ---

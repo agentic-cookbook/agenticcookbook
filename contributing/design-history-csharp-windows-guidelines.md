@@ -1,3 +1,39 @@
+---
+id: 023481cc-ae29-44d2-b688-e8da9f1f2b2d
+title: "Design: C# and Windows Coding Guidelines"
+domain: contributing.design-history-csharp-windows-guidelines
+type: reference
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Add two new guideline files (`csharp.md` and `windows.md`) to `~/.claude/guidelines/` and update three existing files..."
+platforms: 
+  - csharp
+  - kotlin
+  - web
+  - windows
+tags: 
+  - design-history-csharp-windows-guidelines
+depends-on: []
+related: []
+references: 
+  - https://accessibilityinsights.io/
+  - https://fluent2.microsoft.design/
+  - https://fluentassertions.com/
+  - https://github.com/dotnet/roslynator
+  - https://github.com/dotnet/runtime/blob/main/docs/coding-guidelines/coding-style.md
+  - https://github.com/meziantou/Meziantou.Analyzer
+  - https://github.com/microsoft/TemplateStudio
+  - https://github.com/microsoft/WinUI-Gallery
+  - https://github.com/microsoft/WindowsAppSDK
+  - https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets
+---
+
 # Design: C# and Windows Coding Guidelines
 
 ## Summary

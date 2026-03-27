@@ -1,3 +1,41 @@
+---
+id: 97f55007-2eb6-4ffd-ab2c-c7247191627d
+title: "References"
+domain: cookbook.reference.references
+type: reference
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Platform-specific coding conventions, design guidelines, and best practices that all implementations should follow."
+platforms: 
+  - csharp
+  - kotlin
+  - swift
+  - typescript
+  - web
+  - windows
+tags: 
+  - references
+depends-on: []
+related: []
+references: 
+  - https://developer.android.com/topic/architecture/recommendations
+  - https://developer.apple.com/documentation/Xcode/understanding-and-improving-swiftui-performance
+  - https://fluent2.microsoft.design/
+  - https://github.com/dotnet/runtime/blob/main/docs/coding-guidelines/coding-style.md
+  - https://github.com/microsoft/WinUI-Gallery
+  - https://github.com/microsoft/WindowsAppSDK
+  - https://kotlinlang.org/docs/coding-conventions.html
+  - https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
+  - https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/
+  - https://learn.microsoft.com/en-us/windows/apps/design/
+---
+
 # References
 
 Platform-specific coding conventions, design guidelines, and best practices that all implementations should follow.

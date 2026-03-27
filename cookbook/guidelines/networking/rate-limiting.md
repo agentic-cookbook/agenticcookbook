@@ -1,3 +1,27 @@
+---
+id: c84400d9-83b3-4c4c-83d4-325dfa989202
+title: "Rate Limiting"
+domain: cookbook.guidelines.networking.rate-limiting
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Respect server rate limits. Handle 429 responses gracefully."
+platforms: []
+tags: 
+  - networking
+  - rate-limiting
+depends-on: []
+related: []
+references: 
+  - https://www.rfc-editor.org/rfc/rfc6585
+---
+
 # Rate Limiting
 
 Respect server rate limits. Handle 429 responses gracefully.

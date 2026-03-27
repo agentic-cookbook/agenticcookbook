@@ -1,3 +1,28 @@
+---
+id: 40ba1017-cec3-42f0-bd89-63a29eb3dd4d
+title: "Previews"
+domain: cookbook.guidelines.ui.previews
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "All UI components MUST include preview declarations for rapid visual verification during development. Previews should..."
+platforms: 
+  - kotlin
+  - swift
+tags: 
+  - previews
+  - ui
+depends-on: []
+related: []
+references: []
+---
+
 # Previews
 
 All UI components MUST include preview declarations for rapid visual verification during development. Previews should cover all significant states (default, loading, error, empty, populated).

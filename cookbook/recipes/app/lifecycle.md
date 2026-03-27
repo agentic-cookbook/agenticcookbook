@@ -1,3 +1,32 @@
+---
+id: e56d4b42-9abe-47ac-bd9e-27471bd47b82
+title: "App Lifecycle"
+domain: cookbook.recipes.app.lifecycle
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - swift
+  - web
+  - windows
+tags: 
+  - app
+  - lifecycle
+depends-on: []
+related: []
+references: []
+---
+
 # App Lifecycle
 
 ---

@@ -1,3 +1,31 @@
+---
+id: 1dd2111a-eb05-40e4-b469-1aecd79c5863
+title: "Collapsible Pane Header"
+domain: cookbook.recipes.ui.component.collapsible-pane-header
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - swift
+tags: 
+  - collapsible-pane-header
+  - component
+  - ui
+depends-on: []
+related: []
+references: []
+---
+
 # Collapsible Pane Header
 
 ---

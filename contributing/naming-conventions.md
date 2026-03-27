@@ -1,3 +1,48 @@
+---
+id: dab5f84b-09c0-4a29-85c3-8d9268e62a79
+title: "Naming Conventions"
+domain: contributing.naming-conventions
+type: reference
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "How identifiers, files, and directories are named in this repository. These conventions apply to recipes, guidelines,..."
+platforms: 
+  - csharp
+  - kotlin
+  - macos
+  - python
+  - swift
+  - typescript
+  - web
+  - windows
+tags: 
+  - naming-conventions
+depends-on: []
+related: 
+  - guide.core.general.atomic-commits
+  - guide.core.principles.simplicity
+  - guide.domain.testing.test-pyramid
+  - guide.language.swift.logging
+  - guide.platform.windows.fluent-design
+  - recipe.app.lifecycle
+  - recipe.infrastructure.logging
+  - recipe.ui.component.empty-state
+  - recipe.ui.panel.file-tree-browser
+  - recipe.ui.window.project-window
+references: 
+  - https://datatracker.ietf.org/doc/html/rfc8141
+  - https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/understanding_utis/understand_utis_conc/understand_utis_conc.html
+  - https://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html
+  - https://go.dev/doc/modules/layout
+  - https://maven.apache.org/guides/mini/guide-naming-conventions.html
+---
+
 # Naming Conventions
 
 How identifiers, files, and directories are named in this repository. These conventions apply to recipes, guidelines, and workflows.

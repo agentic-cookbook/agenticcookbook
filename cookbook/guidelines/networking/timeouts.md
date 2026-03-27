@@ -1,3 +1,26 @@
+---
+id: c3883e6e-3bce-4bb9-a3be-61509a139288
+title: "Timeouts"
+domain: cookbook.guidelines.networking.timeouts
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Always set both connection and read timeouts. Never use infinite timeouts."
+platforms: []
+tags: 
+  - networking
+  - timeouts
+depends-on: []
+related: []
+references: []
+---
+
 # Timeouts
 
 Always set both connection and read timeouts. Never use infinite timeouts.

@@ -1,3 +1,26 @@
+---
+id: 7f72dfc4-21aa-458d-8b3f-590b735cfc4f
+title: "Branching Strategy"
+domain: cookbook.workflow.branching-strategy
+type: workflow
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: []
+tags: 
+  - branching-strategy
+depends-on: []
+related: 
+  - guide.core.general.small-atomic-commits
+references: []
+---
+
 # Branching Strategy
 
 ---

@@ -1,3 +1,38 @@
+---
+id: b9da0bd1-a7e4-491f-beb0-46f7b5c19d86
+title: "Security Testing"
+domain: cookbook.guidelines.testing.security-testing
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Run security scans as part of post-generation verification (guide.core.general.post-generation-verification). These a..."
+platforms: 
+  - csharp
+  - kotlin
+  - python
+  - swift
+  - typescript
+  - web
+tags: 
+  - security-testing
+  - testing
+depends-on: []
+related: 
+  - guide.core.general.post-generation-verification
+references: 
+  - https://codeql.github.com/
+  - https://github.com/PyCQA/bandit
+  - https://semgrep.dev/
+  - https://snyk.io/
+  - https://www.zaproxy.org/
+---
+
 # Security Testing
 
 Run security scans as part of post-generation verification (guide.core.general.post-generation-verification). These are CLI tools

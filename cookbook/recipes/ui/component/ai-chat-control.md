@@ -1,3 +1,35 @@
+---
+id: f9f12465-9f73-40ef-b9f6-d124090781f5
+title: "AI Chat Control"
+domain: cookbook.recipes.ui.component.ai-chat-control
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - swift
+  - typescript
+  - web
+  - windows
+tags: 
+  - ai-chat-control
+  - component
+  - ui
+depends-on: []
+related: 
+  - recipe.ui.panel.ai-settings-panel
+references: []
+---
+
 # AI Chat Control
 
 ---

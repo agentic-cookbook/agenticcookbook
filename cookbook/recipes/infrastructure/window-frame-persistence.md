@@ -1,3 +1,33 @@
+---
+id: 85d04a9b-5692-4025-a489-eac8bbb14663
+title: "Window Frame Persistence"
+domain: cookbook.recipes.infrastructure.window-frame-persistence
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - swift
+  - typescript
+  - web
+  - windows
+tags: 
+  - infrastructure
+  - window-frame-persistence
+depends-on: []
+related: []
+references: []
+---
+
 # Window Frame Persistence
 
 ---

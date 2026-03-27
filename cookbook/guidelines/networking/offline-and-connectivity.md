@@ -1,3 +1,29 @@
+---
+id: 67c59594-a5dc-46f2-aa61-3436921294c7
+title: "Offline and Connectivity"
+domain: cookbook.guidelines.networking.offline-and-connectivity
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "For apps that must work offline, design for local-first with background sync."
+platforms: 
+  - web
+tags: 
+  - networking
+  - offline-and-connectivity
+depends-on: []
+related: []
+references: 
+  - https://crdt.tech/
+  - https://web.dev/articles/offline-cookbook
+---
+
 # Offline and Connectivity
 
 For apps that must work offline, design for local-first with background sync.

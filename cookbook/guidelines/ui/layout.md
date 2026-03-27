@@ -1,3 +1,33 @@
+---
+id: 26c8e7d6-dde3-48d0-bde0-8a71a51a6674
+title: "Layout"
+domain: cookbook.guidelines.ui.layout
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Design for the content, not a fixed screen size. Layouts should adapt gracefully from"
+platforms: 
+  - typescript
+  - web
+  - windows
+tags: 
+  - layout
+  - ui
+depends-on: []
+related: []
+references: 
+  - https://developer.apple.com/design/human-interface-guidelines/layout
+  - https://learn.microsoft.com/en-us/windows/apps/design/layout/responsive-design
+  - https://m3.material.io/foundations/layout/applying-layout/overview
+  - https://www.nngroup.com/articles/mobile-first-not-mobile-only/
+---
+
 # Layout
 
 Design for the content, not a fixed screen size. Layouts should adapt gracefully from

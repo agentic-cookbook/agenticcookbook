@@ -1,3 +1,40 @@
+---
+id: f4f25f6d-cb87-428d-9140-f2bf97aa420a
+title: "Code Implementation"
+domain: cookbook.workflow.code-implementation
+type: workflow
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: []
+tags: 
+  - code-implementation
+depends-on: []
+related: 
+  - guide.core.general.comprehensive-unit-testing
+  - guide.core.general.no-blocking-the-main-thread
+  - guide.core.general.prefer-native-controls-and-libraries
+  - guide.core.principles.dependency-injection
+  - guide.core.principles.explicit-over-implicit
+  - guide.core.principles.fail-fast
+  - guide.core.principles.immutability-by-default
+  - guide.core.principles.make-it-work-make-it-right-make-it-fast
+  - guide.core.principles.separation-of-concerns
+  - guide.core.principles.tight-feedback-loops
+  - guide.domain.testing.flaky-test-prevention
+  - guide.domain.testing.test-data
+  - guide.domain.testing.test-doubles
+  - guide.domain.testing.the-testing-workflow
+  - guide.domain.testing.unit-test-patterns
+references: []
+---
+
 # Code Implementation
 
 ---

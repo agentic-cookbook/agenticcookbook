@@ -1,3 +1,30 @@
+---
+id: 08f87323-4043-432f-8f29-936cfb4ed2e2
+title: "Standalone Terminal Window"
+domain: cookbook.recipes.ui.window.standalone-terminal-window
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - macos
+  - swift
+  - windows
+tags: 
+  - standalone-terminal-window
+  - ui
+  - window
+depends-on: []
+related: []
+references: []
+---
+
 # Standalone Terminal Window
 
 ---

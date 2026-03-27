@@ -1,3 +1,28 @@
+---
+id: 611115cb-0e59-402e-bc77-140f53e32607
+title: "ComponentName"
+domain: cookbook.recipes._template
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - kotlin
+  - swift
+  - typescript
+  - web
+tags: []
+depends-on: []
+related: []
+references: []
+---
+
 # ComponentName
 
 ---

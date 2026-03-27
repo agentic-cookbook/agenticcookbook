@@ -1,3 +1,32 @@
+---
+id: 42220186-4305-45cd-8e7d-a8d1172b6fbd
+title: "Comprehensive unit testing"
+domain: cookbook.guidelines.testing.testing
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Prioritize unit tests over integration tests. Test state transitions, edge cases, serialization round-trips. Every im..."
+platforms: 
+  - csharp
+  - python
+  - typescript
+tags: 
+  - testing
+depends-on: []
+related: []
+references: 
+  - https://fluentassertions.com/
+  - https://nsubstitute.github.io/
+  - https://playwright.dev/
+  - https://xunit.net/
+---
+
 # Comprehensive unit testing
 
 Prioritize unit tests over integration tests. Test state transitions, edge cases, serialization round-trips. Every implementation should include a corresponding test file. UI tests are fragile — prefer testing component logic as unit tests.

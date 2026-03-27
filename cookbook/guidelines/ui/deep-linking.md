@@ -1,3 +1,31 @@
+---
+id: d27c35ab-84f6-4f40-8c29-91630fdc90e7
+title: "Deep linking"
+domain: cookbook.guidelines.ui.deep-linking
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "All significant feature points and views MUST be deep linkable using the platform's native URL/deep link mechanism:"
+platforms: 
+  - kotlin
+  - swift
+  - typescript
+  - web
+  - windows
+tags: 
+  - deep-linking
+  - ui
+depends-on: []
+related: []
+references: []
+---
+
 # Deep linking
 
 All significant feature points and views MUST be deep linkable using the platform's native URL/deep link mechanism:

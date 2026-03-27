@@ -1,3 +1,32 @@
+---
+id: 7c2049c7-89d9-4135-b657-dbd03cdd19a0
+title: "Logging"
+domain: cookbook.recipes.infrastructure.logging
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - swift
+  - typescript
+  - web
+tags: 
+  - infrastructure
+  - logging
+depends-on: []
+related: []
+references: []
+---
+
 # Logging
 
 ---

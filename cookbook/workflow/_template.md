@@ -1,3 +1,24 @@
+---
+id: 25a31b86-8a76-4fac-b510-bacdedd4b885
+title: "Workflow Name"
+domain: cookbook.workflow._template
+type: workflow
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
+
 # Workflow Name
 
 ---

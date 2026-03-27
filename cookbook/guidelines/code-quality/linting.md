@@ -1,3 +1,40 @@
+---
+id: 775da457-30c7-47de-b179-0fae8a8b779d
+title: "Linting from day one"
+domain: cookbook.guidelines.code-quality.linting
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "All projects MUST include linting configured from initial generation:"
+platforms: 
+  - csharp
+  - kotlin
+  - swift
+  - typescript
+  - web
+tags: 
+  - code-quality
+  - linting
+depends-on: []
+related: []
+references: 
+  - https://eslint.org/
+  - https://github.com/dotnet/roslynator
+  - https://github.com/meziantou/Meziantou.Analyzer
+  - https://github.com/realm/SwiftLint
+  - https://github.com/swiftlang/swift-format
+  - https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/
+  - https://pinterest.github.io/ktlint/
+  - https://prettier.io/
+  - https://stylelint.io/
+---
+
 # Linting from day one
 
 All projects MUST include linting configured from initial generation:

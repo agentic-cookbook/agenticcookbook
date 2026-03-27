@@ -1,3 +1,24 @@
+---
+id: 922655fa-e37c-44e3-828f-4799c1b83ff4
+title: "Workflow Index"
+domain: cookbook.workflow.index
+type: workflow
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Process-oriented recipes describing how Claude Code AI sessions should develop code in consuming projects. These work..."
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
+
 # Workflow Index
 
 Process-oriented recipes describing how Claude Code AI sessions should develop code in consuming projects. These workflows complement the [guide.* guidelines](~/.claude/guidelines/) by providing orchestration: *when* and *in what order* to apply those guidelines.

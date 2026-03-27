@@ -1,3 +1,42 @@
+---
+id: 959a1eea-52c9-4ee7-9e0a-74f716fbf72b
+title: "Design: UI Design Guidelines"
+domain: contributing.design-history-ui-guidelines
+type: reference
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Add a new `guidelines/ui.md` file covering cross-platform UI design principles. Provides sensible defaults when no pr..."
+platforms: 
+  - csharp
+  - ios
+  - kotlin
+  - macos
+  - typescript
+  - web
+  - windows
+tags: 
+  - design-history-ui-guidelines
+depends-on: []
+related: []
+references: 
+  - https://developer.apple.com/design/human-interface-guidelines/
+  - https://developer.apple.com/design/human-interface-guidelines/accessibility#User-interaction
+  - https://developer.apple.com/design/human-interface-guidelines/alerts
+  - https://developer.apple.com/design/human-interface-guidelines/color
+  - https://developer.apple.com/design/human-interface-guidelines/empty-states
+  - https://developer.apple.com/design/human-interface-guidelines/layout
+  - https://developer.apple.com/design/human-interface-guidelines/lists-and-tables
+  - https://developer.apple.com/design/human-interface-guidelines/motion
+  - https://developer.apple.com/design/human-interface-guidelines/sf-symbols
+  - https://developer.apple.com/design/human-interface-guidelines/text-fields
+---
+
 # Design: UI Design Guidelines
 
 ## Summary

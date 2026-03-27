@@ -1,3 +1,29 @@
+---
+id: 81410d5e-e3df-4feb-a9b1-bbc97abfc798
+title: "Menu Commands"
+domain: cookbook.recipes.app.menu-commands
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - macos
+  - swift
+  - windows
+tags: 
+  - app
+  - menu-commands
+depends-on: []
+related: []
+references: []
+---
+
 # Menu Commands
 
 ---

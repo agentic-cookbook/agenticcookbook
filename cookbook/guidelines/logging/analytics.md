@@ -1,3 +1,30 @@
+---
+id: 17216748-46e9-4e92-af3a-f4deeb843a8d
+title: "Analytics"
+domain: cookbook.guidelines.logging.analytics
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "All significant user actions MUST be instrumented via an `AnalyticsProvider` interface (`track(event, properties)`). ..."
+platforms: 
+  - csharp
+  - kotlin
+  - swift
+  - typescript
+tags: 
+  - analytics
+  - logging
+depends-on: []
+related: []
+references: []
+---
+
 # Analytics
 
 All significant user actions MUST be instrumented via an `AnalyticsProvider` interface (`track(event, properties)`). No direct coupling to any analytics backend. Provide a logging-only default; swap in a backend (Mixpanel, Amplitude, PostHog) later.

@@ -1,3 +1,32 @@
+---
+id: 39676af7-b0b9-48f2-8056-f0c8e8754ffc
+title: "Settings Keys"
+domain: cookbook.recipes.infrastructure.settings-keys
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - swift
+  - typescript
+  - web
+tags: 
+  - infrastructure
+  - settings-keys
+depends-on: []
+related: []
+references: []
+---
+
 # Settings Keys
 
 ---

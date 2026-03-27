@@ -1,3 +1,35 @@
+---
+id: e547d962-d561-4bd9-bb5a-50bdeec98335
+title: "Color"
+domain: cookbook.guidelines.ui.color
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Use color with intention — never as the sole means of conveying information."
+platforms: 
+  - typescript
+  - web
+  - windows
+tags: 
+  - color
+  - ui
+depends-on: []
+related: 
+  - guide.core.general.accessibility-from-day-one
+references: 
+  - https://developer.apple.com/design/human-interface-guidelines/color
+  - https://learn.microsoft.com/en-us/windows/apps/design/style/color
+  - https://m3.material.io/styles/color/system/how-the-system-works
+  - https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+  - https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html
+---
+
 # Color
 
 Use color with intention — never as the sole means of conveying information.

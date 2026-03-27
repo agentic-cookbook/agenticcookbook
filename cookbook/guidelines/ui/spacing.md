@@ -1,3 +1,30 @@
+---
+id: 536c1e46-36f9-4a44-b8f4-c9e4db94cf53
+title: "Spacing"
+domain: cookbook.guidelines.ui.spacing
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Use a consistent spatial scale based on a **4px base unit** (8px primary grid). All spacing,"
+platforms: 
+  - windows
+tags: 
+  - spacing
+  - ui
+depends-on: []
+related: []
+references: 
+  - https://developer.apple.com/design/human-interface-guidelines/layout
+  - https://learn.microsoft.com/en-us/windows/apps/design/layout/
+  - https://m3.material.io/foundations/layout/overview
+---
+
 # Spacing
 
 Use a consistent spatial scale based on a **4px base unit** (8px primary grid). All spacing,

@@ -1,3 +1,31 @@
+---
+id: 3416a359-e01c-40b2-8876-4a8634d4395e
+title: "Caching"
+domain: cookbook.guidelines.networking.caching
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Use HTTP caching headers. The server controls cache policy; the client honors it."
+platforms: 
+  - typescript
+  - web
+tags: 
+  - caching
+  - networking
+depends-on: []
+related: []
+references: 
+  - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
+  - https://web.dev/articles/http-cache
+  - https://www.rfc-editor.org/rfc/rfc9111
+---
+
 # Caching
 
 Use HTTP caching headers. The server controls cache policy; the client honors it.

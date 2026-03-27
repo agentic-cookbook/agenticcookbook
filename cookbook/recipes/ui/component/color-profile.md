@@ -1,3 +1,33 @@
+---
+id: bdc920ab-fde0-445a-a62a-c2f6d23da8a8
+title: "Color Profile"
+domain: cookbook.recipes.ui.component.color-profile
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - swift
+  - typescript
+  - web
+tags: 
+  - color-profile
+  - component
+  - ui
+depends-on: []
+related: []
+references: []
+---
+
 # Color Profile
 
 ---

@@ -1,3 +1,31 @@
+---
+id: 338cb220-483c-4f9e-ae9d-e1dd79e59289
+title: "Project Window"
+domain: cookbook.recipes.ui.window.project-window
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.1.0"
+platforms: 
+  - macos
+  - swift
+  - web
+  - windows
+tags: 
+  - project-window
+  - ui
+  - window
+depends-on: []
+related: []
+references: []
+---
+
 # Project Window
 
 ---

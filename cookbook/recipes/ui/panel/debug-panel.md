@@ -1,3 +1,33 @@
+---
+id: be66e9aa-6c54-4c6c-8026-050eb2286abb
+title: "Debug Panel"
+domain: cookbook.recipes.ui.panel.debug-panel
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - swift
+  - typescript
+  - web
+tags: 
+  - debug-panel
+  - panel
+  - ui
+depends-on: []
+related: []
+references: []
+---
+
 # Debug Panel
 
 ---

@@ -1,3 +1,26 @@
+---
+id: d2c1aaaf-3fc7-4410-ab9a-06c264aa3208
+title: "Properties of Good Tests"
+domain: cookbook.guidelines.testing.properties-of-good-tests
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "From Kent Beck's Test Desiderata — tests should be:"
+platforms: []
+tags: 
+  - properties-of-good-tests
+  - testing
+depends-on: []
+related: []
+references: []
+---
+
 # Properties of Good Tests
 
 From Kent Beck's Test Desiderata — tests should be:

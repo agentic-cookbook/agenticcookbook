@@ -1,3 +1,34 @@
+---
+id: 954e559c-e2bf-494c-a37e-de0b88bec89a
+title: "Code Editor Pane"
+domain: cookbook.recipes.ui.panel.code-editor-pane
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - python
+  - swift
+  - typescript
+  - web
+tags: 
+  - code-editor-pane
+  - panel
+  - ui
+depends-on: []
+related: []
+references: []
+---
+
 # Code Editor Pane
 
 ---

@@ -1,3 +1,35 @@
+---
+id: a34c92a2-7dd0-4641-a126-418102b8b031
+title: "Property-Based Testing"
+domain: cookbook.guidelines.testing.property-based-testing
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "When to use: parsers, serializers, data transformers, encoders/decoders, validators — anything"
+platforms: 
+  - csharp
+  - kotlin
+  - python
+  - swift
+  - typescript
+tags: 
+  - property-based-testing
+  - testing
+depends-on: []
+related: []
+references: 
+  - https://fscheck.github.io/FsCheck/
+  - https://github.com/HypothesisWorks/hypothesis
+  - https://github.com/dubzzz/fast-check
+  - https://jqwik.net/
+---
+
 # Property-Based Testing
 
 When to use: parsers, serializers, data transformers, encoders/decoders, validators — anything

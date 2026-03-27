@@ -1,3 +1,38 @@
+---
+id: 5d312abc-9bf5-4766-9e85-60fdf1a0d7a8
+title: "Authoring Guide"
+domain: contributing.authoring
+type: reference
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "How to create, modify, and contribute specs to the Litterbox repo."
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - swift
+  - typescript
+  - web
+  - windows
+tags: 
+  - authoring
+depends-on: []
+related: 
+  - recipe.app.lifecycle
+  - recipe.infrastructure.logging
+  - recipe.ui.component.empty-state
+  - recipe.ui.panel.file-tree-browser
+  - recipe.ui.panel.inspector-panel
+  - recipe.ui.window.project-window
+references: []
+---
+
 # Authoring Guide
 
 How to create, modify, and contribute specs to the Litterbox repo.

@@ -1,3 +1,32 @@
+---
+id: a7c2a089-7666-459e-b564-24cc30980936
+title: "Visual Hierarchy"
+domain: cookbook.guidelines.ui.visual-hierarchy
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Establish clear importance through size, weight, color, and spacing. Every screen should"
+platforms: 
+  - windows
+tags: 
+  - ui
+  - visual-hierarchy
+depends-on: []
+related: 
+  - guide.core.general.accessibility-from-day-one
+references: 
+  - https://developer.apple.com/design/human-interface-guidelines/layout
+  - https://learn.microsoft.com/en-us/windows/apps/design/layout/
+  - https://m3.material.io/foundations/layout/applying-layout/overview
+  - https://www.nngroup.com/articles/visual-hierarchy-ux-definition/
+---
+
 # Visual Hierarchy
 
 Establish clear importance through size, weight, color, and spacing. Every screen should

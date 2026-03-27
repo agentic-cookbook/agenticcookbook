@@ -1,3 +1,31 @@
+---
+id: c5778e2d-2f3b-4cbd-809b-39ed4b57ff57
+title: "Apple Test App Suite"
+domain: cookbook.recipes.ui.apps.apple
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - ios
+  - macos
+  - swift
+  - typescript
+tags: 
+  - apple
+  - apps
+  - ui
+depends-on: []
+related: []
+references: []
+---
+
 # Apple Test App Suite
 
 ---

@@ -1,3 +1,35 @@
+---
+id: 3d970d6a-2d71-48f3-9f84-69c1d823d6e8
+title: "Accessibility from day one"
+domain: cookbook.guidelines.accessibility.accessibility
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "All components MUST integrate with platform accessibility APIs from initial implementation:"
+platforms: 
+  - csharp
+  - kotlin
+  - swift
+  - typescript
+  - web
+  - windows
+tags: 
+  - accessibility
+depends-on: []
+related: []
+references: 
+  - https://accessibilityinsights.io/
+  - https://learn.microsoft.com/en-us/windows/win32/winauto/uiauto-uiautomationoverview
+  - https://www.w3.org/TR/WCAG21/
+  - https://www.w3.org/WAI/ARIA/apg/
+---
+
 # Accessibility from day one
 
 All components MUST integrate with platform accessibility APIs from initial implementation:

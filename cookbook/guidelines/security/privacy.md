@@ -1,3 +1,29 @@
+---
+id: 29057cf0-a38b-4c35-8b8b-52e12bf54784
+title: "Privacy and security by default"
+domain: cookbook.guidelines.security.privacy
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Collect only what is needed. Prefer on-device processing."
+platforms: 
+  - kotlin
+  - swift
+  - typescript
+tags: 
+  - privacy
+  - security
+depends-on: []
+related: []
+references: []
+---
+
 # Privacy and security by default
 
 ### guide.core.general.privacy-and-security-by-default. Data minimization

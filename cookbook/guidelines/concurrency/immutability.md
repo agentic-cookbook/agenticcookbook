@@ -1,3 +1,28 @@
+---
+id: 50ea8b39-813d-4325-be31-0ae19b8a3baf
+title: "Immutability"
+domain: cookbook.guidelines.concurrency.immutability
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Mutable shared state is the root cause of most concurrency bugs. Default to immutable values; introduce mutability on..."
+platforms: 
+  - kotlin
+  - typescript
+tags: 
+  - concurrency
+  - immutability
+depends-on: []
+related: []
+references: []
+---
+
 # Immutability
 
 Mutable shared state is the root cause of most concurrency bugs. Default to immutable values; introduce mutability only where necessary. Prefer value types over reference types. Contain mutation behind clear boundaries.

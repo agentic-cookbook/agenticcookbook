@@ -1,3 +1,33 @@
+---
+id: 0935bc69-88a9-483e-a3c9-38447d880f45
+title: "State Design"
+domain: cookbook.guidelines.ui.state-design
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Every view that loads data or can be empty must handle all four states explicitly. Never"
+platforms: 
+  - typescript
+  - web
+tags: 
+  - state-design
+  - ui
+depends-on: []
+related: 
+  - guide.core.general.always-show-progress
+references: 
+  - https://developer.apple.com/design/human-interface-guidelines/empty-states
+  - https://material.io/design/communication/empty-states.html
+  - https://www.nngroup.com/articles/empty-state-interface-design/
+  - https://www.nngroup.com/articles/error-message-guidelines/
+---
+
 # State Design
 
 Every view that loads data or can be empty must handle all four states explicitly. Never

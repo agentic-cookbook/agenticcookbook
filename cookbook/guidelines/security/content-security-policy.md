@@ -1,3 +1,31 @@
+---
+id: 6f4cfd55-cb09-4ede-a53c-feaeb5781127
+title: "Content Security Policy"
+domain: cookbook.guidelines.security.content-security-policy
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Prevent XSS and injection with a strict CSP. Web apps only."
+platforms: 
+  - typescript
+  - web
+tags: 
+  - content-security-policy
+  - security
+depends-on: []
+related: []
+references: 
+  - https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html
+  - https://csp-evaluator.withgoogle.com/
+  - https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+---
+
 # Content Security Policy
 
 Prevent XSS and injection with a strict CSP. Web apps only.

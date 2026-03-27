@@ -1,3 +1,26 @@
+---
+id: 59ffd7c7-2bdc-4f7b-b6f3-07d1f24599a3
+title: "Unit Test Patterns"
+domain: cookbook.guidelines.testing.unit-test-patterns
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "**Structure — Arrange, Act, Assert (AAA):**"
+platforms: []
+tags: 
+  - testing
+  - unit-test-patterns
+depends-on: []
+related: []
+references: []
+---
+
 # Unit Test Patterns
 
 **Structure — Arrange, Act, Assert (AAA):**

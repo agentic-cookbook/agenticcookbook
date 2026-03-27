@@ -1,3 +1,54 @@
+---
+id: 6a98612f-9f43-4903-87e4-40c964801bbc
+title: "Code Verification"
+domain: cookbook.workflow.code-verification
+type: workflow
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - csharp
+  - ios
+  - kotlin
+  - python
+  - swift
+  - typescript
+  - web
+  - windows
+tags: 
+  - code-verification
+depends-on: []
+related: 
+  - guide.core.general.accessibility-from-day-one
+  - guide.core.general.analytics
+  - guide.core.general.comprehensive-unit-testing
+  - guide.core.general.deep-linking
+  - guide.core.general.feature-flags
+  - guide.core.general.instrumented-logging
+  - guide.core.general.linting-from-day-one
+  - guide.core.general.localizability
+  - guide.core.general.post-generation-verification
+  - guide.core.general.post-generation-verification.1
+  - guide.core.general.post-generation-verification.2
+  - guide.core.general.post-generation-verification.3
+  - guide.core.general.post-generation-verification.4
+  - guide.core.general.post-generation-verification.5
+  - guide.core.general.privacy-and-security-by-default
+  - guide.core.general.respect-accessibility-display-options
+  - guide.core.general.rtl-layout-support
+  - guide.domain.testing.mutation-testing
+  - guide.domain.testing.property-based-testing
+  - guide.domain.testing.security-testing
+  - guide.domain.testing.test-pyramid-14.4
+references: []
+---
+
 # Code Verification
 
 ---

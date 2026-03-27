@@ -1,3 +1,32 @@
+---
+id: 6302654b-8200-4e03-862d-4734d4960d19
+title: "No blocking the main thread"
+domain: cookbook.guidelines.concurrency.concurrency
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "All lengthy work must run on background threads/tasks using platform async primitives:"
+platforms: 
+  - csharp
+  - kotlin
+  - python
+  - swift
+  - typescript
+  - web
+  - windows
+tags: 
+  - concurrency
+depends-on: []
+related: []
+references: []
+---
+
 # No blocking the main thread
 
 All lengthy work must run on background threads/tasks using platform async primitives:

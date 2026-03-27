@@ -1,3 +1,31 @@
+---
+id: 4a2898cf-34ed-4153-8d06-c795f80c19cd
+title: "Terminal Pane"
+domain: cookbook.recipes.ui.panel.terminal-pane
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - ios
+  - macos
+  - swift
+  - windows
+tags: 
+  - panel
+  - terminal-pane
+  - ui
+depends-on: []
+related: []
+references: []
+---
+
 # Terminal Pane
 
 ---

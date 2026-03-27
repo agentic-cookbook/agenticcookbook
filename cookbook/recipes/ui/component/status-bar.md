@@ -1,3 +1,33 @@
+---
+id: 22729bee-7ab4-4648-aa5a-2beef067d0c3
+title: "Status Bar"
+domain: cookbook.recipes.ui.component.status-bar
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - swift
+  - typescript
+  - web
+tags: 
+  - component
+  - status-bar
+  - ui
+depends-on: []
+related: []
+references: []
+---
+
 # Status Bar
 
 ---

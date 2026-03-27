@@ -1,3 +1,63 @@
+---
+id: 6b29562c-4185-4411-aa66-092206d6bfa5
+title: "Guideline Applicability Checklist"
+domain: cookbook.workflow.guideline-checklist
+type: workflow
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: []
+tags: 
+  - guideline-checklist
+depends-on: []
+related: 
+  - guide.core.general.ab-testing
+  - guide.core.general.accessibility-from-day-one
+  - guide.core.general.always-show-progress
+  - guide.core.general.analytics
+  - guide.core.general.comprehensive-unit-testing
+  - guide.core.general.debug-mode
+  - guide.core.general.deep-linking
+  - guide.core.general.feature-flags
+  - guide.core.general.instrumented-logging
+  - guide.core.general.linting-from-day-one
+  - guide.core.general.localizability
+  - guide.core.general.no-blocking-the-main-thread
+  - guide.core.general.post-generation-verification
+  - guide.core.general.prefer-native-controls-and-libraries
+  - guide.core.general.privacy-and-security-by-default
+  - guide.core.general.respect-accessibility-display-options
+  - guide.core.general.rtl-layout-support
+  - guide.core.general.scriptable-and-automatable
+  - guide.core.general.small-atomic-commits
+  - guide.core.general.surface-all-design-decisions
+  - guide.core.principles.dependency-injection
+  - guide.core.principles.design-for-deletion
+  - guide.core.principles.explicit-over-implicit
+  - guide.core.principles.fail-fast
+  - guide.core.principles.immutability-by-default
+  - guide.core.principles.make-it-work-make-it-right-make-it-fast
+  - guide.core.principles.separation-of-concerns
+  - guide.core.principles.simplicity
+  - guide.core.principles.yagni
+  - guide.domain.testing.flaky-test-prevention
+  - guide.domain.testing.mutation-testing
+  - guide.domain.testing.properties-of-good-tests
+  - guide.domain.testing.property-based-testing
+  - guide.domain.testing.security-testing
+  - guide.domain.testing.test-data
+  - guide.domain.testing.test-pyramid
+  - guide.domain.testing.the-testing-workflow
+  - guide.domain.testing.unit-test-patterns
+references: []
+---
+
 # Guideline Applicability Checklist
 
 ---

@@ -1,3 +1,30 @@
+---
+id: b2ba3ab9-743f-4c86-a75f-cc2e93fd3b07
+title: "Package Document"
+domain: cookbook.recipes.infrastructure.package-document
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.1"
+platforms: 
+  - ios
+  - macos
+  - swift
+  - windows
+tags: 
+  - infrastructure
+  - package-document
+depends-on: []
+related: []
+references: []
+---
+
 # Package Document
 
 ---

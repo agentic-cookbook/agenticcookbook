@@ -1,3 +1,30 @@
+---
+id: 3b83a80f-d170-4ef6-a608-81f3a1476679
+title: "Workspace Window"
+domain: cookbook.recipes.ui.window.workspace-window
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - macos
+  - swift
+  - web
+tags: 
+  - ui
+  - window
+  - workspace-window
+depends-on: []
+related: []
+references: []
+---
+
 # Workspace Window
 
 ---

@@ -1,3 +1,30 @@
+---
+id: e45d49c6-f753-4aea-8496-b3bf70297a7d
+title: "Post-generation verification"
+domain: cookbook.guidelines.testing.post-generation-verification
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Every generated artifact must be verified:"
+platforms: 
+  - ios
+  - kotlin
+  - typescript
+tags: 
+  - post-generation-verification
+  - testing
+depends-on: []
+related: 
+  - guide.core.general.linting-from-day-one
+references: []
+---
+
 # Post-generation verification
 
 Every generated artifact must be verified:

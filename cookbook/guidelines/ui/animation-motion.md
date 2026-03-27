@@ -1,3 +1,31 @@
+---
+id: 9f13dbec-cecb-482b-824b-f7d3e341878a
+title: "Animation & Motion"
+domain: cookbook.guidelines.ui.animation-motion
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Motion should be purposeful — guide attention, show spatial relationships, and provide"
+platforms: 
+  - windows
+tags: 
+  - animation-motion
+  - ui
+depends-on: []
+related: 
+  - guide.core.general.respect-accessibility-display-options
+references: 
+  - https://developer.apple.com/design/human-interface-guidelines/motion
+  - https://learn.microsoft.com/en-us/windows/apps/design/motion/timing-and-easing
+  - https://m3.material.io/styles/motion/overview
+---
+
 # Animation & Motion
 
 Motion should be purposeful — guide attention, show spatial relationships, and provide

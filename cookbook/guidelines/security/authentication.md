@@ -1,3 +1,35 @@
+---
+id: aec38334-67fa-4c7e-bca2-607932af3f22
+title: "Authentication"
+domain: cookbook.guidelines.security.authentication
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Use OAuth 2.0 / OpenID Connect with PKCE for all public clients. The Implicit flow is"
+platforms: 
+  - csharp
+  - ios
+  - kotlin
+  - typescript
+  - web
+  - windows
+tags: 
+  - authentication
+  - security
+depends-on: []
+related: []
+references: 
+  - https://datatracker.ietf.org/doc/html/rfc7636
+  - https://datatracker.ietf.org/doc/html/rfc8252
+  - https://openid.net/specs/openid-connect-core-1_0.html
+---
+
 # Authentication
 
 Use OAuth 2.0 / OpenID Connect with PKCE for all public clients. The Implicit flow is

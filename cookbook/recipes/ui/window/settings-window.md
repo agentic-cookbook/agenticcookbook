@@ -1,3 +1,34 @@
+---
+id: 31f97683-8d2e-4203-a155-48cebc1bfb13
+title: "Settings Window"
+domain: cookbook.recipes.ui.window.settings-window
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.3.0"
+platforms: 
+  - ios
+  - kotlin
+  - macos
+  - swift
+  - typescript
+  - web
+  - windows
+tags: 
+  - settings-window
+  - ui
+  - window
+depends-on: []
+related: []
+references: []
+---
+
 # Settings Window
 
 ---

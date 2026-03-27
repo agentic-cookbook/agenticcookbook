@@ -1,3 +1,30 @@
+---
+id: bef3dedc-bd3f-4158-ad52-adad1c2017d6
+title: "The Testing Workflow"
+domain: cookbook.guidelines.testing.the-testing-workflow
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "The recommended Claude Code testing workflow, combining all tools:"
+platforms: 
+  - python
+  - swift
+  - typescript
+  - web
+tags: 
+  - testing
+  - the-testing-workflow
+depends-on: []
+related: []
+references: []
+---
+
 # The Testing Workflow
 
 The recommended Claude Code testing workflow, combining all tools:

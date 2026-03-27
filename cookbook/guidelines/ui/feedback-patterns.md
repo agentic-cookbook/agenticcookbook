@@ -1,3 +1,30 @@
+---
+id: ca9874ea-07ed-4585-8692-33a29bc6411a
+title: "Feedback Patterns"
+domain: cookbook.guidelines.ui.feedback-patterns
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Every user action should have visible feedback. The weight of the feedback should match"
+platforms: []
+tags: 
+  - feedback-patterns
+  - ui
+depends-on: []
+related: []
+references: 
+  - https://developer.apple.com/design/human-interface-guidelines/alerts
+  - https://m3.material.io/components/snackbar/overview
+  - https://www.nngroup.com/articles/confirmation-dialog/
+  - https://www.nngroup.com/articles/ten-usability-heuristics/
+---
+
 # Feedback Patterns
 
 Every user action should have visible feedback. The weight of the feedback should match

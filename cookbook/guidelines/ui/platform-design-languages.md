@@ -1,3 +1,33 @@
+---
+id: f26a9468-a15c-4cd2-b944-d39221e7eee2
+title: "Platform Design Languages"
+domain: cookbook.guidelines.ui.platform-design-languages
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Defer to these canonical sources before applying the defaults in this file:"
+platforms: 
+  - kotlin
+  - web
+  - windows
+tags: 
+  - platform-design-languages
+  - ui
+depends-on: []
+related: []
+references: 
+  - https://developer.apple.com/design/human-interface-guidelines/
+  - https://fluent2.microsoft.design/
+  - https://m3.material.io/
+  - https://www.w3.org/TR/WCAG21/
+---
+
 # Platform Design Languages
 
 Defer to these canonical sources before applying the defaults in this file:

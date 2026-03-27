@@ -1,3 +1,101 @@
+---
+id: eb0764d5-aeac-40cc-9aa4-d84e4eaa652d
+title: "Guidelines Index"
+domain: cookbook.guidelines.index
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Complete index of all rules, principles, and conventions across all guideline files."
+platforms: 
+  - csharp
+  - kotlin
+  - macos
+  - python
+  - swift
+  - typescript
+  - web
+  - windows
+tags: []
+depends-on: []
+related: 
+  - guide.core.general.ab-testing
+  - guide.core.general.accessibility-from-day-one
+  - guide.core.general.always-show-progress
+  - guide.core.general.analytics
+  - guide.core.general.comprehensive-unit-testing
+  - guide.core.general.debug-mode
+  - guide.core.general.deep-linking
+  - guide.core.general.feature-flags
+  - guide.core.general.for-novel-components-prefer-proven-open
+  - guide.core.general.instrumented-logging
+  - guide.core.general.linting-from-day-one
+  - guide.core.general.localizability
+  - guide.core.general.no-blocking-the-main-thread
+  - guide.core.general.post-generation-verification
+  - guide.core.general.prefer-native-controls-and-libraries
+  - guide.core.general.privacy-and-security-by-default
+  - guide.core.general.respect-accessibility-display-options
+  - guide.core.general.rtl-layout-support
+  - guide.core.general.scriptable-and-automatable
+  - guide.core.general.small-atomic-commits
+  - guide.core.general.surface-all-design-decisions
+  - guide.core.principles.composition-over-inheritance
+  - guide.core.principles.dependency-injection
+  - guide.core.principles.design-for-deletion
+  - guide.core.principles.explicit-over-implicit
+  - guide.core.principles.fail-fast
+  - guide.core.principles.idempotency
+  - guide.core.principles.immutability-by-default
+  - guide.core.principles.make-it-work-make-it-right-make-it-fast
+  - guide.core.principles.manage-complexity-through-boundaries
+  - guide.core.principles.meta-principle-optimize-for-change
+  - guide.core.principles.principle-of-least-astonishment
+  - guide.core.principles.separation-of-concerns
+  - guide.core.principles.simplicity
+  - guide.core.principles.small-reversible-decisions
+  - guide.core.principles.tight-feedback-loops
+  - guide.core.principles.yagni
+  - guide.domain.security.authentication
+  - guide.domain.security.authorization
+  - guide.domain.security.content-security-policy
+  - guide.domain.security.cors
+  - guide.domain.security.dependency-security
+  - guide.domain.security.input-validation
+  - guide.domain.security.references
+  - guide.domain.security.security-headers-checklist
+  - guide.domain.security.sensitive-data
+  - guide.domain.security.token-handling
+  - guide.domain.security.transport-security
+  - guide.domain.specs.analytics-section
+  - guide.domain.specs.feature-flags-section
+  - guide.domain.specs.frontmatter
+  - guide.domain.specs.logging-section
+  - guide.domain.specs.privacy-section
+  - guide.domain.specs.requirement-numbering
+  - guide.domain.specs.rfc-2119-keywords
+  - guide.domain.specs.standard-sections
+  - guide.domain.specs.template-variables
+  - guide.domain.specs.test-vector-formats
+  - guide.domain.testing.flaky-test-prevention
+  - guide.domain.testing.mutation-testing
+  - guide.domain.testing.properties-of-good-tests
+  - guide.domain.testing.property-based-testing
+  - guide.domain.testing.references
+  - guide.domain.testing.security-testing
+  - guide.domain.testing.test-data
+  - guide.domain.testing.test-doubles
+  - guide.domain.testing.test-pyramid
+  - guide.domain.testing.the-testing-workflow
+  - guide.domain.testing.unit-test-patterns
+references: []
+---
+
 # Guidelines Index
 
 Complete index of all rules, principles, and conventions across all guideline files.

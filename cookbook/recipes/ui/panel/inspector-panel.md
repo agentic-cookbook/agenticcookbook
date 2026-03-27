@@ -1,3 +1,32 @@
+---
+id: 6af1d30a-c2ee-4a6d-97ec-50c67f01a243
+title: "Inspector Panel"
+domain: cookbook.recipes.ui.panel.inspector-panel
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - kotlin
+  - macos
+  - swift
+  - typescript
+  - web
+tags: 
+  - inspector-panel
+  - panel
+  - ui
+depends-on: []
+related: []
+references: []
+---
+
 # Inspector Panel
 
 ---

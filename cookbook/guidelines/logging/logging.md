@@ -1,3 +1,34 @@
+---
+id: 0f0c1da3-1c53-417b-890d-0259d7513c65
+title: "Instrumented logging"
+domain: cookbook.guidelines.logging.logging
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Every component and flow must be instrumented with structured logging using the platform's best-in-class framework:"
+platforms: 
+  - csharp
+  - kotlin
+  - python
+  - swift
+  - typescript
+  - web
+  - windows
+tags: 
+  - logging
+depends-on: []
+related: []
+references: 
+  - https://github.com/JakeWharton/timber
+  - https://learn.microsoft.com/en-us/visualstudio/profiling/
+---
+
 # Instrumented logging
 
 Every component and flow must be instrumented with structured logging using the platform's best-in-class framework:

@@ -1,3 +1,29 @@
+---
+id: 497a717f-de29-4baf-b7b8-4487f672d9a8
+title: "Design-Time Data"
+domain: cookbook.guidelines.platform.windows.design-time-data
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "- Use `d:DataContext` and `d:DesignInstance` for XAML designer preview data"
+platforms: 
+  - csharp
+  - windows
+tags: 
+  - design-time-data
+  - platform
+  - windows
+depends-on: []
+related: []
+references: []
+---
+
 # Design-Time Data
 
 - Use `d:DataContext` and `d:DesignInstance` for XAML designer preview data

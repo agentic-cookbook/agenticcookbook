@@ -1,3 +1,51 @@
+---
+id: 7ee050d1-e070-473e-ad64-9152ea25e54f
+title: "Recipe Index"
+domain: cookbook.recipes.index
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Master index of all recipes, organized by domain hierarchy."
+platforms: 
+  - kotlin
+  - web
+  - windows
+tags: []
+depends-on: []
+related: 
+  - recipe.app.lifecycle
+  - recipe.app.menu-commands
+  - recipe.infrastructure.directory-sync
+  - recipe.infrastructure.logging
+  - recipe.infrastructure.package-document
+  - recipe.infrastructure.settings-keys
+  - recipe.infrastructure.window-frame-persistence
+  - recipe.ui.component.ai-chat-control
+  - recipe.ui.component.collapsible-pane-header
+  - recipe.ui.component.color-profile
+  - recipe.ui.component.empty-state
+  - recipe.ui.component.git-status-indicator
+  - recipe.ui.component.metadata-line
+  - recipe.ui.component.status-bar
+  - recipe.ui.panel.ai-settings-panel
+  - recipe.ui.panel.code-editor-pane
+  - recipe.ui.panel.debug-panel
+  - recipe.ui.panel.file-tree-browser
+  - recipe.ui.panel.inspector-panel
+  - recipe.ui.panel.terminal-pane
+  - recipe.ui.window.project-window
+  - recipe.ui.window.settings-window
+  - recipe.ui.window.standalone-terminal-window
+  - recipe.ui.window.workspace-window
+references: []
+---
+
 # Recipe Index
 
 Master index of all recipes, organized by domain hierarchy.

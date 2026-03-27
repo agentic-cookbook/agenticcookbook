@@ -1,3 +1,35 @@
+---
+id: db58f79d-1040-4bb2-a862-93ebd390ee12
+title: "Mutation Testing"
+domain: cookbook.guidelines.testing.mutation-testing
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Mutation testing validates that your tests actually catch bugs — not just achieve coverage."
+platforms: 
+  - csharp
+  - kotlin
+  - python
+  - swift
+  - typescript
+tags: 
+  - mutation-testing
+  - testing
+depends-on: []
+related: []
+references: 
+  - https://github.com/boxed/mutmut
+  - https://github.com/muter-mutation-testing/muter
+  - https://pitest.org/
+  - https://stryker-mutator.io/
+---
+
 # Mutation Testing
 
 Mutation testing validates that your tests actually catch bugs — not just achieve coverage.

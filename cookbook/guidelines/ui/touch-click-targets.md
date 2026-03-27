@@ -1,3 +1,36 @@
+---
+id: 73b254b4-c611-434a-a9f4-67c8a7155576
+title: "Touch & Click Targets"
+domain: cookbook.guidelines.ui.touch-click-targets
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Interactive elements must be large enough to tap or click accurately. Defer to the platform"
+platforms: 
+  - ios
+  - kotlin
+  - typescript
+  - web
+  - windows
+tags: 
+  - touch-click-targets
+  - ui
+depends-on: []
+related: 
+  - guide.core.general.accessibility-from-day-one
+references: 
+  - https://developer.apple.com/design/human-interface-guidelines/accessibility#User-interaction
+  - https://learn.microsoft.com/en-us/windows/apps/design/input/guidelines-for-targeting
+  - https://m3.material.io/foundations/accessible-design/accessibility-basics
+  - https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
+---
+
 # Touch & Click Targets
 
 Interactive elements must be large enough to tap or click accurately. Defer to the platform

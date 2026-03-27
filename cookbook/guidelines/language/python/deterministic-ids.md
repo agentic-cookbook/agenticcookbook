@@ -1,3 +1,27 @@
+---
+id: acbfc5ff-4482-4982-a893-b792da0fbe4f
+title: "Deterministic IDs"
+domain: cookbook.guidelines.language.python.deterministic-ids
+type: guideline
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Always use the roadmap file's own UUID from its YAML frontmatter. Never generate random UUIDs. IDs must be determinis..."
+platforms: []
+tags: 
+  - deterministic-ids
+  - language
+  - python
+depends-on: []
+related: []
+references: []
+---
+
 # Deterministic IDs
 
 Always use the roadmap file's own UUID from its YAML frontmatter. Never generate random UUIDs. IDs must be deterministic and reproducible.

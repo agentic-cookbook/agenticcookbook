@@ -1,3 +1,32 @@
+---
+id: a1845427-a2cd-4744-96bf-f6c6f2380982
+title: "File Tree Browser"
+domain: cookbook.recipes.ui.panel.file-tree-browser
+type: recipe
+version: 1.0.0
+status: accepted
+language: en
+created: 2026-03-27
+modified: 2026-03-27
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "version: 1.0.0"
+platforms: 
+  - ios
+  - macos
+  - swift
+  - typescript
+  - web
+tags: 
+  - file-tree-browser
+  - panel
+  - ui
+depends-on: []
+related: []
+references: []
+---
+
 # File Tree Browser
 
 ---
