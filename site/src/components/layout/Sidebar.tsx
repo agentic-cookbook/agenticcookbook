@@ -30,21 +30,26 @@ function DirLink({ node, depth = 0 }: { node: NavNode; depth?: number }) {
           }`}
           style={{ paddingInlineStart: `${(depth + 1) * 0.875}rem` }}
         >
-          {/* Selected indicator — overlays the parent border-l */}
           {isSelected && (
             <span className="absolute left-0 top-1 bottom-1 w-px bg-[var(--color-accent)]" />
           )}
           {node.label}
         </Link>
       </li>
-      {childDirs.map((child) => (
-        <DirLink key={child.path} node={child} depth={depth + 1} />
-      ))}
+      {childDirs.length > 0 && (
+        <li>
+          <ul className="flex flex-col border-l border-[var(--color-border)] ml-3.5">
+            {childDirs.map((child) => (
+              <DirLink key={child.path} node={child} depth={depth + 1} />
+            ))}
+          </ul>
+        </li>
+      )}
     </>
   )
 }
 
-/** Top-level section header with always-visible vertical bar and "Overview" link */
+/** Top-level section header with always-visible vertical bar */
 function NavSection({ node }: { node: NavNode }) {
   const { pathname } = useLocation()
   const isSelected = pathname === node.path
@@ -62,23 +67,6 @@ function NavSection({ node }: { node: NavNode }) {
         {node.label}
       </h3>
       <ul className="flex flex-col border-l border-[var(--color-border)]">
-        {/* Overview link — always first */}
-        <li>
-          <Link
-            to={node.path}
-            aria-current={isSelected ? 'page' : undefined}
-            className={`relative block py-1 pl-3.5 text-sm transition-colors ${
-              isSelected
-                ? 'font-semibold text-[var(--color-text-primary)]'
-                : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
-            }`}
-          >
-            {isSelected && (
-              <span className="absolute left-0 top-1 bottom-1 w-px bg-[var(--color-accent)]" />
-            )}
-            Overview
-          </Link>
-        </li>
         {childDirs.map((child) => (
           <DirLink key={child.path} node={child} />
         ))}
@@ -89,9 +77,21 @@ function NavSection({ node }: { node: NavNode }) {
 
 export default function Sidebar({ open, onClose }: SidebarProps) {
   const { navTree } = useContent()
+  const { pathname } = useLocation()
+  const isOverviewSelected = pathname === '/'
 
   const nav = (
     <nav className="flex flex-col gap-6 px-6 py-6 overflow-y-auto h-full" data-autoscroll="true">
+      {/* Overview — above all sections */}
+      <div className="flex flex-col gap-3">
+        <h3 className={`font-mono text-xs font-medium uppercase tracking-widest transition-colors ${
+          isOverviewSelected ? 'text-[var(--color-text-secondary)]' : 'text-[var(--color-text-dim)]'
+        }`}>
+          <Link to="/" className="hover:text-[var(--color-text-secondary)]">
+            Overview
+          </Link>
+        </h3>
+      </div>
       {navTree.map((section) => (
         <NavSection key={section.path} node={section} />
       ))}

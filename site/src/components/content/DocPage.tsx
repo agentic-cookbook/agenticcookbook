@@ -11,6 +11,22 @@ export default function DocPage() {
   const { getBySlug, entries } = useContent()
 
   const slug = pathname === '/' ? '/' : pathname.replace(/\/$/, '')
+
+  // Overview page
+  if (slug === '/') {
+    return (
+      <div className="px-6 py-8 lg:px-10 max-w-3xl">
+        <h1 className="text-3xl mb-4" style={{ fontFamily: 'var(--font-display)' }}>Agentic Cookbook</h1>
+        <p className="text-[var(--color-text-secondary)] leading-relaxed mb-4">
+          A structured cookbook of principles, guidelines, recipes, and workflows for AI-assisted multi-platform development. All content is markdown consumed directly by AI agents and rendered here for humans.
+        </p>
+        <p className="text-[var(--color-text-secondary)] leading-relaxed">
+          Use the navigation on the left to browse sections. Each section contains topics you can click to explore in detail.
+        </p>
+      </div>
+    )
+  }
+
   const entry = getBySlug(slug)
 
   // If we have a direct entry (a file), render its content
@@ -35,11 +51,8 @@ export default function DocPage() {
   }
 
   // No direct file match — treat as a directory listing
-  // Find all entries whose slug starts with this path
-  const dirPath = slug === '/' ? '/' : slug
+  const dirPath = slug
   const children = entries.filter((e) => {
-    if (dirPath === '/') return true
-    // Direct children: slug starts with dirPath/ and has no further slashes beyond that
     const rest = e.slug.slice(dirPath.length)
     return e.slug.startsWith(dirPath + '/') && rest.split('/').filter(Boolean).length === 1
   })
@@ -57,36 +70,37 @@ export default function DocPage() {
     )
   }
 
-  // Directory listing
-  const dirName = slug === '/'
-    ? 'Agentic Cookbook'
-    : slug.split('/').filter(Boolean).pop()!
-        .split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+  const dirName = slug.split('/').filter(Boolean).pop()!
+    .split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
 
   return (
     <div className="px-6 py-8 lg:px-10 max-w-3xl">
       <Breadcrumbs slug={slug} />
       <h1 className="text-3xl mb-6" style={{ fontFamily: 'var(--font-display)' }}>{dirName}</h1>
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col">
         {children.map((child) => (
           <Link
             key={child.slug}
             to={child.slug}
-            className="group flex items-center gap-3 py-2 px-3 -mx-3 rounded-md hover:bg-[var(--color-surface-raised)] transition-colors"
+            className="group flex items-center gap-3 py-2.5 border-b border-[var(--color-border-subtle)] last:border-b-0 transition-colors"
           >
             <div className="flex-1 min-w-0">
-              <div className="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)]">
+              <span className="text-sm text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors">
                 {child.frontmatter.title}
-              </div>
-              {child.frontmatter.summary && (
-                <div className="text-xs text-[var(--color-text-dim)] truncate mt-0.5">
-                  {child.frontmatter.summary}
-                </div>
-              )}
+              </span>
             </div>
             {child.frontmatter.status !== 'accepted' && (
               <StatusBadge status={child.frontmatter.status} />
             )}
+            <svg
+              className="h-4 w-4 shrink-0 text-[var(--color-text-dim)] group-hover:text-[var(--color-accent)] transition-colors"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
           </Link>
         ))}
       </div>
