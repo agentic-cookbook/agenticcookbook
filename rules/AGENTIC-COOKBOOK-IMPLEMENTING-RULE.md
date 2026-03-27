@@ -10,7 +10,7 @@ Before writing any code, verify:
 
 1. You have an **approved plan** from the planning phase. If not, stop and run the planning process first.
 2. You have the **guideline decisions** (opt-in/opt-out matrix) from the plan. If not, stop and ask.
-3. If the plan references a recipe, you have **read the recipe file** in full. If not, read it now from `cookbook/recipes/`.
+3. If the plan references a recipe, you have **read the recipe file named in the plan** in full from `cookbook/recipes/`. If not, read it now.
 
 ---
 
@@ -36,8 +36,8 @@ Read `cookbook/principles/make-it-work-make-it-right-make-it-fast.md`. Then exec
 - Implement the **core functionality** — the happy path that makes the feature work for the common case.
 - Write **unit tests alongside code** — not after. For each function or method, write the test before or immediately after writing the implementation. Do not accumulate untested code.
 - Apply ALL "Always" guidelines and ALL opted-in guidelines during this phase. If logging was opted in, every component gets logging now, not later. If accessibility was opted in, every view gets accessibility attributes now, not later.
-- **Build and run tests** after each logical unit. Do not accumulate broken state.
-- **Commit** after each meaningful change — one function with its test, one file completed, one logical unit delivered.
+- **Build and run tests** after each logical unit. Do not accumulate broken state. If the build or tests fail, fix the failure before proceeding. Diagnose and repair in place — do not revert unless the fix is non-obvious.
+- **Commit** after completing each function with its test, each completed file, or each discrete unit of functionality described in the plan.
 - Defer edge cases, error handling refinements, and optimizations to Phase 2.
 
 ### Phase 2: Make It Right

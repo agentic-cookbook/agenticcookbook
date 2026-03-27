@@ -60,7 +60,15 @@ Read `cookbook/workflow/guideline-checklist.md`. Evaluate every item:
 3. **"Opt-out" items**: Ask the user if they want to opt in.
 4. **"Ask" items**: Ask the user the prompt template question from the checklist.
 
-Present ALL items in a single consolidated prompt grouped by category. Do not ask one at a time. Record all decisions.
+Present ALL items in a single consolidated prompt grouped by category using this format:
+
+| Guideline | Category | Default | Decision | Reason |
+|-----------|----------|---------|----------|--------|
+| Native controls | Always | — | Included | — |
+| Instrumented logging | Opt-in | Included | ? | — |
+| ... | ... | ... | ... | ... |
+
+Do not ask one at a time. Record all decisions in this table format.
 
 Also read `cookbook/guidelines/general.md` for the full guideline details and `cookbook/guidelines/INDEX.md` for the complete guideline index.
 
@@ -93,6 +101,8 @@ The plan MUST include all of the following sections:
 9. **Risks**: Known risks, unknowns, areas likely to need iteration.
 
 The plan MUST be concrete enough that another developer or AI session could execute it without follow-up questions.
+
+**Before presenting the plan**, verify completeness — confirm every one of the 9 sections above is present and non-empty. If any section is missing, add it before proceeding.
 
 ---
 

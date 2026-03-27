@@ -1,24 +1,32 @@
 ---
 name: plan-agentic-cookbook-recipe
-version: 2.0.0
+version: 2.1.0
 description: Interactively design a new cookbook recipe through guided discussion
 disable-model-invocation: true
 context: fork
-allowed-tools: Read, Glob, Grep, Agent, Write, Edit, AskUserQuestion
+allowed-tools: Read, Glob, Grep, Agent, Write, Edit, AskUserQuestion, Bash(git *)
 argument-hint: [recipe-name] [--version]
 ---
 
-# Plan Agentic Cookbook Recipe v2.0.0
+# Plan Agentic Cookbook Recipe v2.1.0
 
 ## Startup
 
-**First action**: If the argument is `--version`, print `plan-agentic-cookbook-recipe v2.0.0` and stop.
+**First action**: If `$ARGUMENTS` is `--version`, print `plan-agentic-cookbook-recipe v2.1.0` and stop.
 
-Otherwise, print `plan-agentic-cookbook-recipe v2.0.0` as the first line of output, then proceed.
+Otherwise, print `plan-agentic-cookbook-recipe v2.1.0` as the first line of output, then proceed.
 
 ## Overview
 
 You are guiding the user through designing a new recipe for the agentic cookbook. This is a conversational, interactive process — you ask questions, propose options, surface design decisions, and ultimately produce a complete recipe file.
+
+## Usage
+
+```
+/plan-agentic-cookbook-recipe status-bar
+```
+
+Starts an interactive conversation to design a new `status-bar` recipe. The skill walks through each recipe section — overview, requirements, appearance, states, platforms, accessibility, logging — proposing drafts and refining with the user.
 
 **ABSOLUTE RULE: NO IMPLEMENTATION CODE.** This skill produces recipe markdown files only. Never write Swift, Kotlin, TypeScript, or any other implementation code.
 
@@ -29,13 +37,15 @@ You are guiding the user through designing a new recipe for the agentic cookbook
 3. Read `CLAUDE.md` and `cookbook/conventions.md` for format rules
 4. Scan existing recipes: recursively list `cookbook/recipes/`
 
+If any of these files are missing (template, conventions, or cookbook directory), inform the user and stop. Do not proceed with incomplete references.
+
 ## Phase 1: Discovery & Discussion
 
 This phase is conversational. Ask questions, don't assume.
 
 ### Step 1: Identify the recipe
 
-If the user provided a recipe name in the arguments, start there. Otherwise ask: "What component or feature do you want to create a recipe for?"
+If `$ARGUMENTS` is not empty (and not `--version`), use it as the recipe name. Otherwise ask: "What component or feature do you want to create a recipe for?"
 
 ### Step 2: Check for overlap
 

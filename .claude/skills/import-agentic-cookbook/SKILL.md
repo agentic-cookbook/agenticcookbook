@@ -1,6 +1,6 @@
 ---
 name: import-agentic-cookbook
-version: 4.0.0
+version: 4.1.0
 description: Deep codebase analysis and component extraction into agentic cookbook recipes using git, Roadmaps, LSP, and code churn
 disable-model-invocation: true
 context: fork
@@ -8,21 +8,29 @@ allowed-tools: Read, Glob, Grep, Bash(git *), Bash(ls *), Bash(wc *), Bash(xcode
 argument-hint: [path to repo to analyze] [--version]
 ---
 
-# Import Agentic Cookbook v4.0.0
+# Import Agentic Cookbook v4.1.0
 
 ## Startup
 
-**First action**: If the argument is `--version`, print `import-agentic-cookbook v4.0.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `import-agentic-cookbook v4.1.0` and stop — do not run the skill.
 
-Otherwise, print `import-agentic-cookbook v4.0.0` as the first line of output, then proceed.
+Otherwise, print `import-agentic-cookbook v4.1.0` as the first line of output, then proceed.
 
 ## Overview
 
 You are performing a deep analysis of an existing codebase to discover reusable UI components, patterns, and recipes for extraction into the agentic cookbook. This is a one-shot, maximum-depth analysis — use every tool available.
 
+## Usage
+
+```
+/import-agentic-cookbook ../my-app
+```
+
+Analyzes `../my-app`, discovers feature bundles, and proposes cookbook recipes. Typical output begins with a project profile, then lists discovered bundles with their files, settings, and proposed recipe paths.
+
 ## Inputs
 
-The user will provide a **repo path** to analyze (e.g., `../temporal`, `../Whippet`). If not provided, assume the current working directory.
+Use `$ARGUMENTS` as the path to the repo to analyze. If `$ARGUMENTS` is empty, assume the current working directory.
 
 ## Critical lessons from v1
 

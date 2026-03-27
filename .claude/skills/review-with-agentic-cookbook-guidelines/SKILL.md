@@ -1,6 +1,6 @@
 ---
 name: review-with-agentic-cookbook-guidelines
-version: 2.0.0
+version: 2.1.0
 description: Review a generated implementation against agentic cookbook guidelines, recipes, and engineering principles
 disable-model-invocation: true
 context: fork
@@ -8,17 +8,25 @@ allowed-tools: Read, Glob, Grep, Bash(git diff *), Bash(git log *), Agent
 argument-hint: [path to recipe] [path to implementation directory] [--version]
 ---
 
-# Agentic Cookbook Implementation Review v2.0.0
+# Agentic Cookbook Implementation Review v2.1.0
 
 ## Startup
 
-**First action**: If the argument is `--version`, print `review-with-agentic-cookbook-guidelines v2.0.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `review-with-agentic-cookbook-guidelines v2.1.0` and stop — do not run the skill.
 
-Otherwise, print `review-with-agentic-cookbook-guidelines v2.0.0` as the first line of output, then proceed.
+Otherwise, print `review-with-agentic-cookbook-guidelines v2.1.0` as the first line of output, then proceed.
 
 ## Overview
 
 You are reviewing a generated implementation against the agentic cookbook guidelines, recipes, and engineering principles.
+
+## Usage
+
+```
+/review-with-agentic-cookbook-guidelines cookbook/recipes/ui/component/empty-state.md ../my-app/Sources/EmptyState/
+```
+
+Reviews the `EmptyState` implementation against the `empty-state` recipe and all applicable cookbook guidelines. Produces a structured report with pass/warn/fail ratings per guideline.
 
 ## Prerequisites & Assumptions
 
@@ -57,33 +65,16 @@ If either argument is missing, ask the user to provide it.
 
 ### Phase 2: Systematic review
 
-Launch up to 3 review agents in parallel. Each agent reviews a subset of guidelines:
+Launch up to 3 review agents in parallel. Each agent reviews the items assigned to it from `${CLAUDE_SKILL_DIR}/references/guideline-checklist.md`:
 
 **Agent 1 — UI Quality & Behavior**
-- Native controls (cookbook/principles/native-controls.md): Are platform built-in controls used?
-- Open-source preference (cookbook/principles/open-source-preference.md): If custom, was open-source considered?
-- Responsiveness & progress (cookbook/guidelines/general.md — Always show progress): UI reacts immediately? Progress shown?
-- Main thread (cookbook/guidelines/general.md — No blocking the main thread): All async work off main thread?
-- Deep linking (cookbook/guidelines/general.md — Deep linking): Significant views deep-linkable?
-- Scriptability (cookbook/guidelines/general.md — Scriptable and automatable): Automatable where applicable?
-- Accessibility display options (cookbook/guidelines/general.md — Respect accessibility display options): Responds to reduce motion, increase contrast, etc.?
+Categories: UI Quality & Behavior
 
 **Agent 2 — Quality Assurance**
-- Unit testing (cookbook/guidelines/general.md — Comprehensive unit testing): Tests exist and are comprehensive?
-- Design decisions (cookbook/guidelines/general.md — Surface all design decisions): LLM decisions surfaced and recorded?
-- Verification (cookbook/guidelines/general.md — Post-generation verification): Build, test, lint, a11y audit, review completed?
-- Logging (cookbook/guidelines/general.md — Instrumented logging): Log messages match recipe's Logging section exactly?
-- Feature flags (cookbook/guidelines/general.md — Feature flags): Features behind flags via interface?
-- Analytics (cookbook/guidelines/general.md — Analytics): Events instrumented per recipe?
-- A/B testing (cookbook/guidelines/general.md — A/B testing): Variant support where applicable?
-- Debug mode (cookbook/guidelines/general.md — Debug mode): Debug panel present, not in release?
+Categories: Quality Assurance, Linting
 
 **Agent 3 — Accessibility, i18n, Privacy, Engineering Principles**
-- Accessibility (cookbook/guidelines/general.md — Accessibility from day one): Semantic roles/labels, screen reader support, keyboard nav, Dynamic Type?
-- Localization (cookbook/guidelines/general.md — Localizability): All strings localized? No hardcoded user-facing strings?
-- RTL (cookbook/guidelines/general.md — RTL layout support): Leading/trailing used? Tested with RTL?
-- Privacy (cookbook/guidelines/general.md — Privacy and security by default): Data minimization, no PII in logs, secure storage?
-- Engineering principles (all files in cookbook/principles/): Composition, DI, immutability, fail fast, idempotency, etc.?
+Categories: Accessibility, i18n, Privacy, Engineering Principles
 
 ### Phase 3: Compile report
 
