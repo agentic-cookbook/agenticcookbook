@@ -1,18 +1,18 @@
 ---
 name: configure-agentic-cookbook
-version: "1.5.0"
+version: "1.6.0"
 description: "Change your agentic cookbook participation tier. Upgrade or downgrade between principles, guidelines, recipes, and contributor levels."
 argument-hint: "[tier-number] [--version]"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(rm *), Bash(ls *), Bash(mkdir *), AskUserQuestion
 ---
 
-# Configure Agentic Cookbook v1.5.0
+# Configure Agentic Cookbook v1.6.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `configure-agentic-cookbook v1.5.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `configure-agentic-cookbook v1.6.0` and stop — do not run the skill.
 
-Otherwise, print `configure-agentic-cookbook v1.5.0` as the first line of output, then proceed.
+Otherwise, print `configure-agentic-cookbook v1.6.0` as the first line of output, then proceed.
 
 ## Usage
 
@@ -37,9 +37,45 @@ Check `.claude/rules/` in the current project for which rule files are installed
 
 If not installed, this is a first-time configuration. Print: `No existing tier detected — first-time setup.` Set current tier to 0 and proceed to Step 2.
 
-Also check whether `COMMITTING-RULE.md` is present (this is independent of tier).
+Also check whether `COMMITTING-RULE.md` is present.
 
 Print: `Current tier: <N> (<Name>)` and `Committing rule: installed / not installed`
+
+## Step 1b: Committing Rule (Optional — Not Related to Cookbook)
+
+This is a standalone workflow rule for your own project. It has nothing to do with the cookbook or your participation tier.
+
+Check whether the committing rule is currently installed.
+
+**If not installed**, ask:
+
+```
+Optional: Install a structured git workflow rule for YOUR project?
+
+This is NOT related to the cookbook — it's a standalone workflow rule that
+governs how YOU commit to your own repo:
+- All Claude Code work happens in a git worktree (never directly on main)
+- A draft PR is created before any code is written
+- Every change is committed, pushed, and documented in the PR
+- The PR is marked ready when work is complete, then merged
+
+This is entirely optional and independent of your cookbook tier.
+
+Install? (y/n):
+```
+
+If yes, copy `COMMITTING-RULE.md` from `../agentic-cookbook/rules/`.
+
+**If already installed**, ask:
+
+```
+The structured git workflow rule (COMMITTING-RULE.md) is installed.
+This is not related to the cookbook — it governs your own git workflow.
+
+Keep it? (y/n):
+```
+
+If no, remove `.claude/rules/COMMITTING-RULE.md`.
 
 ## Step 2: Ask New Tier
 
@@ -84,37 +120,6 @@ When prompted for permission, select "Allow all" to avoid repeated prompts.
 | Tier 2 → 1 | `GUIDELINE-CONSUMER-RULE.md` |
 
 Track which files were added and removed for the summary.
-
-## Step 3b: Committing Rule (Optional Toggle)
-
-After tier changes, check whether the committing rule is currently installed. Use AskUserQuestion to offer a toggle:
-
-**If not installed**, ask:
-
-```
-Optional: Install the committing rule for your project?
-
-The committing rule enforces a structured git workflow in YOUR project:
-- All work happens in a git worktree (never directly on main)
-- A draft PR is created before any code is written
-- Every change is committed, pushed, and documented in the PR
-- The PR is marked ready when work is complete, then merged
-
-This is independent of your participation tier — it governs how you
-commit to your own repo, not how you interact with the cookbook.
-
-Install the committing rule? (y/n):
-```
-
-If yes, copy `COMMITTING-RULE.md` from `../agentic-cookbook/rules/`.
-
-**If already installed**, ask:
-
-```
-The committing rule is currently installed. Keep it? (y/n):
-```
-
-If no, remove `.claude/rules/COMMITTING-RULE.md`.
 
 ## Step 4: Update CLAUDE.md
 
