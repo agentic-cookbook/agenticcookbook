@@ -69,23 +69,43 @@ export default function DocPage() {
       <h1 className="text-3xl mb-6" style={{ fontFamily: 'var(--font-display)' }}>{dirName}</h1>
       <div className="flex flex-col gap-1">
         {children.map((child) => (
-          <Link
+          <div
             key={child.slug}
-            to={child.slug}
-            className="group flex items-center gap-3 py-2 px-3 -mx-3 rounded-md hover:bg-[var(--color-surface-raised)] transition-colors"
+            className="py-2 px-3 -mx-3 rounded-md hover:bg-[var(--color-surface-raised)] transition-colors"
           >
-            <div className="flex-1 min-w-0">
-              <div className="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)]">
-                {child.frontmatter.title}
-              </div>
-              {child.frontmatter.summary && (
-                <div className="text-xs text-[var(--color-text-dim)] truncate mt-0.5">
-                  {child.frontmatter.summary}
+            <Link
+              to={child.slug}
+              className="group flex items-center gap-3"
+            >
+              <div className="flex-1 min-w-0">
+                <div className="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)]">
+                  {child.frontmatter.title}
                 </div>
-              )}
-            </div>
-            <StatusBadge status={child.frontmatter.status} />
-          </Link>
+                {child.frontmatter.summary && (
+                  <div className="text-xs text-[var(--color-text-dim)] truncate mt-0.5">
+                    {child.frontmatter.summary}
+                  </div>
+                )}
+              </div>
+              <StatusBadge status={child.frontmatter.status} />
+            </Link>
+            {child.frontmatter.references.length > 0 && (
+              <div className="flex flex-wrap gap-x-3 gap-y-0.5 mt-1 ml-0">
+                {child.frontmatter.references.map((ref) => (
+                  <a
+                    key={ref}
+                    href={ref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-mono text-[var(--color-accent)] hover:underline truncate max-w-xs"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {ref.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
         ))}
       </div>
     </div>
