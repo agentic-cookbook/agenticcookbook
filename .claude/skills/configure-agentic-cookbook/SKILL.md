@@ -1,18 +1,18 @@
 ---
 name: configure-agentic-cookbook
-version: "1.4.0"
+version: "1.5.0"
 description: "Change your agentic cookbook participation tier. Upgrade or downgrade between principles, guidelines, recipes, and contributor levels."
 argument-hint: "[tier-number] [--version]"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(rm *), Bash(ls *), Bash(mkdir *), AskUserQuestion
 ---
 
-# Configure Agentic Cookbook v1.4.0
+# Configure Agentic Cookbook v1.5.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `configure-agentic-cookbook v1.4.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `configure-agentic-cookbook v1.5.0` and stop — do not run the skill.
 
-Otherwise, print `configure-agentic-cookbook v1.4.0` as the first line of output, then proceed.
+Otherwise, print `configure-agentic-cookbook v1.5.0` as the first line of output, then proceed.
 
 ## Usage
 
@@ -52,7 +52,7 @@ If `$ARGUMENTS` contains a number 1–4, use that as the target tier. If `$ARGUM
 | 3 | Recipe Consumer | Tier 2 + UI/infrastructure recipes with requirements and conformance checks |
 | 4 | Contributor | Tier 3 + ability to author and submit new recipes back to the cookbook |
 
-If the selected tier equals the current tier, print: `Already at tier <N> (<Name>). No tier changes needed.` Then skip to Step 3b to check the committing rule.
+If the selected tier equals the current tier, print: `Re-applying tier <N> (<Name>) — verifying all rule files are present.` Then proceed to Step 3 normally. This ensures missing or outdated files are repaired.
 
 ## Step 3: Apply Changes
 
