@@ -47,6 +47,20 @@ All specs use hierarchical numbering: `SPEC-X` (spec) or `SPEC-X.Y` (spec.sectio
 
 Cross-reference using `SPEC-` notation: "See SPEC-20" means project-window.md. "See SPEC-5.3" means git-status-indicator.md section 3. Ranges 8-9, 16-19, 24-29, 35-39 are reserved for future specs in each category.
 
+### Workflow Specs
+
+Process-oriented recipes describing how Claude Code AI sessions should develop code in consuming projects. These live in `workflow/` and use `WF-` numbering per [`workflow/INDEX.md`](workflow/INDEX.md):
+
+| ID | Spec |
+|----|------|
+| WF-1 | branching-strategy.md |
+| WF-2 | code-planning.md |
+| WF-3 | code-implementation.md |
+| WF-4 | code-verification.md |
+| WF-5 | code-review.md |
+
+Cross-reference using `WF-` notation: "See WF-2" means code-planning.md. "See WF-2.3" means code-planning.md Phase 3. The shared [guideline-checklist.md](workflow/guideline-checklist.md) maps all CG-x.y guidelines to workflow phases.
+
 ### Litterbox-specific additions
 
 These supplement the global guidelines for UI component work:
