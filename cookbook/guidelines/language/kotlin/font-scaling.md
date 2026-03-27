@@ -25,3 +25,9 @@ references: []
 # Font Scaling
 
 Layouts MUST NOT break at 2x font size. Check `Configuration.fontScale` and test with large font settings enabled.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

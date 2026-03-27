@@ -25,3 +25,9 @@ references: []
 # Dynamic Type
 
 Layouts MUST NOT break at larger text sizes. Use Dynamic Type throughout — avoid fixed font sizes. Custom fonts must respond to the bold text accessibility setting.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

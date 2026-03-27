@@ -36,3 +36,9 @@ references:
 - [Kotlin Coding Conventions](https://kotlinlang.org/docs/coding-conventions.html)
 - [Accessibility](https://developer.android.com/guide/topics/ui/accessibility)
 - [Google Play Developer Policy](https://support.google.com/googleplay/android-developer/answer/10144311)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

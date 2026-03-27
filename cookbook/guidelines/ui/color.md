@@ -57,3 +57,9 @@ References:
 - [Apple HIG: Color](https://developer.apple.com/design/human-interface-guidelines/color)
 - [Material Design: Color System](https://m3.material.io/styles/color/system/how-the-system-works)
 - [Fluent Design: Color](https://learn.microsoft.com/en-us/windows/apps/design/style/color)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

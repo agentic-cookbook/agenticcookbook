@@ -27,3 +27,9 @@ If a decision is cheap to reverse, make it fast. If it is expensive to reverse, 
 - Prefer incremental delivery over phased releases
 - Defer binding decisions until the last responsible moment
 - Treat architecture as a continuous activity, not an up-front phase
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

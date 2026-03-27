@@ -221,3 +221,9 @@ _None yet — decisions made during implementation should be recorded here._
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0.0 | 2026-03-25 | Initial spec — four-phase lifecycle, cache format, FSEvents configuration, workspace variant, conformance tests |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

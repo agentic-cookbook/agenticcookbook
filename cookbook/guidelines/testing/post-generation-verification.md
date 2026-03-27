@@ -37,3 +37,9 @@ Every generated artifact must be verified:
 6. **Code review against best practices**: Check against platform best practices references
 
 If any step fails, fix the issue before considering the work complete.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

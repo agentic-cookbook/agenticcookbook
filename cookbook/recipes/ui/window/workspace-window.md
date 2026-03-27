@@ -281,3 +281,9 @@ _None yet -- decisions made during implementation should be recorded here._
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0.0 | 2026-03-25 | Initial spec — two-pane workspace browser with sidebar (projects + directories), detail pane, workspace document (SQLite), directory manager, entry type migration, self-referential loop detection, conformance tests |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

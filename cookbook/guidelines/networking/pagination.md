@@ -55,3 +55,9 @@ is relatively static.
 References:
 - [Google AIP-158: Pagination](https://google.aip.dev/158)
 - [Zalando: Pagination](https://opensource.zalando.com/restful-api-guidelines/#pagination)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

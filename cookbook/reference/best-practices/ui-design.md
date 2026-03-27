@@ -34,3 +34,9 @@ references:
 - [NNGroup: Error Message Guidelines](https://www.nngroup.com/articles/error-message-guidelines/)
 - [NNGroup: Empty State Design](https://www.nngroup.com/articles/empty-state-interface-design/)
 - [NNGroup: Ten Usability Heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

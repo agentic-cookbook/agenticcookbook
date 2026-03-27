@@ -31,3 +31,9 @@ references: []
 - `Async` suffix for async methods (e.g., `SaveAsync`)
 - Constants use `PascalCase`, not `SCREAMING_SNAKE_CASE`
 - Use `var` when the type is apparent from the right side of the assignment
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

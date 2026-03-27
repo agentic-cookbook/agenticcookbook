@@ -58,3 +58,9 @@ var updated = order with { Total = 99.99m };
 // Readonly value type
 public readonly record struct Point(double X, double Y);
 ```
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

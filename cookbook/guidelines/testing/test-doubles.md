@@ -59,3 +59,9 @@ insulates tests from upstream API changes.
 - **Swift:** Protocol conformances (no framework needed), [swift-testing](https://github.com/apple/swift-testing)
 - **.NET:** [NSubstitute](https://nsubstitute.github.io/)
 - **Kotlin:** [MockK](https://mockk.io/), [Turbine](https://github.com/cashapp/turbine) for Flow testing
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

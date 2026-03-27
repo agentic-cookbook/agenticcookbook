@@ -48,3 +48,9 @@ References:
 - [Material Design: Snackbar](https://m3.material.io/components/snackbar/overview)
 - [NNGroup: Confirmation Dialogs](https://www.nngroup.com/articles/confirmation-dialog/)
 - [NNGroup: Ten Usability Heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/) (Heuristic #1: Visibility of system status)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

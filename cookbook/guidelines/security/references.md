@@ -34,3 +34,9 @@ references:
 3. [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/)
 4. [OWASP MASVS](https://mas.owasp.org/MASVS/) / [MASTG](https://mas.owasp.org/MASTG/)
 5. [Mozilla Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

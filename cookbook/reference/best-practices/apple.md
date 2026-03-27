@@ -34,3 +34,9 @@ references:
 - [Accessibility](https://developer.apple.com/documentation/accessibility)
 - [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/)
 - [SwiftUI Performance](https://developer.apple.com/documentation/Xcode/understanding-and-improving-swiftui-performance)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

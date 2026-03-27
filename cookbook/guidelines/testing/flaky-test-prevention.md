@@ -41,3 +41,9 @@ Flaky tests destroy confidence. Quarantine them immediately — fix or delete, n
 References:
 - [Martin Fowler: Eradicating Non-Determinism in Tests](https://martinfowler.com/articles/nonDeterminism.html)
 - [Google Testing Blog: Flaky Tests](https://testing.googleblog.com/)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

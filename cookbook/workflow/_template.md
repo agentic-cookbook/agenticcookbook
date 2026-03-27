@@ -111,3 +111,9 @@ Record any decisions made during authoring that affect the workflow. Each decisi
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0.0 | YYYY-MM-DD | Initial spec |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

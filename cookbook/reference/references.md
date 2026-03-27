@@ -64,3 +64,9 @@ Platform-specific coding conventions, design guidelines, and best practices that
 3. [Windows Design Guidelines](https://learn.microsoft.com/en-us/windows/apps/design/) — layout, navigation, typography, color, and motion.
 4. [WinUI Gallery (GitHub)](https://github.com/microsoft/WinUI-Gallery) — interactive reference for all WinUI 3 controls.
 5. [Windows App SDK (GitHub)](https://github.com/microsoft/WindowsAppSDK) — releases, issues, and roadmap.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

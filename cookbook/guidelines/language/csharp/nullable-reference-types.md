@@ -40,3 +40,9 @@ public void Process(string? input)
     // input is now non-null
 }
 ```
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

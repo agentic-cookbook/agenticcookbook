@@ -52,3 +52,9 @@ Zalando) for details — the essentials below are consensus across all three.
 
 **Versioning:** URL path versioning (`/v1/users`). Simple, explicit, industry consensus. Bump
 major version only for breaking changes.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

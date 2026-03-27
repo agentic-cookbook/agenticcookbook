@@ -66,3 +66,9 @@ Dev-only settings page guarded by `#if DEBUG`:
 - Analytics event log
 - Environment info (app version, OS version, device)
 - Access via navigation menu item visible only in debug builds
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -84,3 +84,9 @@ Use [ktlint](https://pinterest.github.io/ktlint/) for both linting and formattin
 
 3. Use `dotnet format` CLI for auto-fixing.
 4. Supplement with [Roslynator](https://github.com/dotnet/roslynator) or [Meziantou.Analyzer](https://github.com/meziantou/Meziantou.Analyzer) for additional rules.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

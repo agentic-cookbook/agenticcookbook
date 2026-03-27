@@ -29,3 +29,9 @@ Invalid state should be detected and surfaced immediately at the point of origin
 - Return typed errors rather than swallowing exceptions
 - Never use empty catch blocks
 - In production, fail gracefully with clear messages; in debug, fail loudly
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

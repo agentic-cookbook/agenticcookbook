@@ -40,3 +40,9 @@ WinUI 3 supports tri-state theming: Light, Dark, and High Contrast.
 <!-- Bad: hard-coded color -->
 <TextBlock Foreground="#FFFFFF" />
 ```
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

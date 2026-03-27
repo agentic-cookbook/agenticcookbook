@@ -61,3 +61,9 @@ References:
 - [Material Design: Type Scale](https://m3.material.io/styles/typography/type-scale-tokens)
 - [Fluent Design: Typography](https://learn.microsoft.com/en-us/windows/apps/design/style/typography)
 - [WCAG 1.4.12: Text Spacing](https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

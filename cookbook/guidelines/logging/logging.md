@@ -115,3 +115,9 @@ import logging
 logger = logging.getLogger(__name__)
 logger.debug("Starting roadmap sync for %s", roadmap_id)
 ```
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -29,3 +29,9 @@ references: []
 - Declare capabilities minimally in `Package.appxmanifest`
 - Sign packages with a trusted certificate for sideloading
 - Version numbering: `Major.Minor.Build.Revision`, monotonically increasing
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

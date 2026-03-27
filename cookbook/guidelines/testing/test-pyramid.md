@@ -33,3 +33,9 @@ Follow the Google SWE Book ratio: **80% unit / 15% integration / 5% E2E**.
 
 If you're unsure what kind of test to write, write a unit test. If the unit test can't
 cover the behavior (e.g., database queries, UI rendering), escalate to integration.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

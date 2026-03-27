@@ -307,3 +307,9 @@ Subsystem: `{{bundle_id}}` | Category: `AIChatControl`
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0.0 | 2026-03-26 | Initial spec: mini variant with multi-turn conversation, four-provider support, inline error display |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

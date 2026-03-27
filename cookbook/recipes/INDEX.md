@@ -1,7 +1,7 @@
 ---
 id: 7ee050d1-e070-473e-ad64-9152ea25e54f
 title: "Recipe Index"
-domain: cookbook.recipes.index
+domain: cookbook.recipes.INDEX
 type: recipe
 version: 1.0.0
 status: accepted
@@ -123,3 +123,9 @@ Application lifecycle, menus, and commands.
 |--------|------|---------|-------------|
 | recipe.app.lifecycle | [lifecycle.md](app/lifecycle.md) | 1.0.0 | Startup, session restore, and quit cleanup pattern |
 | recipe.app.menu-commands | [menu-commands.md](app/menu-commands.md) | 1.0.0 | Menu command structure with keyboard shortcuts and document creation flows |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

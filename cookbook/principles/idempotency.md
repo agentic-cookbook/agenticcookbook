@@ -28,3 +28,9 @@ User actions and system operations should be safe to repeat without duplicate si
 - Use idempotency keys for API calls with side effects
 - Database migrations must be safe to run multiple times
 - Check current state before applying state transitions
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

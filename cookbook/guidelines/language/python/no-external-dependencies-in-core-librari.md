@@ -25,3 +25,9 @@ references: []
 # No external dependencies in core libraries
 
 `roadmap_lib` uses the standard library only. Do not add PyYAML, requests, or other third-party packages to core library code. This keeps the library portable and installable without dependency management.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

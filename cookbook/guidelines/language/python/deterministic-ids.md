@@ -25,3 +25,9 @@ references: []
 # Deterministic IDs
 
 Always use the roadmap file's own UUID from its YAML frontmatter. Never generate random UUIDs. IDs must be deterministic and reproducible.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

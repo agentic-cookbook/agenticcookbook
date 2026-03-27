@@ -62,3 +62,9 @@ import hypothesis.strategies as st
 def test_encode_decode_roundtrip(s):
     assert decode(encode(s)) == s
 ```
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

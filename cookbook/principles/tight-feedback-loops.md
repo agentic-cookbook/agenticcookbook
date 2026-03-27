@@ -28,3 +28,9 @@ The speed of your feedback loop is the speed of your learning:
 - Deploy small changes frequently
 - Get real user feedback as early as possible
 - Automate everything between commit and production observation
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

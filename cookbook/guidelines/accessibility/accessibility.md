@@ -134,3 +134,9 @@ Components MUST respond to these Windows accessibility settings:
 | Keyboard Navigation | Focus management | All interactive elements reachable via Tab, actionable via Enter/Space |
 | Dark Theme | `Application.RequestedTheme` | Full dark theme support via ThemeResource |
 | Caret Browsing | System setting | Non-interactive text should be navigable |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

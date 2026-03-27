@@ -33,3 +33,9 @@ Always set both connection and read timeouts. Never use infinite timeouts.
 
 For long-running operations, use **202 Accepted** + polling pattern instead of extending
 timeouts.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

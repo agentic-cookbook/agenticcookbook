@@ -69,3 +69,9 @@ Set `dir="rtl"` attribute on the root element for RTL locales.
 - Mirror icons with directional meaning (forward/back arrows)
 - Do NOT mirror non-directional icons (checkmarks, clocks)
 - Test with RTL language packs installed
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

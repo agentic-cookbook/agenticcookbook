@@ -1,7 +1,7 @@
 ---
 id: 959a1eea-52c9-4ee7-9e0a-74f716fbf72b
 title: "Design: UI Design Guidelines"
-domain: contributing.design-history-ui-guidelines
+domain: decisions.ui-guidelines
 type: reference
 version: 1.0.0
 status: accepted
@@ -474,3 +474,9 @@ Add `ui.md` row to the Coding Guidelines table between `windows.md` and `specs.m
 3. Update `~/.claude/CLAUDE.md` — add guideline entry (commit + push dotfiles)
 4. Update `README.md` — add row to guidelines table
 5. Run `install.sh`, verify symlink
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

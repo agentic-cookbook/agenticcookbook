@@ -51,3 +51,9 @@ References:
 - [NNGroup: Empty State Design](https://www.nngroup.com/articles/empty-state-interface-design/)
 - [NNGroup: Error Message Guidelines](https://www.nngroup.com/articles/error-message-guidelines/)
 - [Material Design: Empty States (M2 reference)](https://material.io/design/communication/empty-states.html)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -45,3 +45,9 @@ For apps that must work offline, design for local-first with background sync.
 References:
 - [web.dev: Offline Cookbook](https://web.dev/articles/offline-cookbook)
 - [CRDTs](https://crdt.tech/)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

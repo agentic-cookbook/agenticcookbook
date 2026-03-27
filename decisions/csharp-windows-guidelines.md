@@ -1,7 +1,7 @@
 ---
 id: 023481cc-ae29-44d2-b688-e8da9f1f2b2d
 title: "Design: C# and Windows Coding Guidelines"
-domain: contributing.design-history-csharp-windows-guidelines
+domain: decisions.csharp-windows-guidelines
 type: reference
 version: 1.0.0
 status: accepted
@@ -340,3 +340,9 @@ Add to the guidelines listing:
 5. Update `~/.claude/CLAUDE.md` — add guideline file listing
 6. Run `install.sh` to symlink new files
 7. Verify symlinks exist in `~/.claude/guidelines/`
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

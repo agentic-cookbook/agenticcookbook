@@ -208,3 +208,9 @@ _None yet — decisions made during implementation should be recorded here._
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0.0 | 2026-03-25 | Initial spec. Standalone terminal window with independent session manager, HSplitView layout, profile integration, and window-frame persistence. Derived from scratching-post ContentView terminal window. |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

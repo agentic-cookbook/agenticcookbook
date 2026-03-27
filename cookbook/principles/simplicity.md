@@ -27,3 +27,9 @@ Simple and easy are not synonyms. Simple means no interleaving of concerns. Easy
 - Before adding abstraction, ask: "Am I braiding two concerns together?"
 - Favor constructs that do one thing over constructs that feel convenient
 - Complexity is never removed later — it compounds. Resist it at introduction time
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

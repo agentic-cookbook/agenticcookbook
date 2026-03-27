@@ -40,3 +40,9 @@ Defer to these canonical sources before applying the defaults in this file:
 When the platform HIG prescribes a specific value (spacing, type size, target size),
 use the platform value. Use the defaults below to fill gaps or establish a cross-platform
 baseline.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

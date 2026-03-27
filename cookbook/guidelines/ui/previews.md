@@ -34,3 +34,9 @@ All SwiftUI views MUST include `#Preview` blocks. Verification includes confirmi
 ## Kotlin
 
 All Compose components MUST include `@Preview` functions. Verification includes confirming preview functions compile.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

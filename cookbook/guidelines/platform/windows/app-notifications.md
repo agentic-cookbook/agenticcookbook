@@ -30,3 +30,9 @@ Use `AppNotificationManager` + `AppNotificationBuilder` fluent API for local not
 - Support text, images, buttons with activation arguments, progress bars, scheduled delivery
 - Handle notification activation alongside protocol activation
 - MSIX-packaged apps get notification identity automatically
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

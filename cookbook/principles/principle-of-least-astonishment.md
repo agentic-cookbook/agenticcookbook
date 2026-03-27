@@ -23,3 +23,9 @@ references: []
 # Principle of least astonishment
 
 APIs, UI, and system behavior should match what users and callers expect. If a name suggests one behavior, it must deliver that behavior. Side effects should be obvious from the API signature.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

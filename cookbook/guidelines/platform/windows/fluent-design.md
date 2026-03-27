@@ -32,3 +32,9 @@ Use built-in WinUI 3 controls — they implement Fluent 2 natively. Never custom
 - Typography: Segoe UI Variable
 - Icons: Segoe Fluent Icons
 - Follow [Windows design guidance](https://learn.microsoft.com/en-us/windows/apps/design/) for layout, spacing, and navigation patterns
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

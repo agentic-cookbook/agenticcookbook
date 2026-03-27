@@ -328,3 +328,9 @@ _None yet — decisions made during implementation should be recorded here._
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0.0 | 2026-03-25 | Initial spec, bundling terminal session, session manager, terminal view, session list sidebar, and terminal profiles. Derived from scratching-post terminal subsystem. |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

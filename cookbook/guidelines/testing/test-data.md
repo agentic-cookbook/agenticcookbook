@@ -31,3 +31,9 @@ references: []
   comprehensive input coverage
 - **Inline literals** for simple cases — `assert parse("hello") == "hello"` is clear
 - **No magic fixtures** — if a test needs specific data, the data should be visible in the test
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

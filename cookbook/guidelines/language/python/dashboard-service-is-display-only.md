@@ -25,3 +25,9 @@ references: []
 # Dashboard service is display-only
 
 The dashboard service is a generic API and UI layer. It has no knowledge of git, files, or roadmap structure. Agents sync data to it; it only displays what it receives.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

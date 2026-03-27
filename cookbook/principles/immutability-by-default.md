@@ -29,3 +29,9 @@ Mutable shared state is the root cause of most concurrency bugs. Default to immu
 - Use `let` (Swift), `val` (Kotlin), `const` (JS/TS) by default
 - Prefer value types (structs, data classes) over reference types
 - Contain mutation behind clear boundaries (actors, StateFlow, useState)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

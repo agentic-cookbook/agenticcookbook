@@ -27,3 +27,9 @@ Hidden behavior, magic, and implicit coupling create bugs that take days to find
 - Make dependencies visible (injection over hidden globals)
 - Name things for what they do, not how they are implemented
 - Prefer clear parameter passing over ambient state
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -33,3 +33,9 @@ references:
 - [Zalando RESTful API Guidelines](https://opensource.zalando.com/restful-api-guidelines/)
 - [RFC 9457: Problem Details](https://www.rfc-editor.org/rfc/rfc9457)
 - [RFC 9111: HTTP Caching](https://www.rfc-editor.org/rfc/rfc9111)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

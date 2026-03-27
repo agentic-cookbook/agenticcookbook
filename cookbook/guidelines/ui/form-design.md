@@ -60,3 +60,9 @@ References:
 - [NNGroup: Error Messages in Forms](https://www.nngroup.com/articles/errors-forms-design-guidelines/)
 - [Apple HIG: Text Fields](https://developer.apple.com/design/human-interface-guidelines/text-fields)
 - [Material Design: Text Fields](https://m3.material.io/components/text-fields/guidelines)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

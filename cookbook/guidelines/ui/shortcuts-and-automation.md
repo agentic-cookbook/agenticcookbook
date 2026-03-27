@@ -51,3 +51,9 @@ Use the `AppIntents` framework for Shortcuts and Siri integration. On macOS, sup
 ## Kotlin
 
 Use `AppActions` for Google Assistant integration. Support `Intent`-based automation.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

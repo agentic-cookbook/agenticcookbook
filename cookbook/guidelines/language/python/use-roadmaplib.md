@@ -25,3 +25,9 @@ references: []
 # Use roadmap_lib
 
 Use functions from `roadmap_lib` for all roadmap operations (reading state, parsing frontmatter, finding steps, etc.). Do not reimplement functionality that already exists in the library.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

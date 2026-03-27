@@ -33,3 +33,9 @@ references:
 - [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/)
 - [Mozilla Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)
 - [SLSA Framework](https://slsa.dev/)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

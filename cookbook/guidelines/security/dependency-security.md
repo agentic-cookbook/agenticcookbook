@@ -45,3 +45,9 @@ References:
 - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
 - [SLSA Framework](https://slsa.dev/)
 - [Sigstore](https://www.sigstore.dev/)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

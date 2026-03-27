@@ -80,3 +80,9 @@ Respect scoped storage, support per-app language preferences, and honor permissi
 - Use DPAPI for local secret storage (see secure-storage.md)
 - No PII in logs, even at debug level
 - Respect user consent: app must remain functional if optional data collection is denied
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

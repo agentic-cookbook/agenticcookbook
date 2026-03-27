@@ -55,3 +55,9 @@ Declare protocol handlers in `Package.appxmanifest` and handle activation throug
 - Handle via `AppInstance.GetActivatedEventArgs()` in `App.OnLaunched`
 - Parse URI to determine target page/state, navigate accordingly
 - Use `AppInstance.FindOrRegisterForKey()` for single-instancing (recommended for deep links)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

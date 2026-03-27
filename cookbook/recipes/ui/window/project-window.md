@@ -327,3 +327,9 @@ Subsystem: `{{bundle_id}}` | Category: `ProjectWindow`
 |---------|------|---------|
 | 1.0.0 | 2026-03-25 | Initial spec, derived from scratching-post ProjectWindowView layout and ProjectSettings model |
 | 1.1.0 | 2026-03-25 | Added Design Decisions: fixed vs flexible pane layout, file tree default width |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

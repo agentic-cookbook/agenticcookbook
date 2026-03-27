@@ -1,7 +1,7 @@
 ---
 id: 00000000-0000-0000-0000-000000000001
 title: "Agentic Cookbook"
-domain: cookbook
+domain: cookbook.index
 type: reference
 version: 1.0.0
 status: accepted
@@ -106,3 +106,9 @@ A library of principles, guidelines, recipes, and workflows for building softwar
 | [Networking](reference/best-practices/networking.md) | REST guidelines, RFC references |
 | [Security](reference/best-practices/security.md) | OWASP, CWE, Mozilla |
 | [Testing](reference/best-practices/testing.md) | Google SWE Book, Fowler, Kent Beck |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

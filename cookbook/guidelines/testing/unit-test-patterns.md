@@ -41,3 +41,9 @@ references: []
 - `test_parse_order_with_valid_json_returns_order`
 - `ParseOrder_WithMissingField_ThrowsValidationError`
 - `"returns empty list when no results match"`
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

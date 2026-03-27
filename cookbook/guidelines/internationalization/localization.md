@@ -67,3 +67,9 @@ Use MRT Core with `.resw` resource files. The `x:Uid` directive in XAML binds co
 <!-- XAML: localized via x:Uid -->
 <Button x:Uid="SaveButton" />
 ```
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -23,3 +23,9 @@ references: []
 # YAGNI
 
 Build for today's known requirements. Speculative generality adds code that must be maintained but delivers no current value. If a future need materializes, the cost of adding it then is almost always lower than maintaining premature abstractions now.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -32,3 +32,9 @@ from pathlib import Path
 
 roadmap_dir = Path.home() / ".roadmaps" / project_name
 ```
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

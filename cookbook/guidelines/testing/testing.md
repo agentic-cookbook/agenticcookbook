@@ -74,3 +74,9 @@ public void IsValidEmail_ReturnsExpected(string input, bool expected)
 2. Every change needs tests. Every bug fix needs a regression test.
 3. Prioritize unit tests over integration tests.
 4. Never remove or modify production dashboard data during testing — use demo port 9888, not production port 8888.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

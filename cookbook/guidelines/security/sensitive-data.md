@@ -45,3 +45,9 @@ Minimize what you collect, encrypt what you keep, never log what you shouldn't.
 References:
 - [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)
 - [NIST SP 800-122: PII Guide](https://csrc.nist.gov/publications/detail/sp/800-122/final)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

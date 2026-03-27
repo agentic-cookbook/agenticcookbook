@@ -27,3 +27,9 @@ references: []
 # Web services
 
 Use Flask for web services. The dashboard service runs on Flask with a REST API and SSE/polling for live updates.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

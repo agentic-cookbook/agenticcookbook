@@ -28,3 +28,9 @@ A component should receive its dependencies from the outside, not construct them
 - Never instantiate a concrete service inside the component that uses it
 - Use protocol/interface types for dependencies, not concrete types
 - Avoid service locator pattern (hidden global lookup)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

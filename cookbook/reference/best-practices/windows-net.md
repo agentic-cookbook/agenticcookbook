@@ -39,3 +39,9 @@ references:
 - [Windows Accessibility](https://learn.microsoft.com/en-us/windows/apps/develop/accessibility)
 - [MSIX Packaging](https://learn.microsoft.com/en-us/windows/msix/)
 - [WinUI Gallery (GitHub)](https://github.com/microsoft/WinUI-Gallery)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

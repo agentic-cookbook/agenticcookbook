@@ -43,3 +43,9 @@ references:
 - [Hypothesis (Python Property-Based Testing)](https://github.com/HypothesisWorks/hypothesis)
 - [mutmut (Python Mutation Testing)](https://github.com/boxed/mutmut)
 - [Stryker (JS/TS/.NET Mutation Testing)](https://stryker-mutator.io/)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -45,3 +45,9 @@ References:
 - [Apple HIG: Layout](https://developer.apple.com/design/human-interface-guidelines/layout)
 - [Material Design: Applying Layout](https://m3.material.io/foundations/layout/applying-layout/overview)
 - [Fluent Design: Layout](https://learn.microsoft.com/en-us/windows/apps/design/layout/)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

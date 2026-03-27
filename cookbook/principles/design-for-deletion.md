@@ -28,3 +28,9 @@ Every line of code is a maintenance liability. Build disposable software, not re
 - Treat lines of code as lines spent — deleting code reduces maintenance cost
 - Do not abstract prematurely in pursuit of reuse
 - When in doubt, duplicate rather than couple
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -47,3 +47,9 @@ Use [RFC 9457 Problem Details](https://www.rfc-editor.org/rfc/rfc9457) format wi
 - **detail** — explanation specific to this occurrence
 - **instance** — identifies the specific request
 - Add extension fields (`errors`, `trace_id`) as needed
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -1,7 +1,7 @@
 ---
 id: 922655fa-e37c-44e3-828f-4799c1b83ff4
 title: "Workflow Index"
-domain: cookbook.workflow.index
+domain: cookbook.workflow.INDEX
 type: workflow
 version: 1.0.0
 status: accepted
@@ -57,3 +57,9 @@ WF-1 establishes the worktree and draft PR. WF-2 through WF-5 execute inside tha
 | WF-3 | [code-implementation.md](code-implementation.md) | 1.0.0 | Disciplined phased execution of the plan |
 | WF-4 | [code-verification.md](code-verification.md) | 1.0.0 | Post-implementation validation and testing |
 | WF-5 | [code-review.md](code-review.md) | 1.0.0 | Structured review process for AI-generated code |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -53,3 +53,9 @@ Claude Code can invoke directly.
 - [OWASP ZAP](https://www.zaproxy.org/) — scan running web services: `zap-cli quick-scan http://localhost:8888`
 
 See guide.domain.security.* (Security Guidelines) for the full security reference.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

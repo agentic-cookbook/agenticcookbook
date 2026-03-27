@@ -210,3 +210,9 @@ _None yet — decisions made during implementation should be recorded here._
 | 1.1.0 | 2026-03-25 | Added deep linking, localization, accessibility options, privacy sections |
 | 1.2.0 | 2026-03-25 | Added centralized settings keys (REQ-016), per-document settings (REQ-017), Form+Section layout (REQ-018) |
 | 1.3.0 | 2026-03-25 | Made storage backend agnostic in REQ-011 (SQLite migration path), added tab-bar layout variant |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

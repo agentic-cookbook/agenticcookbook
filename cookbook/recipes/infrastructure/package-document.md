@@ -294,3 +294,9 @@ Subsystem: `{{bundle_id}}` | Category: `PackageDocument`
 |---------|------|---------|
 | 1.0.0 | 2026-03-25 | Initial spec, derived from scratching-post ProjectDocument, WorkspaceDocument, SQLiteProjectStore, SQLiteWorkspaceStore, and UTType+Catnip |
 | 1.0.1 | 2026-03-25 | Added Design Decision cross-referencing menu-commands.md for creation flows |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

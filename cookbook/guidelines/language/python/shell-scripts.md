@@ -25,3 +25,9 @@ references: []
 # Shell scripts
 
 Shell script `main()` functions must only call other functions — no inline logic. Keep scripts composable and testable.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

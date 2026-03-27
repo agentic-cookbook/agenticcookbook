@@ -37,3 +37,9 @@ From Kent Beck's Test Desiderata — tests should be:
 10. **Specific** — a failure points to exactly one cause
 11. **Predictive** — passing tests mean the code works in production
 12. **Inspiring** — confidence to refactor and ship
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

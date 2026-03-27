@@ -31,3 +31,9 @@ Use SQLite with WAL mode for concurrent read access. No ORM — use direct SQL v
 conn = sqlite3.connect(db_path)
 conn.execute("PRAGMA journal_mode=WAL")
 ```
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

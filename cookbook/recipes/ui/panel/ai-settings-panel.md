@@ -379,3 +379,9 @@ Subsystem: `{{bundle_id}}` | Category: `AISettingsPanel`
 | 1.0.1 | 2026-03-25 | Added Design Decision noting current implementation is UI-stub only |
 | 1.0.2 | 2026-03-26 | Added two-tier storage model for non-sensitive settings (REQ-009a): simple (UserDefaults) or complex (SQLite). Clarified SQLite is explicitly excluded from acceptable API key storage in REQ-009. |
 | 1.1.0 | 2026-03-26 | Updated provider list (Google Gemini replaces Local). Updated model names to current versions. Added auto-enable on key entry (REQ-039). Added Quick Chat section (REQ-040/041). Changed connection test to inline minimal-completion approach (REQ-022). Relaxed auto-test to SHOULD (REQ-023). Added dependency on ai-chat-control.md. |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

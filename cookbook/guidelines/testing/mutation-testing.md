@@ -56,3 +56,9 @@ Mutation testing validates that your tests actually catch bugs — not just achi
 | .NET | [Stryker.NET](https://stryker-mutator.io/) | `dotnet tool install -g dotnet-stryker` | `dotnet stryker` |
 | Swift | [Muter](https://github.com/muter-mutation-testing/muter) | `brew install muter-mutation-testing/formulae/muter` | `muter` |
 | Kotlin/JVM | [Pitest](https://pitest.org/) | Gradle/Maven plugin | `./gradlew pitest` |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

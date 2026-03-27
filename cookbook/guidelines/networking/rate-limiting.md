@@ -33,3 +33,9 @@ Respect server rate limits. Handle 429 responses gracefully.
 
 References:
 - [RFC 6585: 429 Too Many Requests](https://www.rfc-editor.org/rfc/rfc6585)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

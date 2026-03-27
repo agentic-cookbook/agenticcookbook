@@ -1,7 +1,7 @@
 ---
 id: 5d312abc-9bf5-4766-9e85-60fdf1a0d7a8
 title: "Authoring Guide"
-domain: contributing.authoring
+domain: contributing.AUTHORING
 type: reference
 version: 1.0.0
 status: accepted
@@ -391,3 +391,9 @@ All PRs are squash-merged to main. Commit message conventions:
 **Using "Apple" as a platform**: Use the sub-platforms: `macOS`, `iOS`, `watchOS`, `tvOS`, `visionOS`.
 
 **Empty dependency list**: Omit the `dependencies:` field entirely if there are none. Don't write `dependencies: []`.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

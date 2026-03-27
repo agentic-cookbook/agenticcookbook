@@ -32,3 +32,9 @@ references:
 - [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/)
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 - [MDN Web Docs](https://developer.mozilla.org/en-US/)
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

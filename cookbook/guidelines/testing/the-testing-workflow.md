@@ -39,3 +39,9 @@ The recommended Claude Code testing workflow, combining all tools:
 
 This creates a closed loop: AI generates tests, deterministic tools validate those tests
 actually catch bugs, AI writes more tests to close gaps.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

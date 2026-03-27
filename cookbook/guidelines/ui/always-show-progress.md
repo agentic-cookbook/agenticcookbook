@@ -28,3 +28,9 @@ When the UI is waiting on an async task:
 - Show **determinate progress** (progress bar with percentage) when total work is known
 - Show **indeterminate progress** (spinner, skeleton, shimmer) when it is not
 - Never show a frozen or unresponsive UI
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -1,7 +1,7 @@
 ---
 id: eb0764d5-aeac-40cc-9aa4-d84e4eaa652d
 title: "Guidelines Index"
-domain: cookbook.guidelines.index
+domain: cookbook.guidelines.INDEX
 type: guideline
 version: 1.0.0
 status: accepted
@@ -369,3 +369,9 @@ Use `guide.X.Y` notation to cross-reference any rule. Search this file to find w
 | [guide.domain.testing.flaky-test-prevention](testing.md#guide.149-flaky-test-prevention) | Flaky Test Prevention | determinism, shared state, sleep, timing |
 | [guide.domain.testing.test-data](testing.md#guide.1410-test-data) | Test Data | builder pattern, factory, generators, inline literals |
 | [guide.domain.testing.the-testing-workflow](testing.md#guide.1411-the-testing-workflow) | The Testing Workflow | closed loop, mutation, security scan, E2E |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
