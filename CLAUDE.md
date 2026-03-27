@@ -47,13 +47,13 @@ Install: `/install-agentic-cookbook` from the consuming project. Change tier: `/
 
 | Skill | Tier | Purpose |
 |-------|------|---------|
-| `/install-agentic-cookbook` | — | Onboarding wizard |
-| `/configure-agentic-cookbook` | — | Change participation tier |
+| `/import-agentic-cookbook` | — | Onboarding — set up CLAUDE.md and run configure |
+| `/configure-agentic-cookbook` | — | Select/change participation tier, install rules |
 | `/review-with-agentic-cookbook-guidelines` | 2+ | Review implementation against guidelines |
+| `/review-with-agentic-cookbook-recipe` | 3+ | Review implementation against a specific recipe |
 | `/lint-rule` | — | Lint a rule file against best practices |
 | `/lint-skill` | — | Lint a skill against best practices |
 | `/lint-agent` | — | Lint an agent against best practices |
-| `/import-agentic-cookbook` | 4 | Deep codebase analysis for recipe extraction |
 | `/plan-agentic-cookbook-recipe` | 4 | Interactive recipe design |
 | `/contribute-to-agentic-cookbook` | 4 | Create a PR to the cookbook |
 

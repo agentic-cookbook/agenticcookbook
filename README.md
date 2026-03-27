@@ -16,7 +16,7 @@ git clone git@github.com:mikefullerton/agentic-cookbook.git
 From your project directory, run the onboarding wizard:
 
 ```
-/install-agentic-cookbook
+/import-agentic-cookbook
 ```
 
 The wizard asks your participation tier and sets up rules and CLAUDE.md automatically.
@@ -76,11 +76,13 @@ Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition ov
 
 | Skill | Tier | Purpose |
 |-------|------|---------|
-| `/install-agentic-cookbook` | — | Onboarding wizard |
-| `/configure-agentic-cookbook` | — | Change participation tier |
+| `/import-agentic-cookbook` | — | Onboarding — set up CLAUDE.md and run configure |
+| `/configure-agentic-cookbook` | — | Select/change participation tier, install rules |
 | `/review-with-agentic-cookbook-guidelines` | 2+ | Review implementation against guidelines |
-| `/review-claude-extension` | — | Review any skill, agent, or rule |
-| `/import-agentic-cookbook` | 4 | Deep codebase analysis for recipe extraction |
+| `/review-with-agentic-cookbook-recipe` | 3+ | Review implementation against a specific recipe |
+| `/lint-rule` | — | Lint a rule file against best practices |
+| `/lint-skill` | — | Lint a skill against best practices |
+| `/lint-agent` | — | Lint an agent against best practices |
 | `/plan-agentic-cookbook-recipe` | 4 | Interactive recipe design |
 | `/contribute-to-agentic-cookbook` | 4 | Create a PR to the cookbook |
 
@@ -94,6 +96,8 @@ Terse, imperative markdown files that enforce cookbook content during planning a
 | `GUIDELINE-CONSUMER-RULE.md` | 2 | Guideline checklist, opt-in/opt-out, verification |
 | `RECIPE-CONSUMER-RULE.md` | 3 | Recipe search, conformance matrix, opportunity flagging |
 | `CONTRIBUTOR-RULE.md` | 4 | Recipe creation, PR workflow, pre-submission checks |
+| `COMMITTING-RULE.md` | opt-in | Structured git workflow (worktree, draft PR, merge) |
+| `SKILL-AUTHORING-RULE.md` | meta | Check inventory before creating skills, prevent duplicates |
 | `SKILL-VERSIONING-RULE.md` | meta | Version conventions for skills |
 
 ## Repository Structure
@@ -113,17 +117,21 @@ rules/                 # terse LLM-optimized rules for .claude/ drop-in
   GUIDELINE-CONSUMER-RULE.md
   RECIPE-CONSUMER-RULE.md
   CONTRIBUTOR-RULE.md
+  COMMITTING-RULE.md
+  SKILL-AUTHORING-RULE.md
   SKILL-VERSIONING-RULE.md
   conventions.md
 
 .claude/skills/        # Claude Code skills
-  install-agentic-cookbook/
-  configure-agentic-cookbook/
-  contribute-to-agentic-cookbook/
   import-agentic-cookbook/
-  plan-agentic-cookbook-recipe/
+  configure-agentic-cookbook/
   review-with-agentic-cookbook-guidelines/
-  review-claude-extension/
+  review-with-agentic-cookbook-recipe/
+  lint-rule/
+  lint-skill/
+  lint-agent/
+  plan-agentic-cookbook-recipe/
+  contribute-to-agentic-cookbook/
 
 contributing/          # how to contribute (AUTHORING.md)
 decisions/             # design decision records
