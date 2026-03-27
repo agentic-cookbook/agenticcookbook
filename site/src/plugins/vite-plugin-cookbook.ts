@@ -91,6 +91,7 @@ async function processMarkdownFile(
   return {
     frontmatter,
     html,
+    raw,
     headings: extractHeadings(html),
     slug,
     domain: frontmatter.domain,

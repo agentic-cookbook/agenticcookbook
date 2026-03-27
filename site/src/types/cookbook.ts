@@ -22,6 +22,7 @@ export interface CookbookFrontmatter {
 export interface CookbookEntry {
   frontmatter: CookbookFrontmatter
   html: string
+  raw: string
   headings: HeadingEntry[]
   slug: string
   domain: string
