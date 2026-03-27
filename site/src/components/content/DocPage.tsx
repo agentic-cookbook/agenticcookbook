@@ -171,18 +171,22 @@ function ContentPage({ entries, slug }: { entries: CookbookEntry[]; slug: string
     <div className="flex">
       <div className="flex-1 min-w-0 px-6 py-8 lg:px-10 max-w-3xl">
         <Breadcrumbs slug={slug} />
-        <div className="space-y-12">
-          {entries.map((entry) =>
-            isRecipeSection && isMultiple ? (
-              <RecipeEntry key={entry.slug} entry={entry} />
-            ) : (
-              <article
-                key={entry.slug}
-                className="prose max-w-none prose-headings:scroll-mt-20 prose-code:before:content-none prose-code:after:content-none"
-                dangerouslySetInnerHTML={{ __html: entry.html }}
-              />
-            ),
-          )}
+        <div>
+          {entries.map((entry, i) => (
+            <div key={entry.slug}>
+              {i > 0 && (
+                <hr className="border-[var(--color-border)] my-10" />
+              )}
+              {isRecipeSection && isMultiple ? (
+                <RecipeEntry entry={entry} />
+              ) : (
+                <article
+                  className="prose max-w-none prose-headings:scroll-mt-20 prose-code:before:content-none prose-code:after:content-none"
+                  dangerouslySetInnerHTML={{ __html: entry.html }}
+                />
+              )}
+            </div>
+          ))}
         </div>
       </div>
       <TableOfContents headings={allHeadings} />
