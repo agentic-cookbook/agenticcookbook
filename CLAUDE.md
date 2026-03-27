@@ -14,38 +14,38 @@ This project follows the shared guidelines installed from [cat-herding](../cat-h
 
 Also read the local [`engineering-principles.md`](engineering-principles.md) which has expanded rationale and sources for each principle. The review skill (`/litterbox-review`) checks compliance.
 
-### Recipe Numbering Scheme
+### Recipe Domain Scheme
 
-All recipes use hierarchical numbering: `RECIPE-X` (recipe) or `RECIPE-X.Y` (recipe.section/requirement). The top-level number identifies the recipe per [`recipies/ui/INDEX.md`](recipies/ui/INDEX.md):
+Recipes use path-derived domain identifiers per [`recipes/INDEX.md`](recipes/INDEX.md). The domain is derived from the filesystem path: `recipes/ui/panel/file-tree-browser.md` → `recipe.ui.panel.file-tree-browser`.
 
-| ID | Recipe |
-|----|--------|
-| RECIPE-1 | empty-state |
-| RECIPE-2 | collapsible-pane-header |
-| RECIPE-3 | metadata-line |
-| RECIPE-4 | status-bar |
-| RECIPE-5 | git-status-indicator |
-| RECIPE-6 | color-profile |
-| RECIPE-7 | ai-chat-control |
-| RECIPE-10 | file-tree-browser |
-| RECIPE-11 | code-editor-pane |
-| RECIPE-12 | terminal-pane |
-| RECIPE-13 | inspector-panel |
-| RECIPE-14 | ai-settings-panel |
-| RECIPE-15 | debug-panel |
-| RECIPE-20 | project-window |
-| RECIPE-21 | workspace-window |
-| RECIPE-22 | settings-window |
-| RECIPE-23 | standalone-terminal-window |
-| RECIPE-30 | logging |
-| RECIPE-31 | settings-keys |
-| RECIPE-32 | window-frame-persistence |
-| RECIPE-33 | directory-sync |
-| RECIPE-34 | package-document |
-| RECIPE-40 | app-lifecycle |
-| RECIPE-41 | menu-commands |
+| Domain | Path |
+|--------|------|
+| recipe.ui.component.empty-state | recipes/ui/component/empty-state.md |
+| recipe.ui.component.collapsible-pane-header | recipes/ui/component/collapsible-pane-header.md |
+| recipe.ui.component.metadata-line | recipes/ui/component/metadata-line.md |
+| recipe.ui.component.status-bar | recipes/ui/component/status-bar.md |
+| recipe.ui.component.git-status-indicator | recipes/ui/component/git-status-indicator.md |
+| recipe.ui.component.color-profile | recipes/ui/component/color-profile.md |
+| recipe.ui.component.ai-chat-control | recipes/ui/component/ai-chat-control.md |
+| recipe.ui.panel.file-tree-browser | recipes/ui/panel/file-tree-browser.md |
+| recipe.ui.panel.code-editor-pane | recipes/ui/panel/code-editor-pane.md |
+| recipe.ui.panel.terminal-pane | recipes/ui/panel/terminal-pane.md |
+| recipe.ui.panel.inspector-panel | recipes/ui/panel/inspector-panel.md |
+| recipe.ui.panel.ai-settings-panel | recipes/ui/panel/ai-settings-panel.md |
+| recipe.ui.panel.debug-panel | recipes/ui/panel/debug-panel.md |
+| recipe.ui.window.project-window | recipes/ui/window/project-window.md |
+| recipe.ui.window.workspace-window | recipes/ui/window/workspace-window.md |
+| recipe.ui.window.settings-window | recipes/ui/window/settings-window.md |
+| recipe.ui.window.standalone-terminal-window | recipes/ui/window/standalone-terminal-window.md |
+| recipe.infrastructure.logging | recipes/infrastructure/logging.md |
+| recipe.infrastructure.settings-keys | recipes/infrastructure/settings-keys.md |
+| recipe.infrastructure.window-frame-persistence | recipes/infrastructure/window-frame-persistence.md |
+| recipe.infrastructure.directory-sync | recipes/infrastructure/directory-sync.md |
+| recipe.infrastructure.package-document | recipes/infrastructure/package-document.md |
+| recipe.app.lifecycle | recipes/app/lifecycle.md |
+| recipe.app.menu-commands | recipes/app/menu-commands.md |
 
-Cross-reference using `RECIPE-` notation: "See RECIPE-20" means RECIPE-20-project-window.md. "See RECIPE-5.3" means RECIPE-5-git-status-indicator.md section 3. Ranges 8-9, 16-19, 24-29, 35-39 are reserved for future recipes in each category.
+Cross-reference using the domain: "See `recipe.ui.window.project-window`". New categories are added by creating subdirectories under `recipes/`.
 
 ### Workflow Specs
 
@@ -102,7 +102,7 @@ Worktrees go in `../litterbox-wt/` so the main working tree always stays on main
 
 1. `git worktree add ../litterbox-wt/<branch-name> -b <branch>`
 2. Do all work in `../litterbox-wt/<branch-name>/`
-3. Update `recipies/ui/INDEX.md` and the CLAUDE.md `RECIPE-` numbering table on the branch
+3. Update `recipes/INDEX.md` and the CLAUDE.md recipe domain table on the branch
 4. Commit, push, create PR with `gh pr create`
 5. Review and merge: `gh pr merge --squash`
 6. Clean up: `git worktree remove ../litterbox-wt/<branch-name>`
@@ -116,7 +116,7 @@ Squash merge to main. Commit message conventions:
 
 ### INDEX.md rule
 
-Every branch that adds, removes, or modifies a recipe MUST update `recipies/ui/INDEX.md` and the CLAUDE.md `RECIPE-` numbering table before opening the PR. `RECIPE-` numbers are stable — never reuse a number, even if the recipe is removed. Merge conflicts in INDEX.md are resolved by keeping both additions.
+Every branch that adds, removes, or modifies a recipe MUST update `recipes/INDEX.md` and the CLAUDE.md recipe domain table before opening the PR. Domains are stable — never reuse a domain path, even if the recipe is removed. Merge conflicts in INDEX.md are resolved by keeping both additions.
 
 ## How to use this repo
 

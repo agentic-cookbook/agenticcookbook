@@ -251,23 +251,30 @@ Window
     └── Settings form for selected category
 ```
 
-## RECIPE- Numbering
+## Recipe Domain Naming
 
-Every recipe gets a stable `RECIPE-N` identifier. Numbers are assigned by category range and never reused:
+Recipes use path-derived domain identifiers. The domain is derived from the filesystem path:
 
-| Range | Category |
-|-------|----------|
-| 1-9 | UI Components |
-| 10-19 | Panels & Panes |
-| 20-29 | Windows |
-| 30-39 | Infrastructure & Patterns |
-| 40-49 | App-Level |
+1. Start from the `recipes/` directory
+2. Replace `/` with `.`
+3. Drop the `.md` extension
+4. Prepend `recipe.`
 
-When adding a new recipe, pick the next available number in the appropriate range. Update both:
-- `recipies/ui/INDEX.md` — add the row to the correct category table
-- `CLAUDE.md` — add the row to the numbering table
+Example: `recipes/ui/panel/file-tree-browser.md` → `recipe.ui.panel.file-tree-browser`
 
-Cross-reference other recipes using `RECIPE-N.Y` notation: `RECIPE-20` is RECIPE-20-project-window.md, `RECIPE-20.3` is its third section.
+| Category | Path prefix | Example domain |
+|----------|------------|----------------|
+| UI Components | `recipes/ui/component/` | `recipe.ui.component.empty-state` |
+| Panels & Panes | `recipes/ui/panel/` | `recipe.ui.panel.inspector-panel` |
+| Windows | `recipes/ui/window/` | `recipe.ui.window.project-window` |
+| Infrastructure | `recipes/infrastructure/` | `recipe.infrastructure.logging` |
+| App-Level | `recipes/app/` | `recipe.app.lifecycle` |
+
+When adding a new recipe, place it in the appropriate category folder (create new subcategories as needed). Update both:
+- `recipes/INDEX.md` — add the row to the correct category table
+- `CLAUDE.md` — add the row to the recipe domain table
+
+Cross-reference other recipes using the domain: "See `recipe.ui.window.project-window`".
 
 ## Contribution Workflow
 
@@ -290,7 +297,7 @@ This repo uses a branch + PR workflow for all non-owner contributions.
 
 2. **Write the spec** in the worktree directory. Copy `ui/_template.md` as your starting point.
 
-3. **Update the index**: add your recipe to `recipies/ui/INDEX.md` and the CLAUDE.md `RECIPE-` numbering table.
+3. **Update the index**: add your recipe to `recipes/INDEX.md` and the CLAUDE.md recipe domain table.
 
 4. **Set status to `review`** in frontmatter before opening the PR.
 
