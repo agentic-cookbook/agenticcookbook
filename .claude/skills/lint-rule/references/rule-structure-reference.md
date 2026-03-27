@@ -1,5 +1,7 @@
 # Claude Code Rule File Structure Reference
 
+> Source: https://code.claude.com/docs/en/best-practices
+
 ## What is a Rule File?
 
 Rules are standalone markdown files containing imperative instructions for an LLM. Unlike skills (which have `SKILL.md` + directory structure) or agents (which have specialized frontmatter), rules are plain `.md` files that get loaded into context — either via CLAUDE.md references, `.claude/` drop-in, or direct inclusion.
@@ -19,17 +21,7 @@ Optional frontmatter may include a title or version, but there is no enforced sc
 - `~/.claude/` — personal global rules
 - Referenced from `CLAUDE.md` — loaded via instruction
 
-## Key Characteristics
-
-| Aspect | Skill | Agent | Rule |
-|--------|-------|-------|------|
-| Format | Directory with `SKILL.md` | Single `.md` with agent frontmatter | Single `.md`, plain markdown |
-| Frontmatter | Skill-specific (name, description, allowed-tools, etc.) | Agent-specific (tools, permissionMode, maxTurns, etc.) | None required |
-| Invocation | `/command` or auto-invoked | Via Agent tool or `--agent` CLI | Loaded into context passively |
-| Execution | Runs as task or reference | Runs as isolated subagent | Shapes behavior of the main session |
-| Purpose | Do a specific task | Delegate a specific task | Enforce behavioral constraints |
-
-## Quality Criteria for Rules
+## Quality Criteria
 
 ### Structure
 - Clear title/heading identifying the rule's purpose
@@ -50,3 +42,13 @@ Optional frontmatter may include a title or version, but there is no enforced sc
 - **Missing file paths**: Rule says "read the guidelines" without listing which files
 - **Duplicating CLAUDE.md**: Rule content that belongs in project instructions, not a standalone rule
 - **No enforcement mechanism**: Rule states preferences but provides no steps to verify compliance
+
+## Comparison: Skills vs Agents vs Rules
+
+| Aspect | Skill | Agent | Rule |
+|--------|-------|-------|------|
+| Format | Directory with `SKILL.md` | Single `.md` with agent frontmatter | Single `.md`, plain markdown |
+| Frontmatter | Skill-specific (name, description, allowed-tools, etc.) | Agent-specific (tools, permissionMode, maxTurns, etc.) | None required |
+| Invocation | `/command` or auto-invoked | Via Agent tool or `--agent` CLI | Loaded into context passively |
+| Execution | Runs as task or reference | Runs as isolated subagent | Shapes behavior of the main session |
+| Purpose | Do a specific task | Delegate a specific task | Enforce behavioral constraints |

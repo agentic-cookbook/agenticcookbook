@@ -53,14 +53,14 @@ The markdown body serves as the agent's system prompt.
 | `plan` | Read-only, no edits | Research and exploration agents |
 | `bypassPermissions` | No user prompts | Fully automated pipelines |
 
-## Key Differences from Skills
+## Key Differences from Skills and Rules
 
-| Aspect | Skill | Agent |
-|--------|-------|-------|
-| Location | `.claude/skills/` | `.claude/agents/` |
-| Format | Directory with `SKILL.md` | Single `.md` file |
-| Execution | Runs in current context (or fork) | Always runs as subagent |
-| Context | Shares parent context (unless forked) | Isolated context |
-| Tool access | `allowed-tools` in frontmatter | `tools` / `disallowedTools` |
-| Invocation | Auto or `/command` | Via Agent tool or CLI `--agent` |
-| State | No persistent state | Can have `memory` scope |
+| Aspect | Skill | Agent | Rule |
+|--------|-------|-------|------|
+| Location | `.claude/skills/` | `.claude/agents/` | `rules/`, `.claude/`, or referenced |
+| Format | Directory with `SKILL.md` | Single `.md` file | Single `.md`, plain markdown |
+| Execution | Runs in current context (or fork) | Always runs as subagent | Loaded into context passively |
+| Context | Shares parent context (unless forked) | Isolated context | Shapes main session |
+| Tool access | `allowed-tools` in frontmatter | `tools` / `disallowedTools` | N/A |
+| Invocation | Auto or `/command` | Via Agent tool or CLI `--agent` | Passive |
+| State | No persistent state | Can have `memory` scope | N/A |
