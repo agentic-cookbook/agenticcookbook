@@ -5,11 +5,15 @@ interface TableOfContentsProps {
   headings: HeadingEntry[]
 }
 
+const HIDDEN_HEADINGS = new Set(['change-history', 'changelog', 'change-log'])
+
 export default function TableOfContents({ headings }: TableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>('')
 
+  const filtered = headings.filter((h) => !HIDDEN_HEADINGS.has(h.id))
+
   useEffect(() => {
-    if (headings.length === 0) return
+    if (filtered.length === 0) return
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -22,7 +26,7 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
       { rootMargin: '-80px 0px -60% 0px', threshold: 0 },
     )
 
-    for (const heading of headings) {
+    for (const heading of filtered) {
       const el = document.getElementById(heading.id)
       if (el) observer.observe(el)
     }
@@ -30,7 +34,7 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
     return () => observer.disconnect()
   }, [headings])
 
-  if (headings.length === 0) return null
+  if (filtered.length === 0) return null
 
   return (
     <aside className="hidden xl:block w-56 shrink-0 sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto py-8 pr-4">
@@ -38,7 +42,7 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
         On this page
       </h4>
       <ul className="flex flex-col gap-1 border-l border-[var(--color-border-subtle)]">
-        {headings.map((heading) => (
+        {filtered.map((heading) => (
           <li key={heading.id} className="-ml-px">
             <a
               href={`#${heading.id}`}

@@ -8,7 +8,7 @@ import type { CookbookEntry } from '../../types/cookbook'
 /** Right-justified metadata, no background box */
 function EntryMeta({ entry }: { entry: CookbookEntry }) {
   const fm = entry.frontmatter
-  const rows: [string, string][] = []
+  const rows: [string, string | string[]][] = []
 
   rows.push(['version', fm.version])
   if (fm.status !== 'accepted') rows.push(['status', fm.status])
@@ -16,14 +16,32 @@ function EntryMeta({ entry }: { entry: CookbookEntry }) {
   if (fm.tags.length > 0) rows.push(['tags', fm.tags.join(', ')])
   if (fm.author) rows.push(['author', fm.author])
   rows.push(['modified', fm.modified])
-  if (fm.references.length > 0) rows.push(['references', fm.references.join(', ')])
+  if (fm.references.length > 0) rows.push(['references', fm.references])
 
   return (
     <dl className="flex flex-col items-end gap-0.5 font-mono text-[11px] mb-6">
       {rows.map(([label, value]) => (
         <div key={label} className="flex gap-2">
           <dt className="text-[var(--color-text-dim)]">{label}</dt>
-          <dd className="text-[var(--color-text-secondary)]">{value}</dd>
+          <dd className="text-[var(--color-text-secondary)]">
+            {Array.isArray(value) ? (
+              <span className="flex flex-wrap justify-end gap-x-3">
+                {value.map((url) => (
+                  <a
+                    key={url}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[var(--color-text-primary)] underline"
+                  >
+                    {url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
+                  </a>
+                ))}
+              </span>
+            ) : (
+              value
+            )}
+          </dd>
         </div>
       ))}
     </dl>
