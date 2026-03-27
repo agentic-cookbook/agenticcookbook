@@ -1,3 +1,9 @@
+# Comprehensive unit testing
+
+Prioritize unit tests over integration tests. Test state transitions, edge cases, serialization round-trips. Every implementation should include a corresponding test file. UI tests are fragile — prefer testing component logic as unit tests.
+
+---
+
 # Testing
 
 Every change needs tests. Every bug fix needs a regression test. Prioritize unit tests over integration tests. Test state transitions, edge cases, and serialization round-trips. UI tests are fragile — prefer testing component logic as unit tests.
