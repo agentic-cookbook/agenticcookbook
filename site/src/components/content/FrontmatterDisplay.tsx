@@ -20,7 +20,9 @@ export default function FrontmatterDisplay({ frontmatter }: FrontmatterDisplayPr
         <span className="font-mono text-[10px] font-medium uppercase tracking-widest text-[var(--color-text-dim)]">
           {TYPE_LABELS[frontmatter.type] ?? frontmatter.type}
         </span>
-        <StatusBadge status={frontmatter.status} />
+        {frontmatter.status !== 'accepted' && (
+          <StatusBadge status={frontmatter.status} />
+        )}
         <span className="font-mono text-[10px] text-[var(--color-text-dim)] bg-[var(--color-surface-raised)] px-1.5 py-0.5 rounded border border-[var(--color-border-subtle)]">
           v{frontmatter.version}
         </span>
