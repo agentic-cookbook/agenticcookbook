@@ -52,12 +52,30 @@ export default function DocPage() {
 
   // No direct file match — treat as a directory listing
   const dirPath = slug
-  const children = entries.filter((e) => {
+
+  // Direct child files
+  const childFiles = entries.filter((e) => {
     const rest = e.slug.slice(dirPath.length)
     return e.slug.startsWith(dirPath + '/') && rest.split('/').filter(Boolean).length === 1
   })
 
-  if (children.length === 0) {
+  // Child subdirectories (derived from entries deeper than one level)
+  const childDirPaths = new Map<string, string>() // path -> label
+  for (const e of entries) {
+    if (!e.slug.startsWith(dirPath + '/')) continue
+    const rest = e.slug.slice(dirPath.length + 1)
+    const parts = rest.split('/').filter(Boolean)
+    if (parts.length >= 2) {
+      const subdir = dirPath + '/' + parts[0]
+      if (!childDirPaths.has(subdir)) {
+        childDirPaths.set(subdir, parts[0].split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' '))
+      }
+    }
+  }
+
+  const hasContent = childFiles.length > 0 || childDirPaths.size > 0
+
+  if (!hasContent) {
     return (
       <div className="flex items-center justify-center py-24">
         <div className="text-center">
@@ -78,7 +96,20 @@ export default function DocPage() {
       <Breadcrumbs slug={slug} />
       <h1 className="text-3xl mb-6" style={{ fontFamily: 'var(--font-display)' }}>{dirName}</h1>
       <div className="flex flex-col">
-        {children.map((child) => (
+        {/* Subdirectories */}
+        {Array.from(childDirPaths.entries()).map(([path, label]) => (
+          <Link
+            key={path}
+            to={path}
+            className="group flex items-center gap-3 py-2.5 border-b border-[var(--color-border-subtle)] last:border-b-0"
+          >
+            <span className="text-sm text-[var(--color-accent)] group-hover:underline">
+              {label}
+            </span>
+          </Link>
+        ))}
+        {/* Files */}
+        {childFiles.map((child) => (
           <Link
             key={child.slug}
             to={child.slug}
