@@ -23,12 +23,12 @@ Before starting implementation, you MUST audit the plan for all permissions need
 This implementation needs the following. Approve all or decline all.
 
 Files:
-- Write .claude/rules/COOKBOOK-RULE.md — install cookbook rule
+- Write .claude/rules/cookbook.md — install cookbook rule
 - Edit CLAUDE.md — add Agentic Cookbook section
 
 Commands:
 - mkdir -p .claude/rules — create rules directory
-- cp ../agentic-cookbook/rules/COOKBOOK-RULE.md .claude/rules/ — copy rule file
+- cp ../agentic-cookbook/rules/cookbook.md .claude/rules/ — copy rule file
 - git add/commit/push — commit changes
 
 Skills:

@@ -23,7 +23,7 @@ Continue running — do not stop.
 
 ## Overview
 
-Import the agentic cookbook into your project. This skill installs `COOKBOOK-RULE.md`, updates your project's CLAUDE.md, and offers to install recommended plugins globally.
+Import the agentic cookbook into your project. This skill installs `cookbook.md`, updates your project's CLAUDE.md, and offers to install recommended plugins globally.
 
 ## Usage
 
@@ -76,7 +76,7 @@ The section content:
 This project uses the [agentic-cookbook](https://github.com/mikefullerton/agentic-cookbook).
 
 - **Cookbook path**: `../agentic-cookbook/`
-- **Rule**: `COOKBOOK-RULE.md`
+- **Rule**: `cookbook.md`
 - **Available skills**: /configure-cookbook, /import-cookbook, /lint-with-cookbook, /plan-cookbook-recipe, /contribute-to-cookbook
 
 Run `/configure-cookbook` to manage preferences and optional rules.
@@ -84,11 +84,11 @@ Run `/configure-cookbook` to manage preferences and optional rules.
 
 ## Step 3: Install Cookbook Rule
 
-Create `.claude/rules/` if it doesn't exist. Copy `COOKBOOK-RULE.md` from `../agentic-cookbook/rules/` into `.claude/rules/`.
+Create `.claude/rules/` if it doesn't exist. Copy `cookbook.md` from `../agentic-cookbook/rules/` into `.claude/rules/`.
 
-If old tier files exist (`PRINCIPLES-RULE.md`, `GUIDELINE-CONSUMER-RULE.md`, `RECIPE-CONSUMER-RULE.md`, `CONTRIBUTOR-RULE.md`), remove them and print: "Replaced old tier files with COOKBOOK-RULE.md."
+If old tier files exist (`principles.md`, `guideline-consumer.md`, `recipe-consumer.md`, `contributor.md`), remove them and print: "Replaced old tier files with cookbook.md."
 
-Invoke `/configure-cookbook` using the Skill tool to handle optional rules (COMMITTING-RULE, AUTO-LINT-RULE).
+Invoke `/configure-cookbook` using the Skill tool to handle optional rules (committing rule, auto-lint rule).
 
 ## Step 4: Install Recommended Plugins
 
@@ -151,7 +151,7 @@ If any plugin fails to install, note the failure and continue with the rest. Pri
 ```
 === Agentic Cookbook Imported ===
 CLAUDE.md: updated with cookbook reference
-Rule: COOKBOOK-RULE.md installed
+Rule: cookbook.md installed
 Plugins installed: <count> (or "skipped")
 Failed plugins: <list> (or "none")
 

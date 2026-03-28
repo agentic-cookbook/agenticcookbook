@@ -25,9 +25,9 @@ Continue running — do not stop.
 Manage your cookbook preferences and optional rules. This skill replaces the old tier selection — the full cookbook is always installed. Use this to:
 
 - Re-enable recipe or contribution prompts you previously disabled
-- Install or remove optional rules (COMMITTING-RULE, AUTO-LINT-RULE)
+- Install or remove optional rules (committing rule, auto-lint rule)
 - Verify your cookbook installation is up to date
-- Migrate from the old tier system to the single COOKBOOK-RULE.md
+- Migrate from the old tier system to the single cookbook.md
 
 ## Usage
 
@@ -39,16 +39,16 @@ Manage your cookbook preferences and optional rules. This skill replaces the old
 
 Check the current project for:
 
-1. **Rule file**: Is `COOKBOOK-RULE.md` present in `.claude/rules/`?
+1. **Rule file**: Is `cookbook.md` present in `.claude/rules/`?
 2. **Legacy tier files**: Are any old tier files present (`PRINCIPLES-RULE.md`, `GUIDELINE-CONSUMER-RULE.md`, `RECIPE-CONSUMER-RULE.md`, `CONTRIBUTOR-RULE.md`)?
-3. **Optional rules**: Is `COMMITTING-RULE.md` installed? Is `AUTO-LINT-RULE.md` installed?
+3. **Optional rules**: Is `committing.md` installed? Is `auto-lint.md` installed?
 4. **Preferences**: Read `.claude/cookbook-preferences.json` if it exists.
 
 Print the current state:
 
 ```
 === Cookbook Status ===
-Rule: COOKBOOK-RULE.md — installed / not installed / legacy tier files detected
+Rule: cookbook.md — installed / not installed / legacy tier files detected
 Recipe prompts: enabled / disabled
 Contribution prompts: enabled / disabled
 Committing rule: installed / not installed
@@ -57,7 +57,7 @@ Auto-lint rule: installed / not installed
 
 **If legacy tier files detected**: print a migration notice and proceed to Step 2 (migration).
 
-**If COOKBOOK-RULE.md is not installed and no legacy files exist**: print "Cookbook not installed. Run /import-cookbook first." and stop.
+**If cookbook.md is not installed and no legacy files exist**: print "Cookbook not installed. Run /import-cookbook first." and stop.
 
 ## Step 2: Migration (if needed)
 
@@ -65,7 +65,7 @@ If old tier rule files are detected:
 
 ```
 Legacy tier files detected. The cookbook no longer uses tiers — everyone gets the full cookbook.
-I'll replace the old rule files with the single COOKBOOK-RULE.md.
+I'll replace the old rule files with the single cookbook.md.
 ```
 
 Remove old tier files:
@@ -73,11 +73,11 @@ Remove old tier files:
 - `.claude/rules/GUIDELINE-CONSUMER-RULE.md`
 - `.claude/rules/RECIPE-CONSUMER-RULE.md`
 - `.claude/rules/CONTRIBUTOR-RULE.md`
-- `.claude/rules/SKILL-VERSIONING-RULE.md` (if installed as part of old tier 3)
+- `.claude/rules/skill-versioning.md` (if installed as part of old tier 3)
 
-Copy `COOKBOOK-RULE.md` from `../agentic-cookbook/rules/`.
+Copy `cookbook.md` from `../agentic-cookbook/rules/`.
 
-Print: `Migration complete — old tier files replaced with COOKBOOK-RULE.md.`
+Print: `Migration complete — old tier files replaced with cookbook.md.`
 
 ## Step 3: Preferences
 
@@ -110,7 +110,7 @@ If the file doesn't exist, create it with defaults (both `true`).
 
 ### Committing Rule
 
-Check whether `COMMITTING-RULE.md` is currently installed.
+Check whether `committing.md` is currently installed.
 
 **If not installed**, ask:
 
@@ -127,11 +127,11 @@ If yes, copy from `../agentic-cookbook/rules/`.
 
 **If already installed**, ask: `Keep the committing rule? (y/n)`
 
-If no, remove `.claude/rules/COMMITTING-RULE.md`.
+If no, remove `.claude/rules/committing.md`.
 
 ### Auto-Lint Rule
 
-Check whether `AUTO-LINT-RULE.md` is currently installed.
+Check whether `auto-lint.md` is currently installed.
 
 **If not installed**, ask:
 
@@ -147,14 +147,14 @@ If yes, copy from `../agentic-cookbook/rules/`.
 
 **If already installed**, ask: `Keep the auto-lint rule? (y/n)`
 
-If no, remove `.claude/rules/AUTO-LINT-RULE.md`.
+If no, remove `.claude/rules/auto-lint.md`.
 
 ## Step 5: Update Rule File
 
-Check if the installed `COOKBOOK-RULE.md` matches the latest version in `../agentic-cookbook/rules/COOKBOOK-RULE.md`. Compare file contents. If they differ, ask:
+Check if the installed `cookbook.md` matches the latest version in `../agentic-cookbook/rules/cookbook.md`. Compare file contents. If they differ, ask:
 
 ```
-A newer version of COOKBOOK-RULE.md is available. Update? (y/n)
+A newer version of cookbook.md is available. Update? (y/n)
 ```
 
 If yes, copy the updated file.
@@ -169,7 +169,7 @@ If `CLAUDE.md` has an old `## Agentic Cookbook` section with tier references, up
 This project uses the [agentic-cookbook](https://github.com/mikefullerton/agentic-cookbook).
 
 - **Cookbook path**: `../agentic-cookbook/`
-- **Rule**: `COOKBOOK-RULE.md`
+- **Rule**: `cookbook.md`
 - **Preferences**: Recipe prompts [enabled/disabled], contribution prompts [enabled/disabled]
 - **Optional rules**: <list installed optional rules, or "none">
 - **Available skills**: /configure-cookbook, /import-cookbook, /lint-with-cookbook, /plan-cookbook-recipe, /contribute-to-cookbook
@@ -179,7 +179,7 @@ This project uses the [agentic-cookbook](https://github.com/mikefullerton/agenti
 
 ```
 === Cookbook Configuration ===
-Rule: COOKBOOK-RULE.md (up to date / updated)
+Rule: cookbook.md (up to date / updated)
 Recipe prompts: enabled / disabled
 Contribution prompts: enabled / disabled
 Committing rule: installed / not installed / unchanged
@@ -191,4 +191,4 @@ CLAUDE.md: updated / unchanged
 
 - **Do not modify any files in `../agentic-cookbook/`.** Only read/copy from it.
 - **Verify `../agentic-cookbook/` exists** before copying files.
-- **Do not remove COOKBOOK-RULE.md.** It is always required.
+- **Do not remove cookbook.md.** It is always required.

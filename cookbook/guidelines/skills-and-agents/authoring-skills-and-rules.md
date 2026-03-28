@@ -45,7 +45,7 @@ This guideline captures lessons learned from building the agentic cookbook's own
 
 6. **Description under 200 characters** -- The skill description is loaded into every session's context window. Keep it short and include natural trigger keywords so the model invokes the skill when appropriate.
 
-7. **Atomic permission prompt** -- Before any file modifications, present a single yes/no prompt listing every file to be written and every command to be run, with reasons. See `rules/PERMISSIONS-RULE.md` for the full protocol.
+7. **Atomic permission prompt** -- Before any file modifications, present a single yes/no prompt listing every file to be written and every command to be run, with reasons. See `rules/permissions.md` for the full protocol.
 
 8. **Error handling** -- Check prerequisites before starting work. If required files are missing or the environment is misconfigured, stop immediately with a useful error message. Handle invalid arguments explicitly rather than failing silently.
 

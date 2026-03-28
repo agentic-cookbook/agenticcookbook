@@ -41,9 +41,9 @@ Before presenting anything, silently gather context:
 
 1. **Cookbook location**: Check if `cookbook/` exists (running from within cookbook repo) or `../agentic-cookbook/` exists (running from a consuming project). Set `$COOKBOOK_PATH` accordingly. If neither, set `$COOKBOOK_PATH` to `(not found)`.
 
-2. **Installation detection**: Check `.claude/rules/` for `COOKBOOK-RULE.md`. If present: installed. If absent but old tier files exist (`PRINCIPLES-RULE.md`, etc.): legacy installation, suggest `/configure-cookbook` to migrate. If none: not installed.
+2. **Installation detection**: Check `.claude/rules/` for `cookbook.md`. If present: installed. If absent but old tier files exist (`principles.md`, etc.): legacy installation, suggest `/configure-cookbook` to migrate. If none: not installed.
 
-3. **Optional rules**: Check for `COMMITTING-RULE.md` and `AUTO-LINT-RULE.md` in `.claude/rules/`.
+3. **Optional rules**: Check for `committing.md` and `auto-lint.md` in `.claude/rules/`.
 
 4. **CLAUDE.md**: Check if the current project has an `## Agentic Cookbook` section in `CLAUDE.md`.
 
@@ -96,10 +96,10 @@ Status: Installed / Not installed / Legacy (needs migration)
 Cookbook path: <$COOKBOOK_PATH>
 CLAUDE.md section: present / missing
 
-Rule: COOKBOOK-RULE.md — ✅ installed (or ➖ not installed)
+Rule: cookbook.md — ✅ installed (or ➖ not installed)
 Optional:
-  COMMITTING-RULE.md  — ✅ / ➖ (git workflow)
-  AUTO-LINT-RULE.md   — ✅ / ➖ (auto-lint)
+  committing.md  — ✅ / ➖ (git workflow)
+  auto-lint.md   — ✅ / ➖ (auto-lint)
 
 Preferences:
   Recipe prompts: enabled / disabled
@@ -250,14 +250,14 @@ reads them at the start of every conversation and follows them during
 planning and implementation.
 
 Main rule:
-  COOKBOOK-RULE.md — the full cookbook: principles, guidelines, recipes, contribution prompts
+  cookbook.md — the full cookbook: principles, guidelines, recipes, contribution prompts
 
 Optional rules (independent of the cookbook):
-  COMMITTING-RULE.md  — structured git workflow (worktree → PR → merge)
-  AUTO-LINT-RULE.md   — auto-lint skills/agents/rules on create/modify
+  committing.md  — structured git workflow (worktree → PR → merge)
+  auto-lint.md   — auto-lint skills/agents/rules on create/modify
 
 How they work:
-  1. /import-cookbook copies COOKBOOK-RULE.md from the cookbook into .claude/rules/
+  1. /import-cookbook copies cookbook.md from the cookbook into .claude/rules/
   2. Claude Code loads .claude/rules/*.md at session start
   3. The rule enforces cookbook content during planning and implementation
   4. /configure-cookbook manages preferences and optional rules

@@ -28,7 +28,7 @@ Plugins that enhance the agentic cookbook workflow. Organized by priority.
 |--------|--------|-----|
 | plugin-dev | claude-plugins-official | 7 expert skills for creating plugins. Enhances skill-authoring pipeline. |
 | agent-sdk-dev | claude-plugins-official | Agent SDK development kit. |
-| hookify | claude-plugins-official | Create custom hooks. Can auto-enforce COMMITTING-RULE via hooks. |
+| hookify | claude-plugins-official | Create custom hooks. Can auto-enforce committing rule via hooks. |
 | playground | claude-plugins-official | Interactive HTML playgrounds with live preview. Recipe visual prototyping. |
 
 ## LSP (Language Intelligence)

@@ -35,13 +35,13 @@ Key rules:
 
 ## Using the Cookbook
 
-Consuming projects install a single rule file (`COOKBOOK-RULE.md`) that enforces the full cookbook — principles, guidelines, recipes, and contribution prompts. No tiers, no partial installs — everyone gets everything.
+Consuming projects install a single rule file (`cookbook.md`) that enforces the full cookbook — principles, guidelines, recipes, and contribution prompts. No tiers, no partial installs — everyone gets everything.
 
 Onboard: `/import-cookbook` from the consuming project. Manage preferences: `/configure-cookbook`.
 
 **Optional rules** (independent of the cookbook):
-- `COMMITTING-RULE.md` — structured git workflow for your project
-- `AUTO-LINT-RULE.md` — auto-lint skills/agents/rules on creation/modification
+- `committing.md` — structured git workflow for your project
+- `auto-lint.md` — auto-lint skills/agents/rules on creation/modification
 
 ## Skills
 
@@ -61,7 +61,7 @@ Onboard: `/import-cookbook` from the consuming project. Manage preferences: `/co
 | `/cookbook-suggestion` | Suggest new content or improvements (creates GitHub issue) |
 | `/lint-compliance` | Evaluate recipe/guideline against compliance checks |
 
-Skills use a `version` field in frontmatter (project convention, not a Claude Code runtime field). See `rules/SKILL-VERSIONING-RULE.md` for the versioning protocol.
+Skills use a `version` field in frontmatter (project convention, not a Claude Code runtime field). See `rules/skill-versioning.md` for the versioning protocol.
 
 ## Git Workflow
 

@@ -19,7 +19,7 @@ From your project directory, run the onboarding wizard:
 /import-cookbook
 ```
 
-This installs `COOKBOOK-RULE.md` into your project's `.claude/rules/`, updates your CLAUDE.md, and offers recommended plugins. Everyone gets the full cookbook — no tiers, no partial installs.
+This installs `cookbook.md` into your project's `.claude/rules/`, updates your CLAUDE.md, and offers recommended plugins. Everyone gets the full cookbook — no tiers, no partial installs.
 
 ## What "Trusted" Means
 
@@ -109,13 +109,13 @@ Terse, imperative markdown files that enforce cookbook content during planning a
 
 | Rule | Enforces |
 |------|----------|
-| `COOKBOOK-RULE.md` | The full cookbook: principles, guidelines, recipes, contribution prompts |
-| `COMMITTING-RULE.md` | *(optional)* Structured git workflow (worktree, draft PR, merge) |
-| `AUTO-LINT-RULE.md` | *(optional)* Auto-lint skills/agents/rules on creation/modification |
-| `SKILL-AUTHORING-RULE.md` | *(reference)* Check inventory before creating skills, prevent duplicates |
-| `SKILL-VERSIONING-RULE.md` | *(reference)* Version conventions for skills |
-| `PERMISSIONS-RULE.md` | *(reference)* Atomic permission prompts before implementation |
-| `EXTENSION-AUTHORING-RULE.md` | *(reference)* Authoring best practices for extensions |
+| `cookbook.md` | The full cookbook: principles, guidelines, recipes, contribution prompts |
+| `committing.md` | *(optional)* Structured git workflow (worktree, draft PR, merge) |
+| `auto-lint.md` | *(optional)* Auto-lint skills/agents/rules on creation/modification |
+| `skill-authoring.md` | *(reference)* Check inventory before creating skills, prevent duplicates |
+| `skill-versioning.md` | *(reference)* Version conventions for skills |
+| `permissions.md` | *(reference)* Atomic permission prompts before implementation |
+| `extension-authoring.md` | *(reference)* Authoring best practices for extensions |
 
 ## Repository Structure
 
@@ -131,13 +131,13 @@ cookbook/               # the content
   index.md             # table of contents
 
 rules/                 # terse LLM-optimized rules for .claude/ drop-in
-  COOKBOOK-RULE.md
-  COMMITTING-RULE.md
-  AUTO-LINT-RULE.md
-  SKILL-AUTHORING-RULE.md
-  SKILL-VERSIONING-RULE.md
-  PERMISSIONS-RULE.md
-  EXTENSION-AUTHORING-RULE.md
+  cookbook.md
+  committing.md
+  auto-lint.md
+  skill-authoring.md
+  skill-versioning.md
+  permissions.md
+  extension-authoring.md
 
 .claude/skills/        # Claude Code skills
   import-cookbook/
