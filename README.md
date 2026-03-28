@@ -21,16 +21,34 @@ From your project directory, run the onboarding wizard:
 
 The wizard asks your participation tier and sets up rules and CLAUDE.md automatically.
 
+## What "Trusted" Means
+
+Code built with the agentic cookbook is **trusted**. That means:
+
+- **Complete** — every state handled, every edge case addressed, every platform considered. Not just the happy path.
+- **Precise** — exactly what you asked for. No scope creep, no unrequested refactoring. Design decisions surfaced and approved, not made silently.
+- **Consistent** — same patterns, conventions, and style across every file, every session, every platform. Your codebase looks like one person wrote it.
+- **Verified** — built, tested, linted, accessibility-audited, logging-checked. Evidence, not hope.
+- **Secure by default** — input validation, secure storage, no PII in logs, TLS, consent-first. Not bolted on after a security review.
+- **Accessible from day one** — screen readers, keyboard navigation, Dynamic Type, high contrast. Not a follow-up ticket that never gets done.
+- **Tested alongside** — tests written with the code, not after. Every function, every edge case, every error path.
+- **Predictable** — the LLM follows a known process. You can walk away and come back to work that matches what was planned. No surprises, no tangents.
+- **Maintainable** — dependency injection, immutability, separation of concerns, design for deletion. Code that's easy to change and easy to remove.
+- **Native** — platform controls and conventions. SwiftUI on Apple, Compose on Android, native APIs everywhere. Not cross-platform lowest-common-denominator.
+- **Incremental** — small commits, each tested, each meaningful. Reviewable, revertible, bisectable.
+- **Documented** — design decisions recorded, not just in someone's head.
+- **Observable** — structured logging so you can see what's happening at runtime.
+- **Performant** — not prematurely optimized, but not accidentally O(n²). Work → Right → Fast, with evidence.
+
 ### 3. Choose your tier
 
-| Tier | Name | What you get |
-|------|------|-------------|
-| 1 | **Principles** | 18 engineering principles guide planning and coding |
-| 2 | **Guidelines** | + Full guideline checklist, verification workflow |
-| 3 | **Recipes** | + Recipe search, conformance, opportunity flagging |
-| 4 | **Contributor** | + Create/enhance recipes, PR workflow to the cookbook |
+| Tier | What you get |
+|------|-------------|
+| 1 | All 14 points of trust above — enforced through guidelines, checklists, and verification. The LLM follows a structured process instead of winging it. |
+| 2 | Tier 1, plus — when a recipe exists for what you're building, you get a pre-designed, battle-tested spec. Every state, edge case, platform variant, and accessibility requirement already thought through. |
+| 3 | Tier 2, plus — you contribute your patterns back to the cookbook. The recipes get better for everyone. |
 
-Each tier is additive — tier 3 includes everything from tiers 1 and 2. Change your tier anytime with `/configure-cookbook`.
+Each tier is additive. Change your tier anytime with `/configure-cookbook`.
 
 ## What's in the Cookbook
 

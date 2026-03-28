@@ -9,19 +9,20 @@ cookbook/               # the content
   principles/          # 18 engineering principles
   guidelines/          # 88 topic-organized guidelines
   recipes/             # 27 UI and infrastructure recipes
+  compliance/          # 10 compliance categories (81 checks)
   workflow/            # 6 workflow specs (plan, implement, verify, review)
   reference/           # external best-practices links
   conventions.md       # full format reference
   index.md             # table of contents
 rules/                 # terse LLM-optimized rules for .claude/ drop-in
-.claude/skills/        # 8 Claude Code skills
+.claude/skills/        # 14 Claude Code skills
 contributing/          # how to contribute (AUTHORING.md)
 decisions/             # design decision records
 ```
 
 ## Conventions
 
-Read `cookbook/conventions.md` for the full format reference.
+Read `cookbook/conventions.md` for the full format reference. See `cookbook/glossary.md` for term definitions.
 
 Key rules:
 - All `.md` files have YAML frontmatter (id, title, domain, type, version, status, language, created, modified, author, copyright, license, summary, platforms, tags, depends-on, related, references)
@@ -61,6 +62,7 @@ Onboard: `/import-cookbook` from the consuming project. Change tier: `/configure
 | `/cookbook-help` | — | Interactive guide — setup status, content overview, troubleshooting |
 | `/cookbook-bug` | — | File a bug report against the cookbook (creates GitHub issue) |
 | `/cookbook-suggestion` | — | Suggest new content or improvements (creates GitHub issue) |
+| `/lint-compliance` | — | Evaluate recipe/guideline against compliance checks |
 
 Skills use a `version` field in frontmatter (project convention, not a Claude Code runtime field). See `rules/SKILL-VERSIONING-RULE.md` for the versioning protocol.
 
