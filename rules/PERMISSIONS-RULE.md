@@ -6,12 +6,14 @@ Before starting implementation, you MUST audit the plan for all permissions need
 
 ## Before Implementation
 
-1. **Audit the plan**. Read the approved plan and identify every action that could trigger a permission prompt:
+1. **Audit the plan**. Read the approved plan and identify every action in the following categories — assume ALL of these require permission:
    - Files to create, modify, or delete (list each path)
    - Bash commands to run (list each command type and why)
    - Skills to invoke
    - Agents to launch
    - External tools (gh, claude, etc.)
+
+   Before presenting the prompt, you MUST verify every plan step has a corresponding permission entry. If any step lacks one, the audit is incomplete — add it.
 
 2. **Present a single atomic permission prompt**. List everything with reasons, then ask one yes/no question:
 
@@ -42,9 +44,9 @@ Approve all? (yes / no)
 
 ## During Implementation
 
-5. **Combine file operations** where possible. Copy multiple files in a single `cp` command rather than individual Write calls.
+5. You MUST **combine file operations** — copy multiple files in a single `cp` command rather than individual Write calls.
 
-6. **If a permission prompt appears mid-execution**, it means the audit missed something. Stop, apologize, and tell the user: "I missed this in the permission audit. This needs: [what and why]. Approve to continue."
+6. If a permission prompt appears mid-execution, you MUST **stop immediately** and tell the user: "I missed this in the permission audit. This needs: [what and why]. Approve to continue."
 
 ## For Skills
 

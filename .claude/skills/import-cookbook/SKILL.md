@@ -1,23 +1,23 @@
 ---
-name: import-agentic-cookbook
-version: "6.0.1"
+name: import-cookbook
+version: "6.0.2"
 description: "Import the agentic cookbook into your project. Sets up CLAUDE.md, configures your tier, and installs recommended plugins."
 argument-hint: "[--version]"
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(mkdir *), Bash(ls *), Bash(claude *), AskUserQuestion, Skill
 ---
 
-# Import Agentic Cookbook v6.0.1
+# Import Agentic Cookbook v6.0.2
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `import-agentic-cookbook v6.0.1` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `import-cookbook v6.0.2` and stop — do not run the skill.
 
-Otherwise, print `import-agentic-cookbook v6.0.1` as the first line of output, then proceed.
+Otherwise, print `import-cookbook v6.0.2` as the first line of output, then proceed.
 
-**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (6.0.1), print:
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (6.0.2), print:
 
-> ⚠ This skill is running v6.0.1 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v6.0.2 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
@@ -28,10 +28,26 @@ Import the agentic cookbook into your project. This skill updates your project's
 ## Usage
 
 ```
-/import-agentic-cookbook
+/import-cookbook
 ```
 
 Run from your project directory. The cookbook must be cloned at `../agentic-cookbook/`.
+
+## Permissions
+
+Before modifying any files, present this prompt to the user:
+
+```
+=== Permissions Required ===
+
+This skill will:
+- Write/Edit CLAUDE.md — add or update the Agentic Cookbook section
+- Invoke /configure-cookbook — which will ask its own permissions for rule file copying
+
+Approve all? (yes / no)
+```
+
+If the user says no, stop and ask what they want to change. If yes, proceed without further permission prompts.
 
 ## Step 1: Verify Prerequisites
 
@@ -60,17 +76,17 @@ The section content:
 This project uses the [agentic-cookbook](https://github.com/mikefullerton/agentic-cookbook) repo.
 
 - **Cookbook path**: `../agentic-cookbook/`
-- **Tier**: (set by /configure-agentic-cookbook)
+- **Tier**: (set by /configure-cookbook)
 
-Run `/configure-agentic-cookbook` to change your participation tier.
+Run `/configure-cookbook` to change your participation tier.
 ```
 
 ## Step 3: Run Configuration
 
 Ask the user: "Would you like to select your participation tier now?"
 
-- If **yes**: invoke `/configure-agentic-cookbook` using the Skill tool. This will handle tier selection, rule copying, and updating CLAUDE.md with the tier details.
-- If **no**: default to **Tier 2 (Guidelines)** and invoke `/configure-agentic-cookbook 2` using the Skill tool. Print: "Defaulting to Tier 2 (Guidelines). Run `/configure-agentic-cookbook` anytime to change."
+- If **yes**: invoke `/configure-cookbook` using the Skill tool. This will handle tier selection, rule copying, and updating CLAUDE.md with the tier details.
+- If **no**: default to **Tier 2 (Guidelines)** and invoke `/configure-cookbook 2` using the Skill tool. Print: "Defaulting to Tier 2 (Guidelines). Run `/configure-cookbook` anytime to change."
 
 ## Step 4: Install Recommended Plugins
 
@@ -133,11 +149,11 @@ If any plugin fails to install, note the failure and continue with the rest. Pri
 ```
 === Agentic Cookbook Imported ===
 CLAUDE.md: updated with cookbook reference
-Tier: configured by /configure-agentic-cookbook
+Tier: configured by /configure-cookbook
 Plugins installed: <count> (or "skipped")
 Failed plugins: <list> (or "none")
 
-To change your tier: /configure-agentic-cookbook
+To change your tier: /configure-cookbook
 To see available skills: check CLAUDE.md
 ```
 

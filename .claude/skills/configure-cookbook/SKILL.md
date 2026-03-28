@@ -1,30 +1,30 @@
 ---
-name: configure-agentic-cookbook
-version: "1.7.0"
+name: configure-cookbook
+version: "1.7.1"
 description: "Change your agentic cookbook participation tier. Upgrade or downgrade between principles, guidelines, recipes, and contributor levels."
 argument-hint: "[tier-number] [--version]"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(rm *), Bash(ls *), Bash(mkdir *), AskUserQuestion
 ---
 
-# Configure Agentic Cookbook v1.7.0
+# Configure Agentic Cookbook v1.7.1
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `configure-agentic-cookbook v1.7.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `configure-cookbook v1.7.1` and stop — do not run the skill.
 
-Otherwise, print `configure-agentic-cookbook v1.7.0` as the first line of output, then proceed.
+Otherwise, print `configure-cookbook v1.7.1` as the first line of output, then proceed.
 
-**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (1.6.1), print:
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (1.7.1), print:
 
-> ⚠ This skill is running v1.7.0 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v1.7.1 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
 ## Usage
 
 ```
-/configure-agentic-cookbook
-/configure-agentic-cookbook 3
+/configure-cookbook
+/configure-cookbook 3
 ```
 
 Changes your agentic cookbook participation tier. Provide a tier number to skip the prompt, or omit it to choose interactively.
@@ -136,11 +136,23 @@ If the selected tier equals the current tier, print: `Re-applying tier <N> (<Nam
 
 **Verify** `../agentic-cookbook/` exists before copying any files. If missing, print an error and stop.
 
-**Permission note**: Print this before copying files:
+## Permissions
+
+After tier selection but before copying any files, present this prompt:
+
 ```
-This will copy rule files into .claude/rules/ and update CLAUDE.md.
-When prompted for permission, select "Allow all" to avoid repeated prompts.
+=== Permissions Required ===
+
+This will:
+- Create directory .claude/rules/ (if it doesn't exist)
+- Copy <N> rule files from ../agentic-cookbook/rules/ to .claude/rules/:
+  <list the specific files for the selected tier>
+- Edit CLAUDE.md — update the Agentic Cookbook section with tier info
+
+Approve all? (yes / no)
 ```
+
+If the user says no, stop and ask what they want to change. If yes, proceed without further permission prompts.
 
 **Create the rules directory** if it doesn't exist: `mkdir -p .claude/rules`
 
@@ -177,10 +189,10 @@ This project uses the [agentic-cookbook](https://github.com/mikefullerton/agenti
 - **Tier**: <N> — <Name>
 - **Cookbook path**: `../agentic-cookbook/`
 - **Rules installed**: <list of rule files in .claude/rules/>
-- **Available skills**: /configure-agentic-cookbook, /import-agentic-cookbook, /plan-agentic-cookbook-recipe
+- **Available skills**: /configure-cookbook, /import-cookbook, /plan-cookbook-recipe
 ```
 
-For tier 4, also include `/review-with-agentic-cookbook-guidelines` in available skills.
+For tier 4, also include `/lint-with-cookbook` in available skills.
 
 ## Step 5: Verify Changes
 

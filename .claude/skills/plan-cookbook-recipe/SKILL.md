@@ -1,6 +1,6 @@
 ---
-name: plan-agentic-cookbook-recipe
-version: 2.1.1
+name: plan-cookbook-recipe
+version: 2.1.2
 description: Interactively design a new cookbook recipe through guided discussion
 disable-model-invocation: true
 context: fork
@@ -8,17 +8,17 @@ allowed-tools: Read, Glob, Grep, Agent, Write, Edit, AskUserQuestion, Bash(git *
 argument-hint: [recipe-name] [--version]
 ---
 
-# Plan Agentic Cookbook Recipe v2.1.1
+# Plan Agentic Cookbook Recipe v2.1.2
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `plan-agentic-cookbook-recipe v2.1.1` and stop.
+**First action**: If `$ARGUMENTS` is `--version`, print `plan-cookbook-recipe v2.1.2` and stop.
 
-Otherwise, print `plan-agentic-cookbook-recipe v2.1.1` as the first line of output, then proceed.
+Otherwise, print `plan-cookbook-recipe v2.1.2` as the first line of output, then proceed.
 
-**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (2.1.1), print:
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (2.1.2), print:
 
-> ⚠ This skill is running v2.1.1 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v2.1.2 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
@@ -29,7 +29,7 @@ You are guiding the user through designing a new recipe for the agentic cookbook
 ## Usage
 
 ```
-/plan-agentic-cookbook-recipe status-bar
+/plan-cookbook-recipe status-bar
 ```
 
 Starts an interactive conversation to design a new `status-bar` recipe. The skill walks through each recipe section — overview, requirements, appearance, states, platforms, accessibility, logging — proposing drafts and refining with the user.
@@ -120,6 +120,23 @@ Throughout the discussion, whenever you make a choice (icon selection, layout ap
 > **Design Decision**: I'm proposing {X} because {Y}. Is that the right call?
 
 Record all decisions for the Design Decisions section.
+
+## Permissions
+
+Before writing any files, present this prompt to the user:
+
+```
+=== Permissions Required ===
+
+This skill will:
+- Write <recipe-path> — the new recipe file
+- Edit cookbook/index.md — add the new recipe to the index (if applicable)
+- Run git add/commit — commit the new recipe
+
+Approve all? (yes / no)
+```
+
+If the user says no, stop and ask what they want to change. If yes, proceed without further permission prompts.
 
 ## Phase 2: Draft the recipe
 

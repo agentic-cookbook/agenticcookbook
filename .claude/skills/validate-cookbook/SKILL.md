@@ -1,6 +1,6 @@
 ---
 name: validate-cookbook
-version: "1.0.0"
+version: "1.0.1"
 description: "Validate cookbook integrity — frontmatter, cross-references, indexes, skills, rules, file placement. Run from cookbook or consuming project."
 argument-hint: "[--category <name>] [--fix] [--version]"
 disable-model-invocation: true
@@ -12,15 +12,15 @@ context: fork
 
 If `$ARGUMENTS` is `--version`, respond with exactly:
 
-> validate-cookbook v1.0.0
+> validate-cookbook v1.0.1
 
 Then stop. Do not continue with the rest of the skill.
 
-Otherwise, print `validate-cookbook v1.0.0` as the first line of output, then proceed.
+Otherwise, print `validate-cookbook v1.0.1` as the first line of output, then proceed.
 
-**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (1.0.0), print:
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (1.0.1), print:
 
-> Warning: This skill is running v1.0.0 but vA.B.C is installed. Restart the session to use the latest version.
+> Warning: This skill is running v1.0.1 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
@@ -155,6 +155,25 @@ Top issues:
 ```
 
 Omit empty categories. In cookbook mode, omit category 7 unless `--category consumer` was specified.
+
+---
+
+## Permissions (--fix mode only)
+
+If `--fix` was specified, present this prompt before making any changes:
+
+```
+=== Permissions Required (--fix mode) ===
+
+Auto-fix will modify these files:
+<list files that have fixable issues, with what will change>
+
+Approve all fixes? (yes / no)
+```
+
+If the user says no, stop and report the issues without fixing them (read-only mode). If yes, apply all fixes.
+
+In default read-only mode (no --fix), no permissions are needed — the skill only reads files.
 
 ---
 
