@@ -1,47 +1,58 @@
 # Permissions Rule
 
-Before starting implementation, you MUST audit the plan for all permissions needed and request them upfront in a single batch. The goal is zero mid-execution permission prompts — the user should be able to walk away and come back to completed work.
+Before starting implementation, you MUST audit the plan for all permissions needed and present them as a single atomic prompt. The user says yes or no once — not per-item, not per-category. The goal is zero mid-execution permission prompts so the user can walk away and come back to completed work.
 
 ---
 
 ## Before Implementation
 
-1. **Audit the plan**. Read the approved plan and identify every tool and path that will be used:
-   - File reads/writes/edits (which directories and file patterns)
-   - Bash commands (git, cp, rm, mkdir, etc.)
-   - Skill invocations
-   - Agent launches
+1. **Audit the plan**. Read the approved plan and identify every action that could trigger a permission prompt:
+   - Files to create, modify, or delete (list each path)
+   - Bash commands to run (list each command type and why)
+   - Skills to invoke
+   - Agents to launch
+   - External tools (gh, claude, etc.)
 
-2. **Present the permission summary**. Print a single consolidated list:
+2. **Present a single atomic permission prompt**. List everything with reasons, then ask one yes/no question:
 
 ```
-=== Permissions Needed ===
-This implementation will:
-- Read/write files in: <list of directories>
-- Run bash commands: <list of command categories>
-- Invoke skills: <list>
-- Launch agents: <count>
+=== Permissions Required ===
 
-Please approve all permissions now so I can execute without interruption.
-When prompted, select "Allow all" or approve each category.
+This implementation needs the following. Approve all or decline all.
+
+Files:
+- Write .claude/rules/PRINCIPLES-RULE.md — install tier 1 rule
+- Write .claude/rules/GUIDELINE-CONSUMER-RULE.md — install tier 2 rule
+- Edit CLAUDE.md — add Agentic Cookbook section
+
+Commands:
+- mkdir -p .claude/rules — create rules directory
+- cp ../agentic-cookbook/rules/* .claude/rules/ — copy rule files
+- git add/commit/push — commit changes
+
+Skills:
+- /configure-cookbook — tier selection and rule installation
+
+Approve all? (yes / no)
 ```
 
-3. **Wait for approval**. Do not start implementation until the user has acknowledged the permission summary.
+3. **This is atomic**. If the user says no, do not proceed with any of it. Ask what they want to change.
+
+4. **If the user says yes**, proceed with the full implementation without further permission requests.
 
 ## During Implementation
 
-4. **Batch file operations**. When copying multiple files to the same directory, use a single `Bash(cp)` or `Bash(mkdir -p ... && cp ...)` command rather than individual Write calls. This reduces permission prompts.
+5. **Combine file operations** where possible. Copy multiple files in a single `cp` command rather than individual Write calls.
 
-5. **If a permission prompt appears mid-execution**, it means the audit missed something. Note it for future audits. Tell the user: "Unexpected permission prompt — I missed this in the audit. Please approve and I'll continue."
+6. **If a permission prompt appears mid-execution**, it means the audit missed something. Stop, apologize, and tell the user: "I missed this in the permission audit. This needs: [what and why]. Approve to continue."
 
 ## For Skills
 
-6. **Skills that modify files** SHOULD document their permission requirements in their SKILL.md. Include a "Permissions" section listing what the skill will need to write/execute.
-
-7. **The configure-cookbook skill** already prints a permission note before file operations. All skills that write files SHOULD follow this pattern.
+7. **Skills that modify files** MUST document their permission requirements in a "Permissions" section of their SKILL.md, listing every file and command the skill will use.
 
 ## MUST NOT
 
-- You MUST NOT start implementation without presenting the permission summary first.
-- You MUST NOT silently trigger permission prompts that could have been predicted from the plan.
-- You MUST NOT ask for permissions one at a time when they can be batched.
+- You MUST NOT start implementation without the permission audit and user approval.
+- You MUST NOT present permissions piecemeal — one prompt, all or nothing.
+- You MUST NOT proceed after a "no" — ask what the user wants to change first.
+- You MUST NOT trigger predictable permission prompts mid-execution that the audit should have caught.
