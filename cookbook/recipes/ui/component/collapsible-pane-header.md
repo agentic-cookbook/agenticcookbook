@@ -46,14 +46,14 @@ A clickable header bar with a disclosure chevron that collapses or expands a sec
 
 ## Behavioral Requirements
 
-- **REQ-001**: Tapping anywhere on the header MUST toggle the associated pane's visibility.
-- **REQ-002**: The disclosure chevron MUST animate between collapsed (pointing right) and expanded (pointing down) states.
-- **REQ-003**: The pane collapse/expand MUST animate with an ease-in-out curve (~0.2s duration).
-- **REQ-004**: The header MUST display a title.
-- **REQ-005**: The header MAY display an icon to the left of the title (e.g., a file icon for an editor pane header).
-- **REQ-006**: The header MAY display a subtitle or secondary label to the right of the title (e.g., a filename).
-- **REQ-007**: The header MUST remain visible when the pane is collapsed — it is the mechanism to re-expand.
-- **REQ-008**: The collapsed/expanded state MUST be persisted per-pane so it survives app restart.
+- **tap-toggles-pane**: Tapping anywhere on the header MUST toggle the associated pane's visibility.
+- **chevron-animation**: The disclosure chevron MUST animate between collapsed (pointing right) and expanded (pointing down) states.
+- **collapse-expand-animation**: The pane collapse/expand MUST animate with an ease-in-out curve (~0.2s duration).
+- **display-title**: The header MUST display a title.
+- **optional-leading-icon**: The header MAY display an icon to the left of the title (e.g., a file icon for an editor pane header).
+- **optional-subtitle**: The header MAY display a subtitle or secondary label to the right of the title (e.g., a filename).
+- **header-always-visible**: The header MUST remain visible when the pane is collapsed — it is the mechanism to re-expand.
+- **persist-collapse-state**: The collapsed/expanded state MUST be persisted per-pane so it survives app restart.
 
 ## Appearance
 
@@ -76,20 +76,20 @@ A clickable header bar with a disclosure chevron that collapses or expands a sec
 
 ## Accessibility
 
-- **REQ-009**: The header MUST be a button role with label describing the action: "Collapse {{title}}" or "Expand {{title}}".
-- **REQ-010**: The expanded/collapsed state MUST be announced: `accessibilityValue("expanded")` or `accessibilityValue("collapsed")`.
-- **REQ-011**: The header MUST be keyboard-focusable and toggleable via Return/Space.
+- **button-role-label**: The header MUST be a button role with label describing the action: "Collapse {{title}}" or "Expand {{title}}".
+- **announce-collapse-state**: The expanded/collapsed state MUST be announced: `accessibilityValue("expanded")` or `accessibilityValue("collapsed")`.
+- **keyboard-toggle**: The header MUST be keyboard-focusable and toggleable via Return/Space.
 
 ## Conformance Test Vectors
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| pane-001 | REQ-001 | Tap header when expanded | Pane collapses with animation |
-| pane-002 | REQ-001 | Tap header when collapsed | Pane expands with animation |
-| pane-003 | REQ-002 | Toggle pane | Chevron animates between down↔right |
-| pane-004 | REQ-007 | Collapse pane | Header still visible, pane content hidden |
-| pane-005 | REQ-008 | Collapse pane, restart app | Pane opens collapsed |
-| pane-006 | REQ-011 | Focus header with keyboard, press Return | Pane toggles |
+| pane-001 | tap-toggles-pane | Tap header when expanded | Pane collapses with animation |
+| pane-002 | tap-toggles-pane | Tap header when collapsed | Pane expands with animation |
+| pane-003 | chevron-animation | Toggle pane | Chevron animates between down↔right |
+| pane-004 | header-always-visible | Collapse pane | Header still visible, pane content hidden |
+| pane-005 | persist-collapse-state | Collapse pane, restart app | Pane opens collapsed |
+| pane-006 | keyboard-toggle | Focus header with keyboard, press Return | Pane toggles |
 
 ## Edge Cases
 

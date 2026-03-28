@@ -48,14 +48,14 @@ A slim, animated bar that slides in at the bottom of a view to indicate a backgr
 
 ## Behavioral Requirements
 
-- **REQ-001**: The bar MUST slide in from the bottom edge with an animated transition when an operation begins.
-- **REQ-002**: The bar MUST slide out with an animated transition when the operation completes.
-- **REQ-003**: The bar MUST display an indeterminate progress spinner (platform-native).
-- **REQ-004**: The bar MUST display a status text message describing the current operation.
-- **REQ-005**: The bar MUST be overlaid on existing content (not push content up).
-- **REQ-006**: The animation MUST use an ease-in-out curve with ~0.3s duration.
-- **REQ-007**: The bar SHOULD support updating the status text while visible (e.g., "Scanning…" → "Scanning 42 files…").
-- **REQ-008**: The bar MUST NOT block interaction with the content beneath it.
+- **slide-in-animation**: The bar MUST slide in from the bottom edge with an animated transition when an operation begins.
+- **slide-out-animation**: The bar MUST slide out with an animated transition when the operation completes.
+- **indeterminate-spinner**: The bar MUST display an indeterminate progress spinner (platform-native).
+- **status-text-display**: The bar MUST display a status text message describing the current operation.
+- **overlay-not-push**: The bar MUST be overlaid on existing content (not push content up).
+- **ease-in-out-timing**: The animation MUST use an ease-in-out curve with ~0.3s duration.
+- **update-text-while-visible**: The bar SHOULD support updating the status text while visible (e.g., "Scanning..." -> "Scanning 42 files...").
+- **non-blocking-interaction**: The bar MUST NOT block interaction with the content beneath it.
 
 ## Appearance
 
@@ -80,18 +80,18 @@ A slim, animated bar that slides in at the bottom of a view to indicate a backgr
 
 ## Accessibility
 
-- **REQ-009**: The bar MUST announce its appearance to screen readers with the status text.
-- **REQ-010**: Status text updates SHOULD be announced as polite live region updates (not interrupting).
+- **announce-appearance**: The bar MUST announce its appearance to screen readers with the status text.
+- **polite-live-region**: Status text updates SHOULD be announced as polite live region updates (not interrupting).
 
 ## Conformance Test Vectors
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| status-001 | REQ-001 | Set isSyncing = true | Bar slides in from bottom |
-| status-002 | REQ-002 | Set isSyncing = false | Bar slides out to bottom |
-| status-003 | REQ-005 | Bar visible over scrollable content | Content beneath is still scrollable |
-| status-004 | REQ-007 | Change text while visible | Text updates without bar re-animating |
-| status-005 | REQ-008 | Tap content behind visible bar | Content responds to tap |
+| status-001 | slide-in-animation | Set isSyncing = true | Bar slides in from bottom |
+| status-002 | slide-out-animation | Set isSyncing = false | Bar slides out to bottom |
+| status-003 | overlay-not-push | Bar visible over scrollable content | Content beneath is still scrollable |
+| status-004 | update-text-while-visible | Change text while visible | Text updates without bar re-animating |
+| status-005 | non-blocking-interaction | Tap content behind visible bar | Content responds to tap |
 
 ## Edge Cases
 

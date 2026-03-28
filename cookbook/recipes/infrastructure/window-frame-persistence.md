@@ -48,13 +48,13 @@ An invisible view modifier that persists a window's position and size between se
 
 ## Behavioral Requirements
 
-- **REQ-001**: The component MUST persist the window's frame (origin + size) across app sessions using `NSWindow.setFrameAutosaveName`.
-- **REQ-002**: Each window MUST have a unique autosave name. For document windows, this SHOULD be derived from the document's file path (e.g., SHA256 hash prefix).
-- **REQ-003**: The component MUST NOT be visible — it renders as an empty `NSView` added as a background.
-- **REQ-004**: The component MUST access the hosting `NSWindow` via the view hierarchy after a brief delay (next main run loop cycle) to ensure the window exists.
-- **REQ-005**: The component MAY accept an `onClose` callback that fires when the window is closed (via `NSWindow.willCloseNotification`).
-- **REQ-006**: The component MUST clean up notification observers on deinit.
-- **REQ-007**: On first launch (no saved frame), the window SHOULD use its default position/size defined elsewhere.
+- **persist-frame-autosave**: The component MUST persist the window's frame (origin + size) across app sessions using `NSWindow.setFrameAutosaveName`.
+- **unique-autosave-name**: Each window MUST have a unique autosave name. For document windows, this SHOULD be derived from the document's file path (e.g., SHA256 hash prefix).
+- **invisible-background-view**: The component MUST NOT be visible — it renders as an empty `NSView` added as a background.
+- **delayed-window-access**: The component MUST access the hosting `NSWindow` via the view hierarchy after a brief delay (next main run loop cycle) to ensure the window exists.
+- **on-close-callback**: The component MAY accept an `onClose` callback that fires when the window is closed (via `NSWindow.willCloseNotification`).
+- **cleanup-observers**: The component MUST clean up notification observers on deinit.
+- **default-first-launch**: On first launch (no saved frame), the window SHOULD use its default position/size defined elsewhere.
 
 ## Appearance
 
@@ -77,11 +77,11 @@ Not applicable — this component has no visual or interactive surface.
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| frame-001 | REQ-001 | Open window, move to (200,300), close, reopen | Window appears at (200,300) |
-| frame-002 | REQ-001 | Open window, resize to 800×600, close, reopen | Window appears at 800×600 |
-| frame-003 | REQ-002 | Open two document windows | Each has unique autosave name, saved independently |
-| frame-004 | REQ-003 | Inspect view hierarchy | No visible NSView from this component |
-| frame-005 | REQ-005 | Close window with onClose callback | Callback fires |
+| frame-001 | persist-frame-autosave | Open window, move to (200,300), close, reopen | Window appears at (200,300) |
+| frame-002 | persist-frame-autosave | Open window, resize to 800×600, close, reopen | Window appears at 800×600 |
+| frame-003 | unique-autosave-name | Open two document windows | Each has unique autosave name, saved independently |
+| frame-004 | invisible-background-view | Inspect view hierarchy | No visible NSView from this component |
+| frame-005 | on-close-callback | Close window with onClose callback | Callback fires |
 
 ## Edge Cases
 

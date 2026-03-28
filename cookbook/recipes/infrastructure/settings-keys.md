@@ -43,7 +43,7 @@ dependencies: [ui/Recipes/settings-window.md@1.2.0]
 
 ## Overview
 
-A centralized settings key registry that prevents key duplication, typos, and scattered string literals. All UserDefaults/SharedPreferences/localStorage keys are defined in one place with a structured naming convention. Every setting read or written anywhere in the app MUST reference a constant from this registry rather than an inline string. This is the implementation pattern for settings-window.md REQ-016.
+A centralized settings key registry that prevents key duplication, typos, and scattered string literals. All UserDefaults/SharedPreferences/localStorage keys are defined in one place with a structured naming convention. Every setting read or written anywhere in the app MUST reference a constant from this registry rather than an inline string. This is the implementation pattern for settings-window.md centralized-keys.
 
 ## Terminology
 
@@ -57,27 +57,27 @@ A centralized settings key registry that prevents key duplication, typos, and sc
 
 ### Structure
 
-- **REQ-001**: All settings keys MUST be defined in a centralized struct/enum (e.g., `struct SettingsKeys`). Inline string literals for settings keys MUST NOT appear anywhere else in the codebase.
-- **REQ-002**: Keys MUST be static string constants, NOT computed or dynamically constructed at runtime.
-- **REQ-003**: Keys MUST follow a dot-notation naming convention: `{area}.{setting}` (e.g., `general.startupBehavior`, `ai.enabled`, `profiles.activeProfileID`).
-- **REQ-004**: Keys SHOULD be organized by settings area, matching the settings window categories (e.g., all `general.*` keys grouped together, all `ai.*` keys grouped together).
+- **centralized-key-registry**: All settings keys MUST be defined in a centralized struct/enum (e.g., `struct SettingsKeys`). Inline string literals for settings keys MUST NOT appear anywhere else in the codebase.
+- **static-string-constants**: Keys MUST be static string constants, NOT computed or dynamically constructed at runtime.
+- **dot-notation-naming**: Keys MUST follow a dot-notation naming convention: `{area}.{setting}` (e.g., `general.startupBehavior`, `ai.enabled`, `profiles.activeProfileID`).
+- **organize-by-area**: Keys SHOULD be organized by settings area, matching the settings window categories (e.g., all `general.*` keys grouped together, all `ai.*` keys grouped together).
 
 ### Naming convention
 
-- **REQ-005**: The area prefix MUST match the settings category name in lowercase (e.g., `general`, `ai`, `profiles`).
-- **REQ-006**: The setting name MUST be camelCase (e.g., `startupBehavior`, `apiKey`, `activeProfileID`).
-- **REQ-007**: Keys MUST be globally unique within the app. No two keys MAY share the same string value.
+- **lowercase-area-prefix**: The area prefix MUST match the settings category name in lowercase (e.g., `general`, `ai`, `profiles`).
+- **camelcase-setting-name**: The setting name MUST be camelCase (e.g., `startupBehavior`, `apiKey`, `activeProfileID`).
+- **globally-unique-keys**: Keys MUST be globally unique within the app. No two keys MAY share the same string value.
 
 ### Migration safety
 
-- **REQ-008**: Key strings MUST NOT change once shipped in a release build. Changing a shipped key string loses existing user settings for that key.
-- **REQ-009**: Deprecated keys SHOULD be marked with a comment (e.g., `// Deprecated: migrated to ai.provider in v2.0`) rather than deleted, so that migration code can reference both old and new keys.
-- **REQ-010**: When migrating storage backend (e.g., UserDefaults to SQLite, localStorage to IndexedDB), the key names SHOULD be preserved to avoid data loss.
+- **immutable-shipped-keys**: Key strings MUST NOT change once shipped in a release build. Changing a shipped key string loses existing user settings for that key.
+- **mark-deprecated-keys**: Deprecated keys SHOULD be marked with a comment (e.g., `// Deprecated: migrated to ai.provider in v2.0`) rather than deleted, so that migration code can reference both old and new keys.
+- **preserve-key-names-migration**: When migrating storage backend (e.g., UserDefaults to SQLite, localStorage to IndexedDB), the key names SHOULD be preserved to avoid data loss.
 
 ### Usage pattern
 
-- **REQ-011**: All reads and writes to the persistence layer MUST use a constant from the key registry. Code review SHOULD reject any raw string literal used as a settings key.
-- **REQ-012**: The key registry MUST be importable from any module that needs to read or write settings.
+- **use-registry-constants**: All reads and writes to the persistence layer MUST use a constant from the key registry. Code review SHOULD reject any raw string literal used as a settings key.
+- **importable-from-modules**: The key registry MUST be importable from any module that needs to read or write settings.
 
 ## Reference Key Set
 
@@ -131,20 +131,20 @@ Not applicable — this component has no visual or interactive surface.
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| keys-001 | REQ-007 | Collect all key string values from the registry | No duplicate values found |
-| keys-002 | REQ-003 | Iterate all key string values | Every value matches regex `^[a-z]+\.[a-zA-Z]+$` (area dot camelCase) |
-| keys-003 | REQ-002 | Inspect all key declarations | All are static/const, none are computed properties or function calls |
-| keys-004 | REQ-001 | Search codebase for `UserDefaults.standard.string(forKey:` / `@AppStorage(` / `localStorage.getItem(` | Every call site references a `SettingsKeys` constant, never a string literal |
-| keys-005 | REQ-005 | Extract area prefixes from all keys | Each area prefix matches a settings window category name (lowercase) |
-| keys-006 | REQ-006 | Extract setting names (after the dot) from all keys | Each matches camelCase: `^[a-z][a-zA-Z]*$` |
-| keys-007 | REQ-008 | Compare key strings between current release and previous release | No shipped key strings have changed |
-| keys-008 | REQ-011 | Grep for raw string matching `"general.` or `"ai.` in non-registry files | Zero matches outside the key registry file |
-| keys-009 | REQ-012 | Import key registry from a separate module | Import succeeds, constants are accessible |
+| keys-001 | globally-unique-keys | Collect all key string values from the registry | No duplicate values found |
+| keys-002 | dot-notation-naming | Iterate all key string values | Every value matches regex `^[a-z]+\.[a-zA-Z]+$` (area dot camelCase) |
+| keys-003 | static-string-constants | Inspect all key declarations | All are static/const, none are computed properties or function calls |
+| keys-004 | centralized-key-registry | Search codebase for `UserDefaults.standard.string(forKey:` / `@AppStorage(` / `localStorage.getItem(` | Every call site references a `SettingsKeys` constant, never a string literal |
+| keys-005 | lowercase-area-prefix | Extract area prefixes from all keys | Each area prefix matches a settings window category name (lowercase) |
+| keys-006 | camelcase-setting-name | Extract setting names (after the dot) from all keys | Each matches camelCase: `^[a-z][a-zA-Z]*$` |
+| keys-007 | immutable-shipped-keys | Compare key strings between current release and previous release | No shipped key strings have changed |
+| keys-008 | use-registry-constants | Grep for raw string matching `"general.` or `"ai.` in non-registry files | Zero matches outside the key registry file |
+| keys-009 | importable-from-modules | Import key registry from a separate module | Import succeeds, constants are accessible |
 
 ## Edge Cases
 
 - **Key collision**: Two developers independently add a key with the same string value. The uniqueness test (keys-001) MUST catch this at build or CI time. Implementations SHOULD use a compile-time or test-time assertion to prevent duplicates.
-- **Migration from old keys**: When renaming a key area (e.g., `prefs.foo` to `general.foo`), the migration code MUST read the old key, write the new key, and delete the old key — in that order. The old key constant MUST remain in the registry (marked deprecated per REQ-009) until the migration window closes.
+- **Migration from old keys**: When renaming a key area (e.g., `prefs.foo` to `general.foo`), the migration code MUST read the old key, write the new key, and delete the old key — in that order. The old key constant MUST remain in the registry (marked deprecated per mark-deprecated-keys) until the migration window closes.
 - **Platform-specific keys**: If a key only applies to one platform (e.g., `general.defaultShellPath` on macOS/Linux only), the constant SHOULD still be defined in the shared registry with a comment noting its platform scope. Platform-specific code MAY choose not to read/write it.
 - **Empty or nil values**: Reading a key that has never been written MUST return the platform default (nil/null/undefined). Consumers MUST handle missing values gracefully with fallback defaults.
 - **Key with sensitive data**: Keys storing secrets (e.g., `ai.apiKey`) SHOULD be documented as sensitive. On Apple platforms, consider Keychain instead of UserDefaults for such values.

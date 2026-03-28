@@ -30,12 +30,12 @@ One paragraph: what it is, when to use it, why it exists.
 ## 3. Behavioral Requirements
 
 The most important section. Every requirement gets:
-- A sequential number: REQ-001, REQ-002, ...
+- A unique kebab-case name describing the requirement
 - An RFC 2119 keyword: MUST, MUST NOT, SHOULD, SHOULD NOT, MAY
 - A clear, testable assertion
 
-**Good**: "REQ-003: The bar MUST display an indeterminate progress spinner (platform-native)."
-**Bad**: "REQ-003: The bar should look nice." (untestable, subjective)
+**Good**: "progress-spinner: The bar MUST display an indeterminate progress spinner (platform-native)."
+**Bad**: "looks-nice: The bar should look nice." (untestable, subjective)
 
 **Guidelines**:
 - MUST = required for conformance (breaking if missing)
@@ -82,11 +82,11 @@ Required items:
 
 ## 7. Conformance Test Vectors
 
-Concrete input → expected output pairs, linked to REQ-NNN:
+Concrete input → expected output pairs, linked to requirement names:
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| comp-001 | REQ-001 | Tap button | Action fires |
+| comp-001 | tap-action | Tap button | Action fires |
 
 **Good**: Specific, reproducible, linked to a requirement
 **Bad**: "Test that it works" (not actionable)

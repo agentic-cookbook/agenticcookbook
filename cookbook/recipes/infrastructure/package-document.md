@@ -116,68 +116,68 @@ extension UTType {
 
 ### UTType registration
 
-- **REQ-001**: Each document type MUST declare a custom UTType conforming to `com.apple.package` in the app's Info.plist as an exported type.
-- **REQ-002**: Each UTType MUST specify a unique file extension in `UTTypeTagSpecification` under `public.filename-extension`.
-- **REQ-003**: The UTType MUST be declared as a Swift `UTType` static property via `UTType(exportedAs:)` for use in document and file panel APIs.
+- **package-uttype-declaration**: Each document type MUST declare a custom UTType conforming to `com.apple.package` in the app's Info.plist as an exported type.
+- **unique-file-extension**: Each UTType MUST specify a unique file extension in `UTTypeTagSpecification` under `public.filename-extension`.
+- **swift-uttype-property**: The UTType MUST be declared as a Swift `UTType` static property via `UTType(exportedAs:)` for use in document and file panel APIs.
 
 ### Document protocol conformance
 
-- **REQ-004**: Each document class MUST conform to `ReferenceFileDocument` (SwiftUI) and declare its `readableContentTypes` and `writableContentTypes` as the corresponding custom UTType.
-- **REQ-005**: The document MUST expose a `@Published var model` property whose changes trigger `objectWillChange`, enabling SwiftUI auto-save.
-- **REQ-006**: The document MUST implement `init(configuration:)` to read from a `FileWrapper` and `fileWrapper(snapshot:configuration:)` to write to a `FileWrapper`.
+- **reference-file-document**: Each document class MUST conform to `ReferenceFileDocument` (SwiftUI) and declare its `readableContentTypes` and `writableContentTypes` as the corresponding custom UTType.
+- **published-model-property**: The document MUST expose a `@Published var model` property whose changes trigger `objectWillChange`, enabling SwiftUI auto-save.
+- **filewrapper-read-write**: The document MUST implement `init(configuration:)` to read from a `FileWrapper` and `fileWrapper(snapshot:configuration:)` to write to a `FileWrapper`.
 
 ### SQLite database schema
 
-- **REQ-007**: The SQLite database MUST use `PRAGMA journal_mode = OFF` since the database resides inside a package and is not a standalone file.
-- **REQ-008**: The SQLite database MUST use `PRAGMA user_version = N` to track the schema version, where N is an integer incremented with each schema change.
-- **REQ-009**: The database MUST contain a `metadata` table with columns for document name (`TEXT`), schema version (`INTEGER`), and created date (`TEXT` in ISO 8601 format).
-- **REQ-010**: The database MUST contain a `settings` table with columns `key` (`TEXT PRIMARY KEY`) and `value` (`TEXT`) for key-value pair storage.
-- **REQ-011**: Boolean settings MUST be stored as the string values `"true"` or `"false"`.
-- **REQ-012**: Numeric settings MUST be stored as their string representations (e.g., `"42"`, `"3.14"`).
-- **REQ-013**: Domain-specific data tables MUST be defined per document type (e.g., sessions table for projects, file references for workspaces).
+- **journal-mode-off**: The SQLite database MUST use `PRAGMA journal_mode = OFF` since the database resides inside a package and is not a standalone file.
+- **pragma-user-version**: The SQLite database MUST use `PRAGMA user_version = N` to track the schema version, where N is an integer incremented with each schema change.
+- **metadata-table**: The database MUST contain a `metadata` table with columns for document name (`TEXT`), schema version (`INTEGER`), and created date (`TEXT` in ISO 8601 format).
+- **settings-table**: The database MUST contain a `settings` table with columns `key` (`TEXT PRIMARY KEY`) and `value` (`TEXT`) for key-value pair storage.
+- **boolean-string-storage**: Boolean settings MUST be stored as the string values `"true"` or `"false"`.
+- **numeric-string-storage**: Numeric settings MUST be stored as their string representations (e.g., `"42"`, `"3.14"`).
+- **domain-specific-tables**: Domain-specific data tables MUST be defined per document type (e.g., sessions table for projects, file references for workspaces).
 
 ### Read process
 
-- **REQ-014**: On read, the document MUST first check the package `FileWrapper` for the expected SQLite database file (e.g., `project.db`).
-- **REQ-015**: If the SQLite database file is not found, the document MUST check for a legacy JSON file (e.g., `data.json`) for backward compatibility.
-- **REQ-016**: If a legacy JSON file is found, the document MUST deserialize it and populate the model from JSON data. The next save will write SQLite format.
-- **REQ-017**: If neither SQLite nor legacy JSON files are found in the package, the document MUST treat it as a new empty document with default values.
-- **REQ-018**: On successful read, the document MUST log the format version (SQLite schema version or "legacy JSON") at `info` level.
+- **check-sqlite-first**: On read, the document MUST first check the package `FileWrapper` for the expected SQLite database file (e.g., `project.db`).
+- **fallback-legacy-json**: If the SQLite database file is not found, the document MUST check for a legacy JSON file (e.g., `data.json`) for backward compatibility.
+- **deserialize-legacy-json**: If a legacy JSON file is found, the document MUST deserialize it and populate the model from JSON data. The next save will write SQLite format.
+- **empty-package-defaults**: If neither SQLite nor legacy JSON files are found in the package, the document MUST treat it as a new empty document with default values.
+- **log-format-version**: On successful read, the document MUST log the format version (SQLite schema version or "legacy JSON") at `info` level.
 
 ### Write process
 
-- **REQ-019**: On write, the document MUST create a temporary SQLite database file at a unique path (UUID-based filename in the temporary directory).
-- **REQ-020**: The document MUST insert all model data into the temporary database using parameterized queries.
-- **REQ-021**: After writing all data, the document MUST read the temporary database file contents as raw bytes (`Data`).
-- **REQ-022**: The document MUST wrap the database bytes in a `FileWrapper(regularFileWithContents:)` with the `preferredFilename` set to the database filename (e.g., `project.db`).
-- **REQ-023**: The document MUST return a `FileWrapper(directoryWithFileWrappers:)` containing the database file wrapper, forming the package directory.
-- **REQ-024**: The temporary database file MUST be deleted after its bytes have been read (cleanup in a `defer` block or equivalent).
+- **temp-sqlite-write**: On write, the document MUST create a temporary SQLite database file at a unique path (UUID-based filename in the temporary directory).
+- **parameterized-queries**: The document MUST insert all model data into the temporary database using parameterized queries.
+- **read-temp-bytes**: After writing all data, the document MUST read the temporary database file contents as raw bytes (`Data`).
+- **wrap-database-filewrapper**: The document MUST wrap the database bytes in a `FileWrapper(regularFileWithContents:)` with the `preferredFilename` set to the database filename (e.g., `project.db`).
+- **directory-filewrapper**: The document MUST return a `FileWrapper(directoryWithFileWrappers:)` containing the database file wrapper, forming the package directory.
+- **cleanup-temp-database**: The temporary database file MUST be deleted after its bytes have been read (cleanup in a `defer` block or equivalent).
 
 ### Migration-safe Codable
 
-- **REQ-025**: Model types that are deserialized from legacy JSON MUST implement custom `init(from decoder: Decoder)` with per-field `try`/`catch`, falling back to default values for any field that fails to decode.
-- **REQ-026**: Each model type MUST include a `version` field (integer or string) for schema identification in both JSON and SQLite representations.
-- **REQ-027**: Adding new settings fields to the model MUST NOT break deserialization of documents created with older versions of the schema.
+- **migration-safe-codable**: Model types that are deserialized from legacy JSON MUST implement custom `init(from decoder: Decoder)` with per-field `try`/`catch`, falling back to default values for any field that fails to decode.
+- **model-version-field**: Each model type MUST include a `version` field (integer or string) for schema identification in both JSON and SQLite representations.
+- **backward-compatible-schema**: Adding new settings fields to the model MUST NOT break deserialization of documents created with older versions of the schema.
 
 ### SQLite helper utilities
 
-- **REQ-028**: The codebase MUST provide a `tempDatabaseURL()` helper that returns a URL in the temporary directory with a UUID-based filename and `.db` extension.
-- **REQ-029**: The codebase MUST provide an `exec()` function that executes a SQL statement with parameterized bindings (supporting at minimum `.text(String)`, `.int(Int)`, and `.null` binding types).
-- **REQ-030**: The codebase MUST provide `queryRow()` and `queryAll()` functions for reading single and multiple rows from the database.
-- **REQ-031**: The codebase MUST provide a `lastInsertRowID()` function to retrieve the row ID of the last inserted row.
-- **REQ-032**: SQLite errors MUST be represented as a dedicated error type with cases for: `cannotOpen`, `execFailed`, `missingData`, and `invalidDate`.
+- **temp-database-url-helper**: The codebase MUST provide a `tempDatabaseURL()` helper that returns a URL in the temporary directory with a UUID-based filename and `.db` extension.
+- **exec-with-bindings**: The codebase MUST provide an `exec()` function that executes a SQL statement with parameterized bindings (supporting at minimum `.text(String)`, `.int(Int)`, and `.null` binding types).
+- **query-functions**: The codebase MUST provide `queryRow()` and `queryAll()` functions for reading single and multiple rows from the database.
+- **last-insert-row-id**: The codebase MUST provide a `lastInsertRowID()` function to retrieve the row ID of the last inserted row.
+- **sqlite-error-type**: SQLite errors MUST be represented as a dedicated error type with cases for: `cannotOpen`, `execFailed`, `missingData`, and `invalidDate`.
 
 ### Document scenes
 
-- **REQ-033**: The app MUST declare a `DocumentGroup(newDocument:)` scene for each document type, associating it with the correct `ReferenceFileDocument` subclass.
-- **REQ-034**: Non-document windows (e.g., settings, welcome screen) MUST use `WindowGroup` scenes, not `DocumentGroup`.
-- **REQ-035**: Custom menu commands for creating new documents MUST use `NSSavePanel` to select the save location and then programmatically create the document.
+- **document-group-scene**: The app MUST declare a `DocumentGroup(newDocument:)` scene for each document type, associating it with the correct `ReferenceFileDocument` subclass.
+- **non-document-window-group**: Non-document windows (e.g., settings, welcome screen) MUST use `WindowGroup` scenes, not `DocumentGroup`.
+- **custom-menu-save-panel**: Custom menu commands for creating new documents MUST use `NSSavePanel` to select the save location and then programmatically create the document.
 
 ### Lifecycle
 
-- **REQ-036**: Auto-save MUST be triggered automatically by the `@Published` model property's `objectWillChange` publisher. No manual save action is required from the user.
-- **REQ-037**: On application quit, the document system MUST save the URLs of all currently open documents for session restoration.
-- **REQ-038**: On application launch, the document system MUST attempt to reopen previously saved document URLs, logging any that fail to open.
+- **autosave-via-published**: Auto-save MUST be triggered automatically by the `@Published` model property's `objectWillChange` publisher. No manual save action is required from the user.
+- **save-open-urls-on-quit**: On application quit, the document system MUST save the URLs of all currently open documents for session restoration.
+- **restore-urls-on-launch**: On application launch, the document system MUST attempt to reopen previously saved document URLs, logging any that fail to open.
 
 ## States
 
@@ -205,38 +205,38 @@ Not applicable — this recipe defines a storage and persistence pattern with no
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| pd-001 | REQ-001, REQ-002, REQ-003 | Register UTType for `.catnip-proj` conforming to `com.apple.package` | Finder displays the package directory as a single file icon with the correct extension |
-| pd-002 | REQ-004, REQ-005 | Create a new `ProjectDocument` and modify the `model` property | `objectWillChange` fires; auto-save triggers |
-| pd-003 | REQ-006 | Call `fileWrapper(snapshot:configuration:)` on a document | Returns a `FileWrapper` of kind directory containing `project.db` |
-| pd-004 | REQ-007 | Open the SQLite database inside a saved package | `PRAGMA journal_mode` returns `off` |
-| pd-005 | REQ-008, REQ-009 | Open the SQLite database and query `PRAGMA user_version` and `SELECT * FROM metadata` | `user_version` matches expected schema version; metadata row contains name, version, created_date |
-| pd-006 | REQ-010, REQ-011, REQ-012 | Insert boolean setting `autoSave = true` and numeric setting `fontSize = 14` | Settings table contains `("autoSave", "true")` and `("fontSize", "14")` |
-| pd-007 | REQ-014 | Open a package containing `project.db` | Document reads from SQLite successfully |
-| pd-008 | REQ-015, REQ-016 | Open a package containing `data.json` but no `project.db` | Document reads from JSON; model is populated correctly |
-| pd-009 | REQ-016 | Open a legacy JSON package, modify model, trigger save | Saved package contains `project.db` (SQLite); legacy JSON format replaced |
-| pd-010 | REQ-017 | Open an empty package directory (no `project.db`, no `data.json`) | Document initializes with default values |
-| pd-011 | REQ-018 | Open a SQLite document with schema version 3 | Log entry: `info` level, includes "schema version 3" |
-| pd-012 | REQ-019, REQ-020, REQ-021 | Trigger a save on a document with model data | Temporary SQLite file is created, data is inserted with parameterized queries, bytes are read |
-| pd-013 | REQ-022, REQ-023 | Inspect the FileWrapper returned from `fileWrapper(...)` | Directory FileWrapper with one child whose `preferredFilename` is `project.db` |
-| pd-014 | REQ-024 | Trigger a save and inspect the temporary directory afterward | No leftover temporary `.db` files remain |
-| pd-015 | REQ-025, REQ-027 | Deserialize a legacy JSON document that is missing a field added in a newer schema version | Missing field falls back to its default value; no crash or error |
-| pd-016 | REQ-025, REQ-027 | Deserialize a legacy JSON document that contains an unknown extra field | Extra field is ignored; known fields are populated correctly |
-| pd-017 | REQ-026 | Inspect the model after reading from either JSON or SQLite | Model's `version` field is populated and matches the source's schema version |
-| pd-018 | REQ-028 | Call `tempDatabaseURL()` twice | Both URLs are in the temp directory, have `.db` extension, and are unique (different UUIDs) |
-| pd-019 | REQ-029 | Call `exec("INSERT INTO settings (key, value) VALUES (?, ?)", [.text("k"), .text("v")])` | Row is inserted; no SQL injection possible with parameterized bindings |
-| pd-020 | REQ-030 | Call `queryRow("SELECT value FROM settings WHERE key = ?", [.text("k")])` | Returns single row with value `"v"` |
-| pd-021 | REQ-031 | Insert a row and call `lastInsertRowID()` | Returns the integer row ID of the just-inserted row |
-| pd-022 | REQ-032 | Attempt to open a non-existent database path | Throws error of type `.cannotOpen` |
-| pd-023 | REQ-032 | Execute invalid SQL | Throws error of type `.execFailed` |
-| pd-024 | REQ-033 | Launch the app | `DocumentGroup` scenes are registered for each document type; File > Open shows the correct file type filters |
-| pd-025 | REQ-036 | Modify the model's `@Published` property | Auto-save fires without any user action |
-| pd-026 | REQ-037 | Open two documents, quit the app | Both document URLs are saved for session restoration |
-| pd-027 | REQ-038 | Launch the app after quitting with two documents open | Both documents reopen; if one URL is invalid, the valid one still opens and the failure is logged |
+| pd-001 | package-uttype-declaration, unique-file-extension, swift-uttype-property | Register UTType for `.catnip-proj` conforming to `com.apple.package` | Finder displays the package directory as a single file icon with the correct extension |
+| pd-002 | reference-file-document, published-model-property | Create a new `ProjectDocument` and modify the `model` property | `objectWillChange` fires; auto-save triggers |
+| pd-003 | filewrapper-read-write | Call `fileWrapper(snapshot:configuration:)` on a document | Returns a `FileWrapper` of kind directory containing `project.db` |
+| pd-004 | journal-mode-off | Open the SQLite database inside a saved package | `PRAGMA journal_mode` returns `off` |
+| pd-005 | pragma-user-version, metadata-table | Open the SQLite database and query `PRAGMA user_version` and `SELECT * FROM metadata` | `user_version` matches expected schema version; metadata row contains name, version, created_date |
+| pd-006 | settings-table, boolean-string-storage, numeric-string-storage | Insert boolean setting `autoSave = true` and numeric setting `fontSize = 14` | Settings table contains `("autoSave", "true")` and `("fontSize", "14")` |
+| pd-007 | check-sqlite-first | Open a package containing `project.db` | Document reads from SQLite successfully |
+| pd-008 | fallback-legacy-json, deserialize-legacy-json | Open a package containing `data.json` but no `project.db` | Document reads from JSON; model is populated correctly |
+| pd-009 | deserialize-legacy-json | Open a legacy JSON package, modify model, trigger save | Saved package contains `project.db` (SQLite); legacy JSON format replaced |
+| pd-010 | empty-package-defaults | Open an empty package directory (no `project.db`, no `data.json`) | Document initializes with default values |
+| pd-011 | log-format-version | Open a SQLite document with schema version 3 | Log entry: `info` level, includes "schema version 3" |
+| pd-012 | temp-sqlite-write, parameterized-queries, read-temp-bytes | Trigger a save on a document with model data | Temporary SQLite file is created, data is inserted with parameterized queries, bytes are read |
+| pd-013 | wrap-database-filewrapper, directory-filewrapper | Inspect the FileWrapper returned from `fileWrapper(...)` | Directory FileWrapper with one child whose `preferredFilename` is `project.db` |
+| pd-014 | cleanup-temp-database | Trigger a save and inspect the temporary directory afterward | No leftover temporary `.db` files remain |
+| pd-015 | migration-safe-codable, backward-compatible-schema | Deserialize a legacy JSON document that is missing a field added in a newer schema version | Missing field falls back to its default value; no crash or error |
+| pd-016 | migration-safe-codable, backward-compatible-schema | Deserialize a legacy JSON document that contains an unknown extra field | Extra field is ignored; known fields are populated correctly |
+| pd-017 | model-version-field | Inspect the model after reading from either JSON or SQLite | Model's `version` field is populated and matches the source's schema version |
+| pd-018 | temp-database-url-helper | Call `tempDatabaseURL()` twice | Both URLs are in the temp directory, have `.db` extension, and are unique (different UUIDs) |
+| pd-019 | exec-with-bindings | Call `exec("INSERT INTO settings (key, value) VALUES (?, ?)", [.text("k"), .text("v")])` | Row is inserted; no SQL injection possible with parameterized bindings |
+| pd-020 | query-functions | Call `queryRow("SELECT value FROM settings WHERE key = ?", [.text("k")])` | Returns single row with value `"v"` |
+| pd-021 | last-insert-row-id | Insert a row and call `lastInsertRowID()` | Returns the integer row ID of the just-inserted row |
+| pd-022 | sqlite-error-type | Attempt to open a non-existent database path | Throws error of type `.cannotOpen` |
+| pd-023 | sqlite-error-type | Execute invalid SQL | Throws error of type `.execFailed` |
+| pd-024 | document-group-scene | Launch the app | `DocumentGroup` scenes are registered for each document type; File > Open shows the correct file type filters |
+| pd-025 | autosave-via-published | Modify the model's `@Published` property | Auto-save fires without any user action |
+| pd-026 | save-open-urls-on-quit | Open two documents, quit the app | Both document URLs are saved for session restoration |
+| pd-027 | restore-urls-on-launch | Launch the app after quitting with two documents open | Both documents reopen; if one URL is invalid, the valid one still opens and the failure is logged |
 
 ## Edge Cases
 
 - **Corrupt SQLite database**: If `sqlite3_open` succeeds but queries fail (e.g., malformed schema, incomplete write), the document MUST surface a user-facing error describing the corruption and MUST NOT overwrite the corrupt file. The user should be offered the option to create a new document or attempt manual recovery.
-- **Missing files in package**: If the package directory exists but contains neither the expected SQLite database nor a legacy JSON file, the document treats this as a new empty document (REQ-017). If the package directory itself is missing or inaccessible, the system reports a file-not-found error.
+- **Missing files in package**: If the package directory exists but contains neither the expected SQLite database nor a legacy JSON file, the document treats this as a new empty document (empty-package-defaults). If the package directory itself is missing or inaccessible, the system reports a file-not-found error.
 - **Format migration (JSON to SQLite)**: When a legacy JSON document is opened, the model is populated from JSON. On the next save, the write process creates a SQLite database. The legacy JSON file is not explicitly deleted from the package — the new `FileWrapper(directoryWithFileWrappers:)` simply omits it, and the atomic directory replacement removes it.
 - **Concurrent access**: If two processes or two app instances attempt to open the same package document simultaneously, behavior is undefined. The pattern relies on macOS file coordination (`NSFileCoordinator`) when available, but does not implement custom locking. Documents opened via `DocumentGroup` benefit from the system's built-in file coordination.
 - **Disk full during write**: If the temporary SQLite file cannot be fully written due to insufficient disk space, the `exec()` call will fail. The document MUST catch this error and surface it to the user. The existing on-disk package MUST NOT be modified or corrupted.

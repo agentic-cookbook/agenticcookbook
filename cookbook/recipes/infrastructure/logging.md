@@ -49,32 +49,32 @@ A centralized logging infrastructure pattern that defines a single enum or struc
 
 ### Centralized structure
 
-- **REQ-001**: The app MUST define a centralized, non-instantiable logging type (enum or static struct, e.g., `enum Log`) that serves as the single source of all logger instances.
-- **REQ-002**: All loggers within the centralized type MUST share a single subsystem string that matches the app's bundle identifier (e.g., `com.temporal.app`).
-- **REQ-003**: Each static logger property MUST be initialized with a descriptive category name matching a feature area (e.g., `"sessions"`, `"terminal"`, `"project"`, `"ui"`, `"fileTree"`).
-- **REQ-004**: Categories SHOULD be defined once in the centralized type and reused throughout the codebase. Ad-hoc logger creation outside this type MUST NOT occur.
+- **centralized-logging-type**: The app MUST define a centralized, non-instantiable logging type (enum or static struct, e.g., `enum Log`) that serves as the single source of all logger instances.
+- **shared-subsystem-string**: All loggers within the centralized type MUST share a single subsystem string that matches the app's bundle identifier (e.g., `com.temporal.app`).
+- **descriptive-category-names**: Each static logger property MUST be initialized with a descriptive category name matching a feature area (e.g., `"sessions"`, `"terminal"`, `"project"`, `"ui"`, `"fileTree"`).
+- **no-adhoc-loggers**: Categories SHOULD be defined once in the centralized type and reused throughout the codebase. Ad-hoc logger creation outside this type MUST NOT occur.
 
 ### Call-site usage
 
-- **REQ-005**: All call sites MUST use the centralized logger (e.g., `Log.ui.info("loaded")`) and MUST NOT use direct `print()`, `NSLog()`, `console.log()`, `android.util.Log.d()`, or equivalent raw output.
-- **REQ-006**: Log levels MUST follow platform conventions:
+- **use-centralized-logger**: All call sites MUST use the centralized logger (e.g., `Log.ui.info("loaded")`) and MUST NOT use direct `print()`, `NSLog()`, `console.log()`, `android.util.Log.d()`, or equivalent raw output.
+- **platform-log-levels**: Log levels MUST follow platform conventions:
   - **debug**: Development-only information, verbose detail for diagnosing issues.
   - **info**: Noteworthy runtime events (feature used, state transition).
   - **error**: Recoverable failures (network timeout, parse error).
   - **fault** (Apple) / **wtf** (Android) / **error** (Web): Critical, unexpected failures indicating a bug.
-- **REQ-007**: Debug-level logs MUST NOT appear in production/release builds. On Apple platforms, `os.Logger` handles this automatically. On Android and Web, the logging implementation MUST strip or gate debug output in release configurations.
+- **suppress-debug-production**: Debug-level logs MUST NOT appear in production/release builds. On Apple platforms, `os.Logger` handles this automatically. On Android and Web, the logging implementation MUST strip or gate debug output in release configurations.
 
 ### Category naming conventions
 
-- **REQ-008**: Category names MUST be camelCase (e.g., `fileTree`, not `file_tree` or `FileTree`).
-- **REQ-009**: Each major feature area MUST have its own category. At minimum the app SHOULD define categories for: app lifecycle, UI, networking, persistence, and each primary feature.
-- **REQ-010**: App-wide concerns (startup, lifecycle, configuration) SHOULD use an `"app"` category.
-- **REQ-011**: UI-specific logging (view lifecycle, layout, navigation) SHOULD use a `"ui"` category.
+- **camelcase-categories**: Category names MUST be camelCase (e.g., `fileTree`, not `file_tree` or `FileTree`).
+- **per-feature-categories**: Each major feature area MUST have its own category. At minimum the app SHOULD define categories for: app lifecycle, UI, networking, persistence, and each primary feature.
+- **app-category**: App-wide concerns (startup, lifecycle, configuration) SHOULD use an `"app"` category.
+- **ui-category**: UI-specific logging (view lifecycle, layout, navigation) SHOULD use a `"ui"` category.
 
 ### Extensibility
 
-- **REQ-012**: Adding a new category MUST require only adding a new static property to the centralized type — no other files or registrations.
-- **REQ-013**: The centralized type MAY be extended across modules using language-appropriate extension mechanisms (Swift extensions, Kotlin extension properties, TypeScript module augmentation).
+- **single-property-extension**: Adding a new category MUST require only adding a new static property to the centralized type — no other files or registrations.
+- **cross-module-extension**: The centralized type MAY be extended across modules using language-appropriate extension mechanisms (Swift extensions, Kotlin extension properties, TypeScript module augmentation).
 
 ## Appearance
 
@@ -97,16 +97,16 @@ Not applicable — logging has no user-facing surface.
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| log-001 | REQ-001, REQ-002 | Inspect `Log` type | Non-instantiable type exists with static logger properties sharing one subsystem |
-| log-002 | REQ-003 | Inspect each static property | Each logger has a unique, descriptive category string |
-| log-003 | REQ-005 | Call `Log.project.info("opened")` | Log entry appears with subsystem = bundle ID, category = "project", level = info |
-| log-004 | REQ-005 | Search codebase for raw `print(` / `NSLog(` / `console.log(` | Zero hits outside of test helpers or logging infrastructure |
-| log-005 | REQ-006 | Call `Log.app.debug("verbose detail")` | Entry logged at debug level |
-| log-006 | REQ-006 | Call `Log.app.error("network timeout")` | Entry logged at error level |
-| log-007 | REQ-007 | Run release build, call `Log.app.debug("hidden")` | Debug entry does NOT appear in log output |
-| log-008 | REQ-007 | Run release build, call `Log.app.info("visible")` | Info entry DOES appear in log output |
-| log-009 | REQ-008 | Inspect all category strings | All are camelCase |
-| log-010 | REQ-012 | Add `static let payments = Logger(subsystem: subsystem, category: "payments")` | New category works immediately with no other changes |
+| log-001 | centralized-logging-type, shared-subsystem-string | Inspect `Log` type | Non-instantiable type exists with static logger properties sharing one subsystem |
+| log-002 | descriptive-category-names | Inspect each static property | Each logger has a unique, descriptive category string |
+| log-003 | use-centralized-logger | Call `Log.project.info("opened")` | Log entry appears with subsystem = bundle ID, category = "project", level = info |
+| log-004 | use-centralized-logger | Search codebase for raw `print(` / `NSLog(` / `console.log(` | Zero hits outside of test helpers or logging infrastructure |
+| log-005 | platform-log-levels | Call `Log.app.debug("verbose detail")` | Entry logged at debug level |
+| log-006 | platform-log-levels | Call `Log.app.error("network timeout")` | Entry logged at error level |
+| log-007 | suppress-debug-production | Run release build, call `Log.app.debug("hidden")` | Debug entry does NOT appear in log output |
+| log-008 | suppress-debug-production | Run release build, call `Log.app.info("visible")` | Info entry DOES appear in log output |
+| log-009 | camelcase-categories | Inspect all category strings | All are camelCase |
+| log-010 | single-property-extension | Add `static let payments = Logger(subsystem: subsystem, category: "payments")` | New category works immediately with no other changes |
 
 ## Edge Cases
 

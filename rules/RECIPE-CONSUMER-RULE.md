@@ -39,7 +39,7 @@ Record answers under a "Recipe Opportunities" section. If neither applies, write
 
 If implementing from a recipe, the implementation MUST match:
 
-- **Behavioral requirements** (REQ-NNN) — every MUST is mandatory, every SHOULD is expected unless documented otherwise.
+- **Behavioral requirements** (named, kebab-case) — every MUST is mandatory, every SHOULD is expected unless documented otherwise.
 - **States table** — every state in the table must be implemented.
 - **Appearance values** — exact dimensions, colors, fonts, and spacing as specified.
 - **Conformance test vectors** — write tests corresponding to each row.
@@ -51,11 +51,10 @@ Do not improvise. Do not skip sections. Do not substitute your judgment for the 
 
 ### Verify Conformance
 
-Before marking implementation complete, produce a conformance checklist that maps each recipe REQ-NNN to the implementing code location and test. Present this checklist to the user:
+Before marking implementation complete, produce a conformance checklist that maps each named requirement to the implementing code location and test. Present this checklist to the user:
 
-| REQ | Status | Code Location | Test |
-|-----|--------|---------------|------|
-| REQ-001 | PASS/FAIL | file:line | test name |
+| requirement-name | PASS/FAIL | file:line | test name |
+|------------------|-----------|-----------|-----------|
 
 All items MUST pass before proceeding.
 

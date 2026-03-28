@@ -37,10 +37,10 @@ If analyzing an existing codebase for extractable patterns, use `/import-agentic
 Every recipe MUST include all of the following before submission. Start from `../agentic-cookbook/cookbook/recipes/_template.md`:
 
 - [ ] YAML frontmatter with UUID, domain matching file path, title, version, all required fields
-- [ ] Behavioral requirements (REQ-NNN) with RFC 2119 keywords
+- [ ] Behavioral requirements with descriptive kebab-case names
 - [ ] States table — every visual/behavioral state
 - [ ] Appearance values — exact dimensions, colors, fonts, spacing
-- [ ] Conformance test vectors — linked to REQ-NNN
+- [ ] Conformance test vectors — linked to requirement names
 - [ ] Logging messages — exact message strings
 - [ ] Edge cases
 - [ ] Accessibility requirements

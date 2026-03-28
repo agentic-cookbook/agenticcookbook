@@ -43,7 +43,7 @@ You are reviewing an implementation against a specific cookbook recipe. You comp
 
 Read the recipe file completely. Extract every section:
 
-- **Behavioral requirements** (REQ-NNN) with their RFC 2119 keywords (MUST, SHOULD, MAY)
+- **Behavioral requirements** (named, kebab-case) with their RFC 2119 keywords (MUST, SHOULD, MAY)
 - **States table** — every row
 - **Appearance values** — dimensions, colors, fonts, spacing
 - **Conformance test vectors** — every row
@@ -69,7 +69,7 @@ Read implementation files from `$1`. Use Glob to find source files matching `*.s
 
 For each recipe section, compare against the implementation:
 
-**Requirements (REQ-NNN)**: For each requirement, determine if the implementation satisfies the described behavior. Mark PASS, FAIL, or PARTIAL.
+**Requirements**: For each requirement, determine if the implementation satisfies the described behavior. Mark PASS, FAIL, or PARTIAL.
 
 **States**: For each state in the states table, check if the implementation handles it.
 
@@ -87,11 +87,11 @@ For each recipe section, compare against the implementation:
 
 ```
 --- REQUIREMENTS ---
-[PASS] REQ-001: <description>
-[FAIL] REQ-002: <description>
-       -> <what's wrong and how to fix>
-[PARTIAL] REQ-003: <description>
-       -> <what's implemented vs what's missing>
+[PASS] ordered-list: <description>
+[FAIL] scroll-to-bottom: <description>
+       -> <what's wrong>
+[PARTIAL] user-input-focus: <description>
+       -> <what's implemented vs missing>
 
 --- STATES ---
 [PASS] Default state: implemented

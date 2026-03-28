@@ -50,7 +50,7 @@ A semantic representation of git file status with associated colors, display cha
 
 ### Status types
 
-- **REQ-001**: The component MUST support these git statuses:
+- **supported-statuses**: The component MUST support these git statuses:
 
   | Status | Character | Color | Priority |
   |--------|-----------|-------|----------|
@@ -64,21 +64,21 @@ A semantic representation of git file status with associated colors, display cha
 
 ### Display
 
-- **REQ-002**: The status MUST be displayable as a single monospaced character badge with the associated color.
-- **REQ-003**: The badge MUST use a bold, caption-sized monospaced font for the character.
-- **REQ-004**: The badge MAY additionally show a text label (e.g., "Modified") in inspector/detail contexts.
+- **character-badge-display**: The status MUST be displayable as a single monospaced character badge with the associated color.
+- **bold-monospaced-font**: The badge MUST use a bold, caption-sized monospaced font for the character.
+- **optional-text-label**: The badge MAY additionally show a text label (e.g., "Modified") in inspector/detail contexts.
 
 ### Directory rollup
 
-- **REQ-005**: When displaying status for a directory, the component MUST aggregate child file statuses by selecting the highest-priority status. For example, a directory containing both modified (5) and untracked (1) files MUST show modified (5).
-- **REQ-006**: The rollup MUST propagate through all ancestor directories up to the root.
+- **directory-rollup**: When displaying status for a directory, the component MUST aggregate child file statuses by selecting the highest-priority status. For example, a directory containing both modified (5) and untracked (1) files MUST show modified (5).
+- **ancestor-propagation**: The rollup MUST propagate through all ancestor directories up to the root.
 
 ### Git status parsing
 
-- **REQ-007**: Status SHOULD be parsed from `git status --porcelain=v1` output (XY format).
-- **REQ-008**: Parsing MUST handle renamed files (format: `R  old -> new`) by using the new path.
-- **REQ-009**: The git command MUST have a timeout (5 seconds recommended) to prevent hanging on large repos.
-- **REQ-010**: Stale results MUST be discarded — use request ID tracking to ignore out-of-order responses.
+- **porcelain-parsing**: Status SHOULD be parsed from `git status --porcelain=v1` output (XY format).
+- **handle-renames**: Parsing MUST handle renamed files (format: `R  old -> new`) by using the new path.
+- **command-timeout**: The git command MUST have a timeout (5 seconds recommended) to prevent hanging on large repos.
+- **discard-stale-results**: Stale results MUST be discarded — use request ID tracking to ignore out-of-order responses.
 
 ## Appearance
 
@@ -98,21 +98,21 @@ A semantic representation of git file status with associated colors, display cha
 
 ## Accessibility
 
-- **REQ-011**: The badge MUST have an accessibility label with the full status name (e.g., "Modified" not "M").
-- **REQ-012**: Color MUST NOT be the only indicator — the character provides differentiation without color (satisfies Rule 15: Differentiate Without Color).
+- **full-status-a11y-label**: The badge MUST have an accessibility label with the full status name (e.g., "Modified" not "M").
+- **differentiate-without-color**: Color MUST NOT be the only indicator — the character provides differentiation without color (satisfies Rule 15: Differentiate Without Color).
 
 ## Conformance Test Vectors
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| git-001 | REQ-001 | File status: modified | Orange "M" badge |
-| git-002 | REQ-001 | File status: conflicted | Purple "U" badge |
-| git-003 | REQ-005 | Directory with modified + untracked children | Shows modified (priority 5 > 1) |
-| git-004 | REQ-005 | Directory with conflicted + modified children | Shows conflicted (priority 6 > 5) |
-| git-005 | REQ-006 | Deeply nested modified file | All ancestor dirs show modified |
-| git-006 | REQ-008 | Porcelain output: `R  old.txt -> new.txt` | Status applied to new.txt path |
-| git-007 | REQ-009 | Git hangs for 6 seconds | Command terminated, no crash |
-| git-008 | REQ-012 | Grayscale display | Characters (M, A, D, etc.) still distinguish statuses |
+| git-001 | supported-statuses | File status: modified | Orange "M" badge |
+| git-002 | supported-statuses | File status: conflicted | Purple "U" badge |
+| git-003 | directory-rollup | Directory with modified + untracked children | Shows modified (priority 5 > 1) |
+| git-004 | directory-rollup | Directory with conflicted + modified children | Shows conflicted (priority 6 > 5) |
+| git-005 | ancestor-propagation | Deeply nested modified file | All ancestor dirs show modified |
+| git-006 | handle-renames | Porcelain output: `R  old.txt -> new.txt` | Status applied to new.txt path |
+| git-007 | command-timeout | Git hangs for 6 seconds | Command terminated, no crash |
+| git-008 | differentiate-without-color | Grayscale display | Characters (M, A, D, etc.) still distinguish statuses |
 
 ## Edge Cases
 

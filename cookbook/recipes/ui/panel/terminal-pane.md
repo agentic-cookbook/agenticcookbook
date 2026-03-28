@@ -62,9 +62,9 @@ A multi-session terminal pane that provides PTY-backed shell sessions within the
 
 ### Terminal session
 
-- **REQ-001**: Each terminal session MUST be backed by a PTY using a terminal emulator library (SwiftTerm on Apple platforms).
-- **REQ-002**: Each session MUST have a unique UUID-based identifier.
-- **REQ-003**: Each session MUST publish the following observable properties:
+- **pty-backed-session**: Each terminal session MUST be backed by a PTY using a terminal emulator library (SwiftTerm on Apple platforms).
+- **uuid-session-id**: Each session MUST have a unique UUID-based identifier.
+- **observable-properties**: Each session MUST publish the following observable properties:
   - `name` — user-visible session name (editable)
   - `terminalTitle` — title set by the shell via OSC 2
   - `currentWorkingDirectory` — path set via OSC 7
@@ -73,16 +73,16 @@ A multi-session terminal pane that provides PTY-backed shell sessions within the
   - `dotColors` — array of user-assignable colored indicators
   - `customSubtitles` — dictionary of key-value subtitle metadata
   - `state` — enum: `.running` or `.terminated`
-- **REQ-004**: The session MUST read the user's default shell from the `$SHELL` environment variable. If `$SHELL` is unset or empty, it MUST fall back to `/bin/zsh`.
-- **REQ-005**: The shell MUST be launched as a login shell by prefixing the process name with `"-"` (e.g., `"-zsh"`).
-- **REQ-006**: The session MUST set `TERM=xterm-256color` in the child process environment.
-- **REQ-007**: The session MUST preserve the following environment variables from the parent process: `HOME`, `USER`, `LOGNAME`, `PATH`, `LANG`, `LC_ALL`, `LC_CTYPE`.
+- **default-shell-env**: The session MUST read the user's default shell from the `$SHELL` environment variable. If `$SHELL` is unset or empty, it MUST fall back to `/bin/zsh`.
+- **login-shell-launch**: The shell MUST be launched as a login shell by prefixing the process name with `"-"` (e.g., `"-zsh"`).
+- **term-256color**: The session MUST set `TERM=xterm-256color` in the child process environment.
+- **preserve-env-vars**: The session MUST preserve the following environment variables from the parent process: `HOME`, `USER`, `LOGNAME`, `PATH`, `LANG`, `LC_ALL`, `LC_CTYPE`.
 
 ### OSC escape handling
 
-- **REQ-008**: The session MUST handle OSC 7 (directory update). On receipt, it MUST update `currentWorkingDirectory` by parsing the `file://` URL and MUST trigger an asynchronous git branch detection for the new directory.
-- **REQ-009**: The session MUST handle OSC 2 (title update). On receipt, it MUST update `terminalTitle`.
-- **REQ-010**: The session MUST handle custom OSC 7770 with the following sub-commands:
+- **osc7-directory-update**: The session MUST handle OSC 7 (directory update). On receipt, it MUST update `currentWorkingDirectory` by parsing the `file://` URL and MUST trigger an asynchronous git branch detection for the new directory.
+- **osc2-title-update**: The session MUST handle OSC 2 (title update). On receipt, it MUST update `terminalTitle`.
+- **osc7770-custom-commands**: The session MUST handle custom OSC 7770 with the following sub-commands:
   - `color=#rrggbb` — sets a dot color on the session
   - `subtitle:key=value` — sets or updates a custom subtitle entry
   - `clear-subtitle:key` — removes a specific custom subtitle entry
@@ -90,47 +90,47 @@ A multi-session terminal pane that provides PTY-backed shell sessions within the
 
 ### Process monitoring
 
-- **REQ-011**: The session MUST poll the foreground process every 1.5 seconds using `tcgetpgrp` to get the foreground process group ID, then `proc_pidpath` to resolve the process name.
-- **REQ-012**: When the foreground process changes, the session MUST update the `foregroundProcess` property.
-- **REQ-013**: When the shell process exits, the session MUST transition `state` to `.terminated`.
+- **poll-foreground-process**: The session MUST poll the foreground process every 1.5 seconds using `tcgetpgrp` to get the foreground process group ID, then `proc_pidpath` to resolve the process name.
+- **update-foreground-name**: When the foreground process changes, the session MUST update the `foregroundProcess` property.
+- **terminated-on-exit**: When the shell process exits, the session MUST transition `state` to `.terminated`.
 
 ### Git branch detection
 
-- **REQ-014**: Git branch detection MUST be performed asynchronously with a 2-second timeout by running `git rev-parse --abbrev-ref HEAD` in the session's current working directory.
-- **REQ-015**: Git branch detection MUST use a stale-request-tracking mechanism (UUID per request) so that results from outdated directory changes are discarded.
-- **REQ-016**: If the directory is not a git repository, `gitBranch` MUST be set to `nil`.
+- **async-git-branch**: Git branch detection MUST be performed asynchronously with a 2-second timeout by running `git rev-parse --abbrev-ref HEAD` in the session's current working directory.
+- **stale-branch-discard**: Git branch detection MUST use a stale-request-tracking mechanism (UUID per request) so that results from outdated directory changes are discarded.
+- **non-git-nil-branch**: If the directory is not a git repository, `gitBranch` MUST be set to `nil`.
 
 ### Session manager
 
-- **REQ-017**: Each window MUST have its own session manager instance. Session managers MUST NOT be shared across windows.
-- **REQ-018**: The session manager MUST maintain an ordered list of sessions and a selected session ID.
-- **REQ-019**: Session names MUST be auto-incremented using the pattern "Session 1", "Session 2", etc. The counter MUST be monotonically increasing (not reused after deletion).
-- **REQ-020**: The session manager MAY accept an optional working directory (for project context). When provided, new sessions MUST start in that directory.
-- **REQ-021**: `addSession()` MUST create a new session, append it to the list, select it, and return it.
-- **REQ-022**: `removeSession(id:)` MUST terminate the session's PTY, remove it from the list, and apply smart selection: prefer the previous session in the list, then the next session, then nil if none remain.
-- **REQ-023**: `terminateAll()` MUST terminate all sessions' PTYs and clear the list. This MUST be called on window close.
+- **per-window-manager**: Each window MUST have its own session manager instance. Session managers MUST NOT be shared across windows.
+- **ordered-session-list**: The session manager MUST maintain an ordered list of sessions and a selected session ID.
+- **auto-increment-names**: Session names MUST be auto-incremented using the pattern "Session 1", "Session 2", etc. The counter MUST be monotonically increasing (not reused after deletion).
+- **optional-working-dir**: The session manager MAY accept an optional working directory (for project context). When provided, new sessions MUST start in that directory.
+- **add-session-select**: `addSession()` MUST create a new session, append it to the list, select it, and return it.
+- **remove-smart-select**: `removeSession(id:)` MUST terminate the session's PTY, remove it from the list, and apply smart selection: prefer the previous session in the list, then the next session, then nil if none remain.
+- **terminate-all-cleanup**: `terminateAll()` MUST terminate all sessions' PTYs and clear the list. This MUST be called on window close.
 
 ### Terminal view
 
-- **REQ-024**: The terminal view MUST be implemented as an `NSViewRepresentable` (macOS) or `UIViewRepresentable` (iOS/visionOS) wrapper containing a container `NSView`/`UIView`.
-- **REQ-025**: On session change, the terminal view MUST reparent the selected session's terminal view into the container — not destroy and recreate it. This preserves scrollback history and cursor state.
-- **REQ-026**: On profile change, the terminal view MUST apply the new color profile (foreground, background, cursor, selection, 16 ANSI colors, font, cursor style) without reparenting the view.
-- **REQ-027**: Profile colors MUST be applied using the color-profile component's palette structure: FG, BG, cursor, selection, and exactly 16 ANSI colors (indices 0-15).
+- **nsview-representable**: The terminal view MUST be implemented as an `NSViewRepresentable` (macOS) or `UIViewRepresentable` (iOS/visionOS) wrapper containing a container `NSView`/`UIView`.
+- **reparent-on-switch**: On session change, the terminal view MUST reparent the selected session's terminal view into the container — not destroy and recreate it. This preserves scrollback history and cursor state.
+- **apply-color-profile**: On profile change, the terminal view MUST apply the new color profile (foreground, background, cursor, selection, 16 ANSI colors, font, cursor style) without reparenting the view.
+- **palette-color-structure**: Profile colors MUST be applied using the color-profile component's palette structure: FG, BG, cursor, selection, and exactly 16 ANSI colors (indices 0-15).
 
 ### Session list sidebar
 
-- **REQ-028**: The session list MUST be displayed as a sidebar list showing one row per session.
-- **REQ-029**: Each session row MUST display:
+- **sidebar-session-list**: The session list MUST be displayed as a sidebar list showing one row per session.
+- **session-row-display**: Each session row MUST display:
   - Dot color indicator(s) (if any assigned)
   - Session name (primary text)
   - Subtitle lines using the metadata-line component for: working directory (folder icon, middle-truncated path), git branch (branch icon), and foreground process (terminal icon)
-- **REQ-030**: The session list MUST bind to the session manager's selected session ID for selection state.
-- **REQ-031**: The session list MUST include an add button (`+`) that creates a new session via the session manager.
-- **REQ-032**: Each session row MUST have a context menu with at least: "Rename" and "Close" actions.
+- **bind-selected-session**: The session list MUST bind to the session manager's selected session ID for selection state.
+- **add-session-button**: The session list MUST include an add button (`+`) that creates a new session via the session manager.
+- **row-context-menu**: Each session row MUST have a context menu with at least: "Rename" and "Close" actions.
 
 ### Empty state
 
-- **REQ-033**: When no sessions exist, the terminal pane MUST display an empty state (per `ui/empty-state.md`) with:
+- **empty-state-no-sessions**: When no sessions exist, the terminal pane MUST display an empty state (per `ui/empty-state.md`) with:
   - Icon: `terminal` (SF Symbol) or platform equivalent
   - Heading: "No active terminal session"
   - Description: "Click + to open a new terminal session"
@@ -138,7 +138,7 @@ A multi-session terminal pane that provides PTY-backed shell sessions within the
 
 ### Project settings
 
-- **REQ-034**: The following settings MUST be available per-project in the settings window:
+- **project-shell-settings**: The following settings MUST be available per-project in the settings window:
   - `defaultShell` — a string picker with options: `/bin/zsh`, `/bin/bash`, `/bin/sh`, `/usr/local/bin/fish`, `/opt/homebrew/bin/fish`. Overrides `$SHELL` when set.
   - `autoOpenTerminal` — a boolean that, when enabled, automatically opens a terminal session when the project is opened.
 
@@ -216,49 +216,49 @@ A multi-session terminal pane that provides PTY-backed shell sessions within the
 
 ## Accessibility
 
-- **REQ-035**: The session list MUST be keyboard-navigable. Arrow keys MUST move selection between sessions.
-- **REQ-036**: The add button MUST have an accessible label: "New Terminal Session".
-- **REQ-037**: Each session row MUST announce: session name, working directory, git branch (if present), and foreground process via a combined accessibility label.
-- **REQ-038**: The context menu MUST be accessible via keyboard (e.g., Shift+F10 or Control+Click equivalent).
-- **REQ-039**: The terminal view MUST support VoiceOver cursor navigation for reading terminal output.
-- **REQ-040**: The empty state MUST follow empty-state accessibility requirements (heading announced first, icon decorative).
-- **REQ-041**: The `.terminated` state MUST be announced to screen readers when a session's shell exits.
+- **keyboard-nav-sessions**: The session list MUST be keyboard-navigable. Arrow keys MUST move selection between sessions.
+- **add-button-label**: The add button MUST have an accessible label: "New Terminal Session".
+- **row-announce-details**: Each session row MUST announce: session name, working directory, git branch (if present), and foreground process via a combined accessibility label.
+- **keyboard-context-menu**: The context menu MUST be accessible via keyboard (e.g., Shift+F10 or Control+Click equivalent).
+- **voiceover-terminal-nav**: The terminal view MUST support VoiceOver cursor navigation for reading terminal output.
+- **empty-state-accessible**: The empty state MUST follow empty-state accessibility requirements (heading announced first, icon decorative).
+- **terminated-announce**: The `.terminated` state MUST be announced to screen readers when a session's shell exits.
 
 ## Conformance Test Vectors
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| term-001 | REQ-001 | Create a new session | PTY is allocated, shell process is running |
-| term-002 | REQ-004, REQ-005 | Create session with $SHELL=/bin/zsh | Shell launched as login shell "-zsh" |
-| term-003 | REQ-004 | Create session with $SHELL unset | Falls back to /bin/zsh |
-| term-004 | REQ-006 | Create session, inspect child environment | TERM=xterm-256color |
-| term-005 | REQ-007 | Create session, inspect child environment | HOME, USER, LOGNAME, PATH, LANG, LC_ALL, LC_CTYPE present |
-| term-006 | REQ-008 | Shell emits OSC 7 with file:///Users/me/projects | `currentWorkingDirectory` updates to /Users/me/projects; git branch detection starts |
-| term-007 | REQ-009 | Shell emits OSC 2 with "my-title" | `terminalTitle` updates to "my-title" |
-| term-008 | REQ-010 | Send OSC 7770 color=#ff0000 | Session dot color set to red |
-| term-009 | REQ-010 | Send OSC 7770 subtitle:task=Building | Custom subtitle "task" = "Building" appears |
-| term-010 | REQ-010 | Send OSC 7770 clear-subtitle:task | Custom subtitle "task" removed |
-| term-011 | REQ-010 | Send OSC 7770 clear-all-subtitles | All custom subtitles removed |
-| term-012 | REQ-011, REQ-012 | Run `sleep 60` in terminal, wait 1.5s | `foregroundProcess` updates to "sleep" |
-| term-013 | REQ-013 | Type `exit` in shell | Session state transitions to `.terminated` |
-| term-014 | REQ-014, REQ-015 | cd to a git repo, then quickly cd to another git repo | Only the second repo's branch is reported (stale result discarded) |
-| term-015 | REQ-014 | cd to a non-git directory | `gitBranch` set to nil |
-| term-016 | REQ-017 | Open two windows | Each window has its own session manager with independent session lists |
-| term-017 | REQ-019 | Create 3 sessions, delete Session 2, create another | Sessions named "Session 1", "Session 2", "Session 3"; after delete + create: "Session 1", "Session 3", "Session 4" |
-| term-018 | REQ-021 | Click + button | New session created, selected, terminal view shows shell prompt |
-| term-019 | REQ-022 | With sessions [A, B, C], B selected, remove B | A becomes selected (prefers previous) |
-| term-020 | REQ-022 | With sessions [A, B], A selected, remove A | B becomes selected (falls to next) |
-| term-021 | REQ-022 | With single session [A], remove A | No selection; empty state displayed |
-| term-022 | REQ-023 | Close window with 3 active sessions | All 3 PTYs terminated |
-| term-023 | REQ-025 | Switch from Session 1 to Session 2 and back | Session 1 scrollback and cursor position preserved |
-| term-024 | REQ-026 | Change color profile while session is active | Colors update immediately; no reparenting; scrollback preserved |
-| term-025 | REQ-029 | Session in ~/projects on branch main running vim | Row shows: name, "~/projects" with folder icon, "main" with branch icon, "vim" with terminal icon |
-| term-026 | REQ-032 | Right-click session row | Context menu shows "Rename" and "Close" |
-| term-027 | REQ-033 | Remove all sessions | Empty state displayed with icon, heading, description, and New Session button |
-| term-028 | REQ-034 | Set defaultShell to /bin/bash, create session | Session launches /bin/bash instead of $SHELL |
-| term-029 | REQ-034 | Enable autoOpenTerminal, open project | Terminal session created automatically on project open |
-| term-030 | REQ-035 | Focus session list, press Down arrow | Selection moves to next session |
-| term-031 | REQ-020 | Session manager with working directory /tmp, create session | New session shell starts in /tmp |
+| term-001 | pty-backed-session | Create a new session | PTY is allocated, shell process is running |
+| term-002 | default-shell-env, login-shell-launch | Create session with $SHELL=/bin/zsh | Shell launched as login shell "-zsh" |
+| term-003 | default-shell-env | Create session with $SHELL unset | Falls back to /bin/zsh |
+| term-004 | term-256color | Create session, inspect child environment | TERM=xterm-256color |
+| term-005 | preserve-env-vars | Create session, inspect child environment | HOME, USER, LOGNAME, PATH, LANG, LC_ALL, LC_CTYPE present |
+| term-006 | osc7-directory-update | Shell emits OSC 7 with file:///Users/me/projects | `currentWorkingDirectory` updates to /Users/me/projects; git branch detection starts |
+| term-007 | osc2-title-update | Shell emits OSC 2 with "my-title" | `terminalTitle` updates to "my-title" |
+| term-008 | osc7770-custom-commands | Send OSC 7770 color=#ff0000 | Session dot color set to red |
+| term-009 | osc7770-custom-commands | Send OSC 7770 subtitle:task=Building | Custom subtitle "task" = "Building" appears |
+| term-010 | osc7770-custom-commands | Send OSC 7770 clear-subtitle:task | Custom subtitle "task" removed |
+| term-011 | osc7770-custom-commands | Send OSC 7770 clear-all-subtitles | All custom subtitles removed |
+| term-012 | poll-foreground-process, update-foreground-name | Run `sleep 60` in terminal, wait 1.5s | `foregroundProcess` updates to "sleep" |
+| term-013 | terminated-on-exit | Type `exit` in shell | Session state transitions to `.terminated` |
+| term-014 | async-git-branch, stale-branch-discard | cd to a git repo, then quickly cd to another git repo | Only the second repo's branch is reported (stale result discarded) |
+| term-015 | async-git-branch | cd to a non-git directory | `gitBranch` set to nil |
+| term-016 | per-window-manager | Open two windows | Each window has its own session manager with independent session lists |
+| term-017 | auto-increment-names | Create 3 sessions, delete Session 2, create another | Sessions named "Session 1", "Session 2", "Session 3"; after delete + create: "Session 1", "Session 3", "Session 4" |
+| term-018 | add-session-select | Click + button | New session created, selected, terminal view shows shell prompt |
+| term-019 | remove-smart-select | With sessions [A, B, C], B selected, remove B | A becomes selected (prefers previous) |
+| term-020 | remove-smart-select | With sessions [A, B], A selected, remove A | B becomes selected (falls to next) |
+| term-021 | remove-smart-select | With single session [A], remove A | No selection; empty state displayed |
+| term-022 | terminate-all-cleanup | Close window with 3 active sessions | All 3 PTYs terminated |
+| term-023 | reparent-on-switch | Switch from Session 1 to Session 2 and back | Session 1 scrollback and cursor position preserved |
+| term-024 | apply-color-profile | Change color profile while session is active | Colors update immediately; no reparenting; scrollback preserved |
+| term-025 | session-row-display | Session in ~/projects on branch main running vim | Row shows: name, "~/projects" with folder icon, "main" with branch icon, "vim" with terminal icon |
+| term-026 | row-context-menu | Right-click session row | Context menu shows "Rename" and "Close" |
+| term-027 | empty-state-no-sessions | Remove all sessions | Empty state displayed with icon, heading, description, and New Session button |
+| term-028 | project-shell-settings | Set defaultShell to /bin/bash, create session | Session launches /bin/bash instead of $SHELL |
+| term-029 | project-shell-settings | Enable autoOpenTerminal, open project | Terminal session created automatically on project open |
+| term-030 | keyboard-nav-sessions | Focus session list, press Down arrow | Selection moves to next session |
+| term-031 | optional-working-dir | Session manager with working directory /tmp, create session | New session shell starts in /tmp |
 
 ## Edge Cases
 

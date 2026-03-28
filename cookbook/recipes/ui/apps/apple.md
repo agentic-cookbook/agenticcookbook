@@ -56,9 +56,9 @@ An XcodeGen-generated Xcode project with app targets for all five Apple platform
 
 ### Project structure
 
-- **REQ-001**: The project MUST be generated using XcodeGen from a `project.yml` file.
-- **REQ-002**: The generated project MUST be output to `Tests/Projects/Apple/`.
-- **REQ-003**: The project MUST contain five app targets, one per Apple platform:
+- **xcodegen-project**: The project MUST be generated using XcodeGen from a `project.yml` file.
+- **output-directory**: The generated project MUST be output to `Tests/Projects/Apple/`.
+- **five-platform-targets**: The project MUST contain five app targets, one per Apple platform:
 
   | Target | Platform | Deployment Target | Bundle ID |
   |--------|----------|-------------------|-----------|
@@ -68,29 +68,29 @@ An XcodeGen-generated Xcode project with app targets for all five Apple platform
   | LitterboxTestTV | tvOS | 17.0 | com.litterbox.test.tv |
   | LitterboxTestVision | visionOS | 1.0 | com.litterbox.test.vision |
 
-- **REQ-004**: Each target MUST be a standalone SwiftUI app. watchOS MUST use independent app mode (no WatchKit companion).
-- **REQ-005**: A local Swift package `TestSharedKit` MUST exist at `Tests/Projects/Apple/TestSharedKit/` and MUST target all five platforms at the deployment versions in REQ-003.
-- **REQ-006**: All five app targets MUST depend on `TestSharedKit`.
+- **standalone-swiftui-apps**: Each target MUST be a standalone SwiftUI app. watchOS MUST use independent app mode (no WatchKit companion).
+- **test-shared-kit-package**: A local Swift package `TestSharedKit` MUST exist at `Tests/Projects/Apple/TestSharedKit/` and MUST target all five platforms at the deployment versions in five-platform-targets.
+- **depend-on-shared-kit**: All five app targets MUST depend on `TestSharedKit`.
 
 ### Source layout
 
-- **REQ-007**: Each target MUST have its own source directory under `Sources/{platform}/` containing the app entry point.
-- **REQ-008**: A `Shared/` directory MUST be added as a source directory to all targets. It contains:
+- **per-platform-source-dir**: Each target MUST have its own source directory under `Sources/{platform}/` containing the app entry point.
+- **shared-source-directory**: A `Shared/` directory MUST be added as a source directory to all targets. It contains:
   - `Shared/Components/` — component implementations from `ui/` specs
   - `Shared/Catalog/` — catalog views showing all states per component
-- **REQ-009**: Platform-specific adaptations within shared code MUST use `#if os(...)` compilation conditions.
+- **os-compilation-conditions**: Platform-specific adaptations within shared code MUST use `#if os(...)` compilation conditions.
 
 ### Catalog behavior
 
-- **REQ-010**: Each app's entry point MUST display a `ComponentCatalogView` as its root view.
-- **REQ-011**: `ComponentCatalogView` MUST use `NavigationSplitView` on macOS, iPadOS, and visionOS, and `NavigationStack` on iPhone, watchOS, and tvOS.
-- **REQ-012**: The catalog MUST list all implemented components by name. Selecting a component MUST navigate to its catalog entry view.
-- **REQ-013**: Each catalog entry view MUST display the component in every state defined in its spec (default, pressed, disabled, focused, loading, etc.), each in its own labeled section.
-- **REQ-014**: Each catalog entry view MUST include a `#Preview` block.
+- **catalog-root-view**: Each app's entry point MUST display a `ComponentCatalogView` as its root view.
+- **adaptive-navigation**: `ComponentCatalogView` MUST use `NavigationSplitView` on macOS, iPadOS, and visionOS, and `NavigationStack` on iPhone, watchOS, and tvOS.
+- **navigable-component-list**: The catalog MUST list all implemented components by name. Selecting a component MUST navigate to its catalog entry view.
+- **all-states-per-component**: Each catalog entry view MUST display the component in every state defined in its spec (default, pressed, disabled, focused, loading, etc.), each in its own labeled section.
+- **preview-per-entry**: Each catalog entry view MUST include a `#Preview` block.
 
 ### Adding a component
 
-- **REQ-015**: When adding a new component, the implementer MUST:
+- **adding-component-steps**: When adding a new component, the implementer MUST:
   1. Read the component spec from `ui/`
   2. Implement the component in `Shared/Components/`
   3. Create a catalog entry view in `Shared/Catalog/` showing all states
@@ -219,18 +219,18 @@ struct PrimaryButtonCatalog: View {
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| apple-001 | REQ-001 | Run `xcodegen generate` in project dir | `LitterboxTests.xcodeproj` is created |
-| apple-002 | REQ-003 | Open generated project | 5 app targets exist with correct names and platforms |
-| apple-003 | REQ-004, REQ-006 | Build LitterboxTestiOS | Build succeeds, app launches with catalog |
-| apple-004 | REQ-004, REQ-006 | Build LitterboxTestMac | Build succeeds, app launches with catalog |
-| apple-005 | REQ-004, REQ-006 | Build LitterboxTestWatch | Build succeeds, app launches with catalog |
-| apple-006 | REQ-004, REQ-006 | Build LitterboxTestTV | Build succeeds, app launches with catalog |
-| apple-007 | REQ-004, REQ-006 | Build LitterboxTestVision | Build succeeds, app launches with catalog |
-| apple-008 | REQ-011 | Run LitterboxTestMac | Root view is NavigationSplitView |
-| apple-009 | REQ-011 | Run LitterboxTestiOS on iPhone | Root view is NavigationStack |
-| apple-010 | REQ-012 | Launch any target with components registered | Catalog lists all components, selecting one navigates to detail |
-| apple-011 | REQ-013 | View a catalog entry | All states from spec are displayed in labeled sections |
-| apple-012 | REQ-009 | Build Shared/ code for all 5 platforms | No compilation errors from platform-specific API usage |
+| apple-001 | xcodegen-project | Run `xcodegen generate` in project dir | `LitterboxTests.xcodeproj` is created |
+| apple-002 | five-platform-targets | Open generated project | 5 app targets exist with correct names and platforms |
+| apple-003 | standalone-swiftui-apps, depend-on-shared-kit | Build LitterboxTestiOS | Build succeeds, app launches with catalog |
+| apple-004 | standalone-swiftui-apps, depend-on-shared-kit | Build LitterboxTestMac | Build succeeds, app launches with catalog |
+| apple-005 | standalone-swiftui-apps, depend-on-shared-kit | Build LitterboxTestWatch | Build succeeds, app launches with catalog |
+| apple-006 | standalone-swiftui-apps, depend-on-shared-kit | Build LitterboxTestTV | Build succeeds, app launches with catalog |
+| apple-007 | standalone-swiftui-apps, depend-on-shared-kit | Build LitterboxTestVision | Build succeeds, app launches with catalog |
+| apple-008 | adaptive-navigation | Run LitterboxTestMac | Root view is NavigationSplitView |
+| apple-009 | adaptive-navigation | Run LitterboxTestiOS on iPhone | Root view is NavigationStack |
+| apple-010 | navigable-component-list | Launch any target with components registered | Catalog lists all components, selecting one navigates to detail |
+| apple-011 | all-states-per-component | View a catalog entry | All states from spec are displayed in labeled sections |
+| apple-012 | os-compilation-conditions | Build Shared/ code for all 5 platforms | No compilation errors from platform-specific API usage |
 
 ## Edge Cases
 

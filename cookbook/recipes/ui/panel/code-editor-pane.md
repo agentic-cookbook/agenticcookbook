@@ -63,17 +63,17 @@ A text editor pane for viewing and editing source code files with syntax highlig
 
 ### File loading
 
-- **REQ-001**: The editor MUST load file contents asynchronously as UTF-8 text. During loading, a progress spinner MUST be displayed.
-- **REQ-002**: On successful load, the editor MUST set `isLoaded` to true, populate `content` with the file text, and increment `loadGeneration` to force the SourceEditor to recreate.
-- **REQ-003**: If the file cannot be read as UTF-8 text (binary file, encoding error), the editor MUST display a placeholder: "Cannot display this file type".
-- **REQ-004**: If no file is selected, the editor MUST display a placeholder: "Select a file to view its contents".
-- **REQ-005**: If a directory is selected (rather than a file), the editor MUST display a directory-appropriate placeholder rather than attempting to load.
-- **REQ-006**: The `loadGeneration` counter MUST be incremented each time a new file is loaded. The SourceEditor view MUST use this value as an identity key (e.g., SwiftUI `.id(loadGeneration)`) so that the editor is fully recreated for each file, preventing stale content or cursor position from the previous file.
+- **async-file-load**: The editor MUST load file contents asynchronously as UTF-8 text. During loading, a progress spinner MUST be displayed.
+- **set-loaded-state**: On successful load, the editor MUST set `isLoaded` to true, populate `content` with the file text, and increment `loadGeneration` to force the SourceEditor to recreate.
+- **binary-file-placeholder**: If the file cannot be read as UTF-8 text (binary file, encoding error), the editor MUST display a placeholder: "Cannot display this file type".
+- **no-file-placeholder**: If no file is selected, the editor MUST display a placeholder: "Select a file to view its contents".
+- **directory-placeholder**: If a directory is selected (rather than a file), the editor MUST display a directory-appropriate placeholder rather than attempting to load.
+- **load-generation-identity**: The `loadGeneration` counter MUST be incremented each time a new file is loaded. The SourceEditor view MUST use this value as an identity key (e.g., SwiftUI `.id(loadGeneration)`) so that the editor is fully recreated for each file, preventing stale content or cursor position from the previous file.
 
 ### Syntax highlighting and language detection
 
-- **REQ-007**: The editor MUST detect the programming language from the file extension and apply syntax highlighting accordingly.
-- **REQ-008**: Language detection MUST support at minimum the following mappings:
+- **language-detection**: The editor MUST detect the programming language from the file extension and apply syntax highlighting accordingly.
+- **supported-language-map**: Language detection MUST support at minimum the following mappings:
 
 | Extension(s) | Language |
 |--------------|----------|
@@ -104,41 +104,41 @@ A text editor pane for viewing and editing source code files with syntax highlig
 | `.dockerfile`, `Dockerfile` | Dockerfile |
 | `.gitignore` | Git Ignore |
 
-- **REQ-009**: If the file extension is unrecognized, the editor MUST fall back to plain text (no syntax highlighting).
-- **REQ-010**: The editor MUST follow the system appearance to select a dark or light theme. On Apple platforms, use CatnipDark for dark mode and CatnipLight for light mode, or equivalent named themes from the syntax highlighting library.
+- **plain-text-fallback**: If the file extension is unrecognized, the editor MUST fall back to plain text (no syntax highlighting).
+- **system-appearance-theme**: The editor MUST follow the system appearance to select a dark or light theme. On Apple platforms, use CatnipDark for dark mode and CatnipLight for light mode, or equivalent named themes from the syntax highlighting library.
 
 ### Editor configuration
 
-- **REQ-011**: The gutter (line numbers) MUST be enabled by default.
-- **REQ-012**: The minimap MUST be enabled by default.
-- **REQ-013**: Line wrapping MUST be disabled. Horizontal scrolling MUST be used for long lines.
-- **REQ-014**: The default font MUST be Menlo 13pt (monospaced). The font MAY be configurable via project or app settings.
+- **gutter-enabled**: The gutter (line numbers) MUST be enabled by default.
+- **minimap-enabled**: The minimap MUST be enabled by default.
+- **no-line-wrap**: Line wrapping MUST be disabled. Horizontal scrolling MUST be used for long lines.
+- **default-monospaced-font**: The default font MUST be Menlo 13pt (monospaced). The font MAY be configurable via project or app settings.
 
 ### Dirty state and saving
 
-- **REQ-015**: The editor MUST track dirty state by subscribing to content changes (via Combine or equivalent reactive mechanism) and comparing the current content to the last-saved content.
-- **REQ-016**: When the content differs from the last-saved content, `isModified` MUST be set to true. When they match, `isModified` MUST be set to false.
-- **REQ-017**: When the user switches to a different file and `isModified` is true, the editor MUST auto-save the current file before loading the new file.
-- **REQ-018**: The user MUST be able to trigger a manual save via Cmd+S (macOS) or the platform-equivalent keyboard shortcut.
-- **REQ-019**: Save MUST write the content atomically to disk to prevent data loss from partial writes.
-- **REQ-020**: After a successful save, `isModified` MUST be reset to false and the last-saved content snapshot MUST be updated.
+- **dirty-state-tracking**: The editor MUST track dirty state by subscribing to content changes (via Combine or equivalent reactive mechanism) and comparing the current content to the last-saved content.
+- **is-modified-flag**: When the content differs from the last-saved content, `isModified` MUST be set to true. When they match, `isModified` MUST be set to false.
+- **auto-save-on-switch**: When the user switches to a different file and `isModified` is true, the editor MUST auto-save the current file before loading the new file.
+- **manual-save-shortcut**: The user MUST be able to trigger a manual save via Cmd+S (macOS) or the platform-equivalent keyboard shortcut.
+- **atomic-save**: Save MUST write the content atomically to disk to prevent data loss from partial writes.
+- **reset-modified-after-save**: After a successful save, `isModified` MUST be reset to false and the last-saved content snapshot MUST be updated.
 
 ### EditorState
 
-- **REQ-021**: EditorState MUST be implemented as an ObservableObject (or platform equivalent) with the following published properties:
+- **editor-state-properties**: EditorState MUST be implemented as an ObservableObject (or platform equivalent) with the following published properties:
   - `content: String` — the current text in the editor
   - `isModified: Bool` — whether the content has unsaved changes
   - `loadError: String?` — an error message if the file could not be loaded
   - `isLoaded: Bool` — whether the file has been successfully loaded
   - `loadGeneration: Int` — incremented to force editor recreation on file change
-- **REQ-022**: EditorState MUST debounce dirty-state comparison by a short interval (e.g., 0.3s) to avoid excessive comparisons during rapid typing.
+- **debounce-dirty-check**: EditorState MUST debounce dirty-state comparison by a short interval (e.g., 0.3s) to avoid excessive comparisons during rapid typing.
 
 ### Pane header
 
-- **REQ-023**: The editor pane MUST use the collapsible-pane-header component at the top.
-- **REQ-024**: When a file is selected, the header MUST display a file icon and the filename.
-- **REQ-025**: When no file is selected, the header MUST display a generic title (e.g., "Editor").
-- **REQ-026**: When the file is modified (dirty), the header SHOULD display a dirty indicator (e.g., a dot or bullet adjacent to the filename, or the standard macOS edited-document indicator).
+- **collapsible-header**: The editor pane MUST use the collapsible-pane-header component at the top.
+- **header-shows-filename**: When a file is selected, the header MUST display a file icon and the filename.
+- **header-generic-title**: When no file is selected, the header MUST display a generic title (e.g., "Editor").
+- **dirty-indicator-in-header**: When the file is modified (dirty), the header SHOULD display a dirty indicator (e.g., a dot or bullet adjacent to the filename, or the standard macOS edited-document indicator).
 
 ## Appearance
 
@@ -219,48 +219,48 @@ A text editor pane for viewing and editing source code files with syntax highlig
 
 ## Accessibility
 
-- **REQ-027**: The editor MUST be accessible as a text editor role to screen readers and MUST support standard text navigation (by character, word, line).
-- **REQ-028**: The pane header MUST follow collapsible-pane-header accessibility requirements (button role, expand/collapse announced).
-- **REQ-029**: The dirty indicator MUST be communicated to assistive technologies — e.g., the header's accessibility label SHOULD include "edited" or "modified" when `isModified` is true.
-- **REQ-030**: Empty state and error placeholders MUST follow empty-state accessibility requirements (heading announced first, icon decorative).
-- **REQ-031**: The Cmd+S save shortcut MUST be discoverable via the app's menu bar (File > Save) on macOS.
-- **REQ-032**: Line numbers in the gutter MUST be decorative and not announced individually by screen readers.
+- **text-editor-a11y-role**: The editor MUST be accessible as a text editor role to screen readers and MUST support standard text navigation (by character, word, line).
+- **header-a11y-compliance**: The pane header MUST follow collapsible-pane-header accessibility requirements (button role, expand/collapse announced).
+- **dirty-state-a11y**: The dirty indicator MUST be communicated to assistive technologies — e.g., the header's accessibility label SHOULD include "edited" or "modified" when `isModified` is true.
+- **placeholder-a11y**: Empty state and error placeholders MUST follow empty-state accessibility requirements (heading announced first, icon decorative).
+- **save-menu-discoverable**: The Cmd+S save shortcut MUST be discoverable via the app's menu bar (File > Save) on macOS.
+- **decorative-line-numbers**: Line numbers in the gutter MUST be decorative and not announced individually by screen readers.
 
 ## Conformance Test Vectors
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| ced-001 | REQ-001 | Select a .swift file | Loading spinner shown, then editor with syntax-highlighted Swift content |
-| ced-002 | REQ-002 | Load a file successfully | `isLoaded` is true, `content` matches file text, `loadGeneration` incremented |
-| ced-003 | REQ-003 | Select a .png file | Placeholder "Cannot display this file type" displayed |
-| ced-004 | REQ-004 | No file selected | Placeholder "Select a file to view its contents" displayed |
-| ced-005 | REQ-005 | Select a directory node | Directory placeholder displayed, no file load attempted |
-| ced-006 | REQ-006 | Load file A, then load file B | `loadGeneration` incremented for each load; editor recreated (no stale state from A) |
-| ced-007 | REQ-007, REQ-008 | Load file.swift | Language detected as Swift, syntax highlighting applied |
-| ced-008 | REQ-008 | Load file.py | Language detected as Python |
-| ced-009 | REQ-008 | Load file.yaml | Language detected as YAML |
-| ced-010 | REQ-009 | Load file.xyz (unknown extension) | Plain text mode, no syntax highlighting |
-| ced-011 | REQ-010 | System in dark mode | CatnipDark theme applied to editor |
-| ced-012 | REQ-010 | System in light mode | CatnipLight theme applied to editor |
-| ced-013 | REQ-010 | Toggle system appearance while editor is open | Theme switches without reloading file |
-| ced-014 | REQ-011 | Load any file | Line numbers visible in gutter |
-| ced-015 | REQ-012 | Load any file | Minimap visible on trailing edge |
-| ced-016 | REQ-013 | Load file with 500-character line | No wrapping; horizontal scroll available |
-| ced-017 | REQ-014 | Load any file | Font is Menlo 13pt monospaced |
-| ced-018 | REQ-015, REQ-016 | Type a character in the editor | `isModified` becomes true |
-| ced-019 | REQ-016 | Undo all changes back to saved state | `isModified` becomes false |
-| ced-020 | REQ-017 | Edit file A, select file B | File A auto-saved before file B loads |
-| ced-021 | REQ-018 | Press Cmd+S with unsaved changes | File saved, `isModified` becomes false |
-| ced-022 | REQ-019 | Save file | File written atomically (no partial content on disk) |
-| ced-023 | REQ-020 | Save file, then check state | `isModified` is false, last-saved snapshot updated |
-| ced-024 | REQ-022 | Type rapidly (10 chars in 0.2s) | Dirty comparison fires once after debounce, not per keystroke |
-| ced-025 | REQ-023 | View editor pane | Collapsible pane header present at top |
-| ced-026 | REQ-024 | Select ContentView.swift | Header shows file icon + "ContentView.swift" |
-| ced-027 | REQ-025 | No file selected | Header shows "Editor" |
-| ced-028 | REQ-026 | Edit file (make dirty) | Dirty indicator (●) appears in header |
-| ced-029 | REQ-026 | Save file (clear dirty) | Dirty indicator removed from header |
-| ced-030 | REQ-029 | VoiceOver active, file is dirty | Header announces "ContentView.swift, edited" |
-| ced-031 | REQ-031 | Open menu bar File menu | "Save" item present with Cmd+S shortcut |
+| ced-001 | async-file-load | Select a .swift file | Loading spinner shown, then editor with syntax-highlighted Swift content |
+| ced-002 | set-loaded-state | Load a file successfully | `isLoaded` is true, `content` matches file text, `loadGeneration` incremented |
+| ced-003 | binary-file-placeholder | Select a .png file | Placeholder "Cannot display this file type" displayed |
+| ced-004 | no-file-placeholder | No file selected | Placeholder "Select a file to view its contents" displayed |
+| ced-005 | directory-placeholder | Select a directory node | Directory placeholder displayed, no file load attempted |
+| ced-006 | load-generation-identity | Load file A, then load file B | `loadGeneration` incremented for each load; editor recreated (no stale state from A) |
+| ced-007 | language-detection, supported-language-map | Load file.swift | Language detected as Swift, syntax highlighting applied |
+| ced-008 | supported-language-map | Load file.py | Language detected as Python |
+| ced-009 | supported-language-map | Load file.yaml | Language detected as YAML |
+| ced-010 | plain-text-fallback | Load file.xyz (unknown extension) | Plain text mode, no syntax highlighting |
+| ced-011 | system-appearance-theme | System in dark mode | CatnipDark theme applied to editor |
+| ced-012 | system-appearance-theme | System in light mode | CatnipLight theme applied to editor |
+| ced-013 | system-appearance-theme | Toggle system appearance while editor is open | Theme switches without reloading file |
+| ced-014 | gutter-enabled | Load any file | Line numbers visible in gutter |
+| ced-015 | minimap-enabled | Load any file | Minimap visible on trailing edge |
+| ced-016 | no-line-wrap | Load file with 500-character line | No wrapping; horizontal scroll available |
+| ced-017 | default-monospaced-font | Load any file | Font is Menlo 13pt monospaced |
+| ced-018 | dirty-state-tracking, is-modified-flag | Type a character in the editor | `isModified` becomes true |
+| ced-019 | is-modified-flag | Undo all changes back to saved state | `isModified` becomes false |
+| ced-020 | auto-save-on-switch | Edit file A, select file B | File A auto-saved before file B loads |
+| ced-021 | manual-save-shortcut | Press Cmd+S with unsaved changes | File saved, `isModified` becomes false |
+| ced-022 | atomic-save | Save file | File written atomically (no partial content on disk) |
+| ced-023 | reset-modified-after-save | Save file, then check state | `isModified` is false, last-saved snapshot updated |
+| ced-024 | debounce-dirty-check | Type rapidly (10 chars in 0.2s) | Dirty comparison fires once after debounce, not per keystroke |
+| ced-025 | collapsible-header | View editor pane | Collapsible pane header present at top |
+| ced-026 | header-shows-filename | Select ContentView.swift | Header shows file icon + "ContentView.swift" |
+| ced-027 | header-generic-title | No file selected | Header shows "Editor" |
+| ced-028 | dirty-indicator-in-header | Edit file (make dirty) | Dirty indicator (●) appears in header |
+| ced-029 | dirty-indicator-in-header | Save file (clear dirty) | Dirty indicator removed from header |
+| ced-030 | dirty-state-a11y | VoiceOver active, file is dirty | Header announces "ContentView.swift, edited" |
+| ced-031 | save-menu-discoverable | Open menu bar File menu | "Save" item present with Cmd+S shortcut |
 
 ## Edge Cases
 
@@ -268,7 +268,7 @@ A text editor pane for viewing and editing source code files with syntax highlig
 - **Binary files**: Files that cannot be decoded as UTF-8 MUST show the "Cannot display this file type" placeholder. The editor MUST NOT attempt to render binary data as text.
 - **File deleted while editing**: If the file is deleted externally while open in the editor, the editor SHOULD detect this on the next save attempt and present an appropriate error (e.g., "File no longer exists. Save as...?" or re-create the file). The editor MUST NOT crash or silently lose content.
 - **File modified externally (concurrent edit)**: If the file is modified by another process while open, the editor SHOULD detect the external change (e.g., via file system events or mtime check on save) and warn the user before overwriting. The editor MUST NOT silently discard external changes without notice.
-- **Encoding issues**: Files with mixed encoding, BOM markers, or invalid UTF-8 sequences MUST be handled gracefully. Invalid bytes SHOULD cause the file to be treated as non-displayable (REQ-003), not crash the editor.
+- **Encoding issues**: Files with mixed encoding, BOM markers, or invalid UTF-8 sequences MUST be handled gracefully. Invalid bytes SHOULD cause the file to be treated as non-displayable (binary-file-placeholder), not crash the editor.
 - **Empty file**: A zero-byte file MUST load successfully and display an empty editor (not a placeholder). The file SHOULD be editable.
 - **Read-only file**: If the file does not have write permissions, the editor SHOULD indicate read-only status. Save attempts MUST show an error rather than silently failing.
 - **File path with special characters**: Paths containing spaces, unicode characters, or shell-special characters MUST be handled correctly for both load and save operations.
@@ -276,7 +276,7 @@ A text editor pane for viewing and editing source code files with syntax highlig
 - **Save fails (disk full, permissions)**: Save errors MUST be surfaced to the user (e.g., via an alert or inline error) and the dirty state MUST remain true so the user does not lose their changes.
 - **Undo after save**: Undo history is per-editor-session. After save, undo SHOULD still work to revert to pre-save content (the dirty indicator reappears if content diverges from the saved snapshot).
 - **New file with no extension**: Files without an extension MUST load as plain text with no syntax highlighting.
-- **Extremely long lines (10,000+ characters)**: The editor MUST remain responsive. Horizontal scrolling (REQ-013) handles display. The minimap SHOULD still render without performance degradation.
+- **Extremely long lines (10,000+ characters)**: The editor MUST remain responsive. Horizontal scrolling (no-line-wrap) handles display. The minimap SHOULD still render without performance degradation.
 - **Tab characters vs spaces**: The editor MUST preserve the original indentation characters in the file. Tab width rendering MAY be configurable (default: 4 spaces).
 
 ## Logging

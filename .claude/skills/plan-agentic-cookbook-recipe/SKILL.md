@@ -78,7 +78,7 @@ For each recipe section, have a brief focused discussion. Don't try to cover eve
 **Overview** — "In one or two sentences, what does this component do and when would you use it?"
 
 **Behavioral Requirements** — "What are the hard rules? What MUST this component do? What SHOULD it do? What MAY it optionally do?"
-- Propose requirements as you understand them, numbered REQ-001, REQ-002, etc.
+- Propose requirements as you understand them, with descriptive kebab-case names (e.g., `ordered-list`, `scroll-to-bottom`)
 - Use RFC 2119 keywords: MUST (required), SHOULD (recommended), MAY (optional)
 - After proposing, ask: "Does this capture the requirements? Anything missing or wrong?"
 
@@ -136,8 +136,8 @@ Once the discussion is complete:
    - Frontmatter: id (UUID), domain (path-derived), type recipe, version 1.0.0, status draft, language en, today's date for created/modified, author (user's name or claude-code), copyright "YYYY Mike Fullerton", license MIT, summary, platforms, tags, depends-on, related, references
    - Every section from the template populated from the discussion
    - No empty sections — if a section doesn't apply, include it with "Not applicable — {reason}"
-   - All requirements numbered REQ-NNN with RFC 2119 keywords
-   - Conformance test vectors linked to REQ-NNN
+   - All requirements with unique kebab-case names
+   - Conformance test vectors linked to requirement names
    - Logging messages per instrumented logging guidelines (see cookbook/guidelines/general.md)
    - `{{placeholder}}` tokens for app-specific values
 

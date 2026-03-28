@@ -64,43 +64,43 @@ This spec covers the chat control only — provider configuration (API key, mode
 
 ### Conversation
 
-- **REQ-001**: The control MUST maintain an ordered list of messages representing the full conversation history.
-- **REQ-002**: Messages MUST have one of three roles: `user`, `assistant`, or `error`.
-- **REQ-003**: The message area MUST scroll vertically when content exceeds the visible area.
-- **REQ-004**: The control MUST auto-scroll to the newest message when a new message is appended.
-- **REQ-005**: The control MUST auto-scroll to the typing indicator when it appears.
-- **REQ-006**: Auto-scroll animation duration MUST be 0.2 seconds with ease-out timing.
+- **ordered-message-history**: The control MUST maintain an ordered list of messages representing the full conversation history.
+- **message-roles**: Messages MUST have one of three roles: `user`, `assistant`, or `error`.
+- **vertical-scroll**: The message area MUST scroll vertically when content exceeds the visible area.
+- **auto-scroll-new-message**: The control MUST auto-scroll to the newest message when a new message is appended.
+- **auto-scroll-typing-indicator**: The control MUST auto-scroll to the typing indicator when it appears.
+- **scroll-animation-timing**: Auto-scroll animation duration MUST be 0.2 seconds with ease-out timing.
 
 ### Input
 
-- **REQ-007**: The control MUST display a text input field at the bottom.
-- **REQ-008**: Pressing Enter/Return in the text field MUST submit the message (same as tapping the send button).
-- **REQ-009**: A send button MUST be displayed to the right of the text field.
-- **REQ-010**: The send button MUST be disabled when the input field is empty (after trimming whitespace).
-- **REQ-011**: After sending, the input field MUST be cleared immediately.
-- **REQ-012**: The control MUST NOT allow sending while a response is in progress (loading state).
+- **text-input-field**: The control MUST display a text input field at the bottom.
+- **enter-key-submit**: Pressing Enter/Return in the text field MUST submit the message (same as tapping the send button).
+- **send-button-display**: A send button MUST be displayed to the right of the text field.
+- **send-button-disabled-empty**: The send button MUST be disabled when the input field is empty (after trimming whitespace).
+- **clear-input-after-send**: After sending, the input field MUST be cleared immediately.
+- **block-send-while-loading**: The control MUST NOT allow sending while a response is in progress (loading state).
 
 ### API Integration
 
-- **REQ-013**: The control MUST send the full conversation history (excluding error messages) with each request, enabling multi-turn conversation.
-- **REQ-014**: The control MUST support all providers defined in `ai-settings-panel.md` REQ-004: Anthropic, OpenAI, Google (Gemini), and Custom (OpenAI-compatible).
-- **REQ-015**: API keys MUST be read from platform secure storage (Keychain / EncryptedSharedPreferences / HttpOnly cookies) at request time. Keys MUST NOT be cached in the view model or held in memory longer than the request.
-- **REQ-016**: The maximum response length MUST be 256 tokens for the mini variant. Implementations MAY make this configurable for the full variant.
-- **REQ-017**: Request timeout MUST be 30 seconds.
-- **REQ-018**: The control MUST check whether AI features are enabled (via the `ai-settings-panel.md` enable toggle) before sending. If disabled, an error message MUST be displayed: "AI features are disabled — enable them above."
-- **REQ-019**: If no API key is configured, an error message MUST be displayed: "No API key configured."
+- **send-full-history**: The control MUST send the full conversation history (excluding error messages) with each request, enabling multi-turn conversation.
+- **multi-provider-support**: The control MUST support all providers defined in `ai-settings-panel.md` provider-picker-options: Anthropic, OpenAI, Google (Gemini), and Custom (OpenAI-compatible).
+- **secure-key-retrieval**: API keys MUST be read from platform secure storage (Keychain / EncryptedSharedPreferences / HttpOnly cookies) at request time. Keys MUST NOT be cached in the view model or held in memory longer than the request.
+- **max-response-tokens**: The maximum response length MUST be 256 tokens for the mini variant. Implementations MAY make this configurable for the full variant.
+- **request-timeout**: Request timeout MUST be 30 seconds.
+- **check-ai-enabled**: The control MUST check whether AI features are enabled (via the `ai-settings-panel.md` enable toggle) before sending. If disabled, an error message MUST be displayed: "AI features are disabled — enable them above."
+- **no-api-key-error**: If no API key is configured, an error message MUST be displayed: "No API key configured."
 
 ### Error Handling
 
-- **REQ-020**: API errors MUST be displayed as error-role messages in the conversation, not as alerts or dialogs.
-- **REQ-021**: After an error, the user MUST be able to continue sending messages (the control does not enter a stuck state).
-- **REQ-022**: HTTP error responses MUST extract the provider's error message from the response body (e.g., `json.error.message`) and display it. If parsing fails, display "HTTP {statusCode}".
+- **inline-error-display**: API errors MUST be displayed as error-role messages in the conversation, not as alerts or dialogs.
+- **recoverable-after-error**: After an error, the user MUST be able to continue sending messages (the control does not enter a stuck state).
+- **extract-provider-error**: HTTP error responses MUST extract the provider's error message from the response body (e.g., `json.error.message`) and display it. If parsing fails, display "HTTP {statusCode}".
 
 ### History Management
 
-- **REQ-023**: A "Clear" action MUST be available to reset the conversation history.
-- **REQ-024**: Clearing history MUST remove all messages (user, assistant, and error).
-- **REQ-025**: Conversation history MUST NOT be persisted across app launches. It is ephemeral, in-memory only.
+- **clear-history-action**: A "Clear" action MUST be available to reset the conversation history.
+- **clear-removes-all**: Clearing history MUST remove all messages (user, assistant, and error).
+- **ephemeral-history**: Conversation history MUST NOT be persisted across app launches. It is ephemeral, in-memory only.
 
 ## Appearance
 
@@ -175,40 +175,40 @@ This spec covers the chat control only — provider configuration (API key, mode
 
 ## Accessibility
 
-- **REQ-026**: Each message bubble MUST have an accessibility label that includes the role and content (e.g., "You said: Hello", "Assistant said: Hi there").
-- **REQ-027**: Error messages MUST be announced by screen readers when they appear.
-- **REQ-028**: The send button MUST have an accessibility label: "Send message".
-- **REQ-029**: The send button MUST announce its disabled state when the input is empty.
-- **REQ-030**: The typing indicator MUST have an accessibility label: "Waiting for response".
-- **REQ-031**: The input field MUST be keyboard-focusable. Tab order: input field → send button.
-- **REQ-032**: Minimum tap target for the send button: 44x44pt (iOS), 48x48dp (Android).
+- **message-a11y-label**: Each message bubble MUST have an accessibility label that includes the role and content (e.g., "You said: Hello", "Assistant said: Hi there").
+- **error-screen-reader**: Error messages MUST be announced by screen readers when they appear.
+- **send-button-a11y-label**: The send button MUST have an accessibility label: "Send message".
+- **send-disabled-announce**: The send button MUST announce its disabled state when the input is empty.
+- **typing-a11y-label**: The typing indicator MUST have an accessibility label: "Waiting for response".
+- **keyboard-tab-order**: The input field MUST be keyboard-focusable. Tab order: input field → send button.
+- **minimum-tap-target**: Minimum tap target for the send button: 44x44pt (iOS), 48x48dp (Android).
 
 ## Conformance Test Vectors
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| chat-001 | REQ-001 | Send "Hello", receive response, send "How are you?" | Three messages in order: user, assistant, user |
-| chat-002 | REQ-003 | Send enough messages to overflow visible area | Message area scrolls; earlier messages accessible by scrolling up |
-| chat-003 | REQ-004, REQ-005, REQ-006 | Send a message | View auto-scrolls to new message with 0.2s ease-out animation |
-| chat-004 | REQ-008 | Type "Hello" and press Enter | Message sent; input cleared |
-| chat-005 | REQ-010 | Input field is empty, observe send button | Send button is disabled |
-| chat-006 | REQ-010 | Input field contains only whitespace | Send button is disabled |
-| chat-007 | REQ-012 | Send message while response is in progress | Second send is blocked |
-| chat-008 | REQ-013 | Send "Hello", receive response, send "What did I just say?" | Second request includes both previous messages in history |
-| chat-009 | REQ-015 | Send message, inspect memory after response | API key is not retained in view model properties |
-| chat-010 | REQ-018 | Disable AI features, send message | Error: "AI features are disabled — enable them above" |
-| chat-011 | REQ-019 | No API key configured, send message | Error: "No API key configured" |
-| chat-012 | REQ-020 | Send message with invalid API key | Error message displayed inline, not as alert |
-| chat-013 | REQ-021 | Receive an error, then send another message | Second message sends successfully (not stuck) |
-| chat-014 | REQ-022 | Send message, server returns 401 with `{"error":{"message":"invalid key"}}` | Error shows "invalid key", not "HTTP 401" |
-| chat-015 | REQ-023, REQ-024 | Send messages, then clear history | All messages removed; message area is empty |
-| chat-016 | REQ-025 | Send messages, quit app, relaunch | Chat history is empty after relaunch |
+| chat-001 | ordered-message-history | Send "Hello", receive response, send "How are you?" | Three messages in order: user, assistant, user |
+| chat-002 | vertical-scroll | Send enough messages to overflow visible area | Message area scrolls; earlier messages accessible by scrolling up |
+| chat-003 | auto-scroll-new-message, auto-scroll-typing-indicator, scroll-animation-timing | Send a message | View auto-scrolls to new message with 0.2s ease-out animation |
+| chat-004 | enter-key-submit | Type "Hello" and press Enter | Message sent; input cleared |
+| chat-005 | send-button-disabled-empty | Input field is empty, observe send button | Send button is disabled |
+| chat-006 | send-button-disabled-empty | Input field contains only whitespace | Send button is disabled |
+| chat-007 | block-send-while-loading | Send message while response is in progress | Second send is blocked |
+| chat-008 | send-full-history | Send "Hello", receive response, send "What did I just say?" | Second request includes both previous messages in history |
+| chat-009 | secure-key-retrieval | Send message, inspect memory after response | API key is not retained in view model properties |
+| chat-010 | check-ai-enabled | Disable AI features, send message | Error: "AI features are disabled — enable them above" |
+| chat-011 | no-api-key-error | No API key configured, send message | Error: "No API key configured" |
+| chat-012 | inline-error-display | Send message with invalid API key | Error message displayed inline, not as alert |
+| chat-013 | recoverable-after-error | Receive an error, then send another message | Second message sends successfully (not stuck) |
+| chat-014 | extract-provider-error | Send message, server returns 401 with `{"error":{"message":"invalid key"}}` | Error shows "invalid key", not "HTTP 401" |
+| chat-015 | clear-history-action, clear-removes-all | Send messages, then clear history | All messages removed; message area is empty |
+| chat-016 | ephemeral-history | Send messages, quit app, relaunch | Chat history is empty after relaunch |
 
 ## Edge Cases
 
 - **Extremely long response**: Message bubble wraps text; does not truncate. Scroll area accommodates.
 - **Extremely long input**: Text field accepts input without truncation. Long messages display correctly in bubble.
-- **Rapid send attempts**: Only the first send is accepted while loading; subsequent attempts are ignored (REQ-012).
+- **Rapid send attempts**: Only the first send is accepted while loading; subsequent attempts are ignored (block-send-while-loading).
 - **Network timeout**: After 30 seconds, display timeout error message. User can retry.
 - **Provider returns empty response**: Display "(Empty response)" as assistant message.
 - **Provider returns malformed JSON**: Display "(Unable to parse response)" as assistant message.
@@ -265,7 +265,7 @@ This spec covers the chat control only — provider configuration (API key, mode
 
 - **Data collected**: Message content (user prompts and AI responses), provider and model identifiers, error messages.
 - **Sensitive data**: User prompts may contain sensitive content. API keys are transient (read from secure storage, used for one request, not retained).
-- **Storage**: Conversation history is in-memory only (REQ-025). Not persisted to disk, database, or any storage layer.
+- **Storage**: Conversation history is in-memory only (ephemeral-history). Not persisted to disk, database, or any storage layer.
 - **Transmission**: Messages are sent to the configured AI provider endpoint over TLS/HTTPS. They are not sent to analytics, crash reporting, or any other service. Message content MUST NOT appear in log output.
 - **Retention**: Conversation exists only for the lifetime of the control instance. Destroyed on navigation away or app termination.
 

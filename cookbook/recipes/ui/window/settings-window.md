@@ -57,27 +57,27 @@ A standard desktop application settings/preferences window. Opens from the conve
 
 ## Behavioral Requirements
 
-- **REQ-001**: The window MUST open via the platform-standard keyboard shortcut:
+- **platform-keyboard-open**: The window MUST open via the platform-standard keyboard shortcut:
   - macOS: `⌘,` from the app menu (app name menu), labeled "Settings…" (macOS 13+) or "Preferences…" (older)
   - Windows: `Ctrl+,` from the File menu, labeled "Settings"
   - Linux: from the Edit or app menu, labeled "Preferences"
-- **REQ-002**: The app MUST enforce single-instance — if the shortcut is triggered while the window is open, the existing window MUST be brought to front. A second instance MUST NOT be created.
-- **REQ-003**: The window MUST be non-modal — it MUST NOT block interaction with other app windows.
-- **REQ-004**: The window MUST NOT reopen automatically on app launch, even if it was open when the app was last quit.
-- **REQ-005**: The window MUST remember its size and position between sessions using the platform's standard frame autosave mechanism.
-- **REQ-006**: The window MUST be resizable with a minimum size of 500×400pt.
-- **REQ-007**: Setting changes MUST take effect immediately when the user interacts with the control. There MUST NOT be an "Apply" or "Save" button.
-- **REQ-008**: The sidebar MUST display a vertical list of category names. The first category MUST be selected by default.
-- **REQ-009**: Selecting a category MUST update the content panel to show that category's settings.
-- **REQ-010**: The content panel MUST scroll vertically if its content exceeds the panel height.
-- **REQ-011**: Settings MUST be read from and written to a persistence layer. The storage backend SHOULD be abstracted behind an interface so it can be swapped without changing consumers. Common backends:
+- **single-instance-enforce**: The app MUST enforce single-instance — if the shortcut is triggered while the window is open, the existing window MUST be brought to front. A second instance MUST NOT be created.
+- **non-modal-window**: The window MUST be non-modal — it MUST NOT block interaction with other app windows.
+- **no-auto-reopen**: The window MUST NOT reopen automatically on app launch, even if it was open when the app was last quit.
+- **persist-frame-position**: The window MUST remember its size and position between sessions using the platform's standard frame autosave mechanism.
+- **resizable-min-size**: The window MUST be resizable with a minimum size of 500×400pt.
+- **immediate-apply**: Setting changes MUST take effect immediately when the user interacts with the control. There MUST NOT be an "Apply" or "Save" button.
+- **sidebar-category-list**: The sidebar MUST display a vertical list of category names. The first category MUST be selected by default.
+- **category-content-update**: Selecting a category MUST update the content panel to show that category's settings.
+- **content-vertical-scroll**: The content panel MUST scroll vertically if its content exceeds the panel height.
+- **abstract-persistence**: Settings MUST be read from and written to a persistence layer. The storage backend SHOULD be abstracted behind an interface so it can be swapped without changing consumers. Common backends:
   - macOS/iOS: `UserDefaults` / `@AppStorage` (default), or SQLite for apps that need migration-safe structured storage
   - Windows: Registry or app config file
   - Web/Electron: `localStorage` or `electron-store`
   - Note: apps MAY migrate from one backend to another (e.g., UserDefaults → SQLite) — see `settings-keys.md` for key preservation during migration
-- **REQ-016**: Settings keys MUST be centralized in an enum or struct of static constants (e.g., `SettingsKeys.general.startupBehavior`). This prevents key duplication and typos across the app.
-- **REQ-017**: Apps with documents or projects SHOULD support per-document settings in addition to app-wide settings. Per-document settings MUST be presented as a sheet (not mixed into the main settings window), typically triggered by a toolbar gear button.
-- **REQ-018**: The content panel SHOULD use `Form` with `Section` blocks for grouping related settings with clear section headers.
+- **centralized-keys**: Settings keys MUST be centralized in an enum or struct of static constants (e.g., `SettingsKeys.general.startupBehavior`). This prevents key duplication and typos across the app.
+- **per-document-settings**: Apps with documents or projects SHOULD support per-document settings in addition to app-wide settings. Per-document settings MUST be presented as a sheet (not mixed into the main settings window), typically triggered by a toolbar gear button.
+- **form-section-layout**: The content panel SHOULD use `Form` with `Section` blocks for grouping related settings with clear section headers.
 
 ## Appearance
 
@@ -109,39 +109,39 @@ A standard desktop application settings/preferences window. Opens from the conve
 | State | Behavior |
 |-------|----------|
 | No window open | Menu item and keyboard shortcut are enabled |
-| Window open, shortcut triggered | Existing window brought to front (REQ-002) |
-| Category selected | Content panel updates to show that category's settings (REQ-009) |
-| Window resized | Frame saved automatically for next open (REQ-005) |
-| App quit with window open | Window does not reopen on next launch (REQ-004) |
-| Setting changed | Change persisted and applied immediately (REQ-007) |
+| Window open, shortcut triggered | Existing window brought to front (single-instance-enforce) |
+| Category selected | Content panel updates to show that category's settings (category-content-update) |
+| Window resized | Frame saved automatically for next open (persist-frame-position) |
+| App quit with window open | Window does not reopen on next launch (no-auto-reopen) |
+| Setting changed | Change persisted and applied immediately (immediate-apply) |
 
 ## Accessibility
 
-- **REQ-012**: The sidebar list MUST be navigable via keyboard (arrow keys to move selection, Return/Space to confirm).
-- **REQ-013**: Tab key MUST move focus between the sidebar and content panel controls.
-- **REQ-014**: All setting controls MUST have accessible labels.
-- **REQ-015**: VoiceOver/screen reader MUST announce the selected category name when selection changes.
+- **keyboard-sidebar-nav**: The sidebar list MUST be navigable via keyboard (arrow keys to move selection, Return/Space to confirm).
+- **tab-focus-transfer**: Tab key MUST move focus between the sidebar and content panel controls.
+- **control-accessible-labels**: All setting controls MUST have accessible labels.
+- **announce-category-name**: VoiceOver/screen reader MUST announce the selected category name when selection changes.
 
 ## Conformance Test Vectors
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| settings-001 | REQ-002 | Open settings window, trigger shortcut again | Window count remains 1, existing window is key/front |
-| settings-002 | REQ-004 | Open settings, quit app, relaunch | Settings window is not visible after relaunch |
-| settings-003 | REQ-005 | Open settings, resize to 600×500 at (100,200), close, reopen | Window opens at 600×500 at (100,200) |
-| settings-004 | REQ-007 | Toggle a boolean setting | Setting value in persistence layer matches new state immediately |
-| settings-005 | REQ-008 | Open settings window | First category in list is selected, content panel shows its settings |
-| settings-006 | REQ-009 | Select second category | Content panel updates to show second category's settings |
-| settings-007 | REQ-006 | Attempt to resize window below 500×400 | Window does not shrink below minimum |
-| settings-008 | REQ-012 | Focus sidebar, press Down arrow | Selection moves to next category |
-| settings-009 | REQ-013 | Press Tab from sidebar | Focus moves to first control in content panel |
+| settings-001 | single-instance-enforce | Open settings window, trigger shortcut again | Window count remains 1, existing window is key/front |
+| settings-002 | no-auto-reopen | Open settings, quit app, relaunch | Settings window is not visible after relaunch |
+| settings-003 | persist-frame-position | Open settings, resize to 600×500 at (100,200), close, reopen | Window opens at 600×500 at (100,200) |
+| settings-004 | immediate-apply | Toggle a boolean setting | Setting value in persistence layer matches new state immediately |
+| settings-005 | sidebar-category-list | Open settings window | First category in list is selected, content panel shows its settings |
+| settings-006 | category-content-update | Select second category | Content panel updates to show second category's settings |
+| settings-007 | resizable-min-size | Attempt to resize window below 500×400 | Window does not shrink below minimum |
+| settings-008 | keyboard-sidebar-nav | Focus sidebar, press Down arrow | Selection moves to next category |
+| settings-009 | tab-focus-transfer | Press Tab from sidebar | Focus moves to first control in content panel |
 
 ## Edge Cases
 
 - **No categories defined**: The window SHOULD display an empty state message rather than crashing.
 - **Category with no settings**: The content panel SHOULD show a message like "No settings available" rather than a blank panel.
 - **Extremely long category name**: Sidebar SHOULD truncate with ellipsis rather than expanding width.
-- **Many settings in one category**: Content panel scrolls (REQ-010); performance SHOULD remain smooth with 50+ settings.
+- **Many settings in one category**: Content panel scrolls (content-vertical-scroll); performance SHOULD remain smooth with 50+ settings.
 - **Rapid category switching**: Content panel MUST update without flicker or stale content.
 
 ## Logging
@@ -208,8 +208,8 @@ _None yet — decisions made during implementation should be recorded here._
 |---------|------|---------|
 | 1.0.0 | 2026-03-25 | Initial spec |
 | 1.1.0 | 2026-03-25 | Added deep linking, localization, accessibility options, privacy sections |
-| 1.2.0 | 2026-03-25 | Added centralized settings keys (REQ-016), per-document settings (REQ-017), Form+Section layout (REQ-018) |
-| 1.3.0 | 2026-03-25 | Made storage backend agnostic in REQ-011 (SQLite migration path), added tab-bar layout variant |
+| 1.2.0 | 2026-03-25 | Added centralized settings keys (centralized-keys), per-document settings (per-document-settings), Form+Section layout (form-section-layout) |
+| 1.3.0 | 2026-03-25 | Made storage backend agnostic in abstract-persistence (SQLite migration path), added tab-bar layout variant |
 
 ## Change History
 

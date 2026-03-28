@@ -68,70 +68,70 @@ This is BOTH a settings UI spec AND an interface design for AI integration. The 
 
 ### General
 
-- **REQ-001**: The AI settings panel MUST appear as a category named "AI" within the settings window.
-- **REQ-002**: An "Enable AI Features" toggle MUST be present at the top of the panel. Default value MUST be `false` (off).
-- **REQ-003**: When AI features are disabled, all other controls in the panel MUST be visually disabled (dimmed/grayed) and non-interactive. The controls MUST remain visible so the user can see what configuration is available.
+- **settings-category**: The AI settings panel MUST appear as a category named "AI" within the settings window.
+- **enable-toggle**: An "Enable AI Features" toggle MUST be present at the top of the panel. Default value MUST be `false` (off).
+- **disable-dims-controls**: When AI features are disabled, all other controls in the panel MUST be visually disabled (dimmed/grayed) and non-interactive. The controls MUST remain visible so the user can see what configuration is available.
 
 ### Provider selection
 
-- **REQ-004**: The panel MUST display a provider picker with the following options:
+- **provider-picker-options**: The panel MUST display a provider picker with the following options:
   - Claude (Anthropic)
   - OpenAI (ChatGPT)
   - Google (Gemini)
   - Custom (OpenAI-compatible)
-- **REQ-005**: The default provider selection MUST be Claude (Anthropic).
-- **REQ-006**: Changing the provider MUST immediately update the model picker options and show/hide the endpoint section as appropriate.
+- **default-provider-claude**: The default provider selection MUST be Claude (Anthropic).
+- **provider-change-updates-ui**: Changing the provider MUST immediately update the model picker options and show/hide the endpoint section as appropriate.
 
 ### Authentication
 
-- **REQ-007**: The panel MUST display an API Key field using a secure/masked input control (`SecureField` on Apple, masked `EditText` on Android, `<input type="password">` on Web).
-- **REQ-008**: API keys MUST be stored in platform secure storage:
+- **secure-key-input**: The panel MUST display an API Key field using a secure/masked input control (`SecureField` on Apple, masked `EditText` on Android, `<input type="password">` on Web).
+- **secure-key-storage**: API keys MUST be stored in platform secure storage:
   - Apple: Keychain Services
   - Android: EncryptedSharedPreferences / Android Keystore
   - Web: HttpOnly secure cookies (server-assisted) — NEVER `localStorage` or `sessionStorage`
-- **REQ-009**: API keys MUST NOT be stored in UserDefaults, SharedPreferences, localStorage, SQLite, or any unencrypted persistence layer.
-- **REQ-009a**: Non-sensitive AI settings (provider, model, endpoint URL, timeout, enable toggle) follow the settings window storage tier:
+- **no-insecure-key-storage**: API keys MUST NOT be stored in UserDefaults, SharedPreferences, localStorage, SQLite, or any unencrypted persistence layer.
+- **non-sensitive-storage-tiers**: Non-sensitive AI settings (provider, model, endpoint URL, timeout, enable toggle) follow the settings window storage tier:
   - **Simple**: `UserDefaults` / `@AppStorage` (macOS/iOS), `SharedPreferences` / `DataStore` (Android), `localStorage` (Web)
   - **Complex**: SQLite or equivalent structured database — appropriate for apps that already use SQLite for other persistence, need migration-safe schema changes, or store settings alongside relational data
-  - Either tier is conformant. The choice SHOULD be consistent with the app's overall settings storage strategy (see `settings-window.md` REQ-011).
-- **REQ-010**: API keys MUST NOT appear in any log output, crash reports, analytics events, or debug panel displays — even at debug level.
-- **REQ-011**: The API key field MUST NOT be pre-populated with the full key value when revisiting the panel. It SHOULD display a masked placeholder (e.g., "••••••••••••abcd" showing only the last 4 characters) if a key is stored, or be empty if no key is stored.
+  - Either tier is conformant. The choice SHOULD be consistent with the app's overall settings storage strategy (see `settings-window.md` abstract-persistence).
+- **no-key-in-logs**: API keys MUST NOT appear in any log output, crash reports, analytics events, or debug panel displays — even at debug level.
+- **masked-key-display**: The API key field MUST NOT be pre-populated with the full key value when revisiting the panel. It SHOULD display a masked placeholder (e.g., "••••••••••••abcd" showing only the last 4 characters) if a key is stored, or be empty if no key is stored.
 
 ### Model selection
 
-- **REQ-012**: The panel MUST display a model picker whose options depend on the selected provider:
+- **model-picker-options**: The panel MUST display a model picker whose options depend on the selected provider:
   - **Claude (Anthropic)**: claude-haiku-4-5-20251001, claude-sonnet-4-5-20250514, claude-opus-4-5-20250514
   - **OpenAI**: gpt-4.1-nano, gpt-4.1-mini, gpt-4o-mini, gpt-4o
   - **Google (Gemini)**: gemini-2.0-flash, gemini-2.5-flash-preview-05-20, gemini-2.5-pro-preview-05-06
   - **Custom**: (no preset models — custom model name field only)
-- **REQ-013**: The model list SHOULD be fetched dynamically from the provider's API where supported (e.g., Anthropic and OpenAI list-models endpoints), with the hardcoded defaults in REQ-012 as fallback.
-- **REQ-014**: When dynamic model fetching fails, the panel MUST fall back to the hardcoded defaults silently — no error dialog. A debug-level log message MUST be emitted.
-- **REQ-015**: A custom model name text field MUST be displayed below the model picker. It MUST be editable for all providers. When a value is entered, it overrides the picker selection.
+- **dynamic-model-fetch**: The model list SHOULD be fetched dynamically from the provider's API where supported (e.g., Anthropic and OpenAI list-models endpoints), with the hardcoded defaults in model-picker-options as fallback.
+- **silent-model-fetch-fallback**: When dynamic model fetching fails, the panel MUST fall back to the hardcoded defaults silently — no error dialog. A debug-level log message MUST be emitted.
+- **custom-model-override**: A custom model name text field MUST be displayed below the model picker. It MUST be editable for all providers. When a value is entered, it overrides the picker selection.
 
 ### Endpoint configuration
 
-- **REQ-016**: The endpoint section MUST be visible only when the provider is set to "Custom".
-- **REQ-017**: The endpoint section MUST include:
+- **endpoint-custom-only**: The endpoint section MUST be visible only when the provider is set to "Custom".
+- **endpoint-fields**: The endpoint section MUST include:
   - Base URL text field (placeholder: `http://localhost:11434`)
   - Timeout stepper or picker (values: 15s, 30s, 60s, 120s, 300s; default: 30s)
-- **REQ-018**: The Base URL field MUST validate that the entered value is a well-formed URL. Invalid URLs MUST be indicated with an inline error message (e.g., "Invalid URL format") but MUST NOT prevent the user from typing.
+- **url-validation**: The Base URL field MUST validate that the entered value is a well-formed URL. Invalid URLs MUST be indicated with an inline error message (e.g., "Invalid URL format") but MUST NOT prevent the user from typing.
 
 ### Connection status
 
-- **REQ-019**: The panel MUST display a connection status indicator:
+- **connection-status-indicator**: The panel MUST display a connection status indicator:
   - **Connected**: Green dot with label "Connected"
   - **Disconnected**: Red dot with label "Disconnected"
   - **Untested**: Gray dot with label "Not tested"
-- **REQ-020**: The initial connection status MUST be "Untested" (gray dot).
-- **REQ-021**: A "Test Connection" button MUST be present next to the connection status indicator.
-- **REQ-022**: When the user taps "Test API Key", the panel MUST:
+- **initial-status-untested**: The initial connection status MUST be "Untested" (gray dot).
+- **test-connection-button**: A "Test Connection" button MUST be present next to the connection status indicator.
+- **test-connection-flow**: When the user taps "Test API Key", the panel MUST:
   1. Show an indeterminate progress indicator (spinner) inline with the button
   2. Send a minimal completion request to the configured provider (e.g., `"Hi"` with `max_tokens: 1`)
   3. Apply a timeout of 15 seconds for the test call
   4. Display the result inline: success (green checkmark + "API key is valid") or failure (red X + error message)
   5. On failure, display the provider's error message (e.g., "Authentication failed", "invalid x-api-key")
-- **REQ-023**: The panel SHOULD automatically trigger a connection test when the provider, API key, or endpoint changes — with a debounce of 2 seconds after the last change. Implementations MAY defer this to a manual "Test" action.
-- **REQ-024**: The connection test MUST NOT block the UI. It MUST run asynchronously.
+- **auto-test-debounce**: The panel SHOULD automatically trigger a connection test when the provider, API key, or endpoint changes — with a debounce of 2 seconds after the last change. Implementations MAY defer this to a manual "Test" action.
+- **async-connection-test**: The connection test MUST NOT block the UI. It MUST run asynchronously.
 
 ## AI Provider Interface Pattern
 
@@ -158,13 +158,13 @@ CompletionOptions {
 
 ### Implementations
 
-- **REQ-025**: A `ClaudeProvider` implementation MUST exist for the Anthropic API.
-- **REQ-026**: An `OpenAIProvider` implementation MUST exist for the OpenAI API.
-- **REQ-027**: A `GoogleProvider` implementation MUST exist for the Google Gemini API. A `CustomProvider` implementation MUST exist for OpenAI-compatible endpoints (e.g., Ollama, LM Studio).
-- **REQ-028**: A `MockProvider` implementation MUST exist for testing. It MUST return deterministic canned responses and MUST NOT make network calls.
-- **REQ-029**: The active provider MUST be resolved at runtime based on the settings panel configuration, using a factory or dependency injection container.
-- **REQ-030**: All providers MUST use TLS/HTTPS for network communication. The `CustomProvider` MAY allow HTTP for `localhost` addresses only.
-- **REQ-031**: Provider implementations MUST NOT store or cache API keys internally. They MUST retrieve credentials from secure storage on each use or accept them via injection at construction time.
+- **claude-provider-impl**: A `ClaudeProvider` implementation MUST exist for the Anthropic API.
+- **openai-provider-impl**: An `OpenAIProvider` implementation MUST exist for the OpenAI API.
+- **google-custom-provider-impl**: A `GoogleProvider` implementation MUST exist for the Google Gemini API. A `CustomProvider` implementation MUST exist for OpenAI-compatible endpoints (e.g., Ollama, LM Studio).
+- **mock-provider-impl**: A `MockProvider` implementation MUST exist for testing. It MUST return deterministic canned responses and MUST NOT make network calls.
+- **runtime-provider-resolution**: The active provider MUST be resolved at runtime based on the settings panel configuration, using a factory or dependency injection container.
+- **tls-required**: All providers MUST use TLS/HTTPS for network communication. The `CustomProvider` MAY allow HTTP for `localhost` addresses only.
+- **no-cached-keys-in-providers**: Provider implementations MUST NOT store or cache API keys internally. They MUST retrieve credentials from secure storage on each use or accept them via injection at construction time.
 
 ## Appearance
 
@@ -219,7 +219,7 @@ With Custom provider selected, the Endpoint section appears above Quick Chat:
 |-------|----------|
 | AI features disabled | Enable toggle is off; all other controls are dimmed and non-interactive |
 | AI features enabled, no key | Enable toggle is on; controls are interactive; connection status is "Untested" |
-| AI features enabled, key entered | Controls interactive; enable toggle auto-set to on (REQ-039) |
+| AI features enabled, key entered | Controls interactive; enable toggle auto-set to on (auto-enable-on-key-entry) |
 | Connection testing | Spinner on Test Connection button; status shows previous state until test completes |
 | Connected | Green dot, "Connected" label |
 | Disconnected | Red dot, "Disconnected" label, error description shown below |
@@ -231,63 +231,63 @@ With Custom provider selected, the Endpoint section appears above Quick Chat:
 
 ## Accessibility
 
-- **REQ-032**: All form controls MUST have accessible labels matching their visible labels (e.g., "Enable AI Features", "Provider", "API Key", "Model").
-- **REQ-033**: The connection status indicator MUST have an accessibility label that includes both the status and any error message (e.g., "Connection status: Disconnected. Authentication failed.").
-- **REQ-034**: The status dot MUST NOT rely solely on color to convey state. The text label ("Connected", "Disconnected", "Not tested") MUST always be displayed alongside the dot.
-- **REQ-035**: The secure API key field MUST be announced as a secure text field by screen readers.
-- **REQ-036**: When controls are disabled (AI features off), screen readers MUST announce them as disabled/dimmed.
-- **REQ-037**: The panel MUST be fully keyboard-navigable. Tab order MUST follow the visual layout top to bottom: Enable toggle, Provider picker, API Key field, Model picker, Custom model field, Endpoint fields (if visible), Test Connection button.
-- **REQ-038**: The Test Connection button MUST announce its loading state to screen readers when a test is in progress (e.g., "Test Connection, testing...").
+- **control-a11y-labels**: All form controls MUST have accessible labels matching their visible labels (e.g., "Enable AI Features", "Provider", "API Key", "Model").
+- **status-a11y-label**: The connection status indicator MUST have an accessibility label that includes both the status and any error message (e.g., "Connection status: Disconnected. Authentication failed.").
+- **status-not-color-only**: The status dot MUST NOT rely solely on color to convey state. The text label ("Connected", "Disconnected", "Not tested") MUST always be displayed alongside the dot.
+- **secure-field-announce**: The secure API key field MUST be announced as a secure text field by screen readers.
+- **disabled-state-announce**: When controls are disabled (AI features off), screen readers MUST announce them as disabled/dimmed.
+- **keyboard-tab-order**: The panel MUST be fully keyboard-navigable. Tab order MUST follow the visual layout top to bottom: Enable toggle, Provider picker, API Key field, Model picker, Custom model field, Endpoint fields (if visible), Test Connection button.
+- **test-loading-announce**: The Test Connection button MUST announce its loading state to screen readers when a test is in progress (e.g., "Test Connection, testing...").
 
 ### Auto-enable behavior
 
-- **REQ-039**: When the user enters a new API key, the "Enable AI Features" toggle MUST be automatically set to `true` (on). The user MAY subsequently disable it manually.
+- **auto-enable-on-key-entry**: When the user enters a new API key, the "Enable AI Features" toggle MUST be automatically set to `true` (on). The user MAY subsequently disable it manually.
 
 ### Quick Chat
 
-- **REQ-040**: The panel MUST include an inline chat control (see `recipe.ui.component.ai-chat-control`) at the bottom of the panel, below all configuration fields. This allows the user to verify the configuration by sending a real message.
-- **REQ-041**: The chat control MUST respect the "Enable AI Features" toggle — when AI features are disabled, sending messages MUST be blocked with an inline error message.
+- **inline-chat-control**: The panel MUST include an inline chat control (see `recipe.ui.component.ai-chat-control`) at the bottom of the panel, below all configuration fields. This allows the user to verify the configuration by sending a real message.
+- **chat-respects-toggle**: The chat control MUST respect the "Enable AI Features" toggle — when AI features are disabled, sending messages MUST be blocked with an inline error message.
 
 ## Conformance Test Vectors
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| ai-001 | REQ-002 | Open AI settings panel for the first time | Enable AI Features toggle is off |
-| ai-002 | REQ-003 | AI features toggle is off, attempt to interact with Provider picker | Picker is non-interactive (disabled) |
-| ai-003 | REQ-003 | AI features toggle is off | All controls below toggle are visually dimmed |
-| ai-004 | REQ-005 | Enable AI features, observe provider picker | Claude (Anthropic) is selected by default |
-| ai-005 | REQ-006 | Change provider from Claude to OpenAI | Model picker shows gpt-4o, gpt-4o-mini, o3-mini |
-| ai-006 | REQ-006 | Change provider to Local | Endpoint section becomes visible |
-| ai-007 | REQ-006 | Change provider from Local to Claude | Endpoint section is hidden |
-| ai-008 | REQ-008, REQ-009 | Enter API key, inspect platform storage | Key is in Keychain/EncryptedSharedPreferences, NOT in UserDefaults/SharedPreferences/localStorage |
-| ai-009 | REQ-011 | Store an API key "sk-ant-abc123xyz", close and reopen panel | Field shows "••••••••••••xyz" (masked with last 4 chars visible) |
-| ai-010 | REQ-012 | Select Claude provider | Model picker shows claude-sonnet-4-6, claude-opus-4-6, claude-haiku-4-5 |
-| ai-011 | REQ-012 | Select Local provider | Model picker shows local-default |
-| ai-012 | REQ-015 | Enter "my-fine-tuned-model" in custom model field | Custom model value is used instead of picker selection |
-| ai-013 | REQ-016 | Select Claude provider | Endpoint section is not visible |
-| ai-014 | REQ-016 | Select Custom provider | Endpoint section is visible |
-| ai-015 | REQ-018 | Enter "not a url" in Base URL field | Inline error "Invalid URL format" displayed |
-| ai-016 | REQ-018 | Enter "https://api.example.com" in Base URL field | No inline error displayed |
-| ai-017 | REQ-019, REQ-020 | Open panel with no prior configuration | Status shows gray dot with "Not tested" |
-| ai-018 | REQ-022 | Configure valid provider and key, tap Test Connection | Spinner shown during test; status updates to green "Connected" on success |
-| ai-019 | REQ-022 | Configure invalid API key, tap Test Connection | Status updates to red "Disconnected"; error "Authentication failed" shown |
-| ai-020 | REQ-022 | Configure provider with unreachable endpoint, tap Test Connection | Status updates to red "Disconnected"; error "Network unreachable" or "Timeout" shown |
-| ai-021 | REQ-023 | Change API key, wait 2 seconds | Connection test triggers automatically |
-| ai-022 | REQ-023 | Change API key three times within 1 second | Only one connection test runs (after 2s from last change) |
-| ai-023 | REQ-024 | Trigger connection test | UI remains responsive; other controls are interactive during test |
-| ai-024 | REQ-010 | Enter API key, check all log output | API key value does not appear in any log message |
-| ai-025 | REQ-028 | Inject MockProvider, call complete() | Returns deterministic canned response without network call |
-| ai-026 | REQ-030 | Configure Claude provider | All API calls use HTTPS |
-| ai-027 | REQ-030 | Configure Local provider with http://localhost:11434 | HTTP is allowed for localhost |
-| ai-028 | REQ-030 | Configure Local provider with http://remote-server.com | Connection MUST use HTTPS; HTTP rejected for non-localhost |
-| ai-029 | REQ-034 | Inspect connection status with VoiceOver | Both the dot color AND text label are present; label announced by screen reader |
-| ai-030 | REQ-037 | Press Tab repeatedly through the panel | Focus moves top-to-bottom through all interactive controls |
-| ai-031 | REQ-013 | Configure valid Claude API key, open model picker | Model list includes dynamically fetched models from Anthropic API |
-| ai-032 | REQ-014 | Configure Claude provider with no network | Model picker shows hardcoded defaults; debug log contains fallback message |
-| ai-033 | REQ-039 | Enter a new API key while enable toggle is off | Enable toggle switches to on automatically |
-| ai-034 | REQ-039 | Enter a new API key while enable toggle is already on | Enable toggle remains on (no change) |
-| ai-035 | REQ-040 | Open AI settings with valid key configured | Quick Chat section visible at bottom of panel |
-| ai-036 | REQ-041 | Disable AI features, type message in Quick Chat, send | Error message "AI features are disabled" displayed in chat |
+| ai-001 | enable-toggle | Open AI settings panel for the first time | Enable AI Features toggle is off |
+| ai-002 | disable-dims-controls | AI features toggle is off, attempt to interact with Provider picker | Picker is non-interactive (disabled) |
+| ai-003 | disable-dims-controls | AI features toggle is off | All controls below toggle are visually dimmed |
+| ai-004 | default-provider-claude | Enable AI features, observe provider picker | Claude (Anthropic) is selected by default |
+| ai-005 | provider-change-updates-ui | Change provider from Claude to OpenAI | Model picker shows gpt-4o, gpt-4o-mini, o3-mini |
+| ai-006 | provider-change-updates-ui | Change provider to Local | Endpoint section becomes visible |
+| ai-007 | provider-change-updates-ui | Change provider from Local to Claude | Endpoint section is hidden |
+| ai-008 | secure-key-storage, no-insecure-key-storage | Enter API key, inspect platform storage | Key is in Keychain/EncryptedSharedPreferences, NOT in UserDefaults/SharedPreferences/localStorage |
+| ai-009 | masked-key-display | Store an API key "sk-ant-abc123xyz", close and reopen panel | Field shows "••••••••••••xyz" (masked with last 4 chars visible) |
+| ai-010 | model-picker-options | Select Claude provider | Model picker shows claude-sonnet-4-6, claude-opus-4-6, claude-haiku-4-5 |
+| ai-011 | model-picker-options | Select Local provider | Model picker shows local-default |
+| ai-012 | custom-model-override | Enter "my-fine-tuned-model" in custom model field | Custom model value is used instead of picker selection |
+| ai-013 | endpoint-custom-only | Select Claude provider | Endpoint section is not visible |
+| ai-014 | endpoint-custom-only | Select Custom provider | Endpoint section is visible |
+| ai-015 | url-validation | Enter "not a url" in Base URL field | Inline error "Invalid URL format" displayed |
+| ai-016 | url-validation | Enter "https://api.example.com" in Base URL field | No inline error displayed |
+| ai-017 | connection-status-indicator, initial-status-untested | Open panel with no prior configuration | Status shows gray dot with "Not tested" |
+| ai-018 | test-connection-flow | Configure valid provider and key, tap Test Connection | Spinner shown during test; status updates to green "Connected" on success |
+| ai-019 | test-connection-flow | Configure invalid API key, tap Test Connection | Status updates to red "Disconnected"; error "Authentication failed" shown |
+| ai-020 | test-connection-flow | Configure provider with unreachable endpoint, tap Test Connection | Status updates to red "Disconnected"; error "Network unreachable" or "Timeout" shown |
+| ai-021 | auto-test-debounce | Change API key, wait 2 seconds | Connection test triggers automatically |
+| ai-022 | auto-test-debounce | Change API key three times within 1 second | Only one connection test runs (after 2s from last change) |
+| ai-023 | async-connection-test | Trigger connection test | UI remains responsive; other controls are interactive during test |
+| ai-024 | no-key-in-logs | Enter API key, check all log output | API key value does not appear in any log message |
+| ai-025 | mock-provider-impl | Inject MockProvider, call complete() | Returns deterministic canned response without network call |
+| ai-026 | tls-required | Configure Claude provider | All API calls use HTTPS |
+| ai-027 | tls-required | Configure Local provider with http://localhost:11434 | HTTP is allowed for localhost |
+| ai-028 | tls-required | Configure Local provider with http://remote-server.com | Connection MUST use HTTPS; HTTP rejected for non-localhost |
+| ai-029 | status-not-color-only | Inspect connection status with VoiceOver | Both the dot color AND text label are present; label announced by screen reader |
+| ai-030 | keyboard-tab-order | Press Tab repeatedly through the panel | Focus moves top-to-bottom through all interactive controls |
+| ai-031 | dynamic-model-fetch | Configure valid Claude API key, open model picker | Model list includes dynamically fetched models from Anthropic API |
+| ai-032 | silent-model-fetch-fallback | Configure Claude provider with no network | Model picker shows hardcoded defaults; debug log contains fallback message |
+| ai-033 | auto-enable-on-key-entry | Enter a new API key while enable toggle is off | Enable toggle switches to on automatically |
+| ai-034 | auto-enable-on-key-entry | Enter a new API key while enable toggle is already on | Enable toggle remains on (no change) |
+| ai-035 | inline-chat-control | Open AI settings with valid key configured | Quick Chat section visible at bottom of panel |
+| ai-036 | chat-respects-toggle | Disable AI features, type message in Quick Chat, send | Error message "AI features are disabled" displayed in chat |
 
 ## Edge Cases
 
@@ -346,16 +346,16 @@ Subsystem: `{{bundle_id}}` | Category: `AISettingsPanel`
 - **Data collected**: Provider selection, model selection, endpoint URL, timeout preference, connection status. API key (credential).
 - **Sensitive data**: API keys are classified as sensitive credentials.
 - **Storage**:
-  - API keys: Platform secure storage ONLY (Keychain, EncryptedSharedPreferences, HttpOnly cookies). See REQ-008, REQ-009.
-  - Non-sensitive preferences (provider, model, endpoint URL, timeout, enable toggle): Either simple tier (UserDefaults / SharedPreferences / localStorage) or complex tier (SQLite) — see REQ-009a.
+  - API keys: Platform secure storage ONLY (Keychain, EncryptedSharedPreferences, HttpOnly cookies). See secure-key-storage, no-insecure-key-storage.
+  - Non-sensitive preferences (provider, model, endpoint URL, timeout, enable toggle): Either simple tier (UserDefaults / SharedPreferences / localStorage) or complex tier (SQLite) — see non-sensitive-storage-tiers.
   - Connection status: In-memory only, not persisted.
 - **Transmission**: API keys are transmitted only to the configured provider endpoint over TLS/HTTPS. They are never sent to analytics, crash reporting, or any other service.
 - **Retention**: Preferences persist until the user changes them or the app is uninstalled. API keys persist in secure storage until explicitly removed by the user or app uninstall.
-- **Logging**: API keys MUST NOT appear in any log output (REQ-010). Provider names and connection results are logged at debug level.
+- **Logging**: API keys MUST NOT appear in any log output (no-key-in-logs). Provider names and connection results are logged at debug level.
 
 ## Platform Notes
 
-- **SwiftUI (macOS / iOS / visionOS)**: Implement as a `Form` with `Section` groups inside the settings window's content panel. Use `SecureField` for the API key. Store the API key via `KeychainAccess` or direct Security framework calls (`SecItemAdd`, `SecItemCopyMatching`). Non-sensitive settings use either `@AppStorage` (simple tier) or SQLite via the app's database manager (complex tier) — see REQ-009a. For the provider picker, use `Picker` with `.pickerStyle(.menu)`. Status dot: `Circle().fill(color).frame(width: 8, height: 8)`. Connection test: use `async/await` with `Task` and `withTaskCancellationHandler` for debounce. Dynamic model fetch: `URLSession` with `JSONDecoder`. Timeout: use `URLRequest.timeoutInterval`. For the enable/disable dimming, apply `.disabled(!isAIEnabled)` and `.opacity(isAIEnabled ? 1.0 : 0.4)` to the sections below the toggle.
+- **SwiftUI (macOS / iOS / visionOS)**: Implement as a `Form` with `Section` groups inside the settings window's content panel. Use `SecureField` for the API key. Store the API key via `KeychainAccess` or direct Security framework calls (`SecItemAdd`, `SecItemCopyMatching`). Non-sensitive settings use either `@AppStorage` (simple tier) or SQLite via the app's database manager (complex tier) — see non-sensitive-storage-tiers. For the provider picker, use `Picker` with `.pickerStyle(.menu)`. Status dot: `Circle().fill(color).frame(width: 8, height: 8)`. Connection test: use `async/await` with `Task` and `withTaskCancellationHandler` for debounce. Dynamic model fetch: `URLSession` with `JSONDecoder`. Timeout: use `URLRequest.timeoutInterval`. For the enable/disable dimming, apply `.disabled(!isAIEnabled)` and `.opacity(isAIEnabled ? 1.0 : 0.4)` to the sections below the toggle.
 - **Compose (Android)**: Use `Column` with `Card` sections. API key field: `OutlinedTextField` with `visualTransformation = PasswordVisualTransformation()`. Store key via `EncryptedSharedPreferences` from `androidx.security.crypto`. Non-sensitive settings in `DataStore` or `SharedPreferences`. Provider picker: `ExposedDropdownMenuBox`. Status dot: `Canvas` with `drawCircle`. Connection test: `viewModelScope.launch` with `withTimeout`. Debounce with `Flow.debounce(2000)`. Disable controls via `enabled = isAIEnabled` parameter and alpha modifier.
 - **React / Web**: Use a form with `<select>` for pickers, `<input type="password">` for API key. API key storage: send to a server endpoint that stores in an HttpOnly secure cookie or server-side encrypted store — NEVER use `localStorage` or `sessionStorage` for API keys. Non-sensitive settings: `localStorage`. Status dot: `<span>` with CSS `border-radius: 50%` and background color. Connection test: `fetch` with `AbortController` for timeout and cancellation. Debounce: `setTimeout`/`clearTimeout` or a utility like `lodash.debounce`.
 
@@ -377,8 +377,8 @@ Subsystem: `{{bundle_id}}` | Category: `AISettingsPanel`
 |---------|------|---------|
 | 1.0.0 | 2026-03-25 | Initial spec: settings UI, AI provider interface pattern, security requirements, connection testing |
 | 1.0.1 | 2026-03-25 | Added Design Decision noting current implementation is UI-stub only |
-| 1.0.2 | 2026-03-26 | Added two-tier storage model for non-sensitive settings (REQ-009a): simple (UserDefaults) or complex (SQLite). Clarified SQLite is explicitly excluded from acceptable API key storage in REQ-009. |
-| 1.1.0 | 2026-03-26 | Updated provider list (Google Gemini replaces Local). Updated model names to current versions. Added auto-enable on key entry (REQ-039). Added Quick Chat section (REQ-040/041). Changed connection test to inline minimal-completion approach (REQ-022). Relaxed auto-test to SHOULD (REQ-023). Added dependency on ai-chat-control.md. |
+| 1.0.2 | 2026-03-26 | Added two-tier storage model for non-sensitive settings (non-sensitive-storage-tiers): simple (UserDefaults) or complex (SQLite). Clarified SQLite is explicitly excluded from acceptable API key storage in no-insecure-key-storage. |
+| 1.1.0 | 2026-03-26 | Updated provider list (Google Gemini replaces Local). Updated model names to current versions. Added auto-enable on key entry (auto-enable-on-key-entry). Added Quick Chat section (inline-chat-control/chat-respects-toggle). Changed connection test to inline minimal-completion approach (test-connection-flow). Relaxed auto-test to SHOULD (auto-test-debounce). Added dependency on ai-chat-control.md. |
 
 ## Change History
 

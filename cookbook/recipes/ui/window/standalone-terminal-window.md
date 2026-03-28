@@ -49,44 +49,44 @@ A standalone terminal window with a session sidebar and terminal view — distin
 |------|-----------|
 | Standalone terminal window | A top-level window containing only a session sidebar and terminal view, not embedded in a project window |
 | Session sidebar | The left panel listing all terminal sessions owned by this window's session manager |
-| Session manager | A per-window controller owning an ordered list of sessions — see `ui/Recipes/terminal-pane.md` REQ-017 |
-| Terminal view | The rendering surface for the selected session — see `ui/Recipes/terminal-pane.md` REQ-024 through REQ-027 |
-| Active profile | The currently selected color profile applied to terminal rendering — see `ui/color-profile.md` REQ-008 |
+| Session manager | A per-window controller owning an ordered list of sessions — see `ui/Recipes/terminal-pane.md` per-window-manager |
+| Terminal view | The rendering surface for the selected session — see `ui/Recipes/terminal-pane.md` nsview-representable through palette-color-structure |
+| Active profile | The currently selected color profile applied to terminal rendering — see `ui/color-profile.md` single-active-profile |
 | Window scene | A SwiftUI `WindowGroup` identified by a string, used to open and manage window instances |
 
 ## Behavioral Requirements
 
 ### Window structure
 
-- **REQ-001**: The window MUST use a `WindowGroup(id: "terminal")` scene declaration.
-- **REQ-002**: The window MUST use an HSplitView with two sections: session list sidebar (left) and terminal view (right).
-- **REQ-003**: The session list sidebar MUST have a width between 150pt and 200pt.
-- **REQ-004**: The window frame MUST be persisted using the window-frame-persistence component (as defined in `ui/window-frame-persistence.md`). The autosave name MUST be `"terminal-window"`.
-- **REQ-005**: The window MUST enforce minimum size constraints: minWidth 600pt, minHeight 400pt.
+- **window-group-terminal**: The window MUST use a `WindowGroup(id: "terminal")` scene declaration.
+- **hsplit-sidebar-terminal**: The window MUST use an HSplitView with two sections: session list sidebar (left) and terminal view (right).
+- **sidebar-width-range**: The session list sidebar MUST have a width between 150pt and 200pt.
+- **persist-window-frame**: The window frame MUST be persisted using the window-frame-persistence component (as defined in `ui/window-frame-persistence.md`). The autosave name MUST be `"terminal-window"`.
+- **min-size-constraints**: The window MUST enforce minimum size constraints: minWidth 600pt, minHeight 400pt.
 
 ### Session management
 
-- **REQ-006**: The window MUST create its own `SessionManager` instance as a `@StateObject`. This instance MUST be independent from any project window's session manager.
-- **REQ-007**: On window appear (`onAppear`), if the session manager contains no sessions, a default session MUST be created automatically by calling `addSession()`.
-- **REQ-008**: On window close, all sessions MUST be terminated by calling `terminateAll()` on the session manager.
-- **REQ-009**: The session manager MUST be provided as `.focusedObject()` so that menu commands (New Session, Close Session, etc.) can dispatch to the correct window's session manager.
+- **own-session-manager**: The window MUST create its own `SessionManager` instance as a `@StateObject`. This instance MUST be independent from any project window's session manager.
+- **auto-create-default**: On window appear (`onAppear`), if the session manager contains no sessions, a default session MUST be created automatically by calling `addSession()`.
+- **terminate-on-close**: On window close, all sessions MUST be terminated by calling `terminateAll()` on the session manager.
+- **focused-object-dispatch**: The session manager MUST be provided as `.focusedObject()` so that menu commands (New Session, Close Session, etc.) can dispatch to the correct window's session manager.
 
 ### Terminal view and profile
 
-- **REQ-010**: The terminal view MUST apply the active color profile (colors, font, cursor style) from `TerminalProfile.activeProfile()`.
-- **REQ-011**: The active profile ID MUST be read from `@AppStorage`. This is a global setting shared across all terminal windows.
-- **REQ-012**: If the stored active profile ID is invalid (not found among available profiles), the window MUST fall back to the first built-in profile (Solarized Dark), as specified in `ui/color-profile.md` REQ-009.
+- **apply-active-profile**: The terminal view MUST apply the active color profile (colors, font, cursor style) from `TerminalProfile.activeProfile()`.
+- **global-profile-storage**: The active profile ID MUST be read from `@AppStorage`. This is a global setting shared across all terminal windows.
+- **profile-fallback-default**: If the stored active profile ID is invalid (not found among available profiles), the window MUST fall back to the first built-in profile (Solarized Dark), as specified in `ui/color-profile.md` fallback-to-default.
 
 ### Relationship to project window
 
-- **REQ-013**: The standalone terminal window and the project window's embedded terminal pane MUST share the same terminal-pane spec (`ui/Recipes/terminal-pane.md`) for all terminal behavior — PTY lifecycle, session management, terminal rendering, OSC handling, and session list display.
-- **REQ-014**: Each standalone terminal window MUST have its own `SessionManager` instance. Sessions MUST NOT be shared between standalone terminal windows or between standalone terminal windows and project windows.
+- **shared-terminal-spec**: The standalone terminal window and the project window's embedded terminal pane MUST share the same terminal-pane spec (`ui/Recipes/terminal-pane.md`) for all terminal behavior — PTY lifecycle, session management, terminal rendering, OSC handling, and session list display.
+- **independent-sessions**: Each standalone terminal window MUST have its own `SessionManager` instance. Sessions MUST NOT be shared between standalone terminal windows or between standalone terminal windows and project windows.
 
 ### Delegation to sub-components
 
-- **REQ-015**: The session list sidebar MUST delegate to [terminal-pane.md](terminal-pane.md) REQ-028 through REQ-032 for session list behavior (row display, selection binding, add button, context menu).
-- **REQ-016**: The terminal view MUST delegate to [terminal-pane.md](terminal-pane.md) REQ-024 through REQ-027 for terminal rendering, reparenting, and profile application.
-- **REQ-017**: The empty state MUST delegate to [terminal-pane.md](terminal-pane.md) REQ-033 for display when no sessions exist.
+- **delegate-session-list**: The session list sidebar MUST delegate to [terminal-pane.md](terminal-pane.md) sidebar-session-list through row-context-menu for session list behavior (row display, selection binding, add button, context menu).
+- **delegate-terminal-view**: The terminal view MUST delegate to [terminal-pane.md](terminal-pane.md) nsview-representable through palette-color-structure for terminal rendering, reparenting, and profile application.
+- **delegate-empty-state**: The empty state MUST delegate to [terminal-pane.md](terminal-pane.md) empty-state-no-sessions for display when no sessions exist.
 
 ## Appearance
 
@@ -125,43 +125,43 @@ A standalone terminal window with a session sidebar and terminal view — distin
 | Window opened, no sessions | Default session created automatically on appear; terminal view shows shell prompt |
 | One or more sessions, one selected | Selected session's terminal view reparented into container; sidebar highlights selected row |
 | Session added | New session appended, selected, terminal view shown |
-| Session removed | PTY terminated, smart selection applied (previous > next > nil per terminal-pane REQ-022) |
-| All sessions removed | Empty state displayed (per terminal-pane REQ-033); next session creation re-populates |
+| Session removed | PTY terminated, smart selection applied (previous > next > nil per terminal-pane remove-smart-select) |
+| All sessions removed | Empty state displayed (per terminal-pane empty-state-no-sessions); next session creation re-populates |
 | Profile changed | Colors/font applied to terminal view without reparenting |
-| Profile deleted while in use | Falls back to Solarized Dark (per color-profile REQ-009) |
+| Profile deleted while in use | Falls back to Solarized Dark (per color-profile fallback-to-default) |
 | Window closing | `terminateAll()` called; all PTYs cleaned up |
 | Multiple standalone windows open | Each window operates independently with its own session manager |
 
 ## Accessibility
 
-- **REQ-018**: The standalone terminal window MUST inherit all accessibility requirements from the terminal-pane spec (REQ-035 through REQ-041), including keyboard-navigable session list, accessible labels, VoiceOver support, and screen reader announcements.
-- **REQ-019**: The window MUST have an accessible window title that distinguishes it from project windows (e.g., "Terminal" or "Terminal — Session Name").
+- **inherit-pane-accessibility**: The standalone terminal window MUST inherit all accessibility requirements from the terminal-pane spec (keyboard-nav-sessions through terminated-announce), including keyboard-navigable session list, accessible labels, VoiceOver support, and screen reader announcements.
+- **accessible-window-title**: The window MUST have an accessible window title that distinguishes it from project windows (e.g., "Terminal" or "Terminal — Session Name").
 
 ## Conformance Test Vectors
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| stw-001 | REQ-001 | Inspect SwiftUI scene declaration | `WindowGroup(id: "terminal")` is registered |
-| stw-002 | REQ-002 | Open a standalone terminal window | HSplitView renders with session sidebar (left) and terminal view (right) |
-| stw-003 | REQ-003 | Inspect session sidebar width | Width is between 150pt and 200pt |
-| stw-004 | REQ-004 | Open terminal window, move to (300, 200), close, reopen | Window restores at (300, 200); autosave name is "terminal-window" |
-| stw-005 | REQ-005 | Attempt to resize window below 600x400 | Window enforces minimum size constraints |
-| stw-006 | REQ-006 | Open a standalone terminal window and a project window | Each has its own SessionManager instance; adding a session in one does not affect the other |
-| stw-007 | REQ-007 | Open a standalone terminal window for the first time | A default session ("Session 1") is created automatically; terminal shows shell prompt |
-| stw-008 | REQ-008 | Open window with 3 sessions, close window | All 3 PTYs terminated |
-| stw-009 | REQ-009 | Open two standalone terminal windows, focus window 1, invoke "New Session" menu | Session created in window 1's session manager only (via focusedObject dispatch) |
-| stw-010 | REQ-010, REQ-011 | Set active profile to Dracula, open terminal window | Terminal renders with Dracula colors (#282a36 background, #f8f8f2 foreground) |
-| stw-011 | REQ-012 | Set active profile ID in AppStorage to an invalid UUID, open terminal window | Terminal falls back to Solarized Dark (#002b36 background, #839496 foreground) |
-| stw-012 | REQ-013 | Compare terminal behavior in standalone window vs. project window terminal pane | Identical PTY lifecycle, OSC handling, session list, and rendering behavior |
-| stw-013 | REQ-014 | Open two standalone terminal windows, create sessions in each | Sessions are independent; removing a session in window A does not affect window B |
-| stw-014 | REQ-007 | Open window, remove all sessions, no auto-creation on removal | Empty state displayed; auto-creation only happens on initial appear |
-| stw-015 | REQ-015, REQ-016 | Open window, create multiple sessions, switch between them | Session list displays rows per terminal-pane spec; reparenting preserves scrollback |
-| stw-016 | REQ-019 | Enable VoiceOver, open terminal window | Window title announced as "Terminal" (or similar), distinguishable from project windows |
+| stw-001 | window-group-terminal | Inspect SwiftUI scene declaration | `WindowGroup(id: "terminal")` is registered |
+| stw-002 | hsplit-sidebar-terminal | Open a standalone terminal window | HSplitView renders with session sidebar (left) and terminal view (right) |
+| stw-003 | sidebar-width-range | Inspect session sidebar width | Width is between 150pt and 200pt |
+| stw-004 | persist-window-frame | Open terminal window, move to (300, 200), close, reopen | Window restores at (300, 200); autosave name is "terminal-window" |
+| stw-005 | min-size-constraints | Attempt to resize window below 600x400 | Window enforces minimum size constraints |
+| stw-006 | own-session-manager | Open a standalone terminal window and a project window | Each has its own SessionManager instance; adding a session in one does not affect the other |
+| stw-007 | auto-create-default | Open a standalone terminal window for the first time | A default session ("Session 1") is created automatically; terminal shows shell prompt |
+| stw-008 | terminate-on-close | Open window with 3 sessions, close window | All 3 PTYs terminated |
+| stw-009 | focused-object-dispatch | Open two standalone terminal windows, focus window 1, invoke "New Session" menu | Session created in window 1's session manager only (via focusedObject dispatch) |
+| stw-010 | apply-active-profile, global-profile-storage | Set active profile to Dracula, open terminal window | Terminal renders with Dracula colors (#282a36 background, #f8f8f2 foreground) |
+| stw-011 | profile-fallback-default | Set active profile ID in AppStorage to an invalid UUID, open terminal window | Terminal falls back to Solarized Dark (#002b36 background, #839496 foreground) |
+| stw-012 | shared-terminal-spec | Compare terminal behavior in standalone window vs. project window terminal pane | Identical PTY lifecycle, OSC handling, session list, and rendering behavior |
+| stw-013 | independent-sessions | Open two standalone terminal windows, create sessions in each | Sessions are independent; removing a session in window A does not affect window B |
+| stw-014 | auto-create-default | Open window, remove all sessions, no auto-creation on removal | Empty state displayed; auto-creation only happens on initial appear |
+| stw-015 | delegate-session-list, delegate-terminal-view | Open window, create multiple sessions, switch between them | Session list displays rows per terminal-pane spec; reparenting preserves scrollback |
+| stw-016 | accessible-window-title | Enable VoiceOver, open terminal window | Window title announced as "Terminal" (or similar), distinguishable from project windows |
 
 ## Edge Cases
 
 - **Last session closed by user**: When the user closes the last session, the empty state is displayed. A new session is NOT automatically created — auto-creation only occurs on initial `onAppear` when the session list is empty. The user must click the "+" button or "New Session" to create a new session.
-- **Profile deleted while in use**: If the active profile is a custom profile that gets deleted while a standalone terminal window is open, the window MUST fall back to Solarized Dark immediately (per color-profile REQ-009). Terminal colors update without reparenting.
+- **Profile deleted while in use**: If the active profile is a custom profile that gets deleted while a standalone terminal window is open, the window MUST fall back to Solarized Dark immediately (per color-profile fallback-to-default). Terminal colors update without reparenting.
 - **Multiple standalone terminal windows**: Each window has its own `SessionManager` instance. Opening N standalone terminal windows results in N independent session managers. Menu commands dispatch to the focused window's session manager via `.focusedObject()`.
 - **Standalone window and project window open simultaneously**: Both function independently. Changing the active color profile affects all terminal views across both window types (since profile ID is stored in `@AppStorage`, a global setting).
 - **Window restored after crash**: Session manager MUST NOT attempt to restore PTY sessions from a previous run. Sessions are ephemeral. On relaunch, the window opens with no sessions, and the `onAppear` auto-creation logic creates a fresh default session.
@@ -169,7 +169,7 @@ A standalone terminal window with a session sidebar and terminal view — distin
 - **Window opened with no shell available**: Falls back to `/bin/zsh` per terminal-pane edge case (shell not found). The standalone terminal window does not add additional fallback logic beyond what terminal-pane provides.
 - **Very many sessions in one window (50+)**: Session list MUST remain scrollable and performant (delegated to terminal-pane edge case handling).
 - **Frame persistence for multiple standalone windows**: All standalone terminal windows share the autosave name `"terminal-window"`. This means only one window's frame is persisted. If multiple standalone windows are needed with independent frame persistence, a future revision MAY introduce per-window identifiers.
-- **visionOS window placement**: On visionOS, the system manages window placement. Frame persistence (REQ-004) is a no-op on visionOS. Minimum size constraints still apply.
+- **visionOS window placement**: On visionOS, the system manages window placement. Frame persistence (persist-window-frame) is a no-op on visionOS. Minimum size constraints still apply.
 - **focusedObject not set**: If menu commands fire before any standalone terminal window is focused, the system's `FocusedValues` will not contain a session manager. Menu commands MUST be disabled when no session manager is available in the focused values.
 
 ## Logging
@@ -189,7 +189,7 @@ Subsystem: `{{bundle_id}}` | Category: `StandaloneTerminalWindow`
 
 ## Platform Notes
 
-- **SwiftUI (macOS)**: Declare the window scene as `WindowGroup(id: "terminal") { StandaloneTerminalView() }`. Inside `StandaloneTerminalView`, create a `@StateObject var sessionManager = SessionManager()`. Use `HSplitView` with the session list sidebar (per terminal-pane REQ-028–032) on the left and the terminal view (per terminal-pane REQ-024–027) on the right. Apply `.frame(minWidth: 150, maxWidth: 200)` on the sidebar and `.frame(maxWidth: .infinity)` on the terminal view. Set `.frame(minWidth: 600, minHeight: 400)` on the window content. Attach `.background(WindowAccessor(name: "terminal-window", onClose: { sessionManager.terminateAll() }))` for frame persistence and close handling. Publish the session manager via `.focusedObject(sessionManager)` so menu commands dispatch correctly. Read the active profile ID from `@AppStorage("activeProfileId")` and resolve the profile via `TerminalProfile.activeProfile()` with Solarized Dark fallback. On `onAppear`, check `sessionManager.sessions.isEmpty` and call `sessionManager.addSession()` if true.
+- **SwiftUI (macOS)**: Declare the window scene as `WindowGroup(id: "terminal") { StandaloneTerminalView() }`. Inside `StandaloneTerminalView`, create a `@StateObject var sessionManager = SessionManager()`. Use `HSplitView` with the session list sidebar (per terminal-pane sidebar-session-list through row-context-menu) on the left and the terminal view (per terminal-pane nsview-representable through palette-color-structure) on the right. Apply `.frame(minWidth: 150, maxWidth: 200)` on the sidebar and `.frame(maxWidth: .infinity)` on the terminal view. Set `.frame(minWidth: 600, minHeight: 400)` on the window content. Attach `.background(WindowAccessor(name: "terminal-window", onClose: { sessionManager.terminateAll() }))` for frame persistence and close handling. Publish the session manager via `.focusedObject(sessionManager)` so menu commands dispatch correctly. Read the active profile ID from `@AppStorage("activeProfileId")` and resolve the profile via `TerminalProfile.activeProfile()` with Solarized Dark fallback. On `onAppear`, check `sessionManager.sessions.isEmpty` and call `sessionManager.addSession()` if true.
 - **SwiftUI (visionOS)**: Same scene and view structure as macOS. The window opens as a standard visionOS window volume. `HSplitView` renders within the window. Frame persistence is not applicable — visionOS manages window placement. Minimum size constraints are respected by the system. Session sidebar may use `NavigationSplitView` with the session list in the sidebar column for better visionOS integration, as noted in terminal-pane platform notes.
 
 ## Privacy

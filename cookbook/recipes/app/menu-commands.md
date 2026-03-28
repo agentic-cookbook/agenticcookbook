@@ -108,46 +108,46 @@ New Workspace flow:
 
 ### Menu structure
 
-- **REQ-001**: The app MUST replace the default "New" menu item with app-specific creation commands using `CommandGroup(replacing: .newItem)`.
-- **REQ-002**: The menu MUST contain the following creation commands in order: "New Project", "New Session", "New Workspace".
-- **REQ-003**: Each creation command MUST have a unique keyboard shortcut:
+- **replace-default-new-item**: The app MUST replace the default "New" menu item with app-specific creation commands using `CommandGroup(replacing: .newItem)`.
+- **creation-command-order**: The menu MUST contain the following creation commands in order: "New Project", "New Session", "New Workspace".
+- **unique-keyboard-shortcuts**: Each creation command MUST have a unique keyboard shortcut:
   - New Project: Cmd-N (primary creation action)
   - New Session: Cmd-Shift-N (secondary, within current window)
   - New Workspace: Cmd-Option-N (tertiary)
-- **REQ-004**: Each menu item MUST display an SF Symbol icon on macOS:
+- **sf-symbol-icons**: Each menu item MUST display an SF Symbol icon on macOS:
   - New Project: a project-appropriate symbol (e.g., `folder.badge.plus`)
   - New Session: a session-appropriate symbol (e.g., `terminal`)
   - New Workspace: a workspace-appropriate symbol (e.g., `square.grid.2x2`)
-- **REQ-005**: Menu items that require a focused window (e.g., "New Session") MUST be disabled when no window is focused.
+- **disable-without-focus**: Menu items that require a focused window (e.g., "New Session") MUST be disabled when no window is focused.
 
 ### New Project flow
 
-- **REQ-006**: "New Project" MUST open an `NSOpenPanel` configured for directory selection (`canChooseDirectories = true`, `canChooseFiles = false`).
-- **REQ-007**: The selected directory MUST be validated to contain a `.git` directory. If the `.git` directory is not present, the command MUST show an error alert with a clear message (e.g., "The selected folder is not a Git repository. Please select a folder that contains a .git directory.").
-- **REQ-008**: If a project package already exists at the expected path (`{selected_dir}/{dir_name}.{extension}`), the command MUST open the existing package instead of creating a duplicate.
-- **REQ-009**: If no existing package is found, the command MUST create a new project package at `{selected_dir}/{dir_name}.{extension}` following the package-document spec (see dependency `package-document.md@1.0.0`).
-- **REQ-010**: After creation or discovery of an existing package, the command MUST open the document via `NSDocumentController.shared.openDocument(withContentsOf:display:)`.
-- **REQ-011**: If document creation or opening fails, the command MUST show an error alert with the failure reason.
+- **open-panel-directory-mode**: "New Project" MUST open an `NSOpenPanel` configured for directory selection (`canChooseDirectories = true`, `canChooseFiles = false`).
+- **validate-git-directory**: The selected directory MUST be validated to contain a `.git` directory. If the `.git` directory is not present, the command MUST show an error alert with a clear message (e.g., "The selected folder is not a Git repository. Please select a folder that contains a .git directory.").
+- **open-existing-package**: If a project package already exists at the expected path (`{selected_dir}/{dir_name}.{extension}`), the command MUST open the existing package instead of creating a duplicate.
+- **create-new-package**: If no existing package is found, the command MUST create a new project package at `{selected_dir}/{dir_name}.{extension}` following the package-document spec (see dependency `package-document.md@1.0.0`).
+- **open-via-document-controller**: After creation or discovery of an existing package, the command MUST open the document via `NSDocumentController.shared.openDocument(withContentsOf:display:)`.
+- **show-creation-error-alert**: If document creation or opening fails, the command MUST show an error alert with the failure reason.
 
 ### New Workspace flow
 
-- **REQ-012**: "New Workspace" MUST open an `NSSavePanel` for file creation.
-- **REQ-013**: The save panel MUST enforce the workspace file extension (e.g., `.catnip-workspace`) via `allowedContentTypes` set to the workspace UTType.
-- **REQ-014**: After the user confirms the save location, the command MUST create a new workspace package at the chosen path following the package-document spec.
-- **REQ-015**: After creation, the command MUST open the new document via `NSDocumentController.shared.openDocument(withContentsOf:display:)`.
-- **REQ-016**: If document creation or opening fails, the command MUST show an error alert with the failure reason.
+- **workspace-save-panel**: "New Workspace" MUST open an `NSSavePanel` for file creation.
+- **enforce-workspace-extension**: The save panel MUST enforce the workspace file extension (e.g., `.catnip-workspace`) via `allowedContentTypes` set to the workspace UTType.
+- **create-workspace-package**: After the user confirms the save location, the command MUST create a new workspace package at the chosen path following the package-document spec.
+- **open-workspace-document**: After creation, the command MUST open the new document via `NSDocumentController.shared.openDocument(withContentsOf:display:)`.
+- **show-workspace-error-alert**: If document creation or opening fails, the command MUST show an error alert with the failure reason.
 
 ### New Session flow
 
-- **REQ-017**: "New Session" MUST create a new session within the currently focused project window.
-- **REQ-018**: The command MUST use `@FocusedObject` to access the current window's project state.
-- **REQ-019**: If no focused object is available (no project window focused), the menu item MUST be disabled (grayed out).
+- **create-session-in-window**: "New Session" MUST create a new session within the currently focused project window.
+- **focused-object-project-state**: The command MUST use `@FocusedObject` to access the current window's project state.
+- **disable-without-project**: If no focused object is available (no project window focused), the menu item MUST be disabled (grayed out).
 
 ### Per-window command dispatch
 
-- **REQ-020**: Commands that operate on the current window MUST use `@FocusedObject` to access per-window state.
-- **REQ-021**: Views MUST provide their per-window state via the `.focusedObject()` modifier on the view hierarchy.
-- **REQ-022**: Commands MUST gracefully handle a `nil` focused object by disabling the menu item, not by crashing or showing an error.
+- **focused-object-dispatch**: Commands that operate on the current window MUST use `@FocusedObject` to access per-window state.
+- **provide-focused-object**: Views MUST provide their per-window state via the `.focusedObject()` modifier on the view hierarchy.
+- **graceful-nil-focused-object**: Commands MUST gracefully handle a `nil` focused object by disabling the menu item, not by crashing or showing an error.
 
 ## States
 
@@ -173,35 +173,35 @@ New Workspace flow:
 
 ## Accessibility
 
-- **REQ-023**: All menu items MUST be accessible via VoiceOver with their full title (e.g., "New Project, Command N").
-- **REQ-024**: Error alerts MUST be announced by VoiceOver when they appear.
-- **REQ-025**: Disabled menu items MUST convey their disabled state to assistive technologies.
-- **REQ-026**: All menu keyboard shortcuts MUST be functional when VoiceOver is active, using VoiceOver's pass-through mechanism for keyboard commands.
+- **voiceover-menu-access**: All menu items MUST be accessible via VoiceOver with their full title (e.g., "New Project, Command N").
+- **voiceover-error-announce**: Error alerts MUST be announced by VoiceOver when they appear.
+- **disabled-state-assistive**: Disabled menu items MUST convey their disabled state to assistive technologies.
+- **voiceover-shortcut-passthrough**: All menu keyboard shortcuts MUST be functional when VoiceOver is active, using VoiceOver's pass-through mechanism for keyboard commands.
 
 ## Conformance Test Vectors
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| mc-001 | REQ-001, REQ-002 | Open the File menu | Default "New" item is replaced with "New Project", "New Session", "New Workspace" in that order |
-| mc-002 | REQ-003 | Press Cmd-N | "New Project" flow initiates (NSOpenPanel appears) |
-| mc-003 | REQ-003 | Press Cmd-Shift-N with a project window focused | "New Session" creates a session in the focused project |
-| mc-004 | REQ-003 | Press Cmd-Option-N | "New Workspace" flow initiates (NSSavePanel appears) |
-| mc-005 | REQ-004 | Open the File menu on macOS | Each creation command displays its SF Symbol icon |
-| mc-006 | REQ-005, REQ-019, REQ-022 | Press Cmd-Shift-N with no window focused | Menu item is disabled; nothing happens |
-| mc-007 | REQ-006 | Trigger "New Project" | NSOpenPanel opens with directory selection enabled and file selection disabled |
-| mc-008 | REQ-007 | Select a directory without a .git subdirectory | Error alert appears: "The selected folder is not a Git repository." |
-| mc-009 | REQ-007 | Select a directory containing a .git subdirectory | Validation passes; flow proceeds to package creation or opening |
-| mc-010 | REQ-008, REQ-010 | Select a directory that already contains `dirname.catnip-proj` | Existing package is opened; no new package created |
-| mc-011 | REQ-009, REQ-010 | Select a valid git directory with no existing package | New package created at `{dir}/{dirname}.{ext}`; document opens |
-| mc-012 | REQ-011 | Select a directory where package creation fails (e.g., read-only filesystem) | Error alert displayed with failure reason |
-| mc-013 | REQ-012, REQ-013 | Trigger "New Workspace" | NSSavePanel opens with workspace file extension enforced |
-| mc-014 | REQ-014, REQ-015 | Confirm save location in NSSavePanel | Workspace package created at chosen path; document opens |
-| mc-015 | REQ-016 | Confirm save location on a read-only volume | Error alert displayed with failure reason |
-| mc-016 | REQ-017, REQ-018 | Press Cmd-Shift-N with project window focused | New session created in the focused project |
-| mc-017 | REQ-020, REQ-021 | Focus Window A, press Cmd-Shift-N, then focus Window B, press Cmd-Shift-N | Session created in Window A's project first, then in Window B's project |
-| mc-018 | REQ-022 | Focus a non-project window (e.g., settings), press Cmd-Shift-N | Menu item is disabled; no action taken |
-| mc-019 | REQ-023 | Enable VoiceOver, navigate to File menu | VoiceOver announces each menu item with title and shortcut |
-| mc-020 | REQ-024 | Trigger validation error with VoiceOver enabled | VoiceOver announces the error alert |
+| mc-001 | replace-default-new-item, creation-command-order | Open the File menu | Default "New" item is replaced with "New Project", "New Session", "New Workspace" in that order |
+| mc-002 | unique-keyboard-shortcuts | Press Cmd-N | "New Project" flow initiates (NSOpenPanel appears) |
+| mc-003 | unique-keyboard-shortcuts | Press Cmd-Shift-N with a project window focused | "New Session" creates a session in the focused project |
+| mc-004 | unique-keyboard-shortcuts | Press Cmd-Option-N | "New Workspace" flow initiates (NSSavePanel appears) |
+| mc-005 | sf-symbol-icons | Open the File menu on macOS | Each creation command displays its SF Symbol icon |
+| mc-006 | disable-without-focus, disable-without-project, graceful-nil-focused-object | Press Cmd-Shift-N with no window focused | Menu item is disabled; nothing happens |
+| mc-007 | open-panel-directory-mode | Trigger "New Project" | NSOpenPanel opens with directory selection enabled and file selection disabled |
+| mc-008 | validate-git-directory | Select a directory without a .git subdirectory | Error alert appears: "The selected folder is not a Git repository." |
+| mc-009 | validate-git-directory | Select a directory containing a .git subdirectory | Validation passes; flow proceeds to package creation or opening |
+| mc-010 | open-existing-package, open-via-document-controller | Select a directory that already contains `dirname.catnip-proj` | Existing package is opened; no new package created |
+| mc-011 | create-new-package, open-via-document-controller | Select a valid git directory with no existing package | New package created at `{dir}/{dirname}.{ext}`; document opens |
+| mc-012 | show-creation-error-alert | Select a directory where package creation fails (e.g., read-only filesystem) | Error alert displayed with failure reason |
+| mc-013 | workspace-save-panel, enforce-workspace-extension | Trigger "New Workspace" | NSSavePanel opens with workspace file extension enforced |
+| mc-014 | create-workspace-package, open-workspace-document | Confirm save location in NSSavePanel | Workspace package created at chosen path; document opens |
+| mc-015 | show-workspace-error-alert | Confirm save location on a read-only volume | Error alert displayed with failure reason |
+| mc-016 | create-session-in-window, focused-object-project-state | Press Cmd-Shift-N with project window focused | New session created in the focused project |
+| mc-017 | focused-object-dispatch, provide-focused-object | Focus Window A, press Cmd-Shift-N, then focus Window B, press Cmd-Shift-N | Session created in Window A's project first, then in Window B's project |
+| mc-018 | graceful-nil-focused-object | Focus a non-project window (e.g., settings), press Cmd-Shift-N | Menu item is disabled; no action taken |
+| mc-019 | voiceover-menu-access | Enable VoiceOver, navigate to File menu | VoiceOver announces each menu item with title and shortcut |
+| mc-020 | voiceover-error-announce | Trigger validation error with VoiceOver enabled | VoiceOver announces the error alert |
 
 ## Edge Cases
 

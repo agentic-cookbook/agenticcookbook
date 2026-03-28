@@ -60,17 +60,17 @@ A lifecycle pattern for synchronizing an in-memory file tree with the filesystem
 
 ### Phase 1 — Cache Load
 
-- **REQ-001**: On startup, the coordinator MUST attempt to load a cached tree from the JSON file `file-tree-cache.json` for instant display.
-- **REQ-002**: The cache MUST be loaded synchronously on a background queue so the main thread is never blocked.
-- **REQ-003**: If no cache file exists or the file cannot be read, the coordinator MUST present an empty or loading state. It MUST NOT crash or block.
-- **REQ-004**: The loaded cache MUST be published to the UI before Phase 2 begins, so users see an instant tree.
+- **load-cached-tree**: On startup, the coordinator MUST attempt to load a cached tree from the JSON file `file-tree-cache.json` for instant display.
+- **background-cache-load**: The cache MUST be loaded synchronously on a background queue so the main thread is never blocked.
+- **handle-missing-cache**: If no cache file exists or the file cannot be read, the coordinator MUST present an empty or loading state. It MUST NOT crash or block.
+- **publish-before-sync**: The loaded cache MUST be published to the UI before Phase 2 begins, so users see an instant tree.
 
 ### Phase 2 — Full Sync
 
-- **REQ-005**: The coordinator MUST rebuild the entire file tree from the filesystem on a background queue.
-- **REQ-006**: Top-level directories MUST be scanned in parallel via an `OperationQueue`.
-- **REQ-007**: Parallel scan concurrency MUST be controlled by a configurable `maxScanWorkers` property. The default value MUST be `3`. Valid range MUST be `1` to `8` inclusive. Values outside this range MUST be clamped.
-- **REQ-008**: Each file tree node MUST contain the following fields:
+- **rebuild-from-filesystem**: The coordinator MUST rebuild the entire file tree from the filesystem on a background queue.
+- **parallel-top-level-scan**: Top-level directories MUST be scanned in parallel via an `OperationQueue`.
+- **configurable-scan-workers**: Parallel scan concurrency MUST be controlled by a configurable `maxScanWorkers` property. The default value MUST be `3`. Valid range MUST be `1` to `8` inclusive. Values outside this range MUST be clamped.
+- **file-tree-node-fields**: Each file tree node MUST contain the following fields:
   - `path` — absolute filesystem path (`String`)
   - `name` — display name (`String`)
   - `isDirectory` — whether the node is a directory (`Bool`)
@@ -78,27 +78,27 @@ A lifecycle pattern for synchronizing an in-memory file tree with the filesystem
   - `fileSize` — size in bytes (`Int?`, nil for directories)
   - `modificationDate` — last modification timestamp (`Date?`)
   - `children` — ordered child nodes (`[FileTreeNode]?`, nil for files)
-- **REQ-009**: After the full sync completes, the coordinator MUST save the updated cache to disk as a fire-and-forget operation on a background queue. A save failure MUST NOT block or crash the coordinator.
-- **REQ-010**: The coordinator MUST publish an `isSyncing` boolean state that is `true` during Phase 2 and `false` after it completes. The UI SHOULD use this to display a status bar indicator.
+- **save-cache-after-sync**: After the full sync completes, the coordinator MUST save the updated cache to disk as a fire-and-forget operation on a background queue. A save failure MUST NOT block or crash the coordinator.
+- **publish-syncing-state**: The coordinator MUST publish an `isSyncing` boolean state that is `true` during Phase 2 and `false` after it completes. The UI SHOULD use this to display a status bar indicator.
 
 ### Phase 3 — Watch
 
-- **REQ-011**: After full sync completes, the coordinator MUST start filesystem monitoring using FSEvents (macOS) with file-level granularity.
-- **REQ-012**: The FSEvents stream MUST use a debounce latency of `0.5` seconds to coalesce rapid changes.
-- **REQ-013**: The coordinator MUST exclude paths matching configurable prefixes from change processing. The default excluded prefixes MUST include `.git` and package directories.
-- **REQ-014**: Change events from the FSEvents callback MUST be dispatched to the main thread for UI updates.
+- **start-fsevents-watch**: After full sync completes, the coordinator MUST start filesystem monitoring using FSEvents (macOS) with file-level granularity.
+- **debounce-latency**: The FSEvents stream MUST use a debounce latency of `0.5` seconds to coalesce rapid changes.
+- **exclude-path-prefixes**: The coordinator MUST exclude paths matching configurable prefixes from change processing. The default excluded prefixes MUST include `.git` and package directories.
+- **dispatch-to-main-thread**: Change events from the FSEvents callback MUST be dispatched to the main thread for UI updates.
 
 ### Phase 4 — Surgical Update
 
-- **REQ-015**: On receiving filesystem change events, the coordinator MUST only reload the children of the affected directories — not rebuild the full tree.
-- **REQ-016**: The coordinator MUST build a path index from the changed file paths to identify the set of affected parent directories.
-- **REQ-017**: New children for affected directories MUST be loaded on a background queue.
-- **REQ-018**: The updated children MUST be applied to the in-memory tree on the main thread.
-- **REQ-019**: After a surgical update, the coordinator MUST save the updated cache to disk (fire-and-forget on a background queue).
+- **surgical-reload-affected**: On receiving filesystem change events, the coordinator MUST only reload the children of the affected directories — not rebuild the full tree.
+- **build-path-index**: The coordinator MUST build a path index from the changed file paths to identify the set of affected parent directories.
+- **background-load-children**: New children for affected directories MUST be loaded on a background queue.
+- **apply-on-main-thread**: The updated children MUST be applied to the in-memory tree on the main thread.
+- **save-cache-after-update**: After a surgical update, the coordinator MUST save the updated cache to disk (fire-and-forget on a background queue).
 
 ### Cache Format
 
-- **REQ-020**: The cache MUST be stored as a JSON file using the following entry structure:
+- **json-cache-format**: The cache MUST be stored as a JSON file using the following entry structure:
   ```
   FileTreeCacheEntry {
     path: String
@@ -110,22 +110,22 @@ A lifecycle pattern for synchronizing an in-memory file tree with the filesystem
     modificationDate: Date?   // ISO 8601 encoded
   }
   ```
-- **REQ-021**: The cache MUST be a flattened array of `FileTreeCacheEntry` values. Parent-child relationships MUST be reconstructed from `path` / `parentPath` on load.
-- **REQ-022**: Cache writes MUST be atomic — write to a temporary file first, then rename into place. This prevents corruption from interrupted writes.
+- **flattened-cache-array**: The cache MUST be a flattened array of `FileTreeCacheEntry` values. Parent-child relationships MUST be reconstructed from `path` / `parentPath` on load.
+- **atomic-cache-writes**: Cache writes MUST be atomic — write to a temporary file first, then rename into place. This prevents corruption from interrupted writes.
 
 ### FSEvents Configuration (macOS)
 
-- **REQ-023**: The FSEvents stream MUST be created with `kFSEventStreamCreateFlagFileEvents` for file-level granularity.
-- **REQ-024**: The FSEvents dispatch queue MUST use utility QoS.
-- **REQ-025**: Excluded path prefixes MUST be configurable.
-- **REQ-026**: The FSEvents callback MUST filter changed paths against the excluded prefixes before dispatching.
+- **file-level-granularity**: The FSEvents stream MUST be created with `kFSEventStreamCreateFlagFileEvents` for file-level granularity.
+- **utility-qos-queue**: The FSEvents dispatch queue MUST use utility QoS.
+- **configurable-exclusions**: Excluded path prefixes MUST be configurable.
+- **filter-excluded-paths**: The FSEvents callback MUST filter changed paths against the excluded prefixes before dispatching.
 
 ### Workspace Variant
 
-- **REQ-027**: `WorkspaceDirectoryManager` MUST manage a pool of coordinators, one per workspace directory entry.
-- **REQ-028**: `WorkspaceDirectoryManager` MUST aggregate the `isSyncing` state across all coordinators. The workspace-level `isSyncing` MUST be `true` if any coordinator is syncing.
-- **REQ-029**: `WorkspaceDirectoryManager` MUST additionally scan for `.catnip-proj` packages for auto-discovery of projects.
-- **REQ-030**: Each coordinator in the workspace MUST use a dedicated cache directory named `cache-{entryID}`.
+- **coordinator-per-entry**: `WorkspaceDirectoryManager` MUST manage a pool of coordinators, one per workspace directory entry.
+- **aggregate-syncing-state**: `WorkspaceDirectoryManager` MUST aggregate the `isSyncing` state across all coordinators. The workspace-level `isSyncing` MUST be `true` if any coordinator is syncing.
+- **auto-discover-packages**: `WorkspaceDirectoryManager` MUST additionally scan for `.catnip-proj` packages for auto-discovery of projects.
+- **dedicated-cache-directory**: Each coordinator in the workspace MUST use a dedicated cache directory named `cache-{entryID}`.
 
 ## States
 
@@ -144,39 +144,39 @@ A lifecycle pattern for synchronizing an in-memory file tree with the filesystem
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| dirsync-001 | REQ-001, REQ-004 | Launch with valid `file-tree-cache.json` on disk | Cached tree is published to UI before full sync begins |
-| dirsync-002 | REQ-003 | Launch with no cache file on disk | Empty/loading state shown, full sync begins without error |
-| dirsync-003 | REQ-003 | Launch with corrupt (invalid JSON) cache file | Empty/loading state shown, full sync begins without error |
-| dirsync-004 | REQ-005, REQ-006 | Full sync on directory with 5 top-level subdirectories | All 5 subdirectories scanned, tree matches filesystem |
-| dirsync-005 | REQ-007 | Set `maxScanWorkers` to 0 | Value clamped to 1, scan proceeds with 1 worker |
-| dirsync-006 | REQ-007 | Set `maxScanWorkers` to 10 | Value clamped to 8, scan proceeds with 8 workers |
-| dirsync-007 | REQ-008 | Scan a directory containing a file (100 bytes, modified 2026-01-15) and a subdirectory | File node has correct `fileSize`, `modificationDate`, `isDirectory: false`; directory node has `isDirectory: true`, `children` populated |
-| dirsync-008 | REQ-009 | Full sync completes | `file-tree-cache.json` exists on disk with valid JSON content |
-| dirsync-009 | REQ-010 | Observe `isSyncing` during full sync | Value is `true` during scan, `false` after completion |
-| dirsync-010 | REQ-012 | Create 10 files within 0.3 seconds | Single coalesced change event delivered after 0.5s debounce |
-| dirsync-011 | REQ-013 | Create a file inside `.git/` | No surgical update triggered, tree unchanged |
-| dirsync-012 | REQ-015, REQ-016 | Create a new file in subdirectory `src/` | Only `src/` children are reloaded; sibling directories untouched |
-| dirsync-013 | REQ-018 | Surgical update completes | Updated nodes visible in UI on main thread |
-| dirsync-014 | REQ-019 | Surgical update completes | Cache file on disk reflects the new file |
-| dirsync-015 | REQ-022 | Kill process during cache write | On next launch, cache file is either the old valid version or the new valid version — never partial/corrupt |
-| dirsync-016 | REQ-027 | Workspace with 3 directory entries | 3 coordinators created, one per entry |
-| dirsync-017 | REQ-028 | 1 of 3 workspace coordinators is syncing | Workspace-level `isSyncing` is `true` |
-| dirsync-018 | REQ-028 | All 3 workspace coordinators finish syncing | Workspace-level `isSyncing` is `false` |
-| dirsync-019 | REQ-029 | Workspace directory contains a `.catnip-proj` package | Package is auto-discovered and reported |
-| dirsync-020 | REQ-030 | Two workspace entries with IDs "abc" and "def" | Cache directories are `cache-abc` and `cache-def` respectively |
-| dirsync-021 | REQ-021 | Load cache with 100 entries, verify parent-child wiring | All entries with `parentPath` matching another entry's `path` are wired as children |
+| dirsync-001 | load-cached-tree, publish-before-sync | Launch with valid `file-tree-cache.json` on disk | Cached tree is published to UI before full sync begins |
+| dirsync-002 | handle-missing-cache | Launch with no cache file on disk | Empty/loading state shown, full sync begins without error |
+| dirsync-003 | handle-missing-cache | Launch with corrupt (invalid JSON) cache file | Empty/loading state shown, full sync begins without error |
+| dirsync-004 | rebuild-from-filesystem, parallel-top-level-scan | Full sync on directory with 5 top-level subdirectories | All 5 subdirectories scanned, tree matches filesystem |
+| dirsync-005 | configurable-scan-workers | Set `maxScanWorkers` to 0 | Value clamped to 1, scan proceeds with 1 worker |
+| dirsync-006 | configurable-scan-workers | Set `maxScanWorkers` to 10 | Value clamped to 8, scan proceeds with 8 workers |
+| dirsync-007 | file-tree-node-fields | Scan a directory containing a file (100 bytes, modified 2026-01-15) and a subdirectory | File node has correct `fileSize`, `modificationDate`, `isDirectory: false`; directory node has `isDirectory: true`, `children` populated |
+| dirsync-008 | save-cache-after-sync | Full sync completes | `file-tree-cache.json` exists on disk with valid JSON content |
+| dirsync-009 | publish-syncing-state | Observe `isSyncing` during full sync | Value is `true` during scan, `false` after completion |
+| dirsync-010 | debounce-latency | Create 10 files within 0.3 seconds | Single coalesced change event delivered after 0.5s debounce |
+| dirsync-011 | exclude-path-prefixes | Create a file inside `.git/` | No surgical update triggered, tree unchanged |
+| dirsync-012 | surgical-reload-affected, build-path-index | Create a new file in subdirectory `src/` | Only `src/` children are reloaded; sibling directories untouched |
+| dirsync-013 | apply-on-main-thread | Surgical update completes | Updated nodes visible in UI on main thread |
+| dirsync-014 | save-cache-after-update | Surgical update completes | Cache file on disk reflects the new file |
+| dirsync-015 | atomic-cache-writes | Kill process during cache write | On next launch, cache file is either the old valid version or the new valid version — never partial/corrupt |
+| dirsync-016 | coordinator-per-entry | Workspace with 3 directory entries | 3 coordinators created, one per entry |
+| dirsync-017 | aggregate-syncing-state | 1 of 3 workspace coordinators is syncing | Workspace-level `isSyncing` is `true` |
+| dirsync-018 | aggregate-syncing-state | All 3 workspace coordinators finish syncing | Workspace-level `isSyncing` is `false` |
+| dirsync-019 | auto-discover-packages | Workspace directory contains a `.catnip-proj` package | Package is auto-discovered and reported |
+| dirsync-020 | dedicated-cache-directory | Two workspace entries with IDs "abc" and "def" | Cache directories are `cache-abc` and `cache-def` respectively |
+| dirsync-021 | flattened-cache-array | Load cache with 100 entries, verify parent-child wiring | All entries with `parentPath` matching another entry's `path` are wired as children |
 
 ## Edge Cases
 
-- **Large repository (100k+ files)**: Full sync SHOULD complete within a reasonable time. Parallel scanning (REQ-006) and configurable concurrency (REQ-007) mitigate this. The UI MUST remain responsive during sync — all scanning is off the main thread.
-- **Rapid filesystem changes**: The 0.5s debounce (REQ-012) coalesces rapid changes into a single surgical update. If changes arrive faster than the update cycle, the coordinator SHOULD batch them rather than queueing unbounded updates.
-- **Corrupt cache file**: The coordinator MUST handle malformed JSON gracefully (REQ-003) — log a warning and proceed with full sync as if no cache exists.
+- **Large repository (100k+ files)**: Full sync SHOULD complete within a reasonable time. Parallel scanning (parallel-top-level-scan) and configurable concurrency (configurable-scan-workers) mitigate this. The UI MUST remain responsive during sync — all scanning is off the main thread.
+- **Rapid filesystem changes**: The 0.5s debounce (debounce-latency) coalesces rapid changes into a single surgical update. If changes arrive faster than the update cycle, the coordinator SHOULD batch them rather than queueing unbounded updates.
+- **Corrupt cache file**: The coordinator MUST handle malformed JSON gracefully (handle-missing-cache) — log a warning and proceed with full sync as if no cache exists.
 - **Cache file missing or unreadable**: Same behavior as corrupt cache — empty/loading state, then full sync.
 - **Network/remote drives**: FSEvents may not work reliably on network-mounted volumes. The coordinator SHOULD fall back to periodic polling or disable watch mode for non-local filesystems. Implementors SHOULD detect volume type and adapt.
 - **Directory deleted while watching**: The coordinator MUST handle the root directory being deleted or unmounted. It SHOULD publish an empty tree and stop the FSEvents stream.
 - **Permission denied on subdirectory**: The coordinator MUST skip inaccessible directories during scan and log a warning. It MUST NOT crash or abort the entire sync.
 - **Symlink cycles**: The coordinator MUST NOT follow symlinks recursively into cycles. It SHOULD detect symlinks and either skip or represent them as leaf nodes.
-- **Package directories**: Directories identified as packages (REQ-008 `isPackage`) SHOULD NOT have their children scanned by default. They are treated as opaque files.
+- **Package directories**: Directories identified as packages (file-tree-node-fields `isPackage`) SHOULD NOT have their children scanned by default. They are treated as opaque files.
 - **Concurrent cache writes**: If a surgical update triggers a cache save while a previous save is still in progress, the coordinator SHOULD coalesce or serialize writes to avoid conflicts.
 - **Empty directory**: A directory with no children MUST be represented as a node with an empty `children` array, not `nil`.
 

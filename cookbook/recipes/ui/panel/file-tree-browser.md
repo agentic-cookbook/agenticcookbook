@@ -59,42 +59,42 @@ A hierarchical file browser that displays a project's directory structure using 
 
 ### Tree display
 
-- **REQ-001**: The file tree MUST render using List + OutlineGroup to provide expandable/collapsible directory hierarchy.
-- **REQ-002**: The tree MUST use lazy child loading — children MUST be loaded on demand when a directory is expanded, not when the tree is first rendered.
-- **REQ-003**: Top-level directories MUST be scanned in parallel via OperationQueue for faster initial load.
-- **REQ-004**: The tree MUST use `.listStyle(.sidebar)` on Apple platforms.
+- **outline-group-hierarchy**: The file tree MUST render using List + OutlineGroup to provide expandable/collapsible directory hierarchy.
+- **lazy-child-loading**: The tree MUST use lazy child loading — children MUST be loaded on demand when a directory is expanded, not when the tree is first rendered.
+- **parallel-top-level-scan**: Top-level directories MUST be scanned in parallel via OperationQueue for faster initial load.
+- **sidebar-list-style**: The tree MUST use `.listStyle(.sidebar)` on Apple platforms.
 
 ### Sorting
 
-- **REQ-005**: Entries MUST be sorted with directories first, then files. Within each group, entries MUST be sorted alphabetically using case-insensitive comparison.
+- **dirs-first-alpha-sort**: Entries MUST be sorted with directories first, then files. Within each group, entries MUST be sorted alphabetically using case-insensitive comparison.
 
 ### Filtering and visibility
 
-- **REQ-006**: Ignore patterns MUST use POSIX fnmatch() wildcards (`*`, `?`). Entries matching any ignore pattern MUST be hidden from the tree.
-- **REQ-007**: Hidden files (dotfiles) MUST be shown in the tree.
-- **REQ-008**: `.DS_Store` files MUST always be hidden regardless of ignore patterns (hardcoded skip).
+- **fnmatch-ignore-patterns**: Ignore patterns MUST use POSIX fnmatch() wildcards (`*`, `?`). Entries matching any ignore pattern MUST be hidden from the tree.
+- **show-dotfiles**: Hidden files (dotfiles) MUST be shown in the tree.
+- **hide-ds-store**: `.DS_Store` files MUST always be hidden regardless of ignore patterns (hardcoded skip).
 
 ### Packages
 
-- **REQ-009**: Directories recognized as packages (e.g., `.catnip-proj` and other registered package extensions) MUST be displayed as single non-expandable items with the package icon.
+- **package-dir-display**: Directories recognized as packages (e.g., `.catnip-proj` and other registered package extensions) MUST be displayed as single non-expandable items with the package icon.
 
 ### Selection
 
-- **REQ-010**: The tree MUST support single file selection via a selection binding.
+- **single-file-selection**: The tree MUST support single file selection via a selection binding.
 
 ### Git status integration
 
-- **REQ-011**: Each file row MUST display a git status badge when the file has a git status. The badge MUST be right-aligned, use a monospaced font, and be colored per status type. Badge rendering MUST delegate to [git-status-indicator.md](../git-status-indicator.md).
-- **REQ-012**: Git status MUST refresh with a 0.5-second debounce after file changes to prevent thrashing.
-- **REQ-013**: Git status MUST be fetched on a background queue and MUST NOT block the main thread.
+- **git-status-badge**: Each file row MUST display a git status badge when the file has a git status. The badge MUST be right-aligned, use a monospaced font, and be colored per status type. Badge rendering MUST delegate to [git-status-indicator.md](../git-status-indicator.md).
+- **git-debounce-refresh**: Git status MUST refresh with a 0.5-second debounce after file changes to prevent thrashing.
+- **git-background-fetch**: Git status MUST be fetched on a background queue and MUST NOT block the main thread.
 
 ### Status bar integration
 
-- **REQ-014**: During directory sync operations, a status bar overlay MUST be shown. Display MUST delegate to [status-bar.md](../status-bar.md).
+- **sync-status-bar**: During directory sync operations, a status bar overlay MUST be shown. Display MUST delegate to [status-bar.md](../status-bar.md).
 
 ### Directory sync lifecycle
 
-- **REQ-015**: File system monitoring and sync behavior MUST delegate to [directory-sync.md](directory-sync.md).
+- **delegate-directory-sync**: File system monitoring and sync behavior MUST delegate to [directory-sync.md](directory-sync.md).
 
 ## Appearance
 
@@ -162,51 +162,51 @@ A hierarchical file browser that displays a project's directory structure using 
 | Initial load | Top-level entries scanned in parallel, tree populates progressively |
 | Directory collapsed | Children not loaded (lazy) |
 | Directory expanding | Children loaded on demand, disclosure indicator rotates |
-| Directory expanded | Children visible, sorted per REQ-005 |
+| Directory expanded | Children visible, sorted per dirs-first-alpha-sort |
 | File selected | Selection highlight, selection binding updated |
-| Syncing | Status bar overlay visible (REQ-014) |
+| Syncing | Status bar overlay visible (sync-status-bar) |
 | Git status loading | Previous badges remain until new results arrive |
 | Empty directory | Expanded directory shows no children |
 | Ignore pattern matches | Matching entries hidden from tree |
 
 ## Accessibility
 
-- **REQ-016**: Each row MUST have an accessibility label that includes the entry name and type (file or directory).
-- **REQ-017**: Git status badges MUST have accessibility labels with the full status name (e.g., "Modified") rather than the single character.
-- **REQ-018**: The tree MUST be navigable via keyboard — arrow keys to move between rows, Right arrow to expand, Left arrow to collapse.
-- **REQ-019**: VoiceOver MUST announce the entry name, type, and git status (if any) when a row gains focus.
-- **REQ-020**: Color MUST NOT be the sole differentiator for file type icons — the distinct SF Symbol shapes provide differentiation without color.
+- **row-accessible-label**: Each row MUST have an accessibility label that includes the entry name and type (file or directory).
+- **git-badge-accessible**: Git status badges MUST have accessibility labels with the full status name (e.g., "Modified") rather than the single character.
+- **keyboard-tree-nav**: The tree MUST be navigable via keyboard — arrow keys to move between rows, Right arrow to expand, Left arrow to collapse.
+- **voiceover-row-announce**: VoiceOver MUST announce the entry name, type, and git status (if any) when a row gains focus.
+- **icon-shape-not-color**: Color MUST NOT be the sole differentiator for file type icons — the distinct SF Symbol shapes provide differentiation without color.
 
 ## Conformance Test Vectors
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| ftb-001 | REQ-001 | Render tree with nested directories | OutlineGroup renders expandable hierarchy |
-| ftb-002 | REQ-002 | Expand a collapsed directory | Children loaded at expand time, not before |
-| ftb-003 | REQ-005 | Directory with mixed files and subdirs | Subdirs listed first, then files, both alphabetical case-insensitive |
-| ftb-004 | REQ-006 | Ignore pattern `*.log`, directory contains `debug.log` | `debug.log` not visible in tree |
-| ftb-005 | REQ-006 | Ignore pattern `temp?`, directory contains `temp1` and `temp12` | `temp1` hidden, `temp12` visible |
-| ftb-006 | REQ-007 | Directory contains `.env` and `.gitignore` | Both dotfiles visible in tree |
-| ftb-007 | REQ-008 | Directory contains `.DS_Store` | `.DS_Store` not visible in tree |
-| ftb-008 | REQ-009 | Directory contains `MyPlugin.catnip-proj` | Shown as non-expandable item with `shippingbox.fill` icon |
-| ftb-009 | REQ-010 | Tap/click a file row | Selection binding updates to that file |
-| ftb-010 | REQ-011 | File has git status "modified" | Orange "M" badge right-aligned in row |
-| ftb-011 | REQ-012 | Three file changes within 0.3s | Git status refreshes once after 0.5s debounce, not three times |
-| ftb-012 | REQ-005 | Entries: `zebra/`, `alpha.txt`, `beta/`, `gamma.txt` | Order: `beta/`, `zebra/`, `alpha.txt`, `gamma.txt` |
-| ftb-013 | REQ-003 | Root directory with 5 top-level subdirectories | All 5 scanned in parallel (up to maxScanWorkers) |
-| ftb-014 | REQ-016, REQ-019 | VoiceOver focus on a modified Swift file | Announces "App.swift, file, Modified" |
-| ftb-015 | REQ-018 | Focus on collapsed directory, press Right arrow | Directory expands |
+| ftb-001 | outline-group-hierarchy | Render tree with nested directories | OutlineGroup renders expandable hierarchy |
+| ftb-002 | lazy-child-loading | Expand a collapsed directory | Children loaded at expand time, not before |
+| ftb-003 | dirs-first-alpha-sort | Directory with mixed files and subdirs | Subdirs listed first, then files, both alphabetical case-insensitive |
+| ftb-004 | fnmatch-ignore-patterns | Ignore pattern `*.log`, directory contains `debug.log` | `debug.log` not visible in tree |
+| ftb-005 | fnmatch-ignore-patterns | Ignore pattern `temp?`, directory contains `temp1` and `temp12` | `temp1` hidden, `temp12` visible |
+| ftb-006 | show-dotfiles | Directory contains `.env` and `.gitignore` | Both dotfiles visible in tree |
+| ftb-007 | hide-ds-store | Directory contains `.DS_Store` | `.DS_Store` not visible in tree |
+| ftb-008 | package-dir-display | Directory contains `MyPlugin.catnip-proj` | Shown as non-expandable item with `shippingbox.fill` icon |
+| ftb-009 | single-file-selection | Tap/click a file row | Selection binding updates to that file |
+| ftb-010 | git-status-badge | File has git status "modified" | Orange "M" badge right-aligned in row |
+| ftb-011 | git-debounce-refresh | Three file changes within 0.3s | Git status refreshes once after 0.5s debounce, not three times |
+| ftb-012 | dirs-first-alpha-sort | Entries: `zebra/`, `alpha.txt`, `beta/`, `gamma.txt` | Order: `beta/`, `zebra/`, `alpha.txt`, `gamma.txt` |
+| ftb-013 | parallel-top-level-scan | Root directory with 5 top-level subdirectories | All 5 scanned in parallel (up to maxScanWorkers) |
+| ftb-014 | row-accessible-label, voiceover-row-announce | VoiceOver focus on a modified Swift file | Announces "App.swift, file, Modified" |
+| ftb-015 | keyboard-tree-nav | Focus on collapsed directory, press Right arrow | Directory expands |
 
 ## Edge Cases
 
 - **Empty project directory**: Tree SHOULD display an empty state rather than a blank sidebar. MAY delegate to an empty-state component.
 - **Very deep nesting (20+ levels)**: Tree MUST remain scrollable and responsive. Indentation SHOULD cap or compress at extreme depths.
-- **Very large directory (10k+ entries)**: Lazy loading (REQ-002) and parallel scanning (REQ-003) mitigate load time. The tree SHOULD remain responsive.
+- **Very large directory (10k+ entries)**: Lazy loading (lazy-child-loading) and parallel scanning (parallel-top-level-scan) mitigate load time. The tree SHOULD remain responsive.
 - **Permission denied on directory**: The directory SHOULD show as non-expandable. An error SHOULD be logged but not surfaced to the user as a modal alert.
 - **Symlink loops**: The scanner MUST detect and break symlink cycles to prevent infinite recursion.
 - **File disappears between scan and display**: The tree SHOULD gracefully handle stale entries — remove them on next refresh rather than crash.
 - **Ignore pattern changed while tree is visible**: Tree MUST fully resync to apply new pattern.
-- **Directory renamed externally**: Directory sync (REQ-015) handles this — tree updates on next sync cycle.
+- **Directory renamed externally**: Directory sync (delegate-directory-sync) handles this — tree updates on next sync cycle.
 - **No git repository**: Git status badges not shown, no error. Tree renders without badges.
 - **File tree does NOT include a search/filter UI**: This is noted as a future option and is explicitly out of scope for this spec.
 
@@ -217,8 +217,8 @@ A hierarchical file browser that displays a project's directory structure using 
 | `ignorePatterns` | `[String]` | `[]` | POSIX fnmatch() wildcards | Wildcard patterns to hide from the tree |
 | `maxScanWorkers` | `Int` | `3` | 1-8 | Maximum parallel scan concurrency for top-level directory scanning |
 
-- **REQ-021**: Both settings MUST be configured per-project.
-- **REQ-022**: Changing either setting MUST trigger a full resync of the file tree.
+- **per-project-settings**: Both settings MUST be configured per-project.
+- **setting-change-resync**: Changing either setting MUST trigger a full resync of the file tree.
 
 ## Logging
 
@@ -243,7 +243,7 @@ Subsystem: `{{bundle_id}}` | Category: `FileTreeBrowser`
 |--------|----------|
 | Reduce Motion | Expand/collapse transitions are instant (no rotation animation on disclosure indicator) |
 | Increase Contrast | Selection highlight and icon colors use higher-contrast values |
-| Differentiate Without Color | Distinct SF Symbol shapes already differentiate file types without relying on color (REQ-020) |
+| Differentiate Without Color | Distinct SF Symbol shapes already differentiate file types without relying on color (icon-shape-not-color) |
 | VoiceOver | Row labels include entry name, type, and git status; expand/collapse state announced |
 
 ## Platform Notes

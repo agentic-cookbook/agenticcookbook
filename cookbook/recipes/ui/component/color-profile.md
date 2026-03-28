@@ -50,12 +50,12 @@ A named color palette defining foreground, background, cursor, selection, and 16
 
 ### Profile structure
 
-- **REQ-001**: Each profile MUST have: a unique ID (UUID), a display name, an appearance preference (dark/light/auto), font name, font size, cursor style, a color palette, and a deletable flag.
-- **REQ-002**: The color palette MUST contain: foreground, background, cursor, and selection colors as `#rrggbb` hex strings, plus an array of exactly 16 ANSI colors (indices 0–15: 8 normal + 8 bright).
+- **profile-structure**: Each profile MUST have: a unique ID (UUID), a display name, an appearance preference (dark/light/auto), font name, font size, cursor style, a color palette, and a deletable flag.
+- **palette-format**: The color palette MUST contain: foreground, background, cursor, and selection colors as `#rrggbb` hex strings, plus an array of exactly 16 ANSI colors (indices 0–15: 8 normal + 8 bright).
 
 ### Built-in profiles
 
-- **REQ-003**: The app MUST ship with at least these built-in profiles (non-deletable, non-editable):
+- **built-in-profiles**: The app MUST ship with at least these built-in profiles (non-deletable, non-editable):
 
   | Name | Appearance | Background | Foreground |
   |------|-----------|-----------|-----------|
@@ -68,22 +68,22 @@ A named color palette defining foreground, background, cursor, selection, and 16
   | Gruvbox Dark | dark | #282828 | #ebdbb2 |
   | Catppuccin Mocha | dark | #1e1e2e | #cdd6f4 |
 
-- **REQ-004**: Built-in profiles MUST have stable, fixed UUIDs so references survive app updates.
+- **stable-builtin-uuids**: Built-in profiles MUST have stable, fixed UUIDs so references survive app updates.
 
 ### User profiles
 
-- **REQ-005**: Users MUST be able to duplicate any profile to create a custom copy.
-- **REQ-006**: Custom profiles MUST be editable: name, appearance, font size, cursor style.
-- **REQ-007**: Custom profiles MUST be deletable. Built-in profiles MUST NOT be deletable.
+- **duplicate-profile**: Users MUST be able to duplicate any profile to create a custom copy.
+- **editable-custom-profiles**: Custom profiles MUST be editable: name, appearance, font size, cursor style.
+- **deletable-custom-only**: Custom profiles MUST be deletable. Built-in profiles MUST NOT be deletable.
 
 ### Active profile
 
-- **REQ-008**: Exactly one profile MUST be active at a time. The active profile ID MUST be persisted in user settings.
-- **REQ-009**: If the stored active profile ID is invalid (deleted or not found), the app MUST fall back to the first built-in profile (Solarized Dark).
+- **single-active-profile**: Exactly one profile MUST be active at a time. The active profile ID MUST be persisted in user settings.
+- **fallback-to-default**: If the stored active profile ID is invalid (deleted or not found), the app MUST fall back to the first built-in profile (Solarized Dark).
 
 ### Appearance mode
 
-- **REQ-010**: Profiles with `auto` appearance MUST follow the system dark/light mode — using a dark profile when in dark mode and a light profile when in light mode. The specific dark/light mapping is a **Design Decision**.
+- **auto-appearance-mode**: Profiles with `auto` appearance MUST follow the system dark/light mode — using a dark profile when in dark mode and a light profile when in light mode. The specific dark/light mapping is a **Design Decision**.
 
 ## Appearance
 
@@ -113,19 +113,19 @@ A named color palette defining foreground, background, cursor, selection, and 16
 
 ## Accessibility
 
-- **REQ-011**: Color swatches MUST have accessible labels describing the color (e.g., "Background: dark blue").
-- **REQ-012**: The profile list MUST be keyboard-navigable.
+- **swatch-a11y-labels**: Color swatches MUST have accessible labels describing the color (e.g., "Background: dark blue").
+- **keyboard-navigable-list**: The profile list MUST be keyboard-navigable.
 
 ## Conformance Test Vectors
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| profile-001 | REQ-003 | Launch fresh app | 8 built-in profiles available |
-| profile-002 | REQ-004 | Reference Solarized Dark by UUID across updates | UUID is stable |
-| profile-003 | REQ-005 | Duplicate Dracula | New "Dracula Copy" profile created, editable, deletable |
-| profile-004 | REQ-007 | Attempt to delete Solarized Dark | Delete action disabled/hidden |
-| profile-005 | REQ-009 | Set active profile to invalid UUID | Falls back to Solarized Dark |
-| profile-006 | REQ-010 | Set profile to auto, switch system to dark mode | Dark-appropriate colors applied |
+| profile-001 | built-in-profiles | Launch fresh app | 8 built-in profiles available |
+| profile-002 | stable-builtin-uuids | Reference Solarized Dark by UUID across updates | UUID is stable |
+| profile-003 | duplicate-profile | Duplicate Dracula | New "Dracula Copy" profile created, editable, deletable |
+| profile-004 | deletable-custom-only | Attempt to delete Solarized Dark | Delete action disabled/hidden |
+| profile-005 | fallback-to-default | Set active profile to invalid UUID | Falls back to Solarized Dark |
+| profile-006 | auto-appearance-mode | Set profile to auto, switch system to dark mode | Dark-appropriate colors applied |
 
 ## Edge Cases
 

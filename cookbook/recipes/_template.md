@@ -43,9 +43,9 @@ Brief description of what this component is and when to use it.
 
 ## Behavioral Requirements
 
-- **REQ-001**: Component MUST ...
-- **REQ-002**: Component SHOULD ...
-- **REQ-003**: Component MAY ...
+- **must-do-something**: Component MUST ...
+- **should-do-something**: Component SHOULD ...
+- **may-do-something**: Component MAY ...
 
 ## Appearance
 
@@ -79,7 +79,7 @@ Brief description of what this component is and when to use it.
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| component-001 | REQ-001 | | |
+| component-001 | must-do-something | | |
 
 ## Edge Cases
 

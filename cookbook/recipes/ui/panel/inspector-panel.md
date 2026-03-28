@@ -57,15 +57,15 @@ A right-side sliding panel that shows metadata for the currently selected item i
 
 ### Visibility and toggling
 
-- **REQ-001**: The inspector panel MUST slide in from the right side of the window using the platform's native inspector mechanism (SwiftUI `.inspector` modifier or equivalent).
-- **REQ-002**: The inspector panel MUST have a fixed width of 250pt.
-- **REQ-003**: The inspector panel MUST be toggled via a toolbar button using the standard inspector icon (SF Symbol `sidebar.trailing` on Apple platforms).
-- **REQ-004**: The inspector visibility state MUST be persisted in project/app settings so that it is restored on next launch.
-- **REQ-005**: When the inspector is hidden, the toolbar toggle button MUST remain accessible.
+- **slide-in-right**: The inspector panel MUST slide in from the right side of the window using the platform's native inspector mechanism (SwiftUI `.inspector` modifier or equivalent).
+- **fixed-width-250**: The inspector panel MUST have a fixed width of 250pt.
+- **toolbar-toggle-button**: The inspector panel MUST be toggled via a toolbar button using the standard inspector icon (SF Symbol `sidebar.trailing` on Apple platforms).
+- **persist-visibility**: The inspector visibility state MUST be persisted in project/app settings so that it is restored on next launch.
+- **toggle-always-accessible**: When the inspector is hidden, the toolbar toggle button MUST remain accessible.
 
 ### Content — item selected
 
-- **REQ-006**: When an item is selected, the inspector MUST display a `Form` with grouped style containing the following metadata rows using `LabeledContent`:
+- **form-metadata-display**: When an item is selected, the inspector MUST display a `Form` with grouped style containing the following metadata rows using `LabeledContent`:
 
   | Label | Value | Notes |
   |-------|-------|-------|
@@ -76,26 +76,26 @@ A right-side sliding panel that shows metadata for the currently selected item i
   | Modified | Last modification date | Formatted via `DateFormatter`, medium date + short time |
   | Git Status | Colored badge + label | Uses git-status-indicator component (character + color + label) |
 
-- **REQ-007**: The Path value MUST be displayed as selectable text so the user can copy it.
-- **REQ-008**: The Path value MUST use a caption-sized font and MUST truncate in the middle when it exceeds the available width.
-- **REQ-009**: The Size row MUST only appear for files, not directories.
-- **REQ-010**: The Size value MUST be formatted using `ByteCountFormatter` (Apple) or equivalent locale-aware byte formatting on other platforms.
-- **REQ-011**: The Modified date MUST be formatted using a medium date style and short time style (e.g., "Mar 25, 2026 at 2:30 PM").
-- **REQ-012**: The Git Status row MUST use the git-status-indicator component (as defined in `ui/git-status-indicator.md`), showing the status character, color, and full label (e.g., "M Modified").
-- **REQ-013**: The Git Status row MUST NOT appear if the file has no git status (clean/committed) or the project is not a git repository.
-- **REQ-014**: The Type value MUST be derived from the file extension using `UTType` on Apple platforms or MIME type lookup on other platforms. If the type cannot be determined, it SHOULD display "Unknown".
+- **selectable-path-text**: The Path value MUST be displayed as selectable text so the user can copy it.
+- **path-caption-truncate**: The Path value MUST use a caption-sized font and MUST truncate in the middle when it exceeds the available width.
+- **size-files-only**: The Size row MUST only appear for files, not directories.
+- **byte-count-format**: The Size value MUST be formatted using `ByteCountFormatter` (Apple) or equivalent locale-aware byte formatting on other platforms.
+- **date-format-medium**: The Modified date MUST be formatted using a medium date style and short time style (e.g., "Mar 25, 2026 at 2:30 PM").
+- **git-status-indicator**: The Git Status row MUST use the git-status-indicator component (as defined in `ui/git-status-indicator.md`), showing the status character, color, and full label (e.g., "M Modified").
+- **hide-clean-git-status**: The Git Status row MUST NOT appear if the file has no git status (clean/committed) or the project is not a git repository.
+- **uttype-file-type**: The Type value MUST be derived from the file extension using `UTType` on Apple platforms or MIME type lookup on other platforms. If the type cannot be determined, it SHOULD display "Unknown".
 
 ### Content — nothing selected
 
-- **REQ-015**: When no item is selected, the inspector MUST display an empty state (as defined in `ui/empty-state.md`) with:
+- **empty-state-display**: When no item is selected, the inspector MUST display an empty state (as defined in `ui/empty-state.md`) with:
   - Icon: `doc.text.magnifyingglass` (SF Symbol) or equivalent
   - Heading: "Select a file to inspect"
   - No action buttons
 
 ### Form layout
 
-- **REQ-016**: The form MUST use grouped style (`.formStyle(.grouped)` on SwiftUI or equivalent).
-- **REQ-017**: The form MUST scroll vertically if content exceeds the panel height.
+- **grouped-form-style**: The form MUST use grouped style (`.formStyle(.grouped)` on SwiftUI or equivalent).
+- **vertical-scroll**: The form MUST scroll vertically if content exceeds the panel height.
 
 ## Appearance
 
@@ -149,42 +149,42 @@ Empty state:
 
 ## Accessibility
 
-- **REQ-018**: The toolbar toggle button MUST have an accessible label: "Toggle Inspector" (or platform-localized equivalent).
-- **REQ-019**: The toggle button MUST announce its state to screen readers (e.g., "Inspector, showing" / "Inspector, hidden").
-- **REQ-020**: Each metadata row label MUST be the accessible label for its corresponding value.
-- **REQ-021**: The selectable Path text MUST be accessible to screen readers with the full path announced, not the truncated display.
-- **REQ-022**: The Git Status badge MUST have an accessibility label with the full status name (e.g., "Git Status: Modified"), not just the character. This is inherited from the git-status-indicator spec (REQ-011).
-- **REQ-023**: The empty state MUST follow the empty-state accessibility requirements (heading announced first, icon decorative).
-- **REQ-024**: The inspector panel MUST be fully keyboard-navigable — Tab key should move focus through metadata rows and the close/toggle button.
+- **toggle-accessible-label**: The toolbar toggle button MUST have an accessible label: "Toggle Inspector" (or platform-localized equivalent).
+- **toggle-state-announce**: The toggle button MUST announce its state to screen readers (e.g., "Inspector, showing" / "Inspector, hidden").
+- **row-label-accessible**: Each metadata row label MUST be the accessible label for its corresponding value.
+- **path-full-announce**: The selectable Path text MUST be accessible to screen readers with the full path announced, not the truncated display.
+- **git-accessible-label**: The Git Status badge MUST have an accessibility label with the full status name (e.g., "Git Status: Modified"), not just the character. This is inherited from the git-status-indicator spec (git-status-badge).
+- **empty-state-accessible**: The empty state MUST follow the empty-state accessibility requirements (heading announced first, icon decorative).
+- **keyboard-navigable**: The inspector panel MUST be fully keyboard-navigable — Tab key should move focus through metadata rows and the close/toggle button.
 
 ## Conformance Test Vectors
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| inspector-001 | REQ-001 | Toggle inspector on | Panel slides in from the right side |
-| inspector-002 | REQ-002 | Measure panel width | Panel width is 250pt |
-| inspector-003 | REQ-003 | Click toolbar inspector button | Panel visibility toggles |
-| inspector-004 | REQ-004 | Show inspector, quit app, relaunch | Inspector is visible on relaunch |
-| inspector-005 | REQ-004 | Hide inspector, quit app, relaunch | Inspector is hidden on relaunch |
-| inspector-006 | REQ-006, REQ-014 | Select a Markdown file (README.md) | Name shows "README.md", Type shows "Markdown" or UTType description |
-| inspector-007 | REQ-009, REQ-010 | Select a 4,200-byte file | Size row shows "4.2 KB" (or locale-appropriate equivalent) |
-| inspector-008 | REQ-009 | Select a directory | Size row is not displayed |
-| inspector-009 | REQ-011 | Select a file modified on 2026-03-25 at 14:30 | Modified shows "Mar 25, 2026 at 2:30 PM" (or locale equivalent) |
-| inspector-010 | REQ-012, REQ-013 | Select a modified file in a git repo | Git Status row shows orange "M" badge with label "Modified" |
-| inspector-011 | REQ-013 | Select a clean/committed file in a git repo | Git Status row is not displayed |
-| inspector-012 | REQ-013 | Select a file in a non-git project | Git Status row is not displayed |
-| inspector-013 | REQ-015 | No file selected, inspector visible | Empty state shows icon and "Select a file to inspect" |
-| inspector-014 | REQ-007 | Select a file, attempt to select the path text | Path text is selectable and copyable |
-| inspector-015 | REQ-008 | Select a file with a very long path | Path truncates in the middle with ellipsis |
-| inspector-016 | REQ-016 | Inspect form style | Form uses grouped style |
-| inspector-017 | REQ-018, REQ-019 | Enable VoiceOver, activate toolbar toggle | Button announces "Toggle Inspector" and state |
-| inspector-018 | REQ-024 | Press Tab repeatedly while inspector is open | Focus moves through metadata rows and toggle button |
+| inspector-001 | slide-in-right | Toggle inspector on | Panel slides in from the right side |
+| inspector-002 | fixed-width-250 | Measure panel width | Panel width is 250pt |
+| inspector-003 | toolbar-toggle-button | Click toolbar inspector button | Panel visibility toggles |
+| inspector-004 | persist-visibility | Show inspector, quit app, relaunch | Inspector is visible on relaunch |
+| inspector-005 | persist-visibility | Hide inspector, quit app, relaunch | Inspector is hidden on relaunch |
+| inspector-006 | form-metadata-display, uttype-file-type | Select a Markdown file (README.md) | Name shows "README.md", Type shows "Markdown" or UTType description |
+| inspector-007 | size-files-only, byte-count-format | Select a 4,200-byte file | Size row shows "4.2 KB" (or locale-appropriate equivalent) |
+| inspector-008 | size-files-only | Select a directory | Size row is not displayed |
+| inspector-009 | date-format-medium | Select a file modified on 2026-03-25 at 14:30 | Modified shows "Mar 25, 2026 at 2:30 PM" (or locale equivalent) |
+| inspector-010 | git-status-indicator, hide-clean-git-status | Select a modified file in a git repo | Git Status row shows orange "M" badge with label "Modified" |
+| inspector-011 | hide-clean-git-status | Select a clean/committed file in a git repo | Git Status row is not displayed |
+| inspector-012 | hide-clean-git-status | Select a file in a non-git project | Git Status row is not displayed |
+| inspector-013 | empty-state-display | No file selected, inspector visible | Empty state shows icon and "Select a file to inspect" |
+| inspector-014 | selectable-path-text | Select a file, attempt to select the path text | Path text is selectable and copyable |
+| inspector-015 | path-caption-truncate | Select a file with a very long path | Path truncates in the middle with ellipsis |
+| inspector-016 | grouped-form-style | Inspect form style | Form uses grouped style |
+| inspector-017 | toggle-accessible-label, toggle-state-announce | Enable VoiceOver, activate toolbar toggle | Button announces "Toggle Inspector" and state |
+| inspector-018 | keyboard-navigable | Press Tab repeatedly while inspector is open | Focus moves through metadata rows and toggle button |
 
 ## Edge Cases
 
 - **Very long file name**: Name SHOULD truncate with trailing ellipsis rather than overflowing the panel.
-- **Very long path**: Path MUST truncate in the middle (REQ-008), showing the beginning and end of the path.
-- **Unknown file type**: Type SHOULD display "Unknown" rather than blank or crashing (REQ-014).
+- **Very long path**: Path MUST truncate in the middle (path-caption-truncate), showing the beginning and end of the path.
+- **Unknown file type**: Type SHOULD display "Unknown" rather than blank or crashing (uttype-file-type).
 - **File with no extension**: Type SHOULD display "Document" or "Unknown" based on platform UTType inference.
 - **Zero-byte file**: Size SHOULD display "Zero bytes" or "0 bytes", not blank.
 - **Very large file (>1 TB)**: ByteCountFormatter SHOULD handle gracefully (e.g., "1.2 TB").

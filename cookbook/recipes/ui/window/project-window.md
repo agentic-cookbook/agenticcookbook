@@ -90,61 +90,61 @@ The primary IDE-style project window that composes multiple sub-components into 
 
 ### Window structure
 
-- **REQ-001**: The window MUST use an HSplitView with three main sections: sessions panel (left), file tree panel (center-left), and detail panel (center-right/right).
-- **REQ-002**: The detail panel MUST use a VSplitView with the code editor pane on top and the terminal pane on bottom.
-- **REQ-003**: Each section of the VSplitView (editor and terminal) MUST be preceded by a collapsible pane header (as defined in `ui/collapsible-pane-header.md`).
-- **REQ-004**: The inspector panel MUST slide in from the right using the `.inspector` modifier (as defined in `ui/Recipes/inspector-panel.md`).
+- **hsplit-three-panels**: The window MUST use an HSplitView with three main sections: sessions panel (left), file tree panel (center-left), and detail panel (center-right/right).
+- **vsplit-editor-terminal**: The detail panel MUST use a VSplitView with the code editor pane on top and the terminal pane on bottom.
+- **collapsible-pane-headers**: Each section of the VSplitView (editor and terminal) MUST be preceded by a collapsible pane header (as defined in `ui/collapsible-pane-header.md`).
+- **inspector-slide-right**: The inspector panel MUST slide in from the right using the `.inspector` modifier (as defined in `ui/Recipes/inspector-panel.md`).
 
 ### Pane sizing and proportions
 
-- **REQ-005**: Each HSplitView section MUST use proportional sizing with minimum, ideal, and maximum width frame constraints.
-- **REQ-006**: The sessions panel MUST default to 15% of the window width (`sessionPanelProportion = 0.15`).
-- **REQ-007**: The file tree panel MUST default to 20% of the window width (`fileTreeProportion = 0.20`).
-- **REQ-008**: The detail panel MUST fill the remaining width after sessions and file tree.
-- **REQ-009**: The VSplitView within the detail panel MUST default to a 50/50 split between editor and terminal (`detailSplitRatio = 0.5`).
-- **REQ-010**: All layout proportions MUST be persisted per-project in ProjectSettings (see Project Settings section).
+- **proportional-sizing**: Each HSplitView section MUST use proportional sizing with minimum, ideal, and maximum width frame constraints.
+- **sessions-default-15pct**: The sessions panel MUST default to 15% of the window width (`sessionPanelProportion = 0.15`).
+- **filetree-default-20pct**: The file tree panel MUST default to 20% of the window width (`fileTreeProportion = 0.20`).
+- **detail-fills-remaining**: The detail panel MUST fill the remaining width after sessions and file tree.
+- **detail-split-50-50**: The VSplitView within the detail panel MUST default to a 50/50 split between editor and terminal (`detailSplitRatio = 0.5`).
+- **persist-layout-proportions**: All layout proportions MUST be persisted per-project in ProjectSettings (see Project Settings section).
 
 ### Pane visibility
 
-- **REQ-011**: The sessions panel MUST be togglable via a toolbar button. Default: visible (`isSessionPanelVisible = true`).
-- **REQ-012**: The file tree panel MUST be togglable. Default: visible (`isFileViewerVisible = true`).
-- **REQ-013**: The terminal pane MUST be togglable. Default: visible (`isTerminalVisible = true`).
-- **REQ-014**: The inspector panel MUST be togglable via a toolbar button. Default: hidden (`isInspectorPresented = false`).
-- **REQ-015**: Visibility state for all panels MUST be persisted per-project in ProjectSettings.
-- **REQ-016**: Pane visibility changes MUST animate with `.easeInOut(duration: 0.2)`.
+- **toggle-sessions-panel**: The sessions panel MUST be togglable via a toolbar button. Default: visible (`isSessionPanelVisible = true`).
+- **toggle-file-tree**: The file tree panel MUST be togglable. Default: visible (`isFileViewerVisible = true`).
+- **toggle-terminal**: The terminal pane MUST be togglable. Default: visible (`isTerminalVisible = true`).
+- **toggle-inspector**: The inspector panel MUST be togglable via a toolbar button. Default: hidden (`isInspectorPresented = false`).
+- **persist-visibility-state**: Visibility state for all panels MUST be persisted per-project in ProjectSettings.
+- **animate-pane-toggle**: Pane visibility changes MUST animate with `.easeInOut(duration: 0.2)`.
 
 ### Toolbar
 
-- **REQ-017**: The toolbar MUST include a button to toggle the sessions panel.
-- **REQ-018**: The toolbar MUST include a button to toggle the inspector panel (SF Symbol `sidebar.trailing`).
-- **REQ-019**: The toolbar MUST include a gear button that presents a project settings sheet.
+- **toolbar-sessions-button**: The toolbar MUST include a button to toggle the sessions panel.
+- **toolbar-inspector-button**: The toolbar MUST include a button to toggle the inspector panel (SF Symbol `sidebar.trailing`).
+- **toolbar-gear-button**: The toolbar MUST include a gear button that presents a project settings sheet.
 
 ### File tree header
 
-- **REQ-020**: A folder header MUST be displayed above the file tree showing the repository root directory name.
+- **folder-header-repo-name**: A folder header MUST be displayed above the file tree showing the repository root directory name.
 
 ### Window frame persistence
 
-- **REQ-021**: The window frame (position and size) MUST be persisted using the window-frame-persistence component (as defined in `ui/window-frame-persistence.md`).
-- **REQ-022**: The autosave identifier MUST be a SHA256 hash of the project's file path, ensuring uniqueness per project.
+- **persist-window-frame**: The window frame (position and size) MUST be persisted using the window-frame-persistence component (as defined in `ui/window-frame-persistence.md`).
+- **sha256-autosave-id**: The autosave identifier MUST be a SHA256 hash of the project's file path, ensuring uniqueness per project.
 
 ### Status bar
 
-- **REQ-023**: During directory sync operations, a status bar overlay MUST appear at the bottom of the file tree panel (as defined in `ui/status-bar.md`).
+- **sync-status-overlay**: During directory sync operations, a status bar overlay MUST appear at the bottom of the file tree panel (as defined in `ui/status-bar.md`).
 
 ### Lifecycle
 
-- **REQ-024**: On `onAppear`, the window MUST load initial project data (`loadInitial`) and start file system watching (`startWatching`).
-- **REQ-025**: On `onAppear`, if the user's settings enable auto-open terminal, the terminal pane MUST be opened automatically.
-- **REQ-026**: On window close (`onClose` / `onDisappear`), the window MUST terminate all running processes (`terminateAll`) and stop file system watching (`stopWatching`).
+- **load-initial-start-watch**: On `onAppear`, the window MUST load initial project data (`loadInitial`) and start file system watching (`startWatching`).
+- **auto-open-terminal**: On `onAppear`, if the user's settings enable auto-open terminal, the terminal pane MUST be opened automatically.
+- **terminate-on-close**: On window close (`onClose` / `onDisappear`), the window MUST terminate all running processes (`terminateAll`) and stop file system watching (`stopWatching`).
 
 ### Delegation to sub-components
 
-- **REQ-027**: The file tree panel MUST delegate to [file-tree-browser.md](file-tree-browser.md) for all file browsing behavior.
-- **REQ-028**: The terminal pane MUST delegate to [terminal-pane.md](terminal-pane.md) for all terminal behavior.
-- **REQ-029**: The inspector panel MUST delegate to [inspector-panel.md](inspector-panel.md) for all inspector behavior.
-- **REQ-030**: The code editor pane MUST delegate to [code-editor-pane.md](code-editor-pane.md) for all editor behavior.
-- **REQ-031**: Collapsible pane headers MUST delegate to [collapsible-pane-header.md](../collapsible-pane-header.md) for toggle and animation behavior.
+- **delegate-file-tree**: The file tree panel MUST delegate to [file-tree-browser.md](file-tree-browser.md) for all file browsing behavior.
+- **delegate-terminal**: The terminal pane MUST delegate to [terminal-pane.md](terminal-pane.md) for all terminal behavior.
+- **delegate-inspector**: The inspector panel MUST delegate to [inspector-panel.md](inspector-panel.md) for all inspector behavior.
+- **delegate-editor**: The code editor pane MUST delegate to [code-editor-pane.md](code-editor-pane.md) for all editor behavior.
+- **delegate-pane-headers**: Collapsible pane headers MUST delegate to [collapsible-pane-header.md](../collapsible-pane-header.md) for toggle and animation behavior.
 
 ## Appearance
 
@@ -188,45 +188,45 @@ Layout proportions and pane visibility are persisted per-project in ProjectSetti
 | `isTerminalVisible` | `Bool` | `true` | Whether the terminal pane is shown |
 | `isInspectorPresented` | `Bool` | `false` | Whether the inspector panel is shown |
 
-- **REQ-032**: All settings in this table MUST be persisted per-project and restored on next open.
-- **REQ-033**: Changes to visibility or proportions MUST be written to ProjectSettings immediately (no manual save action).
+- **persist-project-settings**: All settings in this table MUST be persisted per-project and restored on next open.
+- **immediate-settings-save**: Changes to visibility or proportions MUST be written to ProjectSettings immediately (no manual save action).
 
 ## Accessibility
 
-- **REQ-034**: The toolbar sessions toggle button MUST have an accessible label: "Toggle Sessions Panel".
-- **REQ-035**: The toolbar inspector toggle button MUST have an accessible label: "Toggle Inspector" (inherited from inspector-panel spec).
-- **REQ-036**: The toolbar gear button MUST have an accessible label: "Project Settings".
-- **REQ-037**: Each collapsible pane header MUST follow the accessibility requirements defined in `ui/collapsible-pane-header.md` (button role, expand/collapse announcement, keyboard toggle).
-- **REQ-038**: The split view dividers MUST be accessible to VoiceOver and MUST announce their purpose (e.g., "Resize sessions panel").
-- **REQ-039**: Keyboard navigation MUST allow moving focus between all major regions: sessions, file tree, editor, terminal, inspector, and toolbar.
-- **REQ-040**: The window MUST support standard macOS keyboard shortcuts for panel toggling (to be defined at implementation time and recorded as Design Decisions).
+- **sessions-toggle-label**: The toolbar sessions toggle button MUST have an accessible label: "Toggle Sessions Panel".
+- **inspector-toggle-label**: The toolbar inspector toggle button MUST have an accessible label: "Toggle Inspector" (inherited from inspector-panel spec).
+- **gear-button-label**: The toolbar gear button MUST have an accessible label: "Project Settings".
+- **pane-header-accessible**: Each collapsible pane header MUST follow the accessibility requirements defined in `ui/collapsible-pane-header.md` (button role, expand/collapse announcement, keyboard toggle).
+- **divider-accessible**: The split view dividers MUST be accessible to VoiceOver and MUST announce their purpose (e.g., "Resize sessions panel").
+- **keyboard-region-nav**: Keyboard navigation MUST allow moving focus between all major regions: sessions, file tree, editor, terminal, inspector, and toolbar.
+- **keyboard-panel-shortcuts**: The window MUST support standard macOS keyboard shortcuts for panel toggling (to be defined at implementation time and recorded as Design Decisions).
 
 ## Conformance Test Vectors
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| pw-001 | REQ-001 | Open a project window | HSplitView renders with sessions, file tree, and detail panels |
-| pw-002 | REQ-002 | Inspect detail panel | VSplitView contains editor (top) and terminal (bottom) |
-| pw-003 | REQ-003 | Inspect editor and terminal sections | Each preceded by a collapsible pane header |
-| pw-004 | REQ-004 | Toggle inspector on | Inspector slides in from right |
-| pw-005 | REQ-005, REQ-006, REQ-007 | Open window at 1200pt width | Sessions ~180pt (15%), file tree ~240pt (20%), detail fills remainder |
-| pw-006 | REQ-009 | Inspect detail panel at 600pt height | Editor ~300pt, terminal ~300pt (50/50 split) |
-| pw-007 | REQ-010, REQ-032 | Resize sessions panel to 25%, close project, reopen | Sessions panel restores at 25% |
-| pw-008 | REQ-011, REQ-015 | Hide sessions panel, close project, reopen | Sessions panel remains hidden |
-| pw-009 | REQ-013, REQ-015 | Hide terminal pane, close project, reopen | Terminal pane remains hidden, header still visible |
-| pw-010 | REQ-016 | Toggle sessions panel visibility | Panel animates in/out with easeInOut(0.2) |
-| pw-011 | REQ-017 | Click sessions toolbar button | Sessions panel toggles visibility |
-| pw-012 | REQ-018 | Click inspector toolbar button | Inspector panel toggles visibility |
-| pw-013 | REQ-019 | Click gear toolbar button | Project settings sheet appears |
-| pw-014 | REQ-020 | Open project at `/Users/dev/my-repo` | Folder header shows "my-repo" above file tree |
-| pw-015 | REQ-021, REQ-022 | Open project, move window, close, reopen | Window restores at saved position; autosave name is SHA256 of project path |
-| pw-016 | REQ-023 | Trigger directory sync | Status bar overlay appears at bottom of file tree panel |
-| pw-017 | REQ-024 | Open a project window | `loadInitial` and `startWatching` called on appear |
-| pw-018 | REQ-025 | Open project with auto-open-terminal enabled | Terminal pane opens automatically |
-| pw-019 | REQ-026 | Close the project window | `terminateAll` and `stopWatching` called |
-| pw-020 | REQ-034 | Enable VoiceOver, focus sessions toolbar button | Announces "Toggle Sessions Panel" |
-| pw-021 | REQ-039 | Press Tab repeatedly through window | Focus moves between sessions, file tree, editor, terminal, toolbar |
-| pw-022 | REQ-033 | Toggle inspector, immediately force-quit app, relaunch | Inspector state matches last toggle (persisted immediately) |
+| pw-001 | hsplit-three-panels | Open a project window | HSplitView renders with sessions, file tree, and detail panels |
+| pw-002 | vsplit-editor-terminal | Inspect detail panel | VSplitView contains editor (top) and terminal (bottom) |
+| pw-003 | collapsible-pane-headers | Inspect editor and terminal sections | Each preceded by a collapsible pane header |
+| pw-004 | inspector-slide-right | Toggle inspector on | Inspector slides in from right |
+| pw-005 | proportional-sizing, sessions-default-15pct, filetree-default-20pct | Open window at 1200pt width | Sessions ~180pt (15%), file tree ~240pt (20%), detail fills remainder |
+| pw-006 | detail-split-50-50 | Inspect detail panel at 600pt height | Editor ~300pt, terminal ~300pt (50/50 split) |
+| pw-007 | persist-layout-proportions, persist-project-settings | Resize sessions panel to 25%, close project, reopen | Sessions panel restores at 25% |
+| pw-008 | toggle-sessions-panel, persist-visibility-state | Hide sessions panel, close project, reopen | Sessions panel remains hidden |
+| pw-009 | toggle-terminal, persist-visibility-state | Hide terminal pane, close project, reopen | Terminal pane remains hidden, header still visible |
+| pw-010 | animate-pane-toggle | Toggle sessions panel visibility | Panel animates in/out with easeInOut(0.2) |
+| pw-011 | toolbar-sessions-button | Click sessions toolbar button | Sessions panel toggles visibility |
+| pw-012 | toolbar-inspector-button | Click inspector toolbar button | Inspector panel toggles visibility |
+| pw-013 | toolbar-gear-button | Click gear toolbar button | Project settings sheet appears |
+| pw-014 | folder-header-repo-name | Open project at `/Users/dev/my-repo` | Folder header shows "my-repo" above file tree |
+| pw-015 | persist-window-frame, sha256-autosave-id | Open project, move window, close, reopen | Window restores at saved position; autosave name is SHA256 of project path |
+| pw-016 | sync-status-overlay | Trigger directory sync | Status bar overlay appears at bottom of file tree panel |
+| pw-017 | load-initial-start-watch | Open a project window | `loadInitial` and `startWatching` called on appear |
+| pw-018 | auto-open-terminal | Open project with auto-open-terminal enabled | Terminal pane opens automatically |
+| pw-019 | terminate-on-close | Close the project window | `terminateAll` and `stopWatching` called |
+| pw-020 | sessions-toggle-label | Enable VoiceOver, focus sessions toolbar button | Announces "Toggle Sessions Panel" |
+| pw-021 | keyboard-region-nav | Press Tab repeatedly through window | Focus moves between sessions, file tree, editor, terminal, toolbar |
+| pw-022 | immediate-settings-save | Toggle inspector, immediately force-quit app, relaunch | Inspector state matches last toggle (persisted immediately) |
 
 ## Edge Cases
 
