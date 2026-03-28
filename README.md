@@ -16,7 +16,7 @@ git clone git@github.com:mikefullerton/agentic-cookbook.git
 From your project directory, run the onboarding wizard:
 
 ```
-/import-agentic-cookbook
+/import-cookbook
 ```
 
 The wizard asks your participation tier and sets up rules and CLAUDE.md automatically.
@@ -30,7 +30,7 @@ The wizard asks your participation tier and sets up rules and CLAUDE.md automati
 | 3 | **Recipes** | + Recipe search, conformance, opportunity flagging |
 | 4 | **Contributor** | + Create/enhance recipes, PR workflow to the cookbook |
 
-Each tier is additive — tier 3 includes everything from tiers 1 and 2. Change your tier anytime with `/configure-agentic-cookbook`.
+Each tier is additive — tier 3 includes everything from tiers 1 and 2. Change your tier anytime with `/configure-cookbook`.
 
 ## What's in the Cookbook
 
@@ -76,15 +76,15 @@ Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition ov
 
 | Skill | Tier | Purpose |
 |-------|------|---------|
-| `/import-agentic-cookbook` | — | Onboarding — set up CLAUDE.md and run configure |
-| `/configure-agentic-cookbook` | — | Select/change participation tier, install rules |
-| `/review-with-agentic-cookbook-guidelines` | 2+ | Review implementation against guidelines |
-| `/review-with-agentic-cookbook-recipe` | 3+ | Review implementation against a specific recipe |
+| `/import-cookbook` | — | Onboarding — set up CLAUDE.md and run configure |
+| `/configure-cookbook` | — | Select/change participation tier, install rules |
+| `/lint-with-cookbook` | 2+ | Lint implementation against guidelines or a specific recipe |
 | `/lint-rule` | — | Lint a rule file against best practices |
 | `/lint-skill` | — | Lint a skill against best practices |
 | `/lint-agent` | — | Lint an agent against best practices |
-| `/plan-agentic-cookbook-recipe` | 4 | Interactive recipe design |
-| `/contribute-to-agentic-cookbook` | 4 | Create a PR to the cookbook |
+| `/plan-cookbook-recipe` | 4 | Interactive recipe design |
+| `/contribute-to-cookbook` | 4 | Create a PR to the cookbook |
+| `/validate-cookbook` | — | Validate cookbook integrity — frontmatter, references, indexes, placement |
 
 ## Rules
 
@@ -123,15 +123,15 @@ rules/                 # terse LLM-optimized rules for .claude/ drop-in
   conventions.md
 
 .claude/skills/        # Claude Code skills
-  import-agentic-cookbook/
-  configure-agentic-cookbook/
-  review-with-agentic-cookbook-guidelines/
-  review-with-agentic-cookbook-recipe/
+  import-cookbook/
+  configure-cookbook/
+  lint-with-cookbook/
   lint-rule/
   lint-skill/
   lint-agent/
-  plan-agentic-cookbook-recipe/
-  contribute-to-agentic-cookbook/
+  plan-cookbook-recipe/
+  contribute-to-cookbook/
+  validate-cookbook/
 
 contributing/          # how to contribute (AUTHORING.md)
 decisions/             # design decision records
@@ -141,7 +141,7 @@ decisions/             # design decision records
 
 See `contributing/AUTHORING.md` for content authoring guidelines.
 
-To contribute recipes programmatically, install at Tier 4 and use `/contribute-to-agentic-cookbook`.
+To contribute recipes programmatically, install at Tier 4 and use `/contribute-to-cookbook`.
 
 ## License
 

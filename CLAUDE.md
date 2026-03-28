@@ -14,7 +14,7 @@ cookbook/               # the content
   conventions.md       # full format reference
   index.md             # table of contents
 rules/                 # terse LLM-optimized rules for .claude/ drop-in
-.claude/skills/        # 7 Claude Code skills
+.claude/skills/        # 8 Claude Code skills
 contributing/          # how to contribute (AUTHORING.md)
 decisions/             # design decision records
 ```
@@ -43,21 +43,21 @@ Consuming projects choose a tier. Each is additive.
 | 3 | Recipes | `rules/RECIPE-CONSUMER-RULE.md` | + Recipe search, conformance, opportunity flagging |
 | 4 | Contributor | `rules/CONTRIBUTOR-RULE.md` | + Create/enhance recipes, PR workflow |
 
-Onboard: `/import-agentic-cookbook` from the consuming project. Change tier: `/configure-agentic-cookbook`.
+Onboard: `/import-cookbook` from the consuming project. Change tier: `/configure-cookbook`.
 
 ## Skills
 
 | Skill | Tier | Purpose |
 |-------|------|---------|
-| `/import-agentic-cookbook` | — | Onboarding — set up CLAUDE.md and run configure |
-| `/configure-agentic-cookbook` | — | Select/change participation tier, install rules |
-| `/review-with-agentic-cookbook-guidelines` | 2+ | Review implementation against guidelines |
-| `/review-with-agentic-cookbook-recipe` | 3+ | Review implementation against a specific recipe |
+| `/import-cookbook` | — | Onboarding — set up CLAUDE.md and run configure |
+| `/configure-cookbook` | — | Select/change participation tier, install rules |
+| `/lint-with-cookbook` | 2+ | Lint implementation against guidelines or a specific recipe |
 | `/lint-rule` | — | Lint a rule file against best practices |
 | `/lint-skill` | — | Lint a skill against best practices |
 | `/lint-agent` | — | Lint an agent against best practices |
-| `/plan-agentic-cookbook-recipe` | 4 | Interactive recipe design |
-| `/contribute-to-agentic-cookbook` | 4 | Create a PR to the cookbook |
+| `/plan-cookbook-recipe` | 4 | Interactive recipe design |
+| `/contribute-to-cookbook` | 4 | Create a PR to the cookbook |
+| `/validate-cookbook` | — | Validate cookbook integrity — frontmatter, references, indexes, placement |
 
 Skills use a `version` field in frontmatter (project convention, not a Claude Code runtime field). See `rules/SKILL-VERSIONING-RULE.md` for the versioning protocol.
 
