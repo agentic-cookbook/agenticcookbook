@@ -1,7 +1,7 @@
 ---
 id: 495000e6-a1fc-4b43-8999-23089505559c
 title: "For novel components, prefer proven open-source solutions"
-domain: cookbook.principles.open-source-preference
+domain: agentic-cookbook://principles/open-source-preference
 type: principle
 version: 1.0.0
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: 734f7c30-8cf2-4284-8276-267d62c3c49c
 title: "Test Doubles"
-domain: cookbook.guidelines.testing.test-doubles
+domain: agentic-cookbook://guidelines/testing/test-doubles
 type: guideline
 version: 1.0.0
 status: accepted

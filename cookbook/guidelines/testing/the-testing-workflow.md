@@ -1,7 +1,7 @@
 ---
 id: bef3dedc-bd3f-4158-ad52-adad1c2017d6
 title: "The Testing Workflow"
-domain: cookbook.guidelines.testing.the-testing-workflow
+domain: agentic-cookbook://guidelines/testing/the-testing-workflow
 type: guideline
 version: 1.0.0
 status: accepted

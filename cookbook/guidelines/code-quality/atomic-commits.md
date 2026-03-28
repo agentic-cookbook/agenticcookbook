@@ -1,7 +1,7 @@
 ---
 id: 8075b95b-2678-4893-9a5a-eb77aa9232aa
 title: "Small, atomic commits"
-domain: cookbook.guidelines.code-quality.atomic-commits
+domain: agentic-cookbook://guidelines/code-quality/atomic-commits
 type: guideline
 version: 1.0.0
 status: accepted

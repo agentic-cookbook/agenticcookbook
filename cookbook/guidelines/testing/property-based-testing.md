@@ -1,7 +1,7 @@
 ---
 id: a34c92a2-7dd0-4641-a126-418102b8b031
 title: "Property-Based Testing"
-domain: cookbook.guidelines.testing.property-based-testing
+domain: agentic-cookbook://guidelines/testing/property-based-testing
 type: guideline
 version: 1.0.0
 status: accepted

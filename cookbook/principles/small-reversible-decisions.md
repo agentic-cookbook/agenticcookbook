@@ -1,7 +1,7 @@
 ---
 id: 4554e680-aca3-4bb2-bc99-1ac381c428b2
 title: "Small, reversible decisions"
-domain: cookbook.principles.small-reversible-decisions
+domain: agentic-cookbook://principles/small-reversible-decisions
 type: principle
 version: 1.0.0
 status: accepted

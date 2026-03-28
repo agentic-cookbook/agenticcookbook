@@ -1,7 +1,7 @@
 ---
 id: 338cb220-483c-4f9e-ae9d-e1dd79e59289
 title: "Project Window"
-domain: cookbook.recipes.ui.window.project-window
+domain: agentic-cookbook://recipes/ui/window/project-window
 type: recipe
 version: 1.0.0
 status: accepted

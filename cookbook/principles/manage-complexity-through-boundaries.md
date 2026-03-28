@@ -1,7 +1,7 @@
 ---
 id: 555ad5e1-800f-4848-8c58-6f726bdcb42b
 title: "Manage complexity through boundaries"
-domain: cookbook.principles.manage-complexity-through-boundaries
+domain: agentic-cookbook://principles/manage-complexity-through-boundaries
 type: principle
 version: 1.0.0
 status: accepted

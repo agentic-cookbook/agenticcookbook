@@ -1,7 +1,7 @@
 ---
 id: 22729bee-7ab4-4648-aa5a-2beef067d0c3
 title: "Status Bar"
-domain: cookbook.recipes.ui.component.status-bar
+domain: agentic-cookbook://recipes/ui/component/status-bar
 type: recipe
 version: 1.0.0
 status: accepted

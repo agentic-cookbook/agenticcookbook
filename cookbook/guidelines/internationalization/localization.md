@@ -1,7 +1,7 @@
 ---
 id: 57cbdb9d-4cf7-4a39-bdd8-99d28be983ca
 title: "Localizability"
-domain: cookbook.guidelines.internationalization.localization
+domain: agentic-cookbook://guidelines/internationalization/localization
 type: guideline
 version: 1.0.0
 status: accepted

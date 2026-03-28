@@ -1,7 +1,7 @@
 ---
 id: af8a4221-90b7-434f-b2a4-64c86a072386
 title: "Nullable Reference Types"
-domain: cookbook.guidelines.language.csharp.nullable-reference-types
+domain: agentic-cookbook://guidelines/language/csharp/nullable-reference-types
 type: guideline
 version: 1.0.0
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: d27c35ab-84f6-4f40-8c29-91630fdc90e7
 title: "Deep linking"
-domain: cookbook.guidelines.ui.deep-linking
+domain: agentic-cookbook://guidelines/ui/deep-linking
 type: guideline
 version: 1.0.0
 status: accepted

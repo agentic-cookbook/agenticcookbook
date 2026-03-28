@@ -1,7 +1,7 @@
 ---
 id: da56ab62-98ad-4f52-b972-3ebfda5b1718
 title: "Principle of least astonishment"
-domain: cookbook.principles.principle-of-least-astonishment
+domain: agentic-cookbook://principles/principle-of-least-astonishment
 type: principle
 version: 1.0.0
 status: accepted

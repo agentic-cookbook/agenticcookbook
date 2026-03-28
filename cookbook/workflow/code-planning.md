@@ -1,7 +1,7 @@
 ---
 id: 6fba028d-fe54-48cc-9868-538b36916d72
 title: "Code Planning"
-domain: cookbook.workflow.code-planning
+domain: agentic-cookbook://workflow/code-planning
 type: workflow
 version: 1.0.0
 status: accepted
@@ -17,9 +17,9 @@ tags:
   - code-planning
 depends-on: []
 related: 
-  - guide.core.principles.simplicity
-  - guide.core.principles.small-reversible-decisions
-  - guide.core.principles.yagni
+  - agentic-cookbook://principles/simplicity
+  - agentic-cookbook://principles/small-reversible-decisions
+  - agentic-cookbook://principles/yagni
 references: []
 ---
 
@@ -143,7 +143,7 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 | Phase | Checklist Items | Notes |
 |-------|----------------|-------|
 | Phase 3 | All items | Full checklist scan — this is the primary phase for checklist evaluation |
-| Phase 5 | guide.core.principles.simplicity (Simplicity), guide.core.principles.yagni (YAGNI) | Plan should reflect simplest viable approach |
+| Phase 5 | agentic-cookbook://principles/simplicity (Simplicity), agentic-cookbook://principles/yagni (YAGNI) | Plan should reflect simplest viable approach |
 
 ## Conformance Test Vectors
 
@@ -186,7 +186,7 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 **Approved**: pending
 
 **Decision**: Planning is strictly read-only — no code or file modifications.
-**Rationale**: Separating planning from implementation prevents premature commitment to an approach. It's cheaper to change a plan than to rewrite code. This mirrors the principle of small, reversible decisions (guide.core.principles.small-reversible-decisions).
+**Rationale**: Separating planning from implementation prevents premature commitment to an approach. It's cheaper to change a plan than to rewrite code. This mirrors the principle of small, reversible decisions (agentic-cookbook://principles/small-reversible-decisions).
 **Approved**: pending
 
 **Decision**: Plan must be approved before implementation begins.

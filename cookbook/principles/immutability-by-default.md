@@ -1,7 +1,7 @@
 ---
 id: a7ce3621-2fed-478f-8767-b186014c5923
 title: "Immutability by default"
-domain: cookbook.principles.immutability-by-default
+domain: agentic-cookbook://principles/immutability-by-default
 type: principle
 version: 1.0.0
 status: accepted

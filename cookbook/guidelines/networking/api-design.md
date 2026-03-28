@@ -1,7 +1,7 @@
 ---
 id: 49399746-a81f-4163-8b07-0cfa11d87c2e
 title: "API Design"
-domain: cookbook.guidelines.networking.api-design
+domain: agentic-cookbook://guidelines/networking/api-design
 type: guideline
 version: 1.0.0
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: aec38334-67fa-4c7e-bca2-607932af3f22
 title: "Authentication"
-domain: cookbook.guidelines.security.authentication
+domain: agentic-cookbook://guidelines/security/authentication
 type: guideline
 version: 1.0.0
 status: accepted

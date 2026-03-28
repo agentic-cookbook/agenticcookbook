@@ -1,7 +1,7 @@
 ---
 id: acbfc5ff-4482-4982-a893-b792da0fbe4f
 title: "Deterministic IDs"
-domain: cookbook.guidelines.language.python.deterministic-ids
+domain: agentic-cookbook://guidelines/language/python/deterministic-ids
 type: guideline
 version: 1.0.0
 status: accepted

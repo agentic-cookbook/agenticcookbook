@@ -1,7 +1,7 @@
 ---
 id: 39c2d053-006f-42c9-9db4-d991c1688024
 title: "Idempotency"
-domain: cookbook.principles.idempotency
+domain: agentic-cookbook://principles/idempotency
 type: principle
 version: 1.0.0
 status: accepted

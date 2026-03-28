@@ -1,7 +1,7 @@
 ---
 id: 40ba1017-cec3-42f0-bd89-63a29eb3dd4d
 title: "Previews"
-domain: cookbook.guidelines.ui.previews
+domain: agentic-cookbook://guidelines/ui/previews
 type: guideline
 version: 1.0.0
 status: accepted

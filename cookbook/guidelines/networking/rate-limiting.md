@@ -1,7 +1,7 @@
 ---
 id: c84400d9-83b3-4c4c-83d4-325dfa989202
 title: "Rate Limiting"
-domain: cookbook.guidelines.networking.rate-limiting
+domain: agentic-cookbook://guidelines/networking/rate-limiting
 type: guideline
 version: 1.0.0
 status: accepted

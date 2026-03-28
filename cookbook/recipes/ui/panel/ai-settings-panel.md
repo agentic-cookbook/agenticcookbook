@@ -1,7 +1,7 @@
 ---
 id: 24eb3821-0f66-4acf-bff0-5797982bb60d
 title: "AI Settings Panel"
-domain: cookbook.recipes.ui.panel.ai-settings-panel
+domain: agentic-cookbook://recipes/ui/panel/ai-settings-panel
 type: recipe
 version: 1.0.0
 status: accepted

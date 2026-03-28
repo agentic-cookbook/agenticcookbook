@@ -1,7 +1,7 @@
 ---
 id: a61b6ede-624b-4424-bdf6-aeb153c9a3ea
 title: "Simplicity"
-domain: cookbook.principles.simplicity
+domain: agentic-cookbook://principles/simplicity
 type: principle
 version: 1.0.0
 status: accepted

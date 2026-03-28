@@ -1,7 +1,7 @@
 ---
 id: 926dff1a-dc12-46a4-b8c1-bdedbc142afd
 title: "Secure Storage"
-domain: cookbook.guidelines.security.secure-storage
+domain: agentic-cookbook://guidelines/security/secure-storage
 type: guideline
 version: 1.0.0
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: 425271ea-92b6-4df6-9a83-94795f1be377
 title: "Fail fast"
-domain: cookbook.principles.fail-fast
+domain: agentic-cookbook://principles/fail-fast
 type: principle
 version: 1.0.0
 status: accepted

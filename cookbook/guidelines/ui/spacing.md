@@ -1,7 +1,7 @@
 ---
 id: 536c1e46-36f9-4a44-b8f4-c9e4db94cf53
 title: "Spacing"
-domain: cookbook.guidelines.ui.spacing
+domain: agentic-cookbook://guidelines/ui/spacing
 type: guideline
 version: 1.0.0
 status: accepted

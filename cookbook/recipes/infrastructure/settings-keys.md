@@ -1,7 +1,7 @@
 ---
 id: 39676af7-b0b9-48f2-8056-f0c8e8754ffc
 title: "Settings Keys"
-domain: cookbook.recipes.infrastructure.settings-keys
+domain: agentic-cookbook://recipes/infrastructure/settings-keys
 type: recipe
 version: 1.0.0
 status: accepted

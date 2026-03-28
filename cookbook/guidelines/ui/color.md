@@ -1,7 +1,7 @@
 ---
 id: e547d962-d561-4bd9-bb5a-50bdeec98335
 title: "Color"
-domain: cookbook.guidelines.ui.color
+domain: agentic-cookbook://guidelines/ui/color
 type: guideline
 version: 1.0.0
 status: accepted
@@ -21,7 +21,7 @@ tags:
   - ui
 depends-on: []
 related: 
-  - guide.core.general.accessibility-from-day-one
+  - agentic-cookbook://guidelines/general#accessibility-from-day-one
 references: 
   - https://developer.apple.com/design/human-interface-guidelines/color
   - https://learn.microsoft.com/en-us/windows/apps/design/style/color
@@ -41,7 +41,7 @@ Use color with intention — never as the sole means of conveying information.
   success/warning/error. Avoid rainbow UIs.
 - **Not color alone** — always pair color with a secondary indicator (icon, shape, text, pattern)
   for state changes, errors, and status.
-- **Contrast minimums** (WCAG AA, per guide.core.general.accessibility-from-day-one):
+- **Contrast minimums** (WCAG AA, per agentic-cookbook://guidelines/general#accessibility-from-day-one):
 
 | Element | AA Minimum | AAA Enhanced |
 |---------|-----------|-------------|

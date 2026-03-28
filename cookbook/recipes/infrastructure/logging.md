@@ -1,7 +1,7 @@
 ---
 id: 7c2049c7-89d9-4135-b657-dbd03cdd19a0
 title: "Logging"
-domain: cookbook.recipes.infrastructure.logging
+domain: agentic-cookbook://recipes/infrastructure/logging
 type: recipe
 version: 1.0.0
 status: accepted

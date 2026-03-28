@@ -1,7 +1,7 @@
 ---
 id: 0f0c1da3-1c53-417b-890d-0259d7513c65
 title: "Instrumented logging"
-domain: cookbook.guidelines.logging.logging
+domain: agentic-cookbook://guidelines/logging/logging
 type: guideline
 version: 1.0.0
 status: accepted

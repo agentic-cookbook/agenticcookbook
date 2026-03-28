@@ -1,7 +1,7 @@
 ---
 id: 2598f495-1820-47e7-b7e7-ce548d390148
 title: "Token Handling"
-domain: cookbook.guidelines.security.token-handling
+domain: agentic-cookbook://guidelines/security/token-handling
 type: guideline
 version: 1.0.0
 status: accepted
@@ -30,32 +30,32 @@ references:
 
 # Token Handling
 
-### guide.domain.security.token-handling. Access tokens
+### agentic-cookbook://guidelines/security/token-handling- Access tokens
 
 Short-lived (5-15 min). Include only necessary claims — no PII in JWTs
 that transit untrusted parties.
 
-### guide.domain.security.token-handling. Refresh tokens
+### agentic-cookbook://guidelines/security/token-handling- Refresh tokens
 
 Longer-lived but bound to client. Use rotation (see Authentication above).
 Store server-side when possible.
 
-### guide.domain.security.token-handling. Token refresh strategy
+### agentic-cookbook://guidelines/security/token-handling- Token refresh strategy
 
 - Proactive refresh before expiry (e.g., at 75% of TTL)
 - Queue concurrent requests during refresh to avoid race conditions
 - Retry with backoff on refresh failure
 
-### guide.domain.security.token-handling. Secure storage per platform
+### agentic-cookbook://guidelines/security/token-handling- Secure storage per platform
 
-See also guide.core.general.privacy-and-security-by-default.
+See also agentic-cookbook://guidelines/general#privacy-and-security-by-default-
 
 - **Apple:** Keychain Services
 - **Android:** EncryptedSharedPreferences / Android Keystore
 - **Windows:** DPAPI (`ProtectedData`)
 - **Web:** HttpOnly Secure SameSite cookies (never localStorage)
 
-### guide.domain.security.token-handling. Never do these
+### agentic-cookbook://guidelines/security/token-handling- Never do these
 
 - Store tokens in `localStorage` or `sessionStorage` (XSS-accessible)
 - Put tokens in URL query parameters (logged in server logs, browser history, referrer headers)

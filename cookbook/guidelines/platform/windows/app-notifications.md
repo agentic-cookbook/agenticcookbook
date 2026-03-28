@@ -1,7 +1,7 @@
 ---
 id: 94e8caba-da27-4bb8-8f8e-38730b8b34e0
 title: "App Notifications"
-domain: cookbook.guidelines.platform.windows.app-notifications
+domain: agentic-cookbook://guidelines/platform/windows/app-notifications
 type: guideline
 version: 1.0.0
 status: accepted

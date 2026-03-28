@@ -1,7 +1,7 @@
 ---
 id: f68778f2-65e3-4e89-bbf8-115151efa9dc
 title: "Database"
-domain: cookbook.guidelines.language.python.database
+domain: agentic-cookbook://guidelines/language/python/database
 type: guideline
 version: 1.0.0
 status: accepted

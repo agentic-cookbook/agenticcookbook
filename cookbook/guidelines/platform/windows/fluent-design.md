@@ -1,7 +1,7 @@
 ---
 id: 376daf6c-f2bd-4a33-9ab4-2a2af140e725
 title: "Fluent Design"
-domain: cookbook.guidelines.platform.windows.fluent-design
+domain: agentic-cookbook://guidelines/platform/windows/fluent-design
 type: guideline
 version: 1.0.0
 status: accepted

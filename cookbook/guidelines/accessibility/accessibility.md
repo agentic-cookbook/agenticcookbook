@@ -1,7 +1,7 @@
 ---
 id: 3d970d6a-2d71-48f3-9f84-69c1d823d6e8
 title: "Accessibility from day one"
-domain: cookbook.guidelines.accessibility.accessibility
+domain: agentic-cookbook://guidelines/accessibility/accessibility
 type: guideline
 version: 1.0.0
 status: accepted

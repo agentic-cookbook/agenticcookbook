@@ -1,7 +1,7 @@
 ---
 id: 4428deb0-05a8-4b52-a78f-3dec1e7f90a4
 title: "MSIX Packaging"
-domain: cookbook.guidelines.platform.windows.msix-packaging
+domain: agentic-cookbook://guidelines/platform/windows/msix-packaging
 type: guideline
 version: 1.0.0
 status: accepted

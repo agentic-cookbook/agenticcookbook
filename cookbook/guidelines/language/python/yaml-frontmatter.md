@@ -1,7 +1,7 @@
 ---
 id: 4c070e8f-332c-4831-95a1-d0776e7b7ce8
 title: "YAML frontmatter"
-domain: cookbook.guidelines.language.python.yaml-frontmatter
+domain: agentic-cookbook://guidelines/language/python/yaml-frontmatter
 type: guideline
 version: 1.0.0
 status: accepted

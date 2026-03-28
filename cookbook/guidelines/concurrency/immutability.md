@@ -1,7 +1,7 @@
 ---
 id: 50ea8b39-813d-4325-be31-0ae19b8a3baf
 title: "Immutability"
-domain: cookbook.guidelines.concurrency.immutability
+domain: agentic-cookbook://guidelines/concurrency/immutability
 type: guideline
 version: 1.0.0
 status: accepted

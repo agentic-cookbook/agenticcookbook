@@ -1,7 +1,7 @@
 ---
 id: 991e72d0-477b-4fd5-bdfa-08680efc0cf9
 title: "Scriptable and automatable"
-domain: cookbook.guidelines.ui.shortcuts-and-automation
+domain: agentic-cookbook://guidelines/ui/shortcuts-and-automation
 type: guideline
 version: 1.0.0
 status: accepted

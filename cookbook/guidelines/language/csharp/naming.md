@@ -1,7 +1,7 @@
 ---
 id: 34486fb8-8a0b-4538-a40a-13124155cd56
 title: "Naming"
-domain: cookbook.guidelines.language.csharp.naming
+domain: agentic-cookbook://guidelines/language/csharp/naming
 type: guideline
 version: 1.0.0
 status: accepted

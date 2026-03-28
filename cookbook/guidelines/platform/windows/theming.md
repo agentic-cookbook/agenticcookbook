@@ -1,7 +1,7 @@
 ---
 id: 5cc9773e-78de-493e-891c-2a819baf9b60
 title: "Theming"
-domain: cookbook.guidelines.platform.windows.theming
+domain: agentic-cookbook://guidelines/platform/windows/theming
 type: guideline
 version: 1.0.0
 status: accepted

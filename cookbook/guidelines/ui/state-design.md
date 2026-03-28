@@ -1,7 +1,7 @@
 ---
 id: 0935bc69-88a9-483e-a3c9-38447d880f45
 title: "State Design"
-domain: cookbook.guidelines.ui.state-design
+domain: agentic-cookbook://guidelines/ui/state-design
 type: guideline
 version: 1.0.0
 status: accepted
@@ -20,7 +20,7 @@ tags:
   - ui
 depends-on: []
 related: 
-  - guide.core.general.always-show-progress
+  - agentic-cookbook://guidelines/general#always-show-progress
 references: 
   - https://developer.apple.com/design/human-interface-guidelines/empty-states
   - https://material.io/design/communication/empty-states.html
@@ -35,7 +35,7 @@ show a blank screen with no explanation.
 
 **The four states:**
 
-1. **Loading** — show progress (see guide.core.general.always-show-progress). Use skeleton screens for content-heavy
+1. **Loading** — show progress (see agentic-cookbook://guidelines/general#always-show-progress). Use skeleton screens for content-heavy
    views, spinners for actions. Never block the entire screen for a partial load.
 2. **Empty** — explain what belongs here, why it's empty, and provide a single clear action to
    populate it. Use an icon or illustration, a brief message, and a CTA button.

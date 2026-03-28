@@ -1,7 +1,7 @@
 ---
 id: 29057cf0-a38b-4c35-8b8b-52e12bf54784
 title: "Privacy and security by default"
-domain: cookbook.guidelines.security.privacy
+domain: agentic-cookbook://guidelines/security/privacy
 type: guideline
 version: 1.0.0
 status: accepted
@@ -26,27 +26,27 @@ references: []
 
 # Privacy and security by default
 
-### guide.core.general.privacy-and-security-by-default. Data minimization
+### agentic-cookbook://guidelines/general#privacy-and-security-by-default- Data minimization
 
 Collect only what is needed. Prefer on-device processing.
 
-### guide.core.general.privacy-and-security-by-default. Consent
+### agentic-cookbook://guidelines/general#privacy-and-security-by-default- Consent
 
 Opt-in for non-essential data collection. Honor "deny" gracefully — the app must remain functional.
 
-### guide.core.general.privacy-and-security-by-default. Secure storage
+### agentic-cookbook://guidelines/general#privacy-and-security-by-default- Secure storage
 
 Tokens and credentials MUST use platform secure storage (Keychain, EncryptedSharedPreferences, DPAPI, HttpOnly cookies).
 
-### guide.core.general.privacy-and-security-by-default. No PII logging
+### agentic-cookbook://guidelines/general#privacy-and-security-by-default- No PII logging
 
 Never log personally identifiable information, even at debug level.
 
-### guide.core.general.privacy-and-security-by-default. TLS only
+### agentic-cookbook://guidelines/general#privacy-and-security-by-default- TLS only
 
 All network communication MUST use HTTPS.
 
-### guide.core.general.privacy-and-security-by-default. Input sanitization
+### agentic-cookbook://guidelines/general#privacy-and-security-by-default- Input sanitization
 
 Sanitize all user input before display (prevent XSS, injection).
 

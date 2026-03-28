@@ -1,7 +1,7 @@
 ---
 id: e45d49c6-f753-4aea-8496-b3bf70297a7d
 title: "Post-generation verification"
-domain: cookbook.guidelines.testing.post-generation-verification
+domain: agentic-cookbook://guidelines/testing/post-generation-verification
 type: guideline
 version: 1.0.0
 status: accepted
@@ -21,7 +21,7 @@ tags:
   - testing
 depends-on: []
 related: 
-  - guide.core.general.linting-from-day-one
+  - agentic-cookbook://guidelines/general#linting-from-day-one
 references: []
 ---
 
@@ -31,7 +31,7 @@ Every generated artifact must be verified:
 
 1. **Build**: Compile for all target platforms (`xcodebuild`, `./gradlew build`, `npm run build`, `dotnet build`)
 2. **Test**: Run the full test suite — all tests must pass
-3. **Lint**: Run the platform linter (see guide.core.general.linting-from-day-one)
+3. **Lint**: Run the platform linter (see agentic-cookbook://guidelines/general#linting-from-day-one)
 4. **Log verification**: Build, run, and grep for expected log messages from the Logging section
 5. **Accessibility audit**: Verify VoiceOver/TalkBack labels, tap target minimums (44pt iOS, 48dp Android), contrast ratios
 6. **Code review against best practices**: Check against platform best practices references

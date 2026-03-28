@@ -1,7 +1,7 @@
 ---
 id: 954e559c-e2bf-494c-a37e-de0b88bec89a
 title: "Code Editor Pane"
-domain: cookbook.recipes.ui.panel.code-editor-pane
+domain: agentic-cookbook://recipes/ui/panel/code-editor-pane
 type: recipe
 version: 1.0.0
 status: accepted

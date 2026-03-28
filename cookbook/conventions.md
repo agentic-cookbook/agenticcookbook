@@ -1,7 +1,7 @@
 ---
 id: 7a3e1f2c-8b4d-4e6a-9c5f-1d2e3f4a5b6c
 title: "Conventions"
-domain: cookbook.conventions
+domain: agentic-cookbook://conventions
 type: reference
 version: 1.0.0
 status: accepted
@@ -110,28 +110,91 @@ This format is aligned with:
 
 ## Naming
 
-### Path-Derived Domain Identifiers
+### URL-Based Domain Identifiers
 
-The filesystem path IS the unique identity. No separate ID field, no numeric prefixes.
+Every document has a globally unique URL-based domain identifier. The scheme identifies the source, the path maps directly to the filesystem, and fragments address sections within a document.
+
+**Format**: `<scheme>://<path>#<fragment>`
+
+| Component | Description |
+|-----------|-------------|
+| **Scheme** | Identifies the source repo (`agentic-cookbook`, `temporal`, `my-company`) |
+| **Path** | Filesystem path from content root, without `.md` extension |
+| **Fragment** | Section or item within the document, `/`-delimited (optional) |
 
 **Derivation rules:**
-1. Start from the content root directory (`cookbook/`)
-2. Replace `/` with `.`
+1. Scheme is the repo/project name (kebab-case)
+2. Path starts from the content root directory (e.g., `recipes/ui/panel/file-tree-browser`)
 3. Drop the `.md` extension
+4. Fragment addresses sections within the document
 
 | File path | Domain |
 |-----------|--------|
-| `cookbook/principles/simplicity.md` | `cookbook.principles.simplicity` |
-| `cookbook/guidelines/testing/test-pyramid.md` | `cookbook.guidelines.testing.test-pyramid` |
-| `cookbook/recipes/ui/panel/file-tree-browser.md` | `cookbook.recipes.ui.panel.file-tree-browser` |
+| `cookbook/principles/simplicity.md` | `agentic-cookbook://principles/simplicity` |
+| `cookbook/guidelines/testing/test-pyramid.md` | `agentic-cookbook://guidelines/testing/test-pyramid` |
+| `cookbook/recipes/ui/panel/file-tree-browser.md` | `agentic-cookbook://recipes/ui/panel/file-tree-browser` |
 
-**Why this approach** (based on industry research — Go modules, Java packages, Maven, Apple Bundle IDs, RFC 8141):
-- Broad-to-specific ordering (the universal standard outside DNS)
-- Separator maps to filesystem (slash in paths, dot in domain notation)
-- Version as metadata, not in the name
-- Bounded fan-out (no directory exceeds ~50-100 items)
-- Human-readable leaf names
-- Stable identifiers (never reuse a retired path)
+**Cross-repo references:**
+
+```
+agentic-cookbook://recipes/ui/component/empty-state
+temporal://recipes/ui/server-config-window
+```
+
+### Fragments — Addressing Sections Within a Document
+
+Use `#` fragments to reference sections and items within a document:
+
+```
+agentic-cookbook://recipes/ui/window/workspace-window#requirements/ordered-list
+agentic-cookbook://recipes/ui/window/workspace-window#platforms/swift
+agentic-cookbook://recipes/ui/window/workspace-window#states/error
+```
+
+Within the same document, use the short form:
+
+```
+#requirements/ordered-list
+#states/error
+```
+
+| Section | Fragment pattern |
+|---------|-----------------|
+| Overview | `#overview` |
+| Requirements | `#requirements/<name>` |
+| Appearance | `#appearance/<property>` |
+| States | `#states/<state-name>` |
+| Platforms | `#platforms/<platform>` |
+| Accessibility | `#accessibility/<item>` |
+| Test vectors | `#test-vectors/<id>` |
+| Edge cases | `#edge-cases/<name>` |
+| Logging | `#logging/<event>` |
+| Localization | `#localization/<key>` |
+| Feature flags | `#feature-flags/<flag>` |
+| Analytics | `#analytics/<event>` |
+| Privacy | `#privacy` |
+| Design decisions | `#design-decisions/<name>` |
+| Change history | `#change-history/<version>` |
+
+### Named Requirements
+
+Requirements use descriptive kebab-case names, not sequential numbers. Format: `**<name>**: <description>`
+
+```markdown
+- **ordered-list**: The control MUST maintain an ordered list of messages.
+- **scroll-to-bottom**: The control MUST auto-scroll to the newest message.
+```
+
+Constraints:
+- Names MUST be unique within the requirements section of a file
+- Names MUST be kebab-case (URL-safe)
+- Names SHOULD be descriptive of the requirement's subject
+
+**Cross-referencing requirements:**
+
+Between documents: `See agentic-cookbook://recipes/ui/panel/chat-control#requirements/ordered-list`
+
+Within the same document: `Validates: #requirements/ordered-list`
 
 ### File Naming Rules
 
@@ -143,7 +206,19 @@ The filesystem path IS the unique identity. No separate ID field, no numeric pre
 
 ### Cross-Referencing
 
-Use the domain in backticks: "See `cookbook.guidelines.testing.test-pyramid`"
+Use the full URL for cross-document references: `See agentic-cookbook://guidelines/testing/test-pyramid`
+
+Use short-form fragments for within-document references: `See #requirements/ordered-list`
+
+In frontmatter `depends-on` and `related` fields, use full URLs:
+
+```yaml
+depends-on:
+  - agentic-cookbook://recipes/ui/component/empty-state
+  - agentic-cookbook://recipes/ui/component/status-bar
+related:
+  - agentic-cookbook://guidelines/testing/test-pyramid
+```
 
 ## RFC 2119 Keywords
 

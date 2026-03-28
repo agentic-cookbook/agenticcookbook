@@ -1,7 +1,7 @@
 ---
 id: faa53b44-0de6-44bc-9064-c7a06462eaa8
 title: "Use roadmap_lib"
-domain: cookbook.guidelines.language.python.use-roadmaplib
+domain: agentic-cookbook://guidelines/language/python/use-roadmaplib
 type: guideline
 version: 1.0.0
 status: accepted

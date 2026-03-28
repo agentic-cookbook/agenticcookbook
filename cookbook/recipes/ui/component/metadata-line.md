@@ -1,7 +1,7 @@
 ---
 id: d4b2fbc3-d814-44f7-a1cf-b59bd5eeb757
 title: "Metadata Line"
-domain: cookbook.recipes.ui.component.metadata-line
+domain: agentic-cookbook://recipes/ui/component/metadata-line
 type: recipe
 version: 1.0.0
 status: accepted

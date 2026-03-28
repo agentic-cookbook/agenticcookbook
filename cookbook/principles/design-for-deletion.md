@@ -1,7 +1,7 @@
 ---
 id: 2aaf1727-aa36-41d1-a660-7dd0456e1d07
 title: "Design for deletion"
-domain: cookbook.principles.design-for-deletion
+domain: agentic-cookbook://principles/design-for-deletion
 type: principle
 version: 1.0.0
 status: accepted

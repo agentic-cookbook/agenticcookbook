@@ -1,7 +1,7 @@
 ---
 id: 497a717f-de29-4baf-b7b8-4487f672d9a8
 title: "Design-Time Data"
-domain: cookbook.guidelines.platform.windows.design-time-data
+domain: agentic-cookbook://guidelines/platform/windows/design-time-data
 type: guideline
 version: 1.0.0
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: e80d67b3-813f-47fb-8894-aa4e6f6479f3
 title: "Dependency Injection"
-domain: cookbook.guidelines.language.csharp.dependency-injection
+domain: agentic-cookbook://guidelines/language/csharp/dependency-injection
 type: guideline
 version: 1.0.0
 status: accepted

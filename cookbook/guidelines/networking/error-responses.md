@@ -1,7 +1,7 @@
 ---
 id: 631b7b61-985a-4f5d-9c44-2cfbfdb9091b
 title: "Error Responses"
-domain: cookbook.guidelines.networking.error-responses
+domain: agentic-cookbook://guidelines/networking/error-responses
 type: guideline
 version: 1.0.0
 status: accepted

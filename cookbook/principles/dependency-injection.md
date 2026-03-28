@@ -1,7 +1,7 @@
 ---
 id: a2b79b0e-7d2c-44f5-b139-abc9cf47d1f5
 title: "Dependency injection"
-domain: cookbook.principles.dependency-injection
+domain: agentic-cookbook://principles/dependency-injection
 type: principle
 version: 1.0.0
 status: accepted

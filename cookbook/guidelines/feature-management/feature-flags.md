@@ -1,7 +1,7 @@
 ---
 id: ac616d81-16c2-4f33-9ae4-139d5c24318d
 title: "Feature flags"
-domain: cookbook.guidelines.feature-management.feature-flags
+domain: agentic-cookbook://guidelines/feature-management/feature-flags
 type: guideline
 version: 1.0.0
 status: accepted

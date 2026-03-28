@@ -1,7 +1,7 @@
 ---
 id: 9dae85c5-85ff-4dd1-9bc4-5e923452dba8
 title: "Dynamic Type"
-domain: cookbook.guidelines.language.swift.dynamic-type
+domain: agentic-cookbook://guidelines/language/swift/dynamic-type
 type: guideline
 version: 1.0.0
 status: accepted

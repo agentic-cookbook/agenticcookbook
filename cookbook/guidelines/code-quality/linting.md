@@ -1,7 +1,7 @@
 ---
 id: 775da457-30c7-47de-b179-0fae8a8b779d
 title: "Linting from day one"
-domain: cookbook.guidelines.code-quality.linting
+domain: agentic-cookbook://guidelines/code-quality/linting
 type: guideline
 version: 1.0.0
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: 9112fc14-f013-4659-9314-e192d50289bf
 title: "References"
-domain: cookbook.guidelines.networking.references
+domain: agentic-cookbook://guidelines/networking/references
 type: guideline
 version: 1.0.0
 status: accepted

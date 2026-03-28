@@ -1,7 +1,7 @@
 ---
 id: 1357be12-5a58-4143-a570-849c114770c5
 title: "Separation of concerns"
-domain: cookbook.principles.separation-of-concerns
+domain: agentic-cookbook://principles/separation-of-concerns
 type: principle
 version: 1.0.0
 status: accepted

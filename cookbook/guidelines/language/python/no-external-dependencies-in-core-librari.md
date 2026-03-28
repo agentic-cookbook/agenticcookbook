@@ -1,7 +1,7 @@
 ---
 id: dca53225-bd2b-4a11-8abb-5226e05de4a7
 title: "No external dependencies in core libraries"
-domain: cookbook.guidelines.language.python.no-external-dependencies-in-core-librari
+domain: agentic-cookbook://guidelines/language/python/no-external-dependencies-in-core-librari
 type: guideline
 version: 1.0.0
 status: accepted

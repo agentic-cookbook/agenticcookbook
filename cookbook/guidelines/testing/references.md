@@ -1,7 +1,7 @@
 ---
 id: a9065a35-6d3a-414e-bf77-670d867924bc
 title: "References"
-domain: cookbook.guidelines.testing.references
+domain: agentic-cookbook://guidelines/testing/references
 type: guideline
 version: 1.0.0
 status: accepted

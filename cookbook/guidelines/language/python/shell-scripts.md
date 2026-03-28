@@ -1,7 +1,7 @@
 ---
 id: e9e60a7e-4e15-40e7-b730-fc2e311df1af
 title: "Shell scripts"
-domain: cookbook.guidelines.language.python.shell-scripts
+domain: agentic-cookbook://guidelines/language/python/shell-scripts
 type: guideline
 version: 1.0.0
 status: accepted

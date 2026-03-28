@@ -1,7 +1,7 @@
 ---
 id: 98c5c5c2-5a45-4425-97b7-31932cb6af0c
 title: "Iconography"
-domain: cookbook.guidelines.ui.iconography
+domain: agentic-cookbook://guidelines/ui/iconography
 type: guideline
 version: 1.0.0
 status: accepted

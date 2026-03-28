@@ -1,7 +1,7 @@
 ---
 id: 85d04a9b-5692-4025-a489-eac8bbb14663
 title: "Window Frame Persistence"
-domain: cookbook.recipes.infrastructure.window-frame-persistence
+domain: agentic-cookbook://recipes/infrastructure/window-frame-persistence
 type: recipe
 version: 1.0.0
 status: accepted

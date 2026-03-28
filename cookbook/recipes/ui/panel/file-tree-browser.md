@@ -1,7 +1,7 @@
 ---
 id: a1845427-a2cd-4744-96bf-f6c6f2380982
 title: "File Tree Browser"
-domain: cookbook.recipes.ui.panel.file-tree-browser
+domain: agentic-cookbook://recipes/ui/panel/file-tree-browser
 type: recipe
 version: 1.0.0
 status: accepted

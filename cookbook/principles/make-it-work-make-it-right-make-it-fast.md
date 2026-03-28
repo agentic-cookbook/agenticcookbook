@@ -1,7 +1,7 @@
 ---
 id: ffa8565d-b105-4758-b850-9d9b8119b838
 title: "Make It Work, Make It Right, Make It Fast"
-domain: cookbook.principles.make-it-work-make-it-right-make-it-fast
+domain: agentic-cookbook://principles/make-it-work-make-it-right-make-it-fast
 type: principle
 version: 1.0.0
 status: accepted

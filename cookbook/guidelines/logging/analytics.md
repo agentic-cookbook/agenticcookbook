@@ -1,7 +1,7 @@
 ---
 id: 17216748-46e9-4e92-af3a-f4deeb843a8d
 title: "Analytics"
-domain: cookbook.guidelines.logging.analytics
+domain: agentic-cookbook://guidelines/logging/analytics
 type: guideline
 version: 1.0.0
 status: accepted

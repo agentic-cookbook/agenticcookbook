@@ -25,10 +25,12 @@ Read `cookbook/conventions.md` for the full format reference.
 
 Key rules:
 - All `.md` files have YAML frontmatter (id, title, domain, type, version, status, language, created, modified, author, copyright, license, summary, platforms, tags, depends-on, related, references)
-- Path-derived domain identifiers: `cookbook/guidelines/testing/test-pyramid.md` → `cookbook.guidelines.testing.test-pyramid`
+- URL-based domain identifiers: `agentic-cookbook://guidelines/testing/test-pyramid`
+- Fragment references for within-document sections: `#requirements/ordered-list`
+- Named requirements (kebab-case, not REQ-NNN): `**ordered-list**: The control MUST...`
 - Version is semver, immutable once on main
 - MIT license on all files
-- Cross-reference by domain in backticks: `cookbook.guidelines.testing.test-pyramid`
+- Cross-reference with full URL or short-form `#fragment`
 
 ## Participation Tiers
 

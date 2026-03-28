@@ -1,7 +1,7 @@
 ---
 id: 4cb7c242-3ade-4d59-9c74-67c1d5f9c107
 title: "RTL layout support"
-domain: cookbook.guidelines.internationalization.rtl-support
+domain: agentic-cookbook://guidelines/internationalization/rtl-support
 type: guideline
 version: 1.0.0
 status: accepted

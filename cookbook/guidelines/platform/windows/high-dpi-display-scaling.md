@@ -1,7 +1,7 @@
 ---
 id: 2b9e9fbb-6df8-4dc2-b02d-3b97f6e434fb
 title: "High DPI / Display Scaling"
-domain: cookbook.guidelines.platform.windows.high-dpi-display-scaling
+domain: agentic-cookbook://guidelines/platform/windows/high-dpi-display-scaling
 type: guideline
 version: 1.0.0
 status: accepted

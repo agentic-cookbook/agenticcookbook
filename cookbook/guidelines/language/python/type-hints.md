@@ -1,7 +1,7 @@
 ---
 id: 82072abf-0ece-42da-805d-3cb15ce7921d
 title: "Type hints"
-domain: cookbook.guidelines.language.python.type-hints
+domain: agentic-cookbook://guidelines/language/python/type-hints
 type: guideline
 version: 1.0.0
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: a7c2a089-7666-459e-b564-24cc30980936
 title: "Visual Hierarchy"
-domain: cookbook.guidelines.ui.visual-hierarchy
+domain: agentic-cookbook://guidelines/ui/visual-hierarchy
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,7 +19,7 @@ tags:
   - visual-hierarchy
 depends-on: []
 related: 
-  - guide.core.general.accessibility-from-day-one
+  - agentic-cookbook://guidelines/general#accessibility-from-day-one
 references: 
   - https://developer.apple.com/design/human-interface-guidelines/layout
   - https://learn.microsoft.com/en-us/windows/apps/design/layout/
@@ -38,7 +38,7 @@ have one obvious focal point — the primary action or content the user came for
 - Interactive elements must be visually distinguishable from static content
 - Disabled elements should be visually muted but still discoverable
 
-See guide.core.general.accessibility-from-day-one for accessibility requirements (contrast, labels, focus order).
+See agentic-cookbook://guidelines/general#accessibility-from-day-one for accessibility requirements (contrast, labels, focus order).
 
 References:
 - [NNGroup: Visual Hierarchy](https://www.nngroup.com/articles/visual-hierarchy-ux-definition/)

@@ -1,7 +1,7 @@
 ---
 id: bdc920ab-fde0-445a-a62a-c2f6d23da8a8
 title: "Color Profile"
-domain: cookbook.recipes.ui.component.color-profile
+domain: agentic-cookbook://recipes/ui/component/color-profile
 type: recipe
 version: 1.0.0
 status: accepted

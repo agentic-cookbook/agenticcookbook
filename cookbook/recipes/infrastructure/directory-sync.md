@@ -1,7 +1,7 @@
 ---
 id: 63659e2c-215a-44ed-b330-2bca8d88bd9a
 title: "Directory Sync / Watch Lifecycle"
-domain: cookbook.recipes.infrastructure.directory-sync
+domain: agentic-cookbook://recipes/infrastructure/directory-sync
 type: recipe
 version: 1.0.0
 status: accepted

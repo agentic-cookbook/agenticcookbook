@@ -1,7 +1,7 @@
 ---
 id: f19706a4-5ba4-49b3-8018-ea1cb41cb350
 title: "Networking"
-domain: cookbook.reference.best-practices.networking
+domain: agentic-cookbook://reference/best-practices/networking
 type: reference
 version: 1.0.0
 status: accepted

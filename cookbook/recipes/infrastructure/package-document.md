@@ -1,7 +1,7 @@
 ---
 id: b2ba3ab9-743f-4c86-a75f-cc2e93fd3b07
 title: "Package Document"
-domain: cookbook.recipes.infrastructure.package-document
+domain: agentic-cookbook://recipes/infrastructure/package-document
 type: recipe
 version: 1.0.0
 status: accepted

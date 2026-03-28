@@ -1,7 +1,7 @@
 ---
 id: 704fef7e-0e8d-480c-8019-cf84b5fd851b
 title: "Data Display"
-domain: cookbook.guidelines.ui.data-display
+domain: agentic-cookbook://guidelines/ui/data-display
 type: guideline
 version: 1.0.0
 status: accepted

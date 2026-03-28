@@ -1,7 +1,7 @@
 ---
 id: 5b026378-d418-406a-9aab-6e3f043901af
 title: "Transport Security"
-domain: cookbook.guidelines.security.transport-security
+domain: agentic-cookbook://guidelines/security/transport-security
 type: guideline
 version: 1.0.0
 status: accepted

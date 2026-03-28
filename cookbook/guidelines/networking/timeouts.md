@@ -1,7 +1,7 @@
 ---
 id: c3883e6e-3bce-4bb9-a3be-61509a139288
 title: "Timeouts"
-domain: cookbook.guidelines.networking.timeouts
+domain: agentic-cookbook://guidelines/networking/timeouts
 type: guideline
 version: 1.0.0
 status: accepted

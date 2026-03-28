@@ -1,7 +1,7 @@
 ---
 id: 00000000-0000-0000-0000-000000000001
 title: "Agentic Cookbook"
-domain: cookbook.index
+domain: agentic-cookbook://index
 type: reference
 version: 1.0.0
 status: accepted
@@ -17,7 +17,7 @@ tags: []
 depends-on: []
 related: []
 references:
-  - https://agentic-cookbook.com
+  - https://agentic-agentic-cookbook://com
 ---
 
 # Agentic Cookbook

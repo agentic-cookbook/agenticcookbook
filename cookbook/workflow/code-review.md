@@ -1,7 +1,7 @@
 ---
 id: a5dc2751-9332-46be-86aa-649e51c237dc
 title: "Code Review"
-domain: cookbook.workflow.code-review
+domain: agentic-cookbook://workflow/code-review
 type: workflow
 version: 1.0.0
 status: accepted
@@ -21,17 +21,17 @@ tags:
   - code-review
 depends-on: []
 related: 
-  - guide.core.general.privacy-and-security-by-default
-  - guide.core.principles.composition-over-inheritance
-  - guide.core.principles.explicit-over-implicit
-  - guide.core.principles.immutability-by-default
-  - guide.core.principles.separation-of-concerns
-  - guide.core.principles.simplicity
-  - guide.core.principles.yagni
-  - guide.domain.testing.flaky-test-prevention
-  - guide.domain.testing.properties-of-good-tests
-  - guide.domain.testing.test-doubles
-  - guide.domain.testing.unit-test-patterns
+  - agentic-cookbook://guidelines/general#privacy-and-security-by-default
+  - agentic-cookbook://principles/composition-over-inheritance
+  - agentic-cookbook://principles/explicit-over-implicit
+  - agentic-cookbook://principles/immutability-by-default
+  - agentic-cookbook://principles/separation-of-concerns
+  - agentic-cookbook://principles/simplicity
+  - agentic-cookbook://principles/yagni
+  - agentic-cookbook://guidelines/testing/flaky-test-prevention
+  - agentic-cookbook://guidelines/testing/properties-of-good-tests
+  - agentic-cookbook://guidelines/testing/test-doubles
+  - agentic-cookbook://guidelines/testing/unit-test-patterns
 references: []
 ---
 
@@ -102,13 +102,13 @@ Referenced from WF-1 (Branching Strategy) Phase 3 as the gate before marking a P
   - Python: `~/.claude/guidelines/python.md`
   - C#: `~/.claude/guidelines/csharp.md`
 
-- **REQ-005**: Claude Code MUST check for violations of the engineering principles (guide.core.principles.*):
-  - Unnecessary complexity (guide.core.principles.simplicity)
-  - Premature abstraction or speculative generality (guide.core.principles.yagni)
-  - Implicit dependencies or hidden state (guide.core.principles.explicit-over-implicit)
-  - Mixed concerns in a single module (guide.core.principles.separation-of-concerns)
-  - Deep inheritance hierarchies (guide.core.principles.composition-over-inheritance)
-  - Mutable shared state (guide.core.principles.immutability-by-default)
+- **REQ-005**: Claude Code MUST check for violations of the engineering principles (agentic-cookbook://principles/*):
+  - Unnecessary complexity (agentic-cookbook://principles/simplicity)
+  - Premature abstraction or speculative generality (agentic-cookbook://principles/yagni)
+  - Implicit dependencies or hidden state (agentic-cookbook://principles/explicit-over-implicit)
+  - Mixed concerns in a single module (agentic-cookbook://principles/separation-of-concerns)
+  - Deep inheritance hierarchies (agentic-cookbook://principles/composition-over-inheritance)
+  - Mutable shared state (agentic-cookbook://principles/immutability-by-default)
 
 - **REQ-006**: Claude Code MUST verify naming quality:
   - Types, functions, and variables have descriptive names that reveal intent
@@ -138,9 +138,9 @@ Referenced from WF-1 (Branching Strategy) Phase 3 as the gate before marking a P
   9. Using components with known vulnerabilities
   10. Insufficient logging and monitoring
 
-- **REQ-009**: Claude Code MUST verify that user input is validated and sanitized at system boundaries (guide.core.general.privacy-and-security-by-default).
-- **REQ-010**: Claude Code MUST verify that credentials and tokens use platform secure storage (guide.core.general.privacy-and-security-by-default), not plain text or UserDefaults/SharedPreferences.
-- **REQ-011**: If the code handles network requests, Claude Code MUST verify TLS-only (guide.core.general.privacy-and-security-by-default) and proper error handling of network failures.
+- **REQ-009**: Claude Code MUST verify that user input is validated and sanitized at system boundaries (agentic-cookbook://guidelines/general#privacy-and-security-by-default).
+- **REQ-010**: Claude Code MUST verify that credentials and tokens use platform secure storage (agentic-cookbook://guidelines/general#privacy-and-security-by-default), not plain text or UserDefaults/SharedPreferences.
+- **REQ-011**: If the code handles network requests, Claude Code MUST verify TLS-only (agentic-cookbook://guidelines/general#privacy-and-security-by-default) and proper error handling of network failures.
 
 **Exit criteria**: No security vulnerabilities in new code.
 
@@ -149,11 +149,11 @@ Referenced from WF-1 (Branching Strategy) Phase 3 as the gate before marking a P
 **Entry criteria**: Phase 3 complete.
 
 - **REQ-012**: Claude Code MUST review test quality, not just test existence:
-  - Tests verify behavior, not implementation details (guide.domain.testing.properties-of-good-tests "behavioral")
-  - Tests would survive a refactoring of internals (guide.domain.testing.properties-of-good-tests "structure-insensitive")
-  - Tests are readable — a failing test tells you what broke (guide.domain.testing.properties-of-good-tests "readable", "specific")
-  - No logic in tests — no `if`, `for`, `try/catch` (guide.domain.testing.unit-test-patterns)
-  - Each test has one assertion concept (guide.domain.testing.unit-test-patterns)
+  - Tests verify behavior, not implementation details (agentic-cookbook://guidelines/testing/properties-of-good-tests "behavioral")
+  - Tests would survive a refactoring of internals (agentic-cookbook://guidelines/testing/properties-of-good-tests "structure-insensitive")
+  - Tests are readable — a failing test tells you what broke (agentic-cookbook://guidelines/testing/properties-of-good-tests "readable", "specific")
+  - No logic in tests — no `if`, `for`, `try/catch` (agentic-cookbook://guidelines/testing/unit-test-patterns)
+  - Each test has one assertion concept (agentic-cookbook://guidelines/testing/unit-test-patterns)
 
 - **REQ-013**: Claude Code MUST verify test coverage completeness:
   - Every public API method has at least one test
@@ -162,9 +162,9 @@ Referenced from WF-1 (Branching Strategy) Phase 3 as the gate before marking a P
   - Error paths have tests (not just happy paths)
 
 - **REQ-014**: Claude Code MUST verify that test doubles are used appropriately:
-  - Fakes preferred over mocks (guide.domain.testing.test-doubles)
-  - Third-party dependencies wrapped behind interfaces, not mocked directly (guide.domain.testing.test-doubles)
-  - No shared mutable state between tests (guide.domain.testing.flaky-test-prevention)
+  - Fakes preferred over mocks (agentic-cookbook://guidelines/testing/test-doubles)
+  - Third-party dependencies wrapped behind interfaces, not mocked directly (agentic-cookbook://guidelines/testing/test-doubles)
+  - No shared mutable state between tests (agentic-cookbook://guidelines/testing/flaky-test-prevention)
 
 **Exit criteria**: Tests are meaningful, comprehensive, and well-structured.
 
@@ -200,9 +200,9 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 
 | Phase | Checklist Items | Notes |
 |-------|----------------|-------|
-| Phase 2 | guide.core.principles.simplicity, guide.core.principles.composition-over-inheritance, guide.core.principles.immutability-by-default, guide.core.principles.yagni, guide.core.principles.explicit-over-implicit, guide.core.principles.separation-of-concerns | Engineering principles |
-| Phase 3 | guide.core.general.privacy-and-security-by-default (all subsections) | Privacy and security |
-| Phase 4 | guide.domain.testing.properties-of-good-tests, guide.domain.testing.unit-test-patterns, guide.domain.testing.test-doubles, guide.domain.testing.flaky-test-prevention | Test quality |
+| Phase 2 | agentic-cookbook://principles/simplicity, agentic-cookbook://principles/composition-over-inheritance, agentic-cookbook://principles/immutability-by-default, agentic-cookbook://principles/yagni, agentic-cookbook://principles/explicit-over-implicit, agentic-cookbook://principles/separation-of-concerns | Engineering principles |
+| Phase 3 | agentic-cookbook://guidelines/general#privacy-and-security-by-default (all subsections) | Privacy and security |
+| Phase 4 | agentic-cookbook://guidelines/testing/properties-of-good-tests, agentic-cookbook://guidelines/testing/unit-test-patterns, agentic-cookbook://guidelines/testing/test-doubles, agentic-cookbook://guidelines/testing/flaky-test-prevention | Test quality |
 | Phase 5 | All opted-in items from WF-2 | Final compliance check |
 
 ## Conformance Test Vectors
@@ -226,7 +226,7 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 
 - **Self-review bias**: Claude Code reviewing its own code risks confirmation bias. Mitigate by using objective checklists (this spec) rather than subjective judgment. Each phase has concrete criteria.
 - **Review finds too many issues**: If review reveals pervasive quality problems, this may indicate the implementation phase was rushed. Discuss with the user whether to fix incrementally or reconsider the approach.
-- **Platform-specific guidelines not available**: If the project uses a language/framework without a guideline file, apply general engineering principles (guide.core.principles.*) and note the gap in the review summary.
+- **Platform-specific guidelines not available**: If the project uses a language/framework without a guideline file, apply general engineering principles (agentic-cookbook://principles/*) and note the gap in the review summary.
 - **No changes needed**: If review finds no issues, that's a valid outcome. Post the summary confirming all checks passed.
 
 ## Tool Notes

@@ -1,7 +1,7 @@
 ---
 id: c5778e2d-2f3b-4cbd-809b-39ed4b57ff57
 title: "Apple Test App Suite"
-domain: cookbook.recipes.ui.apps.apple
+domain: agentic-cookbook://recipes/ui/apps/apple
 type: recipe
 version: 1.0.0
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: f6679a9d-e90e-4fc6-ac4c-0696851af484
 title: "Composition over inheritance"
-domain: cookbook.principles.composition-over-inheritance
+domain: agentic-cookbook://principles/composition-over-inheritance
 type: principle
 version: 1.0.0
 status: accepted

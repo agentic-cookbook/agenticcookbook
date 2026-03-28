@@ -1,7 +1,7 @@
 ---
 id: 00fe40a6-e12d-4742-b458-c7f4e0555bd3
 title: "References"
-domain: cookbook.guidelines.security.references
+domain: agentic-cookbook://guidelines/security/references
 type: guideline
 version: 1.0.0
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: ce2af25c-4f18-41ae-91b9-342e363449b3
 title: "Empty State"
-domain: cookbook.recipes.ui.component.empty-state
+domain: agentic-cookbook://recipes/ui/component/empty-state
 type: recipe
 version: 1.0.0
 status: accepted

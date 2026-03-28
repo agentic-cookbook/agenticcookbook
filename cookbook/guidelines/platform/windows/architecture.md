@@ -1,7 +1,7 @@
 ---
 id: fa2196e4-9513-4b23-b805-f5f5f099e5ff
 title: "Architecture"
-domain: cookbook.guidelines.platform.windows.architecture
+domain: agentic-cookbook://guidelines/platform/windows/architecture
 type: guideline
 version: 1.0.0
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: 611115cb-0e59-402e-bc77-140f53e32607
 title: "ComponentName"
-domain: cookbook.recipes._template
+domain: agentic-cookbook://recipes/_template
 type: recipe
 version: 1.0.0
 status: accepted
