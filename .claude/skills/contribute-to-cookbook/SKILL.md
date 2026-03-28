@@ -1,6 +1,6 @@
 ---
 name: contribute-to-cookbook
-version: "2.0.0"
+version: "2.2.0"
 description: "Create a PR to contribute a new recipe or enhancement to the agentic cookbook. Auto-detects admin (push access) vs external (fork-based) workflows. Triggers on 'contribute to cookbook', 'add a recipe', or /contribute-to-cookbook."
 argument-hint: "[new|enhance] [recipe-name] [--version]"
 disable-model-invocation: true
@@ -8,17 +8,17 @@ allowed-tools: Read, Glob, Grep, Write, Edit, Bash(git *), Bash(gh *), Bash(ls *
 context: fork
 ---
 
-# Contribute to Agentic Cookbook v2.0.0
+# Contribute to Agentic Cookbook v2.2.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `contribute-to-cookbook v2.0.0` and stop.
+**First action**: If `$ARGUMENTS` is `--version`, print `contribute-to-cookbook v2.2.0` and stop.
 
-Otherwise, print `contribute-to-cookbook v2.0.0` as the first line of output, then proceed.
+Otherwise, print `contribute-to-cookbook v2.2.0` as the first line of output, then proceed.
 
-**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (2.0.0), print:
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (2.2.0), print:
 
-> ⚠ This skill is running v2.0.0 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v2.2.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
@@ -241,13 +241,30 @@ Parse `$ARGUMENTS`:
    - [ ] Logging messages — exact message strings
    - [ ] Edge cases
    - [ ] Accessibility requirements
+   - [ ] Compliance section — applicable checks evaluated
    - [ ] Change History section
 
    Do not proceed until every item passes.
 
+   **Compliance evaluation**: Read the compliance categories from `cookbook/compliance/INDEX.md`. For each applicable category, evaluate the recipe against the checks and populate the `## Compliance` section. If the recipe was authored with `/plan-cookbook-recipe` (v2.2.0+), the compliance section should already be present — verify it's complete. If missing, run the evaluation inline following the same process as `/lint-compliance`.
+
 5. **Update the index.** Add the new recipe to `cookbook/index.md` in the worktree.
 
-6. **Commit, push, and create PR.**
+6. **Ask fix preference.** Before creating the PR, ask the contributor:
+
+   ```
+   After submission, an automated review pipeline will check your PR.
+   If it finds fixable issues, how would you like them handled?
+
+   1. Fix automatically (default) — the pipeline fixes issues and pushes commits directly
+   2. Review each change — the pipeline posts suggested changes for you to accept or reject
+   ```
+
+   Store the answer as `$FIX_PREFERENCE` (`auto` or `review`). Default to `auto` if the user doesn't answer or picks option 1.
+
+   This preference will be embedded in the PR body as an HTML comment: `<!-- fix-preference: auto -->` or `<!-- fix-preference: review -->`.
+
+7. **Commit, push, and create PR.**
 
    Commit (both paths):
    ```
@@ -261,7 +278,7 @@ Parse `$ARGUMENTS`:
    ```
    If `gh` is available:
    ```
-   gh pr create --repo mikefullerton/agentic-cookbook --head feature/<recipe-name> --title "Add <recipe-name> recipe" --body "New recipe: <recipe-name>\n\n<one-line summary>"
+   gh pr create --repo mikefullerton/agentic-cookbook --head feature/<recipe-name> --title "Add <recipe-name> recipe" --body "New recipe: <recipe-name>\n\n<one-line summary>\n\n<!-- fix-preference: $FIX_PREFERENCE -->"
    ```
    If `gh` is not available, print:
    ```
@@ -275,7 +292,7 @@ Parse `$ARGUMENTS`:
    ```
    If `gh` is available:
    ```
-   gh pr create --repo mikefullerton/agentic-cookbook --head $GITHUB_USER:feature/<recipe-name> --title "Add <recipe-name> recipe" --body "New recipe: <recipe-name>\n\n<one-line summary>"
+   gh pr create --repo mikefullerton/agentic-cookbook --head $GITHUB_USER:feature/<recipe-name> --title "Add <recipe-name> recipe" --body "New recipe: <recipe-name>\n\n<one-line summary>\n\n<!-- fix-preference: $FIX_PREFERENCE -->"
    ```
    If `gh` is not available, print:
    ```
@@ -309,7 +326,9 @@ Parse `$ARGUMENTS`:
 
 8. **Verify completeness** using the same checklist from Step 2.
 
-9. **Commit, push, and create PR.**
+9. **Ask fix preference.** Same as Step 2, step 6 — ask the contributor their fix preference and store as `$FIX_PREFERENCE`.
+
+10. **Commit, push, and create PR.**
 
    Commit (both paths):
    ```
@@ -323,7 +342,7 @@ Parse `$ARGUMENTS`:
    ```
    If `gh` is available:
    ```
-   gh pr create --repo mikefullerton/agentic-cookbook --head revise/<recipe-name> --title "Revise <recipe-name> recipe" --body "Enhancement: <description>"
+   gh pr create --repo mikefullerton/agentic-cookbook --head revise/<recipe-name> --title "Revise <recipe-name> recipe" --body "Enhancement: <description>\n\n<!-- fix-preference: $FIX_PREFERENCE -->"
    ```
    If `gh` is not available, print:
    ```
@@ -337,7 +356,7 @@ Parse `$ARGUMENTS`:
    ```
    If `gh` is available:
    ```
-   gh pr create --repo mikefullerton/agentic-cookbook --head $GITHUB_USER:revise/<recipe-name> --title "Revise <recipe-name> recipe" --body "Enhancement: <description>"
+   gh pr create --repo mikefullerton/agentic-cookbook --head $GITHUB_USER:revise/<recipe-name> --title "Revise <recipe-name> recipe" --body "Enhancement: <description>\n\n<!-- fix-preference: $FIX_PREFERENCE -->"
    ```
    If `gh` is not available, print:
    ```

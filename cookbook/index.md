@@ -79,6 +79,24 @@ A library of principles, guidelines, recipes, and workflows for building softwar
 | [Windows](recipes/ui/window/) | Top-level layouts — project, workspace, settings |
 | [Infrastructure](recipes/infrastructure/) | Non-visual patterns — logging, persistence, sync |
 | [App-Level](recipes/app/) | Lifecycle, menus, commands |
+| [Autonomous Dev Bots](recipes/autonomous-dev-bots/) | Long-running agent processes — PR review, CI verification, code review |
+
+## Compliance
+
+*What to verify.* Curated indexes of guideline-derived checks, grouped by concern. Each recipe includes a Compliance section recording which checks were evaluated.
+
+| Category | Checks | Scope |
+|----------|--------|-------|
+| [Security](compliance/security.md) | 12 | Auth, storage, input, transport, logging, dependencies |
+| [User Safety](compliance/user-safety.md) | 6 | Content moderation, age-gating, abuse prevention |
+| [Performance](compliance/performance.md) | 8 | Render time, animation, resources, caching |
+| [Best Practices](compliance/best-practices.md) | 8 | Testing, linting, error handling, code quality |
+| [Access Patterns](compliance/access-patterns.md) | 8 | Client-server, offline, retry, pagination |
+| [Accessibility](compliance/accessibility.md) | 8 | Screen readers, keyboard, contrast, motion |
+| [Privacy & Data](compliance/privacy-and-data.md) | 8 | Collection, storage, retention, consent |
+| [Platform Compliance](compliance/platform-compliance.md) | 8 | App Store, Google Play, design language |
+| [Reliability](compliance/reliability.md) | 8 | Error recovery, degradation, state, idempotency |
+| [Internationalization](compliance/internationalization.md) | 7 | Strings, RTL, locale formatting, Unicode |
 
 ## Workflow
 

@@ -147,6 +147,12 @@ Subsystem: `{{bundle_id}}` | Category: `ComponentName`
 
 Record any decisions made during implementation that affect visual or behavioral outcome. Each decision should be approved by the user.
 
+## Compliance
+
+| Check | Status | Category |
+|-------|--------|----------|
+| [check-name](agentic-cookbook://compliance/category#check-name) | passed | Category |
+
 ## Changelog
 
 | Version | Date | Changes |

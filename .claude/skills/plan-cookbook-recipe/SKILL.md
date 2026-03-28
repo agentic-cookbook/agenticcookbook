@@ -1,6 +1,6 @@
 ---
 name: plan-cookbook-recipe
-version: 2.1.2
+version: 2.2.0
 description: Interactively design a new cookbook recipe through guided discussion
 disable-model-invocation: true
 context: fork
@@ -8,17 +8,17 @@ allowed-tools: Read, Glob, Grep, Agent, Write, Edit, AskUserQuestion, Bash(git *
 argument-hint: [recipe-name] [--version]
 ---
 
-# Plan Agentic Cookbook Recipe v2.1.2
+# Plan Agentic Cookbook Recipe v2.2.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `plan-cookbook-recipe v2.1.2` and stop.
+**First action**: If `$ARGUMENTS` is `--version`, print `plan-cookbook-recipe v2.2.0` and stop.
 
-Otherwise, print `plan-cookbook-recipe v2.1.2` as the first line of output, then proceed.
+Otherwise, print `plan-cookbook-recipe v2.2.0` as the first line of output, then proceed.
 
-**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (2.1.2), print:
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (2.2.0), print:
 
-> ⚠ This skill is running v2.1.2 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v2.2.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
@@ -137,6 +137,23 @@ Approve all? (yes / no)
 ```
 
 If the user says no, stop and ask what they want to change. If yes, proceed without further permission prompts.
+
+### Step 6: Compliance guidance
+
+After covering all recipe sections and before drafting, walk the author through applicable compliance checks. This is proactive guidance — surface considerations the author may not have thought of.
+
+1. Read the compliance categories from `cookbook/compliance/INDEX.md`.
+2. For each of the 10 categories, read the compliance file and determine which checks apply to this recipe based on the discussion so far.
+3. For each applicable check, briefly explain what it requires and ask whether the recipe addresses it:
+
+   > **Compliance check — secure-log-output (Security):** Log messages must not contain credentials or PII. Your Logging section looks good here — the log events don't include sensitive data. Marking as passed.
+
+   > **Compliance check — data-minimization (Privacy & Data):** This recipe collects user input. Have you considered what data is strictly necessary? The Privacy section should document what's collected and why.
+
+4. For checks that surface gaps, help the author address them by updating the relevant recipe section.
+5. After all applicable checks are reviewed, build the Compliance table for inclusion in the recipe.
+
+**Key principle:** This is not a rubber stamp. The goal is to surface things the author may have missed — "Your recipe handles passwords but doesn't mention secure storage. Here's what the security compliance check requires..."
 
 ## Phase 2: Draft the recipe
 

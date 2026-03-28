@@ -47,7 +47,7 @@ title: <human readable title>
 domain: <path-derived identifier>
 type: principle | guideline | recipe | workflow | reference
 version: 1.0.0
-status: draft | review | accepted | deprecated
+status: wip | draft | review | accepted | deprecated
 language: en
 created: YYYY-MM-DD
 modified: YYYY-MM-DD
@@ -70,9 +70,9 @@ references: []
 | `id` | Yes | UUID, globally unique, stable across renames |
 | `title` | Yes | Human-readable title |
 | `domain` | Yes | Path-derived identifier (see Naming below). Validated against actual path at build time. |
-| `type` | Yes | One of: `principle`, `guideline`, `recipe`, `workflow`, `reference` |
+| `type` | Yes | One of: `principle`, `guideline`, `recipe`, `workflow`, `reference`, `compliance` |
 | `version` | Yes | Semver. Major for breaking changes, minor for new content, patch for clarifications. Immutable once on main — changes require a version bump. |
-| `status` | Yes | `draft` (work in progress), `review` (ready for feedback), `accepted` (stable), `deprecated` (superseded) |
+| `status` | Yes | `wip` (actively being built — LLM consumers skip this content), `draft` (complete first pass, awaiting review), `review` (ready for feedback), `accepted` (stable), `deprecated` (superseded) |
 | `language` | Yes | BCP 47 language tag. Default: `en` |
 | `created` | Yes | ISO 8601 date. Immutable after creation. |
 | `modified` | Yes | ISO 8601 date. Updated on every change. |
@@ -99,6 +99,29 @@ Every file ends with a Change History section:
 ```
 
 Each row corresponds to a version bump. Once a version is on main, it is immutable.
+
+### Compliance Section
+
+Recipes and guidelines include a `## Compliance` section listing the compliance checks that were evaluated and their results. Compliance checks are defined in `cookbook/compliance/` — see `cookbook/compliance/INDEX.md` for the full list.
+
+**Format:**
+
+```markdown
+## Compliance
+
+| Check | Status | Category |
+|-------|--------|----------|
+| [secure-log-output](agentic-cookbook://compliance/security#secure-log-output) | passed | Security |
+| [keyboard-navigable](agentic-cookbook://compliance/accessibility#keyboard-navigable) | passed | Accessibility |
+```
+
+**Rules:**
+- Only list checks that are applicable — omit entire categories that don't apply
+- Status values: `passed`, `failed`, `partial`
+- Each check name is a link to its definition in the compliance category file
+- The Compliance section appears after Design Decisions and before Change History
+
+**Architecture:** Recipes → compliance checks → guidelines → external standards. Each layer is one level of indirection. Compliance checks reference guidelines; guidelines reference external standards (OWASP, WCAG, etc.).
 
 ### Standards Alignment
 
