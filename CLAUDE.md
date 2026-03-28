@@ -21,7 +21,7 @@ decisions/             # design decision records
 
 ## Conventions
 
-Read `cookbook/conventions.md` for the full format reference. Terse version at `rules/conventions.md`.
+Read `cookbook/conventions.md` for the full format reference.
 
 Key rules:
 - All `.md` files have YAML frontmatter (id, title, domain, type, version, status, language, created, modified, author, copyright, license, summary, platforms, tags, depends-on, related, references)
