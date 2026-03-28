@@ -85,6 +85,7 @@ Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition ov
 | `/plan-cookbook-recipe` | 4 | Interactive recipe design |
 | `/contribute-to-cookbook` | 4 | Create a PR to the cookbook |
 | `/validate-cookbook` | — | Validate cookbook integrity — frontmatter, references, indexes, placement |
+| `/cookbook-help` | — | Interactive guide — setup status, content overview, troubleshooting |
 
 ## Rules
 
@@ -132,6 +133,7 @@ rules/                 # terse LLM-optimized rules for .claude/ drop-in
   plan-cookbook-recipe/
   contribute-to-cookbook/
   validate-cookbook/
+  cookbook-help/
 
 contributing/          # how to contribute (AUTHORING.md)
 decisions/             # design decision records

@@ -58,6 +58,9 @@ Onboard: `/import-cookbook` from the consuming project. Change tier: `/configure
 | `/plan-cookbook-recipe` | 4 | Interactive recipe design |
 | `/contribute-to-cookbook` | 4 | Create a PR to the cookbook |
 | `/validate-cookbook` | — | Validate cookbook integrity — frontmatter, references, indexes, placement |
+| `/cookbook-help` | — | Interactive guide — setup status, content overview, troubleshooting |
+| `/cookbook-bug` | — | File a bug report against the cookbook (creates GitHub issue) |
+| `/cookbook-suggestion` | — | Suggest new content or improvements (creates GitHub issue) |
 
 Skills use a `version` field in frontmatter (project convention, not a Claude Code runtime field). See `rules/SKILL-VERSIONING-RULE.md` for the versioning protocol.
 
@@ -79,6 +82,8 @@ Skills use a `version` field in frontmatter (project convention, not a Claude Co
 5. Squash merge: `gh pr merge --squash`
 6. Clean up: `git worktree remove ../agentic-cookbook-wt/<branch-name>`
 7. Pull main: `git pull`
+
+**Fork-based contributions**: External contributors who don't have push access use a fork. The workflow is the same (worktree, branch, commit, push, PR), but `origin` points to the fork and the PR targets `mikefullerton/agentic-cookbook` via `--head <user>:<branch>`. The `/contribute-to-cookbook` skill detects this automatically.
 
 ## Writing New Content
 

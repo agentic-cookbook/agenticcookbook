@@ -26,9 +26,9 @@ When a contribution is approved by the user, follow these steps in order:
 
 1. Read `../agentic-cookbook/cookbook/conventions.md` for the full format reference.
 2. Read `../agentic-cookbook/contributing/AUTHORING.md` for contribution guidelines.
-3. Use `/plan-agentic-cookbook-recipe` to design the recipe interactively. The skill will guide you through every section.
+3. Use `/plan-cookbook-recipe` to design the recipe interactively. The skill will guide you through every section.
 
-If analyzing an existing codebase for extractable patterns, use `/import-agentic-cookbook` to perform a deep analysis first.
+If analyzing an existing codebase for extractable patterns, use `/import-cookbook` to perform a deep analysis first.
 
 > **Note:** These skills must be globally installed (symlinked from `~/.claude/skills/`) to be available outside the cookbook repo.
 
@@ -52,12 +52,18 @@ You MUST verify every item is present and non-empty before proceeding to submiss
 
 ## Submitting Contributions
 
+Use `/contribute-to-cookbook` which handles both admin (push access) and external (fork-based) workflows automatically.
+
+If running manually:
+
 1. Create a branch in the cookbook repo: `feature/<description>` for new content, `revise/<description>` for revisions.
 2. Make changes in a worktree: `git worktree add ../agentic-cookbook-wt/<branch-name> -b <branch>`.
 3. You MUST update `../agentic-cookbook/cookbook/index.md` when adding new content.
 4. Commit, push, and create a PR via `gh pr create`.
 5. Squash merge after approval: `gh pr merge --squash`.
 6. Clean up the worktree after merge.
+
+If you don't have push access, fork the repo first and push to your fork. PRs from forks use `--head <your-user>:<branch>` to target upstream.
 
 ---
 
