@@ -23,17 +23,16 @@ Before starting implementation, you MUST audit the plan for all permissions need
 This implementation needs the following. Approve all or decline all.
 
 Files:
-- Write .claude/rules/PRINCIPLES-RULE.md — install tier 1 rule
-- Write .claude/rules/GUIDELINE-CONSUMER-RULE.md — install tier 2 rule
+- Write .claude/rules/COOKBOOK-RULE.md — install cookbook rule
 - Edit CLAUDE.md — add Agentic Cookbook section
 
 Commands:
 - mkdir -p .claude/rules — create rules directory
-- cp ../agentic-cookbook/rules/* .claude/rules/ — copy rule files
+- cp ../agentic-cookbook/rules/COOKBOOK-RULE.md .claude/rules/ — copy rule file
 - git add/commit/push — commit changes
 
 Skills:
-- /configure-cookbook — tier selection and rule installation
+- /configure-cookbook — preferences and optional rules
 
 Approve all? (yes / no)
 ```

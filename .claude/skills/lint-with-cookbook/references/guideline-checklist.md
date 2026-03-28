@@ -17,8 +17,10 @@ Read `cookbook/guidelines/INDEX.md` for the full guideline index.
 
 - [ ] **Unit testing** (cookbook/guidelines/general.md — Comprehensive unit testing) — Comprehensive, cover logic/state/edge cases
 - [ ] **Design decisions** (cookbook/guidelines/general.md — Surface all design decisions) — LLM decisions surfaced and recorded
-- [ ] **Atomic commits** (cookbook/guidelines/general.md — Small, atomic commits) — Small, one logical change each
-- [ ] **Verification** (cookbook/guidelines/general.md — Post-generation verification) — Build, test, lint, a11y, review
+- [ ] **Atomic commits** (cookbook/guidelines/code-quality/atomic-commits.md) — Build-verify-commit loop, one logical change each
+- [ ] **Scope discipline** (cookbook/guidelines/code-quality/scope-discipline.md) — Changes limited to stated scope, no adjacent refactoring
+- [ ] **Bulk verification** (cookbook/guidelines/code-quality/bulk-operation-verification.md) — Stale reference check after multi-file operations
+- [ ] **Verification** (cookbook/guidelines/testing/post-generation-verification.md) — Build, test, lint, a11y, review
 - [ ] **Logging** (cookbook/guidelines/general.md — Instrumented logging) — Matches recipe's Logging section exactly
 - [ ] **Feature flags** (cookbook/guidelines/general.md — Feature flags) — Behind flags via interface
 - [ ] **Analytics** (cookbook/guidelines/general.md — Analytics) — Events match recipe's Analytics section

@@ -1,7 +1,7 @@
 ---
 name: import-cookbook
 version: "6.0.3"
-description: "Import the agentic cookbook into your project. Sets up CLAUDE.md, configures your tier, and installs recommended plugins."
+description: "Import the agentic cookbook into your project. Sets up CLAUDE.md, installs the cookbook rule, and offers recommended plugins."
 argument-hint: "[--version]"
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(mkdir *), Bash(ls *), Bash(claude *), AskUserQuestion, Skill
@@ -23,7 +23,7 @@ Continue running — do not stop.
 
 ## Overview
 
-Import the agentic cookbook into your project. This skill updates your project's CLAUDE.md, runs tier configuration, and offers to install recommended plugins globally.
+Import the agentic cookbook into your project. This skill installs `COOKBOOK-RULE.md`, updates your project's CLAUDE.md, and offers to install recommended plugins globally.
 
 ## Usage
 
@@ -73,20 +73,22 @@ The section content:
 ```markdown
 ## Agentic Cookbook
 
-This project uses the [agentic-cookbook](https://github.com/mikefullerton/agentic-cookbook) repo.
+This project uses the [agentic-cookbook](https://github.com/mikefullerton/agentic-cookbook).
 
 - **Cookbook path**: `../agentic-cookbook/`
-- **Tier**: (set by /configure-cookbook)
+- **Rule**: `COOKBOOK-RULE.md`
+- **Available skills**: /configure-cookbook, /import-cookbook, /lint-with-cookbook, /plan-cookbook-recipe, /contribute-to-cookbook
 
-Run `/configure-cookbook` to change your participation tier.
+Run `/configure-cookbook` to manage preferences and optional rules.
 ```
 
-## Step 3: Run Configuration
+## Step 3: Install Cookbook Rule
 
-Ask the user: "Would you like to select your participation tier now?"
+Create `.claude/rules/` if it doesn't exist. Copy `COOKBOOK-RULE.md` from `../agentic-cookbook/rules/` into `.claude/rules/`.
 
-- If **yes**: invoke `/configure-cookbook` using the Skill tool. This will handle tier selection, rule copying, and updating CLAUDE.md with the tier details.
-- If **no**: default to **Tier 1 (Guidelines)** and invoke `/configure-cookbook 1` using the Skill tool. Print: "Defaulting to Tier 1 (Guidelines). Run `/configure-cookbook` anytime to change."
+If old tier files exist (`PRINCIPLES-RULE.md`, `GUIDELINE-CONSUMER-RULE.md`, `RECIPE-CONSUMER-RULE.md`, `CONTRIBUTOR-RULE.md`), remove them and print: "Replaced old tier files with COOKBOOK-RULE.md."
+
+Invoke `/configure-cookbook` using the Skill tool to handle optional rules (COMMITTING-RULE, AUTO-LINT-RULE).
 
 ## Step 4: Install Recommended Plugins
 
@@ -149,11 +151,11 @@ If any plugin fails to install, note the failure and continue with the rest. Pri
 ```
 === Agentic Cookbook Imported ===
 CLAUDE.md: updated with cookbook reference
-Tier: configured by /configure-cookbook
+Rule: COOKBOOK-RULE.md installed
 Plugins installed: <count> (or "skipped")
 Failed plugins: <list> (or "none")
 
-To change your tier: /configure-cookbook
+To manage preferences: /configure-cookbook
 To see available skills: check CLAUDE.md
 ```
 

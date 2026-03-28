@@ -2,7 +2,7 @@
 
 After creating or modifying any Claude Code skill, agent, or rule file, you MUST run the appropriate linter before considering the work complete.
 
-This rule is independent of your cookbook participation tier. It governs quality assurance for your own extensions.
+This rule is an optional standalone rule. It governs quality assurance for your own extensions.
 
 ---
 

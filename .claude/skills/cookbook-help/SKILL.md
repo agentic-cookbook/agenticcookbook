@@ -41,12 +41,7 @@ Before presenting anything, silently gather context:
 
 1. **Cookbook location**: Check if `cookbook/` exists (running from within cookbook repo) or `../agentic-cookbook/` exists (running from a consuming project). Set `$COOKBOOK_PATH` accordingly. If neither, set `$COOKBOOK_PATH` to `(not found)`.
 
-2. **Tier detection**: Check `.claude/rules/` for installed rule files:
-   - `CONTRIBUTOR-RULE.md` → Tier 4
-   - `RECIPE-CONSUMER-RULE.md` → Tier 3
-   - `GUIDELINE-CONSUMER-RULE.md` → Tier 2
-   - `PRINCIPLES-RULE.md` → Tier 1
-   - None → Not installed
+2. **Installation detection**: Check `.claude/rules/` for `COOKBOOK-RULE.md`. If present: installed. If absent but old tier files exist (`PRINCIPLES-RULE.md`, etc.): legacy installation, suggest `/configure-cookbook` to migrate. If none: not installed.
 
 3. **Optional rules**: Check for `COMMITTING-RULE.md` and `AUTO-LINT-RULE.md` in `.claude/rules/`.
 
@@ -74,14 +69,14 @@ If no argument or unrecognized argument, present the topic menu using `AskUserQu
 ```
 What would you like help with?
 
- 1. My setup        — tier, rules installed, available skills
+ 1. My setup        — installation status, preferences, available skills
  2. Recipes         — what they are, how to find and use them
  3. Guidelines      — what they cover, how to review against them
  4. Principles      — the 18 engineering principles
  5. Rules           — how rule files work in your project
  6. Skills          — all available skills with usage examples
  7. Searching       — how to find specific content in the cookbook
- 8. Contributing    — how to add recipes (tier 4)
+ 8. Contributing    — how to add recipes
  9. Website         — the online cookbook reference
 10. Troubleshooting — common issues and fixes
 ```
@@ -97,37 +92,34 @@ Print a status card with the context gathered in Step 1:
 ```
 === Your Cookbook Setup ===
 
-Tier: <N> — <Name> (or "Not installed")
+Status: Installed / Not installed / Legacy (needs migration)
 Cookbook path: <$COOKBOOK_PATH>
 CLAUDE.md section: present / missing
 
-Rules installed:
-  ✅ PRINCIPLES-RULE.md          (or ➖ if not installed)
-  ✅ GUIDELINE-CONSUMER-RULE.md  (or ➖)
-  ✅ RECIPE-CONSUMER-RULE.md     (or ➖)
-  ✅ CONTRIBUTOR-RULE.md          (or ➖)
-  ---
-  ✅ COMMITTING-RULE.md           (optional — git workflow)
-  ✅ AUTO-LINT-RULE.md            (optional — auto-lint)
+Rule: COOKBOOK-RULE.md — ✅ installed (or ➖ not installed)
+Optional:
+  COMMITTING-RULE.md  — ✅ / ➖ (git workflow)
+  AUTO-LINT-RULE.md   — ✅ / ➖ (auto-lint)
 
-Available skills at your tier:
-  /configure-cookbook         — change tier
+Preferences:
+  Recipe prompts: enabled / disabled
+  Contribution prompts: enabled / disabled
+
+Available skills:
+  /configure-cookbook         — manage preferences and optional rules
   /import-cookbook            — re-run onboarding
-  /lint-with-cookbook         — lint against guidelines or recipe (tier 2+)
-  /plan-cookbook-recipe       — design a new recipe (tier 4)
-  /contribute-to-cookbook     — create a cookbook PR (tier 4)
+  /lint-with-cookbook         — lint against guidelines or recipe
+  /plan-cookbook-recipe       — design a new recipe
+  /contribute-to-cookbook     — create a cookbook PR
   /validate-cookbook          — validate cookbook integrity
   /cookbook-help              — this guide
-  /cookbook-bug              — file a bug report (creates GitHub issue)
-  /cookbook-suggestion       — suggest content or improvements (creates GitHub issue)
+  /cookbook-bug               — file a bug report
+  /cookbook-suggestion        — suggest content or improvements
 
-To change your tier: /configure-cookbook
+To manage preferences: /configure-cookbook
 ```
 
-Mark skills as available or `(requires tier N)` based on detected tier:
-- Tier 1+: `/configure-cookbook`, `/import-cookbook`, `/cookbook-help`, `/validate-cookbook`
-- Tier 2+: `/lint-with-cookbook`
-- Tier 4: `/plan-cookbook-recipe`, `/contribute-to-cookbook`
+Read `.claude/cookbook-preferences.json` to show current preference state. All skills are available to everyone — no tier gates.
 
 ---
 
@@ -257,22 +249,18 @@ project's .claude/rules/ directory. They activate automatically — Claude
 reads them at the start of every conversation and follows them during
 planning and implementation.
 
-Tiered rules (cumulative):
-  Tier 1: PRINCIPLES-RULE.md       — apply 18 principles, three-phase discipline
-  Tier 2: GUIDELINE-CONSUMER-RULE.md — guideline checklist, verification
-  Tier 3: RECIPE-CONSUMER-RULE.md  — recipe search, conformance, opportunity flagging
-  Tier 4: CONTRIBUTOR-RULE.md      — recipe creation, PR workflow, pre-submission checks
-          SKILL-VERSIONING-RULE.md — version conventions for skills
+Main rule:
+  COOKBOOK-RULE.md — the full cookbook: principles, guidelines, recipes, contribution prompts
 
-Optional rules (independent of tier):
+Optional rules (independent of the cookbook):
   COMMITTING-RULE.md  — structured git workflow (worktree → PR → merge)
   AUTO-LINT-RULE.md   — auto-lint skills/agents/rules on create/modify
 
 How they work:
-  1. /configure-cookbook copies rule files from the cookbook into .claude/rules/
+  1. /import-cookbook copies COOKBOOK-RULE.md from the cookbook into .claude/rules/
   2. Claude Code loads .claude/rules/*.md at session start
-  3. Rules enforce cookbook content during planning and implementation
-  4. Upgrading/downgrading tier adds/removes the appropriate rule files
+  3. The rule enforces cookbook content during planning and implementation
+  4. /configure-cookbook manages preferences and optional rules
 
 Your installed rules: (refer to the tier detected in Step 1)
 ```
@@ -294,22 +282,22 @@ Print this table, marking each skill as available or requires a higher tier base
 
 ```
 Setup & Configuration:
-  /import-cookbook            — first-time onboarding (any tier)
-  /configure-cookbook         — change tier, install/remove rules (any tier)
-  /cookbook-help              — this interactive guide (any tier)
+  /import-cookbook            — first-time onboarding
+  /configure-cookbook         — manage preferences and optional rules
+  /cookbook-help              — this interactive guide
 
 Linting & Review:
-  /lint-with-cookbook         — lint against guidelines or recipe (tier 2+)
+  /lint-with-cookbook         — lint against guidelines or recipe
     Usage: /lint-with-cookbook guidelines <recipe> <impl-path>
            /lint-with-cookbook recipe <recipe> [impl-path]
-  /lint-rule                 — lint a rule file (any tier)
-  /lint-skill                — lint a skill (any tier)
-  /lint-agent                — lint an agent (any tier)
+  /lint-rule                 — lint a rule file
+  /lint-skill                — lint a skill
+  /lint-agent                — lint an agent
 
 Authoring:
-  /plan-cookbook-recipe       — interactive recipe design (tier 4)
+  /plan-cookbook-recipe       — interactive recipe design
     Usage: /plan-cookbook-recipe status-bar
-  /contribute-to-cookbook     — create a PR to the cookbook (tier 4)
+  /contribute-to-cookbook     — create a PR to the cookbook
     Usage: /contribute-to-cookbook new status-indicator
            /contribute-to-cookbook enhance empty-state
 
@@ -365,28 +353,10 @@ If `$COOKBOOK_PATH` is available, replace `../agentic-cookbook/` with the actual
 
 ## Topic: Contributing
 
-Check the detected tier. If below tier 4:
-
 ```
 === Contributing ===
 
-Contributing requires Tier 4 (Contributor).
-Your current tier: <N> — <Name>
-
-Upgrade: /configure-cookbook 4
-
-Once at tier 4, you can:
-  • Design new recipes interactively with /plan-cookbook-recipe
-  • Submit recipes via PR with /contribute-to-cookbook
-  • Enhance existing recipes
-```
-
-If tier 4:
-
-```
-=== Contributing ===
-
-You're at Tier 4 — full contributor access.
+Everyone has full contributor access.
 
 Workflow:
   1. /plan-cookbook-recipe <name>        — design the recipe interactively

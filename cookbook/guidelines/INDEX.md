@@ -44,6 +44,8 @@ related:
   - agentic-cookbook://guidelines/general#rtl-layout-support
   - agentic-cookbook://guidelines/general#scriptable-and-automatable
   - agentic-cookbook://guidelines/general#small-atomic-commits
+  - agentic-cookbook://guidelines/code-quality/scope-discipline
+  - agentic-cookbook://guidelines/code-quality/bulk-operation-verification
   - agentic-cookbook://guidelines/general#surface-all-design-decisions
   - agentic-cookbook://principles/composition-over-inheritance
   - agentic-cookbook://principles/dependency-injection
@@ -114,6 +116,8 @@ Use `agentic-cookbook://X/Y` notation to cross-reference any rule. Search this f
 | [agentic-cookbook://guidelines/general#always-show-progress](general.md#agentic-cookbook://15-always-show-progress) | Always show progress | spinner, skeleton, shimmer, progress bar, loading |
 | [agentic-cookbook://guidelines/general#comprehensive-unit-testing](general.md#agentic-cookbook://16-comprehensive-unit-testing) | Comprehensive unit testing | tests, unit tests, edge cases, test file |
 | [agentic-cookbook://guidelines/general#small-atomic-commits](general.md#agentic-cookbook://17-small-atomic-commits) | Small, atomic commits | commits, git, one change |
+| [agentic-cookbook://guidelines/code-quality/scope-discipline](code-quality/scope-discipline.md) | Scope discipline | scope, boundaries, focus, no scope creep |
+| [agentic-cookbook://guidelines/code-quality/bulk-operation-verification](code-quality/bulk-operation-verification.md) | Bulk operation verification | bulk, rename, migration, stale references, verification |
 | [agentic-cookbook://guidelines/general#post-generation-verification](general.md#agentic-cookbook://18-post-generation-verification) | Post-generation verification | build, test, lint, accessibility audit, code review |
 | [agentic-cookbook://guidelines/general#instrumented-logging](general.md#agentic-cookbook://19-instrumented-logging) | Instrumented logging | logging, os.log, Timber, ILogger, structured |
 | [agentic-cookbook://guidelines/general#deep-linking](general.md#agentic-cookbook://110-deep-linking) | Deep linking | deep link, URL, Universal Links, App Links, protocol activation |

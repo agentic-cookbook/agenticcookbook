@@ -33,35 +33,33 @@ Key rules:
 - MIT license on all files
 - Cross-reference with full URL or short-form `#fragment`
 
-## Participation Tiers
+## Using the Cookbook
 
-Consuming projects choose a tier. Each is additive.
+Consuming projects install a single rule file (`COOKBOOK-RULE.md`) that enforces the full cookbook — principles, guidelines, recipes, and contribution prompts. No tiers, no partial installs — everyone gets everything.
 
-| Tier | Name | Rule files | What it adds |
-|------|------|-----------|-------------|
-| 1 | Guidelines | `PRINCIPLES-RULE.md`, `GUIDELINE-CONSUMER-RULE.md` | All 14 points of trusted code — principles, guidelines, checklists, verification |
-| 2 | Recipes | Tier 1 + `RECIPE-CONSUMER-RULE.md` | + Pre-designed, battle-tested specs for components and patterns |
-| 3 | Contributor | Tier 2 + `CONTRIBUTOR-RULE.md`, `SKILL-VERSIONING-RULE.md` | + Create/enhance recipes, PR workflow |
+Onboard: `/import-cookbook` from the consuming project. Manage preferences: `/configure-cookbook`.
 
-Onboard: `/import-cookbook` from the consuming project. Change tier: `/configure-cookbook`.
+**Optional rules** (independent of the cookbook):
+- `COMMITTING-RULE.md` — structured git workflow for your project
+- `AUTO-LINT-RULE.md` — auto-lint skills/agents/rules on creation/modification
 
 ## Skills
 
-| Skill | Tier | Purpose |
-|-------|------|---------|
-| `/import-cookbook` | — | Onboarding — set up CLAUDE.md and run configure |
-| `/configure-cookbook` | — | Select/change participation tier, install rules |
-| `/lint-with-cookbook` | 1+ | Lint implementation against guidelines or a specific recipe |
-| `/lint-rule` | — | Lint a rule file against best practices |
-| `/lint-skill` | — | Lint a skill against best practices |
-| `/lint-agent` | — | Lint an agent against best practices |
-| `/plan-cookbook-recipe` | 3 | Interactive recipe design |
-| `/contribute-to-cookbook` | 3 | Create a PR to the cookbook |
-| `/validate-cookbook` | — | Validate cookbook integrity — frontmatter, references, indexes, placement |
-| `/cookbook-help` | — | Interactive guide — setup status, content overview, troubleshooting |
-| `/cookbook-bug` | — | File a bug report against the cookbook (creates GitHub issue) |
-| `/cookbook-suggestion` | — | Suggest new content or improvements (creates GitHub issue) |
-| `/lint-compliance` | — | Evaluate recipe/guideline against compliance checks |
+| Skill | Purpose |
+|-------|---------|
+| `/import-cookbook` | Onboarding — set up CLAUDE.md and install rules |
+| `/configure-cookbook` | Manage cookbook preferences (recipe prompts, contribution prompts, optional rules) |
+| `/lint-with-cookbook` | Lint implementation against guidelines or a specific recipe |
+| `/lint-rule` | Lint a rule file against best practices |
+| `/lint-skill` | Lint a skill against best practices |
+| `/lint-agent` | Lint an agent against best practices |
+| `/plan-cookbook-recipe` | Interactive recipe design |
+| `/contribute-to-cookbook` | Create a PR to the cookbook |
+| `/validate-cookbook` | Validate cookbook integrity — frontmatter, references, indexes, placement |
+| `/cookbook-help` | Interactive guide — setup status, content overview, troubleshooting |
+| `/cookbook-bug` | File a bug report against the cookbook (creates GitHub issue) |
+| `/cookbook-suggestion` | Suggest new content or improvements (creates GitHub issue) |
+| `/lint-compliance` | Evaluate recipe/guideline against compliance checks |
 
 Skills use a `version` field in frontmatter (project convention, not a Claude Code runtime field). See `rules/SKILL-VERSIONING-RULE.md` for the versioning protocol.
 
