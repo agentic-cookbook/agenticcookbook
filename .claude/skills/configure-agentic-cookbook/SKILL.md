@@ -1,22 +1,22 @@
 ---
 name: configure-agentic-cookbook
-version: "1.6.1"
+version: "1.7.0"
 description: "Change your agentic cookbook participation tier. Upgrade or downgrade between principles, guidelines, recipes, and contributor levels."
 argument-hint: "[tier-number] [--version]"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(rm *), Bash(ls *), Bash(mkdir *), AskUserQuestion
 ---
 
-# Configure Agentic Cookbook v1.6.1
+# Configure Agentic Cookbook v1.7.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `configure-agentic-cookbook v1.6.1` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `configure-agentic-cookbook v1.7.0` and stop — do not run the skill.
 
-Otherwise, print `configure-agentic-cookbook v1.6.1` as the first line of output, then proceed.
+Otherwise, print `configure-agentic-cookbook v1.7.0` as the first line of output, then proceed.
 
 **Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (1.6.1), print:
 
-> ⚠ This skill is running v1.6.1 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v1.7.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
@@ -43,9 +43,9 @@ Check `.claude/rules/` in the current project for which rule files are installed
 
 If not installed, this is a first-time configuration. Print: `No existing tier detected — first-time setup.` Set current tier to 0 and proceed to Step 2.
 
-Also check whether `COMMITTING-RULE.md` is present.
+Also check whether `COMMITTING-RULE.md` and `AUTO-LINT-RULE.md` are present.
 
-Print: `Current tier: <N> (<Name>)` and `Committing rule: installed / not installed`
+Print: `Current tier: <N> (<Name>)`, `Committing rule: installed / not installed`, `Auto-lint rule: installed / not installed`
 
 ## Step 1b: Committing Rule (Optional — Not Related to Cookbook)
 
@@ -82,6 +82,42 @@ Keep it? (y/n):
 ```
 
 If no, remove `.claude/rules/COMMITTING-RULE.md`.
+
+## Step 1c: Auto-Lint Rule (Optional — Not Related to Cookbook)
+
+This is a standalone quality rule for your own project. It has nothing to do with the cookbook or your participation tier.
+
+Check whether the auto-lint rule is currently installed.
+
+**If not installed**, ask:
+
+```
+Optional: Install an auto-lint rule for YOUR project?
+
+This is NOT related to the cookbook — it's a standalone quality rule that
+automatically lints any skill, agent, or rule file you create or modify:
+- After creating/modifying a skill → runs /lint-skill
+- After creating/modifying an agent → runs /lint-agent
+- After creating/modifying a rule → runs /lint-rule
+- FAIL items must be fixed before the work is complete
+
+This is entirely optional and independent of your cookbook tier.
+
+Install? (y/n):
+```
+
+If yes, copy `AUTO-LINT-RULE.md` from `../agentic-cookbook/rules/`.
+
+**If already installed**, ask:
+
+```
+The auto-lint rule (AUTO-LINT-RULE.md) is installed.
+This is not related to the cookbook — it governs quality checks on your extensions.
+
+Keep it? (y/n):
+```
+
+If no, remove `.claude/rules/AUTO-LINT-RULE.md`.
 
 ## Step 2: Ask New Tier
 
@@ -157,6 +193,7 @@ Check that the expected rule files exist in `.claude/rules/` for the new tier. R
 Previous tier: <N> (<Name>)
 New tier: <N> (<Name>)
 Committing rule: installed / not installed / unchanged
+Auto-lint rule: installed / not installed / unchanged
 Rules added: <list> (or "none")
 Rules removed: <list> (or "none")
 CLAUDE.md: updated
