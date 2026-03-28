@@ -28,7 +28,7 @@ You MUST run the linter after ANY of these actions:
 ## What to Do with Results
 
 1. **FAIL items**: You MUST fix all FAIL items before considering the work complete. Do not skip them.
-2. **WARN items**: You SHOULD fix WARN items. Present the WARN list to the user and ask which ones to address.
+2. **WARN items**: You MUST present the WARN list to the user and document which ones will be addressed and which are accepted as-is. Do not silently skip WARNs.
 3. **PASS items**: No action needed.
 
 After fixing FAIL items, re-run the linter to confirm they are resolved.

@@ -42,3 +42,10 @@ The `version` field in frontmatter tracks changes to the extension. It is NOT a 
    ```
 
    This catches cases where a skill was updated mid-session but the session loaded the old version at startup.
+
+## MUST NOT
+
+- You MUST NOT ship a modified skill without bumping the version.
+- You MUST NOT leave the frontmatter `version:` and `--version` output mismatched.
+- You MUST NOT skip the title heading version update when bumping.
+- You MUST NOT ignore the session version check warning — it means you are running stale code.

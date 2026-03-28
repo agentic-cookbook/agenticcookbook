@@ -6,7 +6,7 @@ You are creating, renaming, or modifying a Claude Code skill. You MUST follow ev
 
 ## Before Creating a Skill
 
-1. **Read the skill inventory** in `CLAUDE.md`. It lists every skill, its tier, and its purpose.
+1. **Read the skill inventory** in this repo's `./CLAUDE.md`. It lists every skill, its tier, and its purpose.
 2. **Check for overlap**. If an existing skill already covers the functionality you're about to create, stop. Do not create a duplicate. Propose modifying the existing skill instead.
 3. **Check for naming conflicts**. If the name you're about to use is similar to an existing skill name, stop and confirm with the user. "Similar" means: shares a verb or noun prefix, could be confused at a glance, or has overlapping trigger keywords in the description.
 4. **If the skill is not in the inventory**, confirm the name and purpose with the user before creating it. Do not create skills that are not in the agreed inventory without explicit approval.
@@ -23,8 +23,8 @@ You are creating, renaming, or modifying a Claude Code skill. You MUST follow ev
 ## After Creating the Skill
 
 11. **Update `CLAUDE.md`** — add the skill to the skills table with its tier and purpose.
-12. **Update `README.md`** — add the skill to the skills table.
-13. **Run the appropriate lint skill** against the new skill to verify quality.
+12. **Update `./README.md` at the repo root** — add the skill to the skills table.
+13. **Run the appropriate lint skill** to verify quality: `/lint-skill <path>` for skills, `/lint-agent <path>` for agents, `/lint-rule <path>` for rules.
 
 ## MUST NOT
 

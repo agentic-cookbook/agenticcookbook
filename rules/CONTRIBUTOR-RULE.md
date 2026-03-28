@@ -30,6 +30,8 @@ When a contribution is approved by the user, follow these steps in order:
 
 If analyzing an existing codebase for extractable patterns, use `/import-agentic-cookbook` to perform a deep analysis first.
 
+> **Note:** These skills must be globally installed (symlinked from `~/.claude/skills/`) to be available outside the cookbook repo.
+
 ### Recipe Completeness Checklist
 
 Every recipe MUST include all of the following before submission. Start from `../agentic-cookbook/cookbook/recipes/_template.md`:
