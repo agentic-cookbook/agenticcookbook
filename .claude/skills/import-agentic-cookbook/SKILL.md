@@ -1,23 +1,23 @@
 ---
 name: import-agentic-cookbook
-version: "5.1.0"
-description: "Import the agentic cookbook into your project. Sets up CLAUDE.md and configures your participation tier."
+version: "6.0.0"
+description: "Import the agentic cookbook into your project. Sets up CLAUDE.md, configures your tier, and installs recommended plugins."
 argument-hint: "[--version]"
 disable-model-invocation: true
-allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(mkdir *), Bash(ls *), AskUserQuestion, Skill
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(mkdir *), Bash(ls *), Bash(claude *), AskUserQuestion, Skill
 ---
 
-# Import Agentic Cookbook v5.1.0
+# Import Agentic Cookbook v6.0.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `import-agentic-cookbook v5.1.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `import-agentic-cookbook v6.0.0` and stop — do not run the skill.
 
-Otherwise, print `import-agentic-cookbook v5.1.0` as the first line of output, then proceed.
+Otherwise, print `import-agentic-cookbook v6.0.0` as the first line of output, then proceed.
 
 ## Overview
 
-Import the agentic cookbook into your project. This skill updates your project's CLAUDE.md to reference the cookbook, then runs the tier configuration flow to install the appropriate rules.
+Import the agentic cookbook into your project. This skill updates your project's CLAUDE.md, runs tier configuration, and offers to install recommended plugins globally.
 
 ## Usage
 
@@ -66,14 +66,76 @@ Ask the user: "Would you like to select your participation tier now?"
 - If **yes**: invoke `/configure-agentic-cookbook` using the Skill tool. This will handle tier selection, rule copying, and updating CLAUDE.md with the tier details.
 - If **no**: default to **Tier 2 (Guidelines)** and invoke `/configure-agentic-cookbook 2` using the Skill tool. Print: "Defaulting to Tier 2 (Guidelines). Run `/configure-agentic-cookbook` anytime to change."
 
-## Step 4: Print Summary
+## Step 4: Install Recommended Plugins
+
+Read `${CLAUDE_SKILL_DIR}/references/recommended-plugins.md` for the full list.
+
+Ask the user:
+
+```
+The cookbook works best with these plugins installed globally.
+Would you like to install recommended plugins?
+
+1. All recommended plugins (core + workflow + authoring + LSP)
+2. Core only (playwright, context7, figma, semgrep, frontend-design)
+3. Skip — I'll install plugins myself later
+```
+
+Based on the user's choice, install the appropriate plugins using the Bash tool:
+
+**For each plugin**, run: `claude plugin install <plugin-name> --scope user`
+
+Install in this order:
+
+**Core** (option 1 or 2):
+- playwright
+- context7
+- figma
+- semgrep
+- frontend-design
+
+**Workflow** (option 1 only):
+- superpowers
+- code-review
+- pr-review-toolkit
+- security-guidance
+- document-skills
+
+**Authoring** (option 1 only):
+- plugin-dev
+- agent-sdk-dev
+- hookify
+- playground
+
+**LSP** (option 1 only — ask which languages):
+```
+Which language servers do you need?
+- swift-lsp (Swift/SwiftUI)
+- typescript-lsp (TypeScript/JavaScript)
+- kotlin-lsp (Kotlin/Android)
+- csharp-lsp (C#/.NET)
+- All of the above
+- Skip LSP plugins
+```
+
+After installing, print the count: "Installed N plugins globally."
+
+If any plugin fails to install, note the failure and continue with the rest. Print failures at the end.
+
+## Step 5: Print Summary
 
 ```
 === Agentic Cookbook Imported ===
 CLAUDE.md: updated with cookbook reference
 Tier: configured by /configure-agentic-cookbook
+Plugins installed: <count> (or "skipped")
+Failed plugins: <list> (or "none")
+
+To change your tier: /configure-agentic-cookbook
+To see available skills: check CLAUDE.md
 ```
 
 ## Guards
 
 - **Do not modify the cookbook repo.** Only read from `../agentic-cookbook/`.
+- **Plugin installs are global (--scope user).** They are not project-specific.
