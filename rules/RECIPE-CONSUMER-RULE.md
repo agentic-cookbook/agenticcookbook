@@ -1,6 +1,6 @@
 # Recipe Consumer Rule
 
-Tier 3 rule — additive on top of `rules/PRINCIPLES-RULE.md` and `rules/GUIDELINE-CONSUMER-RULE.md`. This rule enforces recipe search and conformance during planning and implementation. All paths assume the cookbook is cloned at `../agentic-cookbook/` relative to your project root. If any referenced file is not found, stop and inform the user.
+Tier 2 rule — additive on top of Tier 1 (`rules/PRINCIPLES-RULE.md` and `rules/GUIDELINE-CONSUMER-RULE.md`). This rule enforces recipe search and conformance during planning and implementation. All paths assume the cookbook is cloned at `../agentic-cookbook/` relative to your project root. If any referenced file is not found, stop and inform the user.
 
 ---
 

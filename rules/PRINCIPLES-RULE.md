@@ -1,6 +1,6 @@
 # Principles Rule
 
-This rule enforces the agentic cookbook engineering principles during planning and implementation. It applies to every task regardless of size. The principles are the foundation of all design and coding decisions.
+This rule is installed at all tiers. It enforces the agentic cookbook engineering principles during planning and implementation. It applies to every task regardless of size. The principles are the foundation of all design and coding decisions.
 
 ---
 

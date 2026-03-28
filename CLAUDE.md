@@ -37,12 +37,11 @@ Key rules:
 
 Consuming projects choose a tier. Each is additive.
 
-| Tier | Name | Rule file | What it adds |
+| Tier | Name | Rule files | What it adds |
 |------|------|-----------|-------------|
-| 1 | Principles | `rules/PRINCIPLES-RULE.md` | 18 principles guide planning and coding |
-| 2 | Guidelines | `rules/GUIDELINE-CONSUMER-RULE.md` | + Guideline checklist, verification workflow |
-| 3 | Recipes | `rules/RECIPE-CONSUMER-RULE.md` | + Recipe search, conformance, opportunity flagging |
-| 4 | Contributor | `rules/CONTRIBUTOR-RULE.md` | + Create/enhance recipes, PR workflow |
+| 1 | Guidelines | `PRINCIPLES-RULE.md`, `GUIDELINE-CONSUMER-RULE.md` | All 14 points of trusted code — principles, guidelines, checklists, verification |
+| 2 | Recipes | Tier 1 + `RECIPE-CONSUMER-RULE.md` | + Pre-designed, battle-tested specs for components and patterns |
+| 3 | Contributor | Tier 2 + `CONTRIBUTOR-RULE.md`, `SKILL-VERSIONING-RULE.md` | + Create/enhance recipes, PR workflow |
 
 Onboard: `/import-cookbook` from the consuming project. Change tier: `/configure-cookbook`.
 
@@ -52,12 +51,12 @@ Onboard: `/import-cookbook` from the consuming project. Change tier: `/configure
 |-------|------|---------|
 | `/import-cookbook` | — | Onboarding — set up CLAUDE.md and run configure |
 | `/configure-cookbook` | — | Select/change participation tier, install rules |
-| `/lint-with-cookbook` | 2+ | Lint implementation against guidelines or a specific recipe |
+| `/lint-with-cookbook` | 1+ | Lint implementation against guidelines or a specific recipe |
 | `/lint-rule` | — | Lint a rule file against best practices |
 | `/lint-skill` | — | Lint a skill against best practices |
 | `/lint-agent` | — | Lint an agent against best practices |
-| `/plan-cookbook-recipe` | 4 | Interactive recipe design |
-| `/contribute-to-cookbook` | 4 | Create a PR to the cookbook |
+| `/plan-cookbook-recipe` | 3 | Interactive recipe design |
+| `/contribute-to-cookbook` | 3 | Create a PR to the cookbook |
 | `/validate-cookbook` | — | Validate cookbook integrity — frontmatter, references, indexes, placement |
 | `/cookbook-help` | — | Interactive guide — setup status, content overview, troubleshooting |
 | `/cookbook-bug` | — | File a bug report against the cookbook (creates GitHub issue) |

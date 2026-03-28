@@ -1,6 +1,6 @@
 # Contributor Rule
 
-Tier 4 rule — additive on top of `rules/PRINCIPLES-RULE.md`, `rules/GUIDELINE-CONSUMER-RULE.md`, and `rules/RECIPE-CONSUMER-RULE.md`. This rule is for users who want to contribute new recipes and improvements back to the agentic cookbook.
+Tier 3 rule — additive on top of Tier 2 (`rules/PRINCIPLES-RULE.md`, `rules/GUIDELINE-CONSUMER-RULE.md`, and `rules/RECIPE-CONSUMER-RULE.md`). This rule is for users who want to contribute new recipes and improvements back to the agentic cookbook.
 
 All paths assume the cookbook is cloned at `../agentic-cookbook/` relative to your project root. If any referenced file is not found, stop and inform the user.
 

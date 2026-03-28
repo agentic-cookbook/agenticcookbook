@@ -1,22 +1,22 @@
 ---
 name: configure-cookbook
-version: "1.7.1"
-description: "Change your agentic cookbook participation tier. Upgrade or downgrade between principles, guidelines, recipes, and contributor levels."
+version: "1.8.0"
+description: "Change your agentic cookbook participation tier. Upgrade or downgrade between guidelines, recipes, and contributor levels."
 argument-hint: "[tier-number] [--version]"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(rm *), Bash(ls *), Bash(mkdir *), AskUserQuestion
 ---
 
-# Configure Agentic Cookbook v1.7.1
+# Configure Agentic Cookbook v1.8.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `configure-cookbook v1.7.1` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `configure-cookbook v1.8.0` and stop — do not run the skill.
 
-Otherwise, print `configure-cookbook v1.7.1` as the first line of output, then proceed.
+Otherwise, print `configure-cookbook v1.8.0` as the first line of output, then proceed.
 
-**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (1.7.1), print:
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (1.8.0), print:
 
-> ⚠ This skill is running v1.7.1 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v1.8.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
@@ -35,10 +35,9 @@ Check `.claude/rules/` in the current project for which rule files are installed
 
 | Check | Result |
 |-------|--------|
-| `CONTRIBUTOR-RULE.md` present | Tier 4 — Contributor |
-| `RECIPE-CONSUMER-RULE.md` present | Tier 3 — Recipe Consumer |
-| `GUIDELINE-CONSUMER-RULE.md` present | Tier 2 — Guideline Consumer |
-| `PRINCIPLES-RULE.md` present | Tier 1 — Principles Only |
+| `CONTRIBUTOR-RULE.md` present | Tier 3 — Contributor |
+| `RECIPE-CONSUMER-RULE.md` present | Tier 2 — Recipes |
+| `GUIDELINE-CONSUMER-RULE.md` present | Tier 1 — Guidelines |
 | None of the above | Not installed |
 
 If not installed, this is a first-time configuration. Print: `No existing tier detected — first-time setup.` Set current tier to 0 and proceed to Step 2.
@@ -121,14 +120,13 @@ If no, remove `.claude/rules/AUTO-LINT-RULE.md`.
 
 ## Step 2: Ask New Tier
 
-If `$ARGUMENTS` contains a number 1–4, use that as the target tier. If `$ARGUMENTS` is present but not a valid tier number (1–4) or `--version`, print an error: "Invalid tier. Valid options: 1 (Principles), 2 (Guidelines), 3 (Recipes), 4 (Contributor)" and stop. Otherwise, ask using `AskUserQuestion` with this table:
+If `$ARGUMENTS` contains a number 1–3, use that as the target tier. If `$ARGUMENTS` is present but not a valid tier number (1–3) or `--version`, print an error: "Invalid tier. Valid options: 1 (Guidelines), 2 (Recipes), 3 (Contributor)" and stop. Otherwise, ask using `AskUserQuestion` with this table:
 
 | Tier | Name | What you get |
 |------|------|-------------|
-| 1 | Principles Only | 18 engineering principles guide planning and code review |
-| 2 | Guideline Consumer | Tier 1 + topic guidelines (testing, accessibility, security, etc.) |
-| 3 | Recipe Consumer | Tier 2 + UI/infrastructure recipes with requirements and conformance checks |
-| 4 | Contributor | Tier 3 + ability to author and submit new recipes back to the cookbook |
+| 1 | Guidelines | All 14 points of trusted code — enforced through principles, guidelines, checklists, and verification |
+| 2 | Recipes | Tier 1 + pre-designed, battle-tested specs. Every state, edge case, and platform variant already thought through |
+| 3 | Contributor | Tier 2 + contribute your patterns back to the cookbook for everyone |
 
 If the selected tier equals the current tier, print: `Re-applying tier <N> (<Name>) — verifying all rule files are present.` Then proceed to Step 3 normally. This ensures missing or outdated files are repaired.
 
@@ -160,18 +158,16 @@ If the user says no, stop and ask what they want to change. If yes, proceed with
 
 | Tier | Rule files (cumulative) |
 |------|------------------------|
-| 1 | `PRINCIPLES-RULE.md` |
-| 2 | Tier 1 + `GUIDELINE-CONSUMER-RULE.md` |
-| 3 | Tier 2 + `RECIPE-CONSUMER-RULE.md` |
-| 4 | Tier 3 + `CONTRIBUTOR-RULE.md`, `SKILL-VERSIONING-RULE.md` |
+| 1 | `PRINCIPLES-RULE.md`, `GUIDELINE-CONSUMER-RULE.md` |
+| 2 | Tier 1 + `RECIPE-CONSUMER-RULE.md` |
+| 3 | Tier 2 + `CONTRIBUTOR-RULE.md`, `SKILL-VERSIONING-RULE.md` |
 
 **If downgrading** (new tier < current tier): remove the rule files for tiers above the new tier.
 
 | Downgrading from | Remove |
 |-----------------|--------|
-| Tier 4 → 3 | `CONTRIBUTOR-RULE.md`, `SKILL-VERSIONING-RULE.md` |
-| Tier 3 → 2 | `RECIPE-CONSUMER-RULE.md` |
-| Tier 2 → 1 | `GUIDELINE-CONSUMER-RULE.md` |
+| Tier 3 → 2 | `CONTRIBUTOR-RULE.md`, `SKILL-VERSIONING-RULE.md` |
+| Tier 2 → 1 | `RECIPE-CONSUMER-RULE.md` |
 
 Track which files were added and removed for the summary.
 
@@ -192,7 +188,7 @@ This project uses the [agentic-cookbook](https://github.com/mikefullerton/agenti
 - **Available skills**: /configure-cookbook, /import-cookbook, /plan-cookbook-recipe
 ```
 
-For tier 4, also include `/lint-with-cookbook` in available skills.
+For tier 3, also include `/lint-with-cookbook` in available skills.
 
 ## Step 5: Verify Changes
 

@@ -1,23 +1,23 @@
 ---
 name: import-cookbook
-version: "6.0.2"
+version: "6.0.3"
 description: "Import the agentic cookbook into your project. Sets up CLAUDE.md, configures your tier, and installs recommended plugins."
 argument-hint: "[--version]"
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(mkdir *), Bash(ls *), Bash(claude *), AskUserQuestion, Skill
 ---
 
-# Import Agentic Cookbook v6.0.2
+# Import Agentic Cookbook v6.0.3
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `import-cookbook v6.0.2` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `import-cookbook v6.0.3` and stop — do not run the skill.
 
-Otherwise, print `import-cookbook v6.0.2` as the first line of output, then proceed.
+Otherwise, print `import-cookbook v6.0.3` as the first line of output, then proceed.
 
 **Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (6.0.2), print:
 
-> ⚠ This skill is running v6.0.2 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v6.0.3 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
@@ -86,7 +86,7 @@ Run `/configure-cookbook` to change your participation tier.
 Ask the user: "Would you like to select your participation tier now?"
 
 - If **yes**: invoke `/configure-cookbook` using the Skill tool. This will handle tier selection, rule copying, and updating CLAUDE.md with the tier details.
-- If **no**: default to **Tier 2 (Guidelines)** and invoke `/configure-cookbook 2` using the Skill tool. Print: "Defaulting to Tier 2 (Guidelines). Run `/configure-cookbook` anytime to change."
+- If **no**: default to **Tier 1 (Guidelines)** and invoke `/configure-cookbook 1` using the Skill tool. Print: "Defaulting to Tier 1 (Guidelines). Run `/configure-cookbook` anytime to change."
 
 ## Step 4: Install Recommended Plugins
 

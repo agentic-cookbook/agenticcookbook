@@ -112,9 +112,9 @@ Terse, imperative markdown files that enforce cookbook content during planning a
 | Rule | Tier | Enforces |
 |------|------|----------|
 | `PRINCIPLES-RULE.md` | 1 | Read and apply all 18 principles, three-phase discipline |
-| `GUIDELINE-CONSUMER-RULE.md` | 2 | Guideline checklist, opt-in/opt-out, verification |
-| `RECIPE-CONSUMER-RULE.md` | 3 | Recipe search, conformance matrix, opportunity flagging |
-| `CONTRIBUTOR-RULE.md` | 4 | Recipe creation, PR workflow, pre-submission checks |
+| `GUIDELINE-CONSUMER-RULE.md` | 1 | Guideline checklist, opt-in/opt-out, verification |
+| `RECIPE-CONSUMER-RULE.md` | 2 | Recipe search, conformance matrix, opportunity flagging |
+| `CONTRIBUTOR-RULE.md` | 3 | Recipe creation, PR workflow, pre-submission checks |
 | `COMMITTING-RULE.md` | opt-in | Structured git workflow (worktree, draft PR, merge) |
 | `SKILL-AUTHORING-RULE.md` | meta | Check inventory before creating skills, prevent duplicates |
 | `SKILL-VERSIONING-RULE.md` | meta | Version conventions for skills |
@@ -161,7 +161,7 @@ decisions/             # design decision records
 
 See `contributing/AUTHORING.md` for content authoring guidelines.
 
-To contribute recipes programmatically, install at Tier 4 and use `/contribute-to-cookbook`.
+To contribute recipes programmatically, install at Tier 3 and use `/contribute-to-cookbook`.
 
 ## License
 

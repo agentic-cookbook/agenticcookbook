@@ -1,6 +1,6 @@
 # Guideline Consumer Rule
 
-This rule enforces agentic cookbook guidelines during planning and implementation. It is additive — use alongside PRINCIPLES-RULE.md.
+Tier 1 rule — installed at all tiers alongside `rules/PRINCIPLES-RULE.md`. This rule enforces agentic cookbook guidelines during planning and implementation.
 
 All paths are relative from the consuming project. These paths assume the cookbook is cloned at `../agentic-cookbook/` relative to your project root.
 
