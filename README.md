@@ -19,7 +19,7 @@ From your project directory, run the onboarding wizard:
 /import-cookbook
 ```
 
-The wizard asks your participation tier and sets up rules and CLAUDE.md automatically.
+This installs `COOKBOOK-RULE.md` into your project's `.claude/rules/`, updates your CLAUDE.md, and offers recommended plugins. Everyone gets the full cookbook — no tiers, no partial installs.
 
 ## What "Trusted" Means
 
@@ -39,16 +39,6 @@ Code built with the agentic cookbook is **trusted**. That means:
 - **Documented** — design decisions recorded, not just in someone's head.
 - **Observable** — structured logging so you can see what's happening at runtime.
 - **Performant** — not prematurely optimized, but not accidentally O(n²). Work → Right → Fast, with evidence.
-
-### 3. Choose your tier
-
-| Tier | What you get |
-|------|-------------|
-| 1 | All 14 points of trust above — enforced through guidelines, checklists, and verification. The LLM follows a structured process instead of winging it. |
-| 2 | Tier 1, plus — when a recipe exists for what you're building, you get a pre-designed, battle-tested spec. Every state, edge case, platform variant, and accessibility requirement already thought through. |
-| 3 | Tier 2, plus — you contribute your patterns back to the cookbook. The recipes get better for everyone. |
-
-Each tier is additive. Change your tier anytime with `/configure-cookbook`.
 
 ## What's in the Cookbook
 
@@ -76,7 +66,7 @@ Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition ov
 
 ### Recipes (27 files)
 
-*What to build.* Concrete specs for UI components, panels, windows, and infrastructure patterns.
+*What to build.* Concrete specs for UI components, panels, windows, infrastructure patterns, and autonomous dev bots.
 
 | Category | Path | Examples |
 |----------|------|---------|
@@ -85,6 +75,11 @@ Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition ov
 | Windows | `cookbook/recipes/ui/window/` | Project, workspace, settings |
 | Infrastructure | `cookbook/recipes/infrastructure/` | Logging, persistence, sync |
 | App | `cookbook/recipes/app/` | Lifecycle, menus |
+| Autonomous Dev Bots | `cookbook/recipes/autonomous-dev-bots/` | PR review pipeline, CI verification |
+
+### Compliance (10 categories, 81 checks)
+
+*What to verify.* Curated indexes of guideline-derived checks grouped by concern: Security, User Safety, Performance, Best Practices, Access Patterns, Accessibility, Privacy & Data, Platform Compliance, Reliability, Internationalization.
 
 ### Workflows (6 files)
 
@@ -92,32 +87,35 @@ Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition ov
 
 ## Skills
 
-| Skill | Tier | Purpose |
-|-------|------|---------|
-| `/import-cookbook` | — | Onboarding — set up CLAUDE.md and run configure |
-| `/configure-cookbook` | — | Select/change participation tier, install rules |
-| `/lint-with-cookbook` | 2+ | Lint implementation against guidelines or a specific recipe |
-| `/lint-rule` | — | Lint a rule file against best practices |
-| `/lint-skill` | — | Lint a skill against best practices |
-| `/lint-agent` | — | Lint an agent against best practices |
-| `/plan-cookbook-recipe` | 4 | Interactive recipe design |
-| `/contribute-to-cookbook` | 4 | Create a PR to the cookbook |
-| `/validate-cookbook` | — | Validate cookbook integrity — frontmatter, references, indexes, placement |
-| `/cookbook-help` | — | Interactive guide — setup status, content overview, troubleshooting |
+| Skill | Purpose |
+|-------|---------|
+| `/import-cookbook` | Onboarding — set up CLAUDE.md and install rules |
+| `/configure-cookbook` | Manage preferences (recipe prompts, contribution prompts, optional rules) |
+| `/lint-with-cookbook` | Lint implementation against guidelines or a specific recipe |
+| `/lint-rule` | Lint a rule file against best practices |
+| `/lint-skill` | Lint a skill against best practices |
+| `/lint-agent` | Lint an agent against best practices |
+| `/plan-cookbook-recipe` | Interactive recipe design |
+| `/contribute-to-cookbook` | Create a PR to the cookbook |
+| `/validate-cookbook` | Validate cookbook integrity — frontmatter, references, indexes, placement |
+| `/cookbook-help` | Interactive guide — setup status, content overview, troubleshooting |
+| `/cookbook-bug` | File a bug report against the cookbook (creates GitHub issue) |
+| `/cookbook-suggestion` | Suggest new content or improvements (creates GitHub issue) |
+| `/lint-compliance` | Evaluate recipe/guideline against compliance checks |
 
 ## Rules
 
-Terse, imperative markdown files that enforce cookbook content during planning and implementation. Each tier has a corresponding rule file that the onboarding wizard installs into your project's `.claude/rules/`.
+Terse, imperative markdown files that enforce cookbook content during planning and implementation. The onboarding wizard installs these into your project's `.claude/rules/`.
 
-| Rule | Tier | Enforces |
-|------|------|----------|
-| `PRINCIPLES-RULE.md` | 1 | Read and apply all 18 principles, three-phase discipline |
-| `GUIDELINE-CONSUMER-RULE.md` | 1 | Guideline checklist, opt-in/opt-out, verification |
-| `RECIPE-CONSUMER-RULE.md` | 2 | Recipe search, conformance matrix, opportunity flagging |
-| `CONTRIBUTOR-RULE.md` | 3 | Recipe creation, PR workflow, pre-submission checks |
-| `COMMITTING-RULE.md` | opt-in | Structured git workflow (worktree, draft PR, merge) |
-| `SKILL-AUTHORING-RULE.md` | meta | Check inventory before creating skills, prevent duplicates |
-| `SKILL-VERSIONING-RULE.md` | meta | Version conventions for skills |
+| Rule | Enforces |
+|------|----------|
+| `COOKBOOK-RULE.md` | The full cookbook: principles, guidelines, recipes, contribution prompts |
+| `COMMITTING-RULE.md` | *(optional)* Structured git workflow (worktree, draft PR, merge) |
+| `AUTO-LINT-RULE.md` | *(optional)* Auto-lint skills/agents/rules on creation/modification |
+| `SKILL-AUTHORING-RULE.md` | *(reference)* Check inventory before creating skills, prevent duplicates |
+| `SKILL-VERSIONING-RULE.md` | *(reference)* Version conventions for skills |
+| `PERMISSIONS-RULE.md` | *(reference)* Atomic permission prompts before implementation |
+| `EXTENSION-AUTHORING-RULE.md` | *(reference)* Authoring best practices for extensions |
 
 ## Repository Structure
 
@@ -126,20 +124,20 @@ cookbook/               # the content
   principles/          # 18 engineering principles
   guidelines/          # 88 topic-organized guidelines
   recipes/             # 27 UI and infrastructure recipes
+  compliance/          # 10 compliance categories (81 checks)
   workflow/            # 6 workflow specs (plan, implement, verify, review)
   reference/           # external best-practices links
   conventions.md       # full format reference
   index.md             # table of contents
 
 rules/                 # terse LLM-optimized rules for .claude/ drop-in
-  PRINCIPLES-RULE.md
-  GUIDELINE-CONSUMER-RULE.md
-  RECIPE-CONSUMER-RULE.md
-  CONTRIBUTOR-RULE.md
+  COOKBOOK-RULE.md
   COMMITTING-RULE.md
+  AUTO-LINT-RULE.md
   SKILL-AUTHORING-RULE.md
   SKILL-VERSIONING-RULE.md
-  conventions.md
+  PERMISSIONS-RULE.md
+  EXTENSION-AUTHORING-RULE.md
 
 .claude/skills/        # Claude Code skills
   import-cookbook/
@@ -152,6 +150,9 @@ rules/                 # terse LLM-optimized rules for .claude/ drop-in
   contribute-to-cookbook/
   validate-cookbook/
   cookbook-help/
+  cookbook-bug/
+  cookbook-suggestion/
+  lint-compliance/
 
 contributing/          # how to contribute (AUTHORING.md)
 decisions/             # design decision records
@@ -161,7 +162,7 @@ decisions/             # design decision records
 
 See `contributing/AUTHORING.md` for content authoring guidelines.
 
-To contribute recipes programmatically, install at Tier 3 and use `/contribute-to-cookbook`.
+To contribute recipes, use `/contribute-to-cookbook` — it handles both admin (push access) and external (fork-based) workflows automatically.
 
 ## License
 
