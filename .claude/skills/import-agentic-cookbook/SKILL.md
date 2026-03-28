@@ -1,19 +1,25 @@
 ---
 name: import-agentic-cookbook
-version: "6.0.0"
+version: "6.0.1"
 description: "Import the agentic cookbook into your project. Sets up CLAUDE.md, configures your tier, and installs recommended plugins."
 argument-hint: "[--version]"
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(mkdir *), Bash(ls *), Bash(claude *), AskUserQuestion, Skill
 ---
 
-# Import Agentic Cookbook v6.0.0
+# Import Agentic Cookbook v6.0.1
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `import-agentic-cookbook v6.0.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `import-agentic-cookbook v6.0.1` and stop — do not run the skill.
 
-Otherwise, print `import-agentic-cookbook v6.0.0` as the first line of output, then proceed.
+Otherwise, print `import-agentic-cookbook v6.0.1` as the first line of output, then proceed.
+
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (6.0.1), print:
+
+> ⚠ This skill is running v6.0.1 but vA.B.C is installed. Restart the session to use the latest version.
+
+Continue running — do not stop.
 
 ## Overview
 

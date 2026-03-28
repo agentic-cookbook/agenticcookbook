@@ -1,6 +1,6 @@
 ---
 name: review-with-agentic-cookbook-recipe
-version: "1.0.0"
+version: "1.0.1"
 description: "Review an implementation against a specific cookbook recipe. Compares your code to the recipe's requirements, states, appearance, and test vectors."
 argument-hint: "<recipe-path> [implementation-path]"
 disable-model-invocation: true
@@ -8,13 +8,19 @@ allowed-tools: Read, Glob, Grep, Bash(wc *), Agent
 context: fork
 ---
 
-# Agentic Cookbook Recipe Review v1.0.0
+# Agentic Cookbook Recipe Review v1.0.1
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `review-with-agentic-cookbook-recipe v1.0.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `review-with-agentic-cookbook-recipe v1.0.1` and stop — do not run the skill.
 
-Otherwise, print `review-with-agentic-cookbook-recipe v1.0.0` as the first line of output, then proceed.
+Otherwise, print `review-with-agentic-cookbook-recipe v1.0.1` as the first line of output, then proceed.
+
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (1.0.1), print:
+
+> ⚠ This skill is running v1.0.1 but vA.B.C is installed. Restart the session to use the latest version.
+
+Continue running — do not stop.
 
 ## Overview
 

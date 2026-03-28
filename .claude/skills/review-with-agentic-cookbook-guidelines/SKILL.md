@@ -1,6 +1,6 @@
 ---
 name: review-with-agentic-cookbook-guidelines
-version: 2.1.0
+version: 2.1.1
 description: Review a generated implementation against agentic cookbook guidelines, recipes, and engineering principles
 disable-model-invocation: true
 context: fork
@@ -8,13 +8,19 @@ allowed-tools: Read, Glob, Grep, Bash(git diff *), Bash(git log *), Agent
 argument-hint: [path to recipe] [path to implementation directory] [--version]
 ---
 
-# Agentic Cookbook Implementation Review v2.1.0
+# Agentic Cookbook Implementation Review v2.1.1
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `review-with-agentic-cookbook-guidelines v2.1.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `review-with-agentic-cookbook-guidelines v2.1.1` and stop — do not run the skill.
 
-Otherwise, print `review-with-agentic-cookbook-guidelines v2.1.0` as the first line of output, then proceed.
+Otherwise, print `review-with-agentic-cookbook-guidelines v2.1.1` as the first line of output, then proceed.
+
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (2.1.1), print:
+
+> ⚠ This skill is running v2.1.1 but vA.B.C is installed. Restart the session to use the latest version.
+
+Continue running — do not stop.
 
 ## Overview
 

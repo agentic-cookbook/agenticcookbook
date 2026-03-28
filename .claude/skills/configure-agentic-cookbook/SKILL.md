@@ -1,18 +1,24 @@
 ---
 name: configure-agentic-cookbook
-version: "1.6.0"
+version: "1.6.1"
 description: "Change your agentic cookbook participation tier. Upgrade or downgrade between principles, guidelines, recipes, and contributor levels."
 argument-hint: "[tier-number] [--version]"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(rm *), Bash(ls *), Bash(mkdir *), AskUserQuestion
 ---
 
-# Configure Agentic Cookbook v1.6.0
+# Configure Agentic Cookbook v1.6.1
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `configure-agentic-cookbook v1.6.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `configure-agentic-cookbook v1.6.1` and stop — do not run the skill.
 
-Otherwise, print `configure-agentic-cookbook v1.6.0` as the first line of output, then proceed.
+Otherwise, print `configure-agentic-cookbook v1.6.1` as the first line of output, then proceed.
+
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (1.6.1), print:
+
+> ⚠ This skill is running v1.6.1 but vA.B.C is installed. Restart the session to use the latest version.
+
+Continue running — do not stop.
 
 ## Usage
 

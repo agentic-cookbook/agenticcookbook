@@ -30,3 +30,15 @@ The `version` field in frontmatter tracks changes to the extension. It is NOT a 
 4. **Update title headings** if the version appears in them (e.g., `# Import Agentic Cookbook v4.0.0`).
 
 5. **Do not skip versioning** because the change is small. Every change gets a version bump.
+
+6. **Session version check**. Every skill MUST check whether the running version matches the on-disk version during Startup. Add this to the Startup section after the version print:
+
+   ```
+   **Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. Compare to this skill's version (X.Y.Z). If they differ, print:
+
+   > ⚠ This skill is running vX.Y.Z but vA.B.C is installed. Restart the session to use the latest version.
+
+   Then continue running — do not stop. The user may choose to continue with the older version.
+   ```
+
+   This catches cases where a skill was updated mid-session but the session loaded the old version at startup.

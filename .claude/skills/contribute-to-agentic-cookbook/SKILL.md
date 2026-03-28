@@ -1,6 +1,6 @@
 ---
 name: contribute-to-agentic-cookbook
-version: "1.0.0"
+version: "1.0.1"
 description: "Create a PR to contribute a new recipe or enhancement to the agentic cookbook. Triggers on 'contribute to cookbook', 'add a recipe', or /contribute-to-agentic-cookbook."
 argument-hint: "[new|enhance] [recipe-name] [--version]"
 disable-model-invocation: true
@@ -8,13 +8,19 @@ allowed-tools: Read, Glob, Grep, Write, Edit, Bash(git *), Bash(gh *), Bash(ls *
 context: fork
 ---
 
-# Contribute to Agentic Cookbook v1.0.0
+# Contribute to Agentic Cookbook v1.0.1
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `contribute-to-agentic-cookbook v1.0.0` and stop.
+**First action**: If `$ARGUMENTS` is `--version`, print `contribute-to-agentic-cookbook v1.0.1` and stop.
 
-Otherwise, print `contribute-to-agentic-cookbook v1.0.0` as the first line of output, then proceed.
+Otherwise, print `contribute-to-agentic-cookbook v1.0.1` as the first line of output, then proceed.
+
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (1.0.1), print:
+
+> ⚠ This skill is running v1.0.1 but vA.B.C is installed. Restart the session to use the latest version.
+
+Continue running — do not stop.
 
 ## Overview
 

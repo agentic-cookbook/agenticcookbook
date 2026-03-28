@@ -1,6 +1,6 @@
 ---
 name: plan-agentic-cookbook-recipe
-version: 2.1.0
+version: 2.1.1
 description: Interactively design a new cookbook recipe through guided discussion
 disable-model-invocation: true
 context: fork
@@ -8,13 +8,19 @@ allowed-tools: Read, Glob, Grep, Agent, Write, Edit, AskUserQuestion, Bash(git *
 argument-hint: [recipe-name] [--version]
 ---
 
-# Plan Agentic Cookbook Recipe v2.1.0
+# Plan Agentic Cookbook Recipe v2.1.1
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `plan-agentic-cookbook-recipe v2.1.0` and stop.
+**First action**: If `$ARGUMENTS` is `--version`, print `plan-agentic-cookbook-recipe v2.1.1` and stop.
 
-Otherwise, print `plan-agentic-cookbook-recipe v2.1.0` as the first line of output, then proceed.
+Otherwise, print `plan-agentic-cookbook-recipe v2.1.1` as the first line of output, then proceed.
+
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (2.1.1), print:
+
+> ⚠ This skill is running v2.1.1 but vA.B.C is installed. Restart the session to use the latest version.
+
+Continue running — do not stop.
 
 ## Overview
 
