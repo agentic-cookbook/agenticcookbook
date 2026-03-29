@@ -11,27 +11,26 @@ export default function ContributorsPage() {
       </div>
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-raised)] p-4">
-          <div className="flex items-start gap-4">
+        <a
+          href="https://www.linkedin.com/in/michaelfullerton/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group block rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-raised)] p-4 hover:border-[var(--color-accent)]/40 hover:bg-[var(--color-surface-hover)] transition-all duration-200"
+        >
+          <div className="flex items-center gap-3 mb-1.5">
             <img
-              src="https://github.com/mikefullerton.png"
+              src="https://media.licdn.com/dms/image/v2/C5603AQHXRz0yDqjzwQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1618508357857?e=2147483647&v=beta&t=gBGM0VBZqwLyXgJXfvLVQZJmZB5aBqcvZ9MjVSwEz4I"
               alt="Mike Fullerton"
-              className="w-12 h-12 rounded-full shrink-0"
+              className="w-10 h-10 rounded-full shrink-0"
             />
-            <div>
-              <h3 className="text-sm font-medium text-[var(--color-text-primary)] mb-1.5">
-                <a href="https://www.linkedin.com/in/michaelfullerton/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-accent)] transition-colors">
-                  Mike Fullerton
-                </a>
-              </h3>
-              <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
-                Software engineer with decades of experience shipping products at Apple, Microsoft, and PayPal. Based in San Jose, CA. Now building AI-assisted developer tooling —{' '}
-                <a href="https://github.com/mikefullerton/cat-herding" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] hover:underline">Cat Herding</a>,{' '}
-                <a href="https://github.com/mikefullerton/Whippet" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] hover:underline">Whippet</a>, and the Agentic Cookbook.
-              </p>
-            </div>
+            <h3 className="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors">
+              Mike Fullerton
+            </h3>
           </div>
-        </div>
+          <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed line-clamp-4">
+            Software engineer with decades of experience shipping products at Apple, Microsoft, and PayPal. Now focused on AI-assisted developer tooling and the Agentic Cookbook.
+          </p>
+        </a>
       </div>
     </div>
   )
