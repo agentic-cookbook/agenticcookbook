@@ -102,11 +102,36 @@
     .ptree li { display:flex; align-items:center; }
     .ptree li .scope-tag { margin-left:auto; }
     .env-card { background:var(--surface); border:1px solid var(--border-subtle); border-radius:10px; overflow:hidden; animation:card-in 0.4s ease-out both; animation-delay:0.05s; }
+
+    /* Sticky header + toolbar */
+    .sticky-header { position:sticky; top:0; z-index:100; background:var(--bg); padding-bottom:0; }
+    .toolbar {
+      display:flex; align-items:center; gap:6px; padding:10px 0 12px;
+      overflow-x:auto; -webkit-overflow-scrolling:touch;
+      border-bottom:1px solid var(--border-subtle);
+      margin-bottom:16px;
+    }
+    .toolbar::-webkit-scrollbar { display:none; }
+    .toolbar a {
+      font-family:var(--mono); font-size:0.68rem; font-weight:500;
+      color:var(--text-dim); text-decoration:none; white-space:nowrap;
+      padding:5px 12px; border-radius:6px;
+      border:1px solid var(--border-subtle);
+      background:var(--surface);
+      transition:all 0.15s;
+    }
+    .toolbar a:hover {
+      color:var(--gold); border-color:rgba(212,168,83,0.3);
+      background:var(--gold-dim);
+    }
+    .toolbar .sep-dot { color:var(--border); font-size:0.5rem; }
+    .scroll-content { scroll-margin-top:140px; }
   </style>
 </head>
 <body>
 <div class="container">
 
+  <div class="sticky-header">
   <div class="top-row">
     <div class="hero">
       <h1>agentic-cookbook</h1>
@@ -132,10 +157,28 @@
     </div>
   </div>
 
+  <nav class="toolbar">
+    <a href="#config">Config</a>
+    <a href="#suggestions">Suggestions</a>
+    <span class="sep-dot">&bull;</span>
+    <a href="#rules">Rules</a>
+    <a href="#skills-local">Skills</a>
+    <a href="#plugins-local">Plugins</a>
+    <a href="#mcp">MCP</a>
+    <a href="#perms-local">Permissions</a>
+    <span class="sep-dot">&bull;</span>
+    <a href="#plugins-global">Plugins</a>
+    <a href="#skills-global">Skills</a>
+    <a href="#hooks">Hooks</a>
+    <span class="sep-dot">&bull;</span>
+    <a href="#devtools">Dev Tools</a>
+  </nav>
+  </div><!-- /sticky-header -->
+
   <div class="sections">
 
     <!-- CONFIG -->
-    <div class="card">
+    <div id="config" class="card scroll-content">
       <div class="card-header" onclick="toggle(this)">
         <h2>Current Configuration</h2>
         <span class="chevron open">&#9654;</span>
@@ -159,7 +202,7 @@
     </div>
 
     <!-- SUGGESTED TOOLS -->
-    <div class="card">
+    <div id="suggestions" class="card scroll-content">
       <div class="card-header" onclick="toggle(this)">
         <h2>Suggested Tools <span class="badge">4 recommendations</span></h2>
         <span class="chevron open">&#9654;</span>
@@ -195,7 +238,7 @@
     <div class="scope-divider"><span>Project (Local)</span></div>
 
     <!-- PROJECT RULES -->
-    <div class="card">
+    <div id="rules" class="card scroll-content">
       <div class="card-header" onclick="toggle(this)">
         <h2>Rules <span class="badge">5</span></h2>
         <span class="chevron open">&#9654;</span>
@@ -213,7 +256,7 @@
     </div>
 
     <!-- PROJECT SKILLS -->
-    <div class="card">
+    <div id="skills-local" class="card scroll-content">
       <div class="card-header" onclick="toggle(this)">
         <h2>Skills <span class="badge">16</span></h2>
         <span class="chevron open">&#9654;</span>
@@ -242,7 +285,7 @@
     </div>
 
     <!-- PROJECT PLUGINS -->
-    <div class="card">
+    <div id="plugins-local" class="card scroll-content">
       <div class="card-header" onclick="toggle(this)">
         <h2>Plugins <span class="badge">0</span></h2>
         <span class="chevron open">&#9654;</span>
@@ -253,7 +296,7 @@
     </div>
 
     <!-- PROJECT MCP -->
-    <div class="card">
+    <div id="mcp" class="card scroll-content">
       <div class="card-header" onclick="toggle(this)">
         <h2>MCP Servers <span class="badge">1</span></h2>
         <span class="chevron open">&#9654;</span>
@@ -267,9 +310,9 @@
     </div>
 
     <!-- PROJECT PERMISSIONS -->
-    <div class="card">
+    <div id="perms-local" class="card scroll-content">
       <div class="card-header" onclick="toggle(this)">
-        <h2>Permissions <span class="badge">21 project &middot; 12 local</span></h2>
+        <h2>Permissions <span class="badge">21 project &middot; 10 local &middot; 2 global</span></h2>
         <span class="chevron open">&#9654;</span>
       </div>
       <div class="card-body">
@@ -312,6 +355,13 @@
           <tr><td class="mono">Skill(lint-skill)</td><td>Run /lint-skill without asking</td><td style="color:var(--green)">Low &mdash; read-only analysis</td><td><span class="scope-tag local">local</span></td></tr>
           <tr><td class="mono">Skill(lint-rule)</td><td>Run /lint-rule without asking</td><td style="color:var(--green)">Low &mdash; read-only analysis</td><td><span class="scope-tag local">local</span></td></tr>
         </table>
+        <div class="label">Global (~/.claude/settings.json)</div>
+        <table>
+          <colgroup><col style="width:180px"><col style="width:260px"><col><col style="width:60px"></colgroup>
+          <tr><th>Permission</th><th>Why</th><th>Risk</th><th></th></tr>
+          <tr><td class="mono">Edit(.claude/Features/**)</td><td>Edit files in .claude/Features/ across all projects</td><td style="color:var(--amber)">Medium &mdash; auto-added by feature-dev plugin</td><td><span class="scope-tag global">global</span></td></tr>
+          <tr><td class="mono">Write(.claude/Features/**)</td><td>Create files in .claude/Features/ across all projects</td><td style="color:var(--amber)">Medium &mdash; auto-added by feature-dev plugin</td><td><span class="scope-tag global">global</span></td></tr>
+        </table>
       </div>
     </div>
 
@@ -319,7 +369,7 @@
     <div class="scope-divider"><span>Global</span></div>
 
     <!-- GLOBAL PLUGINS -->
-    <div class="card">
+    <div id="plugins-global" class="card scroll-content">
       <div class="card-header" onclick="toggle(this)">
         <h2>Plugins <span class="badge">12</span></h2>
         <span class="chevron open">&#9654;</span>
@@ -358,7 +408,7 @@
     </div>
 
     <!-- GLOBAL SKILLS -->
-    <div class="card">
+    <div id="skills-global" class="card scroll-content">
       <div class="card-header" onclick="toggle(this)">
         <h2>Skills <span class="badge">11</span></h2>
         <span class="chevron open">&#9654;</span>
@@ -382,7 +432,7 @@
     </div>
 
     <!-- GLOBAL HOOKS -->
-    <div class="card">
+    <div id="hooks" class="card scroll-content">
       <div class="card-header" onclick="toggle(this)">
         <h2>Hooks <span class="badge">6 events</span></h2>
         <span class="chevron open">&#9654;</span>
@@ -422,27 +472,11 @@
       </div>
     </div>
 
-    <!-- GLOBAL PERMISSIONS -->
-    <div class="card">
-      <div class="card-header" onclick="toggle(this)">
-        <h2>Permissions <span class="badge">2</span></h2>
-        <span class="chevron open">&#9654;</span>
-      </div>
-      <div class="card-body">
-        <table>
-          <colgroup><col style="width:180px"><col style="width:260px"><col><col style="width:60px"></colgroup>
-          <tr><th>Permission</th><th>Why</th><th>Risk</th><th></th></tr>
-          <tr><td class="mono">Edit(.claude/Features/**)</td><td>Edit files in .claude/Features/ across all projects</td><td style="color:var(--amber)">Medium &mdash; auto-added by feature-dev plugin</td><td><span class="scope-tag global">global</span></td></tr>
-          <tr><td class="mono">Write(.claude/Features/**)</td><td>Create files in .claude/Features/ across all projects</td><td style="color:var(--amber)">Medium &mdash; auto-added by feature-dev plugin</td><td><span class="scope-tag global">global</span></td></tr>
-        </table>
-      </div>
-    </div>
-
     <!-- ═══ ENVIRONMENT ═══ -->
     <div class="scope-divider"><span>Environment</span></div>
 
     <!-- DEV TOOLS -->
-    <div class="card">
+    <div id="devtools" class="card scroll-content">
       <div class="card-header" onclick="toggle(this)">
         <h2>Dev Tools <span class="badge">8 installed &middot; 8 missing</span></h2>
         <span class="chevron open">&#9654;</span>
