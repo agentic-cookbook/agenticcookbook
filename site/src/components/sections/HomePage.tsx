@@ -91,25 +91,25 @@ export default function HomePage() {
       {/* Hero */}
       <div className="mb-12">
         <h1
-          className="text-5xl lg:text-6xl mb-6 tracking-tight"
+          className="text-5xl lg:text-6xl mb-8 tracking-tight"
           style={{ fontFamily: 'var(--font-display)' }}
         >
           Agentic Cookbook
         </h1>
 
-        {/* Narrative blurb */}
-        <div className="text-[var(--color-text-secondary)] leading-relaxed max-w-2xl space-y-4 mb-8">
-          <p>
-            You're building a file browser panel. You open Claude Code and describe what you need — lazy loading, git status badges, ignore patterns. Before writing a line of code, Claude reads all 18 engineering principles, walks you through the guideline checklist with you, and finds an exact recipe match with requirements for selection behavior, keyboard shortcuts, empty states, accessibility, and platform-specific appearance across four languages.
+        {/* Narrative — cat-herding style */}
+        <div className="max-w-2xl mb-8" style={{ fontSize: '1.05rem', lineHeight: 1.8 }}>
+          <p className="text-[var(--color-text-secondary)] mb-[30px]">
+            You're building a file browser panel for your IDE. You open Claude Code and just start talking about it — lazy loading, git status badges, ignore patterns. Before writing a single line of code, Claude reads all 18 engineering principles and walks you through a checklist of guidelines. Accessibility labels, keyboard navigation, progress indicators — the non-negotiable stuff. Then it asks about the optional stuff. You make a few calls, and it moves on.
           </p>
-          <p>
-            Implementation follows three phases — make it work, make it right, make it fast. Accessibility labels on every interactive element. Keyboard navigation matching platform conventions. Git status badges using the recipe's color-coded system with priority-based directory rollup. Lazy loading so it doesn't choke on a 50,000-file monorepo.
+          <p className="text-[var(--color-text-secondary)] mb-[30px]">
+            It finds an exact recipe match — a complete spec with requirements for selection behavior, keyboard shortcuts, empty states, platform-specific appearance across Swift, Kotlin, TypeScript, and C#. All the things you would have eventually gotten around to specifying, already specified. You approve it and implementation begins — three phases, no shortcuts. Make it work. Make it right. Make it fast.
           </p>
-          <p>
-            Without the cookbook, you'd get a file browser. It would probably work. But the accessibility would be an afterthought, the empty state would be a string literal, and keyboard navigation would be "we'll add that later." With the cookbook, every decision is backed by a principle, every requirement traceable to a guideline, every UI pattern matching a battle-tested recipe. You didn't have to remember any of it.
+          <p className="text-[var(--color-text-secondary)] mb-[30px]">
+            Without the cookbook, you'd get a file browser. It would probably work. But the accessibility would be an afterthought, the empty state would be a string literal, keyboard navigation would be "we'll add that later," and the git status badges would be whatever Claude felt like inventing that day. With the cookbook, every decision is backed by a principle, every requirement traceable to a guideline, every UI pattern matching a battle-tested recipe.
           </p>
           <p className="text-[var(--color-text-primary)] font-medium">
-            That's the cookbook.
+            You didn't have to remember any of it. That's the cookbook.
           </p>
         </div>
 
@@ -159,6 +159,38 @@ export default function HomePage() {
             </Link>
           )
         })}
+      </div>
+
+      {/* Contributors */}
+      <div className="mt-16 border-t border-[var(--color-border-subtle)] pt-10">
+        <h2
+          className="text-2xl mb-6 tracking-tight"
+          style={{ fontFamily: 'var(--font-display)' }}
+        >
+          Contributors
+        </h2>
+        <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-raised)] p-6">
+          <h3 className="text-base font-medium text-[var(--color-text-primary)] mb-2">
+            Mike Fullerton
+          </h3>
+          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4">
+            Software engineer and drummer based in San Jose, CA. Creator of the Agentic Cookbook,{' '}
+            <a href="https://github.com/mikefullerton/cat-herding" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] hover:underline">Cat Herding</a>, and{' '}
+            <a href="https://github.com/mikefullerton/Whippet" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] hover:underline">Whippet</a>.
+            Building tools for AI-assisted multi-platform development.
+          </p>
+          <div className="flex items-center gap-4 font-mono text-xs">
+            <a href="https://github.com/mikefullerton" target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)] transition-colors">
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/michaelfullerton/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)] transition-colors">
+              LinkedIn
+            </a>
+            <a href="http://mikefullerton.com" target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)] transition-colors">
+              mikefullerton.com
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   )
