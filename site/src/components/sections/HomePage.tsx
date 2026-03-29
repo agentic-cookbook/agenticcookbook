@@ -68,6 +68,19 @@ const SECTIONS = [
       </svg>
     ),
   },
+  {
+    key: 'tooling',
+    label: 'Tooling',
+    description: '13 skills and 7 rules that enforce the cookbook during planning, implementation, and review.',
+    path: '/tooling',
+    fixedCount: 20,
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.384 5.384a2.025 2.025 0 01-2.864-2.864l5.384-5.384m2.864 2.864L18 21.75M12.75 3.26c-.142.232-.263.478-.357.736a3.75 3.75 0 01-.357-.736M21.75 12c-.232-.142-.478-.263-.736-.357a3.75 3.75 0 00.736-.357M3.26 12.75c.232.142.478.263.736.357a3.75 3.75 0 01-.736.357M12.75 21.75c.142-.232.263-.478.357-.736a3.75 3.75 0 00-.357.736" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.074 7.638l-3.712-3.712-9.637 9.637a4.5 4.5 0 00-1.08 1.808l-.85 2.478a.75.75 0 00.95.95l2.478-.85a4.5 4.5 0 001.808-1.08l9.637-9.637z" />
+      </svg>
+    ),
+  },
 ]
 
 export default function HomePage() {
@@ -101,8 +114,8 @@ export default function HomePage() {
 
       {/* Section cards */}
       <div className="grid gap-4 sm:grid-cols-2">
-        {SECTIONS.map(({ key, label, description, path, icon }) => {
-          const count = getBySection(key).length
+        {SECTIONS.map(({ key, label, description, path, icon, fixedCount }) => {
+          const count = fixedCount ?? getBySection(key).length
           return (
             <Link
               key={key}

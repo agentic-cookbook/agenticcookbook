@@ -9,6 +9,7 @@ const SECTIONS = [
   { label: 'Compliance', path: '/compliance' },
   { label: 'Workflow', path: '/workflow' },
   { label: 'Reference', path: '/reference' },
+  { label: 'Tooling', path: '/tooling' },
 ]
 
 interface HeaderProps {
