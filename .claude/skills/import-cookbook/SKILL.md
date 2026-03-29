@@ -91,75 +91,15 @@ Create `.claude/rules/` if it doesn't exist. Copy these files from `../agentic-c
 
 If old tier files exist (`principles.md`, `guideline-consumer.md`, `recipe-consumer.md`, `contributor.md`), remove them and print: "Replaced old tier files with cookbook.md."
 
-Invoke `/configure-cookbook` using the Skill tool to handle the optional committing rule.
-
-## Step 4: Install Recommended Plugins
-
-Read `${CLAUDE_SKILL_DIR}/references/recommended-plugins.md` for the full list.
-
-Ask the user:
-
-```
-The cookbook works best with these plugins installed globally.
-Would you like to install recommended plugins?
-
-1. All recommended plugins (core + workflow + authoring + LSP)
-2. Core only (playwright, context7, figma, semgrep, frontend-design)
-3. Skip — I'll install plugins myself later
-```
-
-Based on the user's choice, install the appropriate plugins using the Bash tool:
-
-**For each plugin**, run: `claude plugin install <plugin-name> --scope user`
-
-Install in this order:
-
-**Core** (option 1 or 2):
-- playwright
-- context7
-- figma
-- semgrep
-- frontend-design
-
-**Workflow** (option 1 only):
-- superpowers
-- code-review
-- pr-review-toolkit
-- security-guidance
-- document-skills
-
-**Authoring** (option 1 only):
-- plugin-dev
-- agent-sdk-dev
-- hookify
-- playground
-
-**LSP** (option 1 only — ask which languages):
-```
-Which language servers do you need?
-- swift-lsp (Swift/SwiftUI)
-- typescript-lsp (TypeScript/JavaScript)
-- kotlin-lsp (Kotlin/Android)
-- csharp-lsp (C#/.NET)
-- All of the above
-- Skip LSP plugins
-```
-
-After installing, print the count: "Installed N plugins globally."
-
-If any plugin fails to install, note the failure and continue with the rest. Print failures at the end.
-
-## Step 5: Print Summary
+## Step 4: Print Summary
 
 ```
 === Agentic Cookbook Imported ===
-CLAUDE.md: updated with cookbook reference
-Rule: cookbook.md installed
-Plugins installed: <count> (or "skipped")
-Failed plugins: <list> (or "none")
+CLAUDE.md: updated
+Rules installed: cookbook.md, auto-lint.md
 
 To manage preferences: /configure-cookbook
-To see available skills: check CLAUDE.md
+For recommended plugins: see ../agentic-cookbook/.claude/skills/import-cookbook/references/recommended-plugins.md
 ```
 
 ## Guards
