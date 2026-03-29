@@ -3,6 +3,7 @@ import { useTheme } from '../../contexts/ThemeContext'
 import PlatformFilter from '../content/PlatformFilter'
 
 const SECTIONS = [
+  { label: 'Getting Started', path: '/getting-started' },
   { label: 'Usage', path: '/usage' },
   { label: 'Principles', path: '/principles' },
   { label: 'Guidelines', path: '/guidelines' },
@@ -10,6 +11,7 @@ const SECTIONS = [
   { label: 'Compliance', path: '/compliance' },
   { label: 'Workflow', path: '/workflow' },
   { label: 'Reference', path: '/reference' },
+  { label: 'Contributors', path: '/contributors' },
 ]
 
 interface HeaderProps {

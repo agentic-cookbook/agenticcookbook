@@ -6,6 +6,8 @@ import TableOfContents from '../layout/TableOfContents'
 import HomePage from '../sections/HomePage'
 import SectionIndex from '../sections/SectionIndex'
 import ToolingPage from '../sections/ToolingPage'
+import GettingStartedPage from '../sections/GettingStartedPage'
+import ContributorsPage from '../sections/ContributorsPage'
 import type { CookbookEntry, NavNode } from '../../types/cookbook'
 
 const SECTION_LABELS: Record<string, string> = {
@@ -145,6 +147,14 @@ export default function DocPage() {
 
   if (slug === '/usage') {
     return <ToolingPage />
+  }
+
+  if (slug === '/getting-started') {
+    return <GettingStartedPage />
+  }
+
+  if (slug === '/contributors') {
+    return <ContributorsPage />
   }
 
   // Section index pages get a card grid instead of raw markdown

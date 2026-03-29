@@ -98,7 +98,7 @@ export default function HomePage() {
         </h1>
 
         {/* Narrative — cat-herding style */}
-        <div className="max-w-2xl mb-8 italic text-lg text-[var(--color-text-secondary)]" style={{ lineHeight: 1.8 }}>
+        <div className="max-w-2xl mb-8 text-lg text-[var(--color-text-secondary)]" style={{ lineHeight: 1.8 }}>
           <p className="mb-7">
             You're building a file browser panel. You open Claude Code and just start describing what you want — lazy loading, git status badges, ignore patterns. That's it. That's all you say.
           </p>
@@ -108,7 +108,7 @@ export default function HomePage() {
           <p className="mb-7">
             You approve it. Implementation begins in three phases — make it work, make it right, make it fast. No shortcuts, no "we'll add accessibility later." When it's done, the guideline checklist is green, the recipe is fully satisfied, and the tests pass. The file browser your users deserve, not the file browser you would have settled for.
           </p>
-          <p className="not-italic text-[var(--color-text-primary)] font-medium">
+          <p className="text-[var(--color-text-primary)] font-medium">
             You didn't have to remember any of it. That's the cookbook.
           </p>
         </div>
@@ -161,26 +161,6 @@ export default function HomePage() {
         })}
       </div>
 
-      {/* Contributors */}
-      <div className="mt-16 border-t border-[var(--color-border-subtle)] pt-10">
-        <h2
-          className="text-2xl mb-6 tracking-tight"
-          style={{ fontFamily: 'var(--font-display)' }}
-        >
-          Contributors
-        </h2>
-        <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-raised)] p-6">
-          <h3 className="text-base font-medium text-[var(--color-text-primary)] mb-3">
-            <a href="https://www.linkedin.com/in/michaelfullerton/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-accent)] transition-colors">Mike Fullerton</a>
-          </h3>
-          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-            Software engineer in San Jose, CA with deep experience across the Apple ecosystem. Builds developer tools for AI-assisted workflows —{' '}
-            <a href="https://github.com/mikefullerton/cat-herding" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] hover:underline">Cat Herding</a> for automated roadmap planning and implementation in Claude Code,{' '}
-            <a href="https://github.com/mikefullerton/Whippet" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] hover:underline">Whippet</a> for real-time Claude Code session monitoring on macOS, and the Agentic Cookbook. Also a lifelong drummer and founder of{' '}
-            <a href="http://scratchyfish.com" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] hover:underline">Scratchy Fish</a>, an instrumental improvisation group.
-          </p>
-        </div>
-      </div>
     </div>
   )
 }

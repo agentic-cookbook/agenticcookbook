@@ -145,13 +145,9 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
   const { pathname } = useLocation()
   const isOverviewSelected = pathname === '/'
   const isUsageSelected = pathname === '/usage'
+  const isGettingStartedSelected = pathname === '/getting-started'
+  const isContributorsSelected = pathname === '/contributors'
   const [usageExpanded, setUsageExpanded] = useState(isUsageSelected)
-
-  const usageChildren = [
-    { label: 'Getting Started', path: '/usage' },
-    { label: 'Skills', path: '/usage#skills' },
-    { label: 'Rules', path: '/usage#rules' },
-  ]
 
   const nav = (
     <nav className="flex flex-col gap-6 px-6 py-6 overflow-y-auto h-full" data-autoscroll="true">
@@ -161,6 +157,15 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
         }`}>
           <Link to="/" className="hover:text-[var(--color-text-secondary)]">
             Overview
+          </Link>
+        </h3>
+      </div>
+      <div className="flex flex-col gap-3">
+        <h3 className={`font-mono text-xs font-medium uppercase tracking-widest transition-colors ${
+          isGettingStartedSelected ? 'text-[var(--color-text-secondary)]' : 'text-[var(--color-text-dim)]'
+        }`}>
+          <Link to="/getting-started" className="hover:text-[var(--color-text-secondary)]">
+            Getting Started
           </Link>
         </h3>
       </div>
@@ -186,17 +191,16 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
         </div>
         {usageExpanded && (
           <ul className="flex flex-col border-l border-[var(--color-border)] mt-1">
-            {usageChildren.map(({ label, path }) => (
-              <li key={label}>
-                <Link
-                  to={path}
-                  className="relative block py-0.5 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
-                  style={{ paddingInlineStart: '0.875rem' }}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
+            <li>
+              <Link to="/usage#skills" className="relative block py-0.5 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors" style={{ paddingInlineStart: '0.875rem' }}>
+                Skills
+              </Link>
+            </li>
+            <li>
+              <Link to="/usage#rules" className="relative block py-0.5 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors" style={{ paddingInlineStart: '0.875rem' }}>
+                Rules
+              </Link>
+            </li>
           </ul>
         )}
       </div>
@@ -205,6 +209,17 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
       {navTree.map((section) => (
         <NavSection key={section.path} node={section} />
       ))}
+      {/* Divider */}
+      <div className="border-t border-[var(--color-border-subtle)]" />
+      <div className="flex flex-col gap-3">
+        <h3 className={`font-mono text-xs font-medium uppercase tracking-widest transition-colors ${
+          isContributorsSelected ? 'text-[var(--color-text-secondary)]' : 'text-[var(--color-text-dim)]'
+        }`}>
+          <Link to="/contributors" className="hover:text-[var(--color-text-secondary)]">
+            Contributors
+          </Link>
+        </h3>
+      </div>
     </nav>
   )
 
