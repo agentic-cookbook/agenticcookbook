@@ -3,6 +3,7 @@ name: configure-cookbook
 version: "3.0.0"
 description: "Manage agentic cookbook preferences and regenerate the project-specific rule file. Re-enable prompts, toggle committing workflow."
 argument-hint: "[--version]"
+disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(rm *), Bash(ls *), Bash(mkdir *), Bash(wc *), Bash(date *), AskUserQuestion
 ---
 
@@ -106,9 +107,11 @@ Record all changes.
 
 ## Step 4: Regenerate Rule File
 
+Verify `../agentic-cookbook/` exists (use `ls ../agentic-cookbook/cookbook/`). If not found, print: "Cookbook not found at ../agentic-cookbook/. Cannot regenerate." and stop.
+
 If any preferences changed, or if migrating from legacy, or if the cookbook source has been updated since the last generation (compare `../agentic-cookbook/rules/generated-cookbook-template.md` modification time against the manifest timestamp):
 
-1. Read the template at `../agentic-cookbook/rules/generated-cookbook-template.md`
+1. Read the template at `../agentic-cookbook/rules/generated-cookbook-template.md`. If the file does not exist, print: "Template not found. Update the cookbook repo and try again." and stop.
 2. Read the 18 principle files from `../agentic-cookbook/cookbook/principles/` — extract only content (strip frontmatter)
 3. Analyze the project: does `.claude/skills/` or `.claude/agents/` exist?
 4. Generate `.claude/rules/cookbook.md` with:
