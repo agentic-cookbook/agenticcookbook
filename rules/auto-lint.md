@@ -1,8 +1,8 @@
 # Auto-Lint Rule
 
-After creating or modifying any Claude Code skill, agent, or rule file, you MUST run the appropriate linter before considering the work complete.
+Prerequisite: Read and follow `authoring-ground-rules.md` before applying this rule.
 
-This rule is an optional standalone rule. It governs quality assurance for your own extensions.
+After creating or modifying any Claude Code skill, agent, or rule file, you MUST run the appropriate linter before considering the work complete.
 
 ---
 

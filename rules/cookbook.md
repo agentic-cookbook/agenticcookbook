@@ -1,5 +1,7 @@
 # Cookbook Rule
 
+Prerequisite: Read and follow `authoring-ground-rules.md` before applying this rule.
+
 This rule enforces the full agentic cookbook during planning and implementation — principles, guidelines, recipes, and contribution prompts. All paths assume the cookbook is cloned at `../agentic-cookbook/` relative to your project root. If any referenced file is not found, stop and inform the user.
 
 ---

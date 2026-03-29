@@ -1,5 +1,7 @@
 # Committing Rule
 
+Prerequisite: Read and follow `authoring-ground-rules.md` before applying this rule.
+
 This rule enforces the git workflow for all code changes. Every change flows through a worktree, a draft PR, incremental commits, and a merge. No exceptions.
 
 ---
