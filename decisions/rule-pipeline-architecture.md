@@ -121,8 +121,24 @@ For each applicable concern (from the plan): read the guideline, review the code
 
 Each step is one iteration — implement, verify, commit before moving to the next.
 
+## Results
+
+Analysis of the generated rule template against the 6 original issues:
+
+| # | Issue | Before | After | Reduction |
+|---|-------|--------|-------|-----------|
+| 1 | Per-turn bloat | 381 lines / 17,689 bytes (3 files) | ~90 lines / ~4,500 bytes (1 file) | **75%** |
+| 2 | Redundancy between rules | 2 files overlapping on scope, plan, verify | 1 file; 3 unique ground rules as a 5-line preamble | **Eliminated** |
+| 3 | Frontmatter waste in principle reads | 18 file reads, 611 lines, 62% metadata | 18-row inline table, 0 mandatory file reads | **Eliminated** |
+| 4 | auto-lint loads when irrelevant | 40 lines loaded every turn | Conditional section, only if project has `.claude/skills/` or `.claude/agents/` | **Eliminated** |
+| 5 | MUST NOT duplication | 23 items, 5+ redundant | 6 items, all unique | **74%** |
+| 6 | Full ceremony for every task | Monolithic 38-item checklist evaluated at once | Iterative per-concern pipeline with fast N/A passes | **Resolved** |
+
+The only mandatory external file read is `../agentic-cookbook/cookbook/workflow/guideline-checklist.md` — read once per planning session, not per turn.
+
 ## Change History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-03-29 | Mike Fullerton | Initial creation |
+| 1.1.0 | 2026-03-29 | Mike Fullerton | Add results analysis after implementation |
