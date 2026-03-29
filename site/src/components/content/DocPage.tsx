@@ -143,7 +143,7 @@ export default function DocPage() {
     return <HomePage />
   }
 
-  if (slug === '/tooling') {
+  if (slug === '/usage') {
     return <ToolingPage />
   }
 

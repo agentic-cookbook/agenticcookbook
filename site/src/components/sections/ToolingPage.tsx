@@ -354,6 +354,91 @@ export default function ToolingPage() {
         </div>
       </section>
 
+      {/* Usage Example */}
+      <section id="example" className="mt-16 border-t border-[var(--color-border-subtle)] pt-10">
+        <h2
+          className="text-2xl mb-2 tracking-tight"
+          style={{ fontFamily: 'var(--font-display)' }}
+        >
+          What It Looks Like
+        </h2>
+        <p className="text-sm text-[var(--color-text-secondary)] mb-8 max-w-2xl">
+          A walkthrough of the cookbook in action on a real project.
+        </p>
+
+        <div className="prose max-w-none prose-headings:scroll-mt-20 prose-code:before:content-none prose-code:after:content-none text-sm leading-relaxed">
+          <p>
+            You're building a file browser panel for your IDE. You open Claude Code and say{' '}
+            <em>"I need a file tree browser with lazy loading, git status badges, and ignore patterns."</em>
+          </p>
+
+          <p>
+            Claude reads the <code>cookbook.md</code> rule automatically — no slash command needed. Before writing a single line of code, it reads all 18 principles, then walks you through the guideline checklist:
+          </p>
+
+          <blockquote>
+            <p>
+              <strong>Always items</strong> — accessibility labels, progress indicators, keyboard navigation. These are non-negotiable.
+              <br />
+              <strong>Opt-in items</strong> — deep linking, analytics, RTL support. Included by default — tell me if you want to skip any.
+              <br />
+              <strong>Opt-out items</strong> — mutation testing, property-based testing. Want to opt in?
+            </p>
+          </blockquote>
+
+          <p>
+            You say <em>"skip RTL for now, add property-based testing."</em> Claude notes it and moves on.
+          </p>
+
+          <p>
+            Next it searches <code>cookbook/recipes/</code> and finds an exact match:{' '}
+            <strong>File Tree Browser</strong> — a complete spec with requirements for lazy loading, git status indicators, selection behavior, keyboard shortcuts, empty states, accessibility, and platform-specific appearance guidance across Swift, Kotlin, TypeScript, and C#.
+          </p>
+
+          <p>
+            Claude presents the recipe's requirements alongside your customizations and asks for confirmation. You approve, and implementation begins.
+          </p>
+
+          <h3>Make It Work, Make It Right, Make It Fast</h3>
+
+          <p>
+            The cookbook enforces a three-phase approach. First pass: get the feature working end-to-end. No premature optimization, no gold plating. Claude builds the tree view with basic file loading and selection. It compiles, it runs, it shows files.
+          </p>
+
+          <p>
+            Second pass: apply the guidelines. Accessibility labels get added to every interactive element. The empty state gets its centered placeholder with an icon and action button — exactly as the recipe specifies. Keyboard navigation follows the platform's conventions (arrow keys expand/collapse on macOS, Enter opens on Windows). Git status badges use the recipe's color-coded character system with priority-based directory rollup.
+          </p>
+
+          <p>
+            Third pass: performance. Lazy loading kicks in so the tree doesn't choke on a 50,000-file monorepo. Ignore patterns filter out <code>node_modules</code> and <code>.git</code> before they ever hit the UI.
+          </p>
+
+          <h3>Verification</h3>
+
+          <p>
+            Before Claude considers the work done, it runs through verification: build passes, tests pass, the guideline checklist is green, and the implementation conforms to the recipe. If you opted into property-based testing, those tests exist. If the recipe requires git status indicators, they're not just present — they match the spec's exact badge format and rollup behavior.
+          </p>
+
+          <p>
+            The recipe said the panel needs a context menu with Reveal in Finder / Show in Explorer. It's there. The recipe said ignore patterns should support both <code>.gitignore</code> syntax and a custom ignore list. It's there. You didn't have to remember any of this — the cookbook did.
+          </p>
+
+          <h3>The Point</h3>
+
+          <p>
+            Without the cookbook, you'd get a file browser. It would probably work. But the accessibility labels would be an afterthought, the empty state would be a string literal, keyboard navigation would be "we'll add that later," and the git status badges would be whatever Claude felt like inventing.
+          </p>
+
+          <p>
+            With the cookbook, you get the file browser your users deserve. Every decision backed by a principle, every requirement traceable to a guideline, every UI pattern matching a battle-tested recipe. And the best part — you didn't have to be the one remembering all of it.
+          </p>
+
+          <p>
+            That's the cookbook. <strong>Good Claude.</strong>
+          </p>
+        </div>
+      </section>
+
       {/* Installation callout */}
       <div className="mt-16 border-t border-[var(--color-border-subtle)] pt-8">
         <h2

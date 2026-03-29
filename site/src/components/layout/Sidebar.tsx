@@ -144,7 +144,8 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
   const { navTree } = useContent()
   const { pathname } = useLocation()
   const isOverviewSelected = pathname === '/'
-  const isToolingSelected = pathname === '/tooling'
+  const isUsageSelected = pathname === '/usage'
+  const [usageExpanded, setUsageExpanded] = useState(isUsageSelected)
 
   const nav = (
     <nav className="flex flex-col gap-6 px-6 py-6 overflow-y-auto h-full" data-autoscroll="true">
@@ -157,15 +158,51 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           </Link>
         </h3>
       </div>
-      <div className="flex flex-col gap-3">
-        <h3 className={`font-mono text-xs font-medium uppercase tracking-widest transition-colors ${
-          isToolingSelected ? 'text-[var(--color-text-secondary)]' : 'text-[var(--color-text-dim)]'
-        }`}>
-          <Link to="/tooling" className="hover:text-[var(--color-text-secondary)]">
-            Tooling
+      <div className="flex flex-col gap-1">
+        <div className="flex items-center gap-1">
+          <button
+            onClick={() => setUsageExpanded(!usageExpanded)}
+            className="p-0.5 text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)] transition-colors"
+            aria-label={`${usageExpanded ? 'Collapse' : 'Expand'} Usage`}
+          >
+            <Chevron expanded={usageExpanded} />
+          </button>
+          <Link
+            to="/usage"
+            className={`font-mono text-xs font-medium uppercase tracking-widest transition-colors ${
+              isUsageSelected
+                ? 'text-[var(--color-text-secondary)]'
+                : 'text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)]'
+            }`}
+          >
+            Usage
           </Link>
-        </h3>
+        </div>
+        {usageExpanded && (
+          <ul className="flex flex-col border-l border-[var(--color-border)] mt-1">
+            <li>
+              <Link
+                to="/usage"
+                className="relative block py-0.5 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+                style={{ paddingInlineStart: '0.875rem' }}
+              >
+                Tooling
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/usage#example"
+                className="relative block py-0.5 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+                style={{ paddingInlineStart: '0.875rem' }}
+              >
+                Example
+              </Link>
+            </li>
+          </ul>
+        )}
       </div>
+      {/* Divider */}
+      <div className="border-t border-[var(--color-border-subtle)]" />
       {navTree.map((section) => (
         <NavSection key={section.path} node={section} />
       ))}

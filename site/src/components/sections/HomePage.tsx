@@ -69,10 +69,10 @@ const SECTIONS = [
     ),
   },
   {
-    key: 'tooling',
-    label: 'Tooling',
-    description: '13 skills and 7 rules that enforce the cookbook during planning, implementation, and review.',
-    path: '/tooling',
+    key: 'usage',
+    label: 'Usage',
+    description: 'Skills, rules, and a walkthrough of using the cookbook from a real project.',
+    path: '/usage',
     fixedCount: 20,
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
