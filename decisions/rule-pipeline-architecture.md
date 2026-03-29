@@ -238,6 +238,42 @@ All 8 steps implemented and committed:
 | 5 | MUST NOT duplication (15 items, 5+ redundant) | 6 items in guardrails, all unique | **Resolved** |
 | 6 | Full ceremony for every task | Step-by-step pipeline: `/cookbook-start` + `/cookbook-next` with fast N/A passes | **Resolved** |
 
+### File Read Metrics
+
+**Rule files injected per turn** (loaded into system prompt on every message, tool call, and response):
+
+| | Files | Lines | Bytes |
+|---|---|---|---|
+| Before | 3 (`authoring-ground-rules.md` 74 lines, `cookbook.md` 267 lines, `auto-lint.md` 40 lines) | 381 | 17,689 |
+| After | 1 (`cookbook.md` — 6 guardrails + 1 skill pointer) | 10 | 358 |
+| **Reduction** | **67%** | **97%** | **98%** |
+
+**Mandatory file reads at planning start** (tool calls triggered by the rule to read external files):
+
+| | File reads | Lines read | Bytes read |
+|---|---|---|---|
+| Before | 19 (18 principle files + 1 checklist) | 805 | 31,508 |
+| After | 0 (`/cookbook-start` reads `pipeline-concerns.json` for entry count only) | 0 | 0 |
+| **Reduction** | **100%** | **100%** | **100%** |
+
+The 18 principle files are 611 total lines but only 72 lines of actual content (12%). The remaining 539 lines (88%) are YAML frontmatter, headings, and change history — metadata that Claude processes but gains no value from.
+
+**Per-step context during planning** (what's in context while evaluating one concern):
+
+| | In context | Bytes |
+|---|---|---|
+| Before | Full 38-item checklist (194 lines) + all 18 principle summaries | ~31,500 |
+| After | 1 concern entry (~6 lines) + 1 guideline file (~35-142 lines) | ~1,200-7,100 |
+| **Reduction** | | **78-96%** |
+
+**Total context cost for a 50-turn session** (rule loading only, excludes file reads):
+
+| | Calculation | Total |
+|---|---|---|
+| Before | 17,689 bytes × 50 turns | **884,450 bytes (~864 KB)** |
+| After | 358 bytes × 50 turns | **17,900 bytes (~17 KB)** |
+| **Reduction** | | **98%** |
+
 ### Architecture Comparison
 
 **Before (static installation):**
