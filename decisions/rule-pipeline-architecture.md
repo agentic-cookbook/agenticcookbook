@@ -213,6 +213,77 @@ All 8 steps implemented and committed:
 - The committing rule (`committing.md`) is a separate file, not a conditional section in the generated rule. It is copied or removed based on user preference.
 - The minimal rule does not change based on project analysis (no `.claude/skills/` check). All conditional behavior moves to preferences and pipeline concerns.
 
+## Overall Results
+
+### Quantitative Impact
+
+| Metric | Original | Phase 1 | Phase 2 (Final) |
+|--------|----------|---------|-----------------|
+| Always-on rule files | 3 files | 1 file | 1 file |
+| Per-turn cost | 17,689 bytes (381 lines) | ~4,500 bytes (~90 lines) | **~500 bytes (~10 lines)** |
+| Per-turn cost in 50-turn session | ~885 KB | ~225 KB | **~25 KB** |
+| Mandatory file reads at planning start | 18 principle files + 3 guideline files | 1 checklist file | **0 files** |
+| Per-step context during planning | 192 lines (full checklist) | 192 lines (full checklist) | **~10 lines (one concern)** |
+| Pipeline state storage | N/A (monolithic) | Conversation context | **File on disk (resumable)** |
+| Total per-turn reduction | — | 75% | **97%** |
+
+### Issue Resolution
+
+| # | Issue | Resolution | Status |
+|---|-------|------------|--------|
+| 1 | Per-turn bloat (17.7KB × every turn) | Minimal rule: 6 guardrails + 1 skill pointer | **Resolved** |
+| 2 | Redundancy between 2 rule files | Single file; 3 unique ground rules inlined | **Eliminated** |
+| 3 | Frontmatter waste in 18 principle reads | No mandatory reads; principles loaded on-demand per concern | **Eliminated** |
+| 4 | auto-lint loads when irrelevant | Removed from always-on rule; becomes a preference | **Eliminated** |
+| 5 | MUST NOT duplication (15 items, 5+ redundant) | 6 items in guardrails, all unique | **Resolved** |
+| 6 | Full ceremony for every task | Step-by-step pipeline: `/cookbook-start` + `/cookbook-next` with fast N/A passes | **Resolved** |
+
+### Architecture Comparison
+
+**Before (static installation):**
+```
+Every turn loads:
+  authoring-ground-rules.md  (5,200 bytes)
+  cookbook.md                 (11,200 bytes)
+  auto-lint.md               (1,289 bytes)
+  ─────────────────────────────────────
+  Total: 17,689 bytes × every turn
+
+Planning starts:
+  Read 18 principle files (381 lines, 62% YAML metadata)
+  Read full 38-item checklist (192 lines)
+  Evaluate all 38 concerns at once
+```
+
+**After (minimal rule + pipeline):**
+```
+Every turn loads:
+  cookbook.md                 (~500 bytes, 10 lines)
+  ─────────────────────────────────────
+  Total: ~500 bytes × every turn
+
+Planning starts:
+  /cookbook-start creates state file on disk
+  /cookbook-next loads 1 concern (~10 lines) + 1 guideline file
+  Repeat 38 times, each invocation independent
+```
+
+### Deliverables
+
+| Deliverable | Files |
+|-------------|-------|
+| Decision record | `decisions/rule-pipeline-architecture.md` |
+| Research document | `developer-tools/research/claude/rule-optimization.md` |
+| Linter optimization checks | `lint-rule/references/rule-checklist.md` (O-series), `lint-rule/references/rule-structure-reference.md` |
+| Pipeline data | `cookbook/workflow/pipeline-concerns.json` (38 entries) |
+| Guideline checklist (updated) | `cookbook/workflow/guideline-checklist.md` (v1.1.0, file paths) |
+| Generated rule template | `rules/generated-cookbook-template.md` (minimal) |
+| Pipeline skills | `.claude/skills/cookbook-start/SKILL.md` (v1.0.0), `.claude/skills/cookbook-next/SKILL.md` (v1.0.0) |
+| Updated skills | `.claude/skills/import-cookbook/SKILL.md` (v8.0.0), `.claude/skills/configure-cookbook/SKILL.md` (v4.0.0) |
+| Linter skill (updated) | `.claude/skills/lint-rule/SKILL.md` (v1.1.0) |
+
+**Total**: 19 commits across 2 phases on branch `feature/rule-pipeline-architecture` (PR #12).
+
 ## Change History
 
 | Version | Date | Author | Summary |
@@ -221,3 +292,4 @@ All 8 steps implemented and committed:
 | 1.1.0 | 2026-03-29 | Mike Fullerton | Add Phase 1 results analysis |
 | 2.0.0 | 2026-03-29 | Mike Fullerton | Add Phase 2: minimal rule + step-by-step pipeline |
 | 2.1.0 | 2026-03-29 | Mike Fullerton | Add Phase 2 implementation record |
+| 2.2.0 | 2026-03-29 | Mike Fullerton | Add Overall Results section |
