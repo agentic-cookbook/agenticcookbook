@@ -136,9 +136,65 @@ Analysis of the generated rule template against the 6 original issues:
 
 The only mandatory external file read is `../agentic-cookbook/cookbook/workflow/guideline-checklist.md` — read once per planning session, not per turn.
 
+## Phase 2: Minimal Rule + Step-by-Step Pipeline
+
+Phase 1 review revealed that the generated rule still carried ~90 lines of workflow content (principles table, planning pipeline, implementation pipeline, verification, conditional sections) that only matters when planning or implementing — not when answering questions or doing small tasks. Three additional insights drove Phase 2:
+
+### Insight 1: The always-on rule should be guardrails only
+
+The planning and implementation workflow content only matters during those phases. Loading it every turn wastes context when the user is doing anything else. The always-on rule should contain only behavioral guardrails (~10 lines / ~500 bytes). Everything else moves to on-demand skills.
+
+### Insight 2: Load one concern at a time, not the full checklist
+
+The guideline checklist (192 lines, 38 concerns) was loaded in full at planning start. But Claude only needs the current concern during each evaluation pass. Loading one concern at a time (~10 lines) reduces per-step context by 95%.
+
+### Insight 3: Pipeline state belongs on disk, not in context
+
+Tracking which concerns have been evaluated and their results should not consume context window space. A `.claude/cookbook-pipeline.json` file on disk holds the state. This also makes pipelines resumable across sessions.
+
+### Phase 2 Design
+
+**Always-on rule** (~10 lines / ~500 bytes):
+```
+1. Confirm you are in the correct project before making changes.
+2. Investigate unfamiliar content before overwriting.
+3. Fix only what was asked — no unauthorized additions.
+4. Do not skip Phase 2 (Make It Right).
+5. Do not skip writing tests.
+6. Do not optimize without evidence.
+
+When planning or implementing features, use /cookbook-start.
+```
+
+**Pipeline skills**:
+- `/cookbook-start` — initializes `.claude/cookbook-pipeline.json` with phase (planning/implementation), step counter, and empty results array
+- `/cookbook-next` — reads the current step from `cookbook/workflow/pipeline-concerns.json`, loads only that concern's guideline file, evaluates it, records the result, increments the step counter
+
+**Pipeline concerns file** (`cookbook/workflow/pipeline-concerns.json`):
+- 38 entries mapping step numbers to concern details
+- Each entry: step number, concern name, category, apply rule (always/ask), guideline file path, prompt template
+- Uses explicit file paths instead of domain URLs
+
+### Phase 2 Additional Changes
+
+- Guideline checklist (`cookbook/workflow/guideline-checklist.md`) updated to use file paths instead of `agentic-cookbook://` domain URLs
+- `code-verification.md` removed from reference table (inline checks are sufficient)
+- `/import-cookbook` simplified (v8.0.0) — generates ~10-line rule, no longer produces principles table or pipeline sections
+- `/configure-cookbook` simplified (v4.0.0) — preferences managed via JSON, rule rarely needs regeneration
+
+### Phase 2 Results
+
+| Metric | Phase 1 | Phase 2 | Reduction |
+|--------|---------|---------|-----------|
+| Per-turn always-on cost | ~4,500 bytes | ~500 bytes | **89%** |
+| Per-step context (planning) | 192 lines (full checklist) | ~10 lines (one concern) | **95%** |
+| Pipeline state location | Conversation context | File on disk | **Resumable** |
+| Total reduction from original | 75% | **97%** | — |
+
 ## Change History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-03-29 | Mike Fullerton | Initial creation |
-| 1.1.0 | 2026-03-29 | Mike Fullerton | Add results analysis after implementation |
+| 1.1.0 | 2026-03-29 | Mike Fullerton | Add Phase 1 results analysis |
+| 2.0.0 | 2026-03-29 | Mike Fullerton | Add Phase 2: minimal rule + step-by-step pipeline |
