@@ -98,7 +98,8 @@ export default function ToolingPage() {
         {GROUPS.map(({ label, items }) => (
           <div key={label}>
             <h2
-              className="text-xl mb-4"
+              id={label.toLowerCase().replace(/\s+/g, '-')}
+              className="text-xl mb-4 scroll-mt-20"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               {label}
