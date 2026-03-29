@@ -1,23 +1,23 @@
 ---
 name: import-cookbook
-version: "6.0.3"
+version: "6.1.0"
 description: "Import the agentic cookbook into your project. Sets up CLAUDE.md, installs the cookbook rule, and offers recommended plugins."
 argument-hint: "[--version]"
 disable-model-invocation: true
-allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(mkdir *), Bash(ls *), Bash(claude *), AskUserQuestion, Skill
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(mkdir *), Bash(ln *), Bash(ls *), Bash(claude *), AskUserQuestion, Skill
 ---
 
-# Import Agentic Cookbook v6.0.3
+# Import Agentic Cookbook v6.1.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `import-cookbook v6.0.3` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `import-cookbook v6.1.0` and stop — do not run the skill.
 
-Otherwise, print `import-cookbook v6.0.3` as the first line of output, then proceed.
+Otherwise, print `import-cookbook v6.1.0` as the first line of output, then proceed.
 
-**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (6.0.2), print:
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (6.1.0), print:
 
-> ⚠ This skill is running v6.0.3 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v6.1.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
@@ -42,6 +42,7 @@ Before modifying any files, present this prompt to the user:
 
 This skill will:
 - Write/Edit CLAUDE.md — add or update the Agentic Cookbook section
+- Symlink cookbook skills to ~/.claude/skills/ — makes them available globally
 - Invoke /configure-cookbook — which will ask its own permissions for rule file copying
 
 Approve all? (yes / no)
@@ -77,7 +78,7 @@ This project uses the [agentic-cookbook](https://github.com/mikefullerton/agenti
 
 - **Cookbook path**: `../agentic-cookbook/`
 - **Rule**: `cookbook.md`
-- **Available skills**: /configure-cookbook, /import-cookbook, /lint-with-cookbook, /plan-cookbook-recipe, /contribute-to-cookbook
+- **Available skills**: /configure-cookbook, /import-cookbook, /lint-with-cookbook, /plan-cookbook-recipe, /contribute-to-cookbook, /port-swiftui-to-appkit
 
 Run `/configure-cookbook` to manage preferences and optional rules.
 ```
@@ -92,7 +93,19 @@ Create `.claude/rules/` if it doesn't exist. Copy these files from `../agentic-c
 
 If old tier files exist (`principles.md`, `guideline-consumer.md`, `recipe-consumer.md`, `contributor.md`), remove them and print: "Replaced old tier files with cookbook.md."
 
-## Step 4: Install Recommended Plugins
+## Step 4: Install Cookbook Skills Globally
+
+Symlink all cookbook skills from `../agentic-cookbook/.claude/skills/` to `~/.claude/skills/`. This makes them available in all projects.
+
+1. Create `~/.claude/skills/` if it doesn't exist.
+2. List all directories in `../agentic-cookbook/.claude/skills/` that contain a `SKILL.md`.
+3. For each skill directory, check if `~/.claude/skills/<name>` already exists:
+   - If it exists and is a symlink pointing to the correct target, skip it.
+   - If it exists but points elsewhere, print a warning and skip (do not overwrite).
+   - If it does not exist, create the symlink: `ln -s <absolute-path-to-cookbook-skill> ~/.claude/skills/<name>`
+4. Print: `Skills: N symlinked, M already installed, K skipped (conflict). Failures: <list or "none">`
+
+## Step 5: Install Recommended Plugins
 
 Read `${CLAUDE_SKILL_DIR}/references/recommended-plugins.md` for the full list.
 
@@ -130,12 +143,13 @@ If any plugin fails to install, note the failure and continue with the rest.
 
 Print: `Installed N plugins (M already installed, skipped). Failures: <list or "none">`
 
-## Step 5: Print Summary
+## Step 6: Print Summary
 
 ```
 === Agentic Cookbook Imported ===
 CLAUDE.md: updated
 Rules installed: authoring-ground-rules.md, cookbook.md, auto-lint.md
+Skills: N symlinked, M already installed
 Plugins: N installed, M skipped (already installed)
 
 To manage preferences: /configure-cookbook
@@ -144,4 +158,5 @@ To manage preferences: /configure-cookbook
 ## Guards
 
 - **Do not modify the cookbook repo.** Only read from `../agentic-cookbook/`.
+- **Skill symlinks are global (~/.claude/skills/).** They are user-scoped, not project-specific.
 - **Plugin installs are global (--scope user).** They are not project-specific.
