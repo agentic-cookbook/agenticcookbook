@@ -115,13 +115,16 @@
 
     /* Left sidebar nav */
     .sidebar-nav {
-      position:sticky; top:100px;
-      width:160px; min-width:160px;
-      height:fit-content;
+      position:fixed; top:160px;
+      width:160px;
+      height:calc(100vh - 180px);
+      overflow-y:auto;
       padding-right:20px;
       border-right:1px solid var(--border-subtle);
-      margin-right:20px;
     }
+    .sidebar-nav::-webkit-scrollbar { width:3px; }
+    .sidebar-nav::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+    .main-content { margin-left:180px; }
     .sidebar-nav .nav-group { margin-bottom:14px; }
     .sidebar-nav .nav-label {
       font-family:var(--mono); font-size:0.6rem; font-weight:600;
@@ -147,7 +150,7 @@
       .sidebar-nav { display:none; }
     }
 
-    .scroll-content { scroll-margin-top:100px; }
+    .scroll-content { scroll-margin-top:160px; }
   </style>
 </head>
 <body>
