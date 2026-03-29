@@ -1,6 +1,6 @@
 ---
 name: show-project-setup
-version: "1.0.0"
+version: "2.0.0"
 description: "Generate an HTML dashboard showing all rules, skills, plugins, MCP servers, and dev tools installed locally and globally."
 argument-hint: "[--version]"
 disable-model-invocation: true
@@ -12,9 +12,9 @@ allowed-tools: Read, Glob, Grep, Bash(which *), Bash(node *), Bash(python3 *), B
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `show-project-setup v1.0.0` and stop.
+**First action**: If `$ARGUMENTS` is `--version`, print `show-project-setup v2.0.0` and stop.
 
-Otherwise, print `show-project-setup v1.0.0` as the first line of output, then proceed.
+Otherwise, print `show-project-setup v2.0.0` as the first line of output, then proceed.
 
 ## Overview
 
@@ -105,7 +105,44 @@ echo "api_key|$([ -n "$ANTHROPIC_API_KEY" ] && echo present || echo absent)"
 
 Parse the pipe-delimited output into structured data for the HTML. Each line is `name|status|version`.
 
-### 1j: Detect project type and suggest tools
+### 1j: Scan plugin hooks
+
+For each installed plugin, check if it has a `hooks/hooks.json` file in the plugin cache:
+
+```bash
+bash -c '
+for dir in ~/.claude/plugins/cache/claude-plugins-official/*/; do
+  name=$(basename "$dir")
+  latest=$(ls "$dir" 2>/dev/null | sort -V | tail -1)
+  hfile="$dir$latest/hooks/hooks.json"
+  if [ -f "$hfile" ]; then
+    count=$(python3 -c "
+import json
+with open(\"$hfile\") as f:
+    d=json.load(f)
+hooks=d.get(\"hooks\",{})
+total=0
+continuous=[]
+for event,hlist in hooks.items():
+    n=len(hlist) if isinstance(hlist,list) else 1
+    total+=n
+    if event in (\"PreToolUse\",\"PostToolUse\",\"UserPromptSubmit\"):
+        continuous.append(event)
+print(f\"$name|{total}|{\",\".join(continuous)}\")
+" 2>/dev/null)
+    [ -n "$count" ] && echo "$count"
+  else
+    echo "$name|0|"
+  fi
+done
+'
+```
+
+Parse into a map of `plugin-name -> {hook_count, continuous_events[]}`. A plugin is "hook-heavy" if it has any continuous events (PreToolUse, PostToolUse, or UserPromptSubmit).
+
+Also check the accesslint marketplace: `~/.claude/plugins/cache/accesslint/*/`.
+
+### 1k: Detect project type and suggest tools
 
 Scan the codebase to detect what kind of project this is, then suggest tools that aren't installed yet. Check these signals:
 
@@ -212,6 +249,34 @@ Build a single self-contained HTML file. Everything is inline — no external st
 - Accessibility: `accesslint`
 - Other: everything else
 
+**Hook indicators on each plugin** (from step 1j data):
+- If `hook_count > 0`: show a gold badge after the plugin name: `⚡N hooks`
+- If `hook_count == 0`: no badge
+- If the plugin has continuous events AND is in global `enabledPlugins`: show an amber warning: `⚠ not recommended globally`
+- Continuous events are: `PreToolUse`, `PostToolUse`, `UserPromptSubmit`
+
+Example rendering in the plugin tree:
+```
+Workflow (6)
+  ├── superpowers        ⚡1 hook (SessionStart)
+  ├── feature-dev
+  ├── hookify            ⚡4 hooks  ⚠ not recommended globally
+  ├── commit-commands
+  ├── claude-code-setup
+  └── claude-md-management
+```
+
+**Suggested Tools scope indicator** — in the Suggested Tools card, for each suggestion note whether it should be installed globally or locally:
+```
+pyright-lsp                        [LSP — install locally]
+No hooks. Language-specific — install per-project.
+/plugin install pyright-lsp@claude-plugins-official
+
+security-guidance                  [Security — install locally]
+⚡1 hook (PreToolUse). Has continuous hooks — install per-project only.
+/plugin install security-guidance@claude-plugins-official
+```
+
 ### HTML structure
 
 ```html
@@ -267,7 +332,7 @@ document.querySelectorAll('.card-header').forEach(header => {
 ```
 > /show-project-setup
 
-show-project-setup v1.0.0
+show-project-setup v2.0.0
 Gathering data... rules, skills, plugins, MCP servers, dev tools...
 Detected project types: Web frontend, Web backend, Cloudflare Workers
 Dashboard opened at /tmp/claude-project-setup.html
