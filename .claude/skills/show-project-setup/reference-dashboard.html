@@ -115,9 +115,9 @@
 
     /* Left sidebar nav */
     .sidebar-nav {
-      position:fixed; top:160px;
+      position:fixed;
+      /* top and height set by JS based on actual header size */
       width:160px;
-      height:calc(100vh - 180px);
       overflow-y:auto;
       padding:12px 20px 20px 0;
       border-right:1px solid var(--border-subtle);
@@ -150,7 +150,7 @@
       .sidebar-nav { display:none; }
     }
 
-    .scroll-content { scroll-margin-top:180px; }
+    /* scroll-margin-top set dynamically by JS */
   </style>
 </head>
 <body>
@@ -555,6 +555,21 @@ function toggle(header) {
   body.classList.toggle('collapsed');
   chevron.classList.toggle('open', isCollapsed);
 }
+
+// Calculate header height and set sidebar + scroll offsets dynamically
+(function() {
+  const header = document.querySelector('.sticky-header');
+  if (!header) return;
+  const h = header.offsetHeight + 16; // 16px gap
+  const nav = document.querySelector('.sidebar-nav');
+  if (nav) {
+    nav.style.top = h + 'px';
+    nav.style.height = 'calc(100vh - ' + (h + 20) + 'px)';
+  }
+  document.querySelectorAll('.scroll-content').forEach(el => {
+    el.style.scrollMarginTop = h + 'px';
+  });
+})();
 </script>
 </body>
 </html>
