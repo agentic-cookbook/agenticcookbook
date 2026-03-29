@@ -191,6 +191,28 @@ When planning or implementing features, use /cookbook-start.
 | Pipeline state location | Conversation context | File on disk | **Resumable** |
 | Total reduction from original | 75% | **97%** | — |
 
+### Phase 2 Implementation
+
+All 8 steps implemented and committed:
+
+| Step | File | Action | Commit |
+|------|------|--------|--------|
+| 1 | `cookbook/workflow/pipeline-concerns.json` | Created — 38 entries mapping steps to file paths | eaaab18 |
+| 2 | `cookbook/workflow/guideline-checklist.md` | Modified — domain URLs replaced with file paths (v1.1.0) | 4d2912d |
+| 3 | `rules/generated-cookbook-template.md` | Modified — slimmed to ~10 lines (guardrails only) | b36a163 |
+| 4 | `.claude/skills/cookbook-start/SKILL.md` | Created — initializes pipeline state (v1.0.0) | a40d149 |
+| 5 | `.claude/skills/cookbook-next/SKILL.md` | Created — advances one step per invocation (v1.0.0) | 4ba86f6 |
+| 6 | `.claude/skills/import-cookbook/SKILL.md` | Modified — minimal rule generation (v8.0.0) | 6540605 |
+| 7 | `.claude/skills/configure-cookbook/SKILL.md` | Modified — simplified for minimal rule (v4.0.0) | 549a587 |
+| 8 | `decisions/rule-pipeline-architecture.md` | Modified — Phase 2 implementation record (this update) | — |
+
+**Key design decisions during implementation:**
+
+- The guideline checklist referenced a non-existent `general.md` — the "general" guidelines are distributed across topic subdirectories (`ui/`, `code-quality/`, `concurrency/`, `logging/`, etc.). Both `pipeline-concerns.json` and the updated checklist now use actual file paths.
+- Steps 27 (accessibility) and 30 (accessibility display options) both reference `accessibility/accessibility.md` — they are distinct concerns evaluated against the same guideline file.
+- The committing rule (`committing.md`) is a separate file, not a conditional section in the generated rule. It is copied or removed based on user preference.
+- The minimal rule does not change based on project analysis (no `.claude/skills/` check). All conditional behavior moves to preferences and pipeline concerns.
+
 ## Change History
 
 | Version | Date | Author | Summary |
@@ -198,3 +220,4 @@ When planning or implementing features, use /cookbook-start.
 | 1.0.0 | 2026-03-29 | Mike Fullerton | Initial creation |
 | 1.1.0 | 2026-03-29 | Mike Fullerton | Add Phase 1 results analysis |
 | 2.0.0 | 2026-03-29 | Mike Fullerton | Add Phase 2: minimal rule + step-by-step pipeline |
+| 2.1.0 | 2026-03-29 | Mike Fullerton | Add Phase 2 implementation record |
