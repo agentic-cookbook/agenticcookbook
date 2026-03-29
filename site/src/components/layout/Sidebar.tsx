@@ -144,6 +144,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
   const { navTree } = useContent()
   const { pathname } = useLocation()
   const isOverviewSelected = pathname === '/'
+  const isToolingSelected = pathname === '/tooling'
 
   const nav = (
     <nav className="flex flex-col gap-6 px-6 py-6 overflow-y-auto h-full" data-autoscroll="true">
@@ -153,6 +154,15 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
         }`}>
           <Link to="/" className="hover:text-[var(--color-text-secondary)]">
             Overview
+          </Link>
+        </h3>
+      </div>
+      <div className="flex flex-col gap-3">
+        <h3 className={`font-mono text-xs font-medium uppercase tracking-widest transition-colors ${
+          isToolingSelected ? 'text-[var(--color-text-secondary)]' : 'text-[var(--color-text-dim)]'
+        }`}>
+          <Link to="/tooling" className="hover:text-[var(--color-text-secondary)]">
+            Tooling
           </Link>
         </h3>
       </div>
