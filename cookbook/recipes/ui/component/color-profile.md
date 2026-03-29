@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.0.0"
+summary: "Named color palette with foreground, background, ANSI colors, and built-in presets for terminal and editor theming"
 platforms: 
   - ios
   - kotlin
@@ -29,18 +29,6 @@ references: []
 ---
 
 # Color Profile
-
----
-version: 1.0.0
-status: accepted
-created: 2026-03-25
-last-updated: 2026-03-25
-author: claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [iOS, macOS, watchOS, tvOS, visionOS, Android, Web]
-tags: [theme, colors, profiles, terminal, editor, customization]
-dependencies: []
----
 
 ## Overview
 

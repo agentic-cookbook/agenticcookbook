@@ -3,7 +3,28 @@ import { useLocation } from 'react-router'
 import { useContent } from '../../contexts/ContentContext'
 import Breadcrumbs from '../layout/Breadcrumbs'
 import TableOfContents from '../layout/TableOfContents'
-import type { CookbookEntry } from '../../types/cookbook'
+import HomePage from '../sections/HomePage'
+import SectionIndex from '../sections/SectionIndex'
+import type { CookbookEntry, NavNode } from '../../types/cookbook'
+
+const SECTION_LABELS: Record<string, string> = {
+  principles: 'Principles',
+  guidelines: 'Guidelines',
+  recipes: 'Recipes',
+  compliance: 'Compliance',
+  workflow: 'Workflow',
+  reference: 'Reference',
+}
+
+/** Walk the nav tree to find a node by path */
+function findNavNode(nodes: NavNode[], path: string): NavNode | undefined {
+  for (const node of nodes) {
+    if (node.path === path) return node
+    const found = findNavNode(node.children, path)
+    if (found) return found
+  }
+  return undefined
+}
 
 /** Right-justified metadata, no background box */
 function EntryMeta({ entry }: { entry: CookbookEntry }) {
@@ -113,27 +134,29 @@ function EntryView({ entry }: { entry: CookbookEntry }) {
 
 export default function DocPage() {
   const { pathname } = useLocation()
-  const { getBySlug } = useContent()
+  const { getBySlug, navTree } = useContent()
 
   const slug = pathname === '/' ? '/' : pathname.replace(/\/$/, '')
 
   if (slug === '/') {
-    return (
-      <div className="px-6 py-8 lg:px-10 max-w-3xl">
-        <h1 className="text-3xl mb-4" style={{ fontFamily: 'var(--font-display)' }}>Agentic Cookbook</h1>
-        <p className="text-[var(--color-text-secondary)] leading-relaxed mb-4">
-          A structured cookbook of principles, guidelines, recipes, and workflows for AI-assisted multi-platform development. All content is markdown consumed directly by AI agents and rendered here for humans.
-        </p>
-        <p className="text-[var(--color-text-secondary)] leading-relaxed">
-          Use the navigation on the left to browse sections.
-        </p>
-      </div>
-    )
+    return <HomePage />
+  }
+
+  // Section index pages get a card grid instead of raw markdown
+  const sectionKey = slug.replace(/^\//, '')
+  if (sectionKey in SECTION_LABELS && !sectionKey.includes('/')) {
+    return <SectionIndex section={sectionKey} title={SECTION_LABELS[sectionKey]} />
   }
 
   const entry = getBySlug(slug)
 
   if (!entry) {
+    // Check if this is a directory node in the nav tree (subsection like /guidelines/language)
+    const dirNode = findNavNode(navTree, slug)
+    if (dirNode && dirNode.children.length > 0) {
+      return <SectionIndex section={slug.replace(/^\//, '')} title={dirNode.label} />
+    }
+
     return (
       <div className="flex items-center justify-center py-24">
         <div className="text-center">

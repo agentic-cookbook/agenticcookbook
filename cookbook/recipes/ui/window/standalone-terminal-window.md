@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.0.0"
+summary: "Standalone terminal window with session sidebar and independent session manager for non-project terminal use"
 platforms: 
   - macos
   - swift
@@ -26,18 +26,6 @@ references: []
 ---
 
 # Standalone Terminal Window
-
----
-version: 1.0.0
-status: accepted
-created: 2026-03-25
-last-updated: 2026-03-25
-author: claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [macOS, visionOS]
-tags: [terminal, window, session, standalone]
-dependencies: [ui/Recipes/terminal-pane.md@1.0.0, ui/window-frame-persistence.md@1.0.0, ui/color-profile.md@1.0.0]
----
 
 ## Overview
 

@@ -1,11 +1,12 @@
 import type { CookbookEntry, NavNode } from '../types/cookbook'
 
-const SECTION_ORDER = ['principles', 'guidelines', 'recipes', 'workflow', 'reference']
+const SECTION_ORDER = ['principles', 'guidelines', 'recipes', 'compliance', 'workflow', 'reference']
 
 const SECTION_LABELS: Record<string, string> = {
   principles: 'Principles',
   guidelines: 'Guidelines',
   recipes: 'Recipes',
+  compliance: 'Compliance',
   workflow: 'Workflow',
   reference: 'Reference',
 }

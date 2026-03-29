@@ -147,9 +147,18 @@ body {
   letter-spacing: 0.05em;
 }
 
-/* Light mode overrides */
-.light body,
-body:not(:where(.dark, .dark *)) {
-  background-color: #fff;
-  color: #1a1a2e;
+/* Light mode — override all theme tokens */
+:root:not(.dark) {
+  --color-surface: #ffffff;
+  --color-surface-raised: #f5f5f7;
+  --color-surface-hover: #ebebef;
+  --color-border: #d4d4dc;
+  --color-border-subtle: #e4e4ea;
+
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #55556a;
+  --color-text-dim: #8a8a9c;
+
+  --color-accent: #8a6d20;
+  --color-accent-dim: rgba(138, 109, 32, 0.08);
 }

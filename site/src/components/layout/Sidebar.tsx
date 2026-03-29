@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { useContent } from '../../contexts/ContentContext'
 import type { NavNode } from '../../types/cookbook'
@@ -5,6 +6,21 @@ import type { NavNode } from '../../types/cookbook'
 interface SidebarProps {
   open: boolean
   onClose: () => void
+}
+
+/** Chevron icon for toggleable sections */
+function Chevron({ expanded }: { expanded: boolean }) {
+  return (
+    <svg
+      className={`h-3 w-3 shrink-0 transition-transform duration-150 ${expanded ? 'rotate-90' : ''}`}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2.5}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+  )
 }
 
 /** Leaf file link */
@@ -79,32 +95,39 @@ function DirLink({ node }: { node: NavNode }) {
   )
 }
 
-/** Top-level section — shows header, then files + subdirs */
+/** Top-level section — toggleable, auto-expands when active */
 function NavSection({ node }: { node: NavNode }) {
   const { pathname } = useLocation()
   const isSelected = pathname === node.path
   const isInSection = pathname.startsWith(node.path + '/')
+  const [expanded, setExpanded] = useState(isSelected || isInSection)
 
   const childDirs = node.children.filter((c) => c.children.length > 0)
   const childFiles = node.children.filter((c) => c.children.length === 0)
 
   return (
-    <div className="flex flex-col gap-3">
-      <h3 className={`font-mono text-xs font-medium uppercase tracking-widest transition-colors ${
-        isSelected || isInSection
-          ? 'text-[var(--color-text-secondary)]'
-          : 'text-[var(--color-text-dim)]'
-      }`}>
+    <div className="flex flex-col gap-1">
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className={`flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-widest transition-colors text-left ${
+          isSelected || isInSection
+            ? 'text-[var(--color-text-secondary)]'
+            : 'text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)]'
+        }`}
+      >
+        <Chevron expanded={expanded} />
         {node.label}
-      </h3>
-      <ul className="flex flex-col border-l border-[var(--color-border)]">
-        {childFiles.map((child) => (
-          <FileLink key={child.path} node={child} />
-        ))}
-        {childDirs.map((child) => (
-          <DirLink key={child.path} node={child} />
-        ))}
-      </ul>
+      </button>
+      {expanded && (
+        <ul className="flex flex-col border-l border-[var(--color-border)] mt-1">
+          {childFiles.map((child) => (
+            <FileLink key={child.path} node={child} />
+          ))}
+          {childDirs.map((child) => (
+            <DirLink key={child.path} node={child} />
+          ))}
+        </ul>
+      )}
     </div>
   )
 }
@@ -133,7 +156,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 
   return (
     <>
-      <aside className="hidden lg:block shrink-0 whitespace-nowrap border-r border-[var(--color-border-subtle)] overflow-y-auto sticky top-14 h-[calc(100vh-3.5rem)]">
+      <aside className="hidden lg:block w-64 shrink-0 border-r border-[var(--color-border-subtle)] overflow-y-auto sticky top-14 h-[calc(100vh-3.5rem)]">
         {nav}
       </aside>
 

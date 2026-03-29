@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.0.0"
+summary: ""
 platforms: 
   - kotlin
   - swift

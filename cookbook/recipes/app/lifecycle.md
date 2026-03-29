@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.0.0"
+summary: "Pattern for managing desktop and mobile app startup behavior, session restore, and process cleanup on quit"
 platforms: 
   - ios
   - kotlin
@@ -28,18 +28,6 @@ references: []
 ---
 
 # App Lifecycle
-
----
-version: 1.0.0
-status: accepted
-created: 2026-03-25
-last-updated: 2026-03-25
-author: claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [macOS, iOS, visionOS, Android, Web]
-tags: [lifecycle, startup, restore, cleanup, app]
-dependencies: [ui/Recipes/settings-window.md@1.2.0]
----
 
 ## Overview
 

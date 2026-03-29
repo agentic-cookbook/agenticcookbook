@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.0.0"
+summary: "Text editor pane for source code with syntax highlighting, line numbers, minimap, dirty tracking, and auto-save"
 platforms: 
   - ios
   - kotlin
@@ -30,18 +30,6 @@ references: []
 ---
 
 # Code Editor Pane
-
----
-version: 1.0.0
-status: accepted
-created: 2026-03-25
-last-updated: 2026-03-25
-author: claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [macOS, iOS, visionOS]
-tags: [editor, code, syntax-highlighting, text-editor]
-dependencies: [ui/color-profile.md@1.0.0, ui/collapsible-pane-header.md@1.0.0, ui/empty-state.md@1.0.0]
----
 
 ## Overview
 

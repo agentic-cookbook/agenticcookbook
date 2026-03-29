@@ -1,11 +1,19 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { ContentProvider } from './contexts/ContentContext'
 import Header from './components/layout/Header'
 import Sidebar from './components/layout/Sidebar'
 import DocPage from './components/content/DocPage'
 import SearchDialog from './components/content/SearchDialog'
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
 
 export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -28,6 +36,7 @@ export default function App() {
       <ThemeProvider>
         <ContentProvider>
           <div className="min-h-screen">
+            <ScrollToTop />
             <Header
               onMenuToggle={() => setSidebarOpen(!sidebarOpen)}
               onSearchOpen={() => setSearchOpen(true)}

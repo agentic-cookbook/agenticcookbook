@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.0.0"
+summary: "Invisible view modifier that persists window position and size between sessions via frame autosave"
 platforms: 
   - ios
   - kotlin
@@ -29,18 +29,6 @@ references: []
 ---
 
 # Window Frame Persistence
-
----
-version: 1.0.0
-status: accepted
-created: 2026-03-25
-last-updated: 2026-03-25
-author: claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [macOS]
-tags: [window, persistence, frame, macOS]
-dependencies: []
----
 
 ## Overview
 

@@ -31,20 +31,6 @@ references: []
 
 # AI Settings Panel
 
----
-version: 1.1.0
-status: review
-created: 2026-03-25
-last-updated: 2026-03-26
-author: claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [macOS, iOS, visionOS, Android, Web]
-tags: [ai, settings, configuration, provider, llm]
-dependencies:
-  - ui/Recipes/settings-window.md@1.1.0
-  - ui/ai-chat-control.md@1.0.0
----
-
 ## Overview
 
 A settings panel for configuring AI/LLM provider integration. Appears as a category within the settings window (see `settings-window.md`). This spec covers both the settings UI and the provider interface pattern.

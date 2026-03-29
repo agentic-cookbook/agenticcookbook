@@ -2,7 +2,7 @@ export interface CookbookFrontmatter {
   id: string
   title: string
   domain: string
-  type: 'principle' | 'guideline' | 'recipe' | 'workflow' | 'reference'
+  type: 'principle' | 'guideline' | 'recipe' | 'compliance' | 'workflow' | 'reference'
   version: string
   status: 'draft' | 'review' | 'accepted' | 'deprecated'
   language: string

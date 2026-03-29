@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.0.1"
+summary: "Pattern for macOS document-based apps using directory bundle packages with SQLite databases and auto-save"
 platforms: 
   - ios
   - macos
@@ -26,18 +26,6 @@ references: []
 ---
 
 # Package Document
-
----
-version: 1.0.1
-status: accepted
-created: 2026-03-25
-last-updated: 2026-03-25
-author: claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [macOS, iOS, visionOS]
-tags: [document, storage, sqlite, package, persistence, migration]
-dependencies: []
----
 
 ## Overview
 

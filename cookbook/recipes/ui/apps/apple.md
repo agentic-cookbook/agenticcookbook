@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.0.0"
+summary: "XcodeGen-generated test app suite with component catalog targets for all five Apple platforms"
 platforms: 
   - ios
   - macos
@@ -27,18 +27,6 @@ references: []
 ---
 
 # Apple Test App Suite
-
----
-version: 1.0.0
-status: accepted
-created: 2026-03-25
-last-updated: 2026-03-25
-author: claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [iOS, macOS, watchOS, tvOS, visionOS]
-tags: [test-app, component-catalog, xcodegen]
-dependencies: []
----
 
 ## Overview
 

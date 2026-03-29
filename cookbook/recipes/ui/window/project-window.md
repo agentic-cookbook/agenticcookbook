@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.1.0"
+summary: "IDE-style four-panel project window composing file tree, editor, terminal, and inspector in split views"
 platforms: 
   - macos
   - swift
@@ -27,18 +27,6 @@ references: []
 ---
 
 # Project Window
-
----
-version: 1.1.0
-status: accepted
-created: 2026-03-25
-last-updated: 2026-03-25
-author: claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [macOS, visionOS]
-tags: [layout, ide, window, multi-pane, project]
-dependencies: [ui/Recipes/file-tree-browser.md@1.0.0, ui/Recipes/terminal-pane.md@1.0.0, ui/Recipes/inspector-panel.md@1.0.0, ui/Recipes/code-editor-pane.md@1.0.0, ui/collapsible-pane-header.md@1.0.0, ui/window-frame-persistence.md@1.0.0, ui/status-bar.md@1.0.0]
----
 
 ## Overview
 

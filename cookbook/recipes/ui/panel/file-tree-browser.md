@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.0.0"
+summary: "Hierarchical file browser with lazy loading, git status badges, ignore patterns, and file-type icons"
 platforms: 
   - ios
   - macos
@@ -28,18 +28,6 @@ references: []
 ---
 
 # File Tree Browser
-
----
-version: 1.0.0
-status: accepted
-created: 2026-03-25
-last-updated: 2026-03-25
-author: claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [macOS, iOS, visionOS]
-tags: [file-browser, tree, navigation, sidebar]
-dependencies: [ui/git-status-indicator.md@1.0.0, ui/status-bar.md@1.0.0, ui/Recipes/directory-sync.md@1.0.0]
----
 
 ## Overview
 

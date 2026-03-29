@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.0.0"
+summary: "Right-side sliding panel that shows metadata for the currently selected item in the workspace"
 platforms: 
   - kotlin
   - macos
@@ -28,18 +28,6 @@ references: []
 ---
 
 # Inspector Panel
-
----
-version: 1.0.0
-status: accepted
-created: 2026-03-25
-last-updated: 2026-03-25
-author: claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [macOS, iPadOS, visionOS]
-tags: [inspector, metadata, sidebar, detail]
-dependencies: [ui/git-status-indicator.md@1.0.0, ui/empty-state.md@1.0.0]
----
 
 ## Overview
 

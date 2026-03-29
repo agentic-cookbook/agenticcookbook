@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.3.0"
+summary: "Standard desktop settings/preferences window with sidebar categories and immediate-apply controls"
 platforms: 
   - ios
   - kotlin
@@ -30,18 +30,6 @@ references: []
 ---
 
 # Settings Window
-
----
-version: 1.3.0
-status: accepted
-created: 2026-03-25
-last-updated: 2026-03-25
-author: claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [macOS, Windows, Linux]
-tags: [window-management, preferences, settings]
-dependencies: []
----
 
 ## Overview
 

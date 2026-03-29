@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.0.0"
+summary: "Centered placeholder view shown when there is no content, with icon, heading, and optional action buttons"
 platforms: 
   - ios
   - kotlin
@@ -29,18 +29,6 @@ references: []
 ---
 
 # Empty State
-
----
-version: 1.0.0
-status: accepted
-created: 2026-03-25
-last-updated: 2026-03-25
-author: claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [iOS, macOS, watchOS, tvOS, visionOS, Android, Web]
-tags: [placeholder, empty, onboarding]
-dependencies: []
----
 
 ## Overview
 

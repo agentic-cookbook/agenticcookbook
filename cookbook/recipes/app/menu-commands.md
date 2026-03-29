@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.0.0"
+summary: "Pattern for platform menu commands with keyboard shortcuts and document creation flows via file pickers"
 platforms: 
   - macos
   - swift
@@ -25,18 +25,6 @@ references: []
 ---
 
 # Menu Commands
-
----
-version: 1.0.0
-status: accepted
-created: 2026-03-25
-last-updated: 2026-03-25
-author: claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [macOS, Windows]
-tags: [menu, commands, keyboard-shortcuts, document-creation]
-dependencies: [ui/Recipes/package-document.md@1.0.0]
----
 
 ## Overview
 

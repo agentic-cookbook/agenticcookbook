@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.0.0"
+summary: "Compact inline chat control for multi-turn AI conversation with scrollable history and multi-provider support"
 platforms: 
   - ios
   - kotlin
@@ -31,17 +31,6 @@ references: []
 ---
 
 # AI Chat Control
-
----
-version: 1.0.0
-status: review
-created: 2026-03-26
-last-updated: 2026-03-26
-author: claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [macOS, iOS, visionOS, Android, Web]
-tags: [ai, chat, llm, inline, conversation]
----
 
 ## Overview
 

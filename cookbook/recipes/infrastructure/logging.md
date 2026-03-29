@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.0.0"
+summary: "Centralized logging infrastructure with per-category static logger instances sharing one subsystem"
 platforms: 
   - ios
   - kotlin
@@ -28,18 +28,6 @@ references: []
 ---
 
 # Logging
-
----
-version: 1.0.0
-status: accepted
-created: 2026-03-25
-last-updated: 2026-03-25
-author: claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [iOS, macOS, watchOS, tvOS, visionOS, Android, Web]
-tags: [logging, infrastructure, debugging, observability]
-dependencies: []
----
 
 ## Overview
 

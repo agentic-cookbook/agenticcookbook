@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.0.0"
+summary: "Slim animated bar that slides in at the bottom of a view to indicate a background operation is in progress"
 platforms: 
   - ios
   - kotlin
@@ -29,18 +29,6 @@ references: []
 ---
 
 # Status Bar
-
----
-version: 1.0.0
-status: accepted
-created: 2026-03-25
-last-updated: 2026-03-25
-author: claude-code
-copyright: 2026 Mike Fullerton / Temporal
-platforms: [iOS, macOS, watchOS, tvOS, visionOS, Android, Web]
-tags: [progress, loading, sync, status]
-dependencies: []
----
 
 ## Overview
 
