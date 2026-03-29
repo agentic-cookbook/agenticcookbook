@@ -1,20 +1,25 @@
 ---
 name: port-swiftui-to-appkit
-version: "1.0.0"
+version: "1.1.0"
 description: "Analyze a macOS SwiftUI app and plan its conversion to native AppKit. Triggers on 'port to AppKit', 'convert SwiftUI to AppKit', 'remove SwiftUI', or /port-swiftui-to-appkit."
 argument-hint: "[--version]"
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Bash(xcodebuild *), Bash(git *), Bash(ls *), Bash(wc *), AskUserQuestion, Skill
-context: fork
 ---
 
-# Port SwiftUI to AppKit v1.0.0
+# Port SwiftUI to AppKit v1.1.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `port-swiftui-to-appkit v1.0.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `port-swiftui-to-appkit v1.1.0` and stop — do not run the skill.
 
-Otherwise, print `port-swiftui-to-appkit v1.0.0` as the first line of output, then proceed.
+Otherwise, print `port-swiftui-to-appkit v1.1.0` as the first line of output, then proceed.
+
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. Compare to this skill's version (1.1.0). If they differ, print:
+
+> ⚠ This skill is running v1.1.0 but vA.B.C is installed. Restart the session to use the latest version.
+
+Continue running — do not stop.
 
 ## Overview
 
@@ -110,7 +115,7 @@ These must all appear in the AppKit `NSMenu` built in `applicationWillFinishLaun
 
 ### Step 1.5: Detect Third-Party SwiftUI Dependencies
 
-Check `Package.swift`, `project.yml`, or `*.xcodeproj` for package dependencies. For each dependency, check whether it provides SwiftUI views (grep for `import SwiftUI` in the package's source). Flag any that would block full conversion.
+Check `Package.swift`, `Package.resolved`, or `project.yml` for package dependencies. For each dependency, check whether it is likely SwiftUI-based by examining the package name and its product names in the manifest. Do NOT grep through downloaded package sources (`.build/`, SPM cache) — this is unbounded. Instead, flag any dependency whose name or description suggests SwiftUI views (e.g., contains "SwiftUI", "View", "UI") for manual review by the user.
 
 ### Step 1.6: Flag Advanced Patterns
 
@@ -279,3 +284,12 @@ Every step must include:
 - **No assumptions about build system.** Detect whether the project uses `.xcodeproj`, XcodeGen, or SPM and report it. Do not assume.
 - **Flag what you cannot handle.** If you encounter a SwiftUI pattern not covered by `references/pattern-mappings.md`, tell the user explicitly rather than guessing.
 - **Preserve all keyboard shortcuts.** Every shortcut found in Step 1.4 must appear in the roadmap's Phase 2 acceptance criteria.
+
+## Verification
+
+The skill completed successfully when all of these are true:
+
+1. The structured analysis report (Phase 3) was presented to the user
+2. The user confirmed the analysis is correct (or corrections were applied and re-confirmed)
+3. `/plan-roadmap` was invoked with the full analysis context
+4. `/plan-roadmap` produced a roadmap with build verification in every step
