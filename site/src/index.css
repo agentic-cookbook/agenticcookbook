@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 @source "../index.html";
+@source "../cookbook.html";
 @source "./**/*.tsx";
 
 @custom-variant dark (&:where(.dark, .dark *));

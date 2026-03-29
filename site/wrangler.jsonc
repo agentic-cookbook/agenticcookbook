@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "agentic-cookbook-site",
+  "main": "src/worker.ts",
+  "workers_dev": true,
+  "compatibility_date": "2025-09-27",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "dist",
+    "not_found_handling": "none"
+  },
+  "routes": [
+    { "pattern": "agenticcookbook.com", "custom_domain": true },
+    { "pattern": "www.agenticcookbook.com", "custom_domain": true },
+    { "pattern": "agentic-cookbook.com", "custom_domain": true },
+    { "pattern": "www.agentic-cookbook.com", "custom_domain": true }
+  ],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
