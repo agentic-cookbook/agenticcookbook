@@ -388,12 +388,37 @@
         <span class="chevron open">&#9654;</span>
       </div>
       <div class="card-body">
-        <div class="hook"><span class="hook-name">SessionStart</span><span class="hook-val">1 hook (superpowers)</span> <span class="scope-tag global">global</span></div>
-        <div class="hook"><span class="hook-name">UserPromptSubmit</span><span class="hook-val">1 hook</span> <span class="scope-tag global">global</span></div>
-        <div class="hook"><span class="hook-name">Notification</span><span class="hook-val">1 hook</span> <span class="scope-tag global">global</span></div>
-        <div class="hook"><span class="hook-name">PostToolUse</span><span class="hook-val">1 hook</span> <span class="scope-tag global">global</span></div>
-        <div class="hook"><span class="hook-name">Stop</span><span class="hook-val">1 hook</span> <span class="scope-tag global">global</span></div>
-        <div class="hook"><span class="hook-name">SessionEnd</span><span class="hook-val">1 hook</span> <span class="scope-tag global">global</span></div>
+        <div style="display:flex;flex-direction:column;gap:2px;">
+          <div class="hook"><span class="hook-name">SessionStart</span><span class="hook-val">1 hook</span> <span class="scope-tag global">global</span></div>
+          <div style="padding:2px 0 8px 20px;font-size:0.75rem;color:var(--text-dim);border-bottom:1px solid var(--border-subtle);">
+            <span class="mono" style="color:var(--text-sec)">superpowers</span> &mdash; run-hook session-start
+          </div>
+
+          <div class="hook"><span class="hook-name">UserPromptSubmit</span><span class="hook-val">1 hook</span> <span class="scope-tag global">global</span></div>
+          <div style="padding:2px 0 8px 20px;font-size:0.75rem;color:var(--text-dim);border-bottom:1px solid var(--border-subtle);">
+            <span class="mono" style="color:var(--text-sec)">~/.claude/settings.json</span> &mdash; configured in global settings
+          </div>
+
+          <div class="hook"><span class="hook-name">Notification</span><span class="hook-val">1 hook</span> <span class="scope-tag global">global</span></div>
+          <div style="padding:2px 0 8px 20px;font-size:0.75rem;color:var(--text-dim);border-bottom:1px solid var(--border-subtle);">
+            <span class="mono" style="color:var(--text-sec)">~/.claude/settings.json</span> &mdash; configured in global settings
+          </div>
+
+          <div class="hook"><span class="hook-name">PostToolUse</span><span class="hook-val">1 hook</span> <span class="scope-tag global">global</span></div>
+          <div style="padding:2px 0 8px 20px;font-size:0.75rem;color:var(--text-dim);border-bottom:1px solid var(--border-subtle);">
+            <span class="mono" style="color:var(--text-sec)">~/.claude/settings.json</span> &mdash; configured in global settings
+          </div>
+
+          <div class="hook"><span class="hook-name">Stop</span><span class="hook-val">1 hook</span> <span class="scope-tag global">global</span></div>
+          <div style="padding:2px 0 8px 20px;font-size:0.75rem;color:var(--text-dim);border-bottom:1px solid var(--border-subtle);">
+            <span class="mono" style="color:var(--text-sec)">~/.claude/settings.json</span> &mdash; configured in global settings
+          </div>
+
+          <div class="hook"><span class="hook-name">SessionEnd</span><span class="hook-val">1 hook</span> <span class="scope-tag global">global</span></div>
+          <div style="padding:2px 0 0 20px;font-size:0.75rem;color:var(--text-dim);">
+            <span class="mono" style="color:var(--text-sec)">~/.claude/settings.json</span> &mdash; configured in global settings
+          </div>
+        </div>
       </div>
     </div>
 
