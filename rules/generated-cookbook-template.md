@@ -12,6 +12,8 @@ This is the reference template for the generated rule file installed in consumin
 
 ## Principles
 
+Use this table as a quick reference when making design decisions. For full context, read the corresponding file in `../agentic-cookbook/cookbook/principles/`.
+
 | Principle | Key Rule |
 |-----------|----------|
 | Simplicity | No interleaving of concerns. Simple beats easy. |
@@ -33,16 +35,15 @@ This is the reference template for the generated rule file installed in consumin
 | Open-Source Preference | Research battle-tested libraries before building custom. |
 | Optimize for Change | Every principle serves making future change cheaper. |
 
-For deeper context on a specific principle, read `../agentic-cookbook/cookbook/principles/<principle-name>.md`.
 
 ## Planning
 
-Iterate through each concern in the guideline checklist one at a time. Do not evaluate all concerns at once.
+You MUST iterate through each concern in the guideline checklist one at a time. Do not evaluate all concerns at once.
 
-Read `../agentic-cookbook/cookbook/workflow/guideline-checklist.md` for the full concern list.
+Read `../agentic-cookbook/cookbook/workflow/guideline-checklist.md` for the full concern list. Each item in the checklist specifies the guideline file path to read.
 
 **For each concern:**
-1. Read the relevant guideline file from `../agentic-cookbook/cookbook/guidelines/`
+1. Read the guideline file specified in the checklist
 2. Does this concern apply to the current task?
 3. If yes — add to the plan with specifics (what, where, how)
 4. If no — mark N/A, move on
@@ -52,16 +53,18 @@ Read `../agentic-cookbook/cookbook/workflow/guideline-checklist.md` for the full
 - Passes 16–22: Testing (always apply)
 - Passes 23–38: Opt-in Concerns (ask the user per the checklist's prompt templates)
 
-After all passes, trace key design decisions to the principles that informed them.
+After all passes, list which principles from the table above influenced each design decision in the plan.
+
+Print the completed concern list showing each item as Applicable or N/A before proceeding to implementation.
 
 Plan three phases:
 1. **Phase 1** — what constitutes "it works" (happy path)
 2. **Phase 2** — edge cases, error handling, refactoring
 3. **Phase 3** — under what evidence would optimization be warranted (if none, state "not anticipated")
 
-<!-- [CONDITIONAL: Recipe search — included when show_recipe_prompts is not false] -->
+<!-- [CONDITIONAL: Recipe search — include if .claude/cookbook-preferences.json field show_recipe_prompts is not false] -->
 
-Search `../agentic-cookbook/cookbook/recipes/` for recipes matching the planned feature. If found, ask the user whether to incorporate them.
+Search `../agentic-cookbook/cookbook/recipes/` for recipes whose title or summary matches the planned feature. If found, ask the user whether to incorporate them.
 
 <!-- [/CONDITIONAL] -->
 
@@ -80,7 +83,7 @@ Execute in three phases:
 - **Phase 2: Make It Right** — edge cases, error handling, refactor. Do not skip.
 - **Phase 3: Make It Fast** — only with measured evidence of a performance problem
 
-<!-- [CONDITIONAL: Committing workflow — included when user opts in] -->
+<!-- [CONDITIONAL: Committing workflow — include if .claude/cookbook-preferences.json field committing_workflow is true] -->
 
 Use the structured git workflow: worktree, draft PR before code, commit after each logical change, push after each commit.
 
@@ -94,13 +97,13 @@ After implementation:
 3. **Lint** is clean — no warnings, no added suppressions
 4. **Guideline compliance** — every applicable concern from the plan is verified in the code
 
-<!-- [CONDITIONAL: Auto-lint — included when project has .claude/skills/ or .claude/agents/] -->
+<!-- [CONDITIONAL: Auto-lint — include if project has .claude/skills/ or .claude/agents/ directories] -->
 
 After creating or modifying any skill, agent, or rule file, run the appropriate linter (`/lint-skill`, `/lint-agent`, `/lint-rule`) before marking work complete. Fix all FAIL items. Present WARN items to the user.
 
 <!-- [/CONDITIONAL] -->
 
-<!-- [CONDITIONAL: Contribution prompts — included when show_contribution_prompts is not false] -->
+<!-- [CONDITIONAL: Contribution prompts — include if .claude/cookbook-preferences.json field show_contribution_prompts is not false] -->
 
 After implementation, evaluate whether any reusable pattern was created not covered by an existing recipe. If so, ask the user whether to contribute it back to the cookbook via `/contribute-to-cookbook`.
 
