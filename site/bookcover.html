@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic Cookbook</title>
+  <meta name="description" content="Principles, guidelines, recipes, and workflows for AI-assisted multi-platform development.">
+</head>
+<body>
+  <script>
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme:dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    } catch(e) {}
+  </script>
+
+  <!-- Animated gradient background -->
+  <div class="book-bg" aria-hidden="true"></div>
+
+  <!-- Gold dust particles (populated by bookcover.ts) -->
+  <div class="particles" aria-hidden="true"></div>
+
+  <!-- Book cover -->
+  <div class="book-cover">
+    <div class="book-frame">
+      <!-- Corner ornaments (::before/::after handle top-left and bottom-right) -->
+      <div class="corner-tl"></div>
+      <div class="corner-br"></div>
+
+      <!-- Title -->
+      <h1 class="book-title">
+        <span class="word"><span class="char" style="--i:0">A</span><span class="char" style="--i:1">g</span><span class="char" style="--i:2">e</span><span class="char" style="--i:3">n</span><span class="char" style="--i:4">t</span><span class="char" style="--i:5">i</span><span class="char" style="--i:6">c</span></span>
+        <span class="word"><span class="char" style="--i:7">C</span><span class="char" style="--i:8">o</span><span class="char" style="--i:9">o</span><span class="char" style="--i:10">k</span><span class="char" style="--i:11">b</span><span class="char" style="--i:12">o</span><span class="char" style="--i:13">o</span><span class="char" style="--i:14">k</span></span>
+      </h1>
+
+      <!-- Ornamental divider -->
+      <div class="ornament">
+        <span class="ornament-line"></span>
+        <span class="ornament-diamond"></span>
+        <span class="ornament-line"></span>
+      </div>
+
+      <!-- Tagline -->
+      <p class="book-tagline">
+        Principles, guidelines, recipes, and workflows for AI&#8209;assisted multi&#8209;platform development
+      </p>
+
+      <!-- Section entry points -->
+      <nav class="section-grid">
+        <a href="/principles" class="section-card">Principles</a>
+        <a href="/guidelines" class="section-card">Guidelines</a>
+        <a href="/recipes" class="section-card">Recipes</a>
+        <a href="/compliance" class="section-card">Compliance</a>
+        <a href="/workflow" class="section-card">Workflow</a>
+        <a href="/reference" class="section-card">Reference</a>
+        <a href="/usage" class="section-card section-card--wide">Usage</a>
+      </nav>
+
+      <!-- CTA -->
+      <a href="/principles" class="book-cta">Open Cookbook</a>
+
+      <!-- Author -->
+      <div class="book-author">Mike Fullerton</div>
+
+      <!-- Stats -->
+      <div class="book-meta">7 sections · MIT licensed</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="book-footer">
+    <a href="https://github.com/mikefullerton/agentic-cookbook" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </footer>
+
+  <script type="module" src="/src/bookcover.ts"></script>
+</body>
+</html>

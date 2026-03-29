@@ -12,4 +12,12 @@ export default defineConfig({
   plugins: [cookbookPlugin({
     cookbookDir: path.resolve(__dirname, '../cookbook'),
   }), react(), cloudflare()],
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        bookcover: path.resolve(__dirname, 'bookcover.html'),
+      },
+    },
+  },
 })
