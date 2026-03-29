@@ -429,10 +429,12 @@
         <span class="chevron open">&#9654;</span>
       </div>
       <div class="card-body">
-        <div class="perms">
-          <span class="tag">Edit(.claude/Features/**)</span>
-          <span class="tag">Write(.claude/Features/**)</span>
-        </div>
+        <table>
+          <colgroup><col style="width:180px"><col style="width:260px"><col><col style="width:60px"></colgroup>
+          <tr><th>Permission</th><th>Why</th><th>Risk</th><th></th></tr>
+          <tr><td class="mono">Edit(.claude/Features/**)</td><td>Edit files in .claude/Features/ across all projects</td><td style="color:var(--amber)">Medium &mdash; auto-added by feature-dev plugin</td><td><span class="scope-tag global">global</span></td></tr>
+          <tr><td class="mono">Write(.claude/Features/**)</td><td>Create files in .claude/Features/ across all projects</td><td style="color:var(--amber)">Medium &mdash; auto-added by feature-dev plugin</td><td><span class="scope-tag global">global</span></td></tr>
+        </table>
       </div>
     </div>
 
