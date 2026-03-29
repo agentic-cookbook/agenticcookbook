@@ -86,6 +86,7 @@ Run `/configure-cookbook` to manage preferences and optional rules.
 
 Create `.claude/rules/` if it doesn't exist. Copy these files from `../agentic-cookbook/rules/` into `.claude/rules/`:
 
+- `authoring-ground-rules.md` — foundation rule for all authoring (always installed first)
 - `cookbook.md` — the full cookbook rule (required)
 - `auto-lint.md` — auto-lint skills/agents/rules on creation/modification (always installed)
 
@@ -134,7 +135,7 @@ Print: `Installed N plugins (M already installed, skipped). Failures: <list or "
 ```
 === Agentic Cookbook Imported ===
 CLAUDE.md: updated
-Rules installed: cookbook.md, auto-lint.md
+Rules installed: authoring-ground-rules.md, cookbook.md, auto-lint.md
 Plugins: N installed, M skipped (already installed)
 
 To manage preferences: /configure-cookbook
