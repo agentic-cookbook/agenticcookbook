@@ -274,19 +274,44 @@
       </div>
       <div class="card-body">
         <div class="label">Project (.claude/settings.json)</div>
-        <div class="perms">
-          <span class="tag">Read(**)</span><span class="tag">Glob(**)</span><span class="tag">Grep(**)</span><span class="tag">Edit(**)</span><span class="tag">Write(**)</span>
-          <span class="tag">Bash(git *)</span><span class="tag">Bash(gh *)</span><span class="tag">Bash(ls *)</span><span class="tag">Bash(find *)</span><span class="tag">Bash(wc *)</span>
-          <span class="tag">Bash(diff *)</span><span class="tag">Bash(mkdir *)</span><span class="tag">Bash(cp *)</span><span class="tag">Bash(rm *)</span><span class="tag">Bash(mv *)</span>
-          <span class="tag">Bash(cat *)</span><span class="tag">Bash(head *)</span><span class="tag">Bash(tail *)</span><span class="tag">Bash(grep *)</span><span class="tag">Bash(python3 *)</span>
-          <span class="tag">Bash(claude *)</span>
-        </div>
+        <table>
+          <tr><th>Permission</th><th>Why</th><th>Risk</th><th></th></tr>
+          <tr><td class="mono">Read(**)</td><td>Read any file in project</td><td style="color:var(--green)">Low &mdash; read-only</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Glob(**)</td><td>Find files by pattern</td><td style="color:var(--green)">Low &mdash; read-only</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Grep(**)</td><td>Search file contents</td><td style="color:var(--green)">Low &mdash; read-only</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Edit(**)</td><td>Modify any file in project</td><td style="color:var(--amber)">Medium &mdash; can change any file without asking</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Write(**)</td><td>Create any file in project</td><td style="color:var(--amber)">Medium &mdash; can create files without asking</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(git *)</td><td>Git operations (status, diff, log, etc.)</td><td style="color:var(--amber)">Medium &mdash; includes push, reset</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(gh *)</td><td>GitHub CLI (PRs, issues, releases)</td><td style="color:var(--amber)">Medium &mdash; can create PRs, comment on issues</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(ls *)</td><td>List directory contents</td><td style="color:var(--green)">Low &mdash; read-only</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(find *)</td><td>Search for files on disk</td><td style="color:var(--green)">Low &mdash; read-only</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(wc *)</td><td>Count lines/words/bytes</td><td style="color:var(--green)">Low &mdash; read-only</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(diff *)</td><td>Compare files</td><td style="color:var(--green)">Low &mdash; read-only</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(mkdir *)</td><td>Create directories</td><td style="color:var(--green)">Low &mdash; non-destructive</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(cp *)</td><td>Copy files</td><td style="color:var(--green)">Low &mdash; non-destructive</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(rm *)</td><td>Delete files</td><td style="color:var(--red)">High &mdash; destructive, irreversible</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(mv *)</td><td>Move/rename files</td><td style="color:var(--amber)">Medium &mdash; can relocate files</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(cat *)</td><td>Display file contents</td><td style="color:var(--green)">Low &mdash; read-only</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(head *)</td><td>Show first lines of file</td><td style="color:var(--green)">Low &mdash; read-only</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(tail *)</td><td>Show last lines of file</td><td style="color:var(--green)">Low &mdash; read-only</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(grep *)</td><td>Search text in files</td><td style="color:var(--green)">Low &mdash; read-only</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(python3 *)</td><td>Run Python scripts</td><td style="color:var(--red)">High &mdash; arbitrary code execution</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(claude *)</td><td>Invoke Claude CLI recursively</td><td style="color:var(--amber)">Medium &mdash; spawns sub-sessions</td><td><span class="scope-tag local">local</span></td></tr>
+        </table>
         <div class="label">Local Overrides (.claude/settings.local.json)</div>
-        <div class="perms">
-          <span class="tag">Bash(ls:*)</span><span class="tag">Bash(git:*)</span><span class="tag">Bash(git add:*)</span><span class="tag">Bash(git commit:*)</span><span class="tag">Bash(git push:*)</span>
-          <span class="tag">Bash(npm install:*)</span><span class="tag">Bash(npx playwright:*)</span><span class="tag">Bash(open:*)</span>
-          <span class="tag">Skill(lint-skill)</span><span class="tag">Skill(lint-rule)</span>
-        </div>
+        <table>
+          <tr><th>Permission</th><th>Why</th><th>Risk</th><th></th></tr>
+          <tr><td class="mono">Bash(ls:*)</td><td>List dirs (alternate syntax)</td><td style="color:var(--green)">Low</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(git:*)</td><td>All git operations</td><td style="color:var(--amber)">Medium</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(git add:*)</td><td>Stage files</td><td style="color:var(--green)">Low</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(git commit:*)</td><td>Create commits</td><td style="color:var(--amber)">Medium &mdash; writes to history</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(git push:*)</td><td>Push to remote</td><td style="color:var(--red)">High &mdash; publishes to shared repo</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(npm install:*)</td><td>Install npm packages</td><td style="color:var(--amber)">Medium &mdash; modifies node_modules, lockfile</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(npx playwright:*)</td><td>Run Playwright tests</td><td style="color:var(--green)">Low &mdash; test runner</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Bash(open:*)</td><td>Open files/URLs in browser</td><td style="color:var(--green)">Low &mdash; opens apps</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Skill(lint-skill)</td><td>Run /lint-skill without asking</td><td style="color:var(--green)">Low &mdash; read-only analysis</td><td><span class="scope-tag local">local</span></td></tr>
+          <tr><td class="mono">Skill(lint-rule)</td><td>Run /lint-rule without asking</td><td style="color:var(--green)">Low &mdash; read-only analysis</td><td><span class="scope-tag local">local</span></td></tr>
+        </table>
       </div>
     </div>
 
