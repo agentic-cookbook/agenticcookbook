@@ -131,23 +131,7 @@ If no, remove `.claude/rules/committing.md`.
 
 ### Auto-Lint Rule
 
-Check whether `auto-lint.md` is currently installed.
-
-**If not installed**, ask:
-
-```
-Optional: Install an auto-lint rule?
-- Automatically lints any skill, agent, or rule file you create or modify
-- FAIL items must be fixed before the work is complete
-
-This is independent of the cookbook. Install? (y/n)
-```
-
-If yes, copy from `../agentic-cookbook/rules/`.
-
-**If already installed**, ask: `Keep the auto-lint rule? (y/n)`
-
-If no, remove `.claude/rules/auto-lint.md`.
+The auto-lint rule (`auto-lint.md`) is always installed. If it's missing, copy it from `../agentic-cookbook/rules/`. Do not offer to remove it.
 
 ## Step 5: Update Rule File
 

@@ -84,11 +84,14 @@ Run `/configure-cookbook` to manage preferences and optional rules.
 
 ## Step 3: Install Cookbook Rule
 
-Create `.claude/rules/` if it doesn't exist. Copy `cookbook.md` from `../agentic-cookbook/rules/` into `.claude/rules/`.
+Create `.claude/rules/` if it doesn't exist. Copy these files from `../agentic-cookbook/rules/` into `.claude/rules/`:
+
+- `cookbook.md` — the full cookbook rule (required)
+- `auto-lint.md` — auto-lint skills/agents/rules on creation/modification (always installed)
 
 If old tier files exist (`principles.md`, `guideline-consumer.md`, `recipe-consumer.md`, `contributor.md`), remove them and print: "Replaced old tier files with cookbook.md."
 
-Invoke `/configure-cookbook` using the Skill tool to handle optional rules (committing rule, auto-lint rule).
+Invoke `/configure-cookbook` using the Skill tool to handle the optional committing rule.
 
 ## Step 4: Install Recommended Plugins
 
