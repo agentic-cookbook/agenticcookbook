@@ -98,17 +98,17 @@ export default function HomePage() {
         </h1>
 
         {/* Narrative — cat-herding style */}
-        <div className="max-w-2xl mb-8" style={{ fontSize: '1.05rem', lineHeight: 1.8 }}>
-          <p className="text-[var(--color-text-secondary)] mb-[30px]">
-            You're building a file browser panel for your IDE. You open Claude Code and just start talking about it — lazy loading, git status badges, ignore patterns. Before writing a single line of code, Claude reads all 18 engineering principles and walks you through a checklist of guidelines. Accessibility labels, keyboard navigation, progress indicators — the non-negotiable stuff. Then it asks about the optional stuff. You make a few calls, and it moves on.
+        <div className="max-w-2xl mb-8 italic text-lg text-[var(--color-text-secondary)]" style={{ lineHeight: 1.8 }}>
+          <p className="mb-7">
+            You're building a file browser panel. You open Claude Code and just start describing what you want — lazy loading, git status badges, ignore patterns. That's it. That's all you say.
           </p>
-          <p className="text-[var(--color-text-secondary)] mb-[30px]">
-            It finds an exact recipe match — a complete spec with requirements for selection behavior, keyboard shortcuts, empty states, platform-specific appearance across Swift, Kotlin, TypeScript, and C#. All the things you would have eventually gotten around to specifying, already specified. You approve it and implementation begins — three phases, no shortcuts. Make it work. Make it right. Make it fast.
+          <p className="mb-7">
+            Before a single line of code is written, Claude reads 18 engineering principles, walks you through a guideline checklist — accessibility, keyboard navigation, progress indicators — and finds a recipe that already specifies everything: selection behavior, keyboard shortcuts, empty states, platform-specific appearance across Swift, Kotlin, TypeScript, and C#. All the things you would have eventually gotten around to thinking about. Already thought about.
           </p>
-          <p className="text-[var(--color-text-secondary)] mb-[30px]">
-            Without the cookbook, you'd get a file browser. It would probably work. But the accessibility would be an afterthought, the empty state would be a string literal, keyboard navigation would be "we'll add that later," and the git status badges would be whatever Claude felt like inventing that day. With the cookbook, every decision is backed by a principle, every requirement traceable to a guideline, every UI pattern matching a battle-tested recipe.
+          <p className="mb-7">
+            You approve it. Implementation begins in three phases — make it work, make it right, make it fast. No shortcuts, no "we'll add accessibility later." When it's done, the guideline checklist is green, the recipe is fully satisfied, and the tests pass. The file browser your users deserve, not the file browser you would have settled for.
           </p>
-          <p className="text-[var(--color-text-primary)] font-medium">
+          <p className="not-italic text-[var(--color-text-primary)] font-medium">
             You didn't have to remember any of it. That's the cookbook.
           </p>
         </div>
@@ -170,26 +170,15 @@ export default function HomePage() {
           Contributors
         </h2>
         <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-raised)] p-6">
-          <h3 className="text-base font-medium text-[var(--color-text-primary)] mb-2">
-            Mike Fullerton
+          <h3 className="text-base font-medium text-[var(--color-text-primary)] mb-3">
+            <a href="https://www.linkedin.com/in/michaelfullerton/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-accent)] transition-colors">Mike Fullerton</a>
           </h3>
-          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4">
-            Software engineer and drummer based in San Jose, CA. Creator of the Agentic Cookbook,{' '}
-            <a href="https://github.com/mikefullerton/cat-herding" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] hover:underline">Cat Herding</a>, and{' '}
-            <a href="https://github.com/mikefullerton/Whippet" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] hover:underline">Whippet</a>.
-            Building tools for AI-assisted multi-platform development.
+          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+            Software engineer in San Jose, CA with deep experience across the Apple ecosystem. Builds developer tools for AI-assisted workflows —{' '}
+            <a href="https://github.com/mikefullerton/cat-herding" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] hover:underline">Cat Herding</a> for automated roadmap planning and implementation in Claude Code,{' '}
+            <a href="https://github.com/mikefullerton/Whippet" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] hover:underline">Whippet</a> for real-time Claude Code session monitoring on macOS, and the Agentic Cookbook. Also a lifelong drummer and founder of{' '}
+            <a href="http://scratchyfish.com" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] hover:underline">Scratchy Fish</a>, an instrumental improvisation group.
           </p>
-          <div className="flex items-center gap-4 font-mono text-xs">
-            <a href="https://github.com/mikefullerton" target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)] transition-colors">
-              GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/michaelfullerton/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)] transition-colors">
-              LinkedIn
-            </a>
-            <a href="http://mikefullerton.com" target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)] transition-colors">
-              mikefullerton.com
-            </a>
-          </div>
         </div>
       </div>
     </div>

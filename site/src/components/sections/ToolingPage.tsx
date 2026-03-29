@@ -1,14 +1,9 @@
 const GROUPS = [
   {
-    label: 'Getting Started',
+    label: 'Skills',
     items: [
       { name: '/import-cookbook', version: '6.0.3', summary: 'First-time onboarding — installs cookbook.md, updates CLAUDE.md, offers recommended plugins.' },
       { name: '/configure-cookbook', version: '2.0.0', summary: 'Manage preferences — toggle recipe prompts, contribution prompts, install optional rules.' },
-    ],
-  },
-  {
-    label: 'Skills',
-    items: [
       { name: '/lint-with-cookbook', version: '1.0.0', summary: 'Lint implementation against the full guideline checklist or a specific recipe.' },
       { name: '/lint-skill', version: '1.0.1', summary: 'Lint a Claude Code skill — frontmatter, structure, content quality, error handling.' },
       { name: '/lint-rule', version: '1.0.1', summary: 'Lint a rule file for clarity, single responsibility, and MUST/MUST NOT sections.' },
@@ -73,6 +68,32 @@ export default function ToolingPage() {
         </p>
       </div>
 
+      {/* Getting Started callout */}
+      <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-raised)] p-6 mb-10">
+        <h2
+          className="text-lg mb-3"
+          style={{ fontFamily: 'var(--font-display)' }}
+        >
+          Getting Started
+        </h2>
+        <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4">
+          Clone the cookbook, then run the import skill from your project:
+        </p>
+        <div className="flex flex-col gap-2">
+          <div className="rounded bg-[var(--color-surface)] border border-[var(--color-border-subtle)] px-4 py-2.5">
+            <code className="font-mono text-sm text-[var(--color-text-dim)]">
+              git clone git@github.com:mikefullerton/agentic-cookbook.git
+            </code>
+          </div>
+          <div className="rounded bg-[var(--color-surface)] border border-[var(--color-border-subtle)] px-4 py-2.5">
+            <code className="font-mono text-sm text-[var(--color-accent)]">
+              /import-cookbook
+            </code>
+          </div>
+        </div>
+      </div>
+
+      {/* Card grids */}
       <div className="flex flex-col gap-10">
         {GROUPS.map(({ label, items }) => (
           <div key={label}>

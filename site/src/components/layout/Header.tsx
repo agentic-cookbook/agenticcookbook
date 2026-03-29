@@ -3,13 +3,13 @@ import { useTheme } from '../../contexts/ThemeContext'
 import PlatformFilter from '../content/PlatformFilter'
 
 const SECTIONS = [
+  { label: 'Usage', path: '/usage' },
   { label: 'Principles', path: '/principles' },
   { label: 'Guidelines', path: '/guidelines' },
   { label: 'Recipes', path: '/recipes' },
   { label: 'Compliance', path: '/compliance' },
   { label: 'Workflow', path: '/workflow' },
   { label: 'Reference', path: '/reference' },
-  { label: 'Usage', path: '/usage' },
 ]
 
 interface HeaderProps {
