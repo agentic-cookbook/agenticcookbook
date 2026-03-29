@@ -421,24 +421,25 @@
         <span class="chevron open">&#9654;</span>
       </div>
       <div class="card-body">
-        <div class="tools-grid">
-          <div class="tool-item"><span class="dot ok"></span><span class="mono">Node.js</span><span class="ver">v25.8.1</span></div>
-          <div class="tool-item"><span class="dot ok"></span><span class="mono">Python</span><span class="ver">3.9.6</span></div>
-          <div class="tool-item"><span class="dot ok"></span><span class="mono">Swift</span><span class="ver">6.3</span></div>
-          <div class="tool-item"><span class="dot ok"></span><span class="mono">Git</span><span class="ver">2.50.1</span></div>
-          <div class="tool-item"><span class="dot ok"></span><span class="mono">GitHub CLI</span><span class="ver">2.86.0</span></div>
-          <div class="tool-item"><span class="dot ok"></span><span class="mono">npm</span><span class="ver">11.11.0</span></div>
-          <div class="tool-item"><span class="dot ok"></span><span class="mono">Wrangler</span><span class="ver">4.76.0</span></div>
-          <div class="tool-item"><span class="dot ok"></span><span class="mono">VS Code</span><span class="ver">1.112.0</span></div>
-          <div class="tool-item"><span class="dot miss"></span><span class="mono" style="color:var(--text-dim)">Bun</span></div>
-          <div class="tool-item"><span class="dot miss"></span><span class="mono" style="color:var(--text-dim)">Docker</span></div>
-          <div class="tool-item"><span class="dot miss"></span><span class="mono" style="color:var(--text-dim)">Go</span></div>
-          <div class="tool-item"><span class="dot miss"></span><span class="mono" style="color:var(--text-dim)">Rust</span></div>
-          <div class="tool-item"><span class="dot miss"></span><span class="mono" style="color:var(--text-dim)">Java</span></div>
-          <div class="tool-item"><span class="dot miss"></span><span class="mono" style="color:var(--text-dim)">.NET</span></div>
-          <div class="tool-item"><span class="dot miss"></span><span class="mono" style="color:var(--text-dim)">kubectl</span></div>
-          <div class="tool-item"><span class="dot miss"></span><span class="mono" style="color:var(--text-dim)">Terraform</span></div>
-        </div>
+        <table>
+          <tr><th></th><th>Tool</th><th>Version</th><th>Why it's here</th></tr>
+          <tr><td><span class="dot ok"></span></td><td class="mono">Node.js</td><td class="mono">v25.8.1</td><td>Vite dev server, site build, npm scripts, Cloudflare Workers</td></tr>
+          <tr><td><span class="dot ok"></span></td><td class="mono">Python</td><td class="mono">3.9.6</td><td>macOS system Python; used by build scripts and plugin hooks</td></tr>
+          <tr><td><span class="dot ok"></span></td><td class="mono">Swift</td><td class="mono">6.3</td><td>Apple platform development (iOS, macOS apps)</td></tr>
+          <tr><td><span class="dot ok"></span></td><td class="mono">Git</td><td class="mono">2.50.1</td><td>Version control &mdash; worktrees, branches, commits</td></tr>
+          <tr><td><span class="dot ok"></span></td><td class="mono">GitHub CLI</td><td class="mono">2.86.0</td><td>PR creation, issue management, repo operations from CLI</td></tr>
+          <tr><td><span class="dot ok"></span></td><td class="mono">npm</td><td class="mono">11.11.0</td><td>Package management for site/ and tools-site/</td></tr>
+          <tr><td><span class="dot ok"></span></td><td class="mono">Wrangler</td><td class="mono">4.76.0</td><td>Cloudflare Workers deployment and local dev preview</td></tr>
+          <tr><td><span class="dot ok"></span></td><td class="mono">VS Code</td><td class="mono">1.112.0</td><td>Primary editor; used by <code style="font-size:0.75rem">open</code> commands</td></tr>
+          <tr><td><span class="dot miss"></span></td><td class="mono" style="color:var(--text-dim)">Bun</td><td></td><td style="color:var(--text-dim)">Alt JS runtime &mdash; not needed, Node.js covers this</td></tr>
+          <tr><td><span class="dot miss"></span></td><td class="mono" style="color:var(--text-dim)">Docker</td><td></td><td style="color:var(--text-dim)">Containerization &mdash; not used in this project</td></tr>
+          <tr><td><span class="dot miss"></span></td><td class="mono" style="color:var(--text-dim)">Go</td><td></td><td style="color:var(--text-dim)">No Go code in this project</td></tr>
+          <tr><td><span class="dot miss"></span></td><td class="mono" style="color:var(--text-dim)">Rust</td><td></td><td style="color:var(--text-dim)">No Rust code in this project</td></tr>
+          <tr><td><span class="dot miss"></span></td><td class="mono" style="color:var(--text-dim)">Java</td><td></td><td style="color:var(--text-dim)">No Java code in this project</td></tr>
+          <tr><td><span class="dot miss"></span></td><td class="mono" style="color:var(--text-dim)">.NET</td><td></td><td style="color:var(--text-dim)">No .NET code in this project</td></tr>
+          <tr><td><span class="dot miss"></span></td><td class="mono" style="color:var(--text-dim)">kubectl</td><td></td><td style="color:var(--text-dim)">No Kubernetes usage &mdash; deployed on Cloudflare</td></tr>
+          <tr><td><span class="dot miss"></span></td><td class="mono" style="color:var(--text-dim)">Terraform</td><td></td><td style="color:var(--text-dim)">No IaC usage &mdash; Cloudflare managed via wrangler</td></tr>
+        </table>
       </div>
     </div>
 
