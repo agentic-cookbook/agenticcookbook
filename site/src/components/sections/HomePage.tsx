@@ -71,7 +71,7 @@ const SECTIONS = [
   {
     key: 'usage',
     label: 'Usage',
-    description: 'Skills, rules, and a walkthrough of using the cookbook from a real project.',
+    description: '13 skills and 7 rules that enforce the cookbook during planning, implementation, and review.',
     path: '/usage',
     fixedCount: 20,
     icon: (
@@ -91,15 +91,28 @@ export default function HomePage() {
       {/* Hero */}
       <div className="mb-12">
         <h1
-          className="text-5xl lg:text-6xl mb-4 tracking-tight"
+          className="text-5xl lg:text-6xl mb-6 tracking-tight"
           style={{ fontFamily: 'var(--font-display)' }}
         >
           Agentic Cookbook
         </h1>
-        <p className="text-lg lg:text-xl text-[var(--color-text-secondary)] max-w-2xl leading-relaxed mb-6">
-          Principles, guidelines, recipes, and workflows for AI-assisted multi-platform development.
-          All content is markdown consumed directly by AI agents — rendered here for humans.
-        </p>
+
+        {/* Narrative blurb */}
+        <div className="text-[var(--color-text-secondary)] leading-relaxed max-w-2xl space-y-4 mb-8">
+          <p>
+            You're building a file browser panel. You open Claude Code and describe what you need — lazy loading, git status badges, ignore patterns. Before writing a line of code, Claude reads all 18 engineering principles, walks you through the guideline checklist with you, and finds an exact recipe match with requirements for selection behavior, keyboard shortcuts, empty states, accessibility, and platform-specific appearance across four languages.
+          </p>
+          <p>
+            Implementation follows three phases — make it work, make it right, make it fast. Accessibility labels on every interactive element. Keyboard navigation matching platform conventions. Git status badges using the recipe's color-coded system with priority-based directory rollup. Lazy loading so it doesn't choke on a 50,000-file monorepo.
+          </p>
+          <p>
+            Without the cookbook, you'd get a file browser. It would probably work. But the accessibility would be an afterthought, the empty state would be a string literal, and keyboard navigation would be "we'll add that later." With the cookbook, every decision is backed by a principle, every requirement traceable to a guideline, every UI pattern matching a battle-tested recipe. You didn't have to remember any of it.
+          </p>
+          <p className="text-[var(--color-text-primary)] font-medium">
+            That's the cookbook.
+          </p>
+        </div>
+
         <div className="flex items-center gap-6 font-mono text-sm text-[var(--color-text-dim)]">
           <span>{entries.length} documents</span>
           <span className="text-[var(--color-border)]">|</span>
