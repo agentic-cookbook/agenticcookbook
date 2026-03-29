@@ -8,6 +8,9 @@ export default function ContributorsPage() {
         >
           Contributors
         </h1>
+        <p className="font-mono text-sm text-[var(--color-text-dim)]">
+          1 contributor
+        </p>
       </div>
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -19,16 +22,16 @@ export default function ContributorsPage() {
         >
           <div className="flex items-center gap-3 mb-1.5">
             <img
-              src="https://media.licdn.com/dms/image/v2/C5603AQHXRz0yDqjzwQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1618508357857?e=2147483647&v=beta&t=gBGM0VBZqwLyXgJXfvLVQZJmZB5aBqcvZ9MjVSwEz4I"
+              src="https://github.com/mikefullerton.png"
               alt="Mike Fullerton"
-              className="w-10 h-10 rounded-full shrink-0"
+              className="w-8 h-8 rounded-full shrink-0"
             />
             <h3 className="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors">
               Mike Fullerton
             </h3>
           </div>
-          <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed line-clamp-4">
-            Software engineer with decades of experience shipping products at Apple, Microsoft, and PayPal. Now focused on AI-assisted developer tooling and the Agentic Cookbook.
+          <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed line-clamp-2">
+            Software engineer with decades of experience shipping products at Apple, Microsoft, and PayPal. Now building AI-assisted developer tooling and the Agentic Cookbook.
           </p>
         </a>
       </div>

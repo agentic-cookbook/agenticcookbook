@@ -5,55 +5,87 @@ globs: site/**
 
 # Site Design Rules
 
+## Before ANY Change
+
+1. Screenshot the page you're about to change AND the reference page (usually Principles at /principles)
+2. After the change, screenshot both again and compare
+3. If they don't match, fix it before committing
+
+## Page Types
+
+The site has exactly 4 page types. Every page MUST be one of these.
+
+### 1. Overview (HomePage)
+- Container: `px-6 py-10 lg:px-10 max-w-4xl`
+- Hero: title `text-5xl lg:text-6xl`, narrative blurb `text-lg` with `lineHeight: 1.8` and `text-[var(--color-text-secondary)]`, stats bar in mono
+- Section cards: `grid gap-4 sm:grid-cols-2`
+- One page only: `/`
+
+### 2. Section Index
+- Container: `px-6 py-10 lg:px-10 max-w-5xl`
+- Title: `text-4xl lg:text-5xl mb-3 tracking-tight` with `fontFamily: 'var(--font-display)'`
+- Count: `font-mono text-sm text-[var(--color-text-dim)]` — e.g. "18 documents", "20 items", "1 contributor"
+- Content: `flex flex-col gap-10`
+- Subsection heading: `text-xl mb-4` with `fontFamily: 'var(--font-display)'`
+- Card grid: `grid gap-3 sm:grid-cols-2 lg:grid-cols-3`
+- Card: `group block rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-raised)] p-4 hover:border-[var(--color-accent)]/40 hover:bg-[var(--color-surface-hover)] transition-all duration-200`
+- Card title: `text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors truncate`
+- Card summary: `text-xs text-[var(--color-text-secondary)] leading-relaxed line-clamp-2`
+- **Every section with sub-items uses this pattern: Principles, Guidelines, Recipes, Compliance, Workflow, Reference, Usage, Contributors**
+
+### 3. Doc Page
+- Container: `flex-1 min-w-0 px-6 py-8 lg:px-10 max-w-3xl`
+- Breadcrumbs above content
+- Right-justified metadata in `font-mono text-[11px]`
+- Prose via `article` with typography plugin
+- Table of contents on XL screens
+
+### 4. Static Page
+- Container: `px-6 py-10 lg:px-10 max-w-5xl`
+- Title: same as Section Index
+- Free-form prose content (no card grid)
+- Used for: Getting Started
+
+## Sidebar
+
+Two item types only:
+
+### Plain link (no children)
+```
+OVERVIEW
+GETTING STARTED
+```
+Uses `<h3>` with `font-mono text-xs font-medium uppercase tracking-widest`.
+
+### Toggleable section (has children)
+```
+> USAGE → Skills, Rules
+> PRINCIPLES → individual principles
+> CONTRIBUTORS → Mike Fullerton
+```
+Uses chevron `<button>` + `<Link>` label. Children in `<ul>` with `border-l border-[var(--color-border)]`.
+
+**Rule: if a section has ANY sub-items, it MUST be toggleable. No exceptions.**
+
+## Header
+
+- Sticky `top-0`
+- Tabs in same order as sidebar (minus Overview which is the logo link)
+- GitHub icon before search trigger
+- Platform filter and theme toggle at end
+
 ## Theme
 
-- Dark-first design. All theme tokens defined as CSS custom properties in `site/src/index.css` under `@theme`.
-- Light mode overrides ALL tokens via `:root:not(.dark)` — never leave tokens unoverridden.
-- Three font families: Instrument Serif (display/headings), Manrope (body/UI), DM Mono (code/mono).
-- Gold accent: `--color-accent` (#c4a35a dark, #8a6d20 light).
-
-## Layout
-
-- Header: sticky `top-0`, section tabs, GitHub icon link, search trigger, platform filter, theme toggle.
-- Sidebar: fixed `w-64`, toggleable top-level sections with separate chevron (toggle) and label (navigate). Divider between Usage and content sections.
-- Main content: `max-w-3xl` for doc pages, `max-w-5xl` for section indexes, `max-w-4xl` for homepage.
-
-## Section Index Pages
-
-Every section and subsection uses the same card grid layout from `SectionIndex.tsx`:
-- Title in Instrument Serif (`text-4xl lg:text-5xl`)
-- Document count in mono below
-- Cards grouped by subsection heading (Instrument Serif `text-xl`)
-- Card grid: `grid gap-3 sm:grid-cols-2 lg:grid-cols-3`
-- Card style: `rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-raised)] p-4` with hover accent border and bg transition.
-- Card content: title (sm, font-medium), summary (xs, secondary, line-clamp-2), optional platform badges.
-
-**The Usage page MUST match this exact layout.** No custom card components — same visual treatment as Principles, Guidelines, etc.
-
-## Homepage
-
-- Hero: large Instrument Serif title, narrative blurb at 1.05rem / line-height 1.8 in `--color-text-secondary` with 30px paragraph spacing.
-- Stats bar: mono text with pipe separators.
-- Section cards: 2-column grid with icons.
-- Contributors section at bottom.
-
-## Doc Pages
-
-- Breadcrumbs above content.
-- Prose with typography plugin overrides for dark theme.
-- Right-justified metadata (version, platforms, tags, author, modified) in 11px mono.
-- "View source" toggle for raw markdown.
-- Table of contents on XL screens.
-
-## Navigation
-
-- Scroll to top on route change (ScrollToTop component in App.tsx).
-- Sidebar auto-expands the section containing the current page.
-- Subsection directory routes render the card grid, not 404.
+- Dark-first. All tokens as CSS custom properties in `index.css`
+- Light mode overrides ALL tokens via `:root:not(.dark)`
+- Fonts: Instrument Serif (display), Manrope (body), DM Mono (code)
+- Gold accent: `--color-accent`
+- **Never use Tailwind color classes (slate-*, gray-*). Always use var(--color-*) tokens.**
 
 ## Do NOT
 
-- Create custom card components for new sections — reuse `EntryCard` / `ItemCard` patterns.
-- Add features without both dark and light mode support.
-- Use hardcoded colors — always use CSS custom property tokens.
-- Use Tailwind `slate-*` or `gray-*` classes — use `var(--color-*)` tokens exclusively.
+- Create custom card components — reuse the exact card pattern above
+- Add a page without assigning it to one of the 4 page types
+- Make a section with sub-items a plain link in the sidebar
+- Skip screenshot verification
+- Guess at external URLs or image sources — if you can't access it, say so immediately

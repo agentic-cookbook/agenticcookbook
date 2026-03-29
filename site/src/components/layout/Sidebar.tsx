@@ -148,6 +148,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
   const isGettingStartedSelected = pathname === '/getting-started'
   const isContributorsSelected = pathname === '/contributors'
   const [usageExpanded, setUsageExpanded] = useState(isUsageSelected)
+  const [contributorsExpanded, setContributorsExpanded] = useState(isContributorsSelected)
 
   const nav = (
     <nav className="flex flex-col gap-6 px-6 py-6 overflow-y-auto h-full" data-autoscroll="true">
@@ -211,14 +212,35 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
       ))}
       {/* Divider */}
       <div className="border-t border-[var(--color-border-subtle)]" />
-      <div className="flex flex-col gap-3">
-        <h3 className={`font-mono text-xs font-medium uppercase tracking-widest transition-colors ${
-          isContributorsSelected ? 'text-[var(--color-text-secondary)]' : 'text-[var(--color-text-dim)]'
-        }`}>
-          <Link to="/contributors" className="hover:text-[var(--color-text-secondary)]">
+      <div className="flex flex-col gap-1">
+        <div className="flex items-center gap-1">
+          <button
+            onClick={() => setContributorsExpanded(!contributorsExpanded)}
+            className="p-0.5 text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)] transition-colors"
+            aria-label={`${contributorsExpanded ? 'Collapse' : 'Expand'} Contributors`}
+          >
+            <Chevron expanded={contributorsExpanded} />
+          </button>
+          <Link
+            to="/contributors"
+            className={`font-mono text-xs font-medium uppercase tracking-widest transition-colors ${
+              isContributorsSelected
+                ? 'text-[var(--color-text-secondary)]'
+                : 'text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)]'
+            }`}
+          >
             Contributors
           </Link>
-        </h3>
+        </div>
+        {contributorsExpanded && (
+          <ul className="flex flex-col border-l border-[var(--color-border)] mt-1">
+            <li>
+              <Link to="/contributors" className="relative block py-0.5 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors" style={{ paddingInlineStart: '0.875rem' }}>
+                Mike Fullerton
+              </Link>
+            </li>
+          </ul>
+        )}
       </div>
     </nav>
   )
