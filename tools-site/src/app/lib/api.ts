@@ -1,6 +1,6 @@
-import type { Tool, Category, NewsItem, ListResponse } from '../../api/types'
+import type { Tool, Category, NewsItem, FeedItem, ListResponse } from '../../api/types'
 
-export type { Tool, Category, NewsItem, ListResponse }
+export type { Tool, Category, NewsItem, FeedItem, ListResponse }
 
 const BASE = '/api'
 
@@ -34,6 +34,10 @@ export function fetchCategories(): Promise<Category[]> {
 
 export function fetchNews(params?: Record<string, string>): Promise<ListResponse<NewsItem>> {
   return request<ListResponse<NewsItem>>(`${BASE}/news`, params)
+}
+
+export function fetchFeed(params?: Record<string, string>): Promise<ListResponse<FeedItem>> {
+  return request<ListResponse<FeedItem>>(`${BASE}/news`, params)
 }
 
 export function searchTools(query: string): Promise<ListResponse<Tool>> {
