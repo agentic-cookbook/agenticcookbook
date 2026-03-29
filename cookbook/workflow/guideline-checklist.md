@@ -3,7 +3,7 @@ id: 6b29562c-4185-4411-aa66-092206d6bfa5
 title: "Guideline Applicability Checklist"
 domain: agentic-cookbook://workflow/guideline-checklist
 type: workflow
-version: 1.0.0
+version: 1.1.0
 status: accepted
 language: en
 created: 2026-03-27
@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "version: 1.0.0"
+summary: "Shared checklist of 38 guideline concerns for planning and implementation pipelines"
 platforms: []
 tags: 
   - guideline-checklist
@@ -61,7 +61,7 @@ references: []
 # Guideline Applicability Checklist
 
 ---
-version: 1.0.0
+version: 1.1.0
 status: draft
 created: 2026-03-27
 last-updated: 2026-03-27
@@ -93,60 +93,60 @@ During the **Code Planning** phase (WF-2), Claude Code MUST walk through this ch
 
 These guidelines are always applicable. Claude Code MUST follow them without asking. They cannot be opted out of.
 
-| ID | Guideline | Summary | Workflow Phases |
-|----|-----------|---------|-----------------|
-| agentic-cookbook://guidelines/general#prefer-native-controls-and-libraries | Native controls | Prefer platform built-in frameworks | WF-3 |
-| agentic-cookbook://guidelines/general#surface-all-design-decisions | Surface design decisions | Note and get approval for all behavioral/structural choices | WF-2, WF-3 |
-| agentic-cookbook://guidelines/general#no-blocking-the-main-thread | No blocking main thread | All lengthy work on background threads | WF-3 |
-| agentic-cookbook://guidelines/general#small-atomic-commits | Small atomic commits | One logical change per commit | WF-1, WF-3 |
-| agentic-cookbook://guidelines/general#post-generation-verification | Post-generation verification | Build, test, lint, log verify, a11y audit, code review | WF-4 |
-| agentic-cookbook://guidelines/general#linting-from-day-one | Linting from day one | Linter configured, runs on build or pre-commit | WF-3, WF-4 |
-| agentic-cookbook://principles/simplicity | Simplicity | No interleaving of concerns | WF-2, WF-3 |
-| agentic-cookbook://principles/make-it-work-make-it-right-make-it-fast | Work, Right, Fast | Three sequential phases — never skip phase 2 | WF-3 |
-| agentic-cookbook://principles/dependency-injection | Dependency injection | Receive dependencies from outside | WF-2, WF-3 |
-| agentic-cookbook://principles/immutability-by-default | Immutability by default | Default to immutable values | WF-3 |
-| agentic-cookbook://principles/fail-fast | Fail fast | Detect invalid state at point of origin | WF-3 |
-| agentic-cookbook://principles/design-for-deletion | Design for deletion | Build disposable, not reusable | WF-2, WF-3 |
-| agentic-cookbook://principles/yagni | YAGNI | Build for today's known requirements | WF-2, WF-3 |
-| agentic-cookbook://principles/explicit-over-implicit | Explicit over implicit | Visible dependencies, clear intent | WF-3 |
-| agentic-cookbook://principles/separation-of-concerns | Separation of concerns | One reason to change per module | WF-2, WF-3 |
+| File | Guideline | Summary | Workflow Phases |
+|------|-----------|---------|-----------------|
+| `../agentic-cookbook/cookbook/principles/native-controls.md` | Native controls | Prefer platform built-in frameworks | WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/code-quality/scope-discipline.md` | Surface design decisions | Note and get approval for all behavioral/structural choices | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/concurrency/concurrency.md` | No blocking main thread | All lengthy work on background threads | WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/code-quality/atomic-commits.md` | Small atomic commits | One logical change per commit | WF-1, WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/testing/post-generation-verification.md` | Post-generation verification | Build, test, lint, log verify, a11y audit, code review | WF-4 |
+| `../agentic-cookbook/cookbook/guidelines/code-quality/linting.md` | Linting from day one | Linter configured, runs on build or pre-commit | WF-3, WF-4 |
+| `../agentic-cookbook/cookbook/principles/simplicity.md` | Simplicity | No interleaving of concerns | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/principles/make-it-work-make-it-right-make-it-fast.md` | Work, Right, Fast | Three sequential phases — never skip phase 2 | WF-3 |
+| `../agentic-cookbook/cookbook/principles/dependency-injection.md` | Dependency injection | Receive dependencies from outside | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/principles/immutability-by-default.md` | Immutability by default | Default to immutable values | WF-3 |
+| `../agentic-cookbook/cookbook/principles/fail-fast.md` | Fail fast | Detect invalid state at point of origin | WF-3 |
+| `../agentic-cookbook/cookbook/principles/design-for-deletion.md` | Design for deletion | Build disposable, not reusable | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/principles/yagni.md` | YAGNI | Build for today's known requirements | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/principles/explicit-over-implicit.md` | Explicit over implicit | Visible dependencies, clear intent | WF-3 |
+| `../agentic-cookbook/cookbook/principles/separation-of-concerns.md` | Separation of concerns | One reason to change per module | WF-2, WF-3 |
 
 ### Testing (Always Apply)
 
 Testing guidelines are always applicable when writing code. The scope and depth may vary based on the task.
 
-| ID | Guideline | Summary | Workflow Phases |
-|----|-----------|---------|-----------------|
-| agentic-cookbook://guidelines/general#comprehensive-unit-testing | Comprehensive unit testing | Prioritize unit tests, test state transitions and edge cases | WF-3, WF-4 |
-| agentic-cookbook://guidelines/testing/test-pyramid | Test pyramid | 80% unit / 15% integration / 5% E2E | WF-2, WF-3 |
-| agentic-cookbook://guidelines/testing/properties-of-good-tests | Properties of good tests | Isolated, deterministic, fast, behavioral, readable | WF-3, WF-4 |
-| agentic-cookbook://guidelines/testing/unit-test-patterns | Unit test patterns | Arrange-Act-Assert, one concept per test | WF-3 |
-| agentic-cookbook://guidelines/testing/flaky-test-prevention | Flaky test prevention | No shared state, no timing, no real network in unit tests | WF-3 |
-| agentic-cookbook://guidelines/testing/test-data | Test data | Builder pattern, no magic fixtures | WF-3 |
-| agentic-cookbook://guidelines/testing/the-testing-workflow | Testing workflow | Write tests alongside code, validate with mutation testing | WF-3, WF-4 |
+| File | Guideline | Summary | Workflow Phases |
+|------|-----------|---------|-----------------|
+| `../agentic-cookbook/cookbook/guidelines/testing/testing.md` | Comprehensive unit testing | Prioritize unit tests, test state transitions and edge cases | WF-3, WF-4 |
+| `../agentic-cookbook/cookbook/guidelines/testing/test-pyramid.md` | Test pyramid | 80% unit / 15% integration / 5% E2E | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/testing/properties-of-good-tests.md` | Properties of good tests | Isolated, deterministic, fast, behavioral, readable | WF-3, WF-4 |
+| `../agentic-cookbook/cookbook/guidelines/testing/unit-test-patterns.md` | Unit test patterns | Arrange-Act-Assert, one concept per test | WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/testing/flaky-test-prevention.md` | Flaky test prevention | No shared state, no timing, no real network in unit tests | WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/testing/test-data.md` | Test data | Builder pattern, no magic fixtures | WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/testing/the-testing-workflow.md` | Testing workflow | Write tests alongside code, validate with mutation testing | WF-3, WF-4 |
 
 ### Opt-In Concerns (Ask the User)
 
 These concerns apply to many but not all features. Claude Code MUST ask the user about each one during planning. The "Default" column indicates the starting assumption, but the user's answer overrides it.
 
-| ID | Guideline | Summary | Default | Prompt Template | Workflow Phases |
-|----|-----------|---------|---------|-----------------|-----------------|
-| agentic-cookbook://guidelines/general#always-show-progress | Show progress | Determinate or indeterminate progress for async work | Opt-in | "Does this feature involve async operations that need progress indication?" | WF-2, WF-3 |
-| agentic-cookbook://guidelines/general#instrumented-logging | Instrumented logging | Structured logging for all components and flows | Opt-in | "This feature will include structured logging per agentic-cookbook://guidelines/general#instrumented-logging- Any components that should be excluded?" | WF-2, WF-3, WF-4 |
-| agentic-cookbook://guidelines/general#deep-linking | Deep linking | All significant views must be deep linkable | Ask | "Should the views in this feature be deep linkable?" | WF-2, WF-3 |
-| agentic-cookbook://guidelines/general#scriptable-and-automatable | Scriptable/automatable | Components scriptable via platform mechanisms | Opt-out | "Does this feature need scripting/automation support (Shortcuts, intents)?" | WF-2, WF-3 |
-| agentic-cookbook://guidelines/general#accessibility-from-day-one | Accessibility | Platform accessibility APIs from day one | Opt-in | "This feature will include full accessibility support. Any constraints?" | WF-2, WF-3, WF-4 |
-| agentic-cookbook://guidelines/general#localizability | Localizability | All user-facing strings localizable | Opt-in | "This feature will use localized strings. Confirm or opt out." | WF-2, WF-3 |
-| agentic-cookbook://guidelines/general#rtl-layout-support | RTL layout | Support right-to-left languages | Opt-in | "This feature will support RTL layouts. Confirm or opt out." | WF-2, WF-3 |
-| agentic-cookbook://guidelines/general#respect-accessibility-display-options | Accessibility display options | Respond to reduced motion, high contrast, etc. | Opt-in | "This feature will respect accessibility display options. Confirm or opt out." | WF-2, WF-3 |
-| agentic-cookbook://guidelines/general#privacy-and-security-by-default | Privacy/security | Data minimization, secure storage, no PII logging | Opt-in | "Does this feature collect, store, or transmit user data?" | WF-2, WF-3, WF-5 |
-| agentic-cookbook://guidelines/general#feature-flags | Feature flags | All features gated behind feature flags | Opt-in | "This feature will be gated behind a feature flag. Confirm or opt out." | WF-2, WF-3 |
-| agentic-cookbook://guidelines/general#analytics | Analytics | Significant user actions instrumented | Ask | "Which user actions in this feature should be tracked for analytics?" | WF-2, WF-3 |
-| agentic-cookbook://guidelines/general#ab-testing | A/B testing | Variant assignment support | Opt-out | "Does this feature need A/B testing / experimentation support?" | WF-2, WF-3 |
-| agentic-cookbook://guidelines/general#debug-mode | Debug mode | Debug panel entries for flags, analytics, experiments | Opt-in | "This feature will include debug panel entries. Confirm or opt out." | WF-2, WF-3 |
-| agentic-cookbook://guidelines/testing/property-based-testing | Property-based testing | For parsers, serializers, data transformers | Ask | "Does this feature include data transformations that would benefit from property-based testing?" | WF-2, WF-3 |
-| agentic-cookbook://guidelines/testing/mutation-testing | Mutation testing | Validate tests catch bugs | Ask | "Should we run mutation testing to validate test quality?" | WF-4 |
-| agentic-cookbook://guidelines/testing/security-testing | Security testing | SAST, dependency scanning | Ask | "Should we run security scans (Semgrep, dependency audit)?" | WF-4 |
+| File | Guideline | Summary | Default | Prompt Template | Workflow Phases |
+|------|-----------|---------|---------|-----------------|-----------------|
+| `../agentic-cookbook/cookbook/guidelines/ui/always-show-progress.md` | Show progress | Determinate or indeterminate progress for async work | Opt-in | "Does this feature involve async operations that need progress indication?" | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/logging/logging.md` | Instrumented logging | Structured logging for all components and flows | Opt-in | "This feature will include structured logging. Any components that should be excluded?" | WF-2, WF-3, WF-4 |
+| `../agentic-cookbook/cookbook/guidelines/ui/deep-linking.md` | Deep linking | All significant views must be deep linkable | Ask | "Should the views in this feature be deep linkable?" | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/ui/shortcuts-and-automation.md` | Scriptable/automatable | Components scriptable via platform mechanisms | Opt-out | "Does this feature need scripting/automation support (Shortcuts, intents)?" | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/accessibility/accessibility.md` | Accessibility | Platform accessibility APIs from day one | Opt-in | "This feature will include full accessibility support. Any constraints?" | WF-2, WF-3, WF-4 |
+| `../agentic-cookbook/cookbook/guidelines/internationalization/localization.md` | Localizability | All user-facing strings localizable | Opt-in | "This feature will use localized strings. Confirm or opt out." | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/internationalization/rtl-support.md` | RTL layout | Support right-to-left languages | Opt-in | "This feature will support RTL layouts. Confirm or opt out." | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/accessibility/accessibility.md` | Accessibility display options | Respond to reduced motion, high contrast, etc. | Opt-in | "This feature will respect accessibility display options. Confirm or opt out." | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/security/privacy.md` | Privacy/security | Data minimization, secure storage, no PII logging | Opt-in | "Does this feature collect, store, or transmit user data?" | WF-2, WF-3, WF-5 |
+| `../agentic-cookbook/cookbook/guidelines/feature-management/feature-flags.md` | Feature flags | All features gated behind feature flags | Opt-in | "This feature will be gated behind a feature flag. Confirm or opt out." | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/logging/analytics.md` | Analytics | Significant user actions instrumented | Ask | "Which user actions in this feature should be tracked for analytics?" | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/feature-management/ab-testing.md` | A/B testing | Variant assignment support | Opt-out | "Does this feature need A/B testing / experimentation support?" | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/feature-management/debug-mode.md` | Debug mode | Debug panel entries for flags, analytics, experiments | Opt-in | "This feature will include debug panel entries. Confirm or opt out." | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/testing/property-based-testing.md` | Property-based testing | For parsers, serializers, data transformers | Ask | "Does this feature include data transformations that would benefit from property-based testing?" | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/testing/mutation-testing.md` | Mutation testing | Validate tests catch bugs | Ask | "Should we run mutation testing to validate test quality?" | WF-4 |
+| `../agentic-cookbook/cookbook/guidelines/testing/security-testing.md` | Security testing | SAST, dependency scanning | Ask | "Should we run security scans (Semgrep, dependency audit)?" | WF-4 |
 
 ## How to Use This Checklist
 
@@ -184,9 +184,11 @@ These concerns apply to many but not all features. Claude Code MUST ask the user
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0.0 | 2026-03-27 | Initial checklist |
+| 1.1.0 | 2026-03-29 | Replace domain URLs with file paths |
 
 ## Change History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
+| 1.1.0 | 2026-03-29 | Mike Fullerton | Replace domain URLs with file paths for pipeline compatibility |
