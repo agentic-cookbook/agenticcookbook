@@ -91,15 +91,53 @@ Create `.claude/rules/` if it doesn't exist. Copy these files from `../agentic-c
 
 If old tier files exist (`principles.md`, `guideline-consumer.md`, `recipe-consumer.md`, `contributor.md`), remove them and print: "Replaced old tier files with cookbook.md."
 
-## Step 4: Print Summary
+## Step 4: Install Recommended Plugins
+
+Read `${CLAUDE_SKILL_DIR}/references/recommended-plugins.md` for the full list.
+
+Before installing, check which plugins are already installed: `claude plugin list --scope user`. Only install plugins that are not already present.
+
+Install all recommended plugins globally using `claude plugin install <plugin-name> --scope user`:
+
+- playwright
+- context7
+- figma
+- semgrep
+- frontend-design
+- superpowers
+- code-review
+- pr-review-toolkit
+- security-guidance
+- document-skills
+- plugin-dev
+- agent-sdk-dev
+- hookify
+- playground
+
+For LSP plugins, detect which languages the project uses by checking file extensions in the project directory, then install the matching LSP plugins:
+
+| Extensions | Plugin |
+|------------|--------|
+| `.swift` | swift-lsp |
+| `.ts`, `.tsx`, `.js`, `.jsx` | typescript-lsp |
+| `.kt` | kotlin-lsp |
+| `.cs` | csharp-lsp |
+
+If no source files are found, skip LSP plugins.
+
+If any plugin fails to install, note the failure and continue with the rest.
+
+Print: `Installed N plugins (M already installed, skipped). Failures: <list or "none">`
+
+## Step 5: Print Summary
 
 ```
 === Agentic Cookbook Imported ===
 CLAUDE.md: updated
 Rules installed: cookbook.md, auto-lint.md
+Plugins: N installed, M skipped (already installed)
 
 To manage preferences: /configure-cookbook
-For recommended plugins: see ../agentic-cookbook/.claude/skills/import-cookbook/references/recommended-plugins.md
 ```
 
 ## Guards
