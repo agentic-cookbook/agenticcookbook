@@ -8,3 +8,6 @@ Tests/Projects/
 *.swp
 *.swo
 *~
+
+# Test output
+site/test-results/
