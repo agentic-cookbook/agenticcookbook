@@ -53,17 +53,19 @@ basename "$(git rev-parse --show-toplevel 2>/dev/null)" # project name
 ### 1f: Global settings
 - Read `~/.claude/settings.json`
 - Extract:
-  - `enabledPlugins` — object keys are `plugin-name@marketplace`
-  - `hooks` — object with event names as keys, arrays of hook configs as values
+  - `enabledPlugins` — object keys are `plugin-name@marketplace`. These are **global plugins**.
+  - `hooks` — object with event names as keys, arrays of hook configs as values. These are **global hooks**.
   - `effortLevel` — string
-  - `permissions.allow` — array of permission strings
+  - `permissions.allow` — array of **global permissions**
 
 ### 1g: Project settings
-- Read `.claude/settings.json` — extract `permissions.allow`
-- Read `.claude/settings.local.json` — extract `permissions.allow`
+- Read `.claude/settings.json` — extract `permissions.allow` as **project permissions**
+- Read `.claude/settings.local.json` — extract `permissions.allow` as **local permission overrides**
+- Also check for `enabledPlugins` in project settings — these are **project-local plugins** (distinct from global)
 
 ### 1h: MCP servers
-- Read `.mcp.json` — extract `mcpServers` object (name → command/args)
+- Read `.mcp.json` — extract `mcpServers` object (name → command/args). These are **project MCP servers**.
+- Read `~/.claude.json` — extract any user-scoped MCP servers. These are **global MCP servers**.
 
 ### 1i: Dev tools and environment
 
@@ -277,26 +279,37 @@ security-guidance                  [Security — install locally]
 /plugin install security-guidance@claude-plugins-official
 ```
 
-### HTML structure
+### HTML section order
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Setup — {PROJECT_NAME}</title>
-  <style>/* all CSS inline */</style>
-</head>
-<body>
-  <!-- Header card -->
-  <!-- Two-column grid -->
-  <!--   Main: Config, Rules, Skills, Plugins, MCP, Permissions, Hooks -->
-  <!--   Sidebar: Dev Tools, Environment -->
-  <script>/* collapsible toggle JS */</script>
-</body>
-</html>
+The dashboard is organized into two scopes after the header and config:
+
 ```
+1. Header (project name + environment)
+2. Current Configuration (stats, detected types)
+3. Suggested Tools (based on detected project types)
+
+── PROJECT (LOCAL) ──────────────────────────
+4. Project Rules          (.claude/rules/*.md)
+5. Project Skills         (.claude/skills/*/SKILL.md)
+6. Project Plugins        (enabledPlugins in .claude/settings.json, if any)
+7. Project MCP Servers    (.mcp.json)
+8. Project Permissions    (.claude/settings.json + settings.local.json)
+
+── GLOBAL ──────────────────────────────────
+9.  Global Plugins        (enabledPlugins in ~/.claude/settings.json)
+10. Global Skills         (~/.claude/skills/, excluding project-symlinked dupes)
+11. Global Hooks          (hooks in ~/.claude/settings.json + plugin hooks)
+12. Global Permissions    (permissions in ~/.claude/settings.json)
+
+── ENVIRONMENT ─────────────────────────────
+13. Dev Tools             (detected binaries + versions)
+```
+
+Each scope section gets a visual divider — a thin horizontal rule with the scope label ("Project" or "Global") in small monospace uppercase text, like a section separator. This makes it immediately clear which scope you're looking at.
+
+For **Global Plugins**, show hook count badges and "not recommended globally" warnings as described above.
+
+For **Global Skills**, deduplicate against project skills — if a global skill is a symlink that points into the current project, show it only in the Project Skills section. Show the remaining non-project global skills here.
 
 ### Collapsible JS (inline)
 
@@ -338,4 +351,8 @@ Detected project types: Web frontend, Web backend, Cloudflare Workers
 Dashboard opened at /tmp/claude-project-setup.html
 ```
 
-A dark-themed HTML dashboard opens in your browser showing all sections expanded: configuration, 5 rules, 13 project skills, 34 plugins (grouped by category with source links), 1 MCP server, permissions, hooks, 8 installed dev tools, and suggested tools based on detected project type.
+A dark-themed HTML dashboard opens in your browser with sections organized by scope:
+- **Config**: stats bar, detected project types, suggested tools
+- **Project**: 5 rules, 13 skills, 0 local plugins, 1 MCP server, project permissions
+- **Global**: 12 plugins (with hook count badges), 14 additional skills, 6 hook events, global permissions
+- **Environment**: 8 installed dev tools, 8 not installed
