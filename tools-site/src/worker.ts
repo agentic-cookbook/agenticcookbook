@@ -5,6 +5,7 @@ import { handleSearch } from './api/search'
 
 interface Env {
   DB: D1Database
+  ASSETS: Fetcher
 }
 
 const corsHeaders: Record<string, string> = {
@@ -33,9 +34,9 @@ export default {
     const url = new URL(request.url)
     const path = url.pathname
 
-    // Only handle /api/* routes
+    // Non-API routes: serve from assets (SPA)
     if (!path.startsWith('/api/')) {
-      return undefined
+      return env.ASSETS.fetch(request)
     }
 
     // Handle CORS preflight
