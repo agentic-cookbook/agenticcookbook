@@ -107,17 +107,25 @@ function NavSection({ node }: { node: NavNode }) {
 
   return (
     <div className="flex flex-col gap-1">
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className={`flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-widest transition-colors text-left ${
-          isSelected || isInSection
-            ? 'text-[var(--color-text-secondary)]'
-            : 'text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)]'
-        }`}
-      >
-        <Chevron expanded={expanded} />
-        {node.label}
-      </button>
+      <div className="flex items-center gap-1">
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="p-0.5 text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)] transition-colors"
+          aria-label={`${expanded ? 'Collapse' : 'Expand'} ${node.label}`}
+        >
+          <Chevron expanded={expanded} />
+        </button>
+        <Link
+          to={node.path}
+          className={`font-mono text-xs font-medium uppercase tracking-widest transition-colors ${
+            isSelected || isInSection
+              ? 'text-[var(--color-text-secondary)]'
+              : 'text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)]'
+          }`}
+        >
+          {node.label}
+        </Link>
+      </div>
       {expanded && (
         <ul className="flex flex-col border-l border-[var(--color-border)] mt-1">
           {childFiles.map((child) => (
