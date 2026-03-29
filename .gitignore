@@ -11,3 +11,14 @@ Tests/Projects/
 
 # Test output
 site/test-results/
+
+# Tools site generated files
+tools-site/node_modules/
+tools-site/dist/
+tools-site/.wrangler/
+tools-site/scripts/tools.json
+tools-site/scripts/seed.sql
+tools-site/scripts/seed-news.sql
+
+# Playwright MCP
+.playwright-mcp/

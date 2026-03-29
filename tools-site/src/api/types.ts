@@ -36,6 +36,24 @@ export interface NewsItem {
   published_at: string
 }
 
+export interface FeedItem {
+  id: number
+  title: string
+  body: string
+  type: string
+  published_at: string
+  tool_id: string | null
+  tool_name: string | null
+  tool_url: string | null
+  tool_github_url: string | null
+  tool_description: string | null
+  tool_install_command: string | null
+  tool_category: string | null
+  tool_subcategory: string | null
+  tool_loop_phases: string | null
+  tool_platforms: string | null
+}
+
 export interface ListResponse<T> {
   data: T[]
   total: number

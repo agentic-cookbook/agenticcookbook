@@ -1,151 +1,111 @@
-import { useEffect, useState } from 'react'
-import { fetchCategories, fetchNews, fetchTools, type Category, type NewsItem } from '../lib/api'
-import { CategoryCard } from '../components/CategoryCard'
-import { Link } from 'react-router'
-
-const NEWS_TYPE_LABELS: Record<string, { label: string; color: string }> = {
-  'new-tool': { label: 'New', color: 'var(--color-success)' },
-  'update': { label: 'Update', color: 'var(--color-info)' },
-  'deprecation': { label: 'Deprecated', color: 'var(--color-error)' },
-  'breaking-change': { label: 'Breaking', color: 'var(--color-error)' },
-}
+import { useEffect, useState, useCallback, useMemo } from 'react'
+import { fetchFeed, fetchCategories, type FeedItem, type Category } from '../lib/api'
+import { FeedFilterBar } from '../components/FeedFilterBar'
+import { FeedList } from '../components/FeedList'
+import { FeedDetail } from '../components/FeedDetail'
 
 export function HomePage() {
+  const [items, setItems] = useState<FeedItem[]>([])
   const [categories, setCategories] = useState<Category[]>([])
-  const [news, setNews] = useState<NewsItem[]>([])
-  const [totalTools, setTotalTools] = useState(0)
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [typeFilter, setTypeFilter] = useState<string | null>(null)
+  const [categoryFilter, setCategoryFilter] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
 
+  // Load data
   useEffect(() => {
     Promise.all([
+      fetchFeed({ limit: '200' }),
       fetchCategories(),
-      fetchNews({ limit: '5' }),
-      fetchTools({ limit: '1' }),
     ])
-      .then(([cats, newsRes, toolsRes]) => {
+      .then(([feedRes, cats]) => {
+        setItems(feedRes.data)
         setCategories(cats)
-        setNews(newsRes.data)
-        setTotalTools(toolsRes.total)
+        setSelectedIndex(0)
       })
       .catch(() => {})
       .finally(() => setLoading(false))
   }, [])
 
-  return (
-    <div className="px-6 py-10 lg:px-10 max-w-5xl">
-      {/* Hero */}
-      <h1
-        className="text-5xl lg:text-6xl mb-8 tracking-tight"
-        style={{ fontFamily: 'var(--font-display)' }}
-      >
-        Developer Tools Directory
-      </h1>
+  // Filtered items
+  const filteredItems = useMemo(() => {
+    return items.filter((item) => {
+      if (typeFilter && item.type !== typeFilter) return false
+      if (categoryFilter && item.tool_category !== categoryFilter) return false
+      return true
+    })
+  }, [items, typeFilter, categoryFilter])
 
-      <div className="max-w-2xl mb-8 text-lg text-[var(--color-text-secondary)]" style={{ lineHeight: 1.8 }}>
-        <p className="mb-7">
-          A curated, searchable directory of developer tools organized for the
-          plan/implement/verify loop. Browse by category, filter by platform,
-          or search across everything.
-        </p>
-        <p className="text-[var(--color-text-primary)] font-medium">
-          Built for the Agentic Cookbook.
-        </p>
-      </div>
+  // Selected item
+  const selectedItem = filteredItems[selectedIndex] ?? null
 
-      {/* Stats bar */}
-      <div className="flex items-center gap-6 font-mono text-sm text-[var(--color-text-dim)] mb-10">
-        <span>{totalTools} tools</span>
-        <span className="text-[var(--color-border)]">|</span>
-        <span>{categories.length} categories</span>
-      </div>
+  // Reset selection when filters change
+  const handleTypeFilter = useCallback((type: string | null) => {
+    setTypeFilter(type)
+    setSelectedIndex(0)
+  }, [])
 
-      {/* Divider */}
-      <div className="border-t border-[var(--color-border-subtle)] mb-10" />
+  const handleCategoryFilter = useCallback((category: string | null) => {
+    setCategoryFilter(category)
+    setSelectedIndex(0)
+  }, [])
 
-      {/* Category cards */}
-      {loading ? (
-        <LoadingPlaceholder />
-      ) : (
-        <>
-          <h2
-            className="text-xl mb-4"
-            style={{ fontFamily: 'var(--font-display)' }}
-          >
-            Categories
-          </h2>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 mb-12">
-            {categories.map(cat => (
-              <CategoryCard key={cat.slug} category={cat} />
-            ))}
-          </div>
-
-          {/* Latest News */}
-          {news.length > 0 && (
-            <>
-              <div className="flex items-baseline justify-between mb-4">
-                <h2
-                  className="text-xl"
-                  style={{ fontFamily: 'var(--font-display)' }}
-                >
-                  Latest News
-                </h2>
-                <Link
-                  to="/news"
-                  className="font-mono text-xs text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)] transition-colors"
-                >
-                  View all
-                </Link>
-              </div>
-              <div className="flex flex-col gap-3">
-                {news.map(item => {
-                  const meta = NEWS_TYPE_LABELS[item.type] ?? { label: item.type, color: 'var(--color-text-dim)' }
-                  return (
-                    <div
-                      key={item.id}
-                      className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-raised)] p-4"
-                    >
-                      <div className="flex items-center gap-2 mb-1">
-                        <span
-                          className="font-mono text-[10px] px-1.5 py-0.5 rounded border"
-                          style={{
-                            color: meta.color,
-                            borderColor: `color-mix(in srgb, ${meta.color} 30%, transparent)`,
-                            backgroundColor: `color-mix(in srgb, ${meta.color} 8%, transparent)`,
-                          }}
-                        >
-                          {meta.label}
-                        </span>
-                        <span className="font-mono text-[10px] text-[var(--color-text-dim)]">
-                          {new Date(item.published_at).toLocaleDateString()}
-                        </span>
-                      </div>
-                      <h3 className="text-sm font-medium text-[var(--color-text-primary)] mb-0.5">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
-                        {item.body}
-                      </p>
-                    </div>
-                  )
-                })}
-              </div>
-            </>
-          )}
-        </>
-      )}
-    </div>
+  const handleSelect = useCallback(
+    (id: number) => {
+      const idx = filteredItems.findIndex((item) => item.id === id)
+      if (idx >= 0) setSelectedIndex(idx)
+    },
+    [filteredItems]
   )
-}
 
-function LoadingPlaceholder() {
+  // Keyboard navigation
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault()
+        setSelectedIndex((prev) =>
+          prev < filteredItems.length - 1 ? prev + 1 : prev
+        )
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault()
+        setSelectedIndex((prev) => (prev > 0 ? prev - 1 : prev))
+      }
+    }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [filteredItems.length])
+
+  if (loading) {
+    return (
+      <div className="flex h-[calc(100vh-3.5rem)] items-center justify-center">
+        <span className="text-sm text-[var(--color-text-dim)]">Loading feed...</span>
+      </div>
+    )
+  }
+
   return (
-    <div className="flex flex-col gap-3">
-      {[1, 2, 3].map(i => (
-        <div
-          key={i}
-          className="h-20 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-raised)] animate-pulse"
+    <div className="flex h-[calc(100vh-3.5rem)]">
+      {/* Left pane */}
+      <div className="w-[40%] shrink-0 border-r border-[var(--color-border-subtle)] flex flex-col">
+        <FeedFilterBar
+          typeFilter={typeFilter}
+          onTypeFilter={handleTypeFilter}
+          categoryFilter={categoryFilter}
+          onCategoryFilter={handleCategoryFilter}
+          categories={categories}
+          activeCount={filteredItems.length}
         />
-      ))}
+        <div className="flex-1 overflow-y-auto">
+          <FeedList
+            items={filteredItems}
+            selectedId={selectedItem?.id ?? null}
+            onSelect={handleSelect}
+          />
+        </div>
+      </div>
+
+      {/* Right pane */}
+      <FeedDetail item={selectedItem} />
     </div>
   )
 }
