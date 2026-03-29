@@ -97,6 +97,33 @@ export default function ToolingPage() {
         </p>
       </div>
 
+      {/* Getting Started */}
+      <div className="mb-12">
+        <h2
+          className="text-xl mb-3"
+          style={{ fontFamily: 'var(--font-display)' }}
+        >
+          Getting Started
+        </h2>
+        <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-raised)] p-6">
+          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4">
+            Clone the cookbook, then run the onboarding wizard from your project directory:
+          </p>
+          <div className="flex flex-col gap-2">
+            <div className="rounded bg-[var(--color-surface)] border border-[var(--color-border-subtle)] px-4 py-2.5">
+              <code className="font-mono text-sm text-[var(--color-text-dim)]">
+                git clone git@github.com:mikefullerton/agentic-cookbook.git
+              </code>
+            </div>
+            <div className="rounded bg-[var(--color-surface)] border border-[var(--color-border-subtle)] px-4 py-2.5">
+              <code className="font-mono text-sm text-[var(--color-text-dim)]">
+                /import-cookbook
+              </code>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Skills */}
       <div className="flex flex-col gap-10 mb-16">
         <h2
@@ -141,32 +168,6 @@ export default function ToolingPage() {
         ))}
       </div>
 
-      {/* Getting Started */}
-      <div className="mt-16 border-t border-[var(--color-border-subtle)] pt-8">
-        <h2
-          className="text-xl mb-3"
-          style={{ fontFamily: 'var(--font-display)' }}
-        >
-          Getting Started
-        </h2>
-        <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-raised)] p-6">
-          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4">
-            Clone the cookbook, then run the onboarding wizard from your project directory:
-          </p>
-          <div className="flex flex-col gap-2">
-            <div className="rounded bg-[var(--color-surface)] border border-[var(--color-border-subtle)] px-4 py-2.5">
-              <code className="font-mono text-sm text-[var(--color-text-dim)]">
-                git clone git@github.com:mikefullerton/agentic-cookbook.git
-              </code>
-            </div>
-            <div className="rounded bg-[var(--color-surface)] border border-[var(--color-border-subtle)] px-4 py-2.5">
-              <code className="font-mono text-sm text-[var(--color-text-dim)]">
-                /import-cookbook
-              </code>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }
