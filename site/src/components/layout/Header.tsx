@@ -22,7 +22,7 @@ interface HeaderProps {
 
 export default function Header({ onMenuToggle, onSearchOpen }: HeaderProps) {
   const { pathname } = useLocation()
-  const { theme, toggle } = useTheme()
+  const { mode, toggle } = useTheme()
   const [searchParams, setSearchParams] = useSearchParams()
 
   const activeSection = '/' + pathname.split('/').filter(Boolean)[0]
@@ -107,13 +107,18 @@ export default function Header({ onMenuToggle, onSearchOpen }: HeaderProps) {
         {/* Platform filter */}
         <PlatformFilter selected={selectedPlatforms} onChange={handlePlatformChange} />
 
-        {/* Theme toggle */}
+        {/* Theme toggle: auto → dark → light */}
         <button
           onClick={toggle}
           className="p-2 text-[var(--color-text-dim)] hover:text-[var(--color-text-primary)]"
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+          aria-label={`Theme: ${mode} (click to cycle)`}
+          title={mode === 'auto' ? 'Auto (system)' : mode === 'dark' ? 'Dark' : 'Light'}
         >
-          {theme === 'light' ? (
+          {mode === 'auto' ? (
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          ) : mode === 'dark' ? (
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
             </svg>

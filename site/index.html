@@ -10,8 +10,8 @@
   <script>
     // Prevent flash of wrong theme
     try {
-      var t = localStorage.getItem('theme');
-      if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme:dark)').matches)) {
+      var m = localStorage.getItem('theme-mode') || 'auto';
+      if (m === 'dark' || (m === 'auto' && matchMedia('(prefers-color-scheme:dark)').matches)) {
         document.documentElement.classList.add('dark');
       }
     } catch(e) {}

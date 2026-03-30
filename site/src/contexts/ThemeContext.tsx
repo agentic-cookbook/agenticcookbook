@@ -1,51 +1,69 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 
-type Theme = 'light' | 'dark'
+type ThemeMode = 'auto' | 'light' | 'dark'
+type ResolvedTheme = 'light' | 'dark'
 
 interface ThemeContextValue {
-  theme: Theme
+  mode: ThemeMode
+  theme: ResolvedTheme
   toggle: () => void
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null)
 
-function getInitialTheme(): Theme {
+function getSystemTheme(): ResolvedTheme {
   if (typeof window === 'undefined') return 'light'
-  const stored = localStorage.getItem('theme')
-  if (stored === 'dark' || stored === 'light') return stored
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
+function getInitialMode(): ThemeMode {
+  if (typeof window === 'undefined') return 'auto'
+  const stored = localStorage.getItem('theme-mode')
+  if (stored === 'auto' || stored === 'light' || stored === 'dark') return stored
+  // Migrate old 'theme' key
+  const legacy = localStorage.getItem('theme')
+  if (legacy === 'dark' || legacy === 'light') {
+    localStorage.removeItem('theme')
+    return legacy
+  }
+  return 'auto'
+}
+
+function resolveTheme(mode: ThemeMode): ResolvedTheme {
+  if (mode === 'auto') return getSystemTheme()
+  return mode
+}
+
+const CYCLE: ThemeMode[] = ['auto', 'dark', 'light']
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme)
-  const [userOverride, setUserOverride] = useState(() => {
-    if (typeof window === 'undefined') return false
-    return localStorage.getItem('theme') !== null
-  })
+  const [mode, setMode] = useState<ThemeMode>(getInitialMode)
+  const [theme, setTheme] = useState<ResolvedTheme>(() => resolveTheme(getInitialMode()))
+
+  useEffect(() => {
+    setTheme(resolveTheme(mode))
+    localStorage.setItem('theme-mode', mode)
+  }, [mode])
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark')
-    if (userOverride) {
-      localStorage.setItem('theme', theme)
-    }
-  }, [theme, userOverride])
+  }, [theme])
 
-  // Follow device theme changes when no manual override
+  // Follow device theme changes in auto mode
   useEffect(() => {
-    if (userOverride) return
+    if (mode !== 'auto') return
     const mq = window.matchMedia('(prefers-color-scheme: dark)')
     const handler = (e: MediaQueryListEvent) => setTheme(e.matches ? 'dark' : 'light')
     mq.addEventListener('change', handler)
     return () => mq.removeEventListener('change', handler)
-  }, [userOverride])
+  }, [mode])
 
   const toggle = () => {
-    setUserOverride(true)
-    setTheme((t) => (t === 'light' ? 'dark' : 'light'))
+    setMode((m) => CYCLE[(CYCLE.indexOf(m) + 1) % CYCLE.length])
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, toggle }}>
+    <ThemeContext.Provider value={{ mode, theme, toggle }}>
       {children}
     </ThemeContext.Provider>
   )
