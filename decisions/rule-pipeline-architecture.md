@@ -318,7 +318,11 @@ Planning starts:
 | Updated skills | `.claude/skills/import-cookbook/SKILL.md` (v8.0.0), `.claude/skills/configure-cookbook/SKILL.md` (v4.0.0) |
 | Linter skill (updated) | `.claude/skills/lint-rule/SKILL.md` (v1.1.0) |
 
-**Total**: 19 commits across 2 phases on branch `feature/rule-pipeline-architecture` (PR #12).
+**Total**: 22 commits across 2 phases on branch `feature/rule-pipeline-architecture` (PR #12).
+
+### Recipe File Cleanup
+
+Removed redundant `## Changelog` sections from all 26 recipe files. Every recipe had both a `## Changelog` and a `## Change History` section tracking the same version data. `Change History` is the cookbook convention (includes Author column). Result: 164 lines / 6.2 KB of duplication eliminated.
 
 ## Change History
 
@@ -329,3 +333,4 @@ Planning starts:
 | 2.0.0 | 2026-03-29 | Mike Fullerton | Add Phase 2: minimal rule + step-by-step pipeline |
 | 2.1.0 | 2026-03-29 | Mike Fullerton | Add Phase 2 implementation record |
 | 2.2.0 | 2026-03-29 | Mike Fullerton | Add Overall Results section |
+| 2.3.0 | 2026-03-29 | Mike Fullerton | Add recipe file cleanup results |
