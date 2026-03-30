@@ -4,6 +4,7 @@ version: "1.0.0"
 description: "Optimize Claude Code rules by consolidating into a single efficient file. Triggers on 'optimize rules', 'optimize my rules', or /optimize-rules."
 argument-hint: "[path] [--revert] [--auto]"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(wc *, rm, cp, mkdir, ls, cat), AskUserQuestion
+disable-model-invocation: true
 ---
 
 ## Version Check
@@ -212,6 +213,30 @@ Constraints preserved: <n>/<n> ✓
 Backup: <backup dir path>
 
 To revert: /optimize-rules --revert [path]
+```
+
+---
+
+## Examples
+
+**Optimize the default rules directory:**
+```
+/optimize-rules
+```
+
+**Optimize a custom rules path:**
+```
+/optimize-rules path/to/my/rules/
+```
+
+**Optimize without confirmation prompts:**
+```
+/optimize-rules --auto
+```
+
+**Restore original rules after optimization:**
+```
+/optimize-rules --revert
 ```
 
 ---
