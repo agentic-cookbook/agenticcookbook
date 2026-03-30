@@ -8,7 +8,20 @@ This rule enforces the full agentic cookbook during planning and implementation 
 
 ## Planning
 
+### Progress Output
+
+At the start of each step, print a progress line so the user can see where the pipeline is. Use this format:
+
+```
+[Planning N/5] description...
+[Implementing] Phase N: description...
+[Verification N/7] description...
+[Post-Implementation] description...
+```
+
 ### 1. Read All 18 Principles
+
+Print `[Planning 1/5] Reading principles...` before starting. Then before each file, print `[Planning 1/5] Reading principles (N/18): <filename without .md>...`. After all 18, print `[Planning 1/5] Reading principles complete ✓`.
 
 Before making any design decision, you MUST read ALL of the following files:
 
@@ -37,6 +50,8 @@ You MUST NOT produce a plan without reading these files first.
 
 ### 2. Run the Guideline Checklist
 
+Print `[Planning 2/5] Running guideline checklist...` before starting.
+
 Read these files in order:
 
 ```
@@ -64,6 +79,8 @@ Present ALL items in a single consolidated table:
 Wait for the user to fill in every "?" before proceeding. Record all decisions in the plan.
 
 ### 3. Search for Matching Recipes
+
+Print `[Planning 3/5] Searching for matching recipes...` before starting.
 
 **Check preferences first**: Read `.cookbook/preferences.json` in the project root. If `show_recipe_prompts` is `false`, skip this step entirely.
 
@@ -99,9 +116,13 @@ If the user chooses "Don't prompt me again", write `{"show_recipe_prompts": fals
 
 ### 4. Trace Decisions to Principles
 
+Print `[Planning 4/5] Tracing decisions to principles...` before starting.
+
 Every design decision in the plan MUST be traceable to one or more principles. Include a "Principles applied" section listing which principles actively influenced the design and how. List only the ones that shaped specific decisions.
 
 ### 5. Plan Three Phases
+
+Print `[Planning 5/5] Planning three phases...` before starting.
 
 Plan for all three phases:
 
@@ -135,24 +156,33 @@ Keep these principles active throughout implementation:
 Execute phases in order. Do not skip phases.
 
 **Phase 1: Make It Work**
+
+Print `[Implementing] Phase 1: Make It Work` at start.
+
 - Implement the happy path that makes the feature work for the common case.
 - Write tests alongside code — not after. Every function MUST have a test.
 - Build and run tests after each completed unit. Do not accumulate broken state.
 - Commit after completing each unit.
 - Defer edge cases, error handling refinements, and optimizations to Phase 2.
 
-**Checkpoint before Phase 2:** Confirm: all Phase 1 functions have tests, all tests pass, code is committed.
+**Checkpoint before Phase 2:** Confirm: all Phase 1 functions have tests, all tests pass, code is committed. Print `[Implementing] Phase 1 checkpoint ✓` when confirmed.
 
 **Phase 2: Make It Right**
+
+Print `[Implementing] Phase 2: Make It Right` at start.
+
 - You MUST NOT skip this phase.
 - Handle edge cases identified in the plan and any discovered during Phase 1.
 - Add error handling appropriate to each boundary.
 - Refactor for clarity — apply separation of concerns, clean up naming, ensure readability.
 - Add tests for every edge case and error path.
 
-**Checkpoint before Phase 3:** Confirm: edge cases handled, error paths tested, code refactored, all tests pass.
+**Checkpoint before Phase 3:** Confirm: edge cases handled, error paths tested, code refactored, all tests pass. Print `[Implementing] Phase 2 checkpoint ✓` when confirmed.
 
 **Phase 3: Make It Fast (Conditional)**
+
+Print `[Implementing] Phase 3: Make It Fast` if entering this phase.
+
 - Do NOT enter this phase without evidence of a performance problem.
 - Evidence means: a test with measurable latency, a user report of slowness, or a known algorithmic concern.
 - Measure before and after. State the metric, baseline, and target.
@@ -187,21 +217,23 @@ Do not improvise. Do not skip sections. Do not substitute your judgment for the 
 
 ## Verification
 
-After implementation is complete, read `../agentic-cookbook/cookbook/workflow/code-verification.md` and run:
+After implementation is complete, read `../agentic-cookbook/cookbook/workflow/code-verification.md` and run each check, printing progress before each:
 
-1. **Build** passes with no errors.
-2. **Tests** pass — unit, integration, and any E2E tests.
-3. **Lint** is clean — no warnings, no added suppressions.
-4. **Logging** matches the opted-in logging specification.
-5. **Accessibility** verified — screen reader labels, keyboard navigation, display options.
-6. **Guideline compliance** — confirm every "Always" and opted-in guideline is fully addressed.
-7. **Recipe conformance** (if applicable) — produce a conformance checklist mapping each named requirement to code location and test. All items MUST pass.
+1. Print `[Verification 1/7] Build...` — **Build** passes with no errors.
+2. Print `[Verification 2/7] Tests...` — **Tests** pass — unit, integration, and any E2E tests.
+3. Print `[Verification 3/7] Lint...` — **Lint** is clean — no warnings, no added suppressions.
+4. Print `[Verification 4/7] Logging...` — **Logging** matches the opted-in logging specification.
+5. Print `[Verification 5/7] Accessibility...` — **Accessibility** verified — screen reader labels, keyboard navigation, display options.
+6. Print `[Verification 6/7] Guideline compliance...` — confirm every "Always" and opted-in guideline is fully addressed.
+7. Print `[Verification 7/7] Recipe conformance...` — (if applicable) produce a conformance checklist mapping each named requirement to code location and test. All items MUST pass.
 
 Do not mark the work as complete until every check passes.
 
 ---
 
 ## Post-Implementation: Contribution Opportunities
+
+Print `[Post-Implementation] Checking for contribution opportunities...` before starting.
 
 **Check preferences first**: Read `.cookbook/preferences.json`. If `show_contribution_prompts` is `false`, skip this section entirely.
 
