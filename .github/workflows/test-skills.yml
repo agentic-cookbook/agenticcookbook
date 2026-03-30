@@ -1,0 +1,82 @@
+name: Test Skills & Rules
+
+on:
+  pull_request:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      run_evals:
+        description: 'Run behavioral evals (Layer 3) — costs ~$10-20'
+        type: boolean
+        default: false
+
+jobs:
+  static:
+    name: Static Validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install test dependencies
+        run: cd tests && npm ci
+      - name: Run static tests
+        run: cd tests && npx vitest run --project static
+
+  smoke:
+    name: Smoke Tests
+    needs: static
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Install test dependencies
+        run: cd tests && npm ci
+      - name: Run smoke tests
+        run: cd tests && npx vitest run --project smoke
+      - name: Upload cost report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-cost-report
+          path: tests/cost-report.json
+          if-no-files-found: ignore
+
+  evals:
+    name: Behavioral Evals
+    if: github.event_name == 'schedule' || github.event.inputs.run_evals == 'true'
+    needs: smoke
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install test dependencies
+        run: cd tests && npm ci
+      - name: Run behavioral evals
+        run: cd tests && npx vitest run --project evals
+      - name: Upload cost report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-cost-report
+          path: tests/cost-report.json
+          if-no-files-found: ignore
+      - name: Upload eval results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-results
+          path: tests/eval-results/
+          if-no-files-found: ignore
