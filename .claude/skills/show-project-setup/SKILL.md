@@ -8,7 +8,7 @@ context: fork
 allowed-tools: Read, Glob, Grep, Bash(which *), Bash(node *), Bash(python3 *), Bash(swift *), Bash(git *), Bash(gh *), Bash(npm *), Bash(docker *), Bash(go *), Bash(rustc *), Bash(java *), Bash(dotnet *), Bash(kubectl *), Bash(terraform *), Bash(wrangler *), Bash(code *), Bash(ls *), Bash(cat *), Bash(jq *), Bash(open *), Bash(uname *), Bash(sw_vers *), Bash(bun *), Bash(bash *), Write
 ---
 
-# Show Project Setup v1.0.0
+# Show Project Setup v2.0.0
 
 ## Startup
 
@@ -185,6 +185,8 @@ For each suggestion, include the plugin name and its install command. Render the
 Also include the detected project types in the "Current Configuration" card as a row.
 
 ## Step 2: Generate HTML
+
+Use `${CLAUDE_SKILL_DIR}/references/reference-dashboard.html` as the visual reference for the dashboard design — match its layout, typography, colors, and section structure.
 
 Build a single self-contained HTML file. Everything is inline — no external stylesheets, no CDN, no imports.
 
