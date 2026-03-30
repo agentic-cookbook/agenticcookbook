@@ -1,23 +1,25 @@
 ---
 name: import-cookbook
-version: "8.1.0"
+version: "9.0.0"
 description: "Import the agentic cookbook into your project. Installs a minimal always-on rule and pipeline skills for iterative planning and implementation."
 argument-hint: "[--version]"
 disable-model-invocation: true
-allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(mkdir *), Bash(ls *), Bash(wc *), Bash(date *), Bash(claude *), AskUserQuestion, Skill
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(mv *), Bash(mkdir *), Bash(ls *), Bash(wc *), Bash(date *), Bash(claude *), Bash(chmod *), AskUserQuestion, Skill
 ---
 
-# Import Agentic Cookbook v8.0.0
+# Import Agentic Cookbook v9.0.0
+
+> **Breaking change in v9.0.0**: Cookbook state files moved from `.claude/` to `.cookbook/`. Existing installations are migrated automatically in Step 2.
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `import-cookbook v8.0.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `import-cookbook v9.0.0` and stop — do not run the skill.
 
-Otherwise, print `import-cookbook v8.0.0` as the first line of output, then proceed.
+Otherwise, print `import-cookbook v9.0.0` as the first line of output, then proceed.
 
 **Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (8.0.0), print:
 
-> ⚠ This skill is running v8.0.0 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v9.0.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
@@ -48,8 +50,8 @@ Before modifying any files, present this prompt to the user:
 This skill will:
 - Write/Edit CLAUDE.md — add or update the Agentic Cookbook section
 - Generate .claude/rules/cookbook.md — minimal always-on rule (~10 lines)
-- Write .claude/cookbook-manifest.json — tracks what was generated
-- Write .claude/cookbook-preferences.json — stores user preferences
+- Write .cookbook/manifest.json — tracks what was generated
+- Write .cookbook/preferences.json — stores user preferences
 - Ask about preferences (committing workflow, recipe prompts, contribution prompts)
 
 Approve all? (yes / no)
@@ -68,15 +70,39 @@ If the user says no, stop and ask what they want to change. If yes, proceed with
 
 2. Check that the current directory is a project — it has a `CLAUDE.md` or is a git repo (`.git/` exists). If neither, print: "This does not appear to be a project directory. Navigate to your project root and try again." Then stop.
 
-## Step 2: Gather Preferences
+## Step 2: Migrate Old Paths
 
-Read `.claude/cookbook-preferences.json` if it exists. Otherwise, ask the user:
+Check if any old-location cookbook files exist in `.claude/`:
+
+- `.claude/cookbook-manifest.json`
+- `.claude/cookbook-preferences.json`
+- `.claude/cookbook-pipeline.json`
+- `.claude/cookbook-statusline.sh`
+
+If any are found:
+
+1. Create `.cookbook/` if it doesn't exist: `mkdir -p .cookbook`
+2. Move each file to the new location:
+   - `mv .claude/cookbook-manifest.json .cookbook/manifest.json`
+   - `mv .claude/cookbook-preferences.json .cookbook/preferences.json`
+   - `mv .claude/cookbook-pipeline.json .cookbook/pipeline.json`
+   - `mv .claude/cookbook-statusline.sh .cookbook/statusline.sh`
+3. If `~/.claude/settings.json` has a `statusLine` command referencing `.claude/cookbook-statusline.sh`, update it to `.cookbook/statusline.sh` using the Edit tool.
+4. Print which files were migrated.
+
+If no old files are found, skip this step silently.
+
+## Step 3: Gather Preferences
+
+Read `.cookbook/preferences.json` if it exists. Otherwise, ask the user:
 
 1. **Committing workflow**: "Install a structured git workflow? (worktrees, draft PRs, incremental commits) — yes/no"
 2. **Recipe prompts**: "During planning, search for matching recipes and offer them? — yes/no" (default: yes)
 3. **Contribution prompts**: "After implementation, ask about contributing reusable patterns? — yes/no" (default: yes)
 
-Write `.claude/cookbook-preferences.json` with the choices:
+Create `.cookbook/` if it doesn't exist: `mkdir -p .cookbook`
+
+Write `.cookbook/preferences.json` with the choices:
 
 ```json
 {
@@ -86,7 +112,7 @@ Write `.claude/cookbook-preferences.json` with the choices:
 }
 ```
 
-## Step 3: Generate Minimal Rule File
+## Step 4: Generate Minimal Rule File
 
 Create `.claude/rules/` if it doesn't exist.
 
@@ -107,7 +133,7 @@ When planning or implementing features, use /cookbook-start.
 
 Count lines and bytes with `wc -l -c .claude/rules/cookbook.md` and report the size.
 
-## Step 4: Install Committing Rule (if opted in)
+## Step 5: Install Committing Rule (if opted in)
 
 If the user opted in to the committing workflow:
 
@@ -115,14 +141,14 @@ Copy `../agentic-cookbook/rules/committing.md` to `.claude/rules/committing.md`.
 
 This is a separate rule file (not part of the generated cookbook.md) because it has its own scope and lifecycle.
 
-## Step 5: Write Generation Manifest
+## Step 6: Write Generation Manifest
 
-Write `.claude/cookbook-manifest.json`:
+Write `.cookbook/manifest.json`:
 
 ```json
 {
   "generated": "<ISO 8601 timestamp>",
-  "generator_version": "8.0.0",
+  "generator_version": "9.0.0",
   "source_cookbook": "../agentic-cookbook",
   "rule_type": "minimal",
   "preferences": {
@@ -133,7 +159,7 @@ Write `.claude/cookbook-manifest.json`:
 }
 ```
 
-## Step 6: Clean Up Legacy Files
+## Step 7: Clean Up Legacy Files
 
 Remove any old files from `.claude/rules/` that are no longer needed:
 
@@ -144,7 +170,7 @@ Remove any old files from `.claude/rules/` that are no longer needed:
 
 Only remove files that actually exist. Print which files were removed.
 
-## Step 7: Update CLAUDE.md
+## Step 8: Update CLAUDE.md
 
 Add or update an `## Agentic Cookbook` section in the project's `CLAUDE.md`.
 
@@ -168,7 +194,7 @@ This project uses the [agentic-cookbook](https://github.com/mikefullerton/agenti
 Run `/configure-cookbook` to manage preferences.
 ```
 
-## Step 8: Install Recommended Plugins
+## Step 9: Install Recommended Plugins
 
 Read `${CLAUDE_SKILL_DIR}/references/recommended-plugins.md` for the full list.
 
@@ -205,9 +231,9 @@ If any plugin fails to install, note the failure and continue with the rest.
 
 Print: `Installed N plugins (M already installed, skipped). Failures: <list or "none">`
 
-## Step 9: Install Pipeline Status Line
+## Step 10: Install Pipeline Status Line
 
-Copy `../agentic-cookbook/rules/cookbook-statusline.sh` to `.claude/cookbook-statusline.sh` and make it executable.
+Copy `../agentic-cookbook/rules/cookbook-statusline.sh` to `.cookbook/statusline.sh` and make it executable.
 
 Ask the user:
 
@@ -222,19 +248,19 @@ in the Claude Code terminal during /cookbook-next execution.
 If yes:
 - If `~/.claude/settings.json` does not exist or has no `statusLine` key, write:
   ```json
-  { "statusLine": { "type": "command", "command": ".claude/cookbook-statusline.sh" } }
+  { "statusLine": { "type": "command", "command": ".cookbook/statusline.sh" } }
   ```
-- If a `statusLine` is already configured, print: "Status line already configured. The cookbook status line was installed at `.claude/cookbook-statusline.sh` — you can integrate it manually." Do not overwrite.
+- If a `statusLine` is already configured, print: "Status line already configured. The cookbook status line was installed at `.cookbook/statusline.sh` — you can integrate it manually." Do not overwrite.
 
-## Step 10: Print Summary
+## Step 11: Print Summary
 
 ```
 === Agentic Cookbook Imported ===
 CLAUDE.md: updated
 Rule: cookbook.md (<N> lines, <B> bytes) — minimal guardrails
 Committing: .claude/rules/committing.md — installed / not installed
-Manifest: .claude/cookbook-manifest.json
-Preferences: .claude/cookbook-preferences.json
+Manifest: .cookbook/manifest.json
+Preferences: .cookbook/preferences.json
 Legacy files removed: <list or "none">
 Plugins: N installed, M skipped (already installed)
 Status line: installed / skipped
