@@ -137,8 +137,18 @@ function EntryView({ entry }: { entry: CookbookEntry }) {
 }
 
 export default function DocPage() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
   const { getBySlug, navTree } = useContent()
+
+  useEffect(() => {
+    if (!hash) return
+    const id = hash.slice(1)
+    const timer = setTimeout(() => {
+      const el = document.getElementById(id)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }, 100)
+    return () => clearTimeout(timer)
+  }, [pathname, hash])
 
   const slug = pathname === '/' ? '/' : pathname.replace(/\/$/, '')
 
