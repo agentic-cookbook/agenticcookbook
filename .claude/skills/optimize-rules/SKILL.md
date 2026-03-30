@@ -2,7 +2,7 @@
 name: optimize-rules
 version: "1.0.0"
 description: "Optimize Claude Code rules by consolidating into a single efficient file. Triggers on 'optimize rules', 'optimize my rules', or /optimize-rules."
-argument-hint: "[path] [--revert] [--auto]"
+argument-hint: "[path] [--revert]"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(wc *, rm, cp, mkdir, ls, cat), AskUserQuestion
 disable-model-invocation: true
 ---
@@ -32,7 +32,7 @@ Consolidate multiple Claude Code rule files into a single optimized file, reduci
 ## Guards
 
 - This skill **modifies files** — it copies, creates, and deletes rule files
-- Requires user confirmation before any file modification (unless `--auto`)
+- **Always** prompts for confirmation before modifying files — there is no auto mode
 - **Never** deletes original rule files without first verifying the backup is complete (file count matches)
 - If validation fails (a constraint is missing from the output), automatically revert
 
@@ -42,9 +42,8 @@ Consolidate multiple Claude Code rule files into a single optimized file, reduci
 
 Parse `$ARGUMENTS` for flags and path:
 
-1. **`--revert`** → jump to the **Revert Workflow** (Step 2)
-2. **`--auto`** → set auto-confirm mode (skip confirmation prompts in Phase 2)
-3. **Remaining text** → treat as the path to the rules directory
+1. **`--revert`** → jump to the **Revert Workflow** (Step 3)
+2. **Remaining text** → treat as the path to the rules directory
 
 If no path is provided, default to `.claude/rules/`.
 
@@ -56,9 +55,26 @@ And stop.
 
 ---
 
-## Step 2: Revert Workflow
+## Step 2: Disclaimer
 
-_Only runs when `--revert` is present._
+Before any work, print:
+
+> **Rule Optimization**
+>
+> This skill will consolidate your rule files into a single optimized file.
+> Your originals will be backed up and can be restored at any time with `/optimize-rules --revert`.
+
+Use AskUserQuestion: "Continue with rule optimization?"
+
+Options:
+1. **Yes, continue** — proceed to Step 4
+2. **No, cancel** — print "Cancelled." and stop
+
+---
+
+## Step 3: Revert Workflow
+
+_Runs when `--revert` is present, or called internally by Step 4 during re-optimization._
 
 1. **Resolve target** — use the path from Step 1 (or default `.claude/rules/`)
 2. **Compute backup path** — the backup directory is a sibling of the target with the name `unoptimized-rules/`. For example:
@@ -77,21 +93,22 @@ _Only runs when `--revert` is present._
    Restored <n> rule files to <target path>
    Removed backup at <backup path>
    ```
-8. **Stop** — do not continue to the optimization phases.
+8. **If invoked via `--revert`**: stop here — do not continue to optimization phases.
+   **If invoked internally by Step 4**: continue to Phase 1.
 
 ---
 
-## Step 3: Pre-flight Checks
+## Step 4: Pre-flight Checks
 
 1. Use Glob to find all `*.md` files in the target directory. If none found, print:
    > No `.md` files found in `<path>`. Nothing to optimize.
 
    And stop.
 
-2. Check if the backup directory already exists. If it does, print:
-   > ⚠ Previous optimization backup found at `<backup path>`. Run `/optimize-rules --revert` first, or delete `<backup path>` manually.
-
-   And stop.
+2. Check if the backup directory already exists. If it does:
+   - Print: "Previous optimization detected. Reverting to originals first..."
+   - Run the **Revert Workflow** (Step 3) internally.
+   - After revert completes, re-glob the target directory to pick up the restored files.
 
 3. Read all `.md` files. Count total files, lines, and bytes. Store as the baseline.
 
@@ -155,15 +172,13 @@ Strategy:
 Estimated reduction: ~<pct>%
 ```
 
-**If `--auto` is NOT set**: Use AskUserQuestion to confirm:
+Use AskUserQuestion to confirm:
 
 > "Proceed with optimization?"
 
 Options:
 1. **Yes, optimize** — continue to Phase 3
 2. **No, cancel** — print "Optimization cancelled." and stop
-
-**If `--auto` IS set**: Skip confirmation and proceed directly to Phase 3.
 
 ---
 
@@ -192,7 +207,7 @@ Options:
    - Record the mapping (original file:line → optimized file:line)
 2. **Check for gaps** — if any constraint cannot be mapped:
    - Print: `VALIDATION FAILED: Missing constraint from <source file>: "<constraint text>"`
-   - **Automatically revert** — run the Revert Workflow (Step 2)
+   - **Automatically revert** — run the Revert Workflow (Step 3)
    - Stop
 3. **Measure result** — count lines and bytes of `optimized-rules.md`
 4. **Calculate reduction** — compare to baseline from Pre-flight
@@ -227,11 +242,6 @@ To revert: /optimize-rules --revert [path]
 **Optimize a custom rules path:**
 ```
 /optimize-rules path/to/my/rules/
-```
-
-**Optimize without confirmation prompts:**
-```
-/optimize-rules --auto
 ```
 
 **Restore original rules after optimization:**
