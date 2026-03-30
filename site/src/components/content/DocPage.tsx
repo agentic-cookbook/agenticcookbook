@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router'
 import { useContent } from '../../contexts/ContentContext'
 import Breadcrumbs from '../layout/Breadcrumbs'
