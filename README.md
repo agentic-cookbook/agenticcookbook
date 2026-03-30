@@ -102,6 +102,7 @@ Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition ov
 | `/cookbook-bug` | File a bug report against the cookbook (creates GitHub issue) |
 | `/cookbook-suggestion` | Suggest new content or improvements (creates GitHub issue) |
 | `/lint-compliance` | Evaluate recipe/guideline against compliance checks |
+| `/port-swiftui-to-appkit` | Analyze a macOS SwiftUI app and plan its conversion to AppKit |
 
 ## Rules
 
@@ -153,6 +154,7 @@ rules/                 # terse LLM-optimized rules for .claude/ drop-in
   cookbook-bug/
   cookbook-suggestion/
   lint-compliance/
+  port-swiftui-to-appkit/
 
 contributing/          # how to contribute (AUTHORING.md)
 decisions/             # design decision records
