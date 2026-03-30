@@ -291,12 +291,6 @@ Subsystem: `{{bundle_id}}` | Category: `AIChatControl`
 **Rationale**: The primary use case is quick verification of AI configuration. Persistent history adds storage and privacy concerns without matching the use case.
 **Approved**: pending
 
-## Changelog
-
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0.0 | 2026-03-26 | Initial spec: mini variant with multi-turn conversation, four-provider support, inline error display |
-
 ## Change History
 
 | Version | Date | Author | Summary |

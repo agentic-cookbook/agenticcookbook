@@ -320,12 +320,6 @@ Subsystem: `{{bundle_id}}` | Category: `CodeEditorPane`
 
 _None yet — decisions made during implementation should be recorded here._
 
-## Changelog
-
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0.0 | 2026-03-25 | Initial spec, derived from scratching-post FileEditorView and EditorState. Covers file loading, syntax highlighting, dirty state tracking, auto-save, and multi-platform editor guidance. |
-
 ## Change History
 
 | Version | Date | Author | Summary |

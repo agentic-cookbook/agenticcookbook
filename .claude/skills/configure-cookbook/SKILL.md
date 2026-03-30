@@ -1,33 +1,34 @@
 ---
 name: configure-cookbook
-version: "2.0.0"
-description: "Manage agentic cookbook preferences — recipe prompts, contribution prompts, optional rules. Re-enable prompts the user previously disabled."
+version: "4.0.0"
+description: "Manage agentic cookbook preferences and rule file. Toggle committing workflow, recipe prompts, contribution prompts."
 argument-hint: "[--version]"
-allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(rm *), Bash(ls *), Bash(mkdir *), AskUserQuestion
+disable-model-invocation: true
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash(rm *), Bash(cp *), Bash(ls *), Bash(mkdir *), Bash(wc *), Bash(date *), AskUserQuestion
 ---
 
-# Configure Agentic Cookbook v2.0.0
+# Configure Agentic Cookbook v4.0.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `configure-cookbook v2.0.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `configure-cookbook v4.0.0` and stop — do not run the skill.
 
-Otherwise, print `configure-cookbook v2.0.0` as the first line of output, then proceed.
+Otherwise, print `configure-cookbook v4.0.0` as the first line of output, then proceed.
 
-**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (2.0.0), print:
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (4.0.0), print:
 
-> ⚠ This skill is running v2.0.0 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v4.0.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
 ## Overview
 
-Manage your cookbook preferences and optional rules. This skill replaces the old tier selection — the full cookbook is always installed. Use this to:
+Manage your cookbook preferences and rule installation. Use this to:
 
-- Re-enable recipe or contribution prompts you previously disabled
-- Install or remove optional rules (committing rule, auto-lint rule)
-- Verify your cookbook installation is up to date
-- Migrate from the old tier system to the single cookbook.md
+- Toggle committing workflow, recipe prompts, or contribution prompts
+- Migrate from legacy static-copy installation to the minimal rule
+- View pipeline status if a session is in progress
+- Reinstall the rule after cookbook updates
 
 ## Usage
 
@@ -39,45 +40,55 @@ Manage your cookbook preferences and optional rules. This skill replaces the old
 
 Check the current project for:
 
-1. **Rule file**: Is `cookbook.md` present in `.claude/rules/`?
-2. **Legacy tier files**: Are any old tier files present (`PRINCIPLES-RULE.md`, `GUIDELINE-CONSUMER-RULE.md`, `RECIPE-CONSUMER-RULE.md`, `CONTRIBUTOR-RULE.md`)?
-3. **Optional rules**: Is `committing.md` installed? Is `auto-lint.md` installed?
-4. **Preferences**: Read `.claude/cookbook-preferences.json` if it exists.
+1. **Minimal rule**: Is `.claude/rules/cookbook.md` present? Is it the minimal version (~10 lines)?
+2. **Manifest**: Does `.claude/cookbook-manifest.json` exist? Read it for current state.
+3. **Preferences**: Read `.claude/cookbook-preferences.json` if it exists.
+4. **Legacy files**: Are any old files present? (`authoring-ground-rules.md`, `auto-lint.md`, `PRINCIPLES-RULE.md`, `GUIDELINE-CONSUMER-RULE.md`, `RECIPE-CONSUMER-RULE.md`, `CONTRIBUTOR-RULE.md`, `skill-versioning.md`)
+5. **Committing rule**: Is `.claude/rules/committing.md` present?
+6. **Pipeline state**: Does `.claude/cookbook-pipeline.json` exist? If so, read it.
 
 Print the current state:
 
 ```
 === Cookbook Status ===
-Rule: cookbook.md — installed / not installed / legacy tier files detected
-Recipe prompts: enabled / disabled
-Contribution prompts: enabled / disabled
-Committing rule: installed / not installed
-Auto-lint rule: installed / not installed
+Rule: cookbook.md — minimal (<N> lines) / not installed / legacy detected
+Committing: committing.md — installed / not installed
+Preferences:
+  Recipe prompts: enabled / disabled
+  Contribution prompts: enabled / disabled
+  Committing workflow: included / not included
 ```
 
-**If legacy tier files detected**: print a migration notice and proceed to Step 2 (migration).
+If `.claude/cookbook-pipeline.json` exists, also print:
+
+```
+Pipeline: <phase> — step <N> of <M> (<X> applicable, <Y> N/A so far)
+Task: <task description>
+```
+
+**If legacy static files detected**: print a migration notice and proceed to Step 2.
 
 **If cookbook.md is not installed and no legacy files exist**: print "Cookbook not installed. Run /import-cookbook first." and stop.
 
 ## Step 2: Migration (if needed)
 
-If old tier rule files are detected:
+If old static rule files are detected:
 
 ```
-Legacy tier files detected. The cookbook no longer uses tiers — everyone gets the full cookbook.
-I'll replace the old rule files with the single cookbook.md.
+Legacy installation detected. The cookbook now uses a minimal rule (~10 lines)
+plus on-demand pipeline skills. I'll remove old files and install the new rule.
 ```
 
-Remove old tier files:
+Remove old files (only those that exist):
+- `.claude/rules/authoring-ground-rules.md`
+- `.claude/rules/auto-lint.md`
 - `.claude/rules/PRINCIPLES-RULE.md`
 - `.claude/rules/GUIDELINE-CONSUMER-RULE.md`
 - `.claude/rules/RECIPE-CONSUMER-RULE.md`
 - `.claude/rules/CONTRIBUTOR-RULE.md`
-- `.claude/rules/skill-versioning.md` (if installed as part of old tier 3)
+- `.claude/rules/skill-versioning.md`
 
-Copy `cookbook.md` from `../agentic-cookbook/rules/`.
-
-Print: `Migration complete — old tier files replaced with cookbook.md.`
+Print which files were removed, then proceed to Step 3.
 
 ## Step 3: Preferences
 
@@ -87,65 +98,70 @@ Present current preferences and ask if the user wants to change them:
 === Cookbook Preferences ===
 
 1. Recipe prompts: [enabled/disabled]
-   During planning, ask if you want to see matching recipes.
+   During planning, search for matching recipes and ask if you want to see them.
 
 2. Contribution prompts: [enabled/disabled]
    After implementation, ask if you want to contribute reusable patterns.
 
+3. Committing workflow: [included/not included]
+   Structured git workflow: worktrees, draft PRs, incremental commits.
+
 Change any? (enter numbers to toggle, or "done" to skip)
 ```
 
-For each toggled preference, update `.claude/cookbook-preferences.json`:
+Record all changes.
+
+## Step 4: Apply Changes
+
+### Committing workflow toggle
+
+If the committing workflow preference changed:
+
+- **Newly included**: Verify `../agentic-cookbook/` exists (use `ls ../agentic-cookbook/rules/committing.md`). If not found, print: "Cookbook not found at ../agentic-cookbook/. Cannot install committing rule." and skip this change. Otherwise, copy `../agentic-cookbook/rules/committing.md` to `.claude/rules/committing.md`.
+- **Newly excluded**: Remove `.claude/rules/committing.md` if it exists.
+
+### Rule file check
+
+If `.claude/rules/cookbook.md` does not exist or is a legacy (non-minimal) version:
+
+Write the minimal rule:
+
+```markdown
+# Cookbook
+
+1. Confirm you are in the correct project before making changes.
+2. Investigate unfamiliar content before overwriting.
+3. Fix only what was asked — no unauthorized additions.
+4. Do not skip Phase 2 (Make It Right).
+5. Do not skip writing tests.
+6. Do not optimize without evidence.
+
+When planning or implementing features, use /cookbook-start.
+```
+
+## Step 5: Update Manifest and Preferences
+
+Write `.claude/cookbook-manifest.json`:
 
 ```json
 {
-  "show_recipe_prompts": true,
-  "show_contribution_prompts": true
+  "generated": "<ISO 8601 timestamp>",
+  "generator_version": "4.0.0",
+  "source_cookbook": "../agentic-cookbook",
+  "rule_type": "minimal",
+  "preferences": {
+    "show_recipe_prompts": true/false,
+    "show_contribution_prompts": true/false,
+    "committing_workflow": true/false
+  }
 }
 ```
 
-If the file doesn't exist, create it with defaults (both `true`).
-
-## Step 4: Optional Rules
-
-### Committing Rule
-
-Check whether `committing.md` is currently installed.
-
-**If not installed**, ask:
-
-```
-Optional: Install a structured git workflow rule?
-- All Claude Code work happens in a git worktree (never directly on main)
-- A draft PR is created before any code is written
-- Every change is committed, pushed, and documented in the PR
-
-This is independent of the cookbook. Install? (y/n)
-```
-
-If yes, copy from `../agentic-cookbook/rules/`.
-
-**If already installed**, ask: `Keep the committing rule? (y/n)`
-
-If no, remove `.claude/rules/committing.md`.
-
-### Auto-Lint Rule
-
-The auto-lint rule (`auto-lint.md`) is always installed. If it's missing, copy it from `../agentic-cookbook/rules/`. Do not offer to remove it.
-
-## Step 5: Update Rule File
-
-Check if the installed `cookbook.md` matches the latest version in `../agentic-cookbook/rules/cookbook.md`. Compare file contents. If they differ, ask:
-
-```
-A newer version of cookbook.md is available. Update? (y/n)
-```
-
-If yes, copy the updated file.
+Write `.claude/cookbook-preferences.json` with the user's current preferences.
 
 ## Step 6: Update CLAUDE.md
 
-If `CLAUDE.md` has an old `## Agentic Cookbook` section with tier references, update it to the new format:
+If `CLAUDE.md` has an `## Agentic Cookbook` section, update it:
 
 ```markdown
 ## Agentic Cookbook
@@ -153,26 +169,29 @@ If `CLAUDE.md` has an old `## Agentic Cookbook` section with tier references, up
 This project uses the [agentic-cookbook](https://github.com/mikefullerton/agentic-cookbook).
 
 - **Cookbook path**: `../agentic-cookbook/`
-- **Rule**: `cookbook.md`
-- **Preferences**: Recipe prompts [enabled/disabled], contribution prompts [enabled/disabled]
-- **Optional rules**: <list installed optional rules, or "none">
-- **Available skills**: /configure-cookbook, /import-cookbook, /lint-with-cookbook, /plan-cookbook-recipe, /contribute-to-cookbook
+- **Rule**: `cookbook.md` (minimal, ~10 lines — guardrails only)
+- **Pipeline**: `/cookbook-start` to begin, `/cookbook-next` to advance one step
+- **Preferences**: Recipe prompts [enabled/disabled], contribution prompts [enabled/disabled], committing [included/not included]
+- **Available skills**: /configure-cookbook, /import-cookbook, /cookbook-start, /cookbook-next, /lint-with-cookbook, /plan-cookbook-recipe, /contribute-to-cookbook
+
+Run `/configure-cookbook` to manage preferences.
 ```
 
 ## Step 7: Print Summary
 
 ```
 === Cookbook Configuration ===
-Rule: cookbook.md (up to date / updated)
-Recipe prompts: enabled / disabled
-Contribution prompts: enabled / disabled
-Committing rule: installed / not installed / unchanged
-Auto-lint rule: installed / not installed / unchanged
+Rule: cookbook.md (<N> lines) — reinstalled / unchanged
+Committing: installed / removed / unchanged
+Recipe prompts: enabled / disabled — changed / unchanged
+Contribution prompts: enabled / disabled — changed / unchanged
+Legacy files removed: <list or "none">
 CLAUDE.md: updated / unchanged
 ```
 
 ## Guards
 
-- **Do not modify any files in `../agentic-cookbook/`.** Only read/copy from it.
-- **Verify `../agentic-cookbook/` exists** before copying files.
-- **Do not remove cookbook.md.** It is always required.
+- **Do not modify any files in `../agentic-cookbook/`.** Only read from it.
+- **Verify `../agentic-cookbook/` exists** before reading source files.
+- **Do not remove cookbook.md.** Reinstall it if needed, never delete it.
+- **The rule MUST be under 15 lines.** It is guardrails only.

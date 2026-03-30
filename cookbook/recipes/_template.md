@@ -153,12 +153,6 @@ Record any decisions made during implementation that affect visual or behavioral
 |-------|--------|----------|
 | [check-name](agentic-cookbook://compliance/category#check-name) | passed | Category |
 
-## Changelog
-
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0.0 | YYYY-MM-DD | Initial spec |
-
 ## Change History
 
 | Version | Date | Author | Summary |

@@ -316,12 +316,6 @@ On macOS, toggle Reduce Motion and other options in System Settings > Accessibil
 
 _None yet — decisions made during generation should be recorded here._
 
-## Changelog
-
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0.0 | 2026-03-25 | Initial spec |
-
 ## Change History
 
 | Version | Date | Author | Summary |

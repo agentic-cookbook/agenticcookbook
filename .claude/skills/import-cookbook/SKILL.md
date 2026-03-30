@@ -1,29 +1,34 @@
 ---
 name: import-cookbook
-version: "6.1.0"
-description: "Import the agentic cookbook into your project. Sets up CLAUDE.md, installs the cookbook rule, and offers recommended plugins."
+version: "8.0.0"
+description: "Import the agentic cookbook into your project. Installs a minimal always-on rule and pipeline skills for iterative planning and implementation."
 argument-hint: "[--version]"
 disable-model-invocation: true
-allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(mkdir *), Bash(ln *), Bash(ls *), Bash(claude *), AskUserQuestion, Skill
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(mkdir *), Bash(ls *), Bash(wc *), Bash(date *), Bash(claude *), AskUserQuestion, Skill
 ---
 
-# Import Agentic Cookbook v6.1.0
+# Import Agentic Cookbook v8.0.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `import-cookbook v6.1.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `import-cookbook v8.0.0` and stop — do not run the skill.
 
-Otherwise, print `import-cookbook v6.1.0` as the first line of output, then proceed.
+Otherwise, print `import-cookbook v8.0.0` as the first line of output, then proceed.
 
-**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (6.1.0), print:
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (8.0.0), print:
 
-> ⚠ This skill is running v6.1.0 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v8.0.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
 ## Overview
 
-Import the agentic cookbook into your project. This skill installs `cookbook.md`, updates your project's CLAUDE.md, and offers to install recommended plugins globally.
+Import the agentic cookbook into your project. This skill installs:
+
+1. **Minimal always-on rule** (~10 lines, ~500 bytes) — behavioral guardrails loaded every turn
+2. **Pipeline skills** (`/cookbook-start`, `/cookbook-next`) — iterative planning and implementation, loaded on-demand
+
+The always-on rule contains only guardrails. All workflow content (principles, guidelines, planning pipeline, implementation pipeline, verification) is loaded on-demand by the pipeline skills.
 
 ## Usage
 
@@ -42,8 +47,10 @@ Before modifying any files, present this prompt to the user:
 
 This skill will:
 - Write/Edit CLAUDE.md — add or update the Agentic Cookbook section
-- Symlink cookbook skills to ~/.claude/skills/ — makes them available globally
-- Invoke /configure-cookbook — which will ask its own permissions for rule file copying
+- Generate .claude/rules/cookbook.md — minimal always-on rule (~10 lines)
+- Write .claude/cookbook-manifest.json — tracks what was generated
+- Write .claude/cookbook-preferences.json — stores user preferences
+- Ask about preferences (committing workflow, recipe prompts, contribution prompts)
 
 Approve all? (yes / no)
 ```
@@ -61,7 +68,83 @@ If the user says no, stop and ask what they want to change. If yes, proceed with
 
 2. Check that the current directory is a project — it has a `CLAUDE.md` or is a git repo (`.git/` exists). If neither, print: "This does not appear to be a project directory. Navigate to your project root and try again." Then stop.
 
-## Step 2: Update CLAUDE.md
+## Step 2: Gather Preferences
+
+Read `.claude/cookbook-preferences.json` if it exists. Otherwise, ask the user:
+
+1. **Committing workflow**: "Install a structured git workflow? (worktrees, draft PRs, incremental commits) — yes/no"
+2. **Recipe prompts**: "During planning, search for matching recipes and offer them? — yes/no" (default: yes)
+3. **Contribution prompts**: "After implementation, ask about contributing reusable patterns? — yes/no" (default: yes)
+
+Write `.claude/cookbook-preferences.json` with the choices:
+
+```json
+{
+  "committing_workflow": true/false,
+  "show_recipe_prompts": true/false,
+  "show_contribution_prompts": true/false
+}
+```
+
+## Step 3: Generate Minimal Rule File
+
+Create `.claude/rules/` if it doesn't exist.
+
+Write `.claude/rules/cookbook.md` with exactly this content:
+
+```markdown
+# Cookbook
+
+1. Confirm you are in the correct project before making changes.
+2. Investigate unfamiliar content before overwriting.
+3. Fix only what was asked — no unauthorized additions.
+4. Do not skip Phase 2 (Make It Right).
+5. Do not skip writing tests.
+6. Do not optimize without evidence.
+
+When planning or implementing features, use /cookbook-start.
+```
+
+Count lines and bytes with `wc -l -c .claude/rules/cookbook.md` and report the size.
+
+## Step 4: Install Committing Rule (if opted in)
+
+If the user opted in to the committing workflow:
+
+Copy `../agentic-cookbook/rules/committing.md` to `.claude/rules/committing.md`.
+
+This is a separate rule file (not part of the generated cookbook.md) because it has its own scope and lifecycle.
+
+## Step 5: Write Generation Manifest
+
+Write `.claude/cookbook-manifest.json`:
+
+```json
+{
+  "generated": "<ISO 8601 timestamp>",
+  "generator_version": "8.0.0",
+  "source_cookbook": "../agentic-cookbook",
+  "rule_type": "minimal",
+  "preferences": {
+    "committing_workflow": true/false,
+    "show_recipe_prompts": true/false,
+    "show_contribution_prompts": true/false
+  }
+}
+```
+
+## Step 6: Clean Up Legacy Files
+
+Remove any old files from `.claude/rules/` that are no longer needed:
+
+- `authoring-ground-rules.md`
+- `auto-lint.md`
+- `skill-versioning.md`
+- Old tier files: `PRINCIPLES-RULE.md`, `GUIDELINE-CONSUMER-RULE.md`, `RECIPE-CONSUMER-RULE.md`, `CONTRIBUTOR-RULE.md`
+
+Only remove files that actually exist. Print which files were removed.
+
+## Step 7: Update CLAUDE.md
 
 Add or update an `## Agentic Cookbook` section in the project's `CLAUDE.md`.
 
@@ -77,35 +160,15 @@ The section content:
 This project uses the [agentic-cookbook](https://github.com/mikefullerton/agentic-cookbook).
 
 - **Cookbook path**: `../agentic-cookbook/`
-- **Rule**: `cookbook.md`
-- **Available skills**: /configure-cookbook, /import-cookbook, /lint-with-cookbook, /plan-cookbook-recipe, /contribute-to-cookbook, /port-swiftui-to-appkit
+- **Rule**: `cookbook.md` (minimal, ~10 lines — guardrails only)
+- **Pipeline**: `/cookbook-start` to begin, `/cookbook-next` to advance one step
+- **Preferences**: Recipe prompts [enabled/disabled], contribution prompts [enabled/disabled], committing [included/not included]
+- **Available skills**: /configure-cookbook, /import-cookbook, /cookbook-start, /cookbook-next, /lint-with-cookbook, /plan-cookbook-recipe, /contribute-to-cookbook
 
-Run `/configure-cookbook` to manage preferences and optional rules.
+Run `/configure-cookbook` to manage preferences.
 ```
 
-## Step 3: Install Cookbook Rule
-
-Create `.claude/rules/` if it doesn't exist. Copy these files from `../agentic-cookbook/rules/` into `.claude/rules/`:
-
-- `authoring-ground-rules.md` — foundation rule for all authoring (always installed first)
-- `cookbook.md` — the full cookbook rule (required)
-- `auto-lint.md` — auto-lint skills/agents/rules on creation/modification (always installed)
-
-If old tier files exist (`principles.md`, `guideline-consumer.md`, `recipe-consumer.md`, `contributor.md`), remove them and print: "Replaced old tier files with cookbook.md."
-
-## Step 4: Install Cookbook Skills Globally
-
-Symlink all cookbook skills from `../agentic-cookbook/.claude/skills/` to `~/.claude/skills/`. This makes them available in all projects.
-
-1. Create `~/.claude/skills/` if it doesn't exist.
-2. List all directories in `../agentic-cookbook/.claude/skills/` that contain a `SKILL.md`.
-3. For each skill directory, check if `~/.claude/skills/<name>` already exists:
-   - If it exists and is a symlink pointing to the correct target, skip it.
-   - If it exists but points elsewhere, print a warning and skip (do not overwrite).
-   - If it does not exist, create the symlink: `ln -s <absolute-path-to-cookbook-skill> ~/.claude/skills/<name>`
-4. Print: `Skills: N symlinked, M already installed, K skipped (conflict). Failures: <list or "none">`
-
-## Step 5: Install Recommended Plugins
+## Step 8: Install Recommended Plugins
 
 Read `${CLAUDE_SKILL_DIR}/references/recommended-plugins.md` for the full list.
 
@@ -116,7 +179,6 @@ Install all recommended plugins globally using `claude plugin install <plugin-na
 - playwright
 - context7
 - figma
-- semgrep
 - frontend-design
 - superpowers
 - code-review
@@ -143,14 +205,23 @@ If any plugin fails to install, note the failure and continue with the rest.
 
 Print: `Installed N plugins (M already installed, skipped). Failures: <list or "none">`
 
-## Step 6: Print Summary
+## Step 9: Print Summary
 
 ```
 === Agentic Cookbook Imported ===
 CLAUDE.md: updated
-Rules installed: authoring-ground-rules.md, cookbook.md, auto-lint.md
-Skills: N symlinked, M already installed
+Rule: cookbook.md (<N> lines, <B> bytes) — minimal guardrails
+Committing: .claude/rules/committing.md — installed / not installed
+Manifest: .claude/cookbook-manifest.json
+Preferences: .claude/cookbook-preferences.json
+Legacy files removed: <list or "none">
 Plugins: N installed, M skipped (already installed)
+
+Pipeline workflow:
+  /cookbook-start planning <task>  — begin planning
+  /cookbook-next                   — advance one step
+  /cookbook-start implementation   — begin implementation
+  /cookbook-next                   — advance one step
 
 To manage preferences: /configure-cookbook
 ```
@@ -158,5 +229,5 @@ To manage preferences: /configure-cookbook
 ## Guards
 
 - **Do not modify the cookbook repo.** Only read from `../agentic-cookbook/`.
-- **Skill symlinks are global (~/.claude/skills/).** They are user-scoped, not project-specific.
 - **Plugin installs are global (--scope user).** They are not project-specific.
+- **The generated rule MUST be under 15 lines.** It is guardrails only — no workflow content.

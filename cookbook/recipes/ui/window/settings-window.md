@@ -190,15 +190,6 @@ All category names and setting labels MUST also be localizable — they are app-
 
 _None yet — decisions made during implementation should be recorded here._
 
-## Changelog
-
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0.0 | 2026-03-25 | Initial spec |
-| 1.1.0 | 2026-03-25 | Added deep linking, localization, accessibility options, privacy sections |
-| 1.2.0 | 2026-03-25 | Added centralized settings keys (centralized-keys), per-document settings (per-document-settings), Form+Section layout (form-section-layout) |
-| 1.3.0 | 2026-03-25 | Made storage backend agnostic in abstract-persistence (SQLite migration path), added tab-bar layout variant |
-
 ## Change History
 
 | Version | Date | Author | Summary |

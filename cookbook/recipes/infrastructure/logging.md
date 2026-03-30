@@ -222,12 +222,6 @@ In production builds, `debug()` calls are no-ops. For server-side rendering, rep
 
 _None yet._
 
-## Changelog
-
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0.0 | 2026-03-25 | Initial spec, extracted from scratching-post Logging.swift |
-
 ## Change History
 
 | Version | Date | Author | Summary |
