@@ -1,24 +1,24 @@
 ---
 name: plan-cookbook-recipe
-version: 2.2.0
+version: 2.3.0
 description: Interactively design a new cookbook recipe through guided discussion
 disable-model-invocation: true
 context: fork
-allowed-tools: Read, Glob, Grep, Agent, Write, Edit, AskUserQuestion, Bash(git *)
+allowed-tools: Read, Glob, Grep, Agent, Write, Edit, AskUserQuestion, Bash(git *), Bash(mkdir *), Bash(ls *)
 argument-hint: [recipe-name] [--version]
 ---
 
-# Plan Agentic Cookbook Recipe v2.2.0
+# Plan Agentic Cookbook Recipe v2.3.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `plan-cookbook-recipe v2.2.0` and stop.
+**First action**: If `$ARGUMENTS` is `--version`, print `plan-cookbook-recipe v2.3.0` and stop.
 
-Otherwise, print `plan-cookbook-recipe v2.2.0` as the first line of output, then proceed.
+Otherwise, print `plan-cookbook-recipe v2.3.0` as the first line of output, then proceed.
 
-**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (2.2.0), print:
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (2.3.0), print:
 
-> ⚠ This skill is running v2.2.0 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v2.3.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
@@ -61,15 +61,45 @@ Search existing recipes for anything similar:
 
 ### Step 3: Categorize the recipe
 
-Determine the category based on what the user is describing:
+#### 3a. Discover existing categories
 
-- **UI Component** (`cookbook/recipes/ui/component/{name}.md`): A single reusable UI element — a button, a status bar, a toggle. Self-contained building block.
-- **UI Panel** (`cookbook/recipes/ui/panel/{name}.md`): A content pane that composes components — a settings pane, a detail view, an inspector.
-- **UI Window** (`cookbook/recipes/ui/window/{name}.md`): A top-level window layout — a settings window, a project window, a main window.
-- **Infrastructure** (`cookbook/recipes/infrastructure/{name}.md`): Non-visual patterns — directory sync, window frame persistence, state management.
-- **App** (`cookbook/recipes/app/{name}.md`): Application lifecycle — menus, startup, onboarding flows.
+Scan `cookbook/recipes/` to build the list of existing categories dynamically. Walk the directory tree and collect every leaf directory that contains `.md` files (excluding `_template.md` and `INDEX.md`). Each unique directory path relative to `cookbook/recipes/` is a category.
 
-Ask if unclear. Default to UI Component unless the user describes something that composes multiple pieces or is non-visual.
+Also read `cookbook/recipes/INDEX.md` to get the description of each category section.
+
+Present the discovered categories to the user with their descriptions and example recipes. For example:
+
+> **Existing recipe categories:**
+> 1. **ui/component** — Reusable visual building blocks (empty-state, status-bar, ...)
+> 2. **ui/panel** — Content areas that compose into windows (file-tree-browser, terminal-pane, ...)
+> 3. **ui/window** — Top-level window layouts (project-window, settings-window, ...)
+> 4. **infrastructure** — Non-visual architecture patterns (logging, directory-sync, ...)
+> 5. **app** — Application lifecycle, menus, commands (lifecycle, menu-commands)
+> 6. **None of these fit — propose a new category**
+
+#### 3b. If an existing category fits
+
+Use it. Set the recipe path to `cookbook/recipes/{category}/{kebab-case-name}.md`.
+
+#### 3c. If no existing category fits
+
+Walk the user through creating a new category:
+
+1. **Name the category.** Ask: "What should this category be called? Use kebab-case (e.g., `tooling`, `claude`, `testing`)."
+   - Categories can be top-level (`cookbook/recipes/{name}/`) or nested (`cookbook/recipes/{parent}/{name}/`).
+   - Propose a name based on the recipe being designed and explain your reasoning.
+
+2. **Describe the category.** Ask: "In one sentence, what kinds of recipes belong in this category?" This description will be used in INDEX.md.
+
+3. **Create the directory.** The directory will be created when the recipe file is written (in Phase 2). Note the new path for later.
+
+4. **Plan INDEX.md update.** A new section must be added to `cookbook/recipes/INDEX.md` following the existing pattern:
+   - A `## {category}` heading (using dot notation matching the directory path, e.g., `## tooling` or `## claude`)
+   - A one-line description paragraph
+   - A markdown table with columns: Domain, File, Version, Description
+   - Place the new section in alphabetical order among existing sections (before the Change History section)
+
+Record the new category details for use in Phase 2 and Phase 3.
 
 ### Step 4: Walk through each section
 
@@ -159,12 +189,8 @@ After covering all recipe sections and before drafting, walk the author through 
 
 Once the discussion is complete:
 
-1. Determine the filename based on the category from Step 3:
-   - UI Component: `cookbook/recipes/ui/component/{kebab-case-name}.md`
-   - UI Panel: `cookbook/recipes/ui/panel/{kebab-case-name}.md`
-   - UI Window: `cookbook/recipes/ui/window/{kebab-case-name}.md`
-   - Infrastructure: `cookbook/recipes/infrastructure/{kebab-case-name}.md`
-   - App: `cookbook/recipes/app/{kebab-case-name}.md`
+1. Determine the filename from the category chosen in Step 3: `cookbook/recipes/{category}/{kebab-case-name}.md`
+   - If this is a new category (Step 3c), create the directory with `mkdir -p`.
 
 2. Write the complete recipe file with ALL 17 sections:
    - Frontmatter: id (UUID), domain (path-derived), type recipe, version 1.0.0, status draft, language en, today's date for created/modified, author (user's name or claude-code), copyright "YYYY Mike Fullerton", license MIT, summary, platforms, tags, depends-on, related, references
@@ -183,8 +209,9 @@ Once the discussion is complete:
 2. **Requirement count**: Summarize: "This recipe has N requirements (X MUST, Y SHOULD, Z MAY), N test vectors, N log events."
 3. **Dependency check**: Verify all referenced recipes exist in the cookbook repo.
 4. **Format check**: Verify frontmatter is valid YAML, requirement numbering is sequential, test vector IDs are unique.
-5. **Present summary**: Show the user a brief overview of what was created.
-6. **Commit**: Commit the new recipe with message: "Add {name} recipe\n\n{one-line description}"
+5. **INDEX.md update**: If a new category was created in Step 3c, add the new section to `cookbook/recipes/INDEX.md` following the pattern described in Step 3c. Also add the new recipe entry to the appropriate table (new or existing category). Update the INDEX.md `related` frontmatter list to include the new recipe's domain.
+6. **Present summary**: Show the user a brief overview of what was created. If a new category was added, highlight it.
+7. **Commit**: Commit the new recipe with message: "Add {name} recipe\n\n{one-line description}"
 
 ## Important notes
 
