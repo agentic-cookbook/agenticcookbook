@@ -1,63 +1,75 @@
 /**
- * Skill runner — invokes Claude Code skills via the Agent SDK.
+ * Skill runner — invokes Claude Code skills via `claude -p` (CLI).
+ *
+ * Uses the CLI instead of the Agent SDK so test runs go through
+ * the Claude Max subscription, not API billing.
  */
 
-import { logCost } from "./cost.js";
+import { execFile } from "child_process";
 
 export interface RunResult {
   output: string;
-  cost: number;
-  sessionId: string;
+  exitCode: number;
+  raw: string;
 }
 
 export interface RunOptions {
   cwd: string;
-  model?: string;
-  maxBudget?: number;
-  maxTurns?: number;
+  timeout?: number;
 }
 
-const DEFAULT_MODEL = "claude-haiku-4-5-20251001";
-const DEFAULT_MAX_BUDGET = 0.5;
-const DEFAULT_MAX_TURNS = 15;
+const DEFAULT_TIMEOUT = 120_000; // 2 minutes
 
 /**
- * Run a skill in a directory via the Agent SDK.
+ * Run a skill in a directory via `claude -p`.
  *
- * Each call creates a new isolated session. The skill runs against
- * whatever files are in `opts.cwd` — typically a temp directory
- * populated from a fixture.
+ * Each call creates a new isolated session. The `--bare` flag
+ * strips all local config so only the fixture's `.claude/` is visible.
+ *
+ * Runs through Claude Max subscription — no API billing.
  */
 export async function runSkill(
   prompt: string,
   opts: RunOptions
 ): Promise<RunResult> {
-  const { query } = await import("@anthropic-ai/claude-agent-sdk");
+  const timeout = opts.timeout ?? DEFAULT_TIMEOUT;
 
-  const model = opts.model ?? process.env.TEST_MODEL ?? DEFAULT_MODEL;
+  return new Promise((resolve, reject) => {
+    execFile(
+      "claude",
+      ["-p", prompt, "--bare", "--output-format", "json"],
+      {
+        cwd: opts.cwd,
+        timeout,
+        maxBuffer: 1024 * 1024 * 5, // 5MB
+      },
+      (error, stdout, stderr) => {
+        if (error && !stdout) {
+          // Hard failure (timeout, not found, etc.)
+          resolve({
+            output: stderr || error.message,
+            exitCode: error.code ?? 1,
+            raw: stdout || "",
+          });
+          return;
+        }
 
-  let result: RunResult = { output: "", cost: 0, sessionId: "" };
-
-  for await (const msg of query({
-    prompt,
-    options: {
-      cwd: opts.cwd,
-      permissionMode: "bypassPermissions",
-      model,
-      maxTurns: opts.maxTurns ?? DEFAULT_MAX_TURNS,
-      maxBudgetUsd: opts.maxBudget ?? DEFAULT_MAX_BUDGET,
-    } as Record<string, unknown>,
-  })) {
-    const m = msg as Record<string, unknown>;
-    if (m.type === "result") {
-      result = {
-        output: (m.result as string) ?? "",
-        cost: (m.total_cost_usd as number) ?? 0,
-        sessionId: (m.session_id as string) ?? "",
-      };
-    }
-  }
-
-  logCost(prompt, result.cost);
-  return result;
+        try {
+          const parsed = JSON.parse(stdout);
+          resolve({
+            output: parsed.result ?? "",
+            exitCode: 0,
+            raw: stdout,
+          });
+        } catch {
+          // JSON parse failed — return raw output
+          resolve({
+            output: stdout || stderr || "",
+            exitCode: error?.code ?? 0,
+            raw: stdout,
+          });
+        }
+      }
+    );
+  });
 }

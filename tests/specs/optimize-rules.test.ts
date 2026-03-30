@@ -1,15 +1,8 @@
 import { copyFixture, cleanup } from "../lib/fixtures.js";
 import { runSkill } from "../lib/runner.js";
 import { fileExists, fileContains, listFiles } from "../lib/assertions.js";
-import { writeCostReport } from "../lib/cost.js";
 
-const hasAPIKey = !!process.env.ANTHROPIC_API_KEY;
-
-afterAll(() => {
-  if (hasAPIKey) writeCostReport();
-});
-
-describe.skipIf(!hasAPIKey)("/optimize-rules", () => {
+describe("/optimize-rules", () => {
   let testDir: string;
 
   beforeEach(() => {
@@ -45,16 +38,14 @@ describe.skipIf(!hasAPIKey)("/optimize-rules", () => {
   it("preserves key constraints in the optimized output", async () => {
     await runSkill("/optimize-rules .claude/rules/", { cwd: testDir });
 
-    // These constraints exist across the original rules — they must survive optimization
+    // These constraints exist across the original rules — they must survive
     expect(fileContains(testDir, ".claude/rules/optimized-rules.md", "commit")).toBe(true);
     expect(fileContains(testDir, ".claude/rules/optimized-rules.md", "verify")).toBe(true);
     expect(fileContains(testDir, ".claude/rules/optimized-rules.md", "test")).toBe(true);
   });
 
   it("--revert restores original rule files", async () => {
-    // Optimize first
     await runSkill("/optimize-rules .claude/rules/", { cwd: testDir });
-    // Then revert
     await runSkill("/optimize-rules --revert .claude/rules/", { cwd: testDir });
 
     const rules = listFiles(testDir, ".claude/rules");
