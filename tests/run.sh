@@ -5,7 +5,17 @@ set -e
 # Copies tests to a disposable sandbox and runs them there.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-TEST_SANDBOX="${SCRIPT_DIR}/../../agentic-cookbook-tests"
+
+# Find the sandbox: use TEST_SANDBOX env var if set,
+# otherwise look for agentic-cookbook-tests next to the main repo.
+# Uses git's common dir to resolve correctly from worktrees.
+if [ -n "$TEST_SANDBOX" ]; then
+  TEST_SANDBOX="$TEST_SANDBOX"
+else
+  GIT_COMMON="$(cd "$SCRIPT_DIR/.." && git rev-parse --git-common-dir 2>/dev/null)"
+  MAIN_REPO="$(cd "$SCRIPT_DIR/.." && cd "$GIT_COMMON/.." && pwd)"
+  TEST_SANDBOX="$(dirname "$MAIN_REPO")/agentic-cookbook-tests"
+fi
 
 if [ ! -d "$TEST_SANDBOX" ]; then
   echo "Error: Test sandbox not found at $TEST_SANDBOX"

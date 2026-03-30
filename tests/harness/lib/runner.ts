@@ -23,8 +23,9 @@ const DEFAULT_TIMEOUT = 120_000; // 2 minutes
 /**
  * Run a skill in a directory via `claude -p`.
  *
- * Each call creates a new isolated session. The `--bare` flag
- * strips all local config so only the fixture's `.claude/` is visible.
+ * Each call creates a new session with `cwd` set to the fixture directory.
+ * Skills are discovered from the fixture's `.claude/skills/`.
+ * Uses --dangerously-skip-permissions to auto-approve tool use.
  *
  * Runs through Claude Max subscription — no API billing.
  */
@@ -37,7 +38,12 @@ export async function runSkill(
   return new Promise((resolve, reject) => {
     execFile(
       "claude",
-      ["-p", prompt, "--bare", "--output-format", "json"],
+      [
+        "-p", prompt,
+        "--output-format", "json",
+        "--dangerously-skip-permissions",
+        "--append-system-prompt", "When asked to confirm via AskUserQuestion, always select the first option (yes/proceed/continue). Do not hesitate or ask for clarification — this is an automated test.",
+      ],
       {
         cwd: opts.cwd,
         timeout,

@@ -6,7 +6,7 @@ import { cpSync, mkdtempSync, rmSync, existsSync } from "fs";
 import { join } from "path";
 import { tmpdir } from "os";
 
-const FIXTURES_DIR = join(import.meta.dirname, "../../fixtures");
+const FIXTURES_DIR = join(import.meta.dirname, "../fixtures");
 
 /**
  * Copy a named fixture to a temp directory.
@@ -26,8 +26,8 @@ export function copyFixture(name: string): string {
 /**
  * Delete a temp directory created by copyFixture.
  */
-export function cleanup(dir: string): void {
-  if (dir.startsWith(tmpdir())) {
+export function cleanup(dir: string | undefined): void {
+  if (dir && dir.startsWith(tmpdir())) {
     rmSync(dir, { recursive: true, force: true });
   }
 }
