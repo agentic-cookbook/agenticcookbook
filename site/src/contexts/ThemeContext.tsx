@@ -42,7 +42,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     setTheme(resolveTheme(mode))
-    localStorage.setItem('theme-mode', mode)
+    if (mode === 'auto') {
+      localStorage.removeItem('theme-mode')
+    } else {
+      localStorage.setItem('theme-mode', mode)
+    }
   }, [mode])
 
   useEffect(() => {
