@@ -135,7 +135,8 @@
       color:var(--text-dim); margin-bottom:4px; padding-left:8px;
     }
     .sidebar-nav a {
-      display:block; font-family:var(--mono); font-size:0.72rem;
+      display:flex; align-items:center; justify-content:space-between;
+      font-family:var(--mono); font-size:0.72rem;
       color:var(--text-sec); text-decoration:none;
       padding:4px 8px; border-radius:4px;
       border-left:2px solid transparent;
@@ -195,18 +196,18 @@
       <a href="#suggestions">Suggestions</a>
     </div>
     <div class="nav-group">
-      <div class="nav-label">Project <span class="scope-tag local" style="vertical-align:1px;">local</span></div>
-      <a href="#rules">Rules</a>
-      <a href="#skills-local">Skills</a>
-      <a href="#plugins-local">Plugins</a>
-      <a href="#mcp">MCP Servers</a>
-      <a href="#perms-local">Permissions</a>
+      <div class="nav-label">Project</div>
+      <a href="#rules">Rules <span class="scope-tag local">local</span></a>
+      <a href="#skills-local">Skills <span class="scope-tag local">local</span></a>
+      <a href="#plugins-local">Plugins <span class="scope-tag local">local</span></a>
+      <a href="#mcp">MCP <span class="scope-tag local">local</span></a>
+      <a href="#perms-local">Permissions <span class="scope-tag local">local</span></a>
     </div>
     <div class="nav-group">
-      <div class="nav-label">Global <span class="scope-tag global" style="vertical-align:1px;">global</span></div>
-      <a href="#plugins-global">Plugins</a>
-      <a href="#skills-global">Skills</a>
-      <a href="#hooks">Hooks</a>
+      <div class="nav-label">Global</div>
+      <a href="#plugins-global">Plugins <span class="scope-tag global">global</span></a>
+      <a href="#skills-global">Skills <span class="scope-tag global">global</span></a>
+      <a href="#hooks">Hooks <span class="scope-tag global">global</span></a>
     </div>
     <div class="nav-group">
       <div class="nav-label">Environment</div>
