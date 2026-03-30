@@ -1,23 +1,23 @@
 ---
 name: cookbook-next
-version: "1.0.0"
+version: "2.0.0"
 description: "Advance the cookbook pipeline by one step. Loads one concern, evaluates it, records the result, and exits."
 argument-hint: "[skip]"
 disable-model-invocation: true
 allowed-tools: Read, Write, Edit, Bash(ls *), Bash(wc *), Bash(date *), Bash(git diff *), Bash(git status *), Bash(git add *), Bash(git commit *), AskUserQuestion
 ---
 
-# Cookbook Next v1.0.0
+# Cookbook Next v2.0.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `cookbook-next v1.0.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `cookbook-next v2.0.0` and stop — do not run the skill.
 
-Otherwise, print `cookbook-next v1.0.0` as the first line of output, then proceed.
+Otherwise, print `cookbook-next v2.0.0` as the first line of output, then proceed.
 
 **Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (1.0.0), print:
 
-> ⚠ This skill is running v1.0.0 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v2.0.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
@@ -25,7 +25,7 @@ Continue running — do not stop.
 
 Advance the cookbook pipeline by one step. Each invocation:
 
-1. Reads the current step from `.claude/cookbook-pipeline.json`
+1. Reads the current step from `.cookbook/pipeline.json`
 2. Loads one concern from `pipeline-concerns.json`
 3. Reads the referenced guideline file
 4. Evaluates the concern against the current task (planning) or code (implementation)
@@ -43,7 +43,7 @@ This keeps per-step context minimal (~10 lines of pipeline data + one guideline 
 
 ## Step 1: Load Pipeline State
 
-Read `.claude/cookbook-pipeline.json`. If it does not exist, print: "No active pipeline. Run /cookbook-start first." and stop.
+Read `.cookbook/pipeline.json`. If it does not exist, print: "No active pipeline. Run /cookbook-start first." and stop.
 
 Extract: `phase`, `current_step`, `total_steps`, `steps`, `task_description`, `results`.
 
@@ -64,7 +64,7 @@ Results:
 Applicable concerns:
 <numbered list with step number, concern name, and notes>
 
-State saved to .claude/cookbook-pipeline.json.
+State saved to .cookbook/pipeline.json.
 ```
 
 If phase is `planning`, also print: "Run /cookbook-start implementation to begin the implementation pipeline."
@@ -126,7 +126,7 @@ Ask the user to confirm the assessment before recording.
 
 ## Step 7: Record Result
 
-Append to the `results` array in `.claude/cookbook-pipeline.json`:
+Append to the `results` array in `.cookbook/pipeline.json`:
 
 ```json
 {
@@ -138,7 +138,7 @@ Append to the `results` array in `.claude/cookbook-pipeline.json`:
 }
 ```
 
-Increment `current_step` by 1. Write the updated state to `.claude/cookbook-pipeline.json`.
+Increment `current_step` by 1. Write the updated state to `.cookbook/pipeline.json`.
 
 ## Step 8: Print Next Action
 
