@@ -124,8 +124,8 @@ export default function Header({ onMenuToggle, onSearchOpen }: HeaderProps) {
             </svg>
           )}
           {mode === 'auto' && (
-            <svg className="absolute -bottom-0.5 -right-0.5 h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            <svg className="absolute inset-0 m-auto h-5 w-5 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" opacity={0.7}>
+              <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
           )}
         </button>
