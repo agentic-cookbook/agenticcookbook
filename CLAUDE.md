@@ -37,7 +37,7 @@ Key rules:
 
 Consuming projects install a single rule file (`cookbook.md`) that enforces the full cookbook — principles, guidelines, recipes, and contribution prompts. No tiers, no partial installs — everyone gets everything.
 
-Onboard: `/import-cookbook` from the consuming project. Manage preferences: `/configure-cookbook`.
+Onboard: `/install-cookbook` from the consuming project. Manage preferences: `/configure-cookbook`.
 
 **Optional rules** (independent of the cookbook):
 - `committing.md` — structured git workflow for your project
@@ -47,7 +47,7 @@ Onboard: `/import-cookbook` from the consuming project. Manage preferences: `/co
 
 | Skill | Purpose |
 |-------|---------|
-| `/import-cookbook` | Onboarding — set up CLAUDE.md and install rules |
+| `/install-cookbook` | Onboarding — set up CLAUDE.md and install rules |
 | `/uninstall-cookbook` | Remove the cookbook from your project (rules, state, plugins) |
 | `/configure-cookbook` | Manage cookbook preferences (recipe prompts, contribution prompts, optional rules) |
 | `/lint-project-with-cookbook` | Lint implementation against guidelines or a specific recipe |

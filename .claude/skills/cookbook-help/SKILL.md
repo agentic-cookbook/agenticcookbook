@@ -107,7 +107,7 @@ Preferences:
 
 Available skills:
   /configure-cookbook         — manage preferences and optional rules
-  /import-cookbook            — re-run onboarding
+  /install-cookbook            — re-run onboarding
   /lint-project-with-cookbook         — lint against guidelines or recipe
   /plan-cookbook-recipe       — design a new recipe
   /contribute-to-cookbook     — create a cookbook PR
@@ -257,7 +257,7 @@ Optional rules (independent of the cookbook):
   auto-lint.md   — auto-lint skills/agents/rules on create/modify
 
 How they work:
-  1. /import-cookbook copies cookbook.md from the cookbook into .claude/rules/
+  1. /install-cookbook copies cookbook.md from the cookbook into .claude/rules/
   2. Claude Code loads .claude/rules/*.md at session start
   3. The rule enforces cookbook content during planning and implementation
   4. /configure-cookbook manages preferences and optional rules
@@ -282,7 +282,7 @@ Print this table, marking each skill as available or requires a higher tier base
 
 ```
 Setup & Configuration:
-  /import-cookbook            — first-time onboarding
+  /install-cookbook            — first-time onboarding
   /configure-cookbook         — manage preferences and optional rules
   /cookbook-help              — this interactive guide
 
@@ -417,7 +417,7 @@ Print the following based on detected issues:
   Fix:
     git clone git@github.com:mikefullerton/agentic-cookbook.git ../agentic-cookbook
 
-  Then re-run: /import-cookbook
+  Then re-run: /install-cookbook
 ```
 
 **If no tier installed:**
@@ -435,7 +435,7 @@ Print the following based on detected issues:
 
   Your CLAUDE.md doesn't have an ## Agentic Cookbook section.
 
-  Fix: /import-cookbook
+  Fix: /install-cookbook
 ```
 
 **Always show these common issues:**

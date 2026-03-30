@@ -23,7 +23,7 @@ export default function GettingStartedPage() {
           </div>
           <div className="rounded-lg bg-[var(--color-surface-raised)] border border-[var(--color-border)] px-5 py-3">
             <code className="font-mono text-sm text-[var(--color-accent)]">
-              /import-cookbook
+              /install-cookbook
             </code>
           </div>
         </div>

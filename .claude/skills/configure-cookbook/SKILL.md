@@ -68,7 +68,7 @@ Task: <task description>
 
 **If legacy static files detected**: print a migration notice and proceed to Step 2.
 
-**If cookbook.md is not installed and no legacy files exist**: print "Cookbook not installed. Run /import-cookbook first." and stop.
+**If cookbook.md is not installed and no legacy files exist**: print "Cookbook not installed. Run /install-cookbook first." and stop.
 
 ## Step 2: Migration (if needed)
 
@@ -172,7 +172,7 @@ This project uses the [agentic-cookbook](https://github.com/mikefullerton/agenti
 - **Rule**: `cookbook.md` (minimal, ~10 lines — guardrails only)
 - **Pipeline**: `/cookbook-start` to begin, `/cookbook-next` to advance one step
 - **Preferences**: Recipe prompts [enabled/disabled], contribution prompts [enabled/disabled], committing [included/not included]
-- **Available skills**: /configure-cookbook, /import-cookbook, /cookbook-start, /cookbook-next, /lint-project-with-cookbook, /plan-cookbook-recipe, /contribute-to-cookbook
+- **Available skills**: /configure-cookbook, /install-cookbook, /cookbook-start, /cookbook-next, /lint-project-with-cookbook, /plan-cookbook-recipe, /contribute-to-cookbook
 
 Run `/configure-cookbook` to manage preferences.
 ```

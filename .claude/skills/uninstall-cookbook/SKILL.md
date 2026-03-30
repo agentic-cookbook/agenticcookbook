@@ -23,7 +23,7 @@ Continue running — do not stop.
 
 ## Overview
 
-Remove the agentic cookbook from your project. This reverses what `/import-cookbook` installed:
+Remove the agentic cookbook from your project. This reverses what `/install-cookbook` installed:
 
 - Cookbook state directory (`.cookbook/`)
 - Rule files (`.claude/rules/cookbook.md`, `.claude/rules/committing.md`)
@@ -124,7 +124,7 @@ If the section was not found, print: "No cookbook section found in CLAUDE.md —
 
 ## Step 6: Prompt About Global Plugins
 
-The following plugins may have been installed by `/import-cookbook`. Present them to the user grouped by category.
+The following plugins may have been installed by `/install-cookbook`. Present them to the user grouped by category.
 
 Run `claude plugin list --scope user` to see what is currently installed. Only show plugins that are actually installed.
 
@@ -214,7 +214,7 @@ Global plugins: N removed / kept / no cookbook plugins found
 Status line: removed / kept / was not configured
 
 The agentic cookbook has been removed from this project.
-To reinstall: /import-cookbook
+To reinstall: /install-cookbook
 ```
 
 ## Guards

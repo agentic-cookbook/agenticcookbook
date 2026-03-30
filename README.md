@@ -16,7 +16,7 @@ git clone git@github.com:mikefullerton/agentic-cookbook.git
 From your project directory, run the onboarding wizard:
 
 ```
-/import-cookbook
+/install-cookbook
 ```
 
 This installs `cookbook.md` into your project's `.claude/rules/`, updates your CLAUDE.md, and offers recommended plugins. Everyone gets the full cookbook — no tiers, no partial installs.
@@ -89,7 +89,7 @@ Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition ov
 
 | Skill | Purpose |
 |-------|---------|
-| `/import-cookbook` | Onboarding — set up CLAUDE.md and install rules |
+| `/install-cookbook` | Onboarding — set up CLAUDE.md and install rules |
 | `/configure-cookbook` | Manage preferences (recipe prompts, contribution prompts, optional rules) |
 | `/lint-project-with-cookbook` | Lint implementation against guidelines or a specific recipe |
 | `/lint-rule` | Lint a rule file against best practices |
@@ -141,7 +141,7 @@ rules/                 # terse LLM-optimized rules for .claude/ drop-in
   extension-authoring.md
 
 .claude/skills/        # Claude Code skills
-  import-cookbook/
+  install-cookbook/
   configure-cookbook/
   lint-project-with-cookbook/
   lint-rule/
