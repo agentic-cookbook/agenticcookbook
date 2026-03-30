@@ -11,44 +11,55 @@ interface ThemeContextValue {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null)
 
-function getSystemTheme(): ResolvedTheme {
-  if (typeof window === 'undefined') return 'light'
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-}
+const MQ = typeof window !== 'undefined' ? window.matchMedia('(prefers-color-scheme: dark)') : null
 
 function getInitialMode(): ThemeMode {
   if (typeof window === 'undefined') return 'auto'
   try {
     const stored = localStorage.getItem('theme-mode')
     if (stored === 'light' || stored === 'dark') return stored
-    // Migrate old 'theme' key
     const legacy = localStorage.getItem('theme')
     if (legacy === 'dark' || legacy === 'light') {
       localStorage.removeItem('theme')
       return legacy
     }
   } catch {
-    // localStorage unavailable (private browsing, quota) — default to auto
+    // localStorage unavailable — default to auto
   }
   return 'auto'
 }
 
-function resolveTheme(mode: ThemeMode): ResolvedTheme {
-  if (mode === 'auto') return getSystemTheme()
-  return mode
+function applyTheme(resolved: ResolvedTheme) {
+  document.documentElement.classList.toggle('dark', resolved === 'dark')
 }
 
 const CYCLE: ThemeMode[] = ['auto', 'dark', 'light']
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
+  // Always track what the OS says, regardless of mode
+  const [systemTheme, setSystemTheme] = useState<ResolvedTheme>(
+    () => MQ?.matches ? 'dark' : 'light'
+  )
   const [mode, setMode] = useState<ThemeMode>(getInitialMode)
-  const [theme, setTheme] = useState<ResolvedTheme>(() => resolveTheme(getInitialMode()))
 
+  // Resolve: auto uses systemTheme, forced uses mode directly
+  const theme: ResolvedTheme = mode === 'auto' ? systemTheme : mode
+
+  // Always listen for OS theme changes
   useEffect(() => {
-    const resolved = mode === 'auto' ? getSystemTheme() : mode
-    // Apply class synchronously before React re-renders to avoid flash
-    document.documentElement.classList.toggle('dark', resolved === 'dark')
-    setTheme(resolved)
+    if (!MQ) return
+    const handler = (e: MediaQueryListEvent) => setSystemTheme(e.matches ? 'dark' : 'light')
+    MQ.addEventListener('change', handler)
+    return () => MQ.removeEventListener('change', handler)
+  }, [])
+
+  // Apply dark class and persist whenever the resolved theme changes
+  useEffect(() => {
+    applyTheme(theme)
+  }, [theme])
+
+  // Persist mode to localStorage
+  useEffect(() => {
     try {
       if (mode === 'auto') {
         localStorage.removeItem('theme-mode')
@@ -57,25 +68,16 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         localStorage.setItem('theme-mode', mode)
       }
     } catch {
-      // localStorage unavailable — degrade gracefully
+      // localStorage unavailable
     }
-  }, [mode])
-
-  // Follow device theme changes in auto mode
-  useEffect(() => {
-    if (mode !== 'auto') return
-    const mq = window.matchMedia('(prefers-color-scheme: dark)')
-    const handler = (e: MediaQueryListEvent) => {
-      const resolved = e.matches ? 'dark' : 'light'
-      document.documentElement.classList.toggle('dark', resolved === 'dark')
-      setTheme(resolved)
-    }
-    mq.addEventListener('change', handler)
-    return () => mq.removeEventListener('change', handler)
   }, [mode])
 
   const toggle = () => {
-    setMode((m) => CYCLE[(CYCLE.indexOf(m) + 1) % CYCLE.length])
+    const next = CYCLE[(CYCLE.indexOf(mode) + 1) % CYCLE.length]
+    // Apply class synchronously before React re-renders
+    const resolved = next === 'auto' ? systemTheme : next
+    applyTheme(resolved)
+    setMode(next)
   }
 
   return (
