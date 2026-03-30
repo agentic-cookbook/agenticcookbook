@@ -43,6 +43,7 @@ related:
   - recipe.ui.window.settings-window
   - recipe.ui.window.standalone-terminal-window
   - recipe.ui.window.workspace-window
+  - recipe.developer-tools.claude.yolo-mode
 references: []
 ---
 
@@ -123,6 +124,14 @@ Application lifecycle, menus, and commands.
 |--------|------|---------|-------------|
 | recipe.app.lifecycle | [lifecycle.md](app/lifecycle.md) | 1.0.0 | Startup, session restore, and quit cleanup pattern |
 | recipe.app.menu-commands | [menu-commands.md](app/menu-commands.md) | 1.0.0 | Menu command structure with keyboard shortcuts and document creation flows |
+
+## developer-tools.claude
+
+Recipes for Claude Code workarounds, hooks, and developer environment configuration.
+
+| Domain | File | Version | Description |
+|--------|------|---------|-------------|
+| recipe.developer-tools.claude.yolo-mode | [yolo-mode.md](developer-tools/claude/yolo-mode.md) | 1.0.0 | Toggleable PermissionRequest hook that auto-approves all tool calls |
 
 ## Change History
 
