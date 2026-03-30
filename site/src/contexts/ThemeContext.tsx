@@ -18,13 +18,17 @@ function getSystemTheme(): ResolvedTheme {
 
 function getInitialMode(): ThemeMode {
   if (typeof window === 'undefined') return 'auto'
-  const stored = localStorage.getItem('theme-mode')
-  if (stored === 'auto' || stored === 'light' || stored === 'dark') return stored
-  // Migrate old 'theme' key
-  const legacy = localStorage.getItem('theme')
-  if (legacy === 'dark' || legacy === 'light') {
-    localStorage.removeItem('theme')
-    return legacy
+  try {
+    const stored = localStorage.getItem('theme-mode')
+    if (stored === 'light' || stored === 'dark') return stored
+    // Migrate old 'theme' key
+    const legacy = localStorage.getItem('theme')
+    if (legacy === 'dark' || legacy === 'light') {
+      localStorage.removeItem('theme')
+      return legacy
+    }
+  } catch {
+    // localStorage unavailable (private browsing, quota) — default to auto
   }
   return 'auto'
 }
@@ -42,10 +46,14 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     setTheme(resolveTheme(mode))
-    if (mode === 'auto') {
-      localStorage.removeItem('theme-mode')
-    } else {
-      localStorage.setItem('theme-mode', mode)
+    try {
+      if (mode === 'auto') {
+        localStorage.removeItem('theme-mode')
+      } else {
+        localStorage.setItem('theme-mode', mode)
+      }
+    } catch {
+      // localStorage unavailable — degrade gracefully
     }
   }, [mode])
 

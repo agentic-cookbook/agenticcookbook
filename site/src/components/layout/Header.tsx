@@ -110,7 +110,7 @@ export default function Header({ onMenuToggle, onSearchOpen }: HeaderProps) {
         {/* Theme toggle: auto → dark → light */}
         <button
           onClick={toggle}
-          className="relative p-2 text-[var(--color-text-dim)] hover:text-[var(--color-text-primary)]"
+          className="relative p-2 rounded text-[var(--color-text-dim)] hover:text-[var(--color-text-primary)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] motion-reduce:transition-none"
           aria-label={`Theme: ${mode === 'auto' ? `Auto (currently ${theme})` : mode}. Click to switch to ${mode === 'auto' ? 'dark' : mode === 'dark' ? 'light' : 'auto'}.`}
           title={mode === 'auto' ? `Following system (${theme})` : mode === 'dark' ? 'Dark mode — click for light' : 'Light mode — click for auto'}
         >
