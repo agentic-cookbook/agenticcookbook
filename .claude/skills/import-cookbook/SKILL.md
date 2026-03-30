@@ -1,6 +1,6 @@
 ---
 name: import-cookbook
-version: "8.0.0"
+version: "8.1.0"
 description: "Import the agentic cookbook into your project. Installs a minimal always-on rule and pipeline skills for iterative planning and implementation."
 argument-hint: "[--version]"
 disable-model-invocation: true
@@ -205,7 +205,28 @@ If any plugin fails to install, note the failure and continue with the rest.
 
 Print: `Installed N plugins (M already installed, skipped). Failures: <list or "none">`
 
-## Step 9: Print Summary
+## Step 9: Install Pipeline Status Line
+
+Copy `../agentic-cookbook/rules/cookbook-statusline.sh` to `.claude/cookbook-statusline.sh` and make it executable.
+
+Ask the user:
+
+```
+Install pipeline progress status line? Shows current step (e.g. "Planning: Step 5/38 — fail-fast")
+in the Claude Code terminal during /cookbook-next execution.
+
+1. Yes (Recommended)
+2. No
+```
+
+If yes:
+- If `~/.claude/settings.json` does not exist or has no `statusLine` key, write:
+  ```json
+  { "statusLine": { "type": "command", "command": ".claude/cookbook-statusline.sh" } }
+  ```
+- If a `statusLine` is already configured, print: "Status line already configured. The cookbook status line was installed at `.claude/cookbook-statusline.sh` — you can integrate it manually." Do not overwrite.
+
+## Step 10: Print Summary
 
 ```
 === Agentic Cookbook Imported ===
@@ -216,6 +237,7 @@ Manifest: .claude/cookbook-manifest.json
 Preferences: .claude/cookbook-preferences.json
 Legacy files removed: <list or "none">
 Plugins: N installed, M skipped (already installed)
+Status line: installed / skipped
 
 Pipeline workflow:
   /cookbook-start planning <task>  — begin planning
