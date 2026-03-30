@@ -18,7 +18,7 @@
       --sans: 'DM Sans', system-ui, sans-serif;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
-    body { background:var(--bg); color:var(--text); font-family:var(--sans); font-size:14px; line-height:1.65; padding:24px; min-height:100vh; }
+    body { background:var(--bg); color:var(--text); font-family:var(--sans); font-size:14px; line-height:1.65; padding:0 24px 24px; min-height:100vh; }
     body::before { content:''; position:fixed; inset:0; opacity:0.025; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); pointer-events:none; z-index:9999; }
     .container { max-width:1100px; margin:0 auto; }
     .top-row { display:grid; grid-template-columns:1fr 300px; gap:16px; margin-bottom:20px; }
@@ -105,10 +105,13 @@
 
     /* Sticky header */
     .sticky-header {
-      position:sticky; top:0; z-index:100; background:var(--bg);
+      position:fixed; top:0; left:0; right:0; z-index:100; background:var(--bg);
       border-bottom:1px solid var(--border);
-      padding-bottom:16px; margin-bottom:16px;
+      padding:24px 24px 16px;
     }
+    .sticky-header .top-row { max-width:1100px; margin:0 auto; }
+    /* Push content below fixed header — height set by JS */
+    .header-spacer { display:block; }
 
     /* Layout: sidebar + main */
     .layout { display:flex; gap:0; }
@@ -183,6 +186,7 @@
   </div>
 
   </div><!-- /sticky-header -->
+  <div class="header-spacer"></div>
 
   <div class="layout">
   <nav class="sidebar-nav">
@@ -191,7 +195,7 @@
       <a href="#suggestions">Suggestions</a>
     </div>
     <div class="nav-group">
-      <div class="nav-label">Project</div>
+      <div class="nav-label">Project <span class="scope-tag local" style="vertical-align:1px;">local</span></div>
       <a href="#rules">Rules</a>
       <a href="#skills-local">Skills</a>
       <a href="#plugins-local">Plugins</a>
@@ -199,7 +203,7 @@
       <a href="#perms-local">Permissions</a>
     </div>
     <div class="nav-group">
-      <div class="nav-label">Global</div>
+      <div class="nav-label">Global <span class="scope-tag global" style="vertical-align:1px;">global</span></div>
       <a href="#plugins-global">Plugins</a>
       <a href="#skills-global">Skills</a>
       <a href="#hooks">Hooks</a>
@@ -556,18 +560,33 @@ function toggle(header) {
   chevron.classList.toggle('open', isCollapsed);
 }
 
-// Calculate header height and set sidebar + scroll offsets dynamically
+// Calculate header height and set all dependent positions
 (function() {
   const header = document.querySelector('.sticky-header');
+  const spacer = document.querySelector('.header-spacer');
   if (!header) return;
-  const h = header.offsetHeight + 16; // 16px gap
+  const h = header.offsetHeight;
+  const gap = 16;
+  const top = h + gap;
+
+  // Spacer pushes content below fixed header
+  if (spacer) spacer.style.height = top + 'px';
+
+  // Sidebar starts right below header
   const nav = document.querySelector('.sidebar-nav');
   if (nav) {
-    nav.style.top = h + 'px';
-    nav.style.height = 'calc(100vh - ' + (h + 20) + 'px)';
+    nav.style.top = top + 'px';
+    nav.style.height = 'calc(100vh - ' + (top + 16) + 'px)';
+    // Align left with container
+    const container = document.querySelector('.container');
+    if (container) {
+      nav.style.left = container.getBoundingClientRect().left + 'px';
+    }
   }
+
+  // Scroll targets clear the header
   document.querySelectorAll('.scroll-content').forEach(el => {
-    el.style.scrollMarginTop = h + 'px';
+    el.style.scrollMarginTop = (top + 8) + 'px';
   });
 })();
 </script>
