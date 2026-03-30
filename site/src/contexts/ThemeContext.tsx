@@ -45,10 +45,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<ResolvedTheme>(() => resolveTheme(getInitialMode()))
 
   useEffect(() => {
-    setTheme(resolveTheme(mode))
+    // When switching to auto, re-query the system right now
+    const resolved = mode === 'auto' ? getSystemTheme() : mode
+    setTheme(resolved)
     try {
       if (mode === 'auto') {
         localStorage.removeItem('theme-mode')
+        localStorage.removeItem('theme') // clean up legacy key
       } else {
         localStorage.setItem('theme-mode', mode)
       }
