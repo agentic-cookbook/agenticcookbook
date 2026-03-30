@@ -2,7 +2,7 @@
 /**
  * parse-research.ts
  *
- * Parses all markdown research files in developer-tools/research/ and extracts
+ * Parses all markdown research files in research/developer-tools/ and extracts
  * tool entries into a structured JSON file at scripts/tools.json.
  *
  * Usage: npx tsx scripts/parse-research.ts

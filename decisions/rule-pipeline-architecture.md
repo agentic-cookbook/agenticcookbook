@@ -112,7 +112,7 @@ For each applicable concern (from the plan): read the guideline, review the code
 ## Implementation Order
 
 1. Decision record (this file)
-2. Research document (`developer-tools/research/claude/rule-optimization.md`)
+2. Research document (`research/developer-tools/claude/rule-optimization.md`)
 3. Linter optimization checks (O-series in `/lint-rule`)
 4. Generated rule file design and template
 5. Pipeline skills for planning and implementation
@@ -309,7 +309,7 @@ Planning starts:
 | Deliverable | Files |
 |-------------|-------|
 | Decision record | `decisions/rule-pipeline-architecture.md` |
-| Research document | `developer-tools/research/claude/rule-optimization.md` |
+| Research document | `research/developer-tools/claude/rule-optimization.md` |
 | Linter optimization checks | `lint-rule/references/rule-checklist.md` (O-series), `lint-rule/references/rule-structure-reference.md` |
 | Pipeline data | `cookbook/workflow/pipeline-concerns.json` (38 entries) |
 | Guideline checklist (updated) | `cookbook/workflow/guideline-checklist.md` (v1.1.0, file paths) |
