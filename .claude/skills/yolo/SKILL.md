@@ -1,12 +1,12 @@
 ---
 name: yolo
 description: "Toggle per-session YOLO mode (auto-approve permissions with configurable deny list). Use when --dangerously-skip-permissions is broken. /yolo on, /yolo off, /yolo configure, /yolo status"
-version: "4.0.0"
+version: "4.1.0"
 argument-hint: "[on|off|configure|status|--version]"
 allowed-tools: Read, Edit, Write, Bash(chmod *), Bash(cat *), Bash(test *), Bash(mkdir *), Bash(rm *), Bash(find *), Bash(ls *), Bash(date *), Bash(jq *), AskUserQuestion
 ---
 
-# YOLO Mode v4.0.0
+# YOLO Mode v4.1.0
 
 Toggle a per-session PermissionRequest hook that auto-approves all tool calls — a workaround for broken `--dangerously-skip-permissions` in Claude Code v2.1.x.
 
@@ -16,16 +16,16 @@ Each session independently opts in. Other sessions are unaffected.
 
 **CRITICAL**: The very first thing you output MUST be the version line below. Print it BEFORE anything else — before the warning, before any tool calls, before any other text:
 
-YOLO v4.0.0
+YOLO v4.1.0
 
 **Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. Compare to this skill's version (4.0.0). If they differ, print:
 
-> ⚠ This skill is running v4.0.0 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v4.1.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Then continue running.
 
 If `$ARGUMENTS` is `--version`, respond with exactly:
-> yolo v4.0.0
+> yolo v4.1.0
 
 Then stop.
 
@@ -33,6 +33,7 @@ Then stop.
 
 - **Hook script path**: `~/.claude/hooks/yolo-approve-all.sh`
 - **Cleanup script path**: `~/.claude/hooks/yolo-session-cleanup.sh`
+- **Auto-start script path**: `~/.claude/hooks/yolo-session-start.sh`
 - **Settings file**: `~/.claude/settings.json`
 - **Marker directory**: `/tmp/claude-yolo/`
 - **Session ID**: `${CLAUDE_SESSION_ID}`
@@ -59,7 +60,7 @@ Then stop.
 
 Read `${CLAUDE_SKILL_DIR}/references/warning.txt` FIRST (using the Read tool). Then output a single text block that starts with the version line followed by the file contents:
 
-    YOLO v4.0.0
+    YOLO v4.1.0
 
     <contents of warning.txt, verbatim, preserving all indentation>
 
@@ -181,6 +182,45 @@ exit 0
 
 Make it executable: `chmod +x ~/.claude/hooks/yolo-session-cleanup.sh`
 
+Write the following to `~/.claude/hooks/yolo-session-start.sh`:
+
+```bash
+#!/bin/bash
+# YOLO auto-enable — runs on SessionStart
+# If CLAUDE_YOLO=1 is set, creates a session marker file automatically
+
+[ "$CLAUDE_YOLO" != "1" ] && exit 0
+
+INPUT=$(cat)
+SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // empty')
+
+[ -z "$SESSION_ID" ] && exit 0
+
+MARKER_DIR="/tmp/claude-yolo"
+MARKER="${MARKER_DIR}/${SESSION_ID}.json"
+
+# Already exists (e.g. resumed session)
+[ -f "$MARKER" ] && exit 0
+
+mkdir -p "$MARKER_DIR"
+
+CWD=$(echo "$INPUT" | jq -r '.cwd // empty')
+
+cat > "$MARKER" <<MARKER_EOF
+{
+  "session_id": "${SESSION_ID}",
+  "enabled_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+  "project": "${CWD}",
+  "deny_list": "~/.claude/yolo-deny.json",
+  "auto_enabled": true
+}
+MARKER_EOF
+
+exit 0
+```
+
+Make it executable: `chmod +x ~/.claude/hooks/yolo-session-start.sh`
+
 #### Step 4b: Settings.json hooks
 
 Read `~/.claude/settings.json`.
@@ -211,6 +251,17 @@ Read `~/.claude/settings.json`.
 ```
 
 Do NOT create a second SessionEnd matcher entry. Append to the existing one's hooks array.
+
+**SessionStart auto-enable hook**: Check if `hooks.SessionStart` already has a hook with command referencing `yolo-session-start.sh`. If NOT present, add a new hook entry to the EXISTING SessionStart matcher's hooks array:
+
+```json
+{
+  "type": "command",
+  "command": "$HOME/.claude/hooks/yolo-session-start.sh"
+}
+```
+
+Do NOT create a second SessionStart matcher entry. Append to the existing one's hooks array.
 
 If the `hooks` key does not exist, create it. Do NOT overwrite existing hook entries.
 
@@ -287,9 +338,13 @@ Count all marker files: `ls /tmp/claude-yolo/*.json 2>/dev/null | wc -l`
 
 ### Step 3: Report
 
-If marker exists for this session, print:
+If marker exists for this session, read the marker file and print:
 
 > YOLO mode is **ON** for this session.
+
+If the marker contains `"auto_enabled": true`, also print:
+
+> (auto-enabled via CLAUDE_YOLO=1)
 
 Also read `~/.claude/yolo-deny.json` and print the deny list summary:
 
@@ -350,3 +405,21 @@ Use AskUserQuestion:
 - Option 4: "Done" — stop
 
 After each add/remove, write the updated config to `~/.claude/yolo-deny.json` and loop back to Step 2.
+
+---
+
+## Auto-Enable via Environment Variable
+
+After running `/yolo on` at least once (which installs hooks permanently), YOLO can be auto-enabled for new sessions by setting `CLAUDE_YOLO=1`:
+
+```bash
+CLAUDE_YOLO=1 claude
+```
+
+The SessionStart hook checks for this environment variable and creates the session marker file automatically — no `/yolo on` needed. The session still gets full deny-list protection and auto-cleanup on exit.
+
+Suggested shell alias:
+
+```bash
+alias claude-yolo='CLAUDE_YOLO=1 claude'
+```
