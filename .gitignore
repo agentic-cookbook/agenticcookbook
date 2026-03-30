@@ -11,3 +11,11 @@ Tests/Projects/
 
 # Test output
 site/test-results/
+
+# Playwright MCP
+.playwright-mcp/
+
+# tools-site build artifacts
+tools-site/node_modules/
+tools-site/dist/
+tools-site/.wrangler/
