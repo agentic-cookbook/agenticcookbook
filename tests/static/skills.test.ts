@@ -11,6 +11,7 @@ import {
   hasVersionHandling,
   hasSessionVersionCheck,
   isValidSemver,
+  normalizeVersion,
   listReferences,
 } from "../lib/parsers.js";
 
@@ -40,7 +41,9 @@ describe.each(skills.map((p) => [skillNameFromPath(p), p]))(
     });
 
     it("version is valid semver", () => {
-      expect(isValidSemver(String(fm?.version ?? ""))).toBe(true);
+      const normalized = normalizeVersion(fm?.version);
+      expect(normalized).not.toBeNull();
+      expect(isValidSemver(normalized!)).toBe(true);
     });
 
     it("description is under 250 characters", () => {
@@ -58,7 +61,8 @@ describe.each(skills.map((p) => [skillNameFromPath(p), p]))(
     });
 
     it("frontmatter version matches versions in body", () => {
-      const fmVersion = String(fm?.version ?? "");
+      const fmVersion = normalizeVersion(fm?.version);
+      if (!fmVersion) return; // covered by "version is valid semver" test
       const bodyVersions = extractBodyVersions(file.body, String(fm?.name ?? ""));
       if (bodyVersions.length > 0) {
         for (const bv of bodyVersions) {

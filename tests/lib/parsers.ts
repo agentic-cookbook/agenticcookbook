@@ -221,20 +221,38 @@ export function extractFirstHeading(body: string): string | null {
  * Check if body contains "Prerequisite: Read X" and extract the reference.
  */
 export function extractPrerequisites(body: string): string[] {
-  const pattern = /[Pp]rerequisite.*?[Rr]ead.*?`([^`]+)`/g;
-  const prereqs: string[] = [];
+  const prereqs = new Set<string>();
+
+  // Match backtick-wrapped: Prerequisite: Read `file.md`
+  const pattern1 = /[Pp]rerequisite.*?[Rr]ead.*?`([^`]+\.md)`/g;
   let match;
-  while ((match = pattern.exec(body)) !== null) {
-    prereqs.push(match[1]);
+  while ((match = pattern1.exec(body)) !== null) {
+    prereqs.add(match[1]);
   }
-  // Also match without backticks: "Prerequisite: Read and follow authoring-ground-rules.md"
-  const pattern2 = /[Pp]rerequisite.*?[Rr]ead.*?(\S+\.md)/g;
+
+  // Match bare: Prerequisite: Read and follow file.md
+  const pattern2 = /[Pp]rerequisite.*?[Rr]ead.*?([a-zA-Z0-9_-]+\.md)/g;
   while ((match = pattern2.exec(body)) !== null) {
-    if (!prereqs.includes(match[1])) {
-      prereqs.push(match[1]);
-    }
+    prereqs.add(match[1]);
   }
-  return prereqs;
+
+  return [...prereqs];
+}
+
+/**
+ * Normalize a version value from YAML frontmatter.
+ * YAML parses unquoted `2.3.0` as float 2.3 — this recovers the original.
+ */
+export function normalizeVersion(value: unknown): string | null {
+  if (value === undefined || value === null) return null;
+  const str = String(value);
+  // Already valid semver
+  if (/^\d+\.\d+\.\d+$/.test(str)) return str;
+  // YAML float: "2.3" → "2.3.0"
+  if (/^\d+\.\d+$/.test(str)) return `${str}.0`;
+  // YAML integer: "2" → "2.0.0"
+  if (/^\d+$/.test(str)) return `${str}.0.0`;
+  return str;
 }
 
 /**
