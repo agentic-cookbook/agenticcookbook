@@ -3,6 +3,7 @@ name: install-recommended-tools
 version: "2.0.0"
 description: "Walk through installing recommended Claude Code plugins, LSPs, and MCP servers based on your development type and languages."
 argument-hint: "[--version]"
+disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Bash(cat *), Bash(ls *), Bash(jq *), AskUserQuestion
 ---
 
