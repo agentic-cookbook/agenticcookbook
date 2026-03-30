@@ -1,6 +1,6 @@
 import type { CookbookEntry, NavNode } from '../types/cookbook'
 
-const SECTION_ORDER = ['principles', 'guidelines', 'recipes', 'compliance', 'workflow', 'reference']
+const SECTION_ORDER = ['principles', 'guidelines', 'recipes', 'compliance', 'workflow', 'reference', 'decisions']
 
 const SECTION_LABELS: Record<string, string> = {
   principles: 'Principles',
@@ -9,6 +9,7 @@ const SECTION_LABELS: Record<string, string> = {
   compliance: 'Compliance',
   workflow: 'Workflow',
   reference: 'Reference',
+  decisions: 'Decisions',
 }
 
 function titleCase(s: string): string {

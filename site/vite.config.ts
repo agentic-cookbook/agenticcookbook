@@ -11,6 +11,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 export default defineConfig({
   plugins: [cookbookPlugin({
     cookbookDir: path.resolve(__dirname, '../cookbook'),
+    additionalDirs: [
+      { dir: path.resolve(__dirname, '../decisions'), section: 'decisions' },
+    ],
   }), react(), cloudflare()],
   build: {
     rollupOptions: {

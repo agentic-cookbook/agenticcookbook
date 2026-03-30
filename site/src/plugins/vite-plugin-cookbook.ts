@@ -100,12 +100,60 @@ async function processMarkdownFile(
   }
 }
 
+async function processMarkdownFileWithPrefix(
+  filePath: string,
+  baseDir: string,
+  sectionPrefix: string,
+  domainMap: Map<string, string>,
+): Promise<CookbookEntry | null> {
+  const raw = fs.readFileSync(filePath, 'utf-8')
+  const { data, content } = matter(raw)
+  const frontmatter = data as CookbookFrontmatter
+
+  if (!frontmatter.domain || !frontmatter.title) {
+    return null
+  }
+
+  const processor = unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings, { behavior: 'wrap' })
+    .use(rehypeCrossReferences, { domainMap })
+    .use(rehypeStringify, { allowDangerousHtml: true })
+
+  const result = await processor.process(content)
+  const html = String(result)
+
+  let relative = path.relative(baseDir, filePath).replace(/\.md$/, '').replace(/\/(INDEX|index)$/, '')
+  const slug = '/' + sectionPrefix + (relative === 'index' ? '' : '/' + relative)
+
+  return {
+    frontmatter,
+    html,
+    raw,
+    headings: extractHeadings(html),
+    slug,
+    domain: frontmatter.domain,
+    section: sectionPrefix,
+    subsection: null,
+  }
+}
+
+interface AdditionalDir {
+  dir: string
+  section: string
+}
+
 interface CookbookPluginOptions {
   cookbookDir: string
+  additionalDirs?: AdditionalDir[]
 }
 
 export default function cookbookPlugin(options: CookbookPluginOptions): Plugin {
   const cookbookDir = options.cookbookDir
+  const additionalDirs = options.additionalDirs ?? []
   let entries: CookbookEntry[] = []
 
   return {
@@ -120,21 +168,42 @@ export default function cookbookPlugin(options: CookbookPluginOptions): Plugin {
     async load(id: string) {
       if (id !== RESOLVED_VIRTUAL_MODULE_ID) return
 
-      const files = collectMarkdownFiles(cookbookDir)
+      // Collect files from cookbook dir and additional dirs
+      const allFiles: { file: string; baseDir: string; sectionPrefix: string | null }[] = []
+
+      for (const file of collectMarkdownFiles(cookbookDir)) {
+        allFiles.push({ file, baseDir: cookbookDir, sectionPrefix: null })
+      }
+      for (const { dir, section } of additionalDirs) {
+        if (fs.existsSync(dir)) {
+          for (const file of collectMarkdownFiles(dir)) {
+            allFiles.push({ file, baseDir: dir, sectionPrefix: section })
+          }
+        }
+      }
 
       // First pass: build domain -> slug map for cross-references
       const domainMap = new Map<string, string>()
-      for (const file of files) {
+      for (const { file, baseDir, sectionPrefix } of allFiles) {
         const raw = fs.readFileSync(file, 'utf-8')
         const { data } = matter(raw)
         if (data.domain) {
-          domainMap.set(data.domain, filePathToSlug(file, cookbookDir))
+          const slug = sectionPrefix
+            ? '/' + sectionPrefix + '/' + path.relative(baseDir, file).replace(/\.md$/, '').replace(/\/(INDEX|index)$/, '')
+            : filePathToSlug(file, baseDir)
+          domainMap.set(data.domain, slug)
         }
       }
 
       // Second pass: process all files
       const results = await Promise.all(
-        files.map((file) => processMarkdownFile(file, cookbookDir, domainMap)),
+        allFiles.map(({ file, baseDir, sectionPrefix }) => {
+          if (sectionPrefix) {
+            // For additional dirs, compute slug with section prefix
+            return processMarkdownFileWithPrefix(file, baseDir, sectionPrefix, domainMap)
+          }
+          return processMarkdownFile(file, baseDir, domainMap)
+        }),
       )
       entries = results.filter((e): e is CookbookEntry => e !== null)
 
@@ -142,10 +211,17 @@ export default function cookbookPlugin(options: CookbookPluginOptions): Plugin {
     },
 
     configureServer(server) {
-      // Watch cookbook directory for changes in dev mode
+      // Watch cookbook directory and additional dirs for changes in dev mode
       server.watcher.add(cookbookDir)
+      for (const { dir } of additionalDirs) {
+        if (fs.existsSync(dir)) {
+          server.watcher.add(dir)
+        }
+      }
       server.watcher.on('change', (changedPath) => {
-        if (changedPath.startsWith(cookbookDir) && changedPath.endsWith('.md')) {
+        const isWatched = changedPath.startsWith(cookbookDir) ||
+          additionalDirs.some(({ dir }) => changedPath.startsWith(dir))
+        if (isWatched && changedPath.endsWith('.md')) {
           const mod = server.moduleGraph.getModuleById(RESOLVED_VIRTUAL_MODULE_ID)
           if (mod) {
             server.moduleGraph.invalidateModule(mod)
