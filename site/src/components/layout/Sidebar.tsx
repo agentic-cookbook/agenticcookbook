@@ -29,7 +29,7 @@ function FileLink({ node, showHeadings }: { node: NavNode; showHeadings?: boolea
   const { getBySlug } = useContent()
   const isSelected = pathname === node.path
 
-  const entry = showHeadings && isSelected ? getBySlug(node.path) : null
+  const entry = showHeadings ? getBySlug(node.path) : null
   const h2Headings = entry?.headings.filter((h) => h.depth === 2) ?? []
 
   return (
@@ -52,11 +52,22 @@ function FileLink({ node, showHeadings }: { node: NavNode; showHeadings?: boolea
       {h2Headings.length > 0 && (
         <ul className="flex flex-col border-l border-[var(--color-border)] ml-3.5">
           {h2Headings.map((heading) => {
-            const isActive = hash === '#' + heading.id
+            const href = `${node.path}#${heading.id}`
+            const isActive = isSelected && hash === '#' + heading.id
             return (
               <li key={heading.id}>
-                <Link
-                  to={`${node.path}#${heading.id}`}
+                <a
+                  href={href}
+                  onClick={(e) => {
+                    if (isSelected) {
+                      e.preventDefault()
+                      const el = document.getElementById(heading.id)
+                      if (el) {
+                        el.scrollIntoView({ behavior: 'smooth' })
+                        window.history.replaceState(null, '', href)
+                      }
+                    }
+                  }}
                   className={`relative block py-0.5 text-xs transition-colors ${
                     isActive
                       ? 'font-medium text-[var(--color-text-primary)]'
@@ -68,7 +79,7 @@ function FileLink({ node, showHeadings }: { node: NavNode; showHeadings?: boolea
                     <span className="absolute left-0 top-0.5 bottom-0.5 w-px bg-[var(--color-accent)]" />
                   )}
                   {heading.text}
-                </Link>
+                </a>
               </li>
             )
           })}
@@ -276,7 +287,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 
   return (
     <>
-      <aside className="hidden lg:block w-64 shrink-0 border-r border-[var(--color-border-subtle)] overflow-y-auto sticky top-14 h-[calc(100vh-3.5rem)]">
+      <aside className="hidden lg:block w-80 shrink-0 border-r border-[var(--color-border-subtle)] overflow-y-auto sticky top-14 h-[calc(100vh-3.5rem)]">
         {nav}
       </aside>
 
