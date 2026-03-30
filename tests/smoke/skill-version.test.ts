@@ -6,13 +6,14 @@ import {
 } from "../lib/parsers.js";
 import { runCLI, logCost, writeCostReport } from "../lib/sdk.js";
 
+const hasAPIKey = !!process.env.ANTHROPIC_API_KEY;
 const skills = listSkills();
 
 afterAll(() => {
-  writeCostReport();
+  if (hasAPIKey) writeCostReport();
 });
 
-describe.each(skills.map((p) => [skillNameFromPath(p), p]))(
+describe.skipIf(!hasAPIKey).each(skills.map((p) => [skillNameFromPath(p), p]))(
   "Smoke: %s --version",
   (name, skillPath) => {
     it(
@@ -20,10 +21,7 @@ describe.each(skills.map((p) => [skillNameFromPath(p), p]))(
       async () => {
         const file = parseFile(skillPath);
         const expected = normalizeVersion(file.frontmatter?.version);
-        if (!expected) {
-          // Skip skills without a version field — caught by static tests
-          return;
-        }
+        if (!expected) return;
 
         const result = await runCLI(`/${name} --version`);
         logCost(`${name}--version`, result.cost);
