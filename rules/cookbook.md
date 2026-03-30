@@ -65,7 +65,7 @@ Wait for the user to fill in every "?" before proceeding. Record all decisions i
 
 ### 3. Search for Matching Recipes
 
-**Check preferences first**: Read `.claude/cookbook-preferences.json` in the project root. If `show_recipe_prompts` is `false`, skip this step entirely.
+**Check preferences first**: Read `.cookbook/preferences.json` in the project root. If `show_recipe_prompts` is `false`, skip this step entirely.
 
 Search `../agentic-cookbook/cookbook/recipes/` recursively for any recipe that matches or partially matches the feature being planned. Check all subdirectories:
 
@@ -89,7 +89,7 @@ Want to see them?
 3. Don't prompt me again (re-enable with /configure-cookbook)
 ```
 
-If the user chooses "Don't prompt me again", write `{"show_recipe_prompts": false}` to `.claude/cookbook-preferences.json` (merge with existing if the file exists) and print: `Recipe prompts disabled. Re-enable with /configure-cookbook.`
+If the user chooses "Don't prompt me again", write `{"show_recipe_prompts": false}` to `.cookbook/preferences.json` (merge with existing if the file exists) and print: `Recipe prompts disabled. Re-enable with /configure-cookbook.`
 
 **If a matching recipe exists and the user wants to see it**: the plan MUST incorporate it. List the recipe file and summarize which requirements it imposes.
 
@@ -203,7 +203,7 @@ Do not mark the work as complete until every check passes.
 
 ## Post-Implementation: Contribution Opportunities
 
-**Check preferences first**: Read `.claude/cookbook-preferences.json`. If `show_contribution_prompts` is `false`, skip this section entirely.
+**Check preferences first**: Read `.cookbook/preferences.json`. If `show_contribution_prompts` is `false`, skip this section entirely.
 
 Evaluate whether any new reusable pattern was created that is not covered by an existing recipe:
 
@@ -221,7 +221,7 @@ Want to contribute it back to the cookbook?
 3. Don't prompt me again (re-enable with /configure-cookbook)
 ```
 
-If the user chooses "Don't prompt me again", write `{"show_contribution_prompts": false}` to `.claude/cookbook-preferences.json` (merge with existing) and print: `Contribution prompts disabled. Re-enable with /configure-cookbook.`
+If the user chooses "Don't prompt me again", write `{"show_contribution_prompts": false}` to `.cookbook/preferences.json` (merge with existing) and print: `Contribution prompts disabled. Re-enable with /configure-cookbook.`
 
 If yes: use `/contribute-to-cookbook` to walk through the contribution workflow.
 
@@ -264,4 +264,4 @@ If no reusable pattern was identified, record: "No contribution opportunities id
 | Verification workflow | `../agentic-cookbook/cookbook/workflow/code-verification.md` |
 | Planning workflow | `../agentic-cookbook/cookbook/workflow/code-planning.md` |
 | Implementation workflow | `../agentic-cookbook/cookbook/workflow/code-implementation.md` |
-| Preferences file | `.claude/cookbook-preferences.json` |
+| Preferences file | `.cookbook/preferences.json` |

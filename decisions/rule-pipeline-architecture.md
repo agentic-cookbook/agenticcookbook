@@ -78,7 +78,7 @@ cookbook.md mandates the same process for every task regardless of size: read 18
 - All 18 principles inlined as a summary table — no mandatory external file reads
 - The 3 unique items from authoring-ground-rules (confirm context, preserve existing work, no unauthorized changes) merged as a preamble
 - MUST NOT section deduplicated: only items that add unique constraints not stated in the body
-- A generation manifest (`.claude/cookbook-manifest.json`) tracks what was included/excluded
+- A generation manifest (`.cookbook/manifest.json`) tracks what was included/excluded
 - Source rule files in the cookbook repo stay unchanged — they are the raw material, not the output
 
 ### Iterative pipeline
@@ -150,7 +150,7 @@ The guideline checklist (192 lines, 38 concerns) was loaded in full at planning 
 
 ### Insight 3: Pipeline state belongs on disk, not in context
 
-Tracking which concerns have been evaluated and their results should not consume context window space. A `.claude/cookbook-pipeline.json` file on disk holds the state. This also makes pipelines resumable across sessions.
+Tracking which concerns have been evaluated and their results should not consume context window space. A `.cookbook/pipeline.json` file on disk holds the state. This also makes pipelines resumable across sessions.
 
 ### Phase 2 Design
 
@@ -167,7 +167,7 @@ When planning or implementing features, use /cookbook-start.
 ```
 
 **Pipeline skills**:
-- `/cookbook-start` — initializes `.claude/cookbook-pipeline.json` with phase (planning/implementation), step counter, and empty results array
+- `/cookbook-start` — initializes `.cookbook/pipeline.json` with phase (planning/implementation), step counter, and empty results array
 - `/cookbook-next` — reads the current step from `cookbook/workflow/pipeline-concerns.json`, loads only that concern's guideline file, evaluates it, records the result, increments the step counter
 
 **Pipeline concerns file** (`cookbook/workflow/pipeline-concerns.json`):
