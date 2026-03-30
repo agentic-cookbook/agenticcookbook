@@ -133,13 +133,13 @@ The script:
 
 ### Commands
 
-| Command | Effect |
-|---------|--------|
-| `/yolo on` | Show warning, confirm, install hook script and settings entry |
-| `/yolo off` | Remove `PermissionRequest` from settings, print confirmation |
-| `/yolo status` | Check settings and report whether yolo mode is active |
-| `/yolo` | Same as `/yolo status` |
-| `/yolo --version` | Print skill version |
+An implementation MUST provide these operations:
+
+| Operation | Effect |
+|-----------|--------|
+| Enable | Show warning, confirm, install hook script and settings entry |
+| Disable | Remove `PermissionRequest` from settings, print confirmation |
+| Status | Check settings and report whether yolo mode is active |
 
 ## States
 
@@ -156,23 +156,23 @@ Not applicable — this is a CLI tool with no visual UI.
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| yolo-001 | hook-auto-approves-all | Pipe any JSON to `yolo-approve-all.sh` | stdout contains `"behavior":"allow"`, exit code 0 |
-| yolo-002 | toggle-on-installs-hook | Run `/yolo on` and confirm | `~/.claude/hooks/yolo-approve-all.sh` exists, is executable; `~/.claude/settings.json` has `hooks.PermissionRequest` |
-| yolo-003 | toggle-off-removes-hook | Run `/yolo off` | `hooks.PermissionRequest` removed from `~/.claude/settings.json`; other hooks intact |
-| yolo-004 | preserve-existing-hooks | Run `/yolo on` then `/yolo off` | `hooks.SessionStart`, `hooks.UserPromptSubmit`, etc. unchanged throughout |
-| yolo-005 | status-check | Run `/yolo status` when enabled | Output contains "ON" |
-| yolo-006 | status-check | Run `/yolo status` when disabled | Output contains "OFF" |
-| yolo-007 | idempotent-toggle | Run `/yolo on` twice | Second invocation prints "already enabled", no settings change |
-| yolo-008 | warn-before-enable | Run `/yolo on` | Warning box displayed before confirmation prompt |
-| yolo-009 | hook-propagates-to-subagents | Enable yolo, spawn Agent tool subagent that runs Edit | Edit proceeds without permission prompt |
+| yolo-001 | hook-auto-approves-all | Pipe any JSON to the hook script | stdout contains `"behavior":"allow"`, exit code 0 |
+| yolo-002 | toggle-on-installs-hook | Run enable operation and confirm | Hook script exists, is executable; `~/.claude/settings.json` has `hooks.PermissionRequest` |
+| yolo-003 | toggle-off-removes-hook | Run disable operation | `hooks.PermissionRequest` removed from `~/.claude/settings.json`; other hooks intact |
+| yolo-004 | preserve-existing-hooks | Run enable then disable | `hooks.SessionStart`, `hooks.UserPromptSubmit`, etc. unchanged throughout |
+| yolo-005 | status-check | Run status when enabled | Output indicates enabled |
+| yolo-006 | status-check | Run status when disabled | Output indicates disabled |
+| yolo-007 | idempotent-toggle | Run enable twice | Second invocation reports already enabled, no settings change |
+| yolo-008 | warn-before-enable | Run enable | Security warning displayed before confirmation prompt |
+| yolo-009 | hook-propagates-to-subagents | Enable, then spawn Agent tool subagent that runs Edit | Edit proceeds without permission prompt |
 
 ## Edge Cases
 
 - **settings.json does not exist**: The skill should create it with the hooks entry. This is unlikely in practice — Claude Code creates this file on first run.
 - **hooks key does not exist**: The skill should create the `hooks` object and add `PermissionRequest` to it.
 - **Malformed settings.json**: If the file is not valid JSON, the skill should warn the user and stop without modifying it.
-- **Hook script deleted but settings entry remains**: The hook will fail silently (command not found). `/yolo status` should check both the settings entry and script existence.
-- **Multiple PermissionRequest entries**: If someone manually added other PermissionRequest hooks, `/yolo off` removes the entire `PermissionRequest` key. This is acceptable — custom PermissionRequest hooks are rare and the user can re-add them.
+- **Hook script deleted but settings entry remains**: The hook will fail silently (command not found). The status operation should check both the settings entry and script existence.
+- **Multiple PermissionRequest entries**: If someone manually added other PermissionRequest hooks, the disable operation removes the entire `PermissionRequest` key. This is acceptable — custom PermissionRequest hooks are rare and the user can re-add them.
 - **Session restart needed**: Hook changes may not take effect in the current session. The skill should note this in the enable confirmation.
 
 ## Deep Linking
@@ -208,7 +208,7 @@ Not applicable — local CLI tool, no telemetry.
 - **Data collected**: None
 - **Storage**: Hook script stored at `~/.claude/hooks/yolo-approve-all.sh`; configuration in `~/.claude/settings.json`
 - **Transmission**: No data leaves the device
-- **Retention**: Persists until `/yolo off` is run
+- **Retention**: Persists until the disable operation is run
 
 ## Logging
 
