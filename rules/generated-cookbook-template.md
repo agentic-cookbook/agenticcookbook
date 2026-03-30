@@ -1,6 +1,6 @@
 # Cookbook Rule (Generated)
 
-This is the reference template for the minimal always-on rule installed in consuming projects. `/import-cookbook` produces this file; `/configure-cookbook` regenerates it when preferences change. The always-on rule contains only behavioral guardrails — all workflow content (principles, planning pipeline, implementation pipeline, verification) is loaded on-demand by the `/cookbook-start` and `/cookbook-next` pipeline skills.
+This is the reference template for the minimal always-on rule installed in consuming projects. `/install-cookbook` produces this file; `/configure-cookbook` regenerates it when preferences change. The always-on rule contains only behavioral guardrails — all workflow content (principles, planning pipeline, implementation pipeline, verification) is loaded on-demand by the `/cookbook-start` and `/cookbook-next` pipeline skills.
 
 ---
 

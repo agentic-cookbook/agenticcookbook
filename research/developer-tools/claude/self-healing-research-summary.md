@@ -140,7 +140,7 @@ The cookbook already implements self-healing as its core architecture — the pl
 | `/validate-cookbook` | Strong | Strong | Strong | — |
 | `/cookbook-next` | Strong | Strong | Strong | — |
 | `/contribute-to-cookbook` | Strong | Strong | Moderate | No pre-merge validation; no retry on `gh` failures |
-| `/import-cookbook` | Strong | Strong | Moderate | No plugin install verification |
+| `/install-cookbook` | Strong | Strong | Moderate | No plugin install verification |
 | `/lint-project-with-cookbook` | Strong | Weak | Weak | Reports issues but no fix loop |
 | `/lint-compliance` | Strong | Weak | Weak | Guidance only, no fix or re-verify |
 | `/cookbook-bug` / `/cookbook-suggestion` | Moderate | Weak | Weak | No retry; no duplicate check on create |

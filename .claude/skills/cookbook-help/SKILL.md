@@ -1,22 +1,22 @@
 ---
 name: cookbook-help
-version: "1.0.0"
+version: "2.0.0"
 description: "Interactive guide to the agentic cookbook — tier status, content overview, skills, searching, contributing, and troubleshooting."
 argument-hint: "[topic] [--version]"
 allowed-tools: Read, Glob, Grep, AskUserQuestion
 ---
 
-# Cookbook Help v1.0.0
+# Cookbook Help v2.0.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `cookbook-help v1.0.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `cookbook-help v2.0.0` and stop — do not run the skill.
 
-Otherwise, print `cookbook-help v1.0.0` as the first line of output, then proceed.
+Otherwise, print `cookbook-help v2.0.0` as the first line of output, then proceed.
 
 **Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (1.0.0), print:
 
-> ⚠ This skill is running v1.0.0 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v2.0.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
@@ -107,7 +107,7 @@ Preferences:
 
 Available skills:
   /configure-cookbook         — manage preferences and optional rules
-  /import-cookbook            — re-run onboarding
+  /install-cookbook            — re-run onboarding
   /lint-project-with-cookbook         — lint against guidelines or recipe
   /plan-cookbook-recipe       — design a new recipe
   /contribute-to-cookbook     — create a cookbook PR
@@ -119,7 +119,7 @@ Available skills:
 To manage preferences: /configure-cookbook
 ```
 
-Read `.claude/cookbook-preferences.json` to show current preference state. All skills are available to everyone — no tier gates.
+Read `.cookbook/preferences.json` to show current preference state. All skills are available to everyone — no tier gates.
 
 ---
 
@@ -257,7 +257,7 @@ Optional rules (independent of the cookbook):
   auto-lint.md   — auto-lint skills/agents/rules on create/modify
 
 How they work:
-  1. /import-cookbook copies cookbook.md from the cookbook into .claude/rules/
+  1. /install-cookbook copies cookbook.md from the cookbook into .claude/rules/
   2. Claude Code loads .claude/rules/*.md at session start
   3. The rule enforces cookbook content during planning and implementation
   4. /configure-cookbook manages preferences and optional rules
@@ -282,7 +282,7 @@ Print this table, marking each skill as available or requires a higher tier base
 
 ```
 Setup & Configuration:
-  /import-cookbook            — first-time onboarding
+  /install-cookbook            — first-time onboarding
   /configure-cookbook         — manage preferences and optional rules
   /cookbook-help              — this interactive guide
 
@@ -417,7 +417,7 @@ Print the following based on detected issues:
   Fix:
     git clone git@github.com:mikefullerton/agentic-cookbook.git ../agentic-cookbook
 
-  Then re-run: /import-cookbook
+  Then re-run: /install-cookbook
 ```
 
 **If no tier installed:**
@@ -435,7 +435,7 @@ Print the following based on detected issues:
 
   Your CLAUDE.md doesn't have an ## Agentic Cookbook section.
 
-  Fix: /import-cookbook
+  Fix: /install-cookbook
 ```
 
 **Always show these common issues:**

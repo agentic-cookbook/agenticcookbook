@@ -1,23 +1,23 @@
 ---
 name: cookbook-start
-version: "1.0.0"
+version: "2.0.0"
 description: "Initialize a cookbook planning or implementation pipeline. Creates the pipeline state file and prints instructions for /cookbook-next."
 argument-hint: "<planning|implementation> [task description]"
 disable-model-invocation: true
 allowed-tools: Read, Write, Edit, Bash(ls *), Bash(wc *), Bash(date *), AskUserQuestion
 ---
 
-# Cookbook Start v1.0.0
+# Cookbook Start v2.0.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `cookbook-start v1.0.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `cookbook-start v2.0.0` and stop — do not run the skill.
 
-Otherwise, print `cookbook-start v1.0.0` as the first line of output, then proceed.
+Otherwise, print `cookbook-start v2.0.0` as the first line of output, then proceed.
 
 **Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (1.0.0), print:
 
-> ⚠ This skill is running v1.0.0 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v2.0.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
@@ -50,7 +50,7 @@ If no task description is provided, ask the user: "What task are you planning/im
 
 ## Step 2: Check for Existing Pipeline
 
-Check if `.claude/cookbook-pipeline.json` exists.
+Check if `.cookbook/pipeline.json` exists.
 
 If it exists, read it and print:
 
@@ -77,7 +77,7 @@ Count the total number of entries.
 
 **Planning phase**: All 38 steps (1–38).
 
-**Implementation phase**: Check if a completed planning pipeline exists (`.claude/cookbook-pipeline.json` with phase `planning` and `current_step > total_steps`). If it does:
+**Implementation phase**: Check if a completed planning pipeline exists (`.cookbook/pipeline.json` with phase `planning` and `current_step > total_steps`). If it does:
 - Extract only the steps marked as `applicable` from the planning results
 - These become the implementation steps
 - Print: "Loaded <N> applicable concerns from the completed planning session."
@@ -89,7 +89,7 @@ If no completed planning session exists:
 
 ## Step 5: Create Pipeline State
 
-Write `.claude/cookbook-pipeline.json`:
+Write `.cookbook/pipeline.json`:
 
 ```json
 {
@@ -112,7 +112,7 @@ For planning, `steps` is `[1, 2, 3, ..., 38]`. For implementation with a complet
 Phase: <planning|implementation>
 Task: <task description>
 Steps: <N> concerns to evaluate
-State: .claude/cookbook-pipeline.json
+State: .cookbook/pipeline.json
 
 Run /cookbook-next to begin step 1.
 

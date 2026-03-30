@@ -1,23 +1,23 @@
 ---
 name: configure-cookbook
-version: "4.0.0"
+version: "5.0.0"
 description: "Manage agentic cookbook preferences and rule file. Toggle committing workflow, recipe prompts, contribution prompts."
 argument-hint: "[--version]"
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(rm *), Bash(cp *), Bash(ls *), Bash(mkdir *), Bash(wc *), Bash(date *), AskUserQuestion
 ---
 
-# Configure Agentic Cookbook v4.0.0
+# Configure Agentic Cookbook v5.0.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `configure-cookbook v4.0.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `configure-cookbook v5.0.0` and stop — do not run the skill.
 
-Otherwise, print `configure-cookbook v4.0.0` as the first line of output, then proceed.
+Otherwise, print `configure-cookbook v5.0.0` as the first line of output, then proceed.
 
 **Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (4.0.0), print:
 
-> ⚠ This skill is running v4.0.0 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v5.0.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
@@ -41,11 +41,11 @@ Manage your cookbook preferences and rule installation. Use this to:
 Check the current project for:
 
 1. **Minimal rule**: Is `.claude/rules/cookbook.md` present? Is it the minimal version (~10 lines)?
-2. **Manifest**: Does `.claude/cookbook-manifest.json` exist? Read it for current state.
-3. **Preferences**: Read `.claude/cookbook-preferences.json` if it exists.
+2. **Manifest**: Does `.cookbook/manifest.json` exist? Read it for current state.
+3. **Preferences**: Read `.cookbook/preferences.json` if it exists.
 4. **Legacy files**: Are any old files present? (`authoring-ground-rules.md`, `auto-lint.md`, `PRINCIPLES-RULE.md`, `GUIDELINE-CONSUMER-RULE.md`, `RECIPE-CONSUMER-RULE.md`, `CONTRIBUTOR-RULE.md`, `skill-versioning.md`)
 5. **Committing rule**: Is `.claude/rules/committing.md` present?
-6. **Pipeline state**: Does `.claude/cookbook-pipeline.json` exist? If so, read it.
+6. **Pipeline state**: Does `.cookbook/pipeline.json` exist? If so, read it.
 
 Print the current state:
 
@@ -59,7 +59,7 @@ Preferences:
   Committing workflow: included / not included
 ```
 
-If `.claude/cookbook-pipeline.json` exists, also print:
+If `.cookbook/pipeline.json` exists, also print:
 
 ```
 Pipeline: <phase> — step <N> of <M> (<X> applicable, <Y> N/A so far)
@@ -68,7 +68,7 @@ Task: <task description>
 
 **If legacy static files detected**: print a migration notice and proceed to Step 2.
 
-**If cookbook.md is not installed and no legacy files exist**: print "Cookbook not installed. Run /import-cookbook first." and stop.
+**If cookbook.md is not installed and no legacy files exist**: print "Cookbook not installed. Run /install-cookbook first." and stop.
 
 ## Step 2: Migration (if needed)
 
@@ -141,12 +141,12 @@ When planning or implementing features, use /cookbook-start.
 
 ## Step 5: Update Manifest and Preferences
 
-Write `.claude/cookbook-manifest.json`:
+Write `.cookbook/manifest.json`:
 
 ```json
 {
   "generated": "<ISO 8601 timestamp>",
-  "generator_version": "4.0.0",
+  "generator_version": "5.0.0",
   "source_cookbook": "../agentic-cookbook",
   "rule_type": "minimal",
   "preferences": {
@@ -157,7 +157,7 @@ Write `.claude/cookbook-manifest.json`:
 }
 ```
 
-Write `.claude/cookbook-preferences.json` with the user's current preferences.
+Write `.cookbook/preferences.json` with the user's current preferences.
 
 ## Step 6: Update CLAUDE.md
 
@@ -172,7 +172,7 @@ This project uses the [agentic-cookbook](https://github.com/mikefullerton/agenti
 - **Rule**: `cookbook.md` (minimal, ~10 lines — guardrails only)
 - **Pipeline**: `/cookbook-start` to begin, `/cookbook-next` to advance one step
 - **Preferences**: Recipe prompts [enabled/disabled], contribution prompts [enabled/disabled], committing [included/not included]
-- **Available skills**: /configure-cookbook, /import-cookbook, /cookbook-start, /cookbook-next, /lint-project-with-cookbook, /plan-cookbook-recipe, /contribute-to-cookbook
+- **Available skills**: /configure-cookbook, /install-cookbook, /cookbook-start, /cookbook-next, /lint-project-with-cookbook, /plan-cookbook-recipe, /contribute-to-cookbook
 
 Run `/configure-cookbook` to manage preferences.
 ```
