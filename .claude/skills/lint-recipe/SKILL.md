@@ -1,38 +1,53 @@
 ---
 name: lint-recipe
-version: "1.0.0"
+version: "1.1.0"
 description: "Lint a cookbook recipe file against the template, conventions, and completeness checks. Triggers on 'lint this recipe', 'check my recipe', 'review this recipe', or /lint-recipe."
-argument-hint: "<path-to-recipe-file>"
-allowed-tools: Read, Glob, Grep, Bash(wc *)
+argument-hint: "[path-or-name]"
+allowed-tools: Read, Glob, Grep, Bash(wc *), AskUserQuestion
 context: fork
 ---
 
-# Lint Recipe v1.0.0
+# Lint Recipe v1.1.0
 
 Validate a cookbook recipe file for structural completeness, frontmatter correctness, requirement quality, test vector coverage, and convention compliance.
 
 ## Startup
 
-lint-recipe v1.0.0
+lint-recipe v1.1.0
 
-**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. Compare to this skill's version (1.0.0). If they differ, print:
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. Compare to this skill's version (1.1.0). If they differ, print:
 
-> ⚠ This skill is running v1.0.0 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v1.1.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Then continue running.
 
 If `$ARGUMENTS` is `--version`, respond with exactly:
-> lint-recipe v1.0.0
+> lint-recipe v1.1.0
 
 Then stop.
 
-## Input
+## Argument Resolution
 
-`$ARGUMENTS` is the path to a recipe `.md` file.
+Resolve `$ARGUMENTS` to a recipe `.md` file path using this flow:
 
-If empty, print: "Usage: /lint-recipe <path-to-recipe-file>" and stop.
+### If `$ARGUMENTS` is provided:
 
-If the file does not exist, print: "File not found: <path>" and stop.
+1. **Path check**: If `$ARGUMENTS` contains `/` or ends with `.md`, treat it as a file path.
+   - If the file exists, use it.
+   - If not, print "File not found: <path>" and stop.
+
+2. **Search string**: Otherwise, treat `$ARGUMENTS` as a search string. Use Glob to find `cookbook/recipes/**/*.md` (excluding `_template.md` and `INDEX.md`). Filter to files whose name contains the search string (case-insensitive).
+   - **1 match** → Use it. Print: "Found: <path>"
+   - **Multiple matches** → Show up to 4 matches with AskUserQuestion. Each option label is the filename, description is the relative path. The user picks one.
+   - **0 matches** → Print "No recipes matching '<string>'" and stop.
+
+### If `$ARGUMENTS` is empty:
+
+1. **Session context**: Check if a recipe file was recently created, edited, or read in this conversation. If so, offer it:
+   - Use AskUserQuestion: "Lint <filename>?" with options "Yes" and "No, choose another".
+   - If "Yes", use that file.
+
+2. **Prompt**: If no recent recipe or user declined, use AskUserQuestion: "Which recipe? Enter a name or path." The user's response re-enters the search string flow above.
 
 ## References
 

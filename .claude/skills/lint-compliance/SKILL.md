@@ -1,23 +1,23 @@
 ---
 name: lint-compliance
-version: "1.0.0"
+version: "1.1.0"
 description: "Evaluate a cookbook recipe or guideline against applicable compliance checks. Triggers on 'check compliance', 'compliance check', 'lint compliance', or /lint-compliance."
 argument-hint: "<path-to-recipe-or-guideline> [--version]"
 allowed-tools: Read, Glob, Grep, AskUserQuestion
 context: fork
 ---
 
-# Lint Compliance v1.0.0
+# Lint Compliance v1.1.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `lint-compliance v1.0.0` and stop.
+**First action**: If `$ARGUMENTS` is `--version`, print `lint-compliance v1.1.0` and stop.
 
-Otherwise, print `lint-compliance v1.0.0` as the first line of output, then proceed.
+Otherwise, print `lint-compliance v1.1.0` as the first line of output, then proceed.
 
-**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (1.0.0), print:
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (1.1.0), print:
 
-> ⚠ This skill is running v1.0.0 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v1.1.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
@@ -37,17 +37,25 @@ This skill serves two modes:
 
 ## Step 1: Resolve the Target
 
-Use `$ARGUMENTS` as the path to the file to evaluate.
+Resolve `$ARGUMENTS` to a recipe or guideline `.md` file.
 
 ### If `$ARGUMENTS` is provided:
-1. Check if the path points to a `.md` file — use it directly
-2. Check if the path points to a directory — look for the primary `.md` file in it
-3. If not found, print an error and stop
+
+1. **Path check**: If `$ARGUMENTS` contains `/` or ends with `.md`, treat it as a file path.
+   - If the file exists, use it directly.
+   - If the path points to a directory, look for the primary `.md` file in it.
+   - If not found, print "File not found: <path>" and stop.
+
+2. **Search string**: Otherwise, treat `$ARGUMENTS` as a search string. Use Glob to find `cookbook/recipes/**/*.md` and `cookbook/guidelines/**/*.md` (excluding `_template.md` and `INDEX.md`). Filter to files whose name contains the search string (case-insensitive).
+   - **1 match** → Use it. Print: "Found: <path>"
+   - **Multiple matches** → Show up to 4 matches with AskUserQuestion. Each option label is the filename, description is the relative path.
+   - **0 matches** → Print "No recipes or guidelines matching '<string>'" and stop.
 
 ### If `$ARGUMENTS` is empty:
-1. Ask the user: "Which recipe or guideline should I check? (provide a path or name)"
-2. Search `cookbook/recipes/` and `cookbook/guidelines/` for a match
-3. If multiple matches, present them and let the user choose
+
+1. **Session context**: Check if a recipe or guideline file was recently created, edited, or read in this conversation. If so, offer it with AskUserQuestion: "Check compliance for <filename>?" with options "Yes" and "No, choose another".
+
+2. **Prompt**: If no recent file or user declined, use AskUserQuestion: "Which recipe or guideline? Enter a name or path." The user's response re-enters the search string flow above.
 
 ## Step 2: Locate Compliance Definitions
 
