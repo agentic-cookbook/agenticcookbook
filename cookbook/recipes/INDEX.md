@@ -44,6 +44,7 @@ related:
   - recipe.ui.window.standalone-terminal-window
   - recipe.ui.window.workspace-window
   - recipe.developer-tools.claude.yolo-mode
+  - recipe.developer-tools.claude.claude-rule-optimization-pipeline
 references: []
 ---
 
@@ -132,6 +133,7 @@ Recipes for Claude Code workarounds, hooks, and developer environment configurat
 | Domain | File | Version | Description |
 |--------|------|---------|-------------|
 | recipe.developer-tools.claude.yolo-mode | [yolo-mode.md](developer-tools/claude/yolo-mode.md) | 1.0.0 | Toggleable PermissionRequest hook that auto-approves all tool calls |
+| recipe.developer-tools.claude.claude-rule-optimization-pipeline | [claude-rule-optimization-pipeline.md](developer-tools/claude/claude-rule-optimization-pipeline.md) | 1.0.0 | Four-phase pipeline for auditing and optimizing rule file context efficiency |
 
 ## Change History
 
