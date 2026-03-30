@@ -91,7 +91,7 @@ Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition ov
 |-------|---------|
 | `/import-cookbook` | Onboarding — set up CLAUDE.md and install rules |
 | `/configure-cookbook` | Manage preferences (recipe prompts, contribution prompts, optional rules) |
-| `/lint-with-cookbook` | Lint implementation against guidelines or a specific recipe |
+| `/lint-project-with-cookbook` | Lint implementation against guidelines or a specific recipe |
 | `/lint-rule` | Lint a rule file against best practices |
 | `/lint-skill` | Lint a skill against best practices |
 | `/lint-agent` | Lint an agent against best practices |
@@ -143,7 +143,7 @@ rules/                 # terse LLM-optimized rules for .claude/ drop-in
 .claude/skills/        # Claude Code skills
   import-cookbook/
   configure-cookbook/
-  lint-with-cookbook/
+  lint-project-with-cookbook/
   lint-rule/
   lint-skill/
   lint-agent/

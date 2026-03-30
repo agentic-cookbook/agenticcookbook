@@ -49,7 +49,8 @@ Onboard: `/import-cookbook` from the consuming project. Manage preferences: `/co
 |-------|---------|
 | `/import-cookbook` | Onboarding — set up CLAUDE.md and install rules |
 | `/configure-cookbook` | Manage cookbook preferences (recipe prompts, contribution prompts, optional rules) |
-| `/lint-with-cookbook` | Lint implementation against guidelines or a specific recipe |
+| `/lint-project-with-cookbook` | Lint implementation against guidelines or a specific recipe |
+| `/lint-recipe` | Lint a recipe file against template, conventions, and completeness |
 | `/lint-rule` | Lint a rule file against best practices |
 | `/lint-skill` | Lint a skill against best practices |
 | `/lint-agent` | Lint an agent against best practices |

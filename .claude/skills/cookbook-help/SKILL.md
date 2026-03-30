@@ -108,7 +108,7 @@ Preferences:
 Available skills:
   /configure-cookbook         — manage preferences and optional rules
   /import-cookbook            — re-run onboarding
-  /lint-with-cookbook         — lint against guidelines or recipe
+  /lint-project-with-cookbook         — lint against guidelines or recipe
   /plan-cookbook-recipe       — design a new recipe
   /contribute-to-cookbook     — create a cookbook PR
   /validate-cookbook          — validate cookbook integrity
@@ -156,8 +156,8 @@ Then count and list the recipe files:
 
 ```
 Usage examples:
-  /lint-with-cookbook recipe empty-state ./Sources/EmptyState/
-  /lint-with-cookbook recipe status-bar
+  /lint-project-with-cookbook recipe empty-state ./Sources/EmptyState/
+  /lint-project-with-cookbook recipe status-bar
 ```
 
 ---
@@ -197,7 +197,7 @@ Then count guidelines:
 
 ```
 Usage examples:
-  /lint-with-cookbook guidelines cookbook/recipes/ui/component/empty-state.md ./Sources/EmptyState/
+  /lint-project-with-cookbook guidelines cookbook/recipes/ui/component/empty-state.md ./Sources/EmptyState/
 ```
 
 ---
@@ -287,9 +287,9 @@ Setup & Configuration:
   /cookbook-help              — this interactive guide
 
 Linting & Review:
-  /lint-with-cookbook         — lint against guidelines or recipe
-    Usage: /lint-with-cookbook guidelines <recipe> <impl-path>
-           /lint-with-cookbook recipe <recipe> [impl-path]
+  /lint-project-with-cookbook         — lint against guidelines or recipe
+    Usage: /lint-project-with-cookbook guidelines <recipe> <impl-path>
+           /lint-project-with-cookbook recipe <recipe> [impl-path]
   /lint-rule                 — lint a rule file
   /lint-skill                — lint a skill
   /lint-agent                — lint an agent

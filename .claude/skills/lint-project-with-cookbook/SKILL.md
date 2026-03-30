@@ -1,6 +1,6 @@
 ---
-name: lint-with-cookbook
-version: "1.0.0"
+name: lint-project-with-cookbook
+version: "1.1.0"
 description: "Lint an implementation against cookbook guidelines or a specific recipe. Combines guideline review and recipe conformance checking."
 argument-hint: "[guidelines|recipe] [recipe-path] [implementation-path] [--version]"
 disable-model-invocation: true
@@ -8,17 +8,17 @@ allowed-tools: Read, Glob, Grep, Bash(git diff *), Bash(git log *), Bash(wc *), 
 context: fork
 ---
 
-# Lint with Cookbook v1.0.0
+# Lint with Cookbook v1.1.0
 
 ## Startup
 
-**First action**: If `$ARGUMENTS` is `--version`, print `lint-with-cookbook v1.0.0` and stop — do not run the skill.
+**First action**: If `$ARGUMENTS` is `--version`, print `lint-project-with-cookbook v1.1.0` and stop — do not run the skill.
 
-Otherwise, print `lint-with-cookbook v1.0.0` as the first line of output, then proceed.
+Otherwise, print `lint-project-with-cookbook v1.1.0` as the first line of output, then proceed.
 
-**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (1.0.0), print:
+**Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. If it differs from this skill's version (1.1.0), print:
 
-> ⚠ This skill is running v1.0.0 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v1.1.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Continue running — do not stop.
 
@@ -32,10 +32,10 @@ Lint an implementation against the agentic cookbook. Two modes:
 ## Usage
 
 ```
-/lint-with-cookbook guidelines cookbook/recipes/ui/component/empty-state.md ../my-app/Sources/EmptyState/
-/lint-with-cookbook recipe empty-state ../my-app/Sources/EmptyState/
-/lint-with-cookbook recipe empty-state
-/lint-with-cookbook
+/lint-project-with-cookbook guidelines cookbook/recipes/ui/component/empty-state.md ../my-app/Sources/EmptyState/
+/lint-project-with-cookbook recipe empty-state ../my-app/Sources/EmptyState/
+/lint-project-with-cookbook recipe empty-state
+/lint-project-with-cookbook
 ```
 
 ## Step 1: Determine Mode

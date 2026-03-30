@@ -4,7 +4,7 @@ const GROUPS = [
     items: [
       { name: '/import-cookbook', version: '6.0.3', summary: 'First-time onboarding — installs cookbook.md, updates CLAUDE.md, offers recommended plugins.' },
       { name: '/configure-cookbook', version: '2.0.0', summary: 'Manage preferences — toggle recipe prompts, contribution prompts, install optional rules.' },
-      { name: '/lint-with-cookbook', version: '1.0.0', summary: 'Lint implementation against the full guideline checklist or a specific recipe.' },
+      { name: '/lint-project-with-cookbook', version: '1.0.0', summary: 'Lint implementation against the full guideline checklist or a specific recipe.' },
       { name: '/lint-skill', version: '1.0.1', summary: 'Lint a Claude Code skill — frontmatter, structure, content quality, error handling.' },
       { name: '/lint-rule', version: '1.0.1', summary: 'Lint a rule file for clarity, single responsibility, and MUST/MUST NOT sections.' },
       { name: '/lint-agent', version: '1.0.1', summary: 'Lint a Claude Code agent for tool permissions, bounded execution, and best practices.' },
