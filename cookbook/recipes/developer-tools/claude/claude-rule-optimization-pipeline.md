@@ -105,11 +105,24 @@ The pipeline is sequential: each phase gates the next. Phase 2 (Optimize) requir
 
 ## Appearance
 
-Not applicable — CLI pipeline, no visual UI.
+The pipeline's visible output is the report file at `.claude/rule-optimization-report.md`:
+
+- **Heading structure**: H1 title, H2 per section (Timestamp, Before Metrics, After Metrics, Reduction, Changes Applied, Lint Results, Notes)
+- **Metrics tables**: Markdown tables with columns: Metric | Before | After | Change
+- **Changes list**: Bulleted list, one item per optimization applied, with file path and description
+- **Lint results**: One H3 per rule file, followed by the lint-rule checklist results (PASS/WARN/FAIL per check)
 
 ## States
 
-Not applicable — CLI pipeline, no visual states.
+| State | How to detect | Behavior |
+|-------|---------------|----------|
+| Auditing | Phase 1 output being produced | Read-only inventory and measurement; no user interaction required |
+| Awaiting Confirmation | Phase 2 proposals presented | Pipeline paused; user must confirm, decline, or selectively approve optimizations |
+| Optimizing | User confirmed; files being modified | Rule files updated per approved proposals |
+| Validating | Phase 3 checks running | Behavioral preservation enumeration and lint-rule checks; read-only |
+| Reporting | Phase 4 report being written | Report file created at `.claude/rule-optimization-report.md` |
+| Complete | Report file exists; pipeline finished | No further action; user reviews report |
+| Failed | Validation found missing constraint or lint FAIL | Pipeline halted; user must fix or revert before re-running |
 
 ## Accessibility
 
