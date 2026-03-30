@@ -33,12 +33,9 @@
     .sections { display:flex; flex-direction:column; gap:14px; }
     .card { background:var(--surface); border:1px solid var(--border-subtle); border-radius:10px; overflow:hidden; animation:card-in 0.4s ease-out both; }
     @keyframes card-in { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
-    .card-header { display:flex; align-items:center; justify-content:space-between; padding:14px 22px; cursor:pointer; user-select:none; transition:background 0.15s; }
-    .card-header:hover { background:var(--surface-hover); }
+    .card-header { display:flex; align-items:center; justify-content:space-between; padding:14px 22px; }
     .card-header h2 { font-family:var(--serif); font-size:1.05rem; font-weight:400; color:var(--text); }
     .badge { display:inline-block; font-family:var(--mono); font-size:0.65rem; font-weight:500; color:var(--gold); background:var(--gold-dim); padding:2px 10px; border-radius:20px; margin-left:10px; }
-    .chevron { color:var(--text-dim); font-size:0.7rem; transition:transform 0.25s cubic-bezier(0.4,0,0.2,1); display:inline-block; }
-    .chevron.open { transform:rotate(90deg); }
     .card-body { padding:0 22px 18px; }
     .card-body.collapsed { display:none; }
     table { width:100%; border-collapse:collapse; }
@@ -171,9 +168,8 @@
       </div>
     </div>
     <div class="env-card">
-      <div class="card-header" onclick="toggle(this)">
+      <div class="card-header">
         <h2 style="font-family:var(--serif);font-weight:400;font-size:1.05rem;">Environment</h2>
-        <span class="chevron open">&#9654;</span>
       </div>
       <div class="card-body">
         <dl class="kv">
@@ -220,9 +216,8 @@
 
     <!-- CONFIG -->
     <div id="config" class="card scroll-content">
-      <div class="card-header" onclick="toggle(this)">
+      <div class="card-header">
         <h2>Current Configuration</h2>
-        <span class="chevron open">&#9654;</span>
       </div>
       <div class="card-body">
         <dl class="kv">
@@ -244,9 +239,8 @@
 
     <!-- SUGGESTED TOOLS -->
     <div id="suggestions" class="card scroll-content">
-      <div class="card-header" onclick="toggle(this)">
+      <div class="card-header">
         <h2>Suggested Tools <span class="badge">4 recommendations</span></h2>
-        <span class="chevron open">&#9654;</span>
       </div>
       <div class="card-body">
         <p style="color:var(--text-sec);font-size:0.8rem;margin-bottom:14px;">Based on detected project types. Install per-project (locally).</p>
@@ -280,9 +274,8 @@
 
     <!-- PROJECT RULES -->
     <div id="rules" class="card scroll-content">
-      <div class="card-header" onclick="toggle(this)">
+      <div class="card-header">
         <h2>Rules <span class="badge">5</span></h2>
-        <span class="chevron open">&#9654;</span>
       </div>
       <div class="card-body">
         <table>
@@ -298,9 +291,8 @@
 
     <!-- PROJECT SKILLS -->
     <div id="skills-local" class="card scroll-content">
-      <div class="card-header" onclick="toggle(this)">
+      <div class="card-header">
         <h2>Skills <span class="badge">16</span></h2>
-        <span class="chevron open">&#9654;</span>
       </div>
       <div class="card-body">
         <table>
@@ -327,9 +319,8 @@
 
     <!-- PROJECT PLUGINS -->
     <div id="plugins-local" class="card scroll-content">
-      <div class="card-header" onclick="toggle(this)">
+      <div class="card-header">
         <h2>Plugins <span class="badge">0</span></h2>
-        <span class="chevron open">&#9654;</span>
       </div>
       <div class="card-body">
         <p style="color:var(--text-dim);font-size:0.82rem;">No project-local plugins installed. Use <code style="font-family:var(--mono);font-size:0.78rem;color:var(--text-sec);">/plugin install &lt;name&gt;</code> from this project to add one.</p>
@@ -338,9 +329,8 @@
 
     <!-- PROJECT MCP -->
     <div id="mcp" class="card scroll-content">
-      <div class="card-header" onclick="toggle(this)">
+      <div class="card-header">
         <h2>MCP Servers <span class="badge">1</span></h2>
-        <span class="chevron open">&#9654;</span>
       </div>
       <div class="card-body">
         <table>
@@ -352,9 +342,8 @@
 
     <!-- PROJECT PERMISSIONS -->
     <div id="perms-local" class="card scroll-content">
-      <div class="card-header" onclick="toggle(this)">
+      <div class="card-header">
         <h2>Permissions <span class="badge">21 project &middot; 10 local &middot; 2 global</span></h2>
-        <span class="chevron open">&#9654;</span>
       </div>
       <div class="card-body">
         <div class="label">Project (.claude/settings.json)</div>
@@ -411,9 +400,8 @@
 
     <!-- GLOBAL PLUGINS -->
     <div id="plugins-global" class="card scroll-content">
-      <div class="card-header" onclick="toggle(this)">
+      <div class="card-header">
         <h2>Plugins <span class="badge">12</span></h2>
-        <span class="chevron open">&#9654;</span>
       </div>
       <div class="card-body">
         <div class="ptree">
@@ -450,9 +438,8 @@
 
     <!-- GLOBAL SKILLS -->
     <div id="skills-global" class="card scroll-content">
-      <div class="card-header" onclick="toggle(this)">
+      <div class="card-header">
         <h2>Skills <span class="badge">11</span></h2>
-        <span class="chevron open">&#9654;</span>
       </div>
       <div class="card-body">
         <table>
@@ -474,9 +461,8 @@
 
     <!-- GLOBAL HOOKS -->
     <div id="hooks" class="card scroll-content">
-      <div class="card-header" onclick="toggle(this)">
+      <div class="card-header">
         <h2>Hooks <span class="badge">6 events</span></h2>
-        <span class="chevron open">&#9654;</span>
       </div>
       <div class="card-body">
         <div style="display:flex;flex-direction:column;gap:2px;">
@@ -518,9 +504,8 @@
 
     <!-- DEV TOOLS -->
     <div id="devtools" class="card scroll-content">
-      <div class="card-header" onclick="toggle(this)">
+      <div class="card-header">
         <h2>Dev Tools <span class="badge">8 installed &middot; 8 missing</span></h2>
-        <span class="chevron open">&#9654;</span>
       </div>
       <div class="card-body">
         <table>
@@ -553,14 +538,6 @@
 </div>
 
 <script>
-function toggle(header) {
-  const body = header.nextElementSibling;
-  const chevron = header.querySelector('.chevron');
-  const isCollapsed = body.classList.contains('collapsed');
-  body.classList.toggle('collapsed');
-  chevron.classList.toggle('open', isCollapsed);
-}
-
 // Calculate header height and set all dependent positions
 (function() {
   const header = document.querySelector('.sticky-header');
