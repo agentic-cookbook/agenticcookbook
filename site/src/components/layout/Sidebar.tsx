@@ -24,9 +24,13 @@ function Chevron({ expanded }: { expanded: boolean }) {
 }
 
 /** Leaf file link */
-function FileLink({ node }: { node: NavNode }) {
-  const { pathname } = useLocation()
+function FileLink({ node, showHeadings }: { node: NavNode; showHeadings?: boolean }) {
+  const { pathname, hash } = useLocation()
+  const { getBySlug } = useContent()
   const isSelected = pathname === node.path
+
+  const entry = showHeadings && isSelected ? getBySlug(node.path) : null
+  const h2Headings = entry?.headings.filter((h) => h.depth === 2) ?? []
 
   return (
     <li>
@@ -40,11 +44,36 @@ function FileLink({ node }: { node: NavNode }) {
         }`}
         style={{ paddingInlineStart: '0.875rem' }}
       >
-        {isSelected && (
+        {isSelected && !hash && (
           <span className="absolute left-0 top-0.5 bottom-0.5 w-px bg-[var(--color-accent)]" />
         )}
         {node.label}
       </Link>
+      {h2Headings.length > 0 && (
+        <ul className="flex flex-col border-l border-[var(--color-border)] ml-3.5">
+          {h2Headings.map((heading) => {
+            const isActive = hash === '#' + heading.id
+            return (
+              <li key={heading.id}>
+                <Link
+                  to={`${node.path}#${heading.id}`}
+                  className={`relative block py-0.5 text-xs transition-colors ${
+                    isActive
+                      ? 'font-medium text-[var(--color-text-primary)]'
+                      : 'text-[var(--color-text-dim)] hover:text-[var(--color-text-secondary)]'
+                  }`}
+                  style={{ paddingInlineStart: '0.875rem' }}
+                >
+                  {isActive && (
+                    <span className="absolute left-0 top-0.5 bottom-0.5 w-px bg-[var(--color-accent)]" />
+                  )}
+                  {heading.text}
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
+      )}
     </li>
   )
 }
@@ -129,7 +158,7 @@ function NavSection({ node }: { node: NavNode }) {
       {expanded && (
         <ul className="flex flex-col border-l border-[var(--color-border)] mt-1">
           {childFiles.map((child) => (
-            <FileLink key={child.path} node={child} />
+            <FileLink key={child.path} node={child} showHeadings={node.path === '/decisions'} />
           ))}
           {childDirs.map((child) => (
             <DirLink key={child.path} node={child} />
