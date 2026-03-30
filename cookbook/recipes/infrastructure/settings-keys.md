@@ -200,12 +200,6 @@ Subsystem: `{{bundle_id}}` | Category: `SettingsKeys`
 
 _None yet — decisions made during implementation should be recorded here._
 
-## Changelog
-
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0.0 | 2026-03-25 | Initial spec, extracted from scratching-post SettingsKeys.swift pattern |
-
 ## Change History
 
 | Version | Date | Author | Summary |

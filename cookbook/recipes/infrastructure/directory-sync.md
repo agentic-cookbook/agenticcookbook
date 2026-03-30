@@ -204,12 +204,6 @@ Subsystem: `{{bundle_id}}` | Category: `DirectorySync`
 
 _None yet — decisions made during implementation should be recorded here._
 
-## Changelog
-
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0.0 | 2026-03-25 | Initial spec — four-phase lifecycle, cache format, FSEvents configuration, workspace variant, conformance tests |
-
 ## Change History
 
 | Version | Date | Author | Summary |

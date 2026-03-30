@@ -244,12 +244,6 @@ Subsystem: `{{bundle_id}}` | Category: `FileTreeBrowser`
 
 _None yet -- decisions made during implementation should be recorded here._
 
-## Changelog
-
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0.0 | 2026-03-25 | Initial spec, extracted from scratching-post FileTreeView, FileTreeNode, and icon theming logic |
-
 ## Change History
 
 | Version | Date | Author | Summary |

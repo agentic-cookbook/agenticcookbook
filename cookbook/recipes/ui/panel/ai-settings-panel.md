@@ -357,15 +357,6 @@ Subsystem: `{{bundle_id}}` | Category: `AISettingsPanel`
 
 **UI-stub implementation**: The initial implementation from scratching-post is UI-only — settings are stored via `@AppStorage` but no actual AI provider calls are wired up. The `AIProvider` protocol, concrete provider implementations (Claude, OpenAI, Local), connection testing, and dynamic model fetching are all spec-only requirements awaiting implementation. The settings UI is functional and persists values, but the values are not consumed by any AI integration code yet.
 
-## Changelog
-
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0.0 | 2026-03-25 | Initial spec: settings UI, AI provider interface pattern, security requirements, connection testing |
-| 1.0.1 | 2026-03-25 | Added Design Decision noting current implementation is UI-stub only |
-| 1.0.2 | 2026-03-26 | Added two-tier storage model for non-sensitive settings (non-sensitive-storage-tiers): simple (UserDefaults) or complex (SQLite). Clarified SQLite is explicitly excluded from acceptable API key storage in no-insecure-key-storage. |
-| 1.1.0 | 2026-03-26 | Updated provider list (Google Gemini replaces Local). Updated model names to current versions. Added auto-enable on key entry (auto-enable-on-key-entry). Added Quick Chat section (inline-chat-control/chat-respects-toggle). Changed connection test to inline minimal-completion approach (test-connection-flow). Relaxed auto-test to SHOULD (auto-test-debounce). Added dependency on ai-chat-control.md. |
-
 ## Change History
 
 | Version | Date | Author | Summary |

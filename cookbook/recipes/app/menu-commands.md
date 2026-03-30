@@ -246,12 +246,6 @@ Subsystem: `{{bundle_id}}` | Category: `MenuCommands`
 
 _None yet — decisions made during implementation should be recorded here._
 
-## Changelog
-
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0.0 | 2026-03-25 | Initial spec, derived from scratching-post TerminalCommands in CatnipApp.swift |
-
 ## Change History
 
 | Version | Date | Author | Summary |

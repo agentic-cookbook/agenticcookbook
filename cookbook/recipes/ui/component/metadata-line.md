@@ -97,12 +97,6 @@ Subsystem: `{{bundle_id}}` | Category: `MetadataLine`
 
 _None yet._
 
-## Changelog
-
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0.0 | 2026-03-25 | Initial spec, extracted from scratching-post SubtitleLineView |
-
 ## Change History
 
 | Version | Date | Author | Summary |
