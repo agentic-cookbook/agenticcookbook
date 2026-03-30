@@ -11,6 +11,7 @@ const SECTIONS = [
   { label: 'Compliance', path: '/compliance' },
   { label: 'Workflow', path: '/workflow' },
   { label: 'Reference', path: '/reference' },
+  { label: 'Decisions', path: '/decisions' },
   { label: 'Contributors', path: '/contributors' },
 ]
 

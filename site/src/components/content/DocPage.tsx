@@ -17,6 +17,7 @@ const SECTION_LABELS: Record<string, string> = {
   compliance: 'Compliance',
   workflow: 'Workflow',
   reference: 'Reference',
+  decisions: 'Decisions',
 }
 
 /** Walk the nav tree to find a node by path */
