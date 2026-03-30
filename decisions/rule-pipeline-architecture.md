@@ -1,6 +1,6 @@
 ---
 id: 29faa7e6-7925-4db9-af90-81dcc80f4a03
-title: "Design: Rule Pipeline Architecture"
+title: "Perf Deep Dive: Rule Pipelines"
 domain: decisions.rule-pipeline-architecture
 type: reference
 version: 1.0.0
@@ -25,7 +25,7 @@ related:
 references: []
 ---
 
-# Design: Rule Pipeline Architecture
+# Perf Deep Dive: Rule Pipelines
 
 ## Summary
 
