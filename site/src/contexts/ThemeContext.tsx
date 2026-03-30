@@ -45,13 +45,14 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<ResolvedTheme>(() => resolveTheme(getInitialMode()))
 
   useEffect(() => {
-    // When switching to auto, re-query the system right now
     const resolved = mode === 'auto' ? getSystemTheme() : mode
+    // Apply class synchronously before React re-renders to avoid flash
+    document.documentElement.classList.toggle('dark', resolved === 'dark')
     setTheme(resolved)
     try {
       if (mode === 'auto') {
         localStorage.removeItem('theme-mode')
-        localStorage.removeItem('theme') // clean up legacy key
+        localStorage.removeItem('theme')
       } else {
         localStorage.setItem('theme-mode', mode)
       }
@@ -60,15 +61,15 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
   }, [mode])
 
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', theme === 'dark')
-  }, [theme])
-
   // Follow device theme changes in auto mode
   useEffect(() => {
     if (mode !== 'auto') return
     const mq = window.matchMedia('(prefers-color-scheme: dark)')
-    const handler = (e: MediaQueryListEvent) => setTheme(e.matches ? 'dark' : 'light')
+    const handler = (e: MediaQueryListEvent) => {
+      const resolved = e.matches ? 'dark' : 'light'
+      document.documentElement.classList.toggle('dark', resolved === 'dark')
+      setTheme(resolved)
+    }
     mq.addEventListener('change', handler)
     return () => mq.removeEventListener('change', handler)
   }, [mode])
