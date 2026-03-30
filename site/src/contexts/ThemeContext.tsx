@@ -18,13 +18,31 @@ function getInitialTheme(): Theme {
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>(getInitialTheme)
+  const [userOverride, setUserOverride] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return localStorage.getItem('theme') !== null
+  })
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark')
-    localStorage.setItem('theme', theme)
-  }, [theme])
+    if (userOverride) {
+      localStorage.setItem('theme', theme)
+    }
+  }, [theme, userOverride])
 
-  const toggle = () => setTheme((t) => (t === 'light' ? 'dark' : 'light'))
+  // Follow device theme changes when no manual override
+  useEffect(() => {
+    if (userOverride) return
+    const mq = window.matchMedia('(prefers-color-scheme: dark)')
+    const handler = (e: MediaQueryListEvent) => setTheme(e.matches ? 'dark' : 'light')
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [userOverride])
+
+  const toggle = () => {
+    setUserOverride(true)
+    setTheme((t) => (t === 'light' ? 'dark' : 'light'))
+  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggle }}>
