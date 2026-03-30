@@ -1,7 +1,6 @@
 import { join } from "path";
 import { runEval, logCost, writeCostReport, writeEvalResult } from "../lib/sdk.js";
 
-const hasAPIKey = !!process.env.ANTHROPIC_API_KEY;
 const fixturesDir = join(import.meta.dirname, "fixtures");
 
 const lintResultSchema = {
@@ -37,10 +36,10 @@ const lintResultSchema = {
 };
 
 afterAll(() => {
-  if (hasAPIKey) writeCostReport();
+  writeCostReport();
 });
 
-describe.skipIf(!hasAPIKey)("Eval: /lint-skill", () => {
+describe("Eval: /lint-skill", () => {
   it(
     "produces zero FAILs on a known-good skill",
     async () => {
