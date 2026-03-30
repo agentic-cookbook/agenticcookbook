@@ -6,7 +6,7 @@ argument-hint: "[on|off|configure|status|--version]"
 allowed-tools: Read, Edit, Write, Bash(chmod *), Bash(cat *), Bash(test *), Bash(mkdir *), Bash(rm *), Bash(find *), Bash(ls *), Bash(date *), Bash(jq *), AskUserQuestion
 ---
 
-# YOLO Mode v4.1.0
+# YOLO Mode v4.2.0
 
 Toggle a per-session PermissionRequest hook that auto-approves all tool calls — a workaround for broken `--dangerously-skip-permissions` in Claude Code v2.1.x.
 
@@ -16,16 +16,16 @@ Each session independently opts in. Other sessions are unaffected.
 
 **CRITICAL**: The very first thing you output MUST be the version line below. Print it BEFORE anything else — before the warning, before any tool calls, before any other text:
 
-YOLO v4.1.0
+YOLO v4.2.0
 
 **Version check**: Read `${CLAUDE_SKILL_DIR}/SKILL.md` from disk and extract the `version:` field from frontmatter. Compare to this skill's version (4.0.0). If they differ, print:
 
-> ⚠ This skill is running v4.1.0 but vA.B.C is installed. Restart the session to use the latest version.
+> ⚠ This skill is running v4.2.0 but vA.B.C is installed. Restart the session to use the latest version.
 
 Then continue running.
 
 If `$ARGUMENTS` is `--version`, respond with exactly:
-> yolo v4.1.0
+> yolo v4.2.0
 
 Then stop.
 
@@ -35,9 +35,9 @@ Then stop.
 - **Cleanup script path**: `~/.claude/hooks/yolo-session-cleanup.sh`
 - **Auto-start script path**: `~/.claude/hooks/yolo-session-start.sh`
 - **Settings file**: `~/.claude/settings.json`
-- **Marker directory**: `/tmp/claude-yolo/`
+- **Marker directory**: `~/.claude-yolo-sessions/`
 - **Session ID**: `${CLAUDE_SESSION_ID}`
-- **Marker file**: `/tmp/claude-yolo/${CLAUDE_SESSION_ID}.json`
+- **Marker file**: `~/.claude-yolo-sessions/${CLAUDE_SESSION_ID}.json`
 - **Deny config**: `~/.claude/yolo-deny.json`
 - **Deny defaults**: `${CLAUDE_SKILL_DIR}/references/yolo-deny-defaults.json`
 
@@ -60,7 +60,7 @@ Then stop.
 
 Read `${CLAUDE_SKILL_DIR}/references/warning.txt` FIRST (using the Read tool). Then output a single text block that starts with the version line followed by the file contents:
 
-    YOLO v4.1.0
+    YOLO v4.2.0
 
     <contents of warning.txt, verbatim, preserving all indentation>
 
@@ -77,7 +77,7 @@ If the user selects "No, cancel", print "YOLO mode not enabled." and stop.
 
 ### Step 3: Check current state
 
-Check if the marker file `/tmp/claude-yolo/${CLAUDE_SESSION_ID}.json` already exists. If it does, print:
+Check if the marker file `~/.claude-yolo-sessions/${CLAUDE_SESSION_ID}.json` already exists. If it does, print:
 
 > YOLO mode is already enabled for this session.
 
@@ -96,7 +96,7 @@ Write the following to `~/.claude/hooks/yolo-approve-all.sh`:
 ```bash
 #!/bin/bash
 # YOLO mode hook (v4) — per-session auto-approve via marker files
-# Reads session_id from stdin JSON, checks /tmp/claude-yolo/{session_id}.json
+# Reads session_id from stdin JSON, checks ~/.claude-yolo-sessions/{session_id}.json
 # If no marker exists, falls through to normal permission prompt (exit 1)
 
 INPUT=$(cat)
@@ -109,7 +109,7 @@ if [ -z "$SESSION_ID" ]; then
   exit 1
 fi
 
-MARKER="/tmp/claude-yolo/${SESSION_ID}.json"
+MARKER="$HOME/.claude-yolo-sessions/${SESSION_ID}.json"
 
 # No marker = YOLO not active for this session
 if [ ! -f "$MARKER" ]; then
@@ -171,11 +171,11 @@ SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // empty')
 
 # Delete this session's marker
 if [ -n "$SESSION_ID" ]; then
-  rm -f "/tmp/claude-yolo/${SESSION_ID}.json"
+  rm -f "$HOME/.claude-yolo-sessions/${SESSION_ID}.json"
 fi
 
 # Stale cleanup: delete markers older than 24h
-find /tmp/claude-yolo -name "*.json" -mtime +1 -delete 2>/dev/null
+find "$HOME/.claude-yolo-sessions" -name "*.json" -mtime +1 -delete 2>/dev/null
 
 exit 0
 ```
@@ -196,7 +196,7 @@ SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // empty')
 
 [ -z "$SESSION_ID" ] && exit 0
 
-MARKER_DIR="/tmp/claude-yolo"
+MARKER_DIR="$HOME/.claude-yolo-sessions"
 MARKER="${MARKER_DIR}/${SESSION_ID}.json"
 
 # Already exists (e.g. resumed session)
@@ -275,9 +275,9 @@ Print: "Deny list: ~/.claude/yolo-deny.json (N rules). Use /yolo configure to ed
 
 ### Step 5: Create session marker
 
-Create the marker directory if it doesn't exist: `mkdir -p /tmp/claude-yolo`
+Create the marker directory if it doesn't exist: `mkdir -p ~/.claude-yolo-sessions`
 
-Write the session marker file to `/tmp/claude-yolo/${CLAUDE_SESSION_ID}.json`:
+Write the session marker file to `~/.claude-yolo-sessions/${CLAUDE_SESSION_ID}.json`:
 
 ```json
 {
@@ -306,7 +306,7 @@ Print: "Disabling YOLO mode for this session..."
 
 ### Step 1: Check current state
 
-Check if the marker file `/tmp/claude-yolo/${CLAUDE_SESSION_ID}.json` exists. If it does NOT exist, print:
+Check if the marker file `~/.claude-yolo-sessions/${CLAUDE_SESSION_ID}.json` exists. If it does NOT exist, print:
 
 > YOLO mode is already disabled for this session.
 
@@ -314,7 +314,7 @@ Then stop.
 
 ### Step 2: Delete marker file
 
-Delete the marker file: `rm -f /tmp/claude-yolo/${CLAUDE_SESSION_ID}.json`
+Delete the marker file: `rm -f ~/.claude-yolo-sessions/${CLAUDE_SESSION_ID}.json`
 
 ### Step 3: Confirm
 
@@ -330,11 +330,11 @@ Do NOT remove hooks from settings.json — they stay permanently installed.
 
 ### Step 1: Check session marker
 
-Check if the marker file `/tmp/claude-yolo/${CLAUDE_SESSION_ID}.json` exists.
+Check if the marker file `~/.claude-yolo-sessions/${CLAUDE_SESSION_ID}.json` exists.
 
 ### Step 2: Count active sessions
 
-Count all marker files: `ls /tmp/claude-yolo/*.json 2>/dev/null | wc -l`
+Count all marker files: `ls ~/.claude-yolo-sessions/*.json 2>/dev/null | wc -l`
 
 ### Step 3: Report
 
