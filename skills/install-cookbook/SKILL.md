@@ -126,7 +126,7 @@ This project uses the [agentic-cookbook](https://github.com/mikefullerton/agenti
 - **Rule**: `cookbook.md` (minimal, ~10 lines — guardrails only)
 - **Pipeline**: `/cookbook-start` to begin, `/cookbook-next` to advance one step
 - **Preferences**: Recipe prompts [enabled/disabled], contribution prompts [enabled/disabled]
-- **Available skills**: /configure-cookbook, /install-cookbook, /cookbook-start, /cookbook-next, /lint-project-with-cookbook, /plan-cookbook-recipe, /contribute-to-cookbook
+- **Available skills**: /configure-cookbook, /contribute-to-cookbook, /cookbook-bug, /cookbook-help, /cookbook-next, /cookbook-start, /cookbook-suggestion, /install-cookbook, /install-recommended-tools, /install-worktree-rule, /lint-agent, /lint-compliance, /lint-project-with-cookbook, /lint-recipe, /lint-rule, /lint-skill, /optimize-rules, /plan-cookbook-recipe, /port-swiftui-to-appkit, /uninstall-cookbook, /validate-cookbook
 
 Run `/configure-cookbook` to manage preferences.
 ```
