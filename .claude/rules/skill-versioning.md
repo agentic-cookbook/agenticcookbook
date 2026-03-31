@@ -1,1 +1,0 @@
-../../rules/skill-versioning.md
