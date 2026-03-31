@@ -5,6 +5,7 @@ description: "Install the agentic cookbook into your project. Sets up a minimal 
 argument-hint: "[--version]"
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(cp *), Bash(mv *), Bash(mkdir *), Bash(ls *), Bash(wc *), Bash(date *), Bash(claude *), Bash(chmod *), Skill
+model: sonnet
 ---
 
 # Install Agentic Cookbook v11.1.0

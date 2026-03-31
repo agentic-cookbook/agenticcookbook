@@ -5,6 +5,7 @@ description: "File a bug report against the agentic cookbook. Guides the user th
 argument-hint: "[description] [--version]"
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Bash(gh *), Bash(which *), Bash(git *), AskUserQuestion
+model: sonnet
 ---
 
 # Cookbook Bug v1.0.0

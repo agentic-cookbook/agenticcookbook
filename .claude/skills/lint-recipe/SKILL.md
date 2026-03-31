@@ -5,6 +5,7 @@ description: "Lint a cookbook recipe file against the template, conventions, and
 argument-hint: "[path-or-name]"
 allowed-tools: Read, Glob, Grep, Bash(wc *), AskUserQuestion
 context: fork
+model: sonnet
 ---
 
 # Lint Recipe v1.1.0

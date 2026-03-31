@@ -5,6 +5,7 @@ description: "Evaluate a cookbook recipe or guideline against applicable complia
 argument-hint: "<path-to-recipe-or-guideline> [--version]"
 allowed-tools: Read, Glob, Grep, AskUserQuestion
 context: fork
+model: sonnet
 ---
 
 # Lint Compliance v1.1.0

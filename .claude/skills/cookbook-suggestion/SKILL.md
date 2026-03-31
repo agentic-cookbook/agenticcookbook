@@ -5,6 +5,7 @@ description: "Suggest new content or improvements for the agentic cookbook. Guid
 argument-hint: "[description] [--version]"
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Bash(gh *), Bash(which *), Bash(git *), AskUserQuestion
+model: sonnet
 ---
 
 # Cookbook Suggestion v1.0.0

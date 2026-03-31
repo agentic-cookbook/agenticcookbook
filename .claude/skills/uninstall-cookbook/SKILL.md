@@ -5,6 +5,7 @@ description: "Remove the agentic cookbook from your project. Removes rules, stat
 argument-hint: "[--version]"
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Edit, Bash(rm *), Bash(ls *), Bash(claude *), Bash(cat *), AskUserQuestion
+model: haiku
 ---
 
 # Uninstall Agentic Cookbook v1.0.0
