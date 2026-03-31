@@ -62,6 +62,7 @@ Onboard: `/install-cookbook` from the consuming project. Manage preferences: `/c
 | `/cookbook-bug` | File a bug report against the cookbook (creates GitHub issue) |
 | `/cookbook-suggestion` | Suggest new content or improvements (creates GitHub issue) |
 | `/lint-compliance` | Evaluate recipe/guideline against compliance checks |
+| `/optimize-rules` | Consolidate multiple rule files into a single optimized file with backup/revert |
 | `/port-swiftui-to-appkit` | Analyze a macOS SwiftUI app and plan its conversion to AppKit |
 
 Skills use a `version` field in frontmatter (project convention, not a Claude Code runtime field). See `rules/skill-versioning.md` for the versioning protocol.
