@@ -76,7 +76,7 @@ Applies to all `.md` files under `cookbook/`.
 | I01 | All cookbook files in index.md | Read `cookbook/index.md`. For every `.md` file under `cookbook/` (excluding `index.md`, `conventions.md`, `_template.md`, and directory `index.md` files), verify it is referenced in `cookbook/index.md` — either as a direct link `[text](relative/path.md)` or mentioned by filename. Glob all files, then grep the index for each. | FAIL |
 | I02 | Index links resolve | Read `cookbook/index.md`. For every markdown link `[text](path)`, verify the target file exists relative to the `cookbook/` directory. | FAIL |
 | I03 | No stale index entries | For every link in `cookbook/index.md` that points to a `.md` file, verify the target file still exists. Report dead links. | FAIL |
-| I04 | CLAUDE.md is current | Read `CLAUDE.md` at the repo root. Verify it mentions all skill names listed under `.claude/skills/`. Verify the repository structure section is accurate by comparing against actual directories. | WARN |
+| I04 | CLAUDE.md is current | Read `CLAUDE.md` at the repo root. Verify it mentions all skill names listed under `skills/`. Verify the repository structure section is accurate by comparing against actual directories. | WARN |
 | I05 | Directory index files exist | For each subdirectory under `cookbook/` that contains `.md` files (e.g., `cookbook/guidelines/testing/`), check if an `index.md` exists. Not required for leaf directories with a single file. | WARN |
 | I06 | Contributing guide exists | Verify `contributing/AUTHORING.md` exists. | WARN |
 | I07 | Conventions file exists | Verify `cookbook/conventions.md` exists and has valid frontmatter. | FAIL |
@@ -88,15 +88,15 @@ Applies to all `.md` files under `cookbook/`.
 
 | ID | Check | How to verify | Severity |
 |----|-------|---------------|----------|
-| S01 | All skills have SKILL.md | Glob `.claude/skills/*/`. For each skill directory, verify `SKILL.md` exists. | FAIL |
+| S01 | All skills have SKILL.md | Glob `skills/*/`. For each skill directory, verify `SKILL.md` exists. | FAIL |
 | S02 | Skill frontmatter has required fields | Read each `SKILL.md`. Verify YAML frontmatter contains at minimum: `name`, `description`. Check for `allowed-tools`, `context`, `argument-hint` as recommended fields. | FAIL for name/description, WARN for others |
 | S03 | Skill name matches directory | The `name:` field in `SKILL.md` frontmatter should match the skill's directory name (the parent directory of SKILL.md). | WARN |
 | S04 | Skill version field present | Check each `SKILL.md` has a `version:` field in frontmatter. Verify it is valid semver. | WARN |
 | S05 | Skill references files exist | For each skill that uses `${CLAUDE_SKILL_DIR}/references/`, glob `references/*` in the skill directory. Grep the SKILL.md for any referenced filename and verify it exists. | FAIL |
-| S06 | Skills listed in CLAUDE.md | Read `CLAUDE.md`. For each skill directory under `.claude/skills/`, verify the skill is mentioned in CLAUDE.md (by name or by the `/skill-name` command form). | WARN |
+| S06 | Skills listed in CLAUDE.md | Read `CLAUDE.md`. For each skill directory under `skills/`, verify the skill is mentioned in CLAUDE.md (by name or by the `/skill-name` command form). | WARN |
 | S07 | Rule files have content | For each `.md` file under `rules/`, verify it is non-empty (more than just a title and blank lines). Check file size is > 100 bytes. | WARN |
 | S08 | Rule files follow naming convention | Rule files under `rules/` should be UPPER-KEBAB-CASE with a `-RULE.md` suffix. Pattern: `^[A-Z0-9]+(-[A-Z0-9]+)*-RULE\.md$`. | WARN |
-| S09 | No orphaned skill references | Grep `CLAUDE.md` and `cookbook/index.md` for `/skill-name` patterns. Verify each referenced skill actually exists under `.claude/skills/`. | WARN |
+| S09 | No orphaned skill references | Grep `CLAUDE.md` and `cookbook/index.md` for `/skill-name` patterns. Verify each referenced skill actually exists under `skills/`. | WARN |
 | S10 | Skill version matches internal version | If the SKILL.md body contains a version string like `v1.0.0` (in the version check block), verify it matches the frontmatter `version:` field. | FAIL |
 
 ---
@@ -130,5 +130,5 @@ Applies only in consumer mode. The consuming project is the current working dire
 | V04 | Tier rule file installed | Check if any rule file from the cookbook's `rules/` directory is referenced or copied into the consuming project's `.claude/` configuration. Look for files matching `*-RULE.md` in the consumer's project or references to tier rules in `CLAUDE.md`. | WARN |
 | V05 | Cookbook is on main branch | Run `git -C ../agentic-cookbook branch --show-current` and verify the result is `main`. A consuming project should reference the stable main branch. | WARN |
 | V06 | Cookbook is clean | Run `git -C ../agentic-cookbook status --porcelain` and verify no uncommitted changes. Dirty cookbook may have untested content. | WARN |
-| V07 | Skills accessible | For each skill listed in `../agentic-cookbook/.claude/skills/`, verify the `SKILL.md` is readable from the consumer's context. Test by reading one skill file. | WARN |
+| V07 | Skills accessible | For each skill listed in `../agentic-cookbook/skills/`, verify the `SKILL.md` is readable from the consumer's context. Test by reading one skill file. | WARN |
 | V08 | Cookbook version consistency | Read the cookbook's `CLAUDE.md` and compare against any version pinning in the consumer's `CLAUDE.md`. If the consumer pins a cookbook version or commit, verify it matches what is checked out. | WARN |

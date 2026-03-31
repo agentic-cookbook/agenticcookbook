@@ -140,21 +140,21 @@ rules/                 # terse LLM-optimized rules for .claude/ drop-in
   permissions.md
   extension-authoring.md
 
-.claude/skills/        # Claude Code skills
+skills/                # Claude Code skills
   install-cookbook/
   configure-cookbook/
   lint-project-with-cookbook/
-  lint-rule/
-  lint-skill/
-  lint-agent/
+  lint-recipe/
+  lint-compliance/
   plan-cookbook-recipe/
   contribute-to-cookbook/
   validate-cookbook/
   cookbook-help/
   cookbook-bug/
   cookbook-suggestion/
-  lint-compliance/
-  port-swiftui-to-appkit/
+  cookbook-next/
+  cookbook-start/
+  uninstall-cookbook/
 
 contributing/          # how to contribute (AUTHORING.md)
 decisions/             # design decision records

@@ -15,7 +15,7 @@ cookbook/               # the content
   conventions.md       # full format reference
   index.md             # table of contents
 rules/                 # distributable rules for .claude/ drop-in
-.claude/skills/        # 14 cookbook-specific Claude Code skills
+skills/                # 14 cookbook-specific Claude Code skills
 contributing/          # how to contribute (AUTHORING.md)
 decisions/             # design decision records
 ```

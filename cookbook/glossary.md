@@ -44,7 +44,7 @@ Definitions of terms used throughout the agentic cookbook.
 
 **Rule** — An imperative markdown file that enforces behavior during planning or implementation. Installed into a project's `.claude/rules/` directory. Uses RFC 2119 keywords, explicit file paths, and MUST NOT sections. Located in `rules/`.
 
-**Skill** — A Claude Code extension that performs a specific task when invoked by name (e.g., `/validate-cookbook`, `/lint-skill`). Defined by a `SKILL.md` file in a directory under `.claude/skills/`.
+**Skill** — A Claude Code extension that performs a specific task when invoked by name (e.g., `/validate-cookbook`, `/lint-recipe`). Defined by a `SKILL.md` file in a directory under `skills/`.
 
 **Tier** — A participation level determining how much of the cookbook a project adopts. Three tiers, each additive: (1) guidelines and verification, (2) recipe conformance, (3) community contribution.
 
