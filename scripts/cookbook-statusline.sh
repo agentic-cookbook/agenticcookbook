@@ -1,8 +1,20 @@
 #!/bin/bash
-# Cookbook pipeline status line for Claude Code
-# Reads .cookbook/pipeline.json and displays current step progress.
-# Install: copy to .cookbook/statusline.sh and configure in settings.json
+# Cookbook pipeline progress display
+#
+# PURPOSE: Shows progress through the /cookbook-start + /cookbook-next
+# pipeline by reading .cookbook/pipeline.json (written by /cookbook-start,
+# updated by /cookbook-next on each step).
+#
+# HOW IT GETS CALLED: This is NOT a general-purpose status line script.
+# It is invoked by Claude Code's statusLine mechanism (settings.json) on
+# each turn, but only because that is the delivery mechanism available.
+# The content it displays is purely about cookbook pipeline state.
+#
+# INSTALLATION: /install-cookbook copies this to .cookbook/statusline.sh
+# in consuming projects and writes to ~/.claude/settings.json:
 #   { "statusLine": { "type": "command", "command": ".cookbook/statusline.sh" } }
+#
+# OUTPUT: "Planning: Step 2/5 — security" or "Pipeline complete" or nothing.
 
 input=$(cat)
 

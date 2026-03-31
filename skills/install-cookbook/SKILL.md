@@ -205,7 +205,7 @@ Print: `Installed N plugins (M already installed, skipped). Failures: <list or "
 
 ## Step 10: Install Pipeline Status Line
 
-Copy `../agentic-cookbook/rules/cookbook-statusline.sh` to `.cookbook/statusline.sh` and make it executable.
+Copy `../agentic-cookbook/scripts/cookbook-statusline.sh` to `.cookbook/statusline.sh` and make it executable.
 
 - If `~/.claude/settings.json` does not exist or has no `statusLine` key, write:
   ```json
