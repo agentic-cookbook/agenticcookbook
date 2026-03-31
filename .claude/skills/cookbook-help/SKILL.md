@@ -290,9 +290,8 @@ Linting & Review:
   /lint-project-with-cookbook         — lint against guidelines or recipe
     Usage: /lint-project-with-cookbook guidelines <recipe> <impl-path>
            /lint-project-with-cookbook recipe <recipe> [impl-path]
-  /lint-rule                 — lint a rule file
-  /lint-skill                — lint a skill
-  /lint-agent                — lint an agent
+  /lint-recipe               — lint a recipe file against the template
+  /lint-compliance           — evaluate a recipe against compliance checks
 
 Authoring:
   /plan-cookbook-recipe       — interactive recipe design
