@@ -1099,6 +1099,67 @@ Automatically `git add` files after Claude modifies them. Keeps the staging area
 }
 ```
 
+### Session File Tracking
+
+Track every file modified by Edit or Write during a session. Creates a per-session changes file that can be cross-referenced with `git status` to find uncommitted files changed by the current session — something git alone can't tell you (git doesn't know which process made an uncommitted change).
+
+**Event:** `PostToolUse`
+**Matcher:** `Edit|Write`
+**Phase:** all
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/session-file-tracker.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+Script (`~/.claude/hooks/session-file-tracker.sh`):
+
+```bash
+#!/bin/bash
+# Track files modified by Edit/Write tools per session
+INPUT=$(cat)
+SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // empty')
+FILE_PATH=$(echo "$INPUT" | jq -r '.tool_input.file_path // empty')
+[ -z "$SESSION_ID" ] || [ -z "$FILE_PATH" ] && exit 0
+CHANGES_DIR="$HOME/.claude-sessions"
+CHANGES_FILE="${CHANGES_DIR}/${SESSION_ID}.changes"
+mkdir -p "$CHANGES_DIR"
+# Deduplicate
+grep -qxF "$FILE_PATH" "$CHANGES_FILE" 2>/dev/null || echo "$FILE_PATH" >> "$CHANGES_FILE"
+exit 0
+```
+
+**Querying:** Find files this session touched that are still uncommitted:
+
+```bash
+comm -12 \
+  <(sort ~/.claude-sessions/$SESSION_ID.changes) \
+  <(git status --porcelain | awk '{print $2}' | sort)
+```
+
+**Cleanup:** Add a SessionEnd hook to delete stale changes files:
+
+```bash
+# In yolo-session-cleanup.sh or a dedicated cleanup hook
+rm -f "$HOME/.claude-sessions/${SESSION_ID}.changes"
+find "$HOME/.claude-sessions" -name "*.changes" -mtime +1 -delete 2>/dev/null
+```
+
+**Scope:** Install at `~/.claude/settings.json` (user-level) so it tracks across all projects. The changes file uses `session_id` as the filename, so concurrent sessions don't conflict.
+
 ### Log All Bash Commands
 
 Append every command Claude runs to a log file for compliance or debugging.
