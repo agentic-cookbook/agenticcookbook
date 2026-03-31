@@ -1,1 +1,0 @@
-../../rules/always-use-worktrees-and-prs.md

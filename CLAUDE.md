@@ -14,8 +14,8 @@ cookbook/               # the content
   reference/           # external best-practices links
   conventions.md       # full format reference
   index.md             # table of contents
-rules/                 # terse LLM-optimized rules for .claude/ drop-in
-.claude/skills/        # 14 Claude Code skills
+rules/                 # distributable rules for .claude/ drop-in
+.claude/skills/        # 14 cookbook-specific Claude Code skills
 contributing/          # how to contribute (AUTHORING.md)
 decisions/             # design decision records
 ```
@@ -39,10 +39,6 @@ Consuming projects install a single rule file (`cookbook.md`) that enforces the 
 
 Onboard: `/install-cookbook` from the consuming project. Manage preferences: `/configure-cookbook`.
 
-**Optional rules** (independent of the cookbook):
-- `committing.md` — structured git workflow for your project
-- `auto-lint.md` — auto-lint skills/agents/rules on creation/modification
-
 ## Skills
 
 | Skill | Purpose |
@@ -52,9 +48,6 @@ Onboard: `/install-cookbook` from the consuming project. Manage preferences: `/c
 | `/configure-cookbook` | Manage cookbook preferences (recipe prompts, contribution prompts, optional rules) |
 | `/lint-project-with-cookbook` | Lint implementation against guidelines or a specific recipe |
 | `/lint-recipe` | Lint a recipe file against template, conventions, and completeness |
-| `/lint-rule` | Lint a rule file against best practices |
-| `/lint-skill` | Lint a skill against best practices |
-| `/lint-agent` | Lint an agent against best practices |
 | `/plan-cookbook-recipe` | Interactive recipe design |
 | `/contribute-to-cookbook` | Create a PR to the cookbook |
 | `/validate-cookbook` | Validate cookbook integrity — frontmatter, references, indexes, placement |
@@ -62,10 +55,9 @@ Onboard: `/install-cookbook` from the consuming project. Manage preferences: `/c
 | `/cookbook-bug` | File a bug report against the cookbook (creates GitHub issue) |
 | `/cookbook-suggestion` | Suggest new content or improvements (creates GitHub issue) |
 | `/lint-compliance` | Evaluate recipe/guideline against compliance checks |
-| `/optimize-rules` | Consolidate multiple rule files into a single optimized file with backup/revert |
-| `/port-swiftui-to-appkit` | Analyze a macOS SwiftUI app and plan its conversion to AppKit |
+Skills use a `version` field in frontmatter (project convention, not a Claude Code runtime field).
 
-Skills use a `version` field in frontmatter (project convention, not a Claude Code runtime field). See `rules/skill-versioning.md` for the versioning protocol.
+> **Note:** General-purpose skills (`/lint-rule`, `/lint-skill`, `/lint-agent`, `/optimize-rules`, `/port-swiftui-to-appkit`, `/yolo`, `/cleanup-repo`, `/install-status-enhancements`, `/uninstall-status-enhancements`, `/install-worktree-rule`, `/show-project-setup`, `/install-recommended-tools`) moved to the [cat-herding](https://github.com/mikefullerton/cat-herding) repo.
 
 ## Git Workflow
 
