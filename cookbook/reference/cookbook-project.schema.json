@@ -19,6 +19,10 @@
     "cookbook"
   ],
   "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Optional JSON Schema reference for editor support"
+    },
     "type": {
       "const": "cookbook-project",
       "description": "Identifies this file as a cookbook project"
