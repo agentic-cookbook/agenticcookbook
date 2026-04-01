@@ -1,0 +1,21 @@
+{
+  "bundle_id": "com.example.my-document-editor",
+  "display_name": "My Document Editor",
+  "version": "0.1.0",
+  "build": "1",
+  "minimum_os": {
+    "ios": "17.0",
+    "macos": "14.0"
+  },
+  "capabilities": [
+    "document-types",
+    "icloud-documents"
+  ],
+  "document_types": [
+    {
+      "name": "Rich Text Document",
+      "extensions": ["rtfd", "rtf"],
+      "role": "editor"
+    }
+  ]
+}

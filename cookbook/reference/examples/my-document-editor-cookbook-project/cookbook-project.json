@@ -1,0 +1,72 @@
+{
+  "$schema": "../../cookbook-project.schema.json",
+  "type": "cookbook-project",
+  "schema_version": "1.0.0",
+  "name": "My Document Editor",
+  "id": "e6cf99be-cec3-4011-9cbe-a4a6f8c28524",
+  "version": "0.1.0",
+  "description": "A multi-platform document editor with rich text editing and a toolbar",
+  "author": "Mike Fullerton",
+  "license": "MIT",
+  "created": "2026-04-01",
+  "modified": "2026-04-01",
+  "platforms": ["ios", "macos"],
+  "cookbook": {
+    "repo": "https://github.com/mikefullerton/agentic-cookbook",
+    "version": "1.0.0"
+  },
+  "resources": {
+    "app-config": {
+      "type": "app-manifest",
+      "path": "resources/app-config.json",
+      "description": "Bundle ID, version, capabilities — generates to Info.plist on Apple"
+    }
+  },
+  "context": {
+    "decisions": {
+      "offline-first": {
+        "type": "decision",
+        "path": "context/decisions/offline-first.md",
+        "description": "App will be offline-first with local document storage"
+      }
+    },
+    "research": {
+      "text-engine-evaluation": {
+        "type": "research",
+        "path": "context/research/text-engine-evaluation.md",
+        "description": "Evaluated TextKit 2 vs custom engine — chose TextKit 2"
+      }
+    }
+  },
+  "components": {
+    "app": {
+      "recipe": "app/app.md",
+      "description": "Application entry point and lifecycle",
+      "components": {
+        "document-window": {
+          "recipe": "app/document-window/document-window.md",
+          "description": "Main document editing window",
+          "source": {
+            "domain": "agentic-cookbook://recipes/ui/windows/document-window",
+            "version": "1.0.0"
+          },
+          "components": {
+            "toolbar": {
+              "recipe": "app/document-window/toolbar/toolbar.md",
+              "description": "Formatting toolbar for the editor"
+            },
+            "editor": {
+              "recipe": "app/document-window/editor/editor.md",
+              "description": "Rich text editing surface",
+              "depends-on": ["app.document-window.toolbar"]
+            }
+          }
+        },
+        "settings": {
+          "recipe": "app/settings/settings.md",
+          "description": "Application preferences"
+        }
+      }
+    }
+  }
+}
