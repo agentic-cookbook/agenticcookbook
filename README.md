@@ -85,6 +85,32 @@ Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition ov
 
 *How to work.* Branching, planning, implementation, verification, review.
 
+## Cookbook Projects
+
+A **cookbook project** (`cookbook-project.json`) is a self-contained, platform-agnostic project definition. It defines *what* an app is — components, resources, and context — as a hierarchical manifest. Generation tools produce native, best-of-class code for any target platform (Swift/SwiftUI, Kotlin, C#/WinUI, etc.).
+
+The manifest is the **single source of truth**. Recipes are forked from the cookbook, customized for the project, and can be contributed back upstream. Resources (localization, icons, app config) are defined in platform-neutral JSON that generates to native formats per platform.
+
+```
+my-app-cookbook-project/
+├── cookbook-project.json        # the manifest — defines everything
+├── app/
+│   ├── app.md                  # recipe: app entry point
+│   └── document-window/
+│       ├── document-window.md  # recipe: main window
+│       ├── toolbar/
+│       │   └── toolbar.md      # recipe: formatting toolbar
+│       └── editor/
+│           └── editor.md       # recipe: rich text editor
+├── resources/
+│   └── app-config.json         # generates to Info.plist, AndroidManifest, etc.
+└── context/
+    ├── decisions/              # architectural decisions
+    └── research/               # design research and evaluations
+```
+
+See `decisions/cookbook-project-format.md` for the full spec and `cookbook/reference/cookbook-project.schema.json` for the JSON Schema. A complete example lives at `cookbook/reference/examples/my-document-editor-cookbook-project/`.
+
 ## Skills
 
 | Skill | Purpose |
@@ -128,6 +154,8 @@ cookbook/               # the content
   compliance/          # 10 compliance categories (81 checks)
   workflow/            # 6 workflow specs (plan, implement, verify, review)
   reference/           # external best-practices links
+    cookbook-project.schema.json  # JSON Schema for cookbook-project.json
+    examples/          # example cookbook projects
   conventions.md       # full format reference
   index.md             # table of contents
 
