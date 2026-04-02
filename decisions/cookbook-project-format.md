@@ -47,7 +47,7 @@ The manifest is the **single source of truth**. Files in the directory that aren
 
 - **Filename:** `cookbook-project.json` — self-identifying from a directory listing, opens as JSON on every platform
 - **Type field:** `"type": "cookbook-project"` inside the file — machine-validatable
-- **Directory naming:** No convention enforced. Best practice is to append `-cookbook-project` (e.g., `my-app-cookbook-project/`) but not required
+- **Directory naming:** Cookbook project directories MUST use the suffix `-cookbook-project` (e.g., `my-app-cookbook-project/`). This distinguishes cookbook projects from other directories and makes the project type immediately recognizable.
 - **Discovery:** Tools glob for `**/cookbook-project.json` to find projects
 
 ### Platform Philosophy

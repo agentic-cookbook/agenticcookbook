@@ -3,11 +3,11 @@ id: 7a3e1f2c-8b4d-4e6a-9c5f-1d2e3f4a5b6c
 title: "Conventions"
 domain: agentic-cookbook://conventions
 type: reference
-version: 1.0.0
+version: 1.1.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-02
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -227,6 +227,19 @@ Within the same document: `Validates: #requirements/ordered-list`
 - **`.md` extension** for all content files
 - **`index.md`** for landing pages (lowercase)
 
+### Cookbook Project Directory Naming
+
+Cookbook project directories MUST use the suffix `-cookbook-project`. For a source repository named `my-app`, the cookbook project directory is `my-app-cookbook-project/`. This distinguishes cookbook projects from other directories and makes the project type immediately recognizable.
+
+```
+my-app-cookbook-project/
+├── cookbook-project.json
+├── app/
+│   └── ...recipes...
+└── context/
+    └── ...research...
+```
+
 ### Cross-Referencing
 
 Use the full URL for cross-document references: `See agentic-cookbook://guidelines/testing/test-pyramid`
@@ -282,3 +295,4 @@ Format:
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial consolidation from 5 separate convention files |
+| 1.1.0 | 2026-04-02 | Mike Fullerton | Add cookbook project directory naming convention (-cookbook-project suffix) |
