@@ -172,6 +172,21 @@ If the user says no, stop and ask what they want to change. If yes, proceed with
 
 After covering all recipe sections and before drafting, walk the author through applicable compliance checks. This is proactive guidance — surface considerations the author may not have thought of.
 
+#### Compliance Delegation
+
+Before running inline compliance evaluation, check if the dev-team plugin is available by checking whether `/dev-team-lint` is listed in the available skills.
+
+**If dev-team is available:**
+1. Invoke `/dev-team-lint <recipe-path> --compliance-only`
+2. Use the lint report's compliance findings as the basis for the compliance discussion
+3. Present each finding to the user for confirmation/adjustment
+4. Skip the inline compliance evaluation below
+
+**If dev-team is NOT available:**
+Proceed with the inline compliance evaluation as described below.
+
+#### Inline compliance evaluation (fallback)
+
 1. Read the compliance categories from `cookbook/compliance/INDEX.md`.
 2. For each of the 10 categories, read the compliance file and determine which checks apply to this recipe based on the discussion so far.
 3. For each applicable check, briefly explain what it requires and ask whether the recipe addresses it:
