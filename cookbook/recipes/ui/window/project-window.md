@@ -128,11 +128,11 @@ The primary IDE-style project window that composes multiple sub-components into 
 
 ### Delegation to sub-components
 
-- **delegate-file-tree**: The file tree panel MUST delegate to [file-tree-browser.md](file-tree-browser.md) for all file browsing behavior.
-- **delegate-terminal**: The terminal pane MUST delegate to [terminal-pane.md](terminal-pane.md) for all terminal behavior.
-- **delegate-inspector**: The inspector panel MUST delegate to [inspector-panel.md](inspector-panel.md) for all inspector behavior.
-- **delegate-editor**: The code editor pane MUST delegate to [code-editor-pane.md](code-editor-pane.md) for all editor behavior.
-- **delegate-pane-headers**: Collapsible pane headers MUST delegate to [collapsible-pane-header.md](../collapsible-pane-header.md) for toggle and animation behavior.
+- **delegate-file-tree**: The file tree panel MUST delegate to [file-tree-browser.md](../panel/file-tree-browser.md) for all file browsing behavior.
+- **delegate-terminal**: The terminal pane MUST delegate to [terminal-pane.md](../panel/terminal-pane.md) for all terminal behavior.
+- **delegate-inspector**: The inspector panel MUST delegate to [inspector-panel.md](../panel/inspector-panel.md) for all inspector behavior.
+- **delegate-editor**: The code editor pane MUST delegate to [code-editor-pane.md](../panel/code-editor-pane.md) for all editor behavior.
+- **delegate-pane-headers**: Collapsible pane headers MUST delegate to [collapsible-pane-header.md](../component/collapsible-pane-header.md) for toggle and animation behavior.
 
 ## Appearance
 

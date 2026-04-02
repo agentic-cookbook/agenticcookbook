@@ -49,7 +49,7 @@ A two-pane workspace browser window for managing multiple projects. The window u
 ### Window
 
 - **hsplit-sidebar-detail**: The window MUST use an `HSplitView` with a sidebar on the left and a detail pane on the right.
-- **persist-window-frame**: The window MUST persist its frame (position and size) between sessions using the window frame persistence mechanism described in [window-frame-persistence.md](../window-frame-persistence.md). The autosave name MUST be derived from a hash of the workspace file path.
+- **persist-window-frame**: The window MUST persist its frame (position and size) between sessions using the window frame persistence mechanism described in [window-frame-persistence.md](../../infrastructure/window-frame-persistence.md). The autosave name MUST be derived from a hash of the workspace file path.
 - **sidebar-default-30pct**: The sidebar proportion MUST default to `0.3` and MUST be persisted in the workspace document's `settings` table.
 - **resizable-min-size**: The window MUST be resizable with a minimum size sufficient to display the sidebar and detail pane without clipping content.
 
@@ -61,7 +61,7 @@ A two-pane workspace browser window for managing multiple projects. The window u
 - **directory-row-icon**: Each directory entry row MUST display a folder icon (`folder.fill`) and the directory name.
 - **discovered-project-row**: Discovered projects within a directory `DisclosureGroup` MUST display a package icon (`shippingbox.fill`, orange) and the project name.
 - **double-click-open**: Double-tapping (or double-clicking) a project entry or a discovered project MUST open that project via `NSDocumentController.shared.openDocument(withContentsOf:display:)`.
-- **sync-progress-indicator**: A sync progress indicator MUST be displayed at the bottom of the sidebar when any directory coordinator is syncing. Display MUST follow the pattern in [directory-sync.md](directory-sync.md) (aggregated `isSyncing` state).
+- **sync-progress-indicator**: A sync progress indicator MUST be displayed at the bottom of the sidebar when any directory coordinator is syncing. Display MUST follow the pattern in [directory-sync.md](../../infrastructure/directory-sync.md) (aggregated `isSyncing` state).
 
 ### Context Menus
 
@@ -74,7 +74,7 @@ A two-pane workspace browser window for managing multiple projects. The window u
 ### Detail Pane
 
 - **detail-pane-metadata**: When an entry is selected in the sidebar, the detail pane MUST display an entry detail view showing metadata or project information for the selected entry.
-- **welcome-empty-state**: When no entry is selected, the detail pane MUST display an empty-state/welcome view as described in [empty-state.md](../empty-state.md), with the following action buttons:
+- **welcome-empty-state**: When no entry is selected, the detail pane MUST display an empty-state/welcome view as described in [empty-state.md](../component/empty-state.md), with the following action buttons:
   - "Add Directory" — opens a directory picker to add a new directory entry
   - "Add Project" — opens a file picker (filtered to `.catnip-proj`) to add a new project entry
 
@@ -90,7 +90,7 @@ A two-pane workspace browser window for managing multiple projects. The window u
 
 ### Workspace Directory Manager
 
-- **coordinator-pool-manager**: The `WorkspaceDirectoryManager` MUST manage a pool of `DirectoryWatchCoordinator` instances, one per directory entry, as specified in [directory-sync.md](directory-sync.md) coordinator-per-entry through dedicated-cache-directory.
+- **coordinator-pool-manager**: The `WorkspaceDirectoryManager` MUST manage a pool of `DirectoryWatchCoordinator` instances, one per directory entry, as specified in [directory-sync.md](../../infrastructure/directory-sync.md) coordinator-per-entry through dedicated-cache-directory.
 - **aggregate-sync-state**: The manager MUST aggregate `isSyncing` across all coordinators. The workspace-level `isSyncing` MUST be `true` if any coordinator is syncing.
 - **auto-discover-projects**: The manager MUST auto-discover `.catnip-proj` packages within each watched directory and report them via an `onDiscoveryChanged` callback for document persistence.
 - **per-entry-cache-dir**: Each coordinator MUST use a dedicated cache directory named `cache-{entryID}` within the workspace package.
@@ -132,7 +132,7 @@ A two-pane workspace browser window for managing multiple projects. The window u
 - **Discovered project row**: Package icon (`shippingbox.fill`, orange) + project name, indented within disclosure group
 - **Sync indicator**: `SyncProgressBar` at the bottom of the sidebar, visible only when syncing
 - **Detail pane background**: Standard window background
-- **Empty state**: Centered per [empty-state.md](../empty-state.md) with folder icon, welcome heading, and action buttons
+- **Empty state**: Centered per [empty-state.md](../component/empty-state.md) with folder icon, welcome heading, and action buttons
 
 ## States
 
@@ -160,7 +160,7 @@ A two-pane workspace browser window for managing multiple projects. The window u
 - **sync-voiceover-announce**: The sync progress indicator MUST be announced by VoiceOver when its visibility changes (e.g., "Syncing directories" when it appears, "Sync complete" when it disappears).
 - **context-menu-labels**: Context menu items MUST have descriptive accessibility labels matching their visible text.
 - **tab-focus-transfer**: Tab key MUST move focus between the sidebar and detail pane.
-- **empty-state-accessible**: The empty-state action buttons MUST be accessible per [empty-state.md](../empty-state.md) heading-first-announce through decorative-icon.
+- **empty-state-accessible**: The empty-state action buttons MUST be accessible per [empty-state.md](../component/empty-state.md) heading-first-announce through decorative-icon.
 
 ## Conformance Test Vectors
 
@@ -257,7 +257,7 @@ Subsystem: `{{bundle_id}}` | Category: `WorkspaceWindow`
 
 ## Platform Notes
 
-- **SwiftUI (macOS)**: Use `HSplitView` (or `NavigationSplitView` with `.navigationSplitViewStyle(.balanced)`) for the two-pane layout. Sidebar sections use `Section` headers ("Projects", "Directories"). Project rows use `Label` with `Image(systemName: "shippingbox.fill").foregroundStyle(.orange)`. Directory entries use `DisclosureGroup`. Double-click handled via `.onTapGesture(count: 2)` or `List` selection with `onSubmit`. Context menus via `.contextMenu { }`. Open projects via `NSDocumentController.shared.openDocument(withContentsOf:display:completionHandler:)`. Sidebar proportion persisted in workspace SQLite `settings` table. Frame autosave via the `WindowAccessor` pattern from [window-frame-persistence.md](../window-frame-persistence.md) with the autosave name set to a SHA256 hash prefix of the workspace path. Sync indicator as an overlay or bottom bar within the sidebar column. `WorkspaceDirectoryManager` is `@Observable` (or `ObservableObject`) with `@Published isSyncing`. SQLite access via direct `sqlite3` C API or a lightweight Swift wrapper. Use WAL mode for concurrent read safety.
+- **SwiftUI (macOS)**: Use `HSplitView` (or `NavigationSplitView` with `.navigationSplitViewStyle(.balanced)`) for the two-pane layout. Sidebar sections use `Section` headers ("Projects", "Directories"). Project rows use `Label` with `Image(systemName: "shippingbox.fill").foregroundStyle(.orange)`. Directory entries use `DisclosureGroup`. Double-click handled via `.onTapGesture(count: 2)` or `List` selection with `onSubmit`. Context menus via `.contextMenu { }`. Open projects via `NSDocumentController.shared.openDocument(withContentsOf:display:completionHandler:)`. Sidebar proportion persisted in workspace SQLite `settings` table. Frame autosave via the `WindowAccessor` pattern from [window-frame-persistence.md](../../infrastructure/window-frame-persistence.md) with the autosave name set to a SHA256 hash prefix of the workspace path. Sync indicator as an overlay or bottom bar within the sidebar column. `WorkspaceDirectoryManager` is `@Observable` (or `ObservableObject`) with `@Published isSyncing`. SQLite access via direct `sqlite3` C API or a lightweight Swift wrapper. Use WAL mode for concurrent read safety.
 - **visionOS**: Same SwiftUI implementation as macOS. The window renders in a standard visionOS window volume. `HSplitView` / `NavigationSplitView` adapts to visionOS layout conventions. Double-tap replaces double-click for project opening. Context menus triggered via long press or secondary gesture. `NSDocumentController` is not available on visionOS — project opening must use an alternative mechanism (e.g., custom document handling or `UIDocumentBrowserViewController` equivalent). Frame persistence may not apply in the same way; window placement is managed by the system. The `SyncProgressBar` renders identically.
 
 ## Design Decisions
