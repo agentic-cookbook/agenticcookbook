@@ -67,7 +67,8 @@ A library of principles, guidelines, recipes, and workflows for building softwar
 | [Feature Management](guidelines/feature-management/) | Feature flags, A/B testing, debug mode |
 | [Code Quality](guidelines/code-quality/) | Linting, atomic commits |
 | [Language-Specific](guidelines/language/) | Swift, Kotlin, C#, Python — truly language-only guidance |
-| [Platform-Specific](guidelines/platform/) | Windows — truly platform-only guidance |
+| [Platform Integration](guidelines/platform/) | System integration — deep linking, search, widgets, notifications, sharing, background tasks, continuity |
+| [Platform-Specific: Windows](guidelines/platform/windows/) | Windows-only — Fluent Design, MSIX, DPI scaling, theming |
 
 ## Recipes
 
