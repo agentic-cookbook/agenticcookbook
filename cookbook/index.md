@@ -47,6 +47,7 @@ A library of principles, guidelines, recipes, and workflows for building softwar
 | [Idempotency](principles/idempotency.md) | Safe to repeat without duplicate side effects. |
 | [Native Controls](principles/native-controls.md) | Prefer platform built-in frameworks. |
 | [Open Source Preference](principles/open-source-preference.md) | Prefer proven libraries over custom solutions. |
+| [Support Automation](principles/support-automation.md) | Expose capabilities through automation interfaces, not just interactive UI. |
 | [Optimize for Change](principles/meta-principle-optimize-for-change.md) | Every principle is a strategy for making future change cheaper. |
 
 ## Guidelines

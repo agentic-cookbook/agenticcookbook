@@ -23,7 +23,8 @@ platforms:
 tags: 
   - shortcuts-and-automation
   - ui
-depends-on: []
+depends-on:
+  - agentic-cookbook://principles/support-automation
 related: []
 references: []
 ---
