@@ -21,7 +21,7 @@ tags:
   - code-review
 depends-on: []
 related: 
-  - agentic-cookbook://guidelines/general#privacy-and-security-by-default
+  - agentic-cookbook://guidelines/security/privacy
   - agentic-cookbook://principles/composition-over-inheritance
   - agentic-cookbook://principles/explicit-over-implicit
   - agentic-cookbook://principles/immutability-by-default
@@ -138,9 +138,9 @@ Referenced from WF-1 (Branching Strategy) Phase 3 as the gate before marking a P
   9. Using components with known vulnerabilities
   10. Insufficient logging and monitoring
 
-- **REQ-009**: Claude Code MUST verify that user input is validated and sanitized at system boundaries (agentic-cookbook://guidelines/general#privacy-and-security-by-default).
-- **REQ-010**: Claude Code MUST verify that credentials and tokens use platform secure storage (agentic-cookbook://guidelines/general#privacy-and-security-by-default), not plain text or UserDefaults/SharedPreferences.
-- **REQ-011**: If the code handles network requests, Claude Code MUST verify TLS-only (agentic-cookbook://guidelines/general#privacy-and-security-by-default) and proper error handling of network failures.
+- **REQ-009**: Claude Code MUST verify that user input is validated and sanitized at system boundaries (agentic-cookbook://guidelines/security/privacy).
+- **REQ-010**: Claude Code MUST verify that credentials and tokens use platform secure storage (agentic-cookbook://guidelines/security/privacy), not plain text or UserDefaults/SharedPreferences.
+- **REQ-011**: If the code handles network requests, Claude Code MUST verify TLS-only (agentic-cookbook://guidelines/security/privacy) and proper error handling of network failures.
 
 **Exit criteria**: No security vulnerabilities in new code.
 
@@ -201,7 +201,7 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 | Phase | Checklist Items | Notes |
 |-------|----------------|-------|
 | Phase 2 | agentic-cookbook://principles/simplicity, agentic-cookbook://principles/composition-over-inheritance, agentic-cookbook://principles/immutability-by-default, agentic-cookbook://principles/yagni, agentic-cookbook://principles/explicit-over-implicit, agentic-cookbook://principles/separation-of-concerns | Engineering principles |
-| Phase 3 | agentic-cookbook://guidelines/general#privacy-and-security-by-default (all subsections) | Privacy and security |
+| Phase 3 | agentic-cookbook://guidelines/security/privacy (all subsections) | Privacy and security |
 | Phase 4 | agentic-cookbook://guidelines/testing/properties-of-good-tests, agentic-cookbook://guidelines/testing/unit-test-patterns, agentic-cookbook://guidelines/testing/test-doubles, agentic-cookbook://guidelines/testing/flaky-test-prevention | Test quality |
 | Phase 5 | All opted-in items from WF-2 | Final compliance check |
 

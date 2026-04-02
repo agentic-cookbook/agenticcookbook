@@ -12,7 +12,7 @@
   "modified": "2026-04-01",
   "platforms": ["ios", "macos"],
   "cookbook": {
-    "repo": "https://github.com/mikefullerton/agentic-cookbook",
+    "repo": "https://github.com/agentic-cookbook/cookbook",
     "version": "1.0.0"
   },
   "resources": {

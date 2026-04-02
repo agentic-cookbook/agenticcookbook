@@ -17,9 +17,9 @@ tags:
   - code-implementation
 depends-on: []
 related: 
-  - agentic-cookbook://guidelines/general#comprehensive-unit-testing
-  - agentic-cookbook://guidelines/general#no-blocking-the-main-thread
-  - agentic-cookbook://guidelines/general#prefer-native-controls-and-libraries
+  - agentic-cookbook://guidelines/testing/testing
+  - agentic-cookbook://guidelines/concurrency/concurrency
+  - agentic-cookbook://principles/native-controls
   - agentic-cookbook://principles/dependency-injection
   - agentic-cookbook://principles/explicit-over-implicit
   - agentic-cookbook://principles/fail-fast
@@ -136,8 +136,8 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 
 | Phase | Checklist Items | Notes |
 |-------|----------------|-------|
-| Phase 1 | agentic-cookbook://guidelines/general#prefer-native-controls-and-libraries (native controls), agentic-cookbook://guidelines/general#no-blocking-the-main-thread (no blocking main thread), agentic-cookbook://principles/dependency-injection (DI), agentic-cookbook://principles/immutability-by-default (immutability) | Core engineering during implementation |
-| Phase 1 | agentic-cookbook://guidelines/general#comprehensive-unit-testing (unit testing), agentic-cookbook://guidelines/testing/unit-test-patterns (test patterns), agentic-cookbook://guidelines/testing/flaky-test-prevention (no flaky tests), agentic-cookbook://guidelines/testing/test-data (test data) | Tests written alongside code |
+| Phase 1 | agentic-cookbook://principles/native-controls (native controls), agentic-cookbook://guidelines/concurrency/concurrency (no blocking main thread), agentic-cookbook://principles/dependency-injection (DI), agentic-cookbook://principles/immutability-by-default (immutability) | Core engineering during implementation |
+| Phase 1 | agentic-cookbook://guidelines/testing/testing (unit testing), agentic-cookbook://guidelines/testing/unit-test-patterns (test patterns), agentic-cookbook://guidelines/testing/flaky-test-prevention (no flaky tests), agentic-cookbook://guidelines/testing/test-data (test data) | Tests written alongside code |
 | Phase 1 | All opted-in items from WF-2 | Logging, accessibility, deep linking, feature flags, etc. |
 | Phase 2 | agentic-cookbook://principles/fail-fast (fail fast), agentic-cookbook://principles/separation-of-concerns (separation of concerns), agentic-cookbook://principles/explicit-over-implicit (explicit over implicit) | Refactoring and error handling |
 | Phase 3 | agentic-cookbook://principles/tight-feedback-loops (tight feedback loops) | Performance measurement and optimization |

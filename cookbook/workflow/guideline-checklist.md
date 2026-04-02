@@ -17,26 +17,26 @@ tags:
   - guideline-checklist
 depends-on: []
 related: 
-  - agentic-cookbook://guidelines/general#ab-testing
-  - agentic-cookbook://guidelines/general#accessibility-from-day-one
-  - agentic-cookbook://guidelines/general#always-show-progress
-  - agentic-cookbook://guidelines/general#analytics
-  - agentic-cookbook://guidelines/general#comprehensive-unit-testing
-  - agentic-cookbook://guidelines/general#debug-mode
-  - agentic-cookbook://guidelines/general#deep-linking
-  - agentic-cookbook://guidelines/general#feature-flags
-  - agentic-cookbook://guidelines/general#instrumented-logging
-  - agentic-cookbook://guidelines/general#linting-from-day-one
-  - agentic-cookbook://guidelines/general#localizability
-  - agentic-cookbook://guidelines/general#no-blocking-the-main-thread
-  - agentic-cookbook://guidelines/general#post-generation-verification
-  - agentic-cookbook://guidelines/general#prefer-native-controls-and-libraries
-  - agentic-cookbook://guidelines/general#privacy-and-security-by-default
-  - agentic-cookbook://guidelines/general#respect-accessibility-display-options
-  - agentic-cookbook://guidelines/general#rtl-layout-support
-  - agentic-cookbook://guidelines/general#scriptable-and-automatable
-  - agentic-cookbook://guidelines/general#small-atomic-commits
-  - agentic-cookbook://guidelines/general#surface-all-design-decisions
+  - agentic-cookbook://guidelines/feature-management/ab-testing
+  - agentic-cookbook://guidelines/accessibility/accessibility
+  - agentic-cookbook://guidelines/ui/always-show-progress
+  - agentic-cookbook://guidelines/logging/analytics
+  - agentic-cookbook://guidelines/testing/testing
+  - agentic-cookbook://guidelines/feature-management/debug-mode
+  - agentic-cookbook://guidelines/platform/deep-linking
+  - agentic-cookbook://guidelines/feature-management/feature-flags
+  - agentic-cookbook://guidelines/logging/logging
+  - agentic-cookbook://guidelines/code-quality/linting
+  - agentic-cookbook://guidelines/internationalization/localization
+  - agentic-cookbook://guidelines/concurrency/concurrency
+  - agentic-cookbook://guidelines/testing/post-generation-verification
+  - agentic-cookbook://principles/native-controls
+  - agentic-cookbook://guidelines/security/privacy
+  - agentic-cookbook://guidelines/accessibility/accessibility
+  - agentic-cookbook://guidelines/internationalization/rtl-support
+  - agentic-cookbook://guidelines/platform/shortcuts-and-automation
+  - agentic-cookbook://guidelines/code-quality/atomic-commits
+  - agentic-cookbook://conventions
   - agentic-cookbook://principles/dependency-injection
   - agentic-cookbook://principles/design-for-deletion
   - agentic-cookbook://principles/explicit-over-implicit

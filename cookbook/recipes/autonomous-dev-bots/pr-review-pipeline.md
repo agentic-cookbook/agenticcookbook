@@ -138,7 +138,7 @@ Each app requires:
 ### OpenClaw Configuration
 
 - **Trigger**: GitHub webhook configured to POST `pull_request` events to `http://<mac-ip>:18789/hooks/agent`
-- **Fallback**: OpenClaw cron job polling `gh pr list --repo mikefullerton/agentic-cookbook --state open` every 5 minutes
+- **Fallback**: OpenClaw cron job polling `gh pr list --repo agentic-cookbook/cookbook --state open` every 5 minutes
 - **Session**: Isolated session per PR review run
 - **Model**: Claude Opus for Phase 2 (overlap/scoping requires strong reasoning) and Phase 3 (evaluation). Sonnet for Phase 1 (structural checks are more mechanical).
 - **Timeout**: 48 hours max per run
