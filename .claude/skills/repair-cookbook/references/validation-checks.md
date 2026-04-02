@@ -108,6 +108,22 @@ When an `agentic-cookbook://` URI doesn't resolve:
 | I02 | Index links resolve | Read `cookbook/index.md`. For every markdown link `[text](path)`, verify the target file exists relative to the `cookbook/` directory. | FAIL | fuzzy-match |
 | I03 | No stale index entries | For every link in `cookbook/index.md` that points to a `.md` file, verify the target file still exists. Report dead links. | FAIL | auto-fix |
 | I04 | Compliance INDEX.md links resolve | Read `cookbook/compliance/INDEX.md`. For every markdown link, verify the target exists. | FAIL | fuzzy-match |
+| I05 | No orphaned files | For every `.md` file under `cookbook/` (excluding `index.md`, `conventions.md`, `glossary.md`, `_template.md`, and directory `INDEX.md` files), verify it is referenced by at least one other file — either via an `agentic-cookbook://` URI that resolves to it, a relative markdown link `[text](path)`, a `depends-on` or `related` entry, or an entry in `cookbook/index.md`. A file with zero inbound references is orphaned — it exists but nothing points to it, so no workflow or agent will ever find it. | WARN | report |
+
+### Orphan Detection Strategy for I05
+
+1. **Build the full file inventory**: Glob all `.md` files under `cookbook/`. Exclude `index.md`, `conventions.md`, `glossary.md`, `_template.md`, and `INDEX.md` files.
+
+2. **Build the inbound reference map**: For each file in the inventory, count how many other files reference it via:
+   - `agentic-cookbook://` URI that resolves to it (derive path from URI)
+   - Relative markdown link `[text](path)` from any other file
+   - Entry in `cookbook/index.md`
+   - Entry in any directory `INDEX.md`
+   - `depends-on` or `related` frontmatter entry from any file
+
+3. **Report orphans**: Files with zero inbound references. Group by directory for readability.
+
+4. **Severity context**: An orphaned file in `principles/` or `guidelines/` is more concerning than one in `reference/examples/` — the former should be linked from INDEX files and cross-referenced by other guidelines. Report all, but flag content files (principles, guidelines, compliance, recipes, workflows) at higher severity than reference/example files.
 
 ---
 
