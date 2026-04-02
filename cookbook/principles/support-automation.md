@@ -19,7 +19,7 @@ tags:
   - accessibility
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/ui/shortcuts-and-automation
+  - agentic-cookbook://guidelines/platform/shortcuts-and-automation
 references: []
 ---
 

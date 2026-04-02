@@ -1,13 +1,13 @@
 ---
 id: d27c35ab-84f6-4f40-8c29-91630fdc90e7
 title: "Deep linking"
-domain: agentic-cookbook://guidelines/ui/deep-linking
+domain: agentic-cookbook://guidelines/platform/deep-linking
 type: guideline
-version: 1.0.0
+version: 1.1.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-02
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -20,7 +20,7 @@ platforms:
   - windows
 tags: 
   - deep-linking
-  - ui
+  - platform
 depends-on: []
 related: []
 references: []
@@ -61,3 +61,4 @@ Declare protocol handlers in `Package.appxmanifest` and handle activation throug
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
+| 1.1.0 | 2026-04-02 | Mike Fullerton | Moved from ui/ to platform/ — system integration, not UI design |

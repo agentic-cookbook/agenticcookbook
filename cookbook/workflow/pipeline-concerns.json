@@ -224,7 +224,7 @@
     "apply": "ask",
     "default": "ask",
     "summary": "All significant views must be deep linkable",
-    "guideline_path": "../agentic-cookbook/cookbook/guidelines/ui/deep-linking.md",
+    "guideline_path": "../agentic-cookbook/cookbook/guidelines/platform/deep-linking.md",
     "prompt": "Should the views in this feature be deep linkable?"
   },
   {
@@ -234,7 +234,7 @@
     "apply": "ask",
     "default": "opt-out",
     "summary": "Components scriptable via platform mechanisms (Shortcuts, intents)",
-    "guideline_path": "../agentic-cookbook/cookbook/guidelines/ui/shortcuts-and-automation.md",
+    "guideline_path": "../agentic-cookbook/cookbook/guidelines/platform/shortcuts-and-automation.md",
     "prompt": "Does this feature need scripting/automation support (Shortcuts, intents)?"
   },
   {
