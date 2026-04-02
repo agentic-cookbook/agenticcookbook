@@ -1,13 +1,13 @@
 ---
 id: 991e72d0-477b-4fd5-bdfa-08680efc0cf9
 title: "Scriptable and automatable"
-domain: agentic-cookbook://guidelines/ui/shortcuts-and-automation
+domain: agentic-cookbook://guidelines/platform/shortcuts-and-automation
 type: guideline
-version: 1.0.0
+version: 1.1.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-02
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -22,7 +22,7 @@ platforms:
   - windows
 tags: 
   - shortcuts-and-automation
-  - ui
+  - platform
 depends-on:
   - agentic-cookbook://principles/support-automation
 related: []
@@ -58,3 +58,4 @@ Use `AppActions` for Google Assistant integration. Support `Intent`-based automa
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
+| 1.1.0 | 2026-04-02 | Mike Fullerton | Moved from ui/ to platform/ — system integration, not UI design |

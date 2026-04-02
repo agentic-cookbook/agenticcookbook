@@ -72,7 +72,7 @@ Features with addressable content MUST support platform deep linking conventions
 **Applies when:** a component presents content that should be navigable via external links.
 
 **Guidelines:**
-- [Deep Linking](agentic-cookbook://guidelines/ui/deep-linking)
+- [Deep Linking](agentic-cookbook://guidelines/platform/deep-linking)
 
 ---
 
