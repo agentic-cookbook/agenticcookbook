@@ -30,23 +30,23 @@ references:
 
 # Token Handling
 
-### agentic-cookbook://guidelines/security/token-handling- Access tokens
+### Access tokens
 
 Short-lived (5-15 min). Include only necessary claims — no PII in JWTs
 that transit untrusted parties.
 
-### agentic-cookbook://guidelines/security/token-handling- Refresh tokens
+### Refresh tokens
 
 Longer-lived but bound to client. Use rotation (see Authentication above).
 Store server-side when possible.
 
-### agentic-cookbook://guidelines/security/token-handling- Token refresh strategy
+### Token refresh strategy
 
 - Proactive refresh before expiry (e.g., at 75% of TTL)
 - Queue concurrent requests during refresh to avoid race conditions
 - Retry with backoff on refresh failure
 
-### agentic-cookbook://guidelines/security/token-handling- Secure storage per platform
+### Secure storage per platform
 
 See also agentic-cookbook://guidelines/general#privacy-and-security-by-default-
 
@@ -55,7 +55,7 @@ See also agentic-cookbook://guidelines/general#privacy-and-security-by-default-
 - **Windows:** DPAPI (`ProtectedData`)
 - **Web:** HttpOnly Secure SameSite cookies (never localStorage)
 
-### agentic-cookbook://guidelines/security/token-handling- Never do these
+### Never do these
 
 - Store tokens in `localStorage` or `sessionStorage` (XSS-accessible)
 - Put tokens in URL query parameters (logged in server logs, browser history, referrer headers)

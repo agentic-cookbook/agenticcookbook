@@ -215,7 +215,7 @@ Constraints:
 
 **Cross-referencing requirements:**
 
-Between documents: `See agentic-cookbook://recipes/ui/panel/chat-control#requirements/ordered-list`
+Between documents: `See agentic-cookbook://recipes/ui/component/ai-chat-control#requirements/ordered-list`
 
 Within the same document: `Validates: #requirements/ordered-list`
 

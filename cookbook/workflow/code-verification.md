@@ -45,7 +45,7 @@ related:
   - agentic-cookbook://guidelines/testing/mutation-testing
   - agentic-cookbook://guidelines/testing/property-based-testing
   - agentic-cookbook://guidelines/testing/security-testing
-  - agentic-cookbook://guidelines/testing/test-pyramid-14-4
+  - agentic-cookbook://guidelines/testing/test-pyramid
 references: []
 ---
 
@@ -217,7 +217,7 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 | Phase | Checklist Items | Notes |
 |-------|----------------|-------|
 | Phase 1 | agentic-cookbook://guidelines/general#post-generation-verification-1 (Build) | Build all target platforms |
-| Phase 2 | agentic-cookbook://guidelines/general#post-generation-verification-2 (Test), agentic-cookbook://guidelines/general#comprehensive-unit-testing, agentic-cookbook://guidelines/testing/test-pyramid-14-4 | Full test suite + coverage |
+| Phase 2 | agentic-cookbook://guidelines/general#post-generation-verification-2 (Test), agentic-cookbook://guidelines/general#comprehensive-unit-testing, agentic-cookbook://guidelines/testing/test-pyramid | Full test suite + coverage |
 | Phase 3 | agentic-cookbook://guidelines/general#post-generation-verification-3 (Lint), agentic-cookbook://guidelines/general#linting-from-day-one | Linter + formatter |
 | Phase 4 | agentic-cookbook://guidelines/general#post-generation-verification-4 (Log verify), agentic-cookbook://guidelines/general#instrumented-logging, agentic-cookbook://guidelines/general#privacy-and-security-by-default | Log messages + no PII |
 | Phase 5 | agentic-cookbook://guidelines/general#post-generation-verification-5 (A11y audit), agentic-cookbook://guidelines/general#accessibility-from-day-one, agentic-cookbook://guidelines/general#respect-accessibility-display-options | Full accessibility check |

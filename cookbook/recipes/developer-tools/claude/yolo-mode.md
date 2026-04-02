@@ -231,8 +231,8 @@ Not applicable — the hook script produces no log output. The skill prints stat
 | Check | Status | Category |
 |-------|--------|----------|
 | [secure-log-output](agentic-cookbook://compliance/security#secure-log-output) | passed | Security — no credentials or PII in output |
-| [data-minimization](agentic-cookbook://compliance/privacy-data#data-minimization) | passed | Privacy — no user data collected |
-| [destructive-action-guard](agentic-cookbook://compliance/safety#destructive-action-guard) | passed | Safety — warning + confirmation before enable |
+| [data-minimization](agentic-cookbook://compliance/privacy-and-data#data-minimization) | passed | Privacy — no user data collected |
+| [destructive-action-guard](agentic-cookbook://compliance/user-safety#destructive-action-guard) | passed | Safety — warning + confirmation before enable |
 
 ## Change History
 
