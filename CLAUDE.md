@@ -15,7 +15,7 @@ cookbook/               # the content
   conventions.md       # full format reference
   index.md             # table of contents
 rules/                 # distributable rules for .claude/ drop-in
-skills/                # 14 cookbook-specific Claude Code skills
+skills/                # 9 cookbook-specific Claude Code skills
 contributing/          # how to contribute (AUTHORING.md)
 decisions/             # design decision records
 ```
@@ -46,18 +46,17 @@ Onboard: `/install-cookbook` from the consuming project. Manage preferences: `/c
 | `/install-cookbook` | Onboarding — set up CLAUDE.md and install rules |
 | `/uninstall-cookbook` | Remove the cookbook from your project (rules, state, plugins) |
 | `/configure-cookbook` | Manage cookbook preferences (recipe prompts, contribution prompts, optional rules) |
-| `/lint-project-with-cookbook` | Lint implementation against guidelines or a specific recipe |
-| `/lint-recipe` | Lint a recipe file against template, conventions, and completeness |
 | `/plan-cookbook-recipe` | Interactive recipe design |
 | `/contribute-to-cookbook` | Create a PR to the cookbook |
 | `/validate-cookbook` | Validate cookbook integrity — frontmatter, references, indexes, placement |
 | `/cookbook-help` | Interactive guide — setup status, content overview, troubleshooting |
 | `/cookbook-bug` | File a bug report against the cookbook (creates GitHub issue) |
 | `/cookbook-suggestion` | Suggest new content or improvements (creates GitHub issue) |
-| `/lint-compliance` | Evaluate recipe/guideline against compliance checks |
 Skills use a `version` field in frontmatter (project convention, not a Claude Code runtime field).
 
-> **Note:** General-purpose skills (`/lint-rule`, `/lint-skill`, `/lint-agent`, `/optimize-rules`, `/port-swiftui-to-appkit`, `/yolo`, `/cleanup-repo`, `/install-status-enhancements`, `/uninstall-status-enhancements`, `/install-worktree-rule`, `/show-project-setup`, `/install-recommended-tools`) moved to the [cat-herding](https://github.com/mikefullerton/cat-herding) repo.
+> **Linting skills moved:** `/lint-skill`, `/lint-rule`, `/lint-agent`, `/lint-recipe`, `/lint-compliance`, and `/lint-project-with-cookbook` have moved to the [dev-team plugin](https://github.com/agentic-cookbook/dev-team) as the unified `/dev-team-lint` command.
+
+> **Note:** General-purpose skills (`/optimize-rules`, `/port-swiftui-to-appkit`, `/yolo`, `/cleanup-repo`, `/install-status-enhancements`, `/uninstall-status-enhancements`, `/install-worktree-rule`, `/show-project-setup`, `/install-recommended-tools`) moved to the [cat-herding](https://github.com/mikefullerton/cat-herding) repo.
 
 ## Git Workflow
 
@@ -78,7 +77,7 @@ Skills use a `version` field in frontmatter (project convention, not a Claude Co
 6. Clean up: `git worktree remove ../agentic-cookbook-wt/<branch-name>`
 7. Pull main: `git pull`
 
-**Fork-based contributions**: External contributors who don't have push access use a fork. The workflow is the same (worktree, branch, commit, push, PR), but `origin` points to the fork and the PR targets `mikefullerton/agentic-cookbook` via `--head <user>:<branch>`. The `/contribute-to-cookbook` skill detects this automatically.
+**Fork-based contributions**: External contributors who don't have push access use a fork. The workflow is the same (worktree, branch, commit, push, PR), but `origin` points to the fork and the PR targets `agentic-cookbook/cookbook` via `--head <user>:<branch>`. The `/contribute-to-cookbook` skill detects this automatically.
 
 ## Writing New Content
 

@@ -8,7 +8,7 @@ A structured cookbook of principles, guidelines, recipes, and workflows for AI-a
 
 ```bash
 cd ~/projects
-git clone git@github.com:mikefullerton/agentic-cookbook.git
+git clone git@github.com:agentic-cookbook/cookbook.git
 ```
 
 ### 2. Install in your project
@@ -117,18 +117,15 @@ See `decisions/cookbook-project-format.md` for the full spec and `cookbook/refer
 |-------|---------|
 | `/install-cookbook` | Onboarding — set up CLAUDE.md and install rules |
 | `/configure-cookbook` | Manage preferences (recipe prompts, contribution prompts, optional rules) |
-| `/lint-project-with-cookbook` | Lint implementation against guidelines or a specific recipe |
-| `/lint-rule` | Lint a rule file against best practices |
-| `/lint-skill` | Lint a skill against best practices |
-| `/lint-agent` | Lint an agent against best practices |
 | `/plan-cookbook-recipe` | Interactive recipe design |
 | `/contribute-to-cookbook` | Create a PR to the cookbook |
 | `/validate-cookbook` | Validate cookbook integrity — frontmatter, references, indexes, placement |
 | `/cookbook-help` | Interactive guide — setup status, content overview, troubleshooting |
 | `/cookbook-bug` | File a bug report against the cookbook (creates GitHub issue) |
 | `/cookbook-suggestion` | Suggest new content or improvements (creates GitHub issue) |
-| `/lint-compliance` | Evaluate recipe/guideline against compliance checks |
 | `/port-swiftui-to-appkit` | Analyze a macOS SwiftUI app and plan its conversion to AppKit |
+
+> **Linting skills moved:** `/lint-skill`, `/lint-rule`, `/lint-agent`, `/lint-recipe`, `/lint-compliance`, and `/lint-project-with-cookbook` have moved to the [dev-team plugin](https://github.com/agentic-cookbook/dev-team) as the unified `/dev-team-lint` command.
 
 ## Rules
 
@@ -171,9 +168,6 @@ rules/                 # terse LLM-optimized rules for .claude/ drop-in
 skills/                # Claude Code skills
   install-cookbook/
   configure-cookbook/
-  lint-project-with-cookbook/
-  lint-recipe/
-  lint-compliance/
   plan-cookbook-recipe/
   contribute-to-cookbook/
   validate-cookbook/
