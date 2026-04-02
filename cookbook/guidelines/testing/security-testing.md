@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "Run security scans as part of post-generation verification (agentic-cookbook://guidelines/general#post-generation-verification). These a..."
+summary: "Run security scans as part of post-generation verification (agentic-cookbook://guidelines/testing/post-generation-verification). These a..."
 platforms: 
   - csharp
   - kotlin
@@ -24,7 +24,7 @@ tags:
   - testing
 depends-on: []
 related: 
-  - agentic-cookbook://guidelines/general#post-generation-verification
+  - agentic-cookbook://guidelines/testing/post-generation-verification
 references: 
   - https://codeql.github.com/
   - https://github.com/PyCQA/bandit
@@ -35,7 +35,7 @@ references:
 
 # Security Testing
 
-Run security scans as part of post-generation verification (agentic-cookbook://guidelines/general#post-generation-verification). These are CLI tools
+Run security scans as part of post-generation verification (agentic-cookbook://guidelines/testing/post-generation-verification). These are CLI tools
 Claude Code can invoke directly.
 
 **Static Analysis (SAST):**

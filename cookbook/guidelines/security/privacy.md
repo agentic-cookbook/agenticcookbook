@@ -26,27 +26,27 @@ references: []
 
 # Privacy and security by default
 
-### agentic-cookbook://guidelines/general#privacy-and-security-by-default- Data minimization
+### Data minimization
 
 Collect only what is needed. Prefer on-device processing.
 
-### agentic-cookbook://guidelines/general#privacy-and-security-by-default- Consent
+### Consent
 
 Opt-in for non-essential data collection. Honor "deny" gracefully — the app must remain functional.
 
-### agentic-cookbook://guidelines/general#privacy-and-security-by-default- Secure storage
+### Secure storage
 
 Tokens and credentials MUST use platform secure storage (Keychain, EncryptedSharedPreferences, DPAPI, HttpOnly cookies).
 
-### agentic-cookbook://guidelines/general#privacy-and-security-by-default- No PII logging
+### No PII logging
 
 Never log personally identifiable information, even at debug level.
 
-### agentic-cookbook://guidelines/general#privacy-and-security-by-default- TLS only
+### TLS only
 
 All network communication MUST use HTTPS.
 
-### agentic-cookbook://guidelines/general#privacy-and-security-by-default- Input sanitization
+### Input sanitization
 
 Sanitize all user input before display (prevent XSS, injection).
 

@@ -24,7 +24,7 @@ tags:
   - ui
 depends-on: []
 related: 
-  - agentic-cookbook://guidelines/general#accessibility-from-day-one
+  - agentic-cookbook://guidelines/accessibility/accessibility
 references: 
   - https://developer.apple.com/design/human-interface-guidelines/typography
   - https://learn.microsoft.com/en-us/windows/apps/design/style/typography
@@ -54,7 +54,7 @@ General principles:
 - Limit to 2-3 font weights per screen (regular, medium/semibold, bold)
 - Avoid all-caps for more than a few words — harms readability and screen reader experience
 - Paragraph width: 45-75 characters for comfortable reading
-- See agentic-cookbook://guidelines/general#accessibility-from-day-one for Dynamic Type / font scaling requirements
+- See agentic-cookbook://guidelines/accessibility/accessibility for Dynamic Type / font scaling requirements
 
 References:
 - [Apple HIG: Typography](https://developer.apple.com/design/human-interface-guidelines/typography)
