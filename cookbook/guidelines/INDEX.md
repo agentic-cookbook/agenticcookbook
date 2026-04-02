@@ -24,29 +24,29 @@ platforms:
 tags: []
 depends-on: []
 related: 
-  - agentic-cookbook://guidelines/general#ab-testing
-  - agentic-cookbook://guidelines/general#accessibility-from-day-one
-  - agentic-cookbook://guidelines/general#always-show-progress
-  - agentic-cookbook://guidelines/general#analytics
-  - agentic-cookbook://guidelines/general#comprehensive-unit-testing
-  - agentic-cookbook://guidelines/general#debug-mode
-  - agentic-cookbook://guidelines/general#deep-linking
-  - agentic-cookbook://guidelines/general#feature-flags
-  - agentic-cookbook://guidelines/general#for-novel-components-prefer-proven-open
-  - agentic-cookbook://guidelines/general#instrumented-logging
-  - agentic-cookbook://guidelines/general#linting-from-day-one
-  - agentic-cookbook://guidelines/general#localizability
-  - agentic-cookbook://guidelines/general#no-blocking-the-main-thread
-  - agentic-cookbook://guidelines/general#post-generation-verification
-  - agentic-cookbook://guidelines/general#prefer-native-controls-and-libraries
-  - agentic-cookbook://guidelines/general#privacy-and-security-by-default
-  - agentic-cookbook://guidelines/general#respect-accessibility-display-options
-  - agentic-cookbook://guidelines/general#rtl-layout-support
-  - agentic-cookbook://guidelines/general#scriptable-and-automatable
-  - agentic-cookbook://guidelines/general#small-atomic-commits
+  - agentic-cookbook://guidelines/feature-management/ab-testing
+  - agentic-cookbook://guidelines/accessibility/accessibility
+  - agentic-cookbook://guidelines/ui/always-show-progress
+  - agentic-cookbook://guidelines/logging/analytics
+  - agentic-cookbook://guidelines/testing/testing
+  - agentic-cookbook://guidelines/feature-management/debug-mode
+  - agentic-cookbook://guidelines/platform/deep-linking
+  - agentic-cookbook://guidelines/feature-management/feature-flags
+  - agentic-cookbook://principles/open-source-preference
+  - agentic-cookbook://guidelines/logging/logging
+  - agentic-cookbook://guidelines/code-quality/linting
+  - agentic-cookbook://guidelines/internationalization/localization
+  - agentic-cookbook://guidelines/concurrency/concurrency
+  - agentic-cookbook://guidelines/testing/post-generation-verification
+  - agentic-cookbook://principles/native-controls
+  - agentic-cookbook://guidelines/security/privacy
+  - agentic-cookbook://guidelines/accessibility/accessibility
+  - agentic-cookbook://guidelines/internationalization/rtl-support
+  - agentic-cookbook://guidelines/platform/shortcuts-and-automation
+  - agentic-cookbook://guidelines/code-quality/atomic-commits
   - agentic-cookbook://guidelines/code-quality/scope-discipline
   - agentic-cookbook://guidelines/code-quality/bulk-operation-verification
-  - agentic-cookbook://guidelines/general#surface-all-design-decisions
+  - agentic-cookbook://conventions
   - agentic-cookbook://principles/composition-over-inheritance
   - agentic-cookbook://principles/dependency-injection
   - agentic-cookbook://principles/design-for-deletion
@@ -109,35 +109,35 @@ Use `agentic-cookbook://X/Y` notation to cross-reference any rule. Search this f
 
 | guide. | Rule | Keywords |
 |---|------|----------|
-| [agentic-cookbook://guidelines/general#prefer-native-controls-and-libraries](general.md#agentic-cookbook://11-prefer-native-controls-and-libraries) | Prefer native controls and libraries | native, platform, built-in, framework |
-| [agentic-cookbook://guidelines/general#for-novel-components-prefer-proven-open](general.md#agentic-cookbook://12-for-novel-components-prefer-proven-open-source-solutions) | For novel components, prefer proven open-source solutions | open-source, library, custom |
-| [agentic-cookbook://guidelines/general#surface-all-design-decisions](general.md#agentic-cookbook://13-surface-all-design-decisions) | Surface all design decisions | decisions, approval, LLM, consistency |
-| [agentic-cookbook://guidelines/general#no-blocking-the-main-thread](general.md#agentic-cookbook://14-no-blocking-the-main-thread) | No blocking the main thread | async, await, concurrency, background, UI thread |
-| [agentic-cookbook://guidelines/general#always-show-progress](general.md#agentic-cookbook://15-always-show-progress) | Always show progress | spinner, skeleton, shimmer, progress bar, loading |
-| [agentic-cookbook://guidelines/general#comprehensive-unit-testing](general.md#agentic-cookbook://16-comprehensive-unit-testing) | Comprehensive unit testing | tests, unit tests, edge cases, test file |
-| [agentic-cookbook://guidelines/general#small-atomic-commits](general.md#agentic-cookbook://17-small-atomic-commits) | Small, atomic commits | commits, git, one change |
+| [Prefer native controls and libraries](principles/native-controls.md) | Prefer native controls and libraries | native, platform, built-in, framework |
+| [For novel components, prefer proven open-source solutions](principles/open-source-preference.md) | For novel components, prefer proven open-source solutions | open-source, library, custom |
+| [Surface all design decisions](../conventions.md) | Surface all design decisions | decisions, approval, LLM, consistency |
+| [No blocking the main thread](concurrency/concurrency.md) | No blocking the main thread | async, await, concurrency, background, UI thread |
+| [Always show progress](ui/always-show-progress.md) | Always show progress | spinner, skeleton, shimmer, progress bar, loading |
+| [Comprehensive unit testing](testing/testing.md) | Comprehensive unit testing | tests, unit tests, edge cases, test file |
+| [Small, atomic commits](code-quality/atomic-commits.md) | Small, atomic commits | commits, git, one change |
 | [agentic-cookbook://guidelines/code-quality/scope-discipline](code-quality/scope-discipline.md) | Scope discipline | scope, boundaries, focus, no scope creep |
 | [agentic-cookbook://guidelines/code-quality/bulk-operation-verification](code-quality/bulk-operation-verification.md) | Bulk operation verification | bulk, rename, migration, stale references, verification |
-| [agentic-cookbook://guidelines/general#post-generation-verification](general.md#agentic-cookbook://18-post-generation-verification) | Post-generation verification | build, test, lint, accessibility audit, code review |
-| [agentic-cookbook://guidelines/general#instrumented-logging](general.md#agentic-cookbook://19-instrumented-logging) | Instrumented logging | logging, os.log, Timber, ILogger, structured |
-| [agentic-cookbook://guidelines/general#deep-linking](general.md#agentic-cookbook://110-deep-linking) | Deep linking | deep link, URL, Universal Links, App Links, protocol activation |
-| [agentic-cookbook://guidelines/general#scriptable-and-automatable](general.md#agentic-cookbook://111-scriptable-and-automatable) | Scriptable and automatable | AppIntents, AppActions, Shortcuts, automation |
-| [agentic-cookbook://guidelines/general#accessibility-from-day-one](general.md#agentic-cookbook://112-accessibility-from-day-one) | Accessibility from day one | accessibility, VoiceOver, TalkBack, Narrator, WCAG, contrast, focus |
-| [agentic-cookbook://guidelines/general#localizability](general.md#agentic-cookbook://113-localizability) | Localizability | localization, i18n, strings, .xcstrings, strings.xml, .resw |
-| [agentic-cookbook://guidelines/general#rtl-layout-support](general.md#agentic-cookbook://114-rtl-layout-support) | RTL layout support | RTL, right-to-left, leading, trailing, FlowDirection |
-| [agentic-cookbook://guidelines/general#respect-accessibility-display-options](general.md#agentic-cookbook://115-respect-accessibility-display-options) | Respect accessibility display options | reduced motion, high contrast, bold text, grayscale |
-| [agentic-cookbook://guidelines/general#privacy-and-security-by-default](general.md#agentic-cookbook://116-privacy-and-security-by-default) | Privacy and security by default | privacy, security, PII, TLS, consent |
-| [agentic-cookbook://guidelines/general#privacy-and-security-by-default](general.md#agentic-cookbook://1161-data-minimization) | Data minimization | data minimization, on-device |
-| [agentic-cookbook://guidelines/general#privacy-and-security-by-default](general.md#agentic-cookbook://1162-consent) | Consent | consent, opt-in, deny |
-| [agentic-cookbook://guidelines/general#privacy-and-security-by-default](general.md#agentic-cookbook://1163-secure-storage) | Secure storage | Keychain, EncryptedSharedPreferences, DPAPI, HttpOnly |
-| [agentic-cookbook://guidelines/general#privacy-and-security-by-default](general.md#agentic-cookbook://1164-no-pii-logging) | No PII logging | PII, logging, personally identifiable |
-| [agentic-cookbook://guidelines/general#privacy-and-security-by-default](general.md#agentic-cookbook://1165-tls-only) | TLS only | TLS, HTTPS, encryption |
-| [agentic-cookbook://guidelines/general#privacy-and-security-by-default](general.md#agentic-cookbook://1166-input-sanitization) | Input sanitization | sanitization, XSS, injection |
-| [agentic-cookbook://guidelines/general#feature-flags](general.md#agentic-cookbook://117-feature-flags) | Feature flags | feature flags, FeatureFlagProvider, gating |
-| [agentic-cookbook://guidelines/general#analytics](general.md#agentic-cookbook://118-analytics) | Analytics | analytics, AnalyticsProvider, tracking |
-| [agentic-cookbook://guidelines/general#ab-testing](general.md#agentic-cookbook://119-ab-testing) | A/B testing | A/B testing, ExperimentProvider, variants |
-| [agentic-cookbook://guidelines/general#debug-mode](general.md#agentic-cookbook://120-debug-mode) | Debug mode | debug panel, flag overrides, environment info |
-| [agentic-cookbook://guidelines/general#linting-from-day-one](general.md#agentic-cookbook://121-linting-from-day-one) | Linting from day one | linting, SwiftLint, ktlint, ESLint, Roslyn, dotnet format |
+| [Post-generation verification](testing/post-generation-verification.md) | Post-generation verification | build, test, lint, accessibility audit, code review |
+| [Instrumented logging](logging/logging.md) | Instrumented logging | logging, os.log, Timber, ILogger, structured |
+| [Deep linking](platform/deep-linking.md) | Deep linking | deep link, URL, Universal Links, App Links, protocol activation |
+| [Scriptable and automatable](platform/shortcuts-and-automation.md) | Scriptable and automatable | AppIntents, AppActions, Shortcuts, automation |
+| [Accessibility from day one](accessibility/accessibility.md) | Accessibility from day one | accessibility, VoiceOver, TalkBack, Narrator, WCAG, contrast, focus |
+| [Localizability](internationalization/localization.md) | Localizability | localization, i18n, strings, .xcstrings, strings.xml, .resw |
+| [RTL layout support](internationalization/rtl-support.md) | RTL layout support | RTL, right-to-left, leading, trailing, FlowDirection |
+| [Respect accessibility display options](accessibility/accessibility.md) | Respect accessibility display options | reduced motion, high contrast, bold text, grayscale |
+| [Privacy and security by default](security/privacy.md) | Privacy and security by default | privacy, security, PII, TLS, consent |
+| [Data minimization](security/privacy.md) | Data minimization | data minimization, on-device |
+| [Consent](security/privacy.md) | Consent | consent, opt-in, deny |
+| [Secure storage](security/privacy.md) | Secure storage | Keychain, EncryptedSharedPreferences, DPAPI, HttpOnly |
+| [No PII logging](security/privacy.md) | No PII logging | PII, logging, personally identifiable |
+| [TLS only](security/privacy.md) | TLS only | TLS, HTTPS, encryption |
+| [Input sanitization](security/privacy.md) | Input sanitization | sanitization, XSS, injection |
+| [Feature flags](feature-management/feature-flags.md) | Feature flags | feature flags, FeatureFlagProvider, gating |
+| [Analytics](logging/analytics.md) | Analytics | analytics, AnalyticsProvider, tracking |
+| [A/B testing](feature-management/ab-testing.md) | A/B testing | A/B testing, ExperimentProvider, variants |
+| [Debug mode](feature-management/debug-mode.md) | Debug mode | debug panel, flag overrides, environment info |
+| [Linting from day one](code-quality/linting.md) | Linting from day one | linting, SwiftLint, ktlint, ESLint, Roslyn, dotnet format |
 
 ## agentic-cookbook://2/ Engineering Principles — [engineering-principles.md](engineering-principles.md)
 
