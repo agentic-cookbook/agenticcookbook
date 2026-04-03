@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Agentic Cookbook</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <style>
+    :root {
+      --bg: #0A1320;
+      --cyan: #00D4FF;
+      --orange: #FF8C00;
+      --cyan-glow: rgba(0, 212, 255, 0.3);
+      --orange-glow: rgba(255, 140, 0, 0.3);
+      --text: #E8ECF1;
+      --muted: #8899AA;
+    }
+
+    .reveal {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    .reveal .slides section {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .reveal h1, .reveal h2, .reveal h3 {
+      color: var(--cyan);
+      text-transform: none;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-shadow: 0 0 30px var(--cyan-glow);
+    }
+
+    .reveal h1 {
+      font-size: 2.8em;
+    }
+
+    .reveal h2 {
+      font-size: 2em;
+    }
+
+    .reveal h3 {
+      font-size: 1.3em;
+      color: var(--orange);
+      text-shadow: 0 0 20px var(--orange-glow);
+    }
+
+    .reveal p, .reveal li {
+      color: var(--text);
+      font-size: 0.75em;
+      line-height: 1.6;
+    }
+
+    .reveal .muted {
+      color: var(--muted);
+      font-size: 0.65em;
+    }
+
+    .reveal .accent {
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    .reveal .cyan {
+      color: var(--cyan);
+    }
+
+    .reveal strong {
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    .reveal code {
+      background: rgba(0, 212, 255, 0.08);
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 0.85em;
+      color: var(--cyan);
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    .reveal pre {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      width: 90%;
+      margin: 0.5em auto;
+    }
+
+    .reveal pre code {
+      background: none;
+      border: none;
+      padding: 1em;
+      font-size: 0.55em;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    .reveal ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .reveal ul li::before {
+      content: "→ ";
+      color: var(--orange);
+      font-weight: bold;
+    }
+
+    .reveal .diagram-box {
+      background: rgba(0, 212, 255, 0.06);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 10px;
+      padding: 1.2em;
+      margin: 0.8em auto;
+      max-width: 85%;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 0.55em;
+      line-height: 1.6;
+      white-space: pre;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .reveal .diagram-box .node {
+      color: var(--cyan);
+      font-weight: 600;
+    }
+
+    .reveal .diagram-box .arrow {
+      color: var(--orange);
+    }
+
+    .reveal .two-col {
+      display: flex;
+      gap: 2em;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .reveal .two-col > div {
+      flex: 1;
+    }
+
+    .reveal .pill {
+      display: inline-block;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.25);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.55em;
+      margin: 3px;
+      color: var(--cyan);
+    }
+
+    .reveal .pill.orange {
+      background: rgba(255, 140, 0, 0.1);
+      border-color: rgba(255, 140, 0, 0.25);
+      color: var(--orange);
+    }
+
+    .reveal .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1em;
+      margin: 1em 0;
+    }
+
+    .reveal .grid-3 .cell {
+      background: rgba(0, 212, 255, 0.04);
+      border: 1px solid rgba(0, 212, 255, 0.12);
+      border-radius: 8px;
+      padding: 0.8em;
+      text-align: left;
+    }
+
+    .reveal .grid-3 .cell h3 {
+      font-size: 0.8em;
+      margin-bottom: 0.3em;
+    }
+
+    .reveal .grid-3 .cell p {
+      font-size: 0.55em;
+      margin: 0;
+    }
+
+    .reveal .tagline {
+      color: var(--muted);
+      font-size: 0.8em;
+      font-style: italic;
+      margin-top: 0.5em;
+    }
+
+    .reveal .stat {
+      font-size: 2em;
+      font-weight: 700;
+      color: var(--orange);
+      text-shadow: 0 0 20px var(--orange-glow);
+    }
+
+    .reveal .stat-label {
+      font-size: 0.6em;
+      color: var(--muted);
+    }
+
+    .reveal .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 3em;
+      margin: 1em 0;
+    }
+
+    .reveal .stats-row > div {
+      text-align: center;
+    }
+
+    .reveal .flow-step {
+      display: inline-block;
+      background: rgba(0, 212, 255, 0.08);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 6px;
+      padding: 6px 16px;
+      font-size: 0.6em;
+      color: var(--cyan);
+    }
+
+    .reveal .flow-arrow {
+      display: inline-block;
+      color: var(--orange);
+      font-size: 0.7em;
+      margin: 0 0.3em;
+    }
+
+    .reveal .section-divider {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .reveal .slide-number {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      color: var(--muted);
+      font-size: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- SLIDE 1: Title -->
+      <section>
+        <div style="margin-bottom: 1em;">
+          <img src="ac%20logo.png" alt="Agentic Cookbook Logo" style="height: 160px; filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.4));">
+        </div>
+        <h1>The Agentic Cookbook</h1>
+        <p class="tagline">Multi-platform native development, constrained by recipes, built by agents</p>
+      </section>
+
+      <!-- SLIDE 2: Cross-Platform Is Dead -->
+      <section>
+        <h2>Cross-Platform Is Dead</h2>
+        <p style="margin-bottom: 1em;">The middleware era solved a human problem: writing native code for every platform is slow and error-prone.</p>
+        <div class="two-col">
+          <div>
+            <h3>The Middleware Tax</h3>
+            <ul>
+              <li>Write once, abstract everywhere</li>
+              <li>Lowest common denominator APIs</li>
+              <li>Platform-specific bugs in generic code</li>
+              <li>Always one version behind native</li>
+            </ul>
+          </div>
+          <div>
+            <h3>The Players</h3>
+            <div style="margin-top: 0.5em;">
+              <span class="pill">React Native</span>
+              <span class="pill">Flutter</span>
+              <span class="pill">Xamarin</span>
+              <span class="pill">SwiftUI</span>
+              <span class="pill">Kotlin Multiplatform</span>
+              <span class="pill">Electron</span>
+              <span class="pill">MAUI</span>
+            </div>
+            <p class="muted" style="margin-top: 0.8em;">All built on the same premise: humans can't write native code fast enough.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3: Multi-Platform Is Native -->
+      <section>
+        <h2>Multi-Platform Is Native</h2>
+        <p>Agents don't need abstraction layers. Given the right constraints, they write native code for every platform — directly against the best API.</p>
+        <div class="diagram-box">
+<span class="node">Cross-Platform (old)</span>
+Your Code <span class="arrow">→</span> Middleware <span class="arrow">→</span> Platform API <span class="arrow">→</span> Native UI
+
+<span class="node">Multi-Platform (new)</span>
+Recipe <span class="arrow">→</span> Agent <span class="arrow">→</span> Platform API <span class="arrow">→</span> Native UI
+                              <span class="arrow">→</span> Platform API <span class="arrow">→</span> Native UI
+                              <span class="arrow">→</span> Platform API <span class="arrow">→</span> Native UI
+        </div>
+        <p><strong>The "write once" isn't the code anymore — it's the constraints.</strong></p>
+      </section>
+
+      <!-- SLIDE 4: What Is the Agentic Cookbook? -->
+      <section>
+        <h2>What Is the Agentic Cookbook?</h2>
+        <p>A structured knowledge base consumed directly by AI agents.<br>It defines <em>what good looks like</em> across every dimension of software.</p>
+        <div class="stats-row">
+          <div>
+            <div class="stat">18</div>
+            <div class="stat-label">Principles</div>
+          </div>
+          <div>
+            <div class="stat">88</div>
+            <div class="stat-label">Guidelines</div>
+          </div>
+          <div>
+            <div class="stat">27</div>
+            <div class="stat-label">Recipes</div>
+          </div>
+          <div>
+            <div class="stat">81</div>
+            <div class="stat-label">Compliance Checks</div>
+          </div>
+        </div>
+        <p class="muted">All markdown. All machine-readable. All cross-referenced.</p>
+      </section>
+
+      <!-- SLIDE 5: Philosophy -->
+      <section>
+        <h2>Constrain, Don't Abstract</h2>
+        <p>Instead of abstracting platforms away, define what <strong>"trusted"</strong> means and let the agent figure out the implementation.</p>
+        <div class="grid-3">
+          <div class="cell">
+            <h3>Principles</h3>
+            <p>Universal truths. "Code must be accessible." "Errors must be recoverable." 14 dimensions of what trusted code means.</p>
+          </div>
+          <div class="cell">
+            <h3>Guidelines</h3>
+            <p>Topic-organized rules. Security, testing, UI, accessibility, networking. 88 guidelines agents must follow.</p>
+          </div>
+          <div class="cell">
+            <h3>Compliance</h3>
+            <p>Verification layer. 10 categories, 81 checks. Automated validation that the output meets the constraints.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: Recipes -->
+      <section>
+        <h2>Recipes: The New "Write Once"</h2>
+        <p>A recipe defines <em>what</em> to build, not <em>how</em>. The agent writes platform-native code.</p>
+        <pre><code>---
+title: "Status Bar"
+platforms: [ios, macos, web, kotlin, swift, typescript]
+type: recipe
+---
+
+## Behavioral Requirements
+
+- **slide-in-animation**: The bar MUST slide in from the
+  bottom edge with an animated transition.
+- **indeterminate-spinner**: MUST display a platform-native
+  indeterminate progress spinner.
+- **overlay-not-push**: MUST overlay content, not push it.
+- **non-blocking**: MUST NOT block interaction beneath it.
+
+## Appearance
+- Height: 28–32pt
+- Background: system blur or translucent fill</code></pre>
+        <p class="muted">Same recipe → UIKit, AppKit, Jetpack Compose, React, vanilla HTML — no middleware</p>
+      </section>
+
+      <!-- SLIDE 7: How It Connects -->
+      <section>
+        <h2>Three-Layer Architecture</h2>
+        <p>Every recipe is grounded in guidelines, verified by compliance checks.</p>
+        <div class="diagram-box">
+┌─────────────────────────────────────────────┐
+│            <span class="node">Recipes</span>   (27)                   │
+│  Define what to build for each platform     │
+├─────────────────────────────────────────────┤
+│          <span class="node">Compliance</span>  (81 checks)            │
+│  Verify the output meets constraints        │
+├─────────────────────────────────────────────┤
+│          <span class="node">Guidelines</span>  (88)                   │
+│  Topic rules: security, a11y, UI, testing   │
+├─────────────────────────────────────────────┤
+│          <span class="node">Principles</span>  (18)                   │
+│  Universal truths about trusted software    │
+└─────────────────────────────────────────────┘
+        </div>
+        <p>Everything cross-references via <code>agentic-cookbook://</code> domain identifiers.</p>
+      </section>
+
+      <!-- SLIDE 8: Projects -->
+      <section>
+        <h2>Consuming the Cookbook</h2>
+        <p>One command. One rule file. Everything wired in.</p>
+        <pre><code># From your project directory:
+/install-cookbook
+
+# Installs:
+#   .claude/rules/cookbook.md    ← single rule, full cookbook
+#   CLAUDE.md updates           ← project instructions
+#
+# No tiers, no partial installs — everyone gets everything.
+# Two opt-out prompts: recipe suggestions, contribution prompts.</code></pre>
+        <div style="margin-top: 0.8em;">
+          <span class="flow-step">Your Project</span>
+          <span class="flow-arrow">←</span>
+          <span class="flow-step">cookbook.md rule</span>
+          <span class="flow-arrow">←</span>
+          <span class="flow-step">Agentic Cookbook repo</span>
+        </div>
+      </section>
+
+      <!-- SLIDE 9: The Scoping Problem -->
+      <section>
+        <h2>The Scoping Problem</h2>
+        <p>Agents can build. But <em>what</em> should they build?</p>
+        <div style="margin: 1.5em 0;">
+          <p style="font-size: 0.85em;">Product discovery is still a human bottleneck.<br>
+          Requirements are scattered across conversations, docs, and assumptions.<br>
+          Agents need <strong>structured, comprehensive input</strong> to produce good output.</p>
+        </div>
+        <p class="muted">What if agents could help scope the product too?</p>
+      </section>
+
+      <!-- SLIDE 10: Interview Team Architecture -->
+      <section>
+        <h2>The Agentic Interview Team</h2>
+        <p>A multi-agent product discovery system. 18 specialists. Structured + exploratory questioning.</p>
+        <div class="diagram-box">
+┌──────────────────────────────────────────────────┐
+│             <span class="node">Meeting Leader</span>  (Skill)             │
+│   Orchestrates, talks to user, writes            │
+│   transcripts, maintains living checklist        │
+└──────┬──────────────┬──────────────┬─────────────┘
+       │              │              │
+┌──────▼──────┐ ┌─────▼──────┐ ┌────▼─────────┐
+│ <span class="node">Transcript</span>  │ │ <span class="node">Specialist</span> │ │  <span class="node">Specialist</span> │
+│ <span class="node">Analyzer</span>   │ │ <span class="node">Interviewer</span>│ │   <span class="node">Analyst</span>  │
+│             │ │ (per domain)│ │ (per domain) │
+└─────────────┘ └────────────┘ └──────────────┘
+        </div>
+        <p class="muted">Hub-and-spoke: leader orchestrates, specialists come and go as needed.</p>
+      </section>
+
+      <!-- SLIDE 11: Interview Flow -->
+      <section>
+        <h2>The Interview Flow</h2>
+        <div class="diagram-box" style="text-align: left; padding: 1.5em;">
+<span class="node">Structured Phase</span>
+  Cover known questions via checklist
+       <span class="arrow">↓</span>
+<span class="node">Explore Phase</span>
+  Specialists follow threads, probe implications
+       <span class="arrow">↓</span>
+<span class="node">New Knowns Discovered</span>
+  Analysis surfaces questions nobody thought to ask
+       <span class="arrow">↓</span>
+  <span class="arrow">↻ Back to structured → explore → repeat</span>
+       <span class="arrow">↓</span>
+<span class="node">Session End</span>
+  Summary, resume anytime, living checklist persists
+        </div>
+        <p>Two files per exchange: <strong>transcript</strong> (raw Q&A) + <strong>analysis</strong> (implications, gaps, new questions).</p>
+      </section>
+
+      <!-- SLIDE 12: Specialist Intersection -->
+      <section>
+        <h2>Specialist Intersection</h2>
+        <p>Power is in the cross: <span class="cyan">domain knowledge</span> × <span class="accent">platform knowledge</span>.</p>
+        <div class="two-col">
+          <div>
+            <h3>12 Domain Specialists</h3>
+            <div style="margin-top: 0.3em;">
+              <span class="pill">Security</span>
+              <span class="pill">Accessibility</span>
+              <span class="pill">UI/UX</span>
+              <span class="pill">Architecture</span>
+              <span class="pill">Testing</span>
+              <span class="pill">Networking</span>
+              <span class="pill">Reliability</span>
+              <span class="pill">Code Quality</span>
+              <span class="pill">DevOps</span>
+              <span class="pill">L10n / I18n</span>
+              <span class="pill">Data</span>
+              <span class="pill">Process</span>
+            </div>
+          </div>
+          <div>
+            <h3>6 Platform Specialists</h3>
+            <div style="margin-top: 0.3em;">
+              <span class="pill orange">iOS / Apple</span>
+              <span class="pill orange">Android</span>
+              <span class="pill orange">Windows</span>
+              <span class="pill orange">Web Frontend</span>
+              <span class="pill orange">Web Backend</span>
+              <span class="pill orange">Database</span>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 1em;">Security × iOS → "Are you using Keychain for credentials or rolling your own?"<br>
+        <span class="muted">Questions emerge at the intersection that neither specialist would ask alone.</span></p>
+      </section>
+
+      <!-- SLIDE 13: How They Fit Together -->
+      <section>
+        <h2>The Full Pipeline</h2>
+        <div class="diagram-box">
+<span class="node">Interview</span>                    <span class="node">Cookbook</span>                    <span class="node">Build</span>
+
+  You talk to          Recipes + guidelines        Agent writes
+  18 specialists  <span class="arrow">→</span>    constrain the agent   <span class="arrow">→</span>   native code per
+  about your product   with your product's         platform
+                       requirements
+
+┌──────────┐      ┌─────────────────┐      ┌──────────────┐
+│Transcripts│ <span class="arrow">→</span>  │ Recipes define   │ <span class="arrow">→</span>  │ AppKit       │
+│ + Analysis│     │ what to build    │      │ UIKit        │
+│ + Checklist│     │ + how to verify  │      │ Jetpack      │
+└──────────┘      └─────────────────┘      │ React        │
+                                            │ WinUI        │
+                                            └──────────────┘
+        </div>
+        <p><strong>Discovery → Constraints → Native code.</strong> No middleware anywhere.</p>
+      </section>
+
+      <!-- SLIDE 14: The Workflow -->
+      <section>
+        <h2>Using It</h2>
+        <pre><code># 1. Set up
+git clone agentic-cookbook && git clone agentic-interview-team
+
+# 2. Install the cookbook into your project
+cd my-app && /install-cookbook
+
+# 3. Scope your product with the interview team
+/interview
+# → "What are you building? Tell me about yourself..."
+# → 18 specialists ask the questions you'd miss
+# → Timestamped transcripts + deep analysis
+
+# 4. Plan and build
+# Agent reads transcripts + cookbook recipes
+# Writes native AppKit, UIKit, Jetpack Compose, React...
+# Compliance checks verify the output</code></pre>
+      </section>
+
+      <!-- SLIDE 15: Closing -->
+      <section>
+        <h1 style="font-size: 2em;">The middleware is dead.<br>Long live the recipe.</h1>
+        <div style="margin: 1.5em 0;">
+          <p>
+            <code>github.com/agentic-cookbook/cookbook</code><br>
+            <code>github.com/agentic-cookbook/dev-team</code>
+          </p>
+        </div>
+        <div style="margin-top: 2em;">
+          <img src="ac%20logo.png" alt="Agentic Cookbook Logo" style="height: 100px; filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.4));">
+        </div>
+        <p class="muted">MIT Licensed. All markdown. All machine-readable.</p>
+      </section>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      transition: 'fade',
+      transitionSpeed: 'fast',
+      backgroundTransition: 'fade',
+      controls: true,
+      progress: true,
+      center: true,
+      width: 1280,
+      height: 720
+    });
+  </script>
+</body>
+</html>
