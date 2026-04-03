@@ -1,0 +1,7 @@
+# Web Controls
+
+Recipes for individual web UI controls.
+
+| File | Description |
+|------|-------------|
+| [appearance-mode-toggle.md](appearance-mode-toggle.md) | Three-mode toggle button cycling automatic, forced dark, and forced light appearance |
