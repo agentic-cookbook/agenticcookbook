@@ -69,6 +69,7 @@ A library of principles, guidelines, recipes, and workflows for building softwar
 | [Language-Specific](guidelines/language/) | Swift, Kotlin, C#, Python — truly language-only guidance |
 | [Platform Integration](guidelines/platform/) | System integration — deep linking, search, widgets, notifications, sharing, background tasks, continuity |
 | [Platform-Specific: Windows](guidelines/platform/windows/) | Windows-only — Fluent Design, MSIX, DPI scaling, theming |
+| [Skills and Agents](guidelines/skills-and-agents/) | Authoring skills, rules, and agents — checklists, structure references, performance |
 
 ## Recipes
 
@@ -82,6 +83,8 @@ A library of principles, guidelines, recipes, and workflows for building softwar
 | [Infrastructure](recipes/infrastructure/) | Non-visual patterns — logging, persistence, sync |
 | [App-Level](recipes/app/) | Lifecycle, menus, commands |
 | [Autonomous Dev Bots](recipes/autonomous-dev-bots/) | Long-running agent processes — PR review, CI verification, code review |
+| [Developer Tools](recipes/developer-tools/) | Claude Code workarounds, hooks, and developer environment recipes |
+| [Web Controls](recipes/web/) | Web UI control recipes |
 
 ## Compliance
 
@@ -126,6 +129,9 @@ A library of principles, guidelines, recipes, and workflows for building softwar
 | [Networking](reference/best-practices/networking.md) | REST guidelines, RFC references |
 | [Security](reference/best-practices/security.md) | OWASP, CWE, Mozilla |
 | [Testing](reference/best-practices/testing.md) | Google SWE Book, Fowler, Kent Beck |
+| [Cross-Platform](reference/best-practices/cross-platform.md) | Nielsen Norman, MASVS, MASTG |
+| [References](reference/references.md) | Additional reference materials |
+| [Example Project](reference/examples/) | My Document Editor — complete cookbook project example |
 
 ## Change History
 

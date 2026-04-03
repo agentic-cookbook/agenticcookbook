@@ -86,6 +86,23 @@ related:
   - agentic-cookbook://guidelines/testing/test-pyramid
   - agentic-cookbook://guidelines/testing/the-testing-workflow
   - agentic-cookbook://guidelines/testing/unit-test-patterns
+  - agentic-cookbook://guidelines/skills-and-agents/authoring-skills-and-rules
+  - agentic-cookbook://guidelines/skills-and-agents/performance
+  - agentic-cookbook://guidelines/skills-and-agents/skill-checklist
+  - agentic-cookbook://guidelines/skills-and-agents/rule-checklist
+  - agentic-cookbook://guidelines/skills-and-agents/agent-checklist
+  - agentic-cookbook://guidelines/skills-and-agents/skill-structure-reference
+  - agentic-cookbook://guidelines/skills-and-agents/rule-structure-reference
+  - agentic-cookbook://guidelines/skills-and-agents/agent-structure-reference
+  - agentic-cookbook://guidelines/concurrency/immutability
+  - agentic-cookbook://guidelines/platform/background-tasks
+  - agentic-cookbook://guidelines/platform/notifications
+  - agentic-cookbook://guidelines/platform/handoff-and-continuity
+  - agentic-cookbook://guidelines/platform/search-integration
+  - agentic-cookbook://guidelines/platform/share-and-inter-app-data
+  - agentic-cookbook://guidelines/platform/widgets-and-glanceable-surfaces
+  - agentic-cookbook://guidelines/ui/previews
+  - agentic-cookbook://guidelines/language/swift/prefer-explicit-apple-apis
 references: []
 ---
 
@@ -104,6 +121,7 @@ Use `agentic-cookbook://X/Y` notation to cross-reference any rule. Search this f
 | [For novel components, prefer proven open-source solutions](../principles/open-source-preference.md) | For novel components, prefer proven open-source solutions | open-source, library, custom |
 | [Surface all design decisions](../conventions.md) | Surface all design decisions | decisions, approval, LLM, consistency |
 | [No blocking the main thread](concurrency/concurrency.md) | No blocking the main thread | async, await, concurrency, background, UI thread |
+| [Immutability](concurrency/immutability.md) | Immutability | immutable, value types, let, val, const, records |
 | [Always show progress](ui/always-show-progress.md) | Always show progress | spinner, skeleton, shimmer, progress bar, loading |
 | [Comprehensive unit testing](testing/testing.md) | Comprehensive unit testing | tests, unit tests, edge cases, test file |
 | [Small, atomic commits](code-quality/atomic-commits.md) | Small, atomic commits | commits, git, one change |
@@ -113,6 +131,12 @@ Use `agentic-cookbook://X/Y` notation to cross-reference any rule. Search this f
 | [Instrumented logging](logging/logging.md) | Instrumented logging | logging, os.log, Timber, ILogger, structured |
 | [Deep linking](platform/deep-linking.md) | Deep linking | deep link, URL, Universal Links, App Links, protocol activation |
 | [Scriptable and automatable](platform/shortcuts-and-automation.md) | Scriptable and automatable | AppIntents, AppActions, Shortcuts, automation |
+| [Background tasks](platform/background-tasks.md) | Background tasks | BGAppRefreshTask, WorkManager, background transfers |
+| [Notifications](platform/notifications.md) | Notifications | push, local, UNUserNotificationCenter, channels |
+| [Handoff and continuity](platform/handoff-and-continuity.md) | Handoff and continuity | NSUserActivity, Nearby Connections, cross-device |
+| [Search integration](platform/search-integration.md) | Search integration | Core Spotlight, AppIndexing, on-device search |
+| [Share and inter-app data](platform/share-and-inter-app-data.md) | Share and inter-app data | share sheet, ACTION_SEND, ContentProvider |
+| [Widgets and glanceable surfaces](platform/widgets-and-glanceable-surfaces.md) | Widgets and glanceable surfaces | WidgetKit, Jetpack Glance, Live Activities |
 | [Accessibility from day one](accessibility/accessibility.md) | Accessibility from day one | accessibility, VoiceOver, TalkBack, Narrator, WCAG, contrast, focus |
 | [Localizability](internationalization/localization.md) | Localizability | localization, i18n, strings, .xcstrings, strings.xml, .resw |
 | [RTL layout support](internationalization/rtl-support.md) | RTL layout support | RTL, right-to-left, leading, trailing, FlowDirection |
@@ -163,6 +187,7 @@ Use `agentic-cookbook://X/Y` notation to cross-reference any rule. Search this f
 | Shortcuts and Automation | Shortcuts and Automation | AppIntents, Shortcuts, Siri, AppleScript |
 | Previews | Previews | #Preview, SwiftUI, render |
 | [Dynamic Type](language/swift/dynamic-type.md) | Dynamic Type | Dynamic Type, font sizes, text scaling |
+| [Use AppKit and UIKit, not SwiftUI](language/swift/prefer-explicit-apple-apis.md) | Prefer explicit Apple APIs | UIKit, AppKit, SwiftUI restrictions |
 | Accessibility Environment Values | Accessibility Environment Values | reduceMotion, reduceTransparency, colorSchemeContrast |
 | Concurrency | Concurrency | async/await, Task, actors, @MainActor |
 | Privacy | Privacy | App Tracking Transparency, Privacy Report, NSUsageDescription |
@@ -283,6 +308,7 @@ Use `agentic-cookbook://X/Y` notation to cross-reference any rule. Search this f
 | [Animation & Motion](ui/animation-motion.md) | Animation & Motion | duration, easing, reduced-motion, spring |
 | [Iconography](ui/iconography.md) | Iconography | SF Symbols, Material Symbols, Segoe Fluent Icons, labels |
 | [Data Display](ui/data-display.md) | Data Display | list, table, cards, grid, sort, filter, search |
+| [Previews](ui/previews.md) | Previews | #Preview, SwiftUI, Compose @Preview, component preview |
 
 ## Networking
 
@@ -364,6 +390,19 @@ Use `agentic-cookbook://X/Y` notation to cross-reference any rule. Search this f
 | [Flaky Test Prevention](testing/flaky-test-prevention.md) | Flaky Test Prevention | determinism, shared state, sleep, timing |
 | [Test Data](testing/test-data.md) | Test Data | builder pattern, factory, generators, inline literals |
 | [The Testing Workflow](testing/the-testing-workflow.md) | The Testing Workflow | closed loop, mutation, security scan, E2E |
+
+## Skills and Agents
+
+| guide. | Section | Keywords |
+|---|---------|----------|
+| [Authoring Skills and Rules](skills-and-agents/authoring-skills-and-rules.md) | Authoring Skills and Rules | skill, rule, agent, SKILL.md, hooks |
+| [Performance](skills-and-agents/performance.md) | Performance: Speed and Token Efficiency | tokens, model selection, context, caching |
+| [Skill Checklist](skills-and-agents/skill-checklist.md) | Skill Checklist | checklist, lint, validation |
+| [Rule Checklist](skills-and-agents/rule-checklist.md) | Rule Checklist | checklist, lint, validation |
+| [Agent Checklist](skills-and-agents/agent-checklist.md) | Agent Checklist | checklist, lint, validation |
+| [Skill Structure Reference](skills-and-agents/skill-structure-reference.md) | Skill Structure Reference | frontmatter, sections, format |
+| [Rule Structure Reference](skills-and-agents/rule-structure-reference.md) | Rule Structure Reference | frontmatter, sections, format |
+| [Agent Structure Reference](skills-and-agents/agent-structure-reference.md) | Agent Structure Reference | frontmatter, sections, format |
 
 ## Change History
 
