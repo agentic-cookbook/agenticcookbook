@@ -3,11 +3,11 @@ id: 00000000-0000-0000-0000-000000000001
 title: "Agentic Cookbook"
 domain: agentic-cookbook://index
 type: reference
-version: 1.0.0
+version: 2.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-02
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -22,7 +22,17 @@ references:
 
 # Agentic Cookbook
 
-A library of principles, guidelines, recipes, and workflows for building software with AI-assisted development. This cookbook is consumed directly by AI agents (Claude Code) and rendered as a website for humans.
+A library of principles, guidelines, recipes, and workflows for building software with AI-assisted development.
+
+## Introduction
+
+*Start here.* How to use this book — conventions, terminology, and getting started.
+
+| Topic | Description |
+|-------|-------------|
+| [Getting Started](introduction/getting-started.md) | Setup and first steps |
+| [Conventions](introduction/conventions.md) | File format, naming, cross-referencing |
+| [Glossary](introduction/glossary.md) | Term definitions |
 
 ## Principles
 
@@ -77,18 +87,30 @@ A library of principles, guidelines, recipes, and workflows for building softwar
 
 | Category | Description |
 |----------|-------------|
-| [UI Components](recipes/ui/component/) | Leaf building blocks — empty state, status bar, metadata line |
-| [Panels](recipes/ui/panel/) | Content panes — file browser, editor, terminal, inspector |
-| [Windows](recipes/ui/window/) | Top-level layouts — project, workspace, settings |
+| [UI Components](recipes/ui/components/) | Leaf building blocks — empty state, status bar, metadata line |
+| [Panels](recipes/ui/panels/) | Content panes — file browser, editor, terminal, inspector |
+| [Windows](recipes/ui/windows/) | Top-level layouts — project, workspace, settings |
 | [Infrastructure](recipes/infrastructure/) | Non-visual patterns — logging, persistence, sync |
 | [App-Level](recipes/app/) | Lifecycle, menus, commands |
 | [Autonomous Dev Bots](recipes/autonomous-dev-bots/) | Long-running agent processes — PR review, CI verification, code review |
 | [Developer Tools](recipes/developer-tools/) | Claude Code workarounds, hooks, and developer environment recipes |
 | [Web Controls](recipes/web/) | Web UI control recipes |
 
+## Workflows
+
+*How to work.* Development process recipes for AI-assisted coding sessions.
+
+| Workflow | Description |
+|----------|-------------|
+| [Branching Strategy](workflows/branching-strategy.md) | Worktree + draft PR lifecycle |
+| [Code Planning](workflows/code-planning.md) | Pre-implementation decision-making |
+| [Code Implementation](workflows/code-implementation.md) | Disciplined phased execution |
+| [Code Verification](workflows/code-verification.md) | Post-implementation validation |
+| [Code Review](workflows/code-review.md) | Structured review process |
+
 ## Compliance
 
-*What to verify.* Curated indexes of guideline-derived checks, grouped by concern. Each recipe includes a Compliance section recording which checks were evaluated.
+*What to verify.* Curated indexes of guideline-derived checks, grouped by concern.
 
 | Category | Checks | Scope |
 |----------|--------|-------|
@@ -102,18 +124,6 @@ A library of principles, guidelines, recipes, and workflows for building softwar
 | [Platform Compliance](compliance/platform-compliance.md) | 8 | App Store, Google Play, design language |
 | [Reliability](compliance/reliability.md) | 8 | Error recovery, degradation, state, idempotency |
 | [Internationalization](compliance/internationalization.md) | 7 | Strings, RTL, locale formatting, Unicode |
-
-## Workflow
-
-*How to work.* Development process recipes for AI-assisted coding sessions.
-
-| Workflow | Description |
-|----------|-------------|
-| [Branching Strategy](workflow/branching-strategy.md) | Worktree + draft PR lifecycle |
-| [Code Planning](workflow/code-planning.md) | Pre-implementation decision-making |
-| [Code Implementation](workflow/code-implementation.md) | Disciplined phased execution |
-| [Code Verification](workflow/code-verification.md) | Post-implementation validation |
-| [Code Review](workflow/code-review.md) | Structured review process |
 
 ## Reference
 
@@ -133,8 +143,19 @@ A library of principles, guidelines, recipes, and workflows for building softwar
 | [References](reference/references.md) | Additional reference materials |
 | [Example Project](reference/examples/) | My Document Editor — complete cookbook project example |
 
+## Appendix
+
+*Supplementary materials.* Contribution guides, design decisions, and research notes.
+
+| Section | Description |
+|---------|-------------|
+| [Contributing](appendix/contributing/) | How to author and contribute content |
+| [Decisions](appendix/decisions/) | Architecture decision records |
+| [Research](appendix/research/) | Platform and tooling research notes |
+
 ## Change History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
+| 2.0.0 | 2026-04-02 | Mike Fullerton | Reorganize as book structure — flatten cookbook/ to top level, add introduction/ and appendix/ |
