@@ -24,7 +24,7 @@ Continue running — do not stop.
 
 ## Overview
 
-You walk the user through contributing to the agentic cookbook — either a new recipe or an enhancement to an existing one. The result is a PR targeting `mikefullerton/agentic-cookbook`, created from a worktree.
+You walk the user through contributing to the agentic cookbook — either a new recipe or an enhancement to an existing one. The result is a PR targeting `agentic-cookbook/cookbook`, created from a worktree.
 
 The skill supports two contributor paths, detected automatically:
 
@@ -58,7 +58,7 @@ Run this entire step before doing anything else. It sets variables used througho
 
 ```
 Cookbook repo not found. Expected cookbook/conventions.md in the current directory or ../agentic-cookbook/.
-Clone it: git clone https://github.com/mikefullerton/agentic-cookbook.git ../agentic-cookbook
+Clone it: git clone https://github.com/agentic-cookbook/cookbook.git ../agentic-cookbook
 ```
 
 **Worktree check**: If `$COOKBOOK_DIR` is inside a git worktree (check `git -C $COOKBOOK_DIR rev-parse --git-common-dir`), resolve to the main repo for worktree creation later.
@@ -76,14 +76,14 @@ If either file is missing, stop and inform the user.
 git -C $COOKBOOK_DIR remote get-url origin
 ```
 
-- If the origin URL contains `mikefullerton/agentic-cookbook` (substring match — handles HTTPS, SSH, with or without `.git` suffix): this is the upstream repo. Set `$IS_FORK = false`.
+- If the origin URL contains `agentic-cookbook/cookbook` (substring match — handles HTTPS, SSH, with or without `.git` suffix): this is the upstream repo. Set `$IS_FORK = false`.
 - Otherwise: this is a fork. Set `$IS_FORK = true`. Then check for an `upstream` remote:
 
 ```
 git -C $COOKBOOK_DIR remote get-url upstream 2>/dev/null
 ```
 
-- If `upstream` exists and contains `mikefullerton/agentic-cookbook`: good, proceed.
+- If `upstream` exists and contains `agentic-cookbook/cookbook`: good, proceed.
 - If `upstream` is missing or points elsewhere: configure it in sub-step 0e.
 
 ### 0d. Determine push access (`$HAS_PUSH_ACCESS`)
@@ -94,7 +94,7 @@ git -C $COOKBOOK_DIR remote get-url upstream 2>/dev/null
 2. If `gh` is available, check permissions:
 
 ```
-gh repo view mikefullerton/agentic-cookbook --json viewerPermission --jq '.viewerPermission'
+gh repo view agentic-cookbook/cookbook --json viewerPermission --jq '.viewerPermission'
 ```
 
 - Result is `ADMIN`, `MAINTAIN`, or `WRITE`: set `$HAS_PUSH_ACCESS = true`.
@@ -103,7 +103,7 @@ gh repo view mikefullerton/agentic-cookbook --json viewerPermission --jq '.viewe
 3. If `gh` is not available, ask the user:
 
 ```
-Do you have push access to mikefullerton/agentic-cookbook? (yes/no)
+Do you have push access to agentic-cookbook/cookbook? (yes/no)
 If unsure, say no — we'll use the safer fork-based workflow.
 ```
 
@@ -120,10 +120,10 @@ Check if `gh` is available.
 If `gh` is available, offer to fork:
 
 ```
-You don't have push access to mikefullerton/agentic-cookbook.
+You don't have push access to agentic-cookbook/cookbook.
 I can fork it for you using gh repo fork. This will:
   - Create a fork under your GitHub account
-  - Set origin to your fork and upstream to mikefullerton/agentic-cookbook
+  - Set origin to your fork and upstream to agentic-cookbook/cookbook
 
 Proceed? (yes/no)
 ```
@@ -137,11 +137,11 @@ If `gh` is not available, print manual instructions and stop:
 ```
 You need a fork to contribute. Steps:
 
-1. Visit https://github.com/mikefullerton/agentic-cookbook and click "Fork"
+1. Visit https://github.com/agentic-cookbook/cookbook and click "Fork"
 2. Clone your fork:
    git clone https://github.com/<your-username>/agentic-cookbook.git ../agentic-cookbook
 3. Add upstream remote:
-   git -C ../agentic-cookbook remote add upstream https://github.com/mikefullerton/agentic-cookbook.git
+   git -C ../agentic-cookbook remote add upstream https://github.com/agentic-cookbook/cookbook.git
 4. Re-run /contribute-to-cookbook
 ```
 
@@ -150,13 +150,13 @@ You need a fork to contribute. Steps:
 Add or fix the upstream remote:
 
 ```
-git -C $COOKBOOK_DIR remote add upstream https://github.com/mikefullerton/agentic-cookbook.git
+git -C $COOKBOOK_DIR remote add upstream https://github.com/agentic-cookbook/cookbook.git
 ```
 
 If the remote already exists but points to the wrong URL:
 
 ```
-git -C $COOKBOOK_DIR remote set-url upstream https://github.com/mikefullerton/agentic-cookbook.git
+git -C $COOKBOOK_DIR remote set-url upstream https://github.com/agentic-cookbook/cookbook.git
 ```
 
 ### 0f. Sync fork with upstream (fork path only)
@@ -201,13 +201,13 @@ Derive `$WORKTREE_BASE` from `$COOKBOOK_DIR`:
 Print:
 
 ```
-Contributor path: admin (push access to mikefullerton/agentic-cookbook)
+Contributor path: admin (push access to agentic-cookbook/cookbook)
 ```
 
 or:
 
 ```
-Contributor path: external (fork: $GITHUB_USER/agentic-cookbook → mikefullerton/agentic-cookbook)
+Contributor path: external (fork: $GITHUB_USER/agentic-cookbook → agentic-cookbook/cookbook)
 ```
 
 ---
@@ -278,12 +278,12 @@ Parse `$ARGUMENTS`:
    ```
    If `gh` is available:
    ```
-   gh pr create --repo mikefullerton/agentic-cookbook --head feature/<recipe-name> --title "Add <recipe-name> recipe" --body "New recipe: <recipe-name>\n\n<one-line summary>\n\n<!-- fix-preference: $FIX_PREFERENCE -->"
+   gh pr create --repo agentic-cookbook/cookbook --head feature/<recipe-name> --title "Add <recipe-name> recipe" --body "New recipe: <recipe-name>\n\n<one-line summary>\n\n<!-- fix-preference: $FIX_PREFERENCE -->"
    ```
    If `gh` is not available, print:
    ```
    Commit pushed. Create the PR manually:
-     https://github.com/mikefullerton/agentic-cookbook/compare/feature/<recipe-name>
+     https://github.com/agentic-cookbook/cookbook/compare/feature/<recipe-name>
    ```
 
    **External path** (`$CONTRIBUTOR_PATH = "external"`):
@@ -292,12 +292,12 @@ Parse `$ARGUMENTS`:
    ```
    If `gh` is available:
    ```
-   gh pr create --repo mikefullerton/agentic-cookbook --head $GITHUB_USER:feature/<recipe-name> --title "Add <recipe-name> recipe" --body "New recipe: <recipe-name>\n\n<one-line summary>\n\n<!-- fix-preference: $FIX_PREFERENCE -->"
+   gh pr create --repo agentic-cookbook/cookbook --head $GITHUB_USER:feature/<recipe-name> --title "Add <recipe-name> recipe" --body "New recipe: <recipe-name>\n\n<one-line summary>\n\n<!-- fix-preference: $FIX_PREFERENCE -->"
    ```
    If `gh` is not available, print:
    ```
    Commit pushed to your fork. Create the PR manually:
-     https://github.com/mikefullerton/agentic-cookbook/compare/main...$GITHUB_USER:agentic-cookbook:feature/<recipe-name>
+     https://github.com/agentic-cookbook/cookbook/compare/main...$GITHUB_USER:cookbook:feature/<recipe-name>
    ```
 
    Verify the output contains a valid PR URL (or that the manual URL was printed). If a `gh` command fails, print the error and fall back to the manual URL.
@@ -342,12 +342,12 @@ Parse `$ARGUMENTS`:
    ```
    If `gh` is available:
    ```
-   gh pr create --repo mikefullerton/agentic-cookbook --head revise/<recipe-name> --title "Revise <recipe-name> recipe" --body "Enhancement: <description>\n\n<!-- fix-preference: $FIX_PREFERENCE -->"
+   gh pr create --repo agentic-cookbook/cookbook --head revise/<recipe-name> --title "Revise <recipe-name> recipe" --body "Enhancement: <description>\n\n<!-- fix-preference: $FIX_PREFERENCE -->"
    ```
    If `gh` is not available, print:
    ```
    Commit pushed. Create the PR manually:
-     https://github.com/mikefullerton/agentic-cookbook/compare/revise/<recipe-name>
+     https://github.com/agentic-cookbook/cookbook/compare/revise/<recipe-name>
    ```
 
    **External path** (`$CONTRIBUTOR_PATH = "external"`):
@@ -356,12 +356,12 @@ Parse `$ARGUMENTS`:
    ```
    If `gh` is available:
    ```
-   gh pr create --repo mikefullerton/agentic-cookbook --head $GITHUB_USER:revise/<recipe-name> --title "Revise <recipe-name> recipe" --body "Enhancement: <description>\n\n<!-- fix-preference: $FIX_PREFERENCE -->"
+   gh pr create --repo agentic-cookbook/cookbook --head $GITHUB_USER:revise/<recipe-name> --title "Revise <recipe-name> recipe" --body "Enhancement: <description>\n\n<!-- fix-preference: $FIX_PREFERENCE -->"
    ```
    If `gh` is not available, print:
    ```
    Commit pushed to your fork. Create the PR manually:
-     https://github.com/mikefullerton/agentic-cookbook/compare/main...$GITHUB_USER:agentic-cookbook:revise/<recipe-name>
+     https://github.com/agentic-cookbook/cookbook/compare/main...$GITHUB_USER:cookbook:revise/<recipe-name>
    ```
 
    Verify the output contains a valid PR URL (or that the manual URL was printed). If a `gh` command fails, print the error and fall back to the manual URL.
@@ -373,7 +373,7 @@ Parse `$ARGUMENTS`:
 After PR creation, verify:
 
 1. The worktree has no uncommitted changes (`git -C $WORKTREE_BASE/<branch-name> status` shows clean).
-2. If `gh` is available, verify the PR exists: `gh pr view <branch-name> --repo mikefullerton/agentic-cookbook`.
+2. If `gh` is available, verify the PR exists: `gh pr view <branch-name> --repo agentic-cookbook/cookbook`.
 3. `cookbook/index.md` was updated if adding new content.
 4. **External path only**: confirm the branch was pushed to `origin` (the fork), not to `upstream`.
 

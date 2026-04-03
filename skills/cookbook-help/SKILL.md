@@ -414,7 +414,7 @@ Print the following based on detected issues:
   The cookbook should be at ../agentic-cookbook/ relative to your project.
 
   Fix:
-    git clone git@github.com:mikefullerton/agentic-cookbook.git ../agentic-cookbook
+    git clone git@github.com:agentic-cookbook/cookbook.git ../agentic-cookbook
 
   Then re-run: /install-cookbook
 ```

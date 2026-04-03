@@ -48,7 +48,7 @@ Run from your project directory. The cookbook must be cloned at `../agentic-cook
 1. Check that `../agentic-cookbook/` exists (use `ls ../agentic-cookbook/cookbook/`). If not found, print:
    ```
    Cookbook not found. Clone it first:
-   git clone git@github.com:mikefullerton/agentic-cookbook.git ../agentic-cookbook
+   git clone git@github.com:agentic-cookbook/cookbook.git ../agentic-cookbook
    ```
    Then stop.
 
@@ -120,7 +120,7 @@ The section content:
 ```markdown
 ## Agentic Cookbook
 
-This project uses the [agentic-cookbook](https://github.com/mikefullerton/agentic-cookbook).
+This project uses the [agentic-cookbook](https://github.com/agentic-cookbook/cookbook).
 
 - **Cookbook path**: `../agentic-cookbook/`
 - **Rule**: `cookbook.md` (minimal, ~10 lines — guardrails only)

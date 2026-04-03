@@ -166,7 +166,7 @@ If `CLAUDE.md` has an `## Agentic Cookbook` section, update it:
 ```markdown
 ## Agentic Cookbook
 
-This project uses the [agentic-cookbook](https://github.com/mikefullerton/agentic-cookbook).
+This project uses the [agentic-cookbook](https://github.com/agentic-cookbook/cookbook).
 
 - **Cookbook path**: `../agentic-cookbook/`
 - **Rule**: `cookbook.md` (minimal, ~10 lines — guardrails only)
