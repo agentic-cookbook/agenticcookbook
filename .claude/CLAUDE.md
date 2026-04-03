@@ -14,11 +14,11 @@ cookbook/               # the content
   reference/           # external best-practices links
   conventions.md       # full format reference
   index.md             # table of contents
-rules/                 # distributable rules for .claude/ drop-in
-skills/                # 9 cookbook-specific Claude Code skills
 contributing/          # how to contribute (AUTHORING.md)
 decisions/             # design decision records
 ```
+
+Skills, rules, and scripts live in the [dev-team](https://github.com/agentic-cookbook/dev-team) repo.
 
 ## Conventions
 
@@ -41,22 +41,7 @@ Onboard: `/install-cookbook` from the consuming project. Manage preferences: `/c
 
 ## Skills
 
-| Skill | Purpose |
-|-------|---------|
-| `/install-cookbook` | Onboarding — set up CLAUDE.md and install rules |
-| `/uninstall-cookbook` | Remove the cookbook from your project (rules, state, plugins) |
-| `/configure-cookbook` | Manage cookbook preferences (recipe prompts, contribution prompts, optional rules) |
-| `/plan-cookbook-recipe` | Interactive recipe design |
-| `/contribute-to-cookbook` | Create a PR to the cookbook |
-| `/validate-cookbook` | Validate cookbook integrity — frontmatter, references, indexes, placement |
-| `/cookbook-help` | Interactive guide — setup status, content overview, troubleshooting |
-| `/cookbook-bug` | File a bug report against the cookbook (creates GitHub issue) |
-| `/cookbook-suggestion` | Suggest new content or improvements (creates GitHub issue) |
-Skills use a `version` field in frontmatter (project convention, not a Claude Code runtime field).
-
-> **Linting skills moved:** `/lint-skill`, `/lint-rule`, `/lint-agent`, `/lint-recipe`, `/lint-compliance`, and `/lint-project-with-cookbook` have moved to the [dev-team plugin](https://github.com/agentic-cookbook/dev-team) as the unified `/dev-team-lint` command.
-
-> **Note:** General-purpose skills (`/optimize-rules`, `/port-swiftui-to-appkit`, `/yolo`, `/cleanup-repo`, `/install-status-enhancements`, `/uninstall-status-enhancements`, `/install-worktree-rule`, `/show-project-setup`, `/install-recommended-tools`) moved to the [cat-herding](https://github.com/mikefullerton/cat-herding) repo.
+All skills live in the [dev-team](https://github.com/agentic-cookbook/dev-team) repo. Install it as a plugin to get `/install-cookbook`, `/configure-cookbook`, `/contribute-to-cookbook`, `/validate-cookbook`, `/cookbook-help`, and others.
 
 ## Git Workflow
 
