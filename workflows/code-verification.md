@@ -1,7 +1,7 @@
 ---
 id: 6a98612f-9f43-4903-87e4-40c964801bbc
 title: "Code Verification"
-domain: agentic-cookbook://workflow/code-verification
+domain: agentic-cookbook://workflows/code-verification
 type: workflow
 version: 1.0.0
 status: accepted

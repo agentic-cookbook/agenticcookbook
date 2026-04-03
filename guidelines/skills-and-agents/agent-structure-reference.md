@@ -93,3 +93,9 @@ The filename should be lowercase kebab-case (e.g., `build-runner.md`). Uppercase
 | Tool access | `allowed-tools` in frontmatter | `tools` / `disallowedTools` | N/A |
 | Invocation | Auto or `/command` | Via Agent tool or CLI `--agent` | Passive |
 | State | No persistent state | Can have `memory` scope | N/A |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

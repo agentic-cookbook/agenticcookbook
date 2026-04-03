@@ -1,7 +1,7 @@
 ---
 id: 7f72dfc4-21aa-458d-8b3f-590b735cfc4f
 title: "Branching Strategy"
-domain: agentic-cookbook://workflow/branching-strategy
+domain: agentic-cookbook://workflows/branching-strategy
 type: workflow
 version: 1.0.0
 status: accepted

@@ -98,3 +98,9 @@ Rules in `.claude/rules/` are injected into the system prompt on **every turn** 
 | Invocation | `/command` or auto-invoked | Via Agent tool or `--agent` CLI | Loaded into context passively |
 | Execution | Runs as task or reference | Runs as isolated subagent | Shapes behavior of the main session |
 | Purpose | Do a specific task | Delegate a specific task | Enforce behavioral constraints |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

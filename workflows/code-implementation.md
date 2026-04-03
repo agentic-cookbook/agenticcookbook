@@ -1,7 +1,7 @@
 ---
 id: f4f25f6d-cb87-428d-9140-f2bf97aa420a
 title: "Code Implementation"
-domain: agentic-cookbook://workflow/code-implementation
+domain: agentic-cookbook://workflows/code-implementation
 type: workflow
 version: 1.0.0
 status: accepted

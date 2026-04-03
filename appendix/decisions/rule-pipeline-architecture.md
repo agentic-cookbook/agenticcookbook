@@ -1,7 +1,7 @@
 ---
 id: 29faa7e6-7925-4db9-af90-81dcc80f4a03
 title: "Perf Deep Dive: Rule Pipelines"
-domain: decisions.rule-pipeline-architecture
+domain: agentic-cookbook://appendix/decisions/rule-pipeline-architecture
 type: reference
 version: 1.0.0
 status: accepted
@@ -20,8 +20,7 @@ tags:
   - architecture
 depends-on: []
 related:
-  - agentic-cookbook://workflow/guideline-checklist
-  - agentic-cookbook://guidelines/general
+  - agentic-cookbook://workflows/guideline-checklist
 references: []
 ---
 

@@ -1,7 +1,7 @@
 ---
 id: 31f97683-8d2e-4203-a155-48cebc1bfb13
 title: "Settings Window"
-domain: agentic-cookbook://recipes/ui/window/settings-window
+domain: agentic-cookbook://recipes/ui/windows/settings-window
 type: recipe
 version: 1.0.0
 status: accepted

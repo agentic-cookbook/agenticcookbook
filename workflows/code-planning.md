@@ -1,7 +1,7 @@
 ---
 id: 6fba028d-fe54-48cc-9868-538b36916d72
 title: "Code Planning"
-domain: agentic-cookbook://workflow/code-planning
+domain: agentic-cookbook://workflows/code-planning
 type: workflow
 version: 1.0.0
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: b8e2d4f1-3a7c-4b9e-a1d5-6f2c8e9b3d4a
 title: "Format: Cookbook Project Definition (.acproj)"
-domain: decisions.cookbook-project-format
+domain: agentic-cookbook://appendix/decisions/cookbook-project-format
 type: reference
 version: 1.0.0
 status: draft

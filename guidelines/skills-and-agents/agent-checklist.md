@@ -93,3 +93,9 @@ Severity levels:
 | A06 | `maxTurns` set for bounded tasks | Simple agents that should finish quickly have a turn limit | WARN |
 | A07 | `skills` lists preloaded skills if needed | Agent that needs domain knowledge has relevant skills preloaded | INFO |
 | A08 | `memory` scope appropriate | If agent accumulates knowledge, memory is scoped correctly | INFO |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

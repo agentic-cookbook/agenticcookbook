@@ -20,7 +20,7 @@ tags:
   - github
 depends-on: []
 related:
-  - agentic-cookbook://workflow/code-review
+  - agentic-cookbook://workflows/code-review
   - agentic-cookbook://compliance/best-practices
 references:
   - https://docs.github.com/en/rest/checks/runs

@@ -1,7 +1,7 @@
 ---
 id: 6af1d30a-c2ee-4a6d-97ec-50c67f01a243
 title: "Inspector Panel"
-domain: agentic-cookbook://recipes/ui/panel/inspector-panel
+domain: agentic-cookbook://recipes/ui/panels/inspector-panel
 type: recipe
 version: 1.0.0
 status: accepted

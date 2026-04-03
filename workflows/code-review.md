@@ -1,7 +1,7 @@
 ---
 id: a5dc2751-9332-46be-86aa-649e51c237dc
 title: "Code Review"
-domain: agentic-cookbook://workflow/code-review
+domain: agentic-cookbook://workflows/code-review
 type: workflow
 version: 1.0.0
 status: accepted

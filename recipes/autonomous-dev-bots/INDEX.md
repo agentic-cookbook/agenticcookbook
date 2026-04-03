@@ -20,7 +20,7 @@ tags:
   - review
 depends-on: []
 related:
-  - agentic-cookbook://workflow/code-review
+  - agentic-cookbook://workflows/code-review
 references: []
 ---
 

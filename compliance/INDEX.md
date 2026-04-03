@@ -41,16 +41,16 @@ Recipes/Guidelines  →  Compliance Checks  →  Guidelines  →  External Stand
 
 | Category | File | Checks | Scope |
 |----------|------|--------|-------|
-| Security | [security.md](agentic-cookbook://compliance/security) | 12 | Auth, storage, input, transport, logging, dependencies |
-| User Safety | [user-safety.md](agentic-cookbook://compliance/user-safety) | 6 | Content moderation, age-gating, abuse prevention |
-| Performance | [performance.md](agentic-cookbook://compliance/performance) | 8 | Render time, animation, resources, caching |
-| Best Practices | [best-practices.md](agentic-cookbook://compliance/best-practices) | 8 | Testing, linting, error handling, code quality |
-| Access Patterns | [access-patterns.md](agentic-cookbook://compliance/access-patterns) | 8 | Client-server, offline, retry, pagination |
-| Accessibility | [accessibility.md](agentic-cookbook://compliance/accessibility) | 8 | Screen readers, keyboard, contrast, motion |
-| Privacy & Data | [privacy-and-data.md](agentic-cookbook://compliance/privacy-and-data) | 8 | Collection, storage, retention, consent |
-| Platform Compliance | [platform-compliance.md](agentic-cookbook://compliance/platform-compliance) | 8 | App Store, Google Play, design language |
-| Reliability | [reliability.md](agentic-cookbook://compliance/reliability) | 8 | Error recovery, degradation, state, idempotency |
-| Internationalization | [internationalization.md](agentic-cookbook://compliance/internationalization) | 7 | Strings, RTL, locale formatting, Unicode |
+| Security | [security.md](security.md) | 12 | Auth, storage, input, transport, logging, dependencies |
+| User Safety | [user-safety.md](user-safety.md) | 6 | Content moderation, age-gating, abuse prevention |
+| Performance | [performance.md](performance.md) | 8 | Render time, animation, resources, caching |
+| Best Practices | [best-practices.md](best-practices.md) | 8 | Testing, linting, error handling, code quality |
+| Access Patterns | [access-patterns.md](access-patterns.md) | 8 | Client-server, offline, retry, pagination |
+| Accessibility | [accessibility.md](accessibility.md) | 8 | Screen readers, keyboard, contrast, motion |
+| Privacy & Data | [privacy-and-data.md](privacy-and-data.md) | 8 | Collection, storage, retention, consent |
+| Platform Compliance | [platform-compliance.md](platform-compliance.md) | 8 | App Store, Google Play, design language |
+| Reliability | [reliability.md](reliability.md) | 8 | Error recovery, degradation, state, idempotency |
+| Internationalization | [internationalization.md](internationalization.md) | 7 | Strings, RTL, locale formatting, Unicode |
 
 ## Per-Item Compliance Section Format
 
@@ -58,8 +58,8 @@ Each recipe or guideline includes a `## Compliance` section listing evaluated ch
 
 | Check | Status | Category |
 |-------|--------|----------|
-| [secure-log-output](agentic-cookbook://compliance/security#secure-log-output) | passed | Security |
-| [keyboard-navigable](agentic-cookbook://compliance/accessibility#keyboard-navigable) | passed | Accessibility |
+| [secure-log-output](security.md#secure-log-output) | passed | Security |
+| [keyboard-navigable](accessibility.md#keyboard-navigable) | passed | Accessibility |
 
 - Only applicable checks are listed (omit entire categories that don't apply)
 - Status values: `passed`, `failed`, `partial`

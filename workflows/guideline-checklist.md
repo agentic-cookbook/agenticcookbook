@@ -1,7 +1,7 @@
 ---
 id: 6b29562c-4185-4411-aa66-092206d6bfa5
 title: "Guideline Applicability Checklist"
-domain: agentic-cookbook://workflow/guideline-checklist
+domain: agentic-cookbook://workflows/guideline-checklist
 type: workflow
 version: 1.1.0
 status: accepted
@@ -36,7 +36,7 @@ related:
   - agentic-cookbook://guidelines/internationalization/rtl-support
   - agentic-cookbook://guidelines/platform/shortcuts-and-automation
   - agentic-cookbook://guidelines/code-quality/atomic-commits
-  - agentic-cookbook://conventions
+  - agentic-cookbook://introduction/conventions
   - agentic-cookbook://principles/dependency-injection
   - agentic-cookbook://principles/design-for-deletion
   - agentic-cookbook://principles/explicit-over-implicit

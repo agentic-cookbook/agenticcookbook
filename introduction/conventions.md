@@ -1,7 +1,7 @@
 ---
 id: 7a3e1f2c-8b4d-4e6a-9c5f-1d2e3f4a5b6c
 title: "Conventions"
-domain: agentic-cookbook://conventions
+domain: agentic-cookbook://introduction/conventions
 type: reference
 version: 1.1.0
 status: accepted
@@ -147,7 +147,7 @@ Every document has a globally unique URL-based domain identifier. The scheme ide
 
 **Derivation rules:**
 1. Scheme is the repo/project name (kebab-case)
-2. Path starts from the content root directory (e.g., `recipes/ui/panel/file-tree-browser`)
+2. Path starts from the content root directory (e.g., `recipes/ui/panels/file-tree-browser`)
 3. Drop the `.md` extension
 4. Fragment addresses sections within the document
 
@@ -155,12 +155,12 @@ Every document has a globally unique URL-based domain identifier. The scheme ide
 |-----------|--------|
 | `cookbook/principles/simplicity.md` | `agentic-cookbook://principles/simplicity` |
 | `cookbook/guidelines/testing/test-pyramid.md` | `agentic-cookbook://guidelines/testing/test-pyramid` |
-| `cookbook/recipes/ui/panel/file-tree-browser.md` | `agentic-cookbook://recipes/ui/panel/file-tree-browser` |
+| `cookbook/recipes/ui/panels/file-tree-browser.md` | `agentic-cookbook://recipes/ui/panels/file-tree-browser` |
 
 **Cross-repo references:**
 
 ```
-agentic-cookbook://recipes/ui/component/empty-state
+agentic-cookbook://recipes/ui/components/empty-state
 temporal://recipes/ui/server-config-window
 ```
 
@@ -169,9 +169,9 @@ temporal://recipes/ui/server-config-window
 Use `#` fragments to reference sections and items within a document:
 
 ```
-agentic-cookbook://recipes/ui/window/workspace-window#requirements/ordered-list
-agentic-cookbook://recipes/ui/window/workspace-window#platforms/swift
-agentic-cookbook://recipes/ui/window/workspace-window#states/error
+agentic-cookbook://recipes/ui/windows/workspace-window#requirements/ordered-list
+agentic-cookbook://recipes/ui/windows/workspace-window#platforms/swift
+agentic-cookbook://recipes/ui/windows/workspace-window#states/error
 ```
 
 Within the same document, use the short form:
@@ -215,7 +215,7 @@ Constraints:
 
 **Cross-referencing requirements:**
 
-Between documents: `See agentic-cookbook://recipes/ui/component/ai-chat-control#requirements/ordered-list`
+Between documents: `See agentic-cookbook://recipes/ui/components/ai-chat-control#requirements/ordered-list`
 
 Within the same document: `Validates: #requirements/ordered-list`
 
@@ -250,8 +250,8 @@ In frontmatter `depends-on` and `related` fields, use full URLs:
 
 ```yaml
 depends-on:
-  - agentic-cookbook://recipes/ui/component/empty-state
-  - agentic-cookbook://recipes/ui/component/status-bar
+  - agentic-cookbook://recipes/ui/components/empty-state
+  - agentic-cookbook://recipes/ui/components/status-bar
 related:
   - agentic-cookbook://guidelines/testing/test-pyramid
 ```

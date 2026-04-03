@@ -92,3 +92,9 @@ Rules in `.claude/rules/` are injected into the system prompt on **every turn** 
 | O04 | MUST NOT items are unique | Each MUST NOT adds a constraint not already expressed imperatively in the body text; restating "You MUST NOT skip this phase" from line 50 in the MUST NOT section wastes per-turn context | WARN |
 | O05 | External refs have high content ratio | If an external file reference points to a file where frontmatter exceeds 50% of total lines, suggest inlining the useful content instead | INFO |
 | O06 | No more than 5 unconditional external reads | Rules that mandate reading 6+ external files before any work create high entry cost; consider summaries, on-demand reads, or iterative approaches | WARN |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

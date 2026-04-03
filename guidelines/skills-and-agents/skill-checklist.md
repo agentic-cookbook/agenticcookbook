@@ -93,3 +93,9 @@ Severity levels:
 | B10 | Model override appropriate | If `model:` is set, it matches the skill's complexity (don't use opus for trivial tasks) | WARN |
 | B11 | Dynamic context injection correct | If `` !`command` `` syntax is used, the command is safe, fast, and deterministic | WARN |
 | B12 | Description concise for context budget | Description is under ~200 characters to avoid consuming excessive context | WARN |
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

@@ -96,3 +96,9 @@ references: []
 - Full skill content only loads when invoked
 - The main file MUST be named `SKILL.md` (uppercase stem) — Claude Code looks for this exact filename
 - Supporting files in references/, scripts/, examples/ should use lowercase descriptive names
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

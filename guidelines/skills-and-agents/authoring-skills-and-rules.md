@@ -20,8 +20,7 @@ tags:
   - authoring
   - best-practices
 depends-on: []
-related:
-  - agentic-cookbook://guidelines/skills-and-agents
+related: []
 references: []
 ---
 

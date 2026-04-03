@@ -1,7 +1,7 @@
 ---
 id: a7c3e1f2-9b4d-4e6a-8c5f-2d3e4f5a6b7c
 title: "Glossary"
-domain: agentic-cookbook://glossary
+domain: agentic-cookbook://introduction/glossary
 type: reference
 version: 1.0.0
 status: accepted
@@ -16,7 +16,7 @@ platforms: []
 tags: [glossary, definitions, terminology]
 depends-on: []
 related:
-  - agentic-cookbook://conventions
+  - agentic-cookbook://introduction/conventions
 references: []
 ---
 
@@ -30,7 +30,7 @@ Definitions of terms used throughout the agentic cookbook.
 
 **Conformance** — Verified match between an implementation and a recipe's requirements. Measured by a conformance checklist mapping each named requirement to its implementing code and test.
 
-**Domain** — A URL-based identifier for any cookbook content. Format: `<scheme>://<path>#<fragment>`. Example: `agentic-cookbook://recipes/ui/component/empty-state#requirements/centered-layout`.
+**Domain** — A URL-based identifier for any cookbook content. Format: `<scheme>://<path>#<fragment>`. Example: `agentic-cookbook://recipes/ui/components/empty-state#requirements/centered-layout`.
 
 **Fragment** — A `#section/item` reference to a specific section or item within a document. Used for within-document and cross-document references. Example: `#requirements/ordered-list`.
 

@@ -46,7 +46,7 @@ related:
   - agentic-cookbook://guidelines/code-quality/atomic-commits
   - agentic-cookbook://guidelines/code-quality/scope-discipline
   - agentic-cookbook://guidelines/code-quality/bulk-operation-verification
-  - agentic-cookbook://conventions
+  - agentic-cookbook://introduction/conventions
   - agentic-cookbook://principles/composition-over-inheritance
   - agentic-cookbook://principles/dependency-injection
   - agentic-cookbook://principles/design-for-deletion
@@ -74,7 +74,7 @@ related:
   - agentic-cookbook://guidelines/security/sensitive-data
   - agentic-cookbook://guidelines/security/token-handling
   - agentic-cookbook://guidelines/security/transport-security
-  - agentic-cookbook://conventions
+  - agentic-cookbook://introduction/conventions
   - agentic-cookbook://guidelines/testing/flaky-test-prevention
   - agentic-cookbook://guidelines/testing/mutation-testing
   - agentic-cookbook://guidelines/testing/properties-of-good-tests
