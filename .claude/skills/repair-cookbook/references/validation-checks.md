@@ -17,7 +17,7 @@ Repair strategies:
 
 ## Category 1: Frontmatter Integrity
 
-Applies to all `.md` files under `cookbook/`. Skip `_template.md` files.
+Applies to all `.md` files with YAML frontmatter under content directories (`principles/`, `guidelines/`, `recipes/`, `workflows/`, `compliance/`, `reference/`, `introduction/`). Skip `_template.md` and `INDEX.md` files without frontmatter.
 
 | ID | Check | How to verify | Severity | Repair |
 |----|-------|---------------|----------|--------|
@@ -25,7 +25,7 @@ Applies to all `.md` files under `cookbook/`. Skip `_template.md` files.
 | F02 | No empty required fields | Check that `id`, `title`, `domain`, `type`, `version`, `status`, `language`, `created`, `modified`, `author`, `copyright`, `license`, `summary` are non-empty strings (not `""`, not `null`, not `~`). List fields `platforms`, `tags`, `depends-on`, `related`, `references` may be empty arrays `[]`. | FAIL | report |
 | F03 | ID is valid UUID | Check that the `id` field matches the UUID pattern: `[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}` (case-insensitive). | FAIL | report |
 | F04 | No duplicate IDs | Collect all `id` values across every file. Report any duplicates with both file paths. | FAIL | report |
-| F05 | Domain matches file path | Derive the expected domain from the file path: strip `cookbook/` prefix and `.md` extension, prepend `agentic-cookbook://`. Compare with the `domain:` field. For index files, the domain should end with the directory name or `index`. Example: `cookbook/principles/simplicity.md` should have domain `agentic-cookbook://principles/simplicity`. | FAIL | auto-fix |
+| F05 | Domain matches file path | Derive the expected domain from the file path: strip `.md` extension, prepend `agentic-cookbook://`. Compare with the `domain:` field. For INDEX files, the domain should end with the directory name or `INDEX`. Example: `principles/simplicity.md` should have domain `agentic-cookbook://principles/simplicity`. | FAIL | auto-fix |
 | F06 | Type field is valid | Check that `type` is one of: `principle`, `guideline`, `recipe`, `workflow`, `reference`. | FAIL | report |
 | F07 | Status field is valid | Check that `status` is one of: `draft`, `review`, `accepted`, `deprecated`. | FAIL | report |
 | F08 | Version is valid semver | Check that `version` matches the pattern `X.Y.Z` where X, Y, Z are non-negative integers. Use regex: `^\d+\.\d+\.\d+$`. | FAIL | report |
@@ -41,7 +41,7 @@ Applies to all `.md` files under `cookbook/`. Skip `_template.md` files.
 
 ## Category 2: Content Structure
 
-Applies to all `.md` files under `cookbook/`. Skip `_template.md` files.
+Applies to all `.md` files with YAML frontmatter under content directories. Skip `_template.md` and `INDEX.md` files without frontmatter.
 
 | ID | Check | How to verify | Severity | Repair |
 |----|-------|---------------|----------|--------|
@@ -60,11 +60,11 @@ Applies to all `.md` files under `cookbook/`. Skip `_template.md` files.
 
 ## Category 3: Cross-References
 
-Applies to all `.md` files under `cookbook/`. **This is the primary repair category.**
+Applies to all `.md` files under content directories. **This is the primary repair category.**
 
 | ID | Check | How to verify | Severity | Repair |
 |----|-------|---------------|----------|--------|
-| X01 | Domain references resolve | Find all `agentic-cookbook://` references in file bodies and frontmatter (`depends-on`, `related`). For each, derive the expected file path: replace `agentic-cookbook://` with `cookbook/`, append `.md`. Verify the file exists. Also check for `index.md` in directories. Report broken references with the source file and target. | FAIL | fuzzy-match |
+| X01 | Domain references resolve | Find all `agentic-cookbook://` references in file bodies and frontmatter (`depends-on`, `related`). For each, derive the expected file path: replace `agentic-cookbook://` with the repo root path, append `.md`. Verify the file exists. Also check for `index.md` in directories. Report broken references with the source file and target. | FAIL | fuzzy-match |
 | X02 | Fragment references have targets | Find `#fragment` references (both cross-document `agentic-cookbook://path#frag` and within-document `#frag`). For `#requirements/<name>`, verify that `**<name>**:` exists in the target file. For `#states/<name>`, verify a heading or bold text with that state name exists. For other fragments, verify a heading with that text exists. | WARN | report |
 | X03 | External URLs are well-formed | Find all URLs starting with `http://` or `https://` in file bodies and `references:` frontmatter. Verify they are syntactically valid (no spaces, no trailing punctuation absorbed). Do NOT check if they are reachable (no HTTP requests). | WARN | report |
 | X04 | Depends-on references exist | For each item in the `depends-on` frontmatter list, verify it resolves to an existing file (same derivation as X01). | FAIL | fuzzy-match |
@@ -104,20 +104,20 @@ When an `agentic-cookbook://` URI doesn't resolve:
 
 | ID | Check | How to verify | Severity | Repair |
 |----|-------|---------------|----------|--------|
-| I01 | All cookbook files in index.md | Read `cookbook/index.md`. For every `.md` file under `cookbook/` (excluding `index.md`, `conventions.md`, `_template.md`, `glossary.md`, and directory `index.md` files), verify it is referenced in `cookbook/index.md` — either as a direct link `[text](relative/path.md)` or mentioned by filename. | FAIL | auto-fix |
-| I02 | Index links resolve | Read `cookbook/index.md`. For every markdown link `[text](path)`, verify the target file exists relative to the `cookbook/` directory. | FAIL | fuzzy-match |
-| I03 | No stale index entries | For every link in `cookbook/index.md` that points to a `.md` file, verify the target file still exists. Report dead links. | FAIL | auto-fix |
-| I04 | Compliance INDEX.md links resolve | Read `cookbook/compliance/INDEX.md`. For every markdown link, verify the target exists. | FAIL | fuzzy-match |
-| I05 | No orphaned files | For every `.md` file under `cookbook/` (excluding `index.md`, `conventions.md`, `glossary.md`, `_template.md`, and directory `INDEX.md` files), verify it is referenced by at least one other file — either via an `agentic-cookbook://` URI that resolves to it, a relative markdown link `[text](path)`, a `depends-on` or `related` entry, or an entry in `cookbook/index.md`. A file with zero inbound references is orphaned — it exists but nothing points to it, so no workflow or agent will ever find it. | WARN | report |
+| I01 | All content files in index.md | Read `index.md`. For every `.md` file under content directories (excluding `index.md`, `_template.md`, and directory `INDEX.md` files), verify it is referenced in `index.md` — either as a direct link `[text](relative/path.md)` or mentioned by filename. | FAIL | auto-fix |
+| I02 | Index links resolve | Read `index.md`. For every markdown link `[text](path)`, verify the target file exists relative to the repo root. | FAIL | fuzzy-match |
+| I03 | No stale index entries | For every link in `index.md` that points to a `.md` file, verify the target file still exists. Report dead links. | FAIL | auto-fix |
+| I04 | Compliance INDEX.md links resolve | Read `compliance/INDEX.md`. For every markdown link, verify the target exists. | FAIL | fuzzy-match |
+| I05 | No orphaned files | For every `.md` file under content directories (excluding `index.md`, `_template.md`, and directory `INDEX.md` files), verify it is referenced by at least one other file — either via an `agentic-cookbook://` URI that resolves to it, a relative markdown link `[text](path)`, a `depends-on` or `related` entry, or an entry in `index.md`. A file with zero inbound references is orphaned — it exists but nothing points to it, so no workflow or agent will ever find it. | WARN | report |
 
 ### Orphan Detection Strategy for I05
 
-1. **Build the full file inventory**: Glob all `.md` files under `cookbook/`. Exclude `index.md`, `conventions.md`, `glossary.md`, `_template.md`, and `INDEX.md` files.
+1. **Build the full file inventory**: Glob all `.md` files under content directories. Exclude `index.md`, `_template.md`, and `INDEX.md` files.
 
 2. **Build the inbound reference map**: For each file in the inventory, count how many other files reference it via:
    - `agentic-cookbook://` URI that resolves to it (derive path from URI)
    - Relative markdown link `[text](path)` from any other file
-   - Entry in `cookbook/index.md`
+   - Entry in `index.md`
    - Entry in any directory `INDEX.md`
    - `depends-on` or `related` frontmatter entry from any file
 
@@ -131,10 +131,10 @@ When an `agentic-cookbook://` URI doesn't resolve:
 
 | ID | Check | How to verify | Severity | Repair |
 |----|-------|---------------|----------|--------|
-| P01 | Principles in correct directory | All files under `cookbook/principles/` should have `type: principle` in frontmatter. No principle files should exist outside this directory. Grep all files for `type: principle` and verify they are under `cookbook/principles/`. | FAIL | report |
-| P02 | Guidelines in correct directory | All files under `cookbook/guidelines/` should have `type: guideline`. No guideline files outside this directory. | FAIL | report |
-| P03 | Recipes in correct directory | All files under `cookbook/recipes/` should have `type: recipe`. No recipe files outside this directory. | FAIL | report |
-| P04 | Workflows in correct directory | All files under `cookbook/workflow/` should have `type: workflow`. No workflow files outside this directory. | FAIL | report |
-| P05 | No .md files at cookbook root (except index, conventions, glossary) | The only `.md` files directly in `cookbook/` should be `index.md`, `conventions.md`, and `glossary.md`. All content should be in subdirectories. | WARN | report |
-| P06 | File names are kebab-case | All `.md` filenames under `cookbook/` should match `^[a-z0-9]+(-[a-z0-9]+)*\.md$` or be `index.md` or `_template.md`. No spaces, no uppercase, no underscores (except `_template`). | WARN | report |
-| P07 | No stale or temp files | Check for files matching: `*.bak`, `*.tmp`, `*.orig`, `*~`, `.DS_Store`, `Thumbs.db` under `cookbook/`. | WARN | auto-fix |
+| P01 | Principles in correct directory | All files under `principles/` should have `type: principle` in frontmatter. No principle files should exist outside this directory. Grep all files for `type: principle` and verify they are under `principles/`. | FAIL | report |
+| P02 | Guidelines in correct directory | All files under `guidelines/` should have `type: guideline`. No guideline files outside this directory. | FAIL | report |
+| P03 | Recipes in correct directory | All files under `recipes/` should have `type: recipe`. No recipe files outside this directory. | FAIL | report |
+| P04 | Workflows in correct directory | All files under `workflows/` should have `type: workflow`. No workflow files outside this directory. | FAIL | report |
+| P05 | No .md files at repo root (except index) | The only `.md` file directly at the repo root should be `index.md` and `README.md`. All content should be in subdirectories. | WARN | report |
+| P06 | File names are kebab-case | All `.md` filenames under content directories should match `^[a-z0-9]+(-[a-z0-9]+)*\.md$` or be `index.md`, `INDEX.md`, or `_template.md`. No spaces, no uppercase, no underscores (except `_template`). | WARN | report |
+| P07 | No stale or temp files | Check for files matching: `*.bak`, `*.tmp`, `*.orig`, `*~`, `.DS_Store`, `Thumbs.db` under content directories. | WARN | auto-fix |

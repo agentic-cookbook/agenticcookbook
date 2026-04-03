@@ -1,6 +1,6 @@
 ---
 name: repair-cookbook
-version: "1.0.0"
+version: "2.0.0"
 description: "Scan and repair cookbook integrity — broken cross-references, stale frontmatter, dead index links. Finds breaks, fuzzy-matches fixes, batch confirms."
 argument-hint: "[--dry-run] [--category <name>] [--version]"
 allowed-tools: Read, Glob, Grep, Edit, Write, Agent, Bash(find *), Bash(wc *), Bash(diff *), Bash(date *), AskUserQuestion
@@ -11,11 +11,11 @@ context: fork
 
 If `$ARGUMENTS` is `--version`, respond with exactly:
 
-> repair-cookbook v1.0.0
+> repair-cookbook v2.0.0
 
 Then stop.
 
-Otherwise, print `repair-cookbook v1.0.0` as the first line of output, then proceed.
+Otherwise, print `repair-cookbook v2.0.0` as the first line of output, then proceed.
 
 ---
 
@@ -35,16 +35,30 @@ You are a librarian auditing every shelf, cross-reference card, and index entry.
 
 ## Step 1: Detect Cookbook Root
 
-1. If `cookbook/` exists in the current working directory, set `$COOKBOOK_ROOT` to the current directory.
-2. If `../agentic-cookbook/cookbook/` exists, set `$COOKBOOK_ROOT` to `../agentic-cookbook`.
+The cookbook uses a book structure with content directories at the top level:
+
+```
+introduction/     # conventions, glossary, getting started
+principles/       # engineering principles
+guidelines/       # topic-organized guidelines
+recipes/          # concrete specs (ui/, infrastructure/, app/, web/, etc.)
+workflows/        # development process specs
+compliance/       # verification checklists
+reference/        # external best-practices links
+appendix/         # contributing, decisions, research
+index.md          # master table of contents
+```
+
+1. If `principles/` and `guidelines/` exist in the current working directory, set `$ROOT` to the current directory.
+2. If `../agentic-cookbook/cookbook/` exists and contains `principles/`, set `$ROOT` to `../agentic-cookbook/cookbook`.
 3. Otherwise, print an error and **STOP**:
    ```
    ERROR: Cannot find cookbook. Run from the cookbook repo root or an adjacent project.
    ```
 
-Print: `Cookbook root: $COOKBOOK_ROOT`
+Print: `Cookbook root: $ROOT`
 
-Count all `.md` files under `$COOKBOOK_ROOT/cookbook/` using Glob. Print: `Files to scan: <N>`
+Count all `.md` files under `$ROOT` (excluding `.git/`, `.claude/`, `.superpowers/`) using Glob. Print: `Files to scan: <N>`
 
 ---
 
@@ -62,7 +76,7 @@ Count all `.md` files under `$COOKBOOK_ROOT/cookbook/` using Glob. Print: `Files
 
 Read the full checklist from `${CLAUDE_SKILL_DIR}/references/validation-checks.md`.
 
-Launch up to 3 agents in parallel. Each agent reads the checklist, receives `$COOKBOOK_ROOT`, and runs its assigned categories. Each agent is **read-only** — no edits.
+Launch up to 3 agents in parallel. Each agent reads the checklist, receives `$ROOT`, and runs its assigned categories. Each agent is **read-only** — no edits.
 
 **Agent 1 — Frontmatter & Content**
 - Category 1: Frontmatter Integrity (F01-F15)
@@ -102,7 +116,7 @@ Combine all agent results into a unified report:
 
 ```
 === COOKBOOK REPAIR SCAN ===
-Path: <$COOKBOOK_ROOT>
+Path: <$ROOT>
 Files scanned: <N>
 
 --- CATEGORY 1: FRONTMATTER ---
@@ -140,16 +154,16 @@ Present them as a batch:
 ```
 === PROPOSED FIXES (<N> total) ===
 
- 1. [F05] cookbook/principles/foo.md — domain field mismatch
+ 1. [F05] principles/foo.md — domain field mismatch
     Fix: Update domain to "agentic-cookbook://principles/foo"
 
- 2. [X01] cookbook/compliance/security.md:47 — broken ref "agentic-cookbook://guidelines/general#post-gen"
+ 2. [X01] compliance/security.md:47 — broken ref "agentic-cookbook://guidelines/general#post-gen"
     Fix: Update to "agentic-cookbook://guidelines/testing/post-generation-verification"
 
- 3. [I03] cookbook/index.md:23 — dead link to "guidelines/old-file.md"
+ 3. [I03] index.md:23 — dead link to "guidelines/old-file.md"
     Fix: Remove stale entry
 
- 4. [C02] cookbook/principles/new-one.md — missing Change History
+ 4. [C02] principles/new-one.md — missing Change History
     Fix: Append Change History template
 
 ...
@@ -167,12 +181,12 @@ For each issue that couldn't be auto-resolved, present individually:
 
 ```
 Cannot resolve: agentic-cookbook://guidelines/general#post-generation-verification
-Referenced from: cookbook/compliance/best-practices.md (line 47)
+Referenced from: compliance/best-practices.md (line 47)
 Context: "See [post-gen verification](agentic-cookbook://guidelines/general#post-generation-verification)"
 
 Closest matches:
-  a) cookbook/guidelines/testing/post-generation-verification.md
-  b) cookbook/guidelines/code-quality/scope-discipline.md
+  a) guidelines/testing/post-generation-verification.md
+  b) guidelines/code-quality/scope-discipline.md
 
 Choose: (a/b/enter path/remove/skip)
 ```
@@ -187,7 +201,7 @@ These are always safe:
 - **C01 heading mismatch**: Update H1 to match frontmatter title
 - **X06 self-references**: Remove the self-referencing entry from `depends-on`/`related`
 - **X08 internal URI in references**: Move the entry to `related` field
-- **I01 missing from index**: Add entry to `cookbook/index.md` in correct section
+- **I01 missing from index**: Add entry to `index.md` in correct section
 - **I03 stale index entry**: Remove dead link from index
 - **P07 temp files**: Delete `.bak`, `.tmp`, `.orig`, `~`, `.DS_Store` files
 
