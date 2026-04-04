@@ -36,6 +36,16 @@ The cookbook repo has 7 skills in `.claude/skills/` with no automated tests. The
     └── install-cookbook-global.test.ts
 ```
 
+## Execution Sandbox
+
+All test execution happens in system temp directories (`os.tmpdir()`), never in the cookbook repo itself. The harness code lives in `.claude/tests/`, but every test creates its sandbox under `/tmp/cookbook-test-<name>-<random>/`. The Claude CLI `cwd` is always set to the temp directory. After each test, the sandbox is cleaned up.
+
+The real repo is only read for two purposes:
+1. Copying compliance files and conventions into the test sandbox (fixtures need these for lint checks)
+2. Reading SKILL.md files to construct the CLI prompt
+
+No test writes to, modifies, or executes within the real cookbook directory.
+
 ## Runner (lib/runner.ts)
 
 Adapted from dev-team's runner.ts. Core flow:
@@ -245,5 +255,5 @@ Skills that use AskUserQuestion interactively need `--test-mode` added to their 
 After implementation:
 1. `cd .claude/tests && npm install && npm test` runs all tests
 2. Each spec file runs independently
-3. Temp directories are cleaned up after each test
-4. No test modifies the real cookbook — all work happens in temp copies
+3. Temp directories in /tmp/ are cleaned up after each test
+4. No test reads from or writes to the real cookbook — all work happens in temp copies
