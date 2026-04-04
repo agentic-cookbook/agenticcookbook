@@ -3,11 +3,11 @@ id: a7c3e1f2-9b4d-4e6a-8c5f-2d3e4f5a6b7c
 title: "Glossary"
 domain: agentic-cookbook://introduction/glossary
 type: reference
-version: 1.0.0
+version: 1.1.0
 status: accepted
 language: en
 created: 2026-03-28
-modified: 2026-03-28
+modified: 2026-04-04
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -29,6 +29,8 @@ Definitions of terms used throughout the agentic cookbook.
 **Agent** — A Claude Code subagent that runs in isolation with scoped tools and permissions. Defined by a `.md` file in `.claude/agents/` with agent-specific frontmatter (`tools`, `permissionMode`, `maxTurns`).
 
 **Conformance** — Verified match between an implementation and a recipe's requirements. Measured by a conformance checklist mapping each named requirement to its implementing code and test.
+
+**Cookbook Artifact** — A general term for any content item in the cookbook: a principle, guideline, or recipe. Each artifact is a standalone markdown file with YAML frontmatter, named requirements, and a change history. The artifact's `type` field identifies which kind it is.
 
 **Domain** — A URL-based identifier for any cookbook content. Format: `<scheme>://<path>#<fragment>`. Example: `agentic-cookbook://recipes/ui/components/empty-state#requirements/centered-layout`.
 
@@ -58,4 +60,5 @@ Definitions of terms used throughout the agentic cookbook.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-04-04 | Mike Fullerton | Add Cookbook Artifact term |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial glossary |
