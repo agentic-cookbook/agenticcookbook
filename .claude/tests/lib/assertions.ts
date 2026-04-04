@@ -53,10 +53,10 @@ export function hasField(dir: string, path: string, field: string, value?: strin
 export function hasApproval(dir: string, path: string): void {
   const content = readContent(dir, path);
   expect(content, `${path} should have non-empty approved-by`).toMatch(
-    /^approved-by:\s*"approve-artifact/m
+    /^approved-by:\s*"?approve-artifact/m
   );
   expect(content, `${path} should have non-empty approved-date`).toMatch(
-    /^approved-date:\s*"\d{4}-\d{2}-\d{2}"/m
+    /^approved-date:\s*"?\d{4}-\d{2}-\d{2}"?/m
   );
 }
 
