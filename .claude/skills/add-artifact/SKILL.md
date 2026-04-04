@@ -96,28 +96,12 @@ Documentation updates:
 
 ## Step 4: Website Sync
 
-Determine the cookbook-web path: `../cookbook-web/cookbook/` relative to the repository root.
+Run `/update-website` to sync all cookbook content to the cookbook-web project. This performs a full rsync ensuring the website matches the source.
 
-If the directory exists:
-
-1. Copy the artifact file to the corresponding path in cookbook-web.
-2. Copy `index.md` if it was updated in Step 2.
-3. Copy `README.md` if it was updated in Step 3.
-4. For directory-level changes (new subdirectory), use `rsync -av` to sync the directory.
-
-If the directory does not exist, print:
+If cookbook-web is not available locally, `/update-website` will report an error. Print:
 
 ```
-[SKIP] Website sync — ../cookbook-web/cookbook/ not found
-```
-
-Print what was synced:
-
-```
-Website sync:
-  [SYNCED] principles/new-principle.md
-  [SYNCED] index.md
-  [SKIP] README.md — no changes
+[SKIP] Website sync — cookbook-web not found locally
 ```
 
 ## Step 5: Summary
@@ -140,4 +124,4 @@ All integration steps complete.
 
 - **Approval required** — never proceed past Step 1 if the artifact fails lint.
 - **Accurate counts** — always count actual files, never hardcode or guess artifact counts.
-- **Safe sync** — only copy files that changed. Do not delete files in cookbook-web that don't exist in the source.
+- **Website sync** — always invoke `/update-website` rather than copying files manually.

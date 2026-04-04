@@ -43,13 +43,7 @@ Check and update all files that reference or are referenced by the changed artif
 
 ## Step 3: Website Sync
 
-Copy the changed files to the cookbook-web project so the website reflects the current state.
-
-1. Determine the cookbook-web path: `../cookbook-web/cookbook/` relative to the cookbook repo root. If the directory does not exist, print a warning and skip this step.
-2. Copy the changed artifact file(s) to the corresponding path in cookbook-web.
-3. Copy `index.md` if it was updated in Step 2.
-4. Copy `README.md` if it was updated in Step 2.
-5. Use `rsync -av --delete` for directory-level changes (e.g., a new guideline category directory) to ensure the website copy matches the source.
+Run `/update-website` to sync all cookbook content to the cookbook-web project. This performs a full rsync ensuring the website reflects the current state. If cookbook-web is not available locally, `/update-website` will report an error — this is non-blocking for the artifact addition but SHOULD be resolved before the work is considered fully complete.
 
 ---
 
@@ -70,5 +64,5 @@ Before marking the work complete, confirm:
 - Do not skip `/approve-artifact`. Every new or modified artifact MUST be approved.
 - Do not leave `index.md` out of sync. Every artifact addition or removal updates the index.
 - Do not ignore cross-references. A renamed or removed artifact with dangling references is a broken cookbook.
-- Do not skip the website sync. The cookbook-web copy MUST match the source after every change.
+- Do not skip the website sync. Run `/update-website` — the cookbook-web copy MUST match the source after every change.
 - Do not update artifact counts in README.md or CLAUDE.md without verifying the actual count.
