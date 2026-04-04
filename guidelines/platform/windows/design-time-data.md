@@ -28,6 +28,8 @@ approved-date: ""
 
 # Design-Time Data
 
+Wire up design-time data contexts so the XAML designer always shows realistic preview content, not empty surfaces.
+
 - Use `d:DataContext` and `d:DesignInstance` for XAML designer preview data
 - Use XAML Hot Reload for live iteration during development
 

@@ -26,6 +26,8 @@ approved-date: ""
 
 # Naming
 
+Use .NET's established casing conventions consistently: `PascalCase` for public symbols, `camelCase` for locals, and `_camelCase` for private fields.
+
 - `PascalCase` for types, methods, properties, public fields, constants, namespaces
 - `camelCase` for parameters and local variables
 - `_camelCase` (underscore prefix) for private instance fields

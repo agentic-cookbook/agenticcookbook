@@ -28,6 +28,8 @@ approved-date: ""
 
 # Authoring Skills and Rules
 
+Design skills as single-purpose, versioned extensions. Keep rules minimal, deterministic, and side-effect-free. Check the inventory before creating anything new.
+
 ## Overview
 
 This guideline captures lessons learned from building the agentic cookbook's own skills, agents, and rules. It covers design principles, structural conventions, and common pitfalls for each extension type. Follow these practices to produce extensions that are consistent, maintainable, and predictable across sessions.

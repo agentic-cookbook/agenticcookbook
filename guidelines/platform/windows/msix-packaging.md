@@ -27,6 +27,8 @@ approved-date: ""
 
 # MSIX Packaging
 
+Package Windows apps with the single-project MSIX model, declare minimal capabilities, and sign with a trusted certificate.
+
 - Use the single-project MSIX packaging model
 - Declare capabilities minimally in `Package.appxmanifest`
 - Sign packages with a trusted certificate for sideloading

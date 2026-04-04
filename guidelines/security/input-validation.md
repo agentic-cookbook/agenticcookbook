@@ -30,6 +30,8 @@ approved-date: ""
 
 # Input Validation
 
+Validate all input server-side using allowlists, parameterized queries, and context-specific output encoding. Client-side validation is UX, not security.
+
 **Never trust client input.** Client-side validation is a UX feature, not a security control.
 All validation must be duplicated server-side.
 

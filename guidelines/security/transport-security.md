@@ -31,6 +31,8 @@ approved-date: ""
 
 # Transport Security
 
+Require TLS 1.2+ on every connection, enable HSTS on all production domains, and pin certificates for high-value mobile traffic.
+
 **TLS 1.2 minimum**, prefer TLS 1.3. Disable TLS 1.0 and 1.1 entirely.
 
 **HSTS:** Enable on all production domains:

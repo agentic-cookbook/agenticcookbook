@@ -29,6 +29,8 @@ approved-date: ""
 
 # Authorization
 
+Enforce all access control server-side. Deny by default, grant least privilege, and verify object-level ownership on every request.
+
 **Server-side authorization is the only real authorization.** Client-side checks (hiding
 buttons, disabling fields) are UX conveniences — never security controls.
 
