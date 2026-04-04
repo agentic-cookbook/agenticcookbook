@@ -46,7 +46,7 @@ approved-by: ""
 approved-date: ""
 ---
 
-# SQLite Best Practices
+# SQLite best practices
 
 > Comprehensive reference covering schema design, performance tuning, device-to-server sync, and production operations.
 > Research compiled April 2026 from official SQLite documentation, benchmarks, and practitioner sources.
@@ -4840,3 +4840,9 @@ Do you need custom business logic on writes?
 ---
 
 *Compiled from official SQLite documentation, benchmarks, and practitioner sources. Last updated April 2026.*
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-04-03 | Mike Fullerton | Initial creation |

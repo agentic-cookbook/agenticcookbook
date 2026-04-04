@@ -27,7 +27,7 @@ approved-by: ""
 approved-date: ""
 ---
 
-# Claude Code Rule File Structure Reference
+# Rule Structure Reference
 
 > Source: https://code.claude.com/docs/en/best-practices
 

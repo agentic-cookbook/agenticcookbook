@@ -27,7 +27,7 @@ approved-by: ""
 approved-date: ""
 ---
 
-# Claude Code Skill Structure Reference
+# Skill Structure Reference
 
 > Source: https://code.claude.com/docs/en/skills
 

@@ -27,7 +27,7 @@ approved-by: ""
 approved-date: ""
 ---
 
-# Lint Checklist for Claude Code Skills
+# Skill Lint Checklist
 
 > Last updated: 2026-03-27
 > Sources:

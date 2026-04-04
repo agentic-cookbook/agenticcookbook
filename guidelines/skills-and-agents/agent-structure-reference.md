@@ -27,7 +27,7 @@ approved-by: ""
 approved-date: ""
 ---
 
-# Claude Code Agent Structure Reference
+# Agent Structure Reference
 
 > Source: https://code.claude.com/docs/en/sub-agents
 

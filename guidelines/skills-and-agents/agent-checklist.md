@@ -27,7 +27,7 @@ approved-by: ""
 approved-date: ""
 ---
 
-# Lint Checklist for Claude Code Agents
+# Agent Lint Checklist
 
 > Last updated: 2026-03-27
 > Sources:
