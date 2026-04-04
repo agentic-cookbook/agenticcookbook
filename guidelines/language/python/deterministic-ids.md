@@ -26,7 +26,7 @@ approved-date: ""
 
 # Deterministic IDs
 
-Always use the roadmap file's own UUID from its YAML frontmatter. Never generate random UUIDs. IDs must be deterministic and reproducible.
+The roadmap file's own UUID from its YAML frontmatter MUST be used. Random UUIDs MUST NOT be generated. IDs MUST be deterministic and reproducible.
 
 ## Change History
 

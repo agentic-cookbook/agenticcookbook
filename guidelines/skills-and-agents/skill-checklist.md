@@ -35,9 +35,9 @@ approved-date: ""
 > - https://code.claude.com/docs/en/best-practices
 
 Severity levels:
-- **FAIL** — violates a hard requirement; must fix
-- **WARN** — departs from best practice; should fix
-- **INFO** — suggestion for improvement; nice to have
+- **FAIL** — violates a hard requirement; MUST fix
+- **WARN** — departs from best practice; SHOULD fix
+- **INFO** — suggestion for improvement; MAY fix
 
 ---
 

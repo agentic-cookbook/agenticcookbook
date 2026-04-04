@@ -30,7 +30,7 @@ approved-date: ""
 # Spacing
 
 Use a consistent spatial scale based on a **4px base unit** (8px primary grid). All spacing,
-padding, and margin values should be multiples of 4. This aligns with Apple HIG, Material
+padding, and margin values MUST be multiples of 4. This aligns with Apple HIG, Material
 Design, and Fluent Design.
 
 Default spacing scale: **4, 8, 12, 16, 24, 32, 48, 64**
@@ -42,7 +42,7 @@ Default spacing scale: **4, 8, 12, 16, 24, 32, 48, 64**
 - **24px** — separation between content groups
 - **32-64px** — major section separation
 
-Avoid arbitrary values (5px, 13px, 37px). If a value isn't on the scale, reconsider.
+Arbitrary values (5px, 13px, 37px) SHOULD be avoided. If a value isn't on the scale, reconsider.
 
 References:
 - [Apple HIG: Layout](https://developer.apple.com/design/human-interface-guidelines/layout)

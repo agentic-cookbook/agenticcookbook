@@ -41,8 +41,8 @@ For apps that must work offline, design for local-first with background sync.
 **Practical defaults:**
 - Track `last_synced_at` per entity for delta sync
 - Show clear connectivity status to the user
-- Queue mutations locally; never silently discard user work
-- Test offline scenarios — airplane mode, flaky connections, long offline periods
+- Mutations MUST be queued locally; user work MUST NOT be silently discarded
+- Offline scenarios SHOULD be tested — airplane mode, flaky connections, long offline periods
 
 References:
 - [web.dev: Offline Cookbook](https://web.dev/articles/offline-cookbook)

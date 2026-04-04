@@ -61,10 +61,10 @@ See also agentic-cookbook://guidelines/security/privacy
 
 ### Never do these
 
-- Store tokens in `localStorage` or `sessionStorage` (XSS-accessible)
-- Put tokens in URL query parameters (logged in server logs, browser history, referrer headers)
-- Use `alg: none` in JWTs — always validate the `alg` header server-side against an allowlist
-- Trust client-supplied JWT claims for authorization without server-side verification
+- Tokens MUST NOT be stored in `localStorage` or `sessionStorage` (XSS-accessible)
+- Tokens MUST NOT be put in URL query parameters (logged in server logs, browser history, referrer headers)
+- `alg: none` MUST NOT be used in JWTs — the `alg` header MUST be validated server-side against an allowlist
+- Client-supplied JWT claims MUST NOT be trusted for authorization without server-side verification
 
 References:
 - [RFC 6750: Bearer Token Usage](https://datatracker.ietf.org/doc/html/rfc6750)

@@ -28,13 +28,13 @@ approved-date: ""
 
 # Bulk operation verification
 
-Any operation that touches more than 5 files — renames, migrations, restructurings, bulk updates — requires a verification pass before the task is considered complete.
+Any operation that touches more than 5 files — renames, migrations, restructurings, bulk updates — MUST have a verification pass before the task is considered complete.
 
 ## What to verify
 
 After the bulk operation finishes:
 
-1. **Stale references**: Grep the entire repo for old names, paths, or identifiers that should have been updated. Check source code, documentation, configuration files, indexes, skills, rules, and test fixtures.
+1. **Stale references**: The entire repo MUST be grepped for old names, paths, or identifiers that should have been updated. Check source code, documentation, configuration files, indexes, skills, rules, and test fixtures.
 
 2. **Cross-reference integrity**: Verify that every file that references a renamed/moved entity has been updated. Common miss points:
    - README and CLAUDE.md
@@ -60,7 +60,7 @@ Verify each repo independently. Then run a cross-repo check to confirm consisten
 
 ## The rule
 
-Do not mark a bulk operation complete until the verification pass returns zero stale references.
+A bulk operation MUST NOT be marked complete until the verification pass returns zero stale references.
 
 ## Change History
 

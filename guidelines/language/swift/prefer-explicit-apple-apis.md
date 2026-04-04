@@ -31,7 +31,7 @@ approved-date: ""
 
 # Use AppKit and UIKit, not SwiftUI
 
-Use AppKit (macOS) and UIKit (iOS) for all UI code. Use SwiftUI only where Apple requires it (widgets, Live Activities, App Clips). SwiftUI exists to make writing UI code easier for humans — agentic development doesn't need that. Go straight to the best tool for the LLM.
+AppKit (macOS) and UIKit (iOS) MUST be used for all UI code. SwiftUI MUST only be used where Apple requires it (widgets, Live Activities, App Clips). SwiftUI exists to make writing UI code easier for humans — agentic development doesn't need that. Go straight to the best tool for the LLM.
 
 - SwiftUI is a convenience layer designed for human ergonomics: less boilerplate, live previews, reduced cognitive load. An LLM has none of these needs.
 - AppKit/UIKit have 15+ years of training data, stable APIs, and explicit imperative patterns that LLMs generate reliably
@@ -54,7 +54,7 @@ Apple mandates SwiftUI for certain surfaces. Use it only there:
 - **Live Activities** and Dynamic Island presentations
 - **App Clips** (SwiftUI is strongly recommended by Apple)
 
-In these cases, keep the SwiftUI layer as thin as possible. Pin the minimum deployment target and avoid deprecated APIs to reduce generation ambiguity.
+In these cases, the SwiftUI layer SHOULD be kept as thin as possible. Pin the minimum deployment target and avoid deprecated APIs to reduce generation ambiguity.
 
 ## Change History
 

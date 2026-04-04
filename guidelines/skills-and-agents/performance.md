@@ -111,7 +111,7 @@ Content loaded via tool calls (reading files, invoking skills) is paid once at t
 
 **Tier 1 — Always-on (rules, CLAUDE.md):** One-line directives and pointers. This tier pays per-turn cost, so every byte must earn its place. A rule that says "When authoring skills, invoke `/lint-skill` after every change" costs one line per turn. A rule that inlines the entire lint checklist costs 50 lines per turn for something needed once per session.
 
-Target: under 200 lines / ~8KB per rule file. Under 10 lines for rules that apply to narrow workflows.
+Target: rule files SHOULD be under 200 lines / ~8KB. Rules that apply to narrow workflows SHOULD be under 10 lines.
 
 **Tier 2 — On-demand (skills, agent prompts):** Guidelines, checklists, and procedures loaded when the workflow step requires them. A skill pulls in the relevant cookbook guidelines when it reaches the step that needs them — not at startup. An agent receives narrow instructions for its specific task.
 
@@ -119,10 +119,10 @@ Target: under 200 lines / ~8KB per rule file. Under 10 lines for rules that appl
 
 ### Applying Progressive Disclosure
 
-- **Rules**: Keep rules to the minimum directive. Instead of inlining a 38-item checklist, write a one-line pointer: "Run the checklist in `<path>` before marking complete." The checklist loads once when needed, not on every turn.
-- **Skills**: Structure skills so each step loads its own context. A five-step skill should not front-load all five steps' reference material. Step 3 reads the guidelines it needs when step 3 begins.
-- **Agents**: Give agents narrow, specific instructions for one task. Do not include background context "in case they need it." If the agent needs additional context, it can read it.
-- **CLAUDE.md**: Keep it to project identity, directory structure, and workflow pointers. Move detailed procedures into skills. Move enforcement into rules.
+- **Rules**: Rules MUST be kept to the minimum directive. Instead of inlining a 38-item checklist, write a one-line pointer: "Run the checklist in `<path>` before marking complete." The checklist loads once when needed, not on every turn.
+- **Skills**: Skills SHOULD structure each step to load its own context. A five-step skill SHOULD NOT front-load all five steps' reference material. Step 3 reads the guidelines it needs when step 3 begins.
+- **Agents**: Agents MUST receive narrow, specific instructions for one task. Background context SHOULD NOT be included "in case they need it." If the agent needs additional context, it can read it.
+- **CLAUDE.md**: CLAUDE.md SHOULD contain only project identity, directory structure, and workflow pointers. Detailed procedures SHOULD be moved into skills. Enforcement SHOULD be moved into rules.
 
 ### Real-World Impact
 

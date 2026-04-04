@@ -33,13 +33,13 @@ Every task has a boundary. Stay inside it.
 
 ## Before starting
 
-State the goal in one sentence. If the request is ambiguous or could be interpreted broadly, ask before assuming broad scope. For multi-repo work, confirm which repository before making changes.
+The goal MUST be stated in one sentence. If the request is ambiguous or could be interpreted broadly, ask before assuming broad scope. For multi-repo work, confirm which repository before making changes.
 
 ## During work
 
-Only modify what was requested. If asked to fix a bug, fix that bug — do not refactor surrounding code, add missing tests for unrelated functions, update documentation for other features, or "improve" adjacent components.
+Only what was requested MUST be modified. If asked to fix a bug, fix that bug — do not refactor surrounding code, add missing tests for unrelated functions, update documentation for other features, or "improve" adjacent components.
 
-If you discover issues outside the stated scope — broken imports, outdated comments, missing error handling — **note them** for the user but do not fix them. A note like "I noticed X is also broken, want me to fix that separately?" preserves the user's ability to prioritize.
+If you discover issues outside the stated scope — broken imports, outdated comments, missing error handling — **note them** for the user but MUST NOT fix them. A note like "I noticed X is also broken, want me to fix that separately?" preserves the user's ability to prioritize.
 
 ## Recognizing scope creep
 

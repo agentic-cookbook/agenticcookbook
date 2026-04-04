@@ -31,17 +31,17 @@ approved-date: ""
 
 Minimize what you collect, encrypt what you keep, never log what you shouldn't.
 
-- **Data minimization** — APIs return only fields the client needs. Use explicit response DTOs,
+- **Data minimization** — APIs MUST return only fields the client needs. Use explicit response DTOs,
   never dump database models directly.
-- **PII classification** — classify data by sensitivity (public, internal, PII, sensitive PII).
+- **PII classification** — data MUST be classified by sensitivity (public, internal, PII, sensitive PII).
   Apply controls proportional to tier.
 - **Field-level encryption** — encrypt highly sensitive fields (SSN, payment info) at the
   application level with a KMS (AWS KMS, Azure Key Vault, GCP KMS). Separate from database-level
   encryption.
-- **No PII in logs** — never log tokens, passwords, credit card numbers, or PII. Mask/redact
+- **No PII in logs** — tokens, passwords, credit card numbers, or PII MUST NOT be logged. Mask/redact
   in all log outputs, including debug level. See agentic-cookbook://guidelines/security/privacy
-- **No internals in API responses** — never expose internal IDs, stack traces, or database
-  error messages in production. Return generic errors with correlation IDs.
+- **No internals in API responses** — internal IDs, stack traces, or database
+  error messages MUST NOT be exposed in production. Return generic errors with correlation IDs.
 - **Cache-Control: no-store** on responses containing sensitive data.
 
 References:

@@ -26,7 +26,7 @@ approved-date: ""
 
 # Error Responses
 
-Use [RFC 9457 Problem Details](https://www.rfc-editor.org/rfc/rfc9457) format with
+Error responses MUST use [RFC 9457 Problem Details](https://www.rfc-editor.org/rfc/rfc9457) format with
 `Content-Type: application/problem+json`:
 
 ```json
@@ -43,9 +43,9 @@ Use [RFC 9457 Problem Details](https://www.rfc-editor.org/rfc/rfc9457) format wi
 }
 ```
 
-- **type** (URI) — machine-readable error identifier
-- **title** — short human-readable summary (stable across occurrences)
-- **status** — HTTP status code (mirrors response)
+- **type** (URI) — machine-readable error identifier (MUST be present)
+- **title** — short human-readable summary (MUST be stable across occurrences)
+- **status** — HTTP status code (MUST mirror response)
 - **detail** — explanation specific to this occurrence
 - **instance** — identifies the specific request
 - Add extension fields (`errors`, `trace_id`) as needed

@@ -38,8 +38,8 @@ Choose the simplest technique that meets your needs.
 | WebSocket | Bidirectional | Chat, multiplayer, collaborative editing |
 
 **Start with SSE** for server-push — it has built-in reconnection, works over standard HTTP,
-and is sufficient for 80%+ of "real-time" needs. Only move to WebSocket if you need
-bidirectional streaming. Use polling as a fallback for very low frequency updates.
+and is sufficient for 80%+ of "real-time" needs. WebSocket SHOULD only be used when
+bidirectional streaming is required. Polling MAY be used as a fallback for very low frequency updates.
 
 References:
 - [MDN: Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/EventSource)

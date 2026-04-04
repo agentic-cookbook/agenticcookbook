@@ -37,7 +37,7 @@ approved-date: ""
 
 # Security Testing
 
-Run security scans as part of post-generation verification (agentic-cookbook://guidelines/testing/post-generation-verification). These are CLI tools
+Security scans MUST be run as part of post-generation verification (agentic-cookbook://guidelines/testing/post-generation-verification). These are CLI tools
 Claude Code can invoke directly.
 
 **Static Analysis (SAST):**

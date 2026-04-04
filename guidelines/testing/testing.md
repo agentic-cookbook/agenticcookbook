@@ -31,13 +31,13 @@ approved-date: ""
 
 # Comprehensive unit testing
 
-Prioritize unit tests over integration tests. Test state transitions, edge cases, serialization round-trips. Every implementation should include a corresponding test file. UI tests are fragile — prefer testing component logic as unit tests.
+Prioritize unit tests over integration tests. Test state transitions, edge cases, serialization round-trips. Every implementation MUST include a corresponding test file. UI tests are fragile — prefer testing component logic as unit tests.
 
 ---
 
 # Testing
 
-Every change needs tests. Every bug fix needs a regression test. Prioritize unit tests over integration tests. Test state transitions, edge cases, and serialization round-trips. UI tests are fragile — prefer testing component logic as unit tests.
+Every change MUST have tests. Every bug fix MUST have a regression test. Unit tests SHOULD be prioritized over integration tests. Test state transitions, edge cases, and serialization round-trips. UI tests are fragile — prefer testing component logic as unit tests.
 
 ## TypeScript
 
@@ -75,7 +75,7 @@ public void IsValidEmail_ReturnsExpected(string input, bool expected)
 1. Use `pytest` for all tests.
 2. Every change needs tests. Every bug fix needs a regression test.
 3. Prioritize unit tests over integration tests.
-4. Never remove or modify production dashboard data during testing — use demo port 9888, not production port 8888.
+4. Production dashboard data MUST NOT be removed or modified during testing — use demo port 9888, not production port 8888.
 
 ## Change History
 

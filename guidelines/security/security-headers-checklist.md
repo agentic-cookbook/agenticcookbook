@@ -26,7 +26,7 @@ approved-date: ""
 
 # Security Headers Checklist
 
-Every web application should set these response headers:
+Every web application MUST set these response headers:
 
 ```
 Strict-Transport-Security: max-age=31536000; includeSubDomains; preload

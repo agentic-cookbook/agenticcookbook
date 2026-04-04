@@ -290,7 +290,7 @@ SELECT typeof(val), val FROM demo;
 -- Returns: integer, 7  (leading zeros lost!)
 ```
 
-**Fix:** Use `TEXT`, never `STRING`.
+**Fix:** `TEXT` MUST be used, never `STRING`.
 
 ### NUMERIC Affinity Behavior
 
@@ -372,7 +372,7 @@ CREATE TABLE lookups (
 ### Practical Recommendations
 
 1. **Declare explicit types** on every column, even in non-STRICT tables. Use `TEXT`, `INTEGER`, `REAL`, `BLOB` -- the four canonical storage classes.
-2. **Never use `STRING`** -- it gives NUMERIC affinity. Use `TEXT`.
+2. **`STRING` MUST NOT be used** -- it gives NUMERIC affinity. Use `TEXT`.
 3. **Use `TEXT` for dates** in ISO 8601 format (`'YYYY-MM-DD HH:MM:SS'`). It sorts correctly and is human-readable.
 4. **Use `INTEGER` for booleans** with CHECK constraints: `CHECK (col IN (0, 1))`.
 5. **Consider STRICT tables** for new schemas where type safety matters. The tradeoff is losing compatibility with SQLite < 3.37.0.
@@ -2375,7 +2375,7 @@ When restoring a backup, **always delete any existing `*-wal` and `*-shm` files*
 SQLite is highly resistant to corruption -- partial transactions from crashes are automatically rolled back on next access. Corruption can occur from:
 
 1. **Rogue process overwrites** -- other processes writing directly to the database file
-2. **Broken file locking** -- especially on network filesystems (NFS, CIFS). Never use SQLite on network storage.
+2. **Broken file locking** -- especially on network filesystems (NFS, CIFS). SQLite MUST NOT be used on network storage.
 3. **Sync failures** -- disk drives reporting writes complete before reaching persistent media. Use `PRAGMA synchronous = FULL` (or `NORMAL` with WAL mode).
 4. **Deleting journal files** -- removing `*-journal` or `*-wal` files prevents crash recovery
 5. **Memory corruption** -- stray pointers, especially with memory-mapped I/O
@@ -2401,9 +2401,9 @@ PRAGMA quick_check;           -- faster, less thorough
 ```
 
 **Configuration rules to prevent corruption:**
-- Never use `PRAGMA synchronous = OFF`
-- Never use `PRAGMA journal_mode = OFF` or `MEMORY`
-- Never modify `PRAGMA schema_version` with active connections
+- `PRAGMA synchronous = OFF` MUST NOT be used
+- `PRAGMA journal_mode = OFF` or `MEMORY` MUST NOT be used
+- `PRAGMA schema_version` MUST NOT be modified with active connections
 - Use `PRAGMA writable_schema = ON` with extreme caution
 
 Sources:

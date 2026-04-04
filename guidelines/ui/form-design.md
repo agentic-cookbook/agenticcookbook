@@ -33,7 +33,7 @@ approved-date: ""
 Forms are where users do real work. Reduce friction at every step.
 
 ###  Layout
-- Single-column layout — outperforms multi-column for completion rate
+- Single-column layout SHOULD be used — outperforms multi-column for completion rate
 - Top-aligned or floating labels — fastest to scan and complete
 - Group related fields visually with spacing or section headers
 - Place primary action (Submit/Save) at the bottom, aligned with the form fields
@@ -41,12 +41,12 @@ Forms are where users do real work. Reduce friction at every step.
 ###  Validation
 - Validate on **blur** (when user leaves the field), not on every keystroke
 - Validate the **full form on submit** as a final safety net
-- Never validate while the user is still actively typing in a field
+- Validation MUST NOT fire while the user is still actively typing in a field
 - Success indicators (checkmarks) only for fields where the user genuinely wonders if
   input was accepted (e.g., username availability)
 
 ###  Error messages
-- Show errors **inline, directly below the field** — not only at the top of the form
+- Errors MUST be shown **inline, directly below the field** — not only at the top of the form
 - Use color + icon + text (never color alone)
 - Be specific and actionable: "Password must be at least 8 characters" not "Invalid input"
 - Don't blame the user

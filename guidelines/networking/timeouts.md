@@ -25,7 +25,7 @@ approved-date: ""
 
 # Timeouts
 
-Always set both connection and read timeouts. Never use infinite timeouts.
+Every request MUST set both connection and read timeouts. Infinite timeouts MUST NOT be used.
 
 | Timeout | Purpose | Default |
 |---------|---------|---------|

@@ -26,9 +26,9 @@ approved-date: ""
 
 # Nullable Reference Types
 
-Enable `<Nullable>enable</Nullable>` in all projects. Treat warnings as design signals — `string` means non-null, `string?` means nullable.
+All projects MUST enable `<Nullable>enable</Nullable>`. Treat warnings as design signals — `string` means non-null, `string?` means nullable.
 
-- Avoid the null-forgiving operator (`!`) — prefer `?? throw` or guard clauses
+- The null-forgiving operator (`!`) SHOULD NOT be used — prefer `?? throw` or guard clauses
 - Use `required` properties and constructor parameters for non-null initialization
 - Use `[NotNull]`, `[MaybeNull]`, `[NotNullWhen]` from `System.Diagnostics.CodeAnalysis` for contracts the compiler cannot infer
 

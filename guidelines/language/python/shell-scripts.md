@@ -26,7 +26,7 @@ approved-date: ""
 
 # Shell scripts
 
-Shell script `main()` functions must only call other functions — no inline logic. Keep scripts composable and testable.
+Shell script `main()` functions MUST only call other functions — no inline logic. Scripts MUST be kept composable and testable.
 
 ## Change History
 

@@ -41,7 +41,7 @@ Agents are markdown files with YAML frontmatter, placed in `.claude/agents/`.
 
 The markdown body serves as the agent's system prompt.
 
-The filename should be lowercase kebab-case (e.g., `build-runner.md`). Uppercase stems are reserved for identity files like `SKILL.md` and `CLAUDE.md`.
+The filename MUST be lowercase kebab-case (e.g., `build-runner.md`). Uppercase stems are reserved for identity files like `SKILL.md` and `CLAUDE.md`.
 
 ## Frontmatter Fields
 
@@ -74,7 +74,7 @@ The filename should be lowercase kebab-case (e.g., `build-runner.md`). Uppercase
 - **Unrestricted**: Omit both `tools` and `disallowedTools` — agent has access to all tools
 - **Allowlist**: Set `tools` to a specific list — agent can ONLY use those tools
 - **Denylist**: Set `disallowedTools` — agent can use everything EXCEPT those tools
-- `tools` and `disallowedTools` are mutually exclusive
+- `tools` and `disallowedTools` MUST NOT be used together (mutually exclusive)
 
 ## Permission Modes
 
