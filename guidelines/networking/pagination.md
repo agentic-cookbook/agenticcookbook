@@ -21,6 +21,8 @@ related: []
 references: 
   - https://google.aip.dev/158
   - https://opensource.zalando.com/restful-api-guidelines/#pagination
+approved-by: ""
+approved-date: ""
 ---
 
 # Pagination

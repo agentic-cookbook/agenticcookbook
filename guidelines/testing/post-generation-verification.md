@@ -23,6 +23,8 @@ depends-on: []
 related: 
   - agentic-cookbook://guidelines/code-quality/linting
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # Post-generation verification

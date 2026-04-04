@@ -22,6 +22,8 @@ references:
   - https://developer.apple.com/design/human-interface-guidelines/lists-and-tables
   - https://m3.material.io/components/lists/overview
   - https://www.nngroup.com/articles/cards-component/
+approved-by: ""
+approved-date: ""
 ---
 
 # Data Display

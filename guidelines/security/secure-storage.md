@@ -24,6 +24,8 @@ related: []
 references: 
   - https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets
   - https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.protecteddata
+approved-by: ""
+approved-date: ""
 ---
 
 # Secure Storage

@@ -28,6 +28,8 @@ depends-on:
 related:
   - agentic-cookbook://guidelines/platform/deep-linking
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # Share and inter-app data flow

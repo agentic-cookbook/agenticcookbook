@@ -22,6 +22,8 @@ related: []
 references: 
   - https://github.com/microsoft/TemplateStudio
   - https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/
+approved-by: ""
+approved-date: ""
 ---
 
 # Architecture

@@ -26,6 +26,8 @@ references:
   - https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html
   - https://datatracker.ietf.org/doc/html/rfc6750
   - https://datatracker.ietf.org/doc/html/rfc7519
+approved-by: ""
+approved-date: ""
 ---
 
 # Token Handling

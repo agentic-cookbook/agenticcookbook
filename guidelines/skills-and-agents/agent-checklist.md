@@ -23,6 +23,8 @@ related:
   - agentic-cookbook://guidelines/skills-and-agents/authoring-skills-and-rules
   - agentic-cookbook://guidelines/skills-and-agents/agent-structure-reference
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # Lint Checklist for Claude Code Agents

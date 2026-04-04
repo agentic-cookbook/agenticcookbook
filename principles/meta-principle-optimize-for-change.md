@@ -18,6 +18,8 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # Meta-Principle: Optimize for Change

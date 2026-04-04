@@ -28,6 +28,8 @@ references:
   - https://vale.sh
   - https://github.com/DavidAnson/markdownlint-cli2
   - https://docs.openclaw.ai
+approved-by: ""
+approved-date: ""
 ---
 
 # PR Review Pipeline

@@ -27,6 +27,8 @@ depends-on:
   - agentic-cookbook://principles/support-automation
 related: []
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # Scriptable and automatable

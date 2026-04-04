@@ -18,6 +18,8 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # For novel components, prefer proven open-source solutions

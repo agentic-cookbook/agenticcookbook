@@ -23,6 +23,8 @@ related: []
 references: 
   - https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html
   - https://csrc.nist.gov/publications/detail/sp/800-122/final
+approved-by: ""
+approved-date: ""
 ---
 
 # Sensitive Data

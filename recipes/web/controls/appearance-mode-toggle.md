@@ -25,6 +25,8 @@ related: []
 references:
   - https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
   - https://web.dev/articles/color-scheme
+approved-by: ""
+approved-date: ""
 ---
 
 # Appearance Mode Toggle

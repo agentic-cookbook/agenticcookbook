@@ -42,6 +42,8 @@ references:
   - https://turso.tech
   - https://litestream.io
   - https://vlcn.io/docs/cr-sqlite
+approved-by: ""
+approved-date: ""
 ---
 
 # SQLite Best Practices

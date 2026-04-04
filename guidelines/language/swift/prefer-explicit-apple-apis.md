@@ -25,6 +25,8 @@ depends-on:
   - agentic-cookbook://principles/native-controls
 related: []
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # Use AppKit and UIKit, not SwiftUI

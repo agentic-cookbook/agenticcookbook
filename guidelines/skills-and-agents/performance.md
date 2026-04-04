@@ -28,6 +28,8 @@ related:
   - agentic-cookbook://principles/separation-of-concerns
   - agentic-cookbook://principles/manage-complexity-through-boundaries
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # Performance: Speed and Token Efficiency

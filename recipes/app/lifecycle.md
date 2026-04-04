@@ -25,6 +25,8 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # App Lifecycle

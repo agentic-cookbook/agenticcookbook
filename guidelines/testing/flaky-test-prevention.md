@@ -23,6 +23,8 @@ related: []
 references: 
   - https://martinfowler.com/articles/nonDeterminism.html
   - https://testing.googleblog.com/
+approved-by: ""
+approved-date: ""
 ---
 
 # Flaky Test Prevention

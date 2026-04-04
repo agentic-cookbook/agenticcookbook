@@ -27,6 +27,8 @@ related:
   - agentic-cookbook://guidelines/platform/notifications
   - agentic-cookbook://guidelines/networking/offline-and-connectivity
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # Background tasks

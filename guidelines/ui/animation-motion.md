@@ -24,6 +24,8 @@ references:
   - https://developer.apple.com/design/human-interface-guidelines/motion
   - https://learn.microsoft.com/en-us/windows/apps/design/motion/timing-and-easing
   - https://m3.material.io/styles/motion/overview
+approved-by: ""
+approved-date: ""
 ---
 
 # Animation & Motion

@@ -21,6 +21,8 @@ related:
   - agentic-cookbook://guidelines/code-quality/scope-discipline
   - agentic-cookbook://guidelines/testing/post-generation-verification
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # Small, atomic commits

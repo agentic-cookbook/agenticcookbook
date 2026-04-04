@@ -31,6 +31,8 @@ references:
   - https://semgrep.dev/
   - https://snyk.io/
   - https://www.zaproxy.org/
+approved-by: ""
+approved-date: ""
 ---
 
 # Security Testing

@@ -20,6 +20,8 @@ depends-on: []
 related: []
 references: 
   - https://www.rfc-editor.org/rfc/rfc6585
+approved-by: ""
+approved-date: ""
 ---
 
 # Rate Limiting

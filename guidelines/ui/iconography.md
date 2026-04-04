@@ -23,6 +23,8 @@ references:
   - https://developer.apple.com/design/human-interface-guidelines/sf-symbols
   - https://learn.microsoft.com/en-us/windows/apps/design/style/icons
   - https://m3.material.io/styles/icons/overview
+approved-by: ""
+approved-date: ""
 ---
 
 # Iconography

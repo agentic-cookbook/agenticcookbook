@@ -22,6 +22,8 @@ related: []
 references: 
   - https://crdt.tech/
   - https://web.dev/articles/offline-cookbook
+approved-by: ""
+approved-date: ""
 ---
 
 # Offline and Connectivity

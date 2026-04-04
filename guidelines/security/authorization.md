@@ -23,6 +23,8 @@ related: []
 references: 
   - https://cheatsheetseries.owasp.org/cheatsheets/Access_Control_Cheat_Sheet.html
   - https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html
+approved-by: ""
+approved-date: ""
 ---
 
 # Authorization

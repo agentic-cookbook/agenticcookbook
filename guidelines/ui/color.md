@@ -28,6 +28,8 @@ references:
   - https://m3.material.io/styles/color/system/how-the-system-works
   - https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
   - https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html
+approved-by: ""
+approved-date: ""
 ---
 
 # Color

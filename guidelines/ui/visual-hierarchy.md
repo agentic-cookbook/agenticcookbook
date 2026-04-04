@@ -25,6 +25,8 @@ references:
   - https://learn.microsoft.com/en-us/windows/apps/design/layout/
   - https://m3.material.io/foundations/layout/applying-layout/overview
   - https://www.nngroup.com/articles/visual-hierarchy-ux-definition/
+approved-by: ""
+approved-date: ""
 ---
 
 # Visual Hierarchy

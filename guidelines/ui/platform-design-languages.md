@@ -26,6 +26,8 @@ references:
   - https://fluent2.microsoft.design/
   - https://m3.material.io/
   - https://www.w3.org/TR/WCAG21/
+approved-by: ""
+approved-date: ""
 ---
 
 # Platform Design Languages

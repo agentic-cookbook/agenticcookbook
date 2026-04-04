@@ -30,6 +30,8 @@ references:
   - https://learn.microsoft.com/en-us/windows/apps/design/style/typography
   - https://m3.material.io/styles/typography/type-scale-tokens
   - https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html
+approved-by: ""
+approved-date: ""
 ---
 
 # Typography

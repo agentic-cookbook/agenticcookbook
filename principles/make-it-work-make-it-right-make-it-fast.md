@@ -18,6 +18,8 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # Make It Work, Make It Right, Make It Fast

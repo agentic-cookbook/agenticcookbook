@@ -23,6 +23,8 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # Directory Sync / Watch Lifecycle

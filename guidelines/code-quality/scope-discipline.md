@@ -23,6 +23,8 @@ related:
   - agentic-cookbook://principles/yagni
   - agentic-cookbook://principles/simplicity
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # Scope discipline

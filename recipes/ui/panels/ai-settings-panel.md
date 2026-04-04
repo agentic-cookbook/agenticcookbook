@@ -27,6 +27,8 @@ depends-on: []
 related: 
   - recipe.ui.component.ai-chat-control
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # AI Settings Panel

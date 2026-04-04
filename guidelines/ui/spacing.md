@@ -23,6 +23,8 @@ references:
   - https://developer.apple.com/design/human-interface-guidelines/layout
   - https://learn.microsoft.com/en-us/windows/apps/design/layout/
   - https://m3.material.io/foundations/layout/overview
+approved-by: ""
+approved-date: ""
 ---
 
 # Spacing

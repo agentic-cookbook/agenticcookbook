@@ -23,6 +23,8 @@ related:
   - agentic-cookbook://guidelines/skills-and-agents/authoring-skills-and-rules
   - agentic-cookbook://guidelines/skills-and-agents/skill-checklist
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # Claude Code Skill Structure Reference

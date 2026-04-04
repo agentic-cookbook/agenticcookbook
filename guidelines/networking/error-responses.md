@@ -20,6 +20,8 @@ depends-on: []
 related: []
 references: 
   - https://www.rfc-editor.org/rfc/rfc9457
+approved-by: ""
+approved-date: ""
 ---
 
 # Error Responses

@@ -26,6 +26,8 @@ depends-on:
 related:
   - agentic-cookbook://guidelines/platform/notifications
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # Widgets and glanceable surfaces

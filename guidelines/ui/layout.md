@@ -26,6 +26,8 @@ references:
   - https://learn.microsoft.com/en-us/windows/apps/design/layout/responsive-design
   - https://m3.material.io/foundations/layout/applying-layout/overview
   - https://www.nngroup.com/articles/mobile-first-not-mobile-only/
+approved-by: ""
+approved-date: ""
 ---
 
 # Layout

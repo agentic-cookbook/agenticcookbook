@@ -22,6 +22,8 @@ depends-on:
 related:
   - agentic-cookbook://guidelines/testing/post-generation-verification
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # Bulk operation verification

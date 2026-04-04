@@ -26,6 +26,8 @@ references:
   - https://material.io/design/communication/empty-states.html
   - https://www.nngroup.com/articles/empty-state-interface-design/
   - https://www.nngroup.com/articles/error-message-guidelines/
+approved-by: ""
+approved-date: ""
 ---
 
 # State Design

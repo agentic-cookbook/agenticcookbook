@@ -21,6 +21,8 @@ depends-on: []
 related:
   - agentic-cookbook://guidelines/platform/shortcuts-and-automation
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # Support Automation

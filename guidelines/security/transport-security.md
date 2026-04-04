@@ -25,6 +25,8 @@ references:
   - https://datatracker.ietf.org/doc/html/rfc8446
   - https://hstspreload.org/
   - https://wiki.mozilla.org/Security/Server_Side_TLS
+approved-by: ""
+approved-date: ""
 ---
 
 # Transport Security

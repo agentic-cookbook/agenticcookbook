@@ -23,6 +23,8 @@ depends-on: []
 related: []
 references: 
   - https://learn.microsoft.com/en-us/windows/apps/design/
+approved-by: ""
+approved-date: ""
 ---
 
 # Fluent Design

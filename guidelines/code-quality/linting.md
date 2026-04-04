@@ -33,6 +33,8 @@ references:
   - https://pinterest.github.io/ktlint/
   - https://prettier.io/
   - https://stylelint.io/
+approved-by: ""
+approved-date: ""
 ---
 
 # Linting from day one

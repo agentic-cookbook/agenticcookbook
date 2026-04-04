@@ -28,6 +28,8 @@ references:
   - https://learn.microsoft.com/en-us/windows/win32/winauto/uiauto-uiautomationoverview
   - https://www.w3.org/TR/WCAG21/
   - https://www.w3.org/WAI/ARIA/apg/
+approved-by: ""
+approved-date: ""
 ---
 
 # Accessibility from day one

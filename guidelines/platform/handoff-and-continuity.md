@@ -27,6 +27,8 @@ related:
   - agentic-cookbook://guidelines/platform/deep-linking
   - agentic-cookbook://guidelines/platform/search-integration
 references: []
+approved-by: ""
+approved-date: ""
 ---
 
 # Handoff and continuity

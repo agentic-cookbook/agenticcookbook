@@ -28,6 +28,8 @@ references:
   - https://github.com/HypothesisWorks/hypothesis
   - https://github.com/dubzzz/fast-check
   - https://jqwik.net/
+approved-by: ""
+approved-date: ""
 ---
 
 # Property-Based Testing
