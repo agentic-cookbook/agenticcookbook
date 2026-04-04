@@ -17,6 +17,12 @@ Then stop.
 
 Otherwise, print `repair-cookbook v2.0.0` as the first line of output, then proceed.
 
+## Test Mode
+
+If `$ARGUMENTS` contains `--test-mode`:
+1. Print `[TEST MODE]` at startup.
+2. Auto-approve all AskUserQuestion prompts to the first/default option (e.g., "yes" for batch fixes, option "a" for ambiguous fixes).
+
 ---
 
 # Repair Cookbook
