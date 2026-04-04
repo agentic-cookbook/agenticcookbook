@@ -26,6 +26,11 @@ approved-date: ""
 
 Well-defined boundaries between subsystems let each side evolve independently. Define ports (interfaces) that describe what the application needs. Use adapters to translate between external technologies and your ports. Test the core application without databases, UIs, or networks.
 
+- Define each external dependency as a protocol the app owns, not a concrete type the vendor owns
+- Keep adapter implementations thin — translate and delegate, never add business logic
+- If two modules need to share a type, extract it into a shared contract rather than coupling the modules directly
+- Verify boundaries by confirming core logic compiles and tests pass with no framework imports
+
 ## Change History
 
 | Version | Date | Author | Summary |

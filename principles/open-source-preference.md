@@ -26,6 +26,10 @@ approved-date: ""
 
 When no native solution exists, research battle-tested open-source libraries and present options to the user before building a custom solution. A custom implementation can always be chosen instead, but it should be a deliberate decision, not a default.
 
+- Evaluate candidates by maintenance activity, license compatibility, and community adoption before recommending
+- Present at least two options with trade-offs rather than silently picking one
+- If building custom, document why the available open-source options were rejected
+
 ## Change History
 
 | Version | Date | Author | Summary |

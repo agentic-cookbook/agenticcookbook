@@ -26,6 +26,10 @@ approved-date: ""
 
 A module should have one reason to change. If describing what a module does requires "and," consider splitting. This applies at every scale: functions, modules, services, teams.
 
+- Describe each module's responsibility in one sentence without using "and" — if you cannot, split it
+- Keep UI rendering, business logic, and data access in separate layers that can change independently
+- When a change to one feature forces edits in an unrelated feature, treat it as a coupling defect
+
 ## Change History
 
 | Version | Date | Author | Summary |
