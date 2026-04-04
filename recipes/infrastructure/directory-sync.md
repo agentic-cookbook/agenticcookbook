@@ -130,6 +130,10 @@ A lifecycle pattern for synchronizing an in-memory file tree with the filesystem
 | Surgical update in progress | Affected directory children reloaded, tree patched, cache saved |
 | Watch stopped (e.g., directory deleted) | Coordinator publishes empty tree, stops FSEvents stream |
 
+## Accessibility
+
+Not applicable — directory sync is an infrastructure component with no direct user-facing UI. UI presentation of the synced directory tree is handled by the file-tree-browser recipe.
+
 ## Conformance Test Vectors
 
 | ID | Requirements | Input | Expected |

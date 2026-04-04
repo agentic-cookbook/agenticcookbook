@@ -205,6 +205,18 @@ struct PrimaryButtonCatalog: View {
 }
 ```
 
+## Appearance
+
+Not applicable — this recipe defines app-level structure and build configuration. Visual appearance is defined by window and component recipes.
+
+## States
+
+Not applicable — app-level states (launching, active, background, terminated) are defined by the platform, not this recipe. See `recipes/app/lifecycle.md` for app state management.
+
+## Accessibility
+
+Not applicable — this recipe defines project structure and build configuration. Accessibility requirements are defined per-component in the UI recipes.
+
 ## Conformance Test Vectors
 
 | ID | Requirements | Input | Expected |

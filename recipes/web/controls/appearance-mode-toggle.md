@@ -217,6 +217,16 @@ mode === 'light' ─────────────┘──► resolved = 
 - **Transmission**: The appearance preference MUST NOT be transmitted to analytics, crash reporting, or any external service.
 - **Retention**: Persists until the user changes it or clears site settings.
 
+## Logging
+
+Subsystem: `{{bundle_id}}` | Category: `AppearanceModeToggle`
+
+| Event | Level | Message |
+|-------|-------|---------|
+| Mode changed | debug | `AppearanceModeToggle: mode changed to {{mode}}` |
+| System theme detected | debug | `AppearanceModeToggle: system theme is {{theme}}` |
+| Preference persisted | debug | `AppearanceModeToggle: saved preference {{mode}} to localStorage` |
+
 ## Platform Notes
 
 - **React**: Implement as a context provider (`ThemeProvider`) with a `useTheme()` hook exposing `mode` (`auto`/`dark`/`light`), `theme` (resolved `dark`/`light`), and `toggle()`. Track `systemTheme` as state with a `useEffect` that attaches the `matchMedia` listener on mount (no dependencies — always runs). Derive `theme` from `mode` and `systemTheme` (not as independent state). In `toggle()`, apply the CSS class synchronously before calling `setMode()`. The `matchMedia` query object should be created once at module scope, not inside effects.

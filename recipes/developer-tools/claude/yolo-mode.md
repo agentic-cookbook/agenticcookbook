@@ -143,6 +143,10 @@ An implementation MUST provide these operations:
 | Disable | Remove `PermissionRequest` from settings, print confirmation |
 | Status | Check settings and report whether yolo mode is active |
 
+## Appearance
+
+Not applicable — YOLO mode is a CLI configuration tool with terminal text output only.
+
 ## States
 
 | State | How to detect | Behavior |

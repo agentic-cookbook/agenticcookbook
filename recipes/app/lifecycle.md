@@ -88,6 +88,10 @@ Pattern for managing desktop and mobile app lifecycle: what happens on startup, 
 - **commands-modifier**: Custom menu commands SHOULD be applied via the `.commands` modifier on the primary `WindowGroup`.
 - **static-scene-declarations**: The `@main` App struct MUST compose all scene declarations in its `body` property. Scene declarations MUST NOT be generated dynamically at runtime.
 
+## Appearance
+
+Not applicable — app lifecycle management has no visual appearance. UI is defined by the window and component recipes.
+
 ## States
 
 | State | Behavior |
