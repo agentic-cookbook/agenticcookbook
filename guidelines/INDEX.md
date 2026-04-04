@@ -3,7 +3,7 @@ id: eb0764d5-aeac-40cc-9aa4-d84e4eaa652d
 title: "Guidelines Index"
 domain: agentic-cookbook://guidelines/INDEX
 type: guideline
-version: 1.0.0
+version: 1.1.0
 status: accepted
 language: en
 created: 2026-03-27
@@ -103,6 +103,7 @@ related:
   - agentic-cookbook://guidelines/platform/widgets-and-glanceable-surfaces
   - agentic-cookbook://guidelines/ui/previews
   - agentic-cookbook://guidelines/language/swift/prefer-explicit-apple-apis
+  - agentic-cookbook://guidelines/database-design/sqlite-best-practices
 references: []
 ---
 
@@ -346,6 +347,12 @@ Use `agentic-cookbook://X/Y` notation to cross-reference any rule. Search this f
 | [Dependency Security](security/dependency-security.md) | Dependency Security | lockfiles, npm audit, pin versions, SRI, supply chain |
 | [Security Headers Checklist](security/security-headers-checklist.md) | Security Headers Checklist | HSTS, CSP, X-Content-Type-Options, Referrer-Policy |
 
+## Database Design
+
+| guide. | Rule | Keywords |
+|---|------|----------|
+| [SQLite best practices](database-design/sqlite-best-practices.md) | Comprehensive SQLite reference — schema design, naming, types, keys, indexes, triggers, WAL, transactions, migrations, backup, security, testing, device-to-server sync, conflict resolution, offline-first, CRDTs | SQLite, database, schema, indexes, WAL, sync, offline-first, CRDT, PRAGMA, foreign keys, triggers, migration |
+
 ## Spec Writing Format
 
 | guide. | Section | Keywords |
@@ -408,4 +415,5 @@ Use `agentic-cookbook://X/Y` notation to cross-reference any rule. Search this f
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-04-04 | Mike Fullerton | Add database-design category with SQLite best practices |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

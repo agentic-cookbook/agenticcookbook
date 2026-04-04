@@ -79,6 +79,7 @@ A library of principles, guidelines, recipes, and workflows for building softwar
 | [Language-Specific](guidelines/language/) | Swift, Kotlin, C#, Python — truly language-only guidance |
 | [Platform Integration](guidelines/platform/) | System integration — deep linking, search, widgets, notifications, sharing, background tasks, continuity |
 | [Platform-Specific: Windows](guidelines/platform/windows/) | Windows-only — Fluent Design, MSIX, DPI scaling, theming |
+| [Database Design](guidelines/database-design/) | SQLite best practices — schema design, performance, device-to-server sync, production operations |
 | [Skills and Agents](guidelines/skills-and-agents/) | Authoring skills, rules, and agents — checklists, structure references, performance |
 
 ## Recipes
