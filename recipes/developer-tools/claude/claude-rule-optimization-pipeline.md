@@ -28,6 +28,8 @@ related:
   - agentic-cookbook://recipes/autonomous-dev-bots/pr-review-pipeline
 references:
   - https://code.claude.com/docs/en/best-practices
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Claude Rule Optimization Pipeline

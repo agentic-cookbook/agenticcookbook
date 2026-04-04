@@ -28,6 +28,8 @@ references:
   - https://datatracker.ietf.org/doc/html/rfc7636
   - https://datatracker.ietf.org/doc/html/rfc8252
   - https://openid.net/specs/openid-connect-core-1_0.html
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Authentication
@@ -37,7 +39,7 @@ deprecated — OAuth 2.1 removes it entirely.
 
 **Per-platform auth flow:**
 - **Native apps (iOS/Android/Windows):** Authorization Code + PKCE via the system browser
-  (`ASWebAuthenticationSession`, Custom Tabs, `WebAuthenticationBroker`). Never embed a
+  (`ASWebAuthenticationSession`, Custom Tabs, `WebAuthenticationBroker`). Apps MUST NOT embed a
   WebView for auth — the app can intercept credentials.
 - **SPAs:** Authorization Code + PKCE. Consider a Backend-for-Frontend (BFF) pattern where
   the SPA never handles tokens directly — the BFF holds tokens server-side in HttpOnly cookies.
@@ -45,7 +47,7 @@ deprecated — OAuth 2.1 removes it entirely.
 
 **Session management:**
 - Short-lived access tokens (5-15 minutes)
-- Refresh token rotation — each use issues a new refresh token and invalidates the old one.
+- Refresh token rotation MUST be used — each use issues a new refresh token and invalidates the old one.
   Detect reuse of a revoked refresh token and invalidate the entire token family.
 - Absolute session timeouts server-side
 

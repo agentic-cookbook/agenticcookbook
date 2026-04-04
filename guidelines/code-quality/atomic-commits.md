@@ -21,6 +21,8 @@ related:
   - agentic-cookbook://guidelines/code-quality/scope-discipline
   - agentic-cookbook://guidelines/testing/post-generation-verification
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Small, atomic commits
@@ -33,11 +35,11 @@ For every logical change:
 
 1. **Make the change** — implement one coherent unit of work
 2. **Build** — run the platform build command (`xcodebuild`, `./gradlew build`, `npm run build`, `dotnet build`, `cargo build`)
-3. **Verify** — confirm the build passes and existing tests still pass
+3. **Verify** — the build MUST pass and existing tests MUST still pass before committing
 4. **Commit** — commit the passing change with a descriptive message
 5. **Repeat** — move to the next logical change
 
-Do not stack multiple uncommitted changes. If a change breaks the build, fix it before moving on — do not add more changes on top of a broken state. This prevents compound debugging sessions where multiple interacting changes all break at once.
+Multiple uncommitted changes MUST NOT be stacked. If a change breaks the build, fix it before moving on — do not add more changes on top of a broken state. This prevents compound debugging sessions where multiple interacting changes all break at once.
 
 ## What counts as one logical change
 

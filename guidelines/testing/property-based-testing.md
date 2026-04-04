@@ -28,6 +28,8 @@ references:
   - https://github.com/HypothesisWorks/hypothesis
   - https://github.com/dubzzz/fast-check
   - https://jqwik.net/
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Property-Based Testing
@@ -48,7 +50,7 @@ and let the framework generate hundreds of random inputs to try to falsify them.
 | .NET | [FsCheck](https://fscheck.github.io/FsCheck/) | `dotnet add package FsCheck` |
 | Kotlin/JVM | [jqwik](https://jqwik.net/) | Gradle/Maven dependency |
 
-**Write at least one property test per data transformation function.** Examples:
+**At least one property test MUST be written per data transformation function.** Examples:
 
 - `encode(decode(x)) == x` (round-trip)
 - `sort(xs).length == xs.length` (preservation)

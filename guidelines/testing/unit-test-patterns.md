@@ -19,9 +19,13 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Unit Test Patterns
+
+Structure every unit test as Arrange-Act-Assert with one assertion concept per test, no logic in tests, and no coupling between tests.
 
 **Structure — Arrange, Act, Assert (AAA):**
 
@@ -32,10 +36,10 @@ references: []
 ```
 
 **Rules:**
-- One assertion concept per test (not one `assert` — one logical concept)
-- No logic in tests — no `if`, `for`, `try/catch`, `switch`
-- Test the public API, not internals — tests should survive refactoring
-- Each test is independent — arrange its own state, don't rely on other tests
+- Each test MUST have one assertion concept (not one `assert` — one logical concept)
+- Tests MUST NOT contain logic — no `if`, `for`, `try/catch`, `switch`
+- Tests SHOULD target the public API, not internals — tests should survive refactoring
+- Each test MUST be independent — arrange its own state, don't rely on other tests
 
 **Naming — use descriptive names that read as specifications:**
 - `test_parse_order_with_valid_json_returns_order`

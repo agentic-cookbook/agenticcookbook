@@ -22,9 +22,13 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Authoring Skills and Rules
+
+Design skills as single-purpose, versioned extensions. Keep rules minimal, deterministic, and side-effect-free. Check the inventory before creating anything new.
 
 ## Overview
 

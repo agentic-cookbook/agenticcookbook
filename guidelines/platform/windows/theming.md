@@ -22,6 +22,8 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Theming
@@ -29,8 +31,8 @@ references: []
 WinUI 3 supports tri-state theming: Light, Dark, and High Contrast.
 
 - Set app-level theme via `Application.RequestedTheme`, override per-element with `FrameworkElement.RequestedTheme`
-- Always use `ThemeResource` (not `StaticResource`) for colors and brushes — enables runtime theme switching
-- Use semantic color resources (`TextFillColorPrimary`, `CardBackgroundFillColorDefault`) not hex values
+- Colors and brushes MUST use `ThemeResource` (not `StaticResource`) — enables runtime theme switching
+- Semantic color resources (`TextFillColorPrimary`, `CardBackgroundFillColorDefault`) SHOULD be used instead of hex values
 - Define custom theme-aware colors in a `ResourceDictionary` with `Default`/`Light`/`Dark` theme dictionaries
 
 ```xml

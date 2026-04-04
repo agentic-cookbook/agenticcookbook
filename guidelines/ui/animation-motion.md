@@ -24,6 +24,8 @@ references:
   - https://developer.apple.com/design/human-interface-guidelines/motion
   - https://learn.microsoft.com/en-us/windows/apps/design/motion/timing-and-easing
   - https://m3.material.io/styles/motion/overview
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Animation & Motion
@@ -42,11 +44,11 @@ feedback. Never animate for decoration.
 | Complex choreography (rare) | 500-1000ms |
 
 - Under 100ms feels instant. Over 500ms feels sluggish.
-- Prefer platform-native spring/easing curves over linear or custom beziers
-- **Always respect reduced-motion preferences** — see agentic-cookbook://guidelines/accessibility/accessibility and each platform
+- Platform-native spring/easing curves SHOULD be preferred over linear or custom beziers
+- **Reduced-motion preferences MUST be respected** — see agentic-cookbook://guidelines/accessibility/accessibility and each platform
   file's accessibility settings table. When reduced motion is enabled, replace animations
   with instant state changes or simple cross-fades.
-- Avoid motion that covers large distances, loops continuously, or flashes
+- Motion SHOULD NOT cover large distances, loop continuously, or flash
 
 References:
 - [Apple HIG: Motion](https://developer.apple.com/design/human-interface-guidelines/motion)

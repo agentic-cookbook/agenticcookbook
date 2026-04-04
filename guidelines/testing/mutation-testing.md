@@ -28,6 +28,8 @@ references:
   - https://github.com/muter-mutation-testing/muter
   - https://pitest.org/
   - https://stryker-mutator.io/
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Mutation Testing
@@ -42,10 +44,10 @@ Mutation testing validates that your tests actually catch bugs — not just achi
 1. Write tests
 2. Run mutation testing
 3. Examine surviving mutants
-4. Write additional tests to kill surviving mutants
+4. Write additional tests to kill surviving mutants — all surviving mutants MUST be addressed
 5. Repeat until mutation score is acceptable
 
-**Run mutation testing before claiming "tests are complete."**
+**Mutation testing MUST be run before claiming "tests are complete."**
 
 **Platform tools:**
 

@@ -22,6 +22,8 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Menu Commands
@@ -137,6 +139,14 @@ New Workspace flow:
 - **provide-focused-object**: Views MUST provide their per-window state via the `.focusedObject()` modifier on the view hierarchy.
 - **graceful-nil-focused-object**: Commands MUST gracefully handle a `nil` focused object by disabling the menu item, not by crashing or showing an error.
 
+## Appearance
+
+- **Menu item icons**: SF Symbols rendered at standard menu item size (per system conventions)
+- **Keyboard shortcut display**: Standard macOS menu shortcut rendering (modifier glyphs + key character)
+- **Error alerts**: Standard `NSAlert` / SwiftUI `.alert` with title, message, and "OK" button
+- **NSOpenPanel**: Standard macOS directory picker with prompt text "Select Project Directory"
+- **NSSavePanel**: Standard macOS save dialog with prompt text "Create Workspace" and enforced file extension
+
 ## States
 
 | State | Behavior |
@@ -150,14 +160,6 @@ New Workspace flow:
 | Existing package found | Package at expected path is opened instead of creating a duplicate |
 | Document creation in progress | Package is being created on disk. Menu command is non-reentrant (no double-creation) |
 | Document open failed | Error alert displayed with failure reason. No document window opens |
-
-## Appearance
-
-- **Menu item icons**: SF Symbols rendered at standard menu item size (per system conventions)
-- **Keyboard shortcut display**: Standard macOS menu shortcut rendering (modifier glyphs + key character)
-- **Error alerts**: Standard `NSAlert` / SwiftUI `.alert` with title, message, and "OK" button
-- **NSOpenPanel**: Standard macOS directory picker with prompt text "Select Project Directory"
-- **NSSavePanel**: Standard macOS save dialog with prompt text "Create Workspace" and enforced file extension
 
 ## Accessibility
 

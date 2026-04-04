@@ -26,6 +26,8 @@ depends-on:
 related:
   - agentic-cookbook://guidelines/platform/notifications
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Widgets and glanceable surfaces

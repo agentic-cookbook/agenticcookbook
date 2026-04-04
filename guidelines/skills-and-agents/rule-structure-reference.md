@@ -23,9 +23,11 @@ related:
   - agentic-cookbook://guidelines/skills-and-agents/authoring-skills-and-rules
   - agentic-cookbook://guidelines/skills-and-agents/rule-checklist
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
-# Claude Code Rule File Structure Reference
+# Rule Structure Reference
 
 > Source: https://code.claude.com/docs/en/best-practices
 

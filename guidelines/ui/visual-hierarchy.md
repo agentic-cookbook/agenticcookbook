@@ -25,6 +25,8 @@ references:
   - https://learn.microsoft.com/en-us/windows/apps/design/layout/
   - https://m3.material.io/foundations/layout/applying-layout/overview
   - https://www.nngroup.com/articles/visual-hierarchy-ux-definition/
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Visual Hierarchy
@@ -32,11 +34,11 @@ references:
 Establish clear importance through size, weight, color, and spacing. Every screen should
 have one obvious focal point — the primary action or content the user came for.
 
-- **One primary action per screen** — if everything is bold, nothing is bold
+- **One primary action per screen** — there MUST be a single focal point; if everything is bold, nothing is bold
 - Use size and weight (not just color) to distinguish heading levels
 - Group related content with proximity; separate unrelated content with whitespace
-- Interactive elements must be visually distinguishable from static content
-- Disabled elements should be visually muted but still discoverable
+- Interactive elements MUST be visually distinguishable from static content
+- Disabled elements SHOULD be visually muted but still discoverable
 
 See agentic-cookbook://guidelines/accessibility/accessibility for accessibility requirements (contrast, labels, focus order).
 

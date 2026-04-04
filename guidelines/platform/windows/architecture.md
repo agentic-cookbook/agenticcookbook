@@ -22,14 +22,16 @@ related: []
 references: 
   - https://github.com/microsoft/TemplateStudio
   - https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Architecture
 
 Use MVVM with [CommunityToolkit.Mvvm](https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/) — source-generated `ObservableObject`, `RelayCommand`, and messaging.
 
-- NavigationView + Frame for page-level navigation
-- Navigation service abstraction in the ViewModel layer — never manipulate Frame from code-behind
+- NavigationView + Frame SHOULD be used for page-level navigation
+- Navigation service abstraction in the ViewModel layer — code-behind MUST NOT manipulate Frame directly
 - Use [Template Studio](https://github.com/microsoft/TemplateStudio) for project scaffolding with MVVM, navigation, and theming pre-wired
 
 ```csharp

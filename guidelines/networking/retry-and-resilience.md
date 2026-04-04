@@ -24,6 +24,8 @@ references:
   - https://docs.aws.amazon.com/general/latest/gr/api-retries.html
   - https://learn.microsoft.com/en-us/azure/architecture/best-practices/transient-faults
   - https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Retry and Resilience
@@ -42,9 +44,9 @@ delay = random(0, min(max_delay, base * 2^attempt))
 | Max retries | 3-5 (idempotent), 0 (non-idempotent unless safe) |
 
 **Retryable status codes:** 408, 429, 500 (idempotent only), 502, 503, 504.
-Always respect `Retry-After` header on 429 and 503.
+Clients MUST respect `Retry-After` header on 429 and 503.
 
-**Never retry:** 400, 401, 403, 404, 409, 422 — these are deterministic failures.
+**Clients MUST NOT retry:** 400, 401, 403, 404, 409, 422 — these are deterministic failures.
 
 **Circuit breaker** for cascading failure prevention:
 - Track failure rate over a sliding window (e.g., 10 requests)

@@ -26,9 +26,13 @@ references:
   - https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html
   - https://datatracker.ietf.org/doc/html/rfc6750
   - https://datatracker.ietf.org/doc/html/rfc7519
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Token Handling
+
+Keep access tokens short-lived (5-15 min), store refresh tokens in secure platform storage, and rotate them on every use.
 
 ### Access tokens
 
@@ -57,10 +61,10 @@ See also agentic-cookbook://guidelines/security/privacy
 
 ### Never do these
 
-- Store tokens in `localStorage` or `sessionStorage` (XSS-accessible)
-- Put tokens in URL query parameters (logged in server logs, browser history, referrer headers)
-- Use `alg: none` in JWTs — always validate the `alg` header server-side against an allowlist
-- Trust client-supplied JWT claims for authorization without server-side verification
+- Tokens MUST NOT be stored in `localStorage` or `sessionStorage` (XSS-accessible)
+- Tokens MUST NOT be put in URL query parameters (logged in server logs, browser history, referrer headers)
+- `alg: none` MUST NOT be used in JWTs — the `alg` header MUST be validated server-side against an allowlist
+- Client-supplied JWT claims MUST NOT be trusted for authorization without server-side verification
 
 References:
 - [RFC 6750: Bearer Token Usage](https://datatracker.ietf.org/doc/html/rfc6750)

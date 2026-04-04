@@ -21,11 +21,13 @@ related: []
 references: 
   - https://google.aip.dev/158
   - https://opensource.zalando.com/restful-api-guidelines/#pagination
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Pagination
 
-Prefer **cursor pagination** for most APIs — stable under concurrent mutations, consistent
+**Cursor pagination** SHOULD be preferred for most APIs — stable under concurrent mutations, consistent
 performance at any depth. Use offset pagination only when users need page numbers or data
 is relatively static.
 

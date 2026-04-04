@@ -28,6 +28,8 @@ references:
   - https://vale.sh
   - https://github.com/DavidAnson/markdownlint-cli2
   - https://docs.openclaw.ai
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # PR Review Pipeline
@@ -187,6 +189,28 @@ Beyond Vale's deterministic rules, the LLM clarity pass checks for:
 - **Unresolved references**: mentions of concepts not defined or linked
 - **Vague quantification in requirements**: "handle multiple items" (how many?) vs "handle 1-1000 items"
 
+## Appearance
+
+Not applicable — this is an automated pipeline with no visual UI.
+
+## States
+
+Not applicable — pipeline state is tracked through GitHub PR status checks and bot comments, not a visual state model.
+
+## Accessibility
+
+Not applicable — this pipeline interacts through GitHub's PR interface, which provides its own accessibility. Bot-posted review comments use plain markdown, inheriting GitHub's accessible rendering.
+
+## Conformance Test Vectors
+
+| ID | Requirements | Input | Expected |
+|----|-------------|-------|----------|
+| prp-001 | recipe-validation, frontmatter-check | PR adding a recipe with missing `id` field | Phase 1 rejects, posts review requesting fix |
+| prp-002 | overlap-detection | PR adding a recipe with requirements duplicating an existing recipe | Phase 2 flags overlap, suggests consolidation |
+| prp-003 | cross-reference-integrity | PR modifying a recipe domain without updating references | Phase 3 detects broken cross-references |
+| prp-004 | short-circuit-rejection | PR failing Phase 1 | Phase 2 and 3 do not run |
+| prp-005 | auto-fix-preference | PR with auto-fix enabled, fixable Phase 1 issue | Fix bot pushes corrected commit |
+
 ## Edge Cases
 
 - **PR with multiple recipes**: run the pipeline once per changed recipe file, aggregate results into a single review per phase
@@ -195,6 +219,23 @@ Beyond Vale's deterministic rules, the LLM clarity pass checks for:
 - **Contributor pushes during pipeline run**: cancel current run, restart from Phase 1 on the latest commit
 - **GitHub App rate limits**: implement exponential backoff; if rate-limited during review posting, retry up to 3 times then log failure
 - **OpenClaw goes offline**: GitHub webhook delivery retries for up to 8 hours; pending PRs will be picked up by the cron fallback when the Mac comes back online
+
+## Logging
+
+Subsystem: `pr-review-pipeline` | Category: `Pipeline`
+
+| Event | Level | Message |
+|-------|-------|---------|
+| Pipeline started | info | `Pipeline: started for PR #{{pr_number}} on {{repo}}` |
+| Phase completed | info | `Pipeline: phase {{phase}} completed — {{result}}` |
+| Phase short-circuited | info | `Pipeline: skipping phase {{phase}} — prior phase rejected` |
+| Fix bot committed | info | `Pipeline: fix bot pushed commit {{sha}} for PR #{{pr_number}}` |
+| Rate limit hit | warning | `Pipeline: GitHub API rate limited — retrying in {{seconds}}s` |
+| Pipeline failed | error | `Pipeline: failed for PR #{{pr_number}} — {{error}}` |
+
+## Platform Notes
+
+This pipeline runs on macOS via OpenClaw. It is not platform-portable — it depends on OpenClaw's daemon infrastructure, GitHub App webhooks, and Claude Code CLI availability on the host Mac.
 
 ## Design Decisions
 

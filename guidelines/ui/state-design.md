@@ -26,12 +26,14 @@ references:
   - https://material.io/design/communication/empty-states.html
   - https://www.nngroup.com/articles/empty-state-interface-design/
   - https://www.nngroup.com/articles/error-message-guidelines/
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # State Design
 
-Every view that loads data or can be empty must handle all four states explicitly. Never
-show a blank screen with no explanation.
+Every view that loads data or can be empty MUST handle all four states explicitly. A blank
+screen with no explanation MUST NOT be shown.
 
 **The four states:**
 
@@ -40,7 +42,7 @@ show a blank screen with no explanation.
 2. **Empty** — explain what belongs here, why it's empty, and provide a single clear action to
    populate it. Use an icon or illustration, a brief message, and a CTA button.
 3. **Error** — identify the problem, explain why if possible, and offer a recovery action (retry,
-   go back, contact support). Never show raw error codes or stack traces. Don't blame the user.
+   go back, contact support). Raw error codes or stack traces MUST NOT be shown. Don't blame the user.
 4. **Loaded** — the normal content state.
 
 Design empty and error states with the same care as the loaded state — they are often the

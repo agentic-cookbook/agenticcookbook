@@ -24,6 +24,8 @@ references:
   - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
   - https://web.dev/articles/http-cache
   - https://www.rfc-editor.org/rfc/rfc9111
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Caching
@@ -40,7 +42,7 @@ Cache-Control: public, max-age=31536000, immutable
 Cache-Control: private, max-age=60
 ```
 
-**Never cache** (sensitive data, mutations):
+**MUST NOT cache** (sensitive data, mutations):
 ```
 Cache-Control: no-store
 ```
@@ -51,7 +53,7 @@ Cache-Control: no-store
 3. Server responds 304 Not Modified (no body) or 200 with new data
 
 **Client-side invalidation:**
-- After mutations (POST/PUT/DELETE), invalidate related cache entries
+- After mutations (POST/PUT/DELETE), related cache entries MUST be invalidated
 - Stale-while-revalidate: serve cached data immediately, refresh in background
 - Framework support: React Query, SWR, Apollo Client all handle this natively
 

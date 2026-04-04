@@ -23,9 +23,11 @@ related:
   - agentic-cookbook://guidelines/skills-and-agents/authoring-skills-and-rules
   - agentic-cookbook://guidelines/skills-and-agents/agent-checklist
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
-# Claude Code Agent Structure Reference
+# Agent Structure Reference
 
 > Source: https://code.claude.com/docs/en/sub-agents
 
@@ -39,7 +41,7 @@ Agents are markdown files with YAML frontmatter, placed in `.claude/agents/`.
 
 The markdown body serves as the agent's system prompt.
 
-The filename should be lowercase kebab-case (e.g., `build-runner.md`). Uppercase stems are reserved for identity files like `SKILL.md` and `CLAUDE.md`.
+The filename MUST be lowercase kebab-case (e.g., `build-runner.md`). Uppercase stems are reserved for identity files like `SKILL.md` and `CLAUDE.md`.
 
 ## Frontmatter Fields
 
@@ -72,7 +74,7 @@ The filename should be lowercase kebab-case (e.g., `build-runner.md`). Uppercase
 - **Unrestricted**: Omit both `tools` and `disallowedTools` — agent has access to all tools
 - **Allowlist**: Set `tools` to a specific list — agent can ONLY use those tools
 - **Denylist**: Set `disallowedTools` — agent can use everything EXCEPT those tools
-- `tools` and `disallowedTools` are mutually exclusive
+- `tools` and `disallowedTools` MUST NOT be used together (mutually exclusive)
 
 ## Permission Modes
 

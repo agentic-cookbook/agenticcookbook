@@ -27,6 +27,8 @@ depends-on:
 related:
   - agentic-cookbook://guidelines/platform/deep-linking
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Search integration

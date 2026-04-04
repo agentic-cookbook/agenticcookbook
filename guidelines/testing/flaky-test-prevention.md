@@ -23,6 +23,8 @@ related: []
 references: 
   - https://martinfowler.com/articles/nonDeterminism.html
   - https://testing.googleblog.com/
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Flaky Test Prevention
@@ -30,13 +32,13 @@ references:
 Flaky tests destroy confidence. Quarantine them immediately — fix or delete, never ignore.
 
 **Rules:**
-- No shared mutable state between tests (each test arranges its own)
-- No dependency on test execution order
-- No real network calls in unit tests (use fakes or stubs)
-- No `sleep()` or timing-dependent assertions — use deterministic waits or callbacks
-- No filesystem side effects in unit tests (use temp directories, clean up in teardown)
-- No reliance on system clock — inject time as a dependency
-- If a test fails intermittently, it is broken. Treat it as a P1 bug.
+- Tests MUST NOT share mutable state (each test arranges its own)
+- Tests MUST NOT depend on execution order
+- Unit tests MUST NOT make real network calls (use fakes or stubs)
+- Tests MUST NOT use `sleep()` or timing-dependent assertions — use deterministic waits or callbacks
+- Unit tests MUST NOT produce filesystem side effects (use temp directories, clean up in teardown)
+- Tests SHOULD NOT rely on system clock — inject time as a dependency
+- If a test fails intermittently, it is broken. It MUST be treated as a P1 bug.
 
 References:
 - [Martin Fowler: Eradicating Non-Determinism in Tests](https://martinfowler.com/articles/nonDeterminism.html)

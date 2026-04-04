@@ -24,6 +24,8 @@ references:
   - https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html
   - https://csp-evaluator.withgoogle.com/
   - https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Content Security Policy
@@ -31,11 +33,11 @@ references:
 Prevent XSS and injection with a strict CSP. Web apps only.
 
 - **Start strict:** `default-src 'none'` then add only what is needed
-- **Nonce-based scripts:** `script-src 'nonce-{random}' 'strict-dynamic'` — more secure than
+- **Nonce-based scripts:** `script-src 'nonce-{random}' 'strict-dynamic'` SHOULD be used — more secure than
   domain allowlisting (bypassable via JSONP/CDN scripts)
-- **Never use** `'unsafe-inline'` or `'unsafe-eval'` for script-src
+- Policies MUST NOT include `'unsafe-inline'` or `'unsafe-eval'` for script-src
 - **`frame-ancestors 'self'`** to prevent clickjacking (replaces X-Frame-Options)
-- **Deploy in report-only mode first** (`Content-Security-Policy-Report-Only`) to find
+- New policies SHOULD be deployed in report-only mode first (`Content-Security-Policy-Report-Only`) to find
   violations before enforcing
 
 References:

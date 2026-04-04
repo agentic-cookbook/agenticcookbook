@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "Interactive elements must be large enough to tap or click accurately. Defer to the platform"
+summary: "Interactive elements MUST be large enough to tap or click accurately. Defer to the platform"
 platforms: 
   - ios
   - kotlin
@@ -29,11 +29,13 @@ references:
   - https://learn.microsoft.com/en-us/windows/apps/design/input/guidelines-for-targeting
   - https://m3.material.io/foundations/accessible-design/accessibility-basics
   - https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Touch & Click Targets
 
-Interactive elements must be large enough to tap or click accurately. Defer to the platform
+Interactive elements MUST be large enough to tap or click accurately. Defer to the platform
 HIG first — each prescribes its own minimum:
 
 | Platform | Minimum Target | Recommended |
@@ -46,7 +48,7 @@ HIG first — each prescribes its own minimum:
 **Cross-platform default: 44x44** when no platform HIG applies.
 
 - The visual element (icon, text) can be smaller than the touch target — pad the hit area
-- Minimum **8px spacing** between adjacent targets to prevent mis-taps
+- There MUST be minimum **8px spacing** between adjacent targets to prevent mis-taps
 - Inline text links in paragraphs are exempt from size minimums but should have sufficient
   line height for comfortable tapping
 

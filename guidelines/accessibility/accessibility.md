@@ -28,6 +28,8 @@ references:
   - https://learn.microsoft.com/en-us/windows/win32/winauto/uiauto-uiautomationoverview
   - https://www.w3.org/TR/WCAG21/
   - https://www.w3.org/WAI/ARIA/apg/
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Accessibility from day one

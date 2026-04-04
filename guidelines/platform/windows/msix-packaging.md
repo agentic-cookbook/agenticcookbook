@@ -21,14 +21,18 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # MSIX Packaging
 
+Package Windows apps with the single-project MSIX model, declare minimal capabilities, and sign with a trusted certificate.
+
 - Use the single-project MSIX packaging model
-- Declare capabilities minimally in `Package.appxmanifest`
-- Sign packages with a trusted certificate for sideloading
-- Version numbering: `Major.Minor.Build.Revision`, monotonically increasing
+- Capabilities MUST be declared minimally in `Package.appxmanifest`
+- Packages MUST be signed with a trusted certificate for sideloading
+- Version numbering MUST use `Major.Minor.Build.Revision`, monotonically increasing
 
 ## Change History
 

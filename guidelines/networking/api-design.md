@@ -19,6 +19,8 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # API Design
@@ -27,11 +29,11 @@ Use REST with consistent conventions. Follow the platform API guidelines (Micros
 Zalando) for details — the essentials below are consensus across all three.
 
 **URL conventions:**
-- Lowercase with hyphens: `/order-items` not `/orderItems`
-- Plural nouns for collections: `/users`, `/orders`
-- Shallow nesting (max 2 levels): `/users/{id}/orders`
-- No verbs in URLs — the HTTP method is the verb
-- No trailing slashes
+- URLs MUST be lowercase with hyphens: `/order-items` not `/orderItems`
+- Collections MUST use plural nouns: `/users`, `/orders`
+- Nesting SHOULD be shallow (max 2 levels): `/users/{id}/orders`
+- URLs MUST NOT contain verbs — the HTTP method is the verb
+- Trailing slashes MUST NOT be used
 - Query params for filtering/sorting: `/users?status=active&sort=-created_at`
 
 **HTTP methods:**

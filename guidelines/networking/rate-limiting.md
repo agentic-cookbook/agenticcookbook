@@ -20,15 +20,17 @@ depends-on: []
 related: []
 references: 
   - https://www.rfc-editor.org/rfc/rfc6585
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Rate Limiting
 
 Respect server rate limits. Handle 429 responses gracefully.
 
-- Always honor the `Retry-After` header (seconds or HTTP-date)
+- Clients MUST honor the `Retry-After` header (seconds or HTTP-date)
 - If no `Retry-After`, use exponential backoff (see Retry section)
-- Track `RateLimit-Remaining` headers proactively — slow down before hitting 429
+- Clients SHOULD track `RateLimit-Remaining` headers proactively — slow down before hitting 429
 - Queue and batch requests at the allowed rate rather than fire-and-retry
 
 References:

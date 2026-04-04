@@ -31,11 +31,13 @@ references:
   - https://semgrep.dev/
   - https://snyk.io/
   - https://www.zaproxy.org/
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Security Testing
 
-Run security scans as part of post-generation verification (agentic-cookbook://guidelines/testing/post-generation-verification). These are CLI tools
+Security scans MUST be run as part of post-generation verification (agentic-cookbook://guidelines/testing/post-generation-verification). These are CLI tools
 Claude Code can invoke directly.
 
 **Static Analysis (SAST):**

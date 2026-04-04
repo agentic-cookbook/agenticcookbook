@@ -18,11 +18,17 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # For novel components, prefer proven open-source solutions
 
 When no native solution exists, research battle-tested open-source libraries and present options to the user before building a custom solution. A custom implementation can always be chosen instead, but it should be a deliberate decision, not a default.
+
+- Evaluate candidates by maintenance activity, license compatibility, and community adoption before recommending
+- Present at least two options with trade-offs rather than silently picking one
+- If building custom, document why the available open-source options were rejected
 
 ## Change History
 

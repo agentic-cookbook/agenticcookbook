@@ -20,11 +20,13 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # YAML frontmatter
 
-Parse YAML frontmatter with the built-in frontmatter parser in `roadmap_lib`. Do not add a PyYAML dependency. The parser handles the `---` delimited frontmatter block at the top of markdown files.
+The built-in frontmatter parser in `roadmap_lib` MUST be used for parsing YAML frontmatter. A PyYAML dependency MUST NOT be added. The parser handles the `---` delimited frontmatter block at the top of markdown files.
 
 ## Change History
 

@@ -19,11 +19,13 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Timeouts
 
-Always set both connection and read timeouts. Never use infinite timeouts.
+Every request MUST set both connection and read timeouts. Infinite timeouts MUST NOT be used.
 
 | Timeout | Purpose | Default |
 |---------|---------|---------|

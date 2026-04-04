@@ -20,11 +20,13 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Security Headers Checklist
 
-Every web application should set these response headers:
+Every web application MUST set these response headers:
 
 ```
 Strict-Transport-Security: max-age=31536000; includeSubDomains; preload

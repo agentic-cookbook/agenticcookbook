@@ -22,12 +22,16 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Design-Time Data
 
-- Use `d:DataContext` and `d:DesignInstance` for XAML designer preview data
-- Use XAML Hot Reload for live iteration during development
+Wire up design-time data contexts so the XAML designer always shows realistic preview content, not empty surfaces.
+
+- Views SHOULD use `d:DataContext` and `d:DesignInstance` for XAML designer preview data
+- XAML Hot Reload SHOULD be used for live iteration during development
 
 ## Change History
 

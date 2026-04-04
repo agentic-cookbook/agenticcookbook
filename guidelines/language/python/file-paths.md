@@ -21,11 +21,13 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # File paths
 
-Use `pathlib.Path`, not `os.path`. All path manipulation should go through `pathlib`.
+`pathlib.Path` MUST be used, not `os.path`. All path manipulation MUST go through `pathlib`.
 
 ```python
 from pathlib import Path

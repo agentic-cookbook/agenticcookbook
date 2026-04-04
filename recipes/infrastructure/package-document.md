@@ -23,6 +23,8 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Package Document
@@ -167,6 +169,10 @@ extension UTType {
 - **save-open-urls-on-quit**: On application quit, the document system MUST save the URLs of all currently open documents for session restoration.
 - **restore-urls-on-launch**: On application launch, the document system MUST attempt to reopen previously saved document URLs, logging any that fail to open.
 
+## Appearance
+
+Not applicable — this recipe defines a storage and persistence pattern, not a visual component.
+
 ## States
 
 | State | Behavior |
@@ -180,10 +186,6 @@ extension UTType {
 | Schema version mismatch (newer) | Database `user_version` is higher than current app version; document reports a version error and refuses to load |
 | Auto-save in progress | Model property changed; system serializes to temporary SQLite, wraps in FileWrapper, and writes to package |
 | Session restoration | App launches; previously open document URLs are reopened; any that fail are logged and skipped |
-
-## Appearance
-
-Not applicable — this recipe defines a storage and persistence pattern, not a visual component.
 
 ## Accessibility
 

@@ -24,6 +24,8 @@ references:
   - https://owasp.org/www-project-dependency-check/
   - https://slsa.dev/
   - https://www.sigstore.dev/
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Dependency Security
@@ -31,11 +33,11 @@ references:
 Your dependencies are your attack surface. Manage them actively.
 
 - **Lockfiles are mandatory** — `package-lock.json`, `Podfile.lock`, `gradle.lockfile`,
-  `poetry.lock`, `Cargo.lock`, `packages.lock.json`. Commit them. Use `--frozen-lockfile` /
+  `poetry.lock`, `Cargo.lock`, `packages.lock.json`. Lockfiles MUST be committed. Use `--frozen-lockfile` /
   `npm ci` / `dotnet restore --locked-mode` in CI.
-- **Automated scanning** — run `npm audit`, `pip-audit`, Dependabot, Snyk, or `dotnet list
-  package --vulnerable` in CI. Fail the build on critical/high vulnerabilities.
-- **Pin dependencies** — exact versions or narrow ranges. No `*` or overly broad semver.
+- **Automated scanning** — CI MUST run `npm audit`, `pip-audit`, Dependabot, Snyk, or `dotnet list
+  package --vulnerable`. Builds MUST fail on critical/high vulnerabilities.
+- **Pin dependencies** — exact versions or narrow ranges. Wildcard (`*`) or overly broad semver MUST NOT be used.
 - **Subresource Integrity (SRI)** — for any CDN-hosted scripts/styles, use `integrity`
   attributes with SHA-384/SHA-512 hashes.
 - **Watch for supply chain attacks** — typosquatting, maintainer compromise, malicious

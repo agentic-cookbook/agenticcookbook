@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "Follow the Google SWE Book ratio: **80% unit / 15% integration / 5% E2E**."
+summary: "Projects SHOULD follow the Google SWE Book ratio: **80% unit / 15% integration / 5% E2E**."
 platforms: []
 tags: 
   - test-pyramid
@@ -19,16 +19,18 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Test Pyramid
 
-Follow the Google SWE Book ratio: **80% unit / 15% integration / 5% E2E**.
+Projects SHOULD follow the Google SWE Book ratio: **80% unit / 15% integration / 5% E2E**.
 
 - **Unit tests** — fast, isolated, test one behavior. The foundation.
 - **Integration tests** — verify components work together. Use real databases, real
   file systems, real HTTP where practical. Slower but higher confidence.
-- **E2E tests** — full system from user perspective. Expensive, brittle, use sparingly.
+- **E2E tests** — full system from user perspective. Expensive, brittle, SHOULD be used sparingly.
   Reserve for critical user journeys.
 
 If you're unsure what kind of test to write, write a unit test. If the unit test can't

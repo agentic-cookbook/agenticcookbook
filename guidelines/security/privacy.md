@@ -22,9 +22,13 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Privacy and security by default
+
+Collect only what you need, prefer on-device processing, and require opt-in for non-essential data. Store secrets in platform keystores, never in plaintext.
 
 ### Data minimization
 

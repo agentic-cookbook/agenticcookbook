@@ -18,11 +18,17 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Meta-Principle: Optimize for Change
 
 Every principle above is a strategy for making future change cheaper and safer. When evaluating any technical decision, the primary question is: "Does this make future change easier or harder?"
+
+- Before committing to an architecture, ask: "What would it cost to reverse this in six months?"
+- Prefer decisions that keep options open over decisions that lock in a technology or pattern
+- When two approaches are otherwise equal, choose the one that is easier to change later
 
 ## Change History
 

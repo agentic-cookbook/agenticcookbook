@@ -20,11 +20,13 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # No external dependencies in core libraries
 
-`roadmap_lib` uses the standard library only. Do not add PyYAML, requests, or other third-party packages to core library code. This keeps the library portable and installable without dependency management.
+`roadmap_lib` uses the standard library only. Third-party packages (PyYAML, requests, etc.) MUST NOT be added to core library code. This keeps the library portable and installable without dependency management.
 
 ## Change History
 

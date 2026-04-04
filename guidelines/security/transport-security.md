@@ -25,11 +25,15 @@ references:
   - https://datatracker.ietf.org/doc/html/rfc8446
   - https://hstspreload.org/
   - https://wiki.mozilla.org/Security/Server_Side_TLS
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Transport Security
 
-**TLS 1.2 minimum**, prefer TLS 1.3. Disable TLS 1.0 and 1.1 entirely.
+Require TLS 1.2+ on every connection, enable HSTS on all production domains, and pin certificates for high-value mobile traffic.
+
+**TLS 1.2 minimum** is REQUIRED, TLS 1.3 SHOULD be preferred. TLS 1.0 and 1.1 MUST be disabled entirely.
 
 **HSTS:** Enable on all production domains:
 ```
@@ -40,7 +44,7 @@ Submit to the [HSTS preload list](https://hstspreload.org/).
 **Certificate pinning — use with caution:**
 - Pin to the intermediate CA, not the leaf (leaf certificates rotate)
 - Acceptable for mobile apps; generally avoid for web (HPKP is deprecated)
-- Always include backup pins and have a recovery plan
+- Backup pins MUST be included along with a recovery plan
 - Consider Certificate Transparency monitoring as an alternative
 
 **Cipher suites:** Use Mozilla's "Intermediate" or "Modern" TLS configuration. Prefer AEAD

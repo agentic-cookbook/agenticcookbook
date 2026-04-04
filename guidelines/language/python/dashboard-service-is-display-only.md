@@ -20,11 +20,13 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Dashboard service is display-only
 
-The dashboard service is a generic API and UI layer. It has no knowledge of git, files, or roadmap structure. Agents sync data to it; it only displays what it receives.
+The dashboard service is a generic API and UI layer. It MUST NOT have knowledge of git, files, or roadmap structure. Agents sync data to it; it MUST only display what it receives.
 
 ## Change History
 

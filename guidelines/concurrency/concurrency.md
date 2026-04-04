@@ -25,6 +25,8 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # No blocking the main thread
@@ -37,13 +39,13 @@ All lengthy work must run on background threads/tasks using platform async primi
 - **Python**: `asyncio`, threading for I/O
 - **Windows/.NET**: `async`/`await`, `Task.Run` for CPU-bound work, `DispatcherQueue` for UI updates
 
-Never block the main/UI thread.
+The main/UI thread MUST NOT be blocked.
 
 ---
 
 # Concurrency
 
-All lengthy work must run on background threads/tasks using platform async primitives. Never block the main/UI thread. Show progress (determinate or indeterminate) when the UI is waiting on an async task.
+All lengthy work MUST run on background threads/tasks using platform async primitives. The main/UI thread MUST NOT be blocked. Progress SHOULD be shown (determinate or indeterminate) when the UI is waiting on an async task.
 
 ## Swift
 
@@ -69,9 +71,9 @@ Use `Promise`/`async`/`await` for async operations. Use Web Workers for CPU-inte
 Use `async`/`await` for all async work. Never block the main thread.
 
 - `ConfigureAwait(false)` in library code to avoid capturing the synchronization context
-- Never use `.Result` or `.Wait()` — causes deadlocks
-- Never use `async void` except for event handlers
-- Accept `CancellationToken` in all async APIs
+- `.Result` or `.Wait()` MUST NOT be used — causes deadlocks
+- `async void` MUST NOT be used except for event handlers
+- All async APIs MUST accept `CancellationToken`
 - Use `ValueTask<T>` only when the method frequently completes synchronously
 - Use `Task.Run` for CPU-bound work, never on the UI thread
 

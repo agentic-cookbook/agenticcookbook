@@ -25,6 +25,8 @@ related: []
 references:
   - https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
   - https://web.dev/articles/color-scheme
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Appearance Mode Toggle
@@ -214,6 +216,16 @@ mode === 'light' ─────────────┘──► resolved = 
 - **Storage**: Site settings (implementation-defined by the consuming site).
 - **Transmission**: The appearance preference MUST NOT be transmitted to analytics, crash reporting, or any external service.
 - **Retention**: Persists until the user changes it or clears site settings.
+
+## Logging
+
+Subsystem: `{{bundle_id}}` | Category: `AppearanceModeToggle`
+
+| Event | Level | Message |
+|-------|-------|---------|
+| Mode changed | debug | `AppearanceModeToggle: mode changed to {{mode}}` |
+| System theme detected | debug | `AppearanceModeToggle: system theme is {{theme}}` |
+| Preference persisted | debug | `AppearanceModeToggle: saved preference {{mode}} to localStorage` |
 
 ## Platform Notes
 

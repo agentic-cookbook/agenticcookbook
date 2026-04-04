@@ -32,6 +32,8 @@ references:
   - https://mockk.io/
   - https://nsubstitute.github.io/
   - https://vitest.dev/guide/mocking.html
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Test Doubles
@@ -46,10 +48,10 @@ Use [Martin Fowler's taxonomy](https://martinfowler.com/bliki/TestDouble.html):
 | **Mock** | Verify expected interactions | `mock.verify(save, times: 1)` |
 | **Fake** | Working implementation, simplified | In-memory database |
 
-**Prefer fakes over mocks** when possible. Fakes exercise real behavior; mocks only verify
+**Fakes SHOULD be preferred over mocks** when possible. Fakes exercise real behavior; mocks only verify
 expectations. A fake in-memory database catches more bugs than a mock that returns canned SQL results.
 
-**Never mock what you don't own.** Wrap external dependencies (HTTP clients, databases, SDKs)
+**You MUST NOT mock what you don't own.** Wrap external dependencies (HTTP clients, databases, SDKs)
 behind your own interface. Mock your interface, not the third-party API directly. This
 insulates tests from upstream API changes.
 

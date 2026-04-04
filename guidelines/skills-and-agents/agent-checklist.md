@@ -23,9 +23,11 @@ related:
   - agentic-cookbook://guidelines/skills-and-agents/authoring-skills-and-rules
   - agentic-cookbook://guidelines/skills-and-agents/agent-structure-reference
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
-# Lint Checklist for Claude Code Agents
+# Agent Lint Checklist
 
 > Last updated: 2026-03-27
 > Sources:
@@ -33,9 +35,9 @@ references: []
 > - https://code.claude.com/docs/en/best-practices
 
 Severity levels:
-- **FAIL** — violates a hard requirement; must fix
-- **WARN** — departs from best practice; should fix
-- **INFO** — suggestion for improvement; nice to have
+- **FAIL** — violates a hard requirement; MUST fix
+- **WARN** — departs from best practice; SHOULD fix
+- **INFO** — suggestion for improvement; MAY fix
 
 ---
 

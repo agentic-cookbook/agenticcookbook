@@ -19,15 +19,17 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Always show progress
 
 When the UI is waiting on an async task:
 
-- Show **determinate progress** (progress bar with percentage) when total work is known
-- Show **indeterminate progress** (spinner, skeleton, shimmer) when it is not
-- Never show a frozen or unresponsive UI
+- **Determinate progress** (progress bar with percentage) MUST be shown when total work is known
+- **Indeterminate progress** (spinner, skeleton, shimmer) MUST be shown when it is not
+- The UI MUST NOT appear frozen or unresponsive
 
 ## Change History
 

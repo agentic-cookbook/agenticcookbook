@@ -30,11 +30,13 @@ references:
   - https://learn.microsoft.com/en-us/windows/apps/design/style/typography
   - https://m3.material.io/styles/typography/type-scale-tokens
   - https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Typography
 
-Use the platform's system font. Establish a type scale with clear roles — don't invent
+The platform's system font MUST be used. Establish a type scale with clear roles — don't invent
 sizes ad-hoc.
 
 Platform system fonts:
@@ -45,14 +47,14 @@ Platform system fonts:
 
 Defaults when no design system exists:
 - **Body text**: 14-17pt (16px is the safest cross-platform default)
-- **Minimum readable size**: 11-12pt for captions/labels, never smaller
+- **Minimum readable size**: 11-12pt for captions/labels, text MUST NOT be smaller
 - **Line height**: 1.4x-1.5x font size for body text
 - **Heading scale**: Use the platform's built-in type scale (Dynamic Type, Material type
   tokens, Fluent type ramp) rather than inventing sizes
 
 General principles:
 - Limit to 2-3 font weights per screen (regular, medium/semibold, bold)
-- Avoid all-caps for more than a few words — harms readability and screen reader experience
+- All-caps SHOULD be avoided for more than a few words — harms readability and screen reader experience
 - Paragraph width: 45-75 characters for comfortable reading
 - See agentic-cookbook://guidelines/accessibility/accessibility for Dynamic Type / font scaling requirements
 

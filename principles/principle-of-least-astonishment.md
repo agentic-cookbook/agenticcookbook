@@ -18,11 +18,18 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Principle of least astonishment
 
 APIs, UI, and system behavior should match what users and callers expect. If a name suggests one behavior, it must deliver that behavior. Side effects should be obvious from the API signature.
+
+- Name functions and types so a reader can predict what they do without reading the implementation
+- If a method mutates state, make that visible in the name or signature — never hide side effects
+- Follow platform naming conventions even when you prefer a different style
+- When reviewing code, ask: "Would a new team member be surprised by this behavior?"
 
 ## Change History
 
