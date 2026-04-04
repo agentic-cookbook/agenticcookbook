@@ -1,7 +1,7 @@
 ---
 id: 00000000-0000-0000-0000-000000000001
-title: "Test Principle"
-domain: agentic-cookbook://principles/test-principle
+title: "Simplicity"
+domain: agentic-cookbook://principles/simplicity
 type: principle
 version: 1.0.0
 status: accepted
@@ -22,7 +22,7 @@ approved-by: ""
 approved-date: ""
 ---
 
-# Test Principle
+# Simplicity
 
 Keep things simple. Every additional layer of abstraction is a cost that must be justified by a concrete, current need.
 
