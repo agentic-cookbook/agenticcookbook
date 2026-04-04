@@ -3,7 +3,7 @@ id: 0E83CCE2-6343-4E54-B125-86D58EB9AE45
 title: "Compliance"
 domain: agentic-cookbook://compliance/INDEX
 type: reference
-version: 1.0.0
+version: 1.1.0
 status: draft
 language: en
 created: 2026-03-28
@@ -51,6 +51,7 @@ Recipes/Guidelines  →  Compliance Checks  →  Guidelines  →  External Stand
 | Platform Compliance | [platform-compliance.md](platform-compliance.md) | 8 | App Store, Google Play, design language |
 | Reliability | [reliability.md](reliability.md) | 8 | Error recovery, degradation, state, idempotency |
 | Internationalization | [internationalization.md](internationalization.md) | 7 | Strings, RTL, locale formatting, Unicode |
+| Artifact Formatting | [artifact-formatting/INDEX.md](artifact-formatting/INDEX.md) | 30 | Required structure for principles (7), guidelines (8), recipes (15) |
 
 ## Per-Item Compliance Section Format
 
@@ -69,4 +70,5 @@ Each recipe or guideline includes a `## Compliance` section listing evaluated ch
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-04-04 | Mike Fullerton | Add Artifact Formatting category |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

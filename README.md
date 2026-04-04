@@ -13,7 +13,7 @@ git clone git@github.com:agentic-cookbook/cookbook.git
 
 ### 2. Install in your project
 
-From your project directory, run the onboarding wizard:
+From your project directory, run the onboarding wizard (requires the [dev-team plugin](https://github.com/agentic-cookbook/dev-team)):
 
 ```
 /install-cookbook
@@ -41,6 +41,8 @@ Code built with the agentic cookbook is **trusted**. That means:
 - **Performant** — not prematurely optimized, but not accidentally O(n²). Work → Right → Fast, with evidence.
 
 ## What's in the Cookbook
+
+The cookbook contains three types of **cookbook artifacts** — standalone markdown files with YAML frontmatter, named requirements, and change history:
 
 ### Principles (18 files)
 
@@ -70,12 +72,12 @@ Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition ov
 
 | Category | Path | Examples |
 |----------|------|---------|
-| UI Components | `cookbook/recipes/ui/component/` | Empty state, status bar, metadata line |
-| Panels | `cookbook/recipes/ui/panel/` | File browser, editor, terminal, inspector |
-| Windows | `cookbook/recipes/ui/window/` | Project, workspace, settings |
-| Infrastructure | `cookbook/recipes/infrastructure/` | Logging, persistence, sync |
-| App | `cookbook/recipes/app/` | Lifecycle, menus |
-| Autonomous Dev Bots | `cookbook/recipes/autonomous-dev-bots/` | PR review pipeline, CI verification |
+| UI Components | `recipes/ui/component/` | Empty state, status bar, metadata line |
+| Panels | `recipes/ui/panel/` | File browser, editor, terminal, inspector |
+| Windows | `recipes/ui/window/` | Project, workspace, settings |
+| Infrastructure | `recipes/infrastructure/` | Logging, persistence, sync |
+| App | `recipes/app/` | Lifecycle, menus |
+| Autonomous Dev Bots | `recipes/autonomous-dev-bots/` | PR review pipeline, CI verification |
 
 ### Compliance (10 categories, 81 checks)
 
@@ -109,9 +111,15 @@ my-app-cookbook-project/
     └── research/               # design research and evaluations
 ```
 
-See `decisions/cookbook-project-format.md` for the full spec and `cookbook/reference/cookbook-project.schema.json` for the JSON Schema. A complete example lives at `cookbook/reference/examples/my-document-editor-cookbook-project/`.
+See `reference/cookbook-project.schema.json` for the JSON Schema. A complete example lives at `reference/examples/my-document-editor-cookbook-project/`.
 
-## Skills
+## Sibling Projects
+
+### dev-team
+
+Multi-agent development system, distributed as a Claude Code plugin. Orchestrates teams of specialist agents (13 domain experts + 6 platform experts) for product discovery, code generation, and linting.
+
+All user-facing cookbook skills are provided by dev-team:
 
 | Skill | Purpose |
 |-------|---------|
@@ -121,72 +129,34 @@ See `decisions/cookbook-project-format.md` for the full spec and `cookbook/refer
 | `/contribute-to-cookbook` | Create a PR to the cookbook |
 | `/validate-cookbook` | Validate cookbook integrity — frontmatter, references, indexes, placement |
 | `/cookbook-help` | Interactive guide — setup status, content overview, troubleshooting |
-| `/cookbook-bug` | File a bug report against the cookbook (creates GitHub issue) |
-| `/cookbook-suggestion` | Suggest new content or improvements (creates GitHub issue) |
-| `/port-swiftui-to-appkit` | Analyze a macOS SwiftUI app and plan its conversion to AppKit |
+| `/dev-team lint` | Lint artifacts against cookbook standards |
 
-> **Linting skills moved:** `/lint-skill`, `/lint-rule`, `/lint-agent`, `/lint-recipe`, `/lint-compliance`, and `/lint-project-with-cookbook` have moved to the [dev-team plugin](https://github.com/agentic-cookbook/dev-team) as the unified `/dev-team-lint` command.
+Repo: [agentic-cookbook/dev-team](https://github.com/agentic-cookbook/dev-team)
 
-## Rules
+### cookbook-web
 
-Terse, imperative markdown files that enforce cookbook content during planning and implementation. The onboarding wizard installs these into your project's `.claude/rules/`.
+Cloudflare Workers web app for browsing the cookbook. React 19, TypeScript, Tailwind CSS 4. Serves as the public-facing website.
 
-| Rule | Enforces |
-|------|----------|
-| `cookbook.md` | The full cookbook: principles, guidelines, recipes, contribution prompts |
-| `committing.md` | *(optional)* Structured git workflow (worktree, draft PR, merge) |
-| `auto-lint.md` | *(optional)* Auto-lint skills/agents/rules on creation/modification |
-| `skill-authoring.md` | *(reference)* Check inventory before creating skills, prevent duplicates |
-| `skill-versioning.md` | *(reference)* Version conventions for skills |
-| `permissions.md` | *(reference)* Atomic permission prompts before implementation |
-| `extension-authoring.md` | *(reference)* Authoring best practices for extensions |
+Repo: [agentic-cookbook/cookbook-web](https://github.com/agentic-cookbook/cookbook-web)
 
 ## Repository Structure
 
 ```
-cookbook/               # the content
-  principles/          # 18 engineering principles
-  guidelines/          # 88 topic-organized guidelines
-  recipes/             # 27 UI and infrastructure recipes
-  compliance/          # 10 compliance categories (81 checks)
-  workflow/            # 6 workflow specs (plan, implement, verify, review)
-  reference/           # external best-practices links
-    cookbook-project.schema.json  # JSON Schema for cookbook-project.json
-    examples/          # example cookbook projects
-  conventions.md       # full format reference
-  index.md             # table of contents
-
-rules/                 # terse LLM-optimized rules for .claude/ drop-in
-  cookbook.md
-  committing.md
-  auto-lint.md
-  skill-authoring.md
-  skill-versioning.md
-  permissions.md
-  extension-authoring.md
-
-skills/                # Claude Code skills
-  install-cookbook/
-  configure-cookbook/
-  plan-cookbook-recipe/
-  contribute-to-cookbook/
-  validate-cookbook/
-  cookbook-help/
-  cookbook-bug/
-  cookbook-suggestion/
-  cookbook-next/
-  cookbook-start/
-  uninstall-cookbook/
-
-contributing/          # how to contribute (AUTHORING.md)
-decisions/             # design decision records
+introduction/          # getting started, conventions, glossary
+principles/            # 18 engineering principles
+guidelines/            # 88 topic-organized guidelines
+recipes/               # 27 UI and infrastructure recipes
+compliance/            # 10 compliance categories (81 checks)
+workflows/             # 6 workflow specs (plan, implement, verify, review)
+reference/             # external best-practices links, schemas, examples
+appendix/              # research materials
+index.md               # table of contents
+README.md              # this file
 ```
 
 ## Contributing
 
-See `contributing/AUTHORING.md` for content authoring guidelines.
-
-To contribute recipes, use `/contribute-to-cookbook` — it handles both admin (push access) and external (fork-based) workflows automatically.
+To contribute recipes, use `/contribute-to-cookbook` (via the [dev-team plugin](https://github.com/agentic-cookbook/dev-team)) — it handles both admin (push access) and external (fork-based) workflows automatically.
 
 ## License
 

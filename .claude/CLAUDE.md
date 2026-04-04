@@ -5,24 +5,51 @@ A structured cookbook of principles, guidelines, recipes, and workflows for AI-a
 ## Repository Structure
 
 ```
-cookbook/               # the content
-  principles/          # 18 engineering principles
-  guidelines/          # 88 topic-organized guidelines
-  recipes/             # 27 UI and infrastructure recipes
-  compliance/          # 10 compliance categories (81 checks)
-  workflow/            # 6 workflow specs (plan, implement, verify, review)
-  reference/           # external best-practices links
-  conventions.md       # full format reference
-  index.md             # table of contents
-contributing/          # how to contribute (AUTHORING.md)
-decisions/             # design decision records
+introduction/          # getting started, conventions, glossary
+principles/            # 18 engineering principles
+guidelines/            # 88 topic-organized guidelines
+recipes/               # 27 UI and infrastructure recipes
+compliance/            # 10 compliance categories (81 checks)
+workflows/             # 6 workflow specs (plan, implement, verify, review)
+reference/             # external best-practices links, schemas, examples
+appendix/              # research materials
+index.md               # table of contents
+README.md              # human-facing documentation
+.claude/
+  CLAUDE.md            # this file
+  rules/               # repo-specific rules
+  skills/              # repo-specific skills
 ```
 
-Skills, rules, and scripts live in the [dev-team](https://github.com/agentic-cookbook/dev-team) repo.
+## Cookbook Artifacts
+
+A **cookbook artifact** is any content item in the cookbook: a principle, guideline, or recipe. Each artifact is a standalone markdown file with YAML frontmatter, named requirements, and a change history. See `introduction/glossary.md` for the full definition.
+
+| Type | Count | Path | Description |
+|------|-------|------|-------------|
+| Principle | 18 | `principles/` | Foundational engineering ideas that guide design decisions |
+| Guideline | 88 | `guidelines/` | Topic-organized rules for planning and implementation |
+| Recipe | 27 | `recipes/` | Concrete specs for UI components, infrastructure, and patterns |
+
+Supporting content (not artifacts): compliance checks, workflows, reference material.
+
+## Sibling Projects
+
+### dev-team
+
+Multi-agent development system, distributed as a Claude Code plugin. Orchestrates teams of specialist agents (13 domain + 6 platform) for product discovery, code generation, and linting. All user-facing cookbook skills live here: `/install-cookbook`, `/configure-cookbook`, `/contribute-to-cookbook`, `/validate-cookbook`, `/cookbook-help`, `/dev-team lint`, and others.
+
+Repo: [agentic-cookbook/dev-team](https://github.com/agentic-cookbook/dev-team)
+
+### cookbook-web
+
+Cloudflare Workers web app for browsing the cookbook. React 19, TypeScript, Tailwind CSS 4. Serves as the public-facing website for the cookbook.
+
+Repo: [agentic-cookbook/cookbook-web](https://github.com/agentic-cookbook/cookbook-web)
 
 ## Conventions
 
-Read `cookbook/conventions.md` for the full format reference. See `cookbook/glossary.md` for term definitions.
+Read `introduction/conventions.md` for the full format reference. See `introduction/glossary.md` for term definitions.
 
 Key rules:
 - All `.md` files have YAML frontmatter (id, title, domain, type, version, status, language, created, modified, author, copyright, license, summary, platforms, tags, depends-on, related, references)
@@ -32,16 +59,6 @@ Key rules:
 - Version is semver, immutable once on main
 - MIT license on all files
 - Cross-reference with full URL or short-form `#fragment`
-
-## Using the Cookbook
-
-Consuming projects install a single rule file (`cookbook.md`) that enforces the full cookbook — principles, guidelines, recipes, and contribution prompts. No tiers, no partial installs — everyone gets everything.
-
-Onboard: `/install-cookbook` from the consuming project. Manage preferences: `/configure-cookbook`.
-
-## Skills
-
-All skills live in the [dev-team](https://github.com/agentic-cookbook/dev-team) repo. Install it as a plugin to get `/install-cookbook`, `/configure-cookbook`, `/contribute-to-cookbook`, `/validate-cookbook`, `/cookbook-help`, and others.
 
 ## Git Workflow
 
@@ -54,16 +71,16 @@ All skills live in the [dev-team](https://github.com/agentic-cookbook/dev-team) 
 
 ### Worktree flow
 
-1. `git worktree add ../agentic-cookbook-wt/<branch-name> -b <branch>`
+1. `git worktree add .claude/worktrees/<branch-name> -b <branch>`
 2. Do all work in the worktree
-3. Update `cookbook/index.md` if adding new content
+3. Update `index.md` if adding new content
 4. Commit, push, create PR with `gh pr create`
 5. Squash merge: `gh pr merge --squash`
-6. Clean up: `git worktree remove ../agentic-cookbook-wt/<branch-name>`
+6. Clean up: `git worktree remove .claude/worktrees/<branch-name>`
 7. Pull main: `git pull`
 
-**Fork-based contributions**: External contributors who don't have push access use a fork. The workflow is the same (worktree, branch, commit, push, PR), but `origin` points to the fork and the PR targets `agentic-cookbook/cookbook` via `--head <user>:<branch>`. The `/contribute-to-cookbook` skill detects this automatically.
+**Fork-based contributions**: External contributors who don't have push access use a fork. The workflow is the same (worktree, branch, commit, push, PR), but `origin` points to the fork and the PR targets `agentic-cookbook/cookbook` via `--head <user>:<branch>`. The `/contribute-to-cookbook` skill (in dev-team) detects this automatically.
 
 ## Writing New Content
 
-Use `cookbook/recipes/_template.md` as a starting point for recipes. Follow `cookbook/conventions.md` for the frontmatter format. Every file needs a UUID, domain matching its path, and a Change History section. See `contributing/AUTHORING.md` for full guidance.
+Use `recipes/_template.md` as a starting point for recipes. Follow `introduction/conventions.md` for the frontmatter format. Every cookbook artifact needs a UUID, domain matching its path, and a Change History section.
