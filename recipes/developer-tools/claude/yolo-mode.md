@@ -28,8 +28,8 @@ references:
   - https://github.com/anthropics/claude-code/issues/40136
   - https://code.claude.com/docs/en/permission-modes
   - https://code.claude.com/docs/en/hooks
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Yolo Mode (Permission Bypass Hook)

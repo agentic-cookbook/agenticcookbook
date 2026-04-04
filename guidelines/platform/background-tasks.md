@@ -27,8 +27,8 @@ related:
   - agentic-cookbook://guidelines/platform/notifications
   - agentic-cookbook://guidelines/networking/offline-and-connectivity
 references: []
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Background tasks

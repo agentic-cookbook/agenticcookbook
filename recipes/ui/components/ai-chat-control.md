@@ -28,8 +28,8 @@ depends-on: []
 related: 
   - recipe.ui.panel.ai-settings-panel
 references: []
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # AI Chat Control

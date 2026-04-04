@@ -23,8 +23,8 @@ related:
   - agentic-cookbook://guidelines/skills-and-agents/authoring-skills-and-rules
   - agentic-cookbook://guidelines/skills-and-agents/skill-structure-reference
 references: []
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Skill Lint Checklist

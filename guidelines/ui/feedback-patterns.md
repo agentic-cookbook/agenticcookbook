@@ -23,8 +23,8 @@ references:
   - https://m3.material.io/components/snackbar/overview
   - https://www.nngroup.com/articles/confirmation-dialog/
   - https://www.nngroup.com/articles/ten-usability-heuristics/
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Feedback Patterns

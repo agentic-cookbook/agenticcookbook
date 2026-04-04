@@ -25,8 +25,8 @@ references:
   - https://datatracker.ietf.org/doc/html/rfc8446
   - https://hstspreload.org/
   - https://wiki.mozilla.org/Security/Server_Side_TLS
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Transport Security

@@ -28,8 +28,8 @@ references:
   - https://datatracker.ietf.org/doc/html/rfc7636
   - https://datatracker.ietf.org/doc/html/rfc8252
   - https://openid.net/specs/openid-connect-core-1_0.html
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Authentication

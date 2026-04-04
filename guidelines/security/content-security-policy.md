@@ -24,8 +24,8 @@ references:
   - https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html
   - https://csp-evaluator.withgoogle.com/
   - https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Content Security Policy

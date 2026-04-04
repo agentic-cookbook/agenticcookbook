@@ -24,8 +24,8 @@ references:
   - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
   - https://web.dev/articles/http-cache
   - https://www.rfc-editor.org/rfc/rfc9111
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Caching

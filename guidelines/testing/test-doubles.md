@@ -32,8 +32,8 @@ references:
   - https://mockk.io/
   - https://nsubstitute.github.io/
   - https://vitest.dev/guide/mocking.html
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Test Doubles

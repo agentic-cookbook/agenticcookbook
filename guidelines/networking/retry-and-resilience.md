@@ -24,8 +24,8 @@ references:
   - https://docs.aws.amazon.com/general/latest/gr/api-retries.html
   - https://learn.microsoft.com/en-us/azure/architecture/best-practices/transient-faults
   - https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Retry and Resilience

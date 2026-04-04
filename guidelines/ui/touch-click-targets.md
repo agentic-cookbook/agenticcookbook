@@ -29,8 +29,8 @@ references:
   - https://learn.microsoft.com/en-us/windows/apps/design/input/guidelines-for-targeting
   - https://m3.material.io/foundations/accessible-design/accessibility-basics
   - https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Touch & Click Targets

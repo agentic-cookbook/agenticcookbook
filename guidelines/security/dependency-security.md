@@ -24,8 +24,8 @@ references:
   - https://owasp.org/www-project-dependency-check/
   - https://slsa.dev/
   - https://www.sigstore.dev/
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Dependency Security

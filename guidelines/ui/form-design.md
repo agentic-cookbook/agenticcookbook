@@ -24,8 +24,8 @@ references:
   - https://m3.material.io/components/text-fields/guidelines
   - https://www.nngroup.com/articles/errors-forms-design-guidelines/
   - https://www.nngroup.com/articles/web-form-design/
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-04-04"
 ---
 
 # Form Design
