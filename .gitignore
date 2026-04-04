@@ -9,5 +9,8 @@ Tests/Projects/
 *.swo
 *~
 
+# Claude Code worktrees
+.claude/worktrees/
+
 # Playwright MCP
 .playwright-mcp/
