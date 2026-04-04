@@ -26,6 +26,17 @@ If `$ARGUMENTS` is `--version`, respond with exactly:
 
 Then stop.
 
+## Test Mode
+
+If `$ARGUMENTS` contains `--test-mode`:
+1. Print `[TEST MODE]` at startup.
+2. Auto-approve all AskUserQuestion prompts to the first/default option.
+3. For title: use the `--title` argument value if provided, otherwise use "Test Artifact".
+4. For location: accept the proposed default path.
+5. For summary: use "Test artifact created in test mode."
+6. For platforms: use empty list.
+7. For section content: generate minimal valid content that passes lint.
+
 ## Step 1: Determine Type
 
 If `$ARGUMENTS` starts with `principle`, `guideline`, or `recipe`, use that type.
