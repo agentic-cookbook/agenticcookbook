@@ -3,11 +3,11 @@ id: 7a3e1f2c-8b4d-4e6a-9c5f-1d2e3f4a5b6c
 title: "Conventions"
 domain: agentic-cookbook://introduction/conventions
 type: reference
-version: 1.1.0
+version: 1.2.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-02
+modified: 2026-04-04
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -60,6 +60,8 @@ tags: []
 depends-on: []
 related: []
 references: []
+approved-by: ""
+approved-date: ""
 ---
 ```
 
@@ -85,6 +87,8 @@ references: []
 | `depends-on` | Yes | Domain identifiers of content that should be read first. Empty list `[]` if none. |
 | `related` | Yes | Domain identifiers of related content ("see also"). Empty list `[]` if none. |
 | `references` | Yes | External URLs referenced by this content. Empty list `[]` if none. |
+| `approved-by` | Yes | Approval stamp from `/approve-artifact`. Format: `"approve-artifact <version>"`. Empty string `""` if not yet approved. |
+| `approved-date` | Yes | ISO 8601 date when the artifact was last approved. Empty string `""` if not yet approved. |
 
 ### Change History
 
@@ -295,4 +299,5 @@ Format:
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial consolidation from 5 separate convention files |
+| 1.2.0 | 2026-04-04 | Mike Fullerton | Add approved-by and approved-date frontmatter fields |
 | 1.1.0 | 2026-04-02 | Mike Fullerton | Add cookbook project directory naming convention (-cookbook-project suffix) |
