@@ -1,13 +1,13 @@
 ---
 id: 92daec8c-4388-4a34-bc0c-d3ce0ab8c724
 title: "Yolo Mode (Permission Bypass Hook)"
-domain: agentic-cookbook://recipes/developer-tools/claude/yolo-mode
-type: recipe
+domain: agentic-cookbook://ingredients/developer-tools/claude/yolo-mode
+type: ingredient
 version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-30
-modified: 2026-03-30
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -180,6 +180,10 @@ Not applicable — this is a CLI tool with no visual UI.
 - **Hook script deleted but settings entry remains**: The hook will fail silently (command not found). The status operation should check both the settings entry and script existence.
 - **Multiple PermissionRequest entries**: If someone manually added other PermissionRequest hooks, the disable operation removes the entire `PermissionRequest` key. This is acceptable — custom PermissionRequest hooks are rare and the user can re-add them.
 - **Session restart needed**: Hook changes may not take effect in the current session. The skill should note this in the enable confirmation.
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Deep Linking
 

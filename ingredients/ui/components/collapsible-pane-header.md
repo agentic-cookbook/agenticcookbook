@@ -1,13 +1,13 @@
 ---
 id: 1dd2111a-eb05-40e4-b469-1aecd79c5863
 title: "Collapsible Pane Header"
-domain: agentic-cookbook://recipes/ui/components/collapsible-pane-header
-type: recipe
+domain: agentic-cookbook://ingredients/ui/components/collapsible-pane-header
+type: ingredient
 version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -86,6 +86,10 @@ A clickable header bar with a disclosure chevron that collapses or expands a sec
 - **Multiple pane headers in one window**: Each operates independently.
 - **All panes collapsed**: The split view should show only headers stacked vertically — this is valid.
 - **Pane has minimum height**: Collapse overrides minimum height constraints.
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Logging
 

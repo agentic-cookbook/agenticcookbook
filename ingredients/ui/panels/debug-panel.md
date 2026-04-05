@@ -1,13 +1,13 @@
 ---
 id: be66e9aa-6c54-4c6c-8026-050eb2286abb
 title: "Debug Panel"
-domain: agentic-cookbook://recipes/ui/panels/debug-panel
-type: recipe
+domain: agentic-cookbook://ingredients/ui/panels/debug-panel
+type: ingredient
 version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -144,6 +144,10 @@ The debug panel uses platform-native styling — no custom theming. It should lo
 - **No experiments registered**: A/B tab SHOULD show "No experiments registered."
 - **Analytics log very long**: Event log SHOULD use a virtualized/recycled list. Cap at 1000 events in memory.
 - **Backend unreachable after switch**: SHOULD show connection error inline, not crash. Allow switching back.
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Logging
 

@@ -1,13 +1,13 @@
 ---
 id: 24eb3821-0f66-4acf-bff0-5797982bb60d
 title: "AI Settings Panel"
-domain: agentic-cookbook://recipes/ui/panels/ai-settings-panel
-type: recipe
+domain: agentic-cookbook://ingredients/ui/panels/ai-settings-panel
+type: ingredient
 version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -25,7 +25,7 @@ tags:
   - ui
 depends-on: []
 related: 
-  - recipe.ui.component.ai-chat-control
+  - ingredient.ui.component.ai-chat-control
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
@@ -181,7 +181,7 @@ CompletionOptions {
 │  └────────────────────────────────────────────┘  │
 │                                                  │
 │  ┌─ Quick Chat ───────────────────────────────┐  │
-│  │ (see recipe.ui.component.ai-chat-control)            │  │
+│  │ (see ingredient.ui.component.ai-chat-control)            │  │
 │  └────────────────────────────────────────────┘  │
 │                                                  │
 └──────────────────────────────────────────────────┘
@@ -233,7 +233,7 @@ With Custom provider selected, the Endpoint section appears above Quick Chat:
 
 ### Quick Chat
 
-- **inline-chat-control**: The panel MUST include an inline chat control (see `recipe.ui.component.ai-chat-control`) at the bottom of the panel, below all configuration fields. This allows the user to verify the configuration by sending a real message.
+- **inline-chat-control**: The panel MUST include an inline chat control (see `ingredient.ui.component.ai-chat-control`) at the bottom of the panel, below all configuration fields. This allows the user to verify the configuration by sending a real message.
 - **chat-respects-toggle**: The chat control MUST respect the "Enable AI Features" toggle — when AI features are disabled, sending messages MUST be blocked with an inline error message.
 
 ## Conformance Test Vectors
@@ -290,6 +290,10 @@ With Custom provider selected, the Endpoint section appears above Quick Chat:
 - **Provider API rate-limited during model fetch**: Fall back to hardcoded defaults. Log at debug level. Do not show an error to the user.
 - **Empty API key submitted for test**: Test Connection button SHOULD be disabled when the API key field is empty (except for Local provider which may not require a key).
 - **Migration from insecure storage**: If an older version stored keys in UserDefaults, SQLite, localStorage, or any unencrypted layer, the implementation SHOULD migrate them to secure storage on first launch and delete the insecure copy.
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Logging
 

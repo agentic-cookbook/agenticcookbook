@@ -1,7 +1,5 @@
-# Web Controls
+# Web Controls Recipes
 
-Recipes for individual web UI controls.
+Compositions of web control ingredients into complete features.
 
-| File | Description |
-|------|-------------|
-| [appearance-mode-toggle.md](appearance-mode-toggle.md) | Three-mode toggle button cycling automatic, forced dark, and forced light appearance |
+*No web control recipes yet. Control specs have been moved to `ingredients/web/controls/`.*

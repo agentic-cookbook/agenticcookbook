@@ -1,13 +1,13 @@
 ---
 id: ce2af25c-4f18-41ae-91b9-342e363449b3
 title: "Empty State"
-domain: agentic-cookbook://recipes/ui/components/empty-state
-type: recipe
+domain: agentic-cookbook://ingredients/ui/components/empty-state
+type: ingredient
 version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -89,6 +89,10 @@ A centered placeholder view shown when there is no content to display. Used for:
 - **Very long description**: SHOULD truncate to 3 lines max with ellipsis
 - **No icon provided**: MUST still display heading (icon is visually expected but not structurally required)
 - **Container too small**: Content SHOULD scale down gracefully, not clip
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Logging
 

@@ -1,13 +1,13 @@
 ---
 id: 4a2898cf-34ed-4153-8d06-c795f80c19cd
 title: "Terminal Pane"
-domain: agentic-cookbook://recipes/ui/panels/terminal-pane
-type: recipe
+domain: agentic-cookbook://ingredients/ui/panels/terminal-pane
+type: ingredient
 version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -267,6 +267,10 @@ A multi-session terminal pane that provides PTY-backed shell sessions within the
 - **Window restored after crash**: Session manager MUST NOT attempt to restore PTY sessions from a previous run. Sessions are ephemeral.
 - **Environment variable conflicts**: If `defaultShell` project setting and `$SHELL` both exist, `defaultShell` MUST take precedence.
 - **Non-UTF-8 output**: The terminal emulator library (SwiftTerm) handles encoding. Invalid sequences SHOULD be rendered as replacement characters, not cause a crash.
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Logging
 

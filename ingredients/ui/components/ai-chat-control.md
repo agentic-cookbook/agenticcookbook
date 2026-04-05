@@ -1,13 +1,13 @@
 ---
 id: f9f12465-9f73-40ef-b9f6-d124090781f5
 title: "AI Chat Control"
-domain: agentic-cookbook://recipes/ui/components/ai-chat-control
-type: recipe
+domain: agentic-cookbook://ingredients/ui/components/ai-chat-control
+type: ingredient
 version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -26,7 +26,7 @@ tags:
   - ui
 depends-on: []
 related: 
-  - recipe.ui.panel.ai-settings-panel
+  - ingredient.ui.panel.ai-settings-panel
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
@@ -38,7 +38,7 @@ approved-date: "2026-04-04"
 
 A compact, inline chat control for conversing with a configured AI provider. Supports multi-turn conversation with scrollable message history, text input, and asynchronous response handling. Designed for embedding in settings panels, sidebars, or inspector views. A full-size variant for standalone windows can compose this control with additional chrome (toolbar, model picker, conversation management).
 
-This spec covers the chat control only — provider configuration (API key, model, endpoint) is managed externally via the AI settings panel (see `recipe.ui.panel.ai-settings-panel`).
+This spec covers the chat control only — provider configuration (API key, model, endpoint) is managed externally via the AI settings panel (see `ingredient.ui.panel.ai-settings-panel`).
 
 ## Terminology
 
@@ -205,6 +205,10 @@ This spec covers the chat control only — provider configuration (API key, mode
 - **Provider returns malformed JSON**: Display "(Unable to parse response)" as assistant message.
 - **Concurrent provider change**: If the user changes provider while a request is in flight, the in-flight response is still displayed. The next request uses the new provider.
 - **Keychain unavailable**: Display error "No API key configured" (same as missing key).
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Deep Linking
 

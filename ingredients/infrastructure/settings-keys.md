@@ -1,13 +1,13 @@
 ---
 id: 39676af7-b0b9-48f2-8056-f0c8e8754ffc
 title: "Settings Keys"
-domain: agentic-cookbook://recipes/infrastructure/settings-keys
-type: recipe
+domain: agentic-cookbook://ingredients/infrastructure/settings-keys
+type: ingredient
 version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -138,6 +138,10 @@ Not applicable — this component has no visual or interactive surface.
 - **Platform-specific keys**: If a key only applies to one platform (e.g., `general.defaultShellPath` on macOS/Linux only), the constant SHOULD still be defined in the shared registry with a comment noting its platform scope. Platform-specific code MAY choose not to read/write it.
 - **Empty or nil values**: Reading a key that has never been written MUST return the platform default (nil/null/undefined). Consumers MUST handle missing values gracefully with fallback defaults.
 - **Key with sensitive data**: Keys storing secrets (e.g., `ai.apiKey`) SHOULD be documented as sensitive. On Apple platforms, consider Keychain instead of UserDefaults for such values.
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Logging
 

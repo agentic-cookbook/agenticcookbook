@@ -1,13 +1,13 @@
 ---
 id: e01e2c5f-32fd-49e3-8f2a-1f64411160cb
 title: "Appearance Mode Toggle"
-domain: agentic-cookbook://recipes/web/controls/appearance-mode-toggle
-type: recipe
+domain: agentic-cookbook://ingredients/web/controls/appearance-mode-toggle
+type: ingredient
 version: 1.1.0
 status: accepted
 language: en
 created: 2026-03-30
-modified: 2026-03-30
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -201,6 +201,10 @@ mode === 'light' ─────────────┘──► resolved = 
 - **SSR / hydration mismatch**: If the page is server-rendered, the inline script in `<head>` handles the initial class. The client-side framework MUST read the same stored value on hydration to avoid a mismatch.
 - **Stale matchMedia queries**: Do NOT call `matchMedia().matches` on demand (e.g., in a click handler or effect). Some browsers/frameworks return stale values from on-demand queries. The always-on listener pattern avoids this entirely.
 - **Legacy storage migration**: If a previous implementation stored the theme under a different key (e.g., `theme` instead of `theme-mode`), the initialization logic SHOULD detect and migrate it, then remove the old key.
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Accessibility Options
 
