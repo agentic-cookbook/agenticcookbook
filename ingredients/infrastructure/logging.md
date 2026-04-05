@@ -1,13 +1,13 @@
 ---
 id: 7c2049c7-89d9-4135-b657-dbd03cdd19a0
 title: "Logging"
-domain: agentic-cookbook://recipes/infrastructure/logging
-type: recipe
+domain: agentic-cookbook://ingredients/infrastructure/logging
+type: ingredient
 version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -105,6 +105,10 @@ Not applicable — logging has no user-facing surface.
 - **Module boundaries**: In a multi-module project, each module MAY define its own `Log` enum, but all MUST share the same subsystem string so filtering by subsystem captures everything.
 - **Thread safety**: Platform logging APIs (os.Logger, android.util.Log, console) are thread-safe. The centralized type's static properties are initialized once and are read-only, so no synchronization is needed.
 - **Logger initialization cost**: On Apple, `os.Logger` is lightweight. Static `let` properties ensure each logger is created exactly once.
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Logging
 

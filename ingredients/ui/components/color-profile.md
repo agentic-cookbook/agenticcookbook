@@ -1,13 +1,13 @@
 ---
 id: bdc920ab-fde0-445a-a62a-c2f6d23da8a8
 title: "Color Profile"
-domain: agentic-cookbook://recipes/ui/components/color-profile
-type: recipe
+domain: agentic-cookbook://ingredients/ui/components/color-profile
+type: ingredient
 version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -122,6 +122,10 @@ A named color palette defining foreground, background, cursor, selection, and 16
 - **Many custom profiles**: List SHOULD scroll; performance SHOULD remain smooth with 50+ profiles.
 - **Profile storage corruption**: Fall back to built-in defaults.
 - **Hex color parsing**: `#rrggbb` and `rrggbb` formats MUST both be accepted. Invalid hex returns nil/default.
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Logging
 

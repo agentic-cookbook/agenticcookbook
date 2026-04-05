@@ -24,7 +24,7 @@ tags:
   - pipeline
 depends-on: []
 related:
-  - agentic-cookbook://recipes/developer-tools/claude/yolo-mode
+  - agentic-cookbook://ingredients/developer-tools/claude/yolo-mode
   - agentic-cookbook://recipes/autonomous-dev-bots/pr-review-pipeline
 references:
   - https://code.claude.com/docs/en/best-practices

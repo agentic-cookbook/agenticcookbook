@@ -1,13 +1,13 @@
 ---
 id: 954e559c-e2bf-494c-a37e-de0b88bec89a
 title: "Code Editor Pane"
-domain: agentic-cookbook://recipes/ui/panels/code-editor-pane
-type: recipe
+domain: agentic-cookbook://ingredients/ui/panels/code-editor-pane
+type: ingredient
 version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -268,6 +268,10 @@ A text editor pane for viewing and editing source code files with syntax highlig
 - **New file with no extension**: Files without an extension MUST load as plain text with no syntax highlighting.
 - **Extremely long lines (10,000+ characters)**: The editor MUST remain responsive. Horizontal scrolling (no-line-wrap) handles display. The minimap SHOULD still render without performance degradation.
 - **Tab characters vs spaces**: The editor MUST preserve the original indentation characters in the file. Tab width rendering MAY be configurable (default: 4 spaces).
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Logging
 

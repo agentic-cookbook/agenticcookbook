@@ -152,7 +152,7 @@ Every document has a globally unique URL-based domain identifier. The scheme ide
 
 **Derivation rules:**
 1. Scheme is the repo/project name (kebab-case)
-2. Path starts from the content root directory (e.g., `recipes/ui/panels/file-tree-browser`)
+2. Path starts from the content root directory (e.g., `ingredients/ui/panels/file-tree-browser`)
 3. Drop the `.md` extension
 4. Fragment addresses sections within the document
 
@@ -166,7 +166,7 @@ Every document has a globally unique URL-based domain identifier. The scheme ide
 **Cross-repo references:**
 
 ```
-agentic-cookbook://recipes/ui/components/empty-state
+agentic-cookbook://ingredients/ui/components/empty-state
 temporal://recipes/ui/server-config-window
 ```
 
@@ -227,7 +227,7 @@ Constraints:
 
 **Cross-referencing requirements:**
 
-Between documents: `See agentic-cookbook://recipes/ui/components/ai-chat-control#requirements/ordered-list`
+Between documents: `See agentic-cookbook://ingredients/ui/components/ai-chat-control#requirements/ordered-list`
 
 Within the same document: `Validates: #requirements/ordered-list`
 
@@ -262,8 +262,8 @@ In frontmatter `depends-on` and `related` fields, use full URLs:
 
 ```yaml
 depends-on:
-  - agentic-cookbook://recipes/ui/components/empty-state
-  - agentic-cookbook://recipes/ui/components/status-bar
+  - agentic-cookbook://ingredients/ui/components/empty-state
+  - agentic-cookbook://ingredients/ui/components/status-bar
 related:
   - agentic-cookbook://guidelines/testing/test-pyramid
 ```

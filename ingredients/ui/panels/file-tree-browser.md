@@ -1,13 +1,13 @@
 ---
 id: a1845427-a2cd-4744-96bf-f6c6f2380982
 title: "File Tree Browser"
-domain: agentic-cookbook://recipes/ui/panels/file-tree-browser
-type: recipe
+domain: agentic-cookbook://ingredients/ui/panels/file-tree-browser
+type: ingredient
 version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -199,6 +199,10 @@ A hierarchical file browser that displays a project's directory structure using 
 - **Directory renamed externally**: Directory sync (delegate-directory-sync) handles this — tree updates on next sync cycle.
 - **No git repository**: Git status badges not shown, no error. Tree renders without badges.
 - **File tree does NOT include a search/filter UI**: This is noted as a future option and is explicitly out of scope for this spec.
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Project Settings
 

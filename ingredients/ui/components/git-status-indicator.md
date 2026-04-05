@@ -1,13 +1,13 @@
 ---
 id: 561a27f4-f019-4d3a-96eb-c18d37b16b61
 title: "Git Status Indicator"
-domain: agentic-cookbook://recipes/ui/components/git-status-indicator
-type: recipe
+domain: agentic-cookbook://ingredients/ui/components/git-status-indicator
+type: ingredient
 version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -111,6 +111,10 @@ A semantic representation of git file status with associated colors, display cha
 - **Rapid file changes**: Debounce git status refresh (0.5s recommended) to prevent thrashing.
 - **Submodules**: `--ignore-submodules` flag recommended to avoid deep recursion.
 - **Binary files**: Same status handling as text files.
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Logging
 

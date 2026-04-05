@@ -1,13 +1,13 @@
 ---
 id: 85d04a9b-5692-4025-a489-eac8bbb14663
 title: "Window Frame Persistence"
-domain: agentic-cookbook://recipes/infrastructure/window-frame-persistence
-type: recipe
+domain: agentic-cookbook://ingredients/infrastructure/window-frame-persistence
+type: ingredient
 version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -78,6 +78,10 @@ Not applicable — this component has no visual or interactive surface.
 - **Window opens off-screen** (e.g., saved on external monitor now disconnected): AppKit handles this — `setFrameAutosaveName` adjusts to visible screen area.
 - **Duplicate autosave names**: Two windows with the same name will interfere. Use unique identifiers.
 - **Rapid open/close**: Observer cleanup in deinit prevents leaks.
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Logging
 

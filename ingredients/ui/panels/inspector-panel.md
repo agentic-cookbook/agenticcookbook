@@ -1,13 +1,13 @@
 ---
 id: 6af1d30a-c2ee-4a6d-97ec-50c67f01a243
 title: "Inspector Panel"
-domain: agentic-cookbook://recipes/ui/panels/inspector-panel
-type: recipe
+domain: agentic-cookbook://ingredients/ui/panels/inspector-panel
+type: ingredient
 version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -183,6 +183,10 @@ Empty state:
 - **Git status unavailable (git not installed)**: Git Status row MUST NOT appear. No error shown.
 - **Symlink selected**: SHOULD show the symlink's own metadata, not the target's, unless the platform convention differs.
 - **Localized date/number formatting**: Size and Modified values MUST respect the user's locale settings.
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Localization
 

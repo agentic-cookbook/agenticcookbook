@@ -22,31 +22,14 @@ related:
   - recipe.app.lifecycle
   - recipe.app.menu-commands
   - recipe.infrastructure.directory-sync
-  - recipe.infrastructure.logging
   - recipe.infrastructure.package-document
-  - recipe.infrastructure.settings-keys
-  - recipe.infrastructure.window-frame-persistence
-  - recipe.ui.component.ai-chat-control
-  - recipe.ui.component.collapsible-pane-header
-  - recipe.ui.component.color-profile
-  - recipe.ui.component.empty-state
-  - recipe.ui.component.git-status-indicator
-  - recipe.ui.component.metadata-line
-  - recipe.ui.component.status-bar
-  - recipe.ui.panel.ai-settings-panel
-  - recipe.ui.panel.code-editor-pane
-  - recipe.ui.panel.debug-panel
-  - recipe.ui.panel.file-tree-browser
-  - recipe.ui.panel.inspector-panel
-  - recipe.ui.panel.terminal-pane
   - recipe.ui.window.project-window
   - recipe.ui.window.settings-window
   - recipe.ui.window.standalone-terminal-window
   - recipe.ui.window.workspace-window
-  - recipe.developer-tools.claude.yolo-mode
   - recipe.developer-tools.claude.claude-rule-optimization-pipeline
   - recipe.ui.apps.apple
-  - recipe.web.controls.appearance-mode-toggle
+  - recipe.autonomous-dev-bots.pr-review-pipeline
 references: []
 ---
 
@@ -69,33 +52,6 @@ Cross-reference using the domain: "See `recipe.ui.window.project-window`"
 
 **Maintenance**: This index MUST be updated on the same branch as any recipe change. The CLAUDE.md recipe table must stay in sync.
 
-## ui.component
-
-Reusable visual building blocks composed into larger layouts.
-
-| Domain | File | Version | Description |
-|--------|------|---------|-------------|
-| recipe.ui.component.empty-state | [empty-state.md](ui/component/empty-state.md) | 1.0.0 | Centered placeholder view for empty content areas |
-| recipe.ui.component.collapsible-pane-header | [collapsible-pane-header.md](ui/component/collapsible-pane-header.md) | 1.0.0 | Clickable header bar with disclosure chevron for split-view sections |
-| recipe.ui.component.metadata-line | [metadata-line.md](ui/component/metadata-line.md) | 1.0.0 | Compact single-line label with leading icon and text value |
-| recipe.ui.component.status-bar | [status-bar.md](ui/component/status-bar.md) | 1.0.0 | Slim animated bar indicating background operations |
-| recipe.ui.component.git-status-indicator | [git-status-indicator.md](ui/component/git-status-indicator.md) | 1.0.0 | Semantic git file status with colors, characters, and directory rollup |
-| recipe.ui.component.color-profile | [color-profile.md](ui/component/color-profile.md) | 1.0.0 | Named color palette (foreground, background, cursor, selection, 16 ANSI colors) |
-| recipe.ui.component.ai-chat-control | [ai-chat-control.md](ui/component/ai-chat-control.md) | 1.0.0 | Compact inline chat control for conversing with a configured AI provider |
-
-## ui.panel
-
-Content areas that compose into windows.
-
-| Domain | File | Version | Description |
-|--------|------|---------|-------------|
-| recipe.ui.panel.file-tree-browser | [file-tree-browser.md](ui/panel/file-tree-browser.md) | 1.0.0 | Hierarchical file browser with git status badges and lazy loading |
-| recipe.ui.panel.code-editor-pane | [code-editor-pane.md](ui/panel/code-editor-pane.md) | 1.0.0 | Source code editor with syntax highlighting, minimap, and auto-save |
-| recipe.ui.panel.terminal-pane | [terminal-pane.md](ui/panel/terminal-pane.md) | 1.0.0 | Multi-session PTY-backed terminal pane |
-| recipe.ui.panel.inspector-panel | [inspector-panel.md](ui/panel/inspector-panel.md) | 1.0.0 | Right-side sliding panel for selected item metadata |
-| recipe.ui.panel.ai-settings-panel | [ai-settings-panel.md](ui/panel/ai-settings-panel.md) | 1.1.0 | Settings panel for AI/LLM provider configuration |
-| recipe.ui.panel.debug-panel | [debug-panel.md](ui/panel/debug-panel.md) | 1.0.0 | Debug-only panel for feature flags, analytics, and runtime overrides |
-
 ## ui.window
 
 Top-level window layouts.
@@ -109,13 +65,10 @@ Top-level window layouts.
 
 ## infrastructure
 
-Non-visual architecture patterns: persistence, sync, logging.
+Non-visual architecture patterns: sync, document packaging.
 
 | Domain | File | Version | Description |
 |--------|------|---------|-------------|
-| recipe.infrastructure.logging | [logging.md](infrastructure/logging.md) | 1.0.0 | Centralized logging infrastructure with per-category Logger instances |
-| recipe.infrastructure.settings-keys | [settings-keys.md](infrastructure/settings-keys.md) | 1.0.0 | Centralized settings key registry preventing duplication and typos |
-| recipe.infrastructure.window-frame-persistence | [window-frame-persistence.md](infrastructure/window-frame-persistence.md) | 1.0.0 | View modifier persisting window position/size between sessions |
 | recipe.infrastructure.directory-sync | [directory-sync.md](infrastructure/directory-sync.md) | 1.0.0 | Lifecycle pattern for syncing in-memory file tree with filesystem |
 | recipe.infrastructure.package-document | [package-document.md](infrastructure/package-document.md) | 1.0.1 | Directory bundle package pattern with SQLite databases |
 
@@ -136,21 +89,20 @@ Application-level UI recipes.
 |--------|------|---------|-------------|
 | recipe.ui.apps.apple | [apple.md](ui/apps/apple.md) | 1.0.0 | Apple Test App Suite |
 
-## web.controls
+## autonomous-dev-bots
 
-Web UI control recipes.
+Long-running agent processes and pipelines.
 
 | Domain | File | Version | Description |
 |--------|------|---------|-------------|
-| recipe.web.controls.appearance-mode-toggle | [appearance-mode-toggle.md](web/controls/appearance-mode-toggle.md) | 1.0.0 | Appearance Mode Toggle |
+| recipe.autonomous-dev-bots.pr-review-pipeline | [pr-review-pipeline.md](autonomous-dev-bots/pr-review-pipeline.md) | 1.0.0 | Automated PR review pipeline |
 
 ## developer-tools.claude
 
-Recipes for Claude Code workarounds, hooks, and developer environment configuration.
+Recipes for Claude Code pipelines and developer environment configuration.
 
 | Domain | File | Version | Description |
 |--------|------|---------|-------------|
-| recipe.developer-tools.claude.yolo-mode | [yolo-mode.md](developer-tools/claude/yolo-mode.md) | 1.0.0 | Toggleable PermissionRequest hook that auto-approves all tool calls |
 | recipe.developer-tools.claude.claude-rule-optimization-pipeline | [claude-rule-optimization-pipeline.md](developer-tools/claude/claude-rule-optimization-pipeline.md) | 1.0.0 | Four-phase pipeline for auditing and optimizing rule file context efficiency |
 
 ## Change History

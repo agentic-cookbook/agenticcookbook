@@ -1,13 +1,13 @@
 ---
 id: d4b2fbc3-d814-44f7-a1cf-b59bd5eeb757
 title: "Metadata Line"
-domain: agentic-cookbook://recipes/ui/components/metadata-line
-type: recipe
+domain: agentic-cookbook://ingredients/ui/components/metadata-line
+type: ingredient
 version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -80,6 +80,10 @@ A compact, single-line label combining a leading icon with a text value. Used to
 - **Empty text**: Component SHOULD hide itself or show a dash placeholder.
 - **Very short container**: Icon alone may show if text has zero space — acceptable.
 - **RTL languages**: Icon remains on the leading edge (which is right in RTL).
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Logging
 

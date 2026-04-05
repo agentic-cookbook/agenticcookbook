@@ -1,13 +1,13 @@
 ---
 id: 22729bee-7ab4-4648-aa5a-2beef067d0c3
 title: "Status Bar"
-domain: agentic-cookbook://recipes/ui/components/status-bar
-type: recipe
+domain: agentic-cookbook://ingredients/ui/components/status-bar
+type: ingredient
 version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -88,6 +88,10 @@ A slim, animated bar that slides in at the bottom of a view to indicate a backgr
 - **Rapid show/hide**: If the operation completes before the appear animation finishes, the bar SHOULD reverse smoothly (not jump).
 - **Very long status text**: Truncate with ellipsis on one line.
 - **Multiple overlapping operations**: Show the most recent status text. Bar stays visible until all operations complete.
+
+## Configuration
+
+This ingredient has no configurable options.
 
 ## Logging
 
