@@ -1,6 +1,6 @@
 # Agentic Cookbook
 
-A structured cookbook of principles, guidelines, recipes, and workflows for AI-assisted multi-platform development. All content is markdown consumed directly by AI agents (Claude Code).
+A structured cookbook of principles, guidelines, ingredients, recipes, and workflows for AI-assisted multi-platform development. All content is markdown consumed directly by AI agents (Claude Code).
 
 ## Quick Start
 
@@ -42,7 +42,7 @@ Code built with the agentic cookbook is **trusted**. That means:
 
 ## What's in the Cookbook
 
-The cookbook contains three types of **cookbook artifacts** — standalone markdown files with YAML frontmatter, named requirements, and change history:
+The cookbook contains four types of **cookbook artifacts** — standalone markdown files with YAML frontmatter, named requirements, and change history:
 
 ### Principles (18 files)
 
@@ -66,18 +66,13 @@ Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition ov
 | Feature Management | Feature flags, A/B testing, debug mode |
 | Code Quality | Linting, atomic commits |
 
-### Recipes (27 files)
+### Ingredients (atomic specs)
 
-*What to build.* Concrete specs for UI components, panels, windows, infrastructure patterns, and autonomous dev bots.
+*The building blocks.* Atomic component specs defining individual UI components, panels, or infrastructure patterns with full detail: behavioral requirements, appearance, states, accessibility, configuration options, test vectors, and platform notes. Located in `ingredients/`.
 
-| Category | Path | Examples |
-|----------|------|---------|
-| UI Components | `recipes/ui/component/` | Empty state, status bar, metadata line |
-| Panels | `recipes/ui/panel/` | File browser, editor, terminal, inspector |
-| Windows | `recipes/ui/window/` | Project, workspace, settings |
-| Infrastructure | `recipes/infrastructure/` | Logging, persistence, sync |
-| App | `recipes/app/` | Lifecycle, menus |
-| Autonomous Dev Bots | `recipes/autonomous-dev-bots/` | PR review pipeline, CI verification |
+### Recipes (compositions)
+
+*How things combine.* Compositions of configured ingredients into coherent features. Define how ingredients wire together: integration requirements, layout, shared state, and integration test vectors. Located in `recipes/`.
 
 ### Compliance (10 categories, 81 checks)
 
@@ -87,23 +82,23 @@ Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition ov
 
 *How to work.* Branching, planning, implementation, verification, review.
 
-## Cookbook Projects
+## Concoctions
 
-A **cookbook project** (`cookbook-project.json`) is a self-contained, platform-agnostic project definition. It defines *what* an app is — components, resources, and context — as a hierarchical manifest. Generation tools produce native, best-of-class code for any target platform (Swift/SwiftUI, Kotlin, C#/WinUI, etc.).
+A **concoction** (`concoction.json`) is a self-contained, platform-agnostic project definition. It defines *what* an app is — its structure, resources, and context — as a hierarchical manifest. Generation tools produce native, best-of-class code for any target platform (Swift/SwiftUI, Kotlin, C#/WinUI, etc.).
 
-The manifest is the **single source of truth**. Recipes are forked from the cookbook, customized for the project, and can be contributed back upstream. Resources (localization, icons, app config) are defined in platform-neutral JSON that generates to native formats per platform.
+The manifest is the **single source of truth**. Ingredients and recipes are forked from the cookbook, customized for the concoction, and can be contributed back upstream. Resources (localization, icons, app config) are defined in platform-neutral JSON that generates to native formats per platform.
 
 ```
-my-app-cookbook-project/
-├── cookbook-project.json        # the manifest — defines everything
+my-app-concoction/
+├── concoction.json             # the manifest — defines everything
 ├── app/
-│   ├── app.md                  # recipe: app entry point
+│   ├── app.md                  # spec: app entry point
 │   └── document-window/
-│       ├── document-window.md  # recipe: main window
+│       ├── document-window.md  # spec: main window
 │       ├── toolbar/
-│       │   └── toolbar.md      # recipe: formatting toolbar
+│       │   └── toolbar.md      # spec: formatting toolbar
 │       └── editor/
-│           └── editor.md       # recipe: rich text editor
+│           └── editor.md       # spec: rich text editor
 ├── resources/
 │   └── app-config.json         # generates to Info.plist, AndroidManifest, etc.
 └── context/
@@ -111,7 +106,7 @@ my-app-cookbook-project/
     └── research/               # design research and evaluations
 ```
 
-See `reference/cookbook-project.schema.json` for the JSON Schema. A complete example lives at `reference/examples/my-document-editor-cookbook-project/`.
+See `reference/concoction.schema.json` for the JSON Schema. A complete example lives at `reference/examples/my-document-editor-concoction/`.
 
 ## Sibling Projects
 
@@ -145,7 +140,8 @@ Repo: [agentic-cookbook/cookbook-web](https://github.com/agentic-cookbook/cookbo
 introduction/          # getting started, conventions, glossary
 principles/            # 18 engineering principles
 guidelines/            # 88 topic-organized guidelines
-recipes/               # 27 UI and infrastructure recipes
+ingredients/           # atomic component specs (building blocks)
+recipes/               # compositions of ingredients into features
 compliance/            # 10 compliance categories (81 checks)
 workflows/             # 6 workflow specs (plan, implement, verify, review)
 reference/             # external best-practices links, schemas, examples

@@ -3,11 +3,11 @@ id: 7a3e1f2c-8b4d-4e6a-9c5f-1d2e3f4a5b6c
 title: "Conventions"
 domain: agentic-cookbook://introduction/conventions
 type: reference
-version: 1.2.0
+version: 1.3.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-04
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -45,7 +45,7 @@ Every markdown file starts with a YAML frontmatter block containing these fields
 id: <uuid>
 title: <human readable title>
 domain: <path-derived identifier>
-type: principle | guideline | recipe | workflow | reference
+type: principle | guideline | ingredient | recipe | workflow | reference
 version: 1.0.0
 status: wip | draft | review | accepted | deprecated
 language: en
@@ -72,7 +72,7 @@ approved-date: ""
 | `id` | Yes | UUID, globally unique, stable across renames |
 | `title` | Yes | Human-readable title |
 | `domain` | Yes | Path-derived identifier (see Naming below). Validated against actual path at build time. |
-| `type` | Yes | One of: `principle`, `guideline`, `recipe`, `workflow`, `reference`, `compliance` |
+| `type` | Yes | One of: `principle`, `guideline`, `ingredient`, `recipe`, `workflow`, `reference`, `compliance`, `concoction` |
 | `version` | Yes | Semver. Major for breaking changes, minor for new content, patch for clarifications. Immutable once on main — changes require a version bump. |
 | `status` | Yes | `wip` (actively being built — LLM consumers skip this content), `draft` (complete first pass, awaiting review), `review` (ready for feedback), `accepted` (stable), `deprecated` (superseded) |
 | `language` | Yes | BCP 47 language tag. Default: `en` |
@@ -87,6 +87,7 @@ approved-date: ""
 | `depends-on` | Yes | Domain identifiers of content that should be read first. Empty list `[]` if none. |
 | `related` | Yes | Domain identifiers of related content ("see also"). Empty list `[]` if none. |
 | `references` | Yes | External URLs referenced by this content. Empty list `[]` if none. |
+| `ingredients` | Recipe only | List of ingredient domain identifiers this recipe composes. Required when `type` is `recipe`. |
 | `approved-by` | Yes | Approval stamp from `/approve-artifact`. Format: `"approve-artifact <version>"`. Empty string `""` if not yet approved. |
 | `approved-date` | Yes | ISO 8601 date when the artifact was last approved. Empty string `""` if not yet approved. |
 
@@ -159,7 +160,8 @@ Every document has a globally unique URL-based domain identifier. The scheme ide
 |-----------|--------|
 | `cookbook/principles/simplicity.md` | `agentic-cookbook://principles/simplicity` |
 | `cookbook/guidelines/testing/test-pyramid.md` | `agentic-cookbook://guidelines/testing/test-pyramid` |
-| `cookbook/recipes/ui/panels/file-tree-browser.md` | `agentic-cookbook://recipes/ui/panels/file-tree-browser` |
+| `cookbook/ingredients/ui/components/empty-state.md` | `agentic-cookbook://ingredients/ui/components/empty-state` |
+| `cookbook/recipes/ui/windows/settings-window.md` | `agentic-cookbook://recipes/ui/windows/settings-window` |
 
 **Cross-repo references:**
 
@@ -194,12 +196,18 @@ Within the same document, use the short form:
 | Platforms | `#platforms/<platform>` |
 | Accessibility | `#accessibility/<item>` |
 | Test vectors | `#test-vectors/<id>` |
+| Configuration | `#configuration/<option>` |
 | Edge cases | `#edge-cases/<name>` |
 | Logging | `#logging/<event>` |
 | Localization | `#localization/<key>` |
 | Feature flags | `#feature-flags/<flag>` |
 | Analytics | `#analytics/<event>` |
 | Privacy | `#privacy` |
+| Ingredients | `#ingredients/<name>` |
+| Integration requirements | `#integration-requirements/<name>` |
+| Layout | `#layout` |
+| Shared state | `#shared-state/<state>` |
+| Integration test vectors | `#integration-test-vectors/<id>` |
 | Design decisions | `#design-decisions/<name>` |
 | Change history | `#change-history/<version>` |
 
@@ -231,15 +239,15 @@ Within the same document: `Validates: #requirements/ordered-list`
 - **`.md` extension** for all content files
 - **`index.md`** for landing pages (lowercase)
 
-### Cookbook Project Directory Naming
+### Concoction Directory Naming
 
-Cookbook project directories MUST use the suffix `-cookbook-project`. For a source repository named `my-app`, the cookbook project directory is `my-app-cookbook-project/`. This distinguishes cookbook projects from other directories and makes the project type immediately recognizable.
+Concoction directories MUST use the suffix `-concoction`. For a source repository named `my-app`, the concoction directory is `my-app-concoction/`. This distinguishes concoctions from other directories and makes the project type immediately recognizable.
 
 ```
-my-app-cookbook-project/
-├── cookbook-project.json
+my-app-concoction/
+├── concoction.json
 ├── app/
-│   └── ...recipes...
+│   └── ...specs...
 └── context/
     └── ...research...
 ```
@@ -300,4 +308,5 @@ Format:
 |---------|------|--------|---------|
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial consolidation from 5 separate convention files |
 | 1.2.0 | 2026-04-04 | Mike Fullerton | Add approved-by and approved-date frontmatter fields |
+| 1.3.0 | 2026-04-05 | Mike Fullerton | Add ingredient, recipe (composition), and concoction types; rename cookbook-project to concoction |
 | 1.1.0 | 2026-04-02 | Mike Fullerton | Add cookbook project directory naming convention (-cookbook-project suffix) |

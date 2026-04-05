@@ -1,6 +1,6 @@
 # After Adding an Artifact
 
-This rule applies after any cookbook artifact (principle, guideline, or recipe) is added, modified, or removed. Every post-change step MUST be completed before the work is considered done.
+This rule applies after any cookbook artifact (principle, guideline, ingredient, or recipe) is added, modified, or removed. Every post-change step MUST be completed before the work is considered done.
 
 ---
 
