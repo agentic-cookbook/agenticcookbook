@@ -8,7 +8,8 @@ A structured cookbook of principles, guidelines, recipes, and workflows for AI-a
 introduction/          # getting started, conventions, glossary
 principles/            # 18 engineering principles
 guidelines/            # 88 topic-organized guidelines
-recipes/               # 27 UI and infrastructure recipes
+ingredients/           # atomic component specs (building blocks)
+recipes/               # compositions of ingredients into features
 compliance/            # 10 compliance categories (81 checks)
 workflows/             # 6 workflow specs (plan, implement, verify, review)
 reference/             # external best-practices links, schemas, examples
@@ -23,13 +24,16 @@ README.md              # human-facing documentation
 
 ## Cookbook Artifacts
 
-A **cookbook artifact** is any content item in the cookbook: a principle, guideline, or recipe. Each artifact is a standalone markdown file with YAML frontmatter, named requirements, and a change history. See `introduction/glossary.md` for the full definition.
+A **cookbook artifact** is any content item in the cookbook: a principle, guideline, ingredient, or recipe. Each artifact is a standalone markdown file with YAML frontmatter, named requirements, and a change history. See `introduction/glossary.md` for the full definition.
 
 | Type | Count | Path | Description |
 |------|-------|------|-------------|
 | Principle | 18 | `principles/` | Foundational engineering ideas that guide design decisions |
 | Guideline | 88 | `guidelines/` | Topic-organized rules for planning and implementation |
-| Recipe | 27 | `recipes/` | Concrete specs for UI components, infrastructure, and patterns |
+| Ingredient | 0 | `ingredients/` | Atomic component specs — the building blocks of recipes |
+| Recipe | 0 | `recipes/` | Compositions of configured ingredients into coherent features |
+
+A **concoction** (`concoction.json`) assembles recipes and ingredients into a complete application, plugin, or widget. See `reference/concoction.schema.json` for the JSON Schema.
 
 Supporting content (not artifacts): compliance checks, workflows, reference material.
 
@@ -83,4 +87,4 @@ Key rules:
 
 ## Writing New Content
 
-Use `recipes/_template.md` as a starting point for recipes. Follow `introduction/conventions.md` for the frontmatter format. Every cookbook artifact needs a UUID, domain matching its path, and a Change History section.
+Use `ingredients/_template.md` for new ingredients and `recipes/_template.md` for new recipes. Follow `introduction/conventions.md` for the frontmatter format. Every cookbook artifact needs a UUID, domain matching its path, and a Change History section.

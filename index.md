@@ -3,15 +3,15 @@ id: 00000000-0000-0000-0000-000000000001
 title: "Agentic Cookbook"
 domain: agentic-cookbook://index
 type: reference
-version: 2.0.0
+version: 3.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-02
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "A library of principles, guidelines, recipes, and workflows for building software with AI-assisted development."
+summary: "A library of principles, guidelines, ingredients, recipes, and workflows for building software with AI-assisted development."
 platforms: []
 tags: []
 depends-on: []
@@ -22,7 +22,7 @@ references:
 
 # Agentic Cookbook
 
-A library of principles, guidelines, recipes, and workflows for building software with AI-assisted development.
+A library of principles, guidelines, ingredients, recipes, and workflows for building software with AI-assisted development.
 
 ## Introduction
 
@@ -82,9 +82,21 @@ A library of principles, guidelines, recipes, and workflows for building softwar
 | [Database Design](guidelines/database-design/) | SQLite best practices — schema design, performance, device-to-server sync, production operations |
 | [Skills and Agents](guidelines/skills-and-agents/) | Authoring skills, rules, and agents — checklists, structure references, performance |
 
+## Ingredients
+
+*The building blocks.* Atomic component specs for UI components, panels, and infrastructure patterns.
+
+No ingredients yet — existing recipes will be reclassified in a future pass.
+
 ## Recipes
 
-*What to build.* Concrete specs for UI components, panels, windows, and infrastructure patterns.
+*How things combine.* Compositions of configured ingredients into coherent features.
+
+No recipes yet — existing recipes will be reclassified in a future pass.
+
+## Legacy Recipes (Pending Reclassification)
+
+The following recipes predate the ingredient/recipe split and will be reclassified as either ingredients or recipes in a future pass.
 
 | Category | Description |
 |----------|-------------|
@@ -142,7 +154,7 @@ A library of principles, guidelines, recipes, and workflows for building softwar
 | [Testing](reference/best-practices/testing.md) | Google SWE Book, Fowler, Kent Beck |
 | [Cross-Platform](reference/best-practices/cross-platform.md) | Nielsen Norman, MASVS, MASTG |
 | [References](reference/references.md) | Additional reference materials |
-| [Example Project](reference/examples/) | My Document Editor — complete cookbook project example |
+| [Example Concoction](reference/examples/) | My Document Editor — complete concoction example |
 
 ## Appendix
 
@@ -159,4 +171,5 @@ A library of principles, guidelines, recipes, and workflows for building softwar
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
+| 3.0.0 | 2026-04-05 | Mike Fullerton | Add ingredient/recipe/concoction hierarchy; mark existing recipes as legacy pending reclassification |
 | 2.0.0 | 2026-04-02 | Mike Fullerton | Reorganize as book structure — flatten cookbook/ to top level, add introduction/ and appendix/ |

@@ -1,6 +1,6 @@
 # Artifact Formatting
 
-This rule applies when creating or modifying any cookbook artifact (principle, guideline, or recipe). Every artifact MUST conform to the structural formatting checks defined for its type.
+This rule applies when creating or modifying any cookbook artifact (principle, guideline, ingredient, or recipe). Every artifact MUST conform to the structural formatting checks defined for its type.
 
 ---
 
@@ -12,7 +12,9 @@ Each artifact type has a compliance file that defines its required structure:
 |------|----------------|--------|
 | Principle | `compliance/artifact-formatting/principle-formatting.md` | 7 |
 | Guideline | `compliance/artifact-formatting/guideline-formatting.md` | 8 |
-| Recipe | `compliance/artifact-formatting/recipe-formatting.md` | 15 |
+| Ingredient | `compliance/artifact-formatting/ingredient-formatting.md` | 16 |
+| Recipe | `compliance/artifact-formatting/recipe-formatting.md` | 14 |
+| Concoction | `compliance/artifact-formatting/concoction-formatting.md` | 10 |
 
 Before writing or modifying an artifact, read the compliance file for that artifact's type. Follow every MUST check. Address every SHOULD check unless there is a documented reason to skip it.
 
@@ -22,7 +24,7 @@ Before writing or modifying an artifact, read the compliance file for that artif
 
 1. **Identify the artifact type** from the `type` field in the frontmatter.
 2. **Read the corresponding compliance file** listed above.
-3. **Follow the required section order** — recipes have a strict section order defined in `recipe-formatting.md`. Principles and guidelines have fewer constraints but MUST include all MUST-level sections.
+3. **Follow the required section order** — ingredients and recipes have strict section orders defined in their formatting files. Principles and guidelines have fewer constraints but MUST include all MUST-level sections.
 4. **Use RFC 2119 keywords** for requirements — MUST, MUST NOT, SHOULD, SHOULD NOT, MAY.
 5. **Name requirements in kebab-case** — `**must-do-something**: Component MUST ...`, not REQ-001.
 

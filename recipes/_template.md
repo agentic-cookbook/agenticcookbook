@@ -1,141 +1,66 @@
 ---
-id: 611115cb-0e59-402e-bc77-140f53e32607
-title: "ComponentName"
+id: 3B566ED1-AD27-4E6C-8938-62C159DBC5FF
+title: "RecipeName"
 domain: agentic-cookbook://recipes/_template
 type: recipe
 version: 1.0.0
 status: accepted
 language: en
-created: 2026-03-27
-modified: 2026-03-27
+created: 2026-04-05
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
 summary: ""
-platforms: 
+platforms:
   - kotlin
   - swift
   - typescript
   - web
 tags: []
+ingredients:
+  - agentic-cookbook://ingredients/...
 depends-on: []
 related: []
 references: []
 ---
 
-# ComponentName
-
----
-version: 1.0.0
-status: draft
-created: YYYY-MM-DD
-last-updated: YYYY-MM-DD
-author:
-copyright: YYYY Mike Fullerton / Temporal
-platforms: []
-tags: []
-dependencies: []
----
+# RecipeName
 
 ## Overview
 
-Brief description of what this component is and when to use it.
+Brief description of what this feature is and when to use it.
 
-## Behavioral Requirements
+## Ingredients
 
-- **must-do-something**: Component MUST ...
-- **should-do-something**: Component SHOULD ...
-- **may-do-something**: Component MAY ...
+| Name | Domain | Role | Required | Configuration |
+|------|--------|------|----------|---------------|
+| | `agentic-cookbook://ingredients/...` | | Yes/No | |
 
-## Appearance
+## Integration Requirements
 
-- **Corner radius**:
-- **Padding**: vertical × horizontal
-- **Font**: weight, size
-- **Background**: color value or description
-- **Foreground/Text**: color value or description
-- **Border**: width, color (if any)
-- **Shadow**: offset, blur, color (if any)
-- **Min/Max size**: constraints (if any)
+- **must-do-something**: The recipe MUST ...
+- **should-do-something**: The recipe SHOULD ...
 
-## States
+## Layout
 
-| State | Appearance change |
-|-------|------------------|
-| Default | — |
-| Pressed | |
-| Disabled | |
-| Focused | |
-| Loading | |
+Describe how ingredients are spatially or logically arranged. Use ASCII diagrams for UI recipes, flow diagrams for infrastructure recipes.
 
-## Accessibility
+## Shared State
 
-- Role/trait (e.g., button, heading, text field)
-- Label requirements
-- Announce state changes (e.g., loading, disabled)
-- Minimum tap target: 44×44pt
+| State | Source | Consumer | Direction | Mechanism |
+|-------|--------|----------|-----------|-----------|
+| | | | one-way/two-way | |
 
-## Conformance Test Vectors
+## Integration Test Vectors
 
 | ID | Requirements | Input | Expected |
 |----|-------------|-------|----------|
-| component-001 | must-do-something | | |
+| recipe-001 | must-do-something | | |
 
 ## Edge Cases
 
-- Describe boundary conditions, error states, unexpected input
-
-## Deep Linking
-
-| Platform | URL Pattern |
-|----------|-------------|
-| Apple | `{{app_scheme}}://component-name` |
-| Android | `https://{{app_domain}}/component-name` |
-| Web | `/component-name` |
-
-## Localization
-
-| String Key | Default (en) | Context |
-|-----------|-------------|---------|
-| | | |
-
-## Accessibility Options
-
-Document which accessibility display options (Rule 15) this component responds to:
-
-| Option | Behavior |
-|--------|----------|
-| Reduce Motion | |
-| Increase Contrast | |
-| Differentiate Without Color | |
-
-## Feature Flags
-
-| Flag Key | Default | Description |
-|----------|---------|-------------|
-| `{{app_prefix}}.component_name` | `true` | Enables this component |
-
-## Analytics
-
-| Event | Properties | When |
-|-------|-----------|------|
-| `component_name.viewed` | `{}` | Component appears on screen |
-| `component_name.interacted` | `{ action: string }` | User interacts with component |
-
-## Privacy
-
-- **Data collected**: None / describe what is collected
-- **Storage**: Where and how data is stored
-- **Transmission**: Whether data leaves the device
-- **Retention**: How long data is kept
-
-## Logging
-
-Subsystem: `{{bundle_id}}` | Category: `ComponentName`
-
-| Event | Level | Message |
-|-------|-------|---------|
-| | debug | `ComponentName: ` |
+- Describe composition-level boundary conditions and error states
 
 ## Platform Notes
 
@@ -145,7 +70,7 @@ Subsystem: `{{bundle_id}}` | Category: `ComponentName`
 
 ## Design Decisions
 
-Record any decisions made during implementation that affect visual or behavioral outcome. Each decision should be approved by the user.
+Record any decisions made during implementation that affect integration behavior. Each decision should be approved by the user.
 
 ## Compliance
 
@@ -157,4 +82,4 @@ Record any decisions made during implementation that affect visual or behavioral
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
-| 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
+| 1.0.0 | 2026-04-05 | Mike Fullerton | Initial creation |
