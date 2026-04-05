@@ -1,6 +1,6 @@
 {
-  "$schema": "../../cookbook-project.schema.json",
-  "type": "cookbook-project",
+  "$schema": "../../concoction.schema.json",
+  "type": "concoction",
   "schema_version": "1.0.0",
   "name": "My Document Editor",
   "id": "e6cf99be-cec3-4011-9cbe-a4a6f8c28524",
@@ -9,7 +9,7 @@
   "author": "Mike Fullerton",
   "license": "MIT",
   "created": "2026-04-01",
-  "modified": "2026-04-01",
+  "modified": "2026-04-05",
   "platforms": ["ios", "macos"],
   "cookbook": {
     "repo": "https://github.com/agentic-cookbook/cookbook",
@@ -38,34 +38,32 @@
       }
     }
   },
-  "components": {
-    "app": {
-      "recipe": "app/app.md",
-      "description": "Application entry point and lifecycle",
-      "components": {
-        "document-window": {
-          "recipe": "app/document-window/document-window.md",
-          "description": "Main document editing window",
-          "source": {
-            "domain": "agentic-cookbook://recipes/ui/windows/document-window",
-            "version": "1.0.0"
-          },
-          "components": {
-            "toolbar": {
-              "recipe": "app/document-window/toolbar/toolbar.md",
-              "description": "Formatting toolbar for the editor"
-            },
-            "editor": {
-              "recipe": "app/document-window/editor/editor.md",
-              "description": "Rich text editing surface",
-              "depends-on": ["app.document-window.toolbar"]
-            }
-          }
+  "structure": {
+    "spec": "app/app.md",
+    "description": "Application entry point and lifecycle",
+    "structural-elements": {
+      "document-window": {
+        "spec": "app/document-window/document-window.md",
+        "description": "Main document editing window",
+        "source": {
+          "domain": "agentic-cookbook://recipes/ui/windows/document-window",
+          "version": "1.0.0"
         },
-        "settings": {
-          "recipe": "app/settings/settings.md",
-          "description": "Application preferences"
+        "structural-elements": {
+          "toolbar": {
+            "spec": "app/document-window/toolbar/toolbar.md",
+            "description": "Formatting toolbar for the editor"
+          },
+          "editor": {
+            "spec": "app/document-window/editor/editor.md",
+            "description": "Rich text editing surface",
+            "depends-on": ["document-window.toolbar"]
+          }
         }
+      },
+      "settings": {
+        "spec": "app/settings/settings.md",
+        "description": "Application preferences"
       }
     }
   }

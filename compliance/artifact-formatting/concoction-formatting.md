@@ -1,0 +1,120 @@
+---
+id: 66376D65-F0FD-40CF-9614-6A94F2C022C7
+title: "Concoction Formatting Compliance"
+domain: agentic-cookbook://compliance/artifact-formatting/concoction-formatting
+type: compliance
+version: 1.0.0
+status: draft
+language: en
+created: 2026-04-05
+modified: 2026-04-05
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: "Structural formatting checks for concoction manifests — JSON files that assemble recipes and ingredients into complete applications."
+platforms: []
+tags:
+  - compliance
+  - artifact-formatting
+  - concoction
+depends-on:
+  - agentic-cookbook://introduction/conventions
+related:
+  - agentic-cookbook://compliance/artifact-formatting/ingredient-formatting
+  - agentic-cookbook://compliance/artifact-formatting/recipe-formatting
+references: []
+---
+
+# Concoction Formatting Compliance
+
+Concoctions are JSON manifests that assemble recipes and ingredients into complete applications, plugins, or widgets. Each concoction defines a structure tree of structural elements, context for LLM consumption, and resource declarations — all validated against `reference/concoction.schema.json`.
+
+## Applicability
+
+This category applies to any `concoction.json` file.
+
+## Checks
+
+### cf-valid-json
+
+The file MUST be valid JSON. A concoction that fails JSON parsing cannot be processed by any tooling.
+
+**Applies when:** always.
+
+---
+
+### cf-schema-valid
+
+The file MUST validate against `reference/concoction.schema.json`. Schema validation catches structural errors — missing fields, wrong types, unknown properties — before any semantic checks run.
+
+**Applies when:** always.
+
+---
+
+### cf-type-field
+
+The `type` field MUST be `"concoction"`. This distinguishes concoction manifests from other JSON files in the repository.
+
+**Applies when:** always.
+
+---
+
+### cf-required-fields
+
+All required top-level fields MUST be present: `type`, `schema_version`, `name`, `id`, `version`, `description`, `author`, `license`, `created`, `modified`, `platforms`, `cookbook`.
+
+**Applies when:** always.
+
+---
+
+### cf-uuid-format
+
+The `id` field MUST be a valid UUID (RFC 4122). The UUID serves as a stable identity even if the concoction directory is renamed.
+
+**Applies when:** always.
+
+---
+
+### cf-semver-fields
+
+Fields `schema_version` and `version` MUST be valid semver strings matching the pattern `^\d+\.\d+\.\d+$`.
+
+**Applies when:** always.
+
+---
+
+### cf-structure-present
+
+The `structure` field MUST be present and contain at least a `description` field. The structure is the root of the element tree — without it, the concoction defines nothing to build.
+
+**Applies when:** always.
+
+---
+
+### cf-spec-paths-valid
+
+Every `spec` field in the structure tree MUST reference an existing markdown file (relative to the concoction directory). Broken spec paths mean the agent cannot find the spec to implement.
+
+**Applies when:** any structural element contains a `spec` field.
+
+---
+
+### cf-source-domains
+
+Every `source.domain` field MUST be a valid `agentic-cookbook://ingredients/` or `agentic-cookbook://recipes/` domain. Source provenance ties forked specs back to their cookbook origin.
+
+**Applies when:** any structural element contains a `source` object.
+
+---
+
+### cf-no-circular-deps
+
+The `depends-on` dot-paths in the structure tree MUST NOT form circular dependencies. Circular dependencies make build ordering impossible.
+
+**Applies when:** any structural element contains a `depends-on` array.
+
+## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.0 | 2026-04-05 | Mike Fullerton | Initial creation |
