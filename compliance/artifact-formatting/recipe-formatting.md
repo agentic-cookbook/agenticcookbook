@@ -3,15 +3,15 @@ id: 328D96C6-20DE-495E-8977-733441B97F81
 title: "Recipe Formatting Compliance"
 domain: agentic-cookbook://compliance/artifact-formatting/recipe-formatting
 type: compliance
-version: 1.0.0
+version: 2.0.0
 status: draft
 language: en
 created: 2026-04-04
-modified: 2026-04-04
+modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "Structural formatting checks for recipe artifacts — the most detailed artifact type with ~15 required sections."
+summary: "Structural formatting checks for recipe artifacts — composition specs that combine configured ingredients into coherent features."
 platforms: []
 tags:
   - compliance
@@ -27,7 +27,7 @@ references: []
 
 # Recipe Formatting Compliance
 
-Recipes are concrete, detailed specs for UI components, panels, windows, infrastructure patterns, and autonomous dev bots. They are the most structured artifact type — every recipe follows a consistent section order so that agents and humans can navigate them predictably.
+Recipes are compositions of configured ingredients wired together into coherent features. Each recipe specifies which ingredients it uses, how they connect, what state flows between them, and how they are arranged spatially or logically. Every recipe follows a consistent section order so that agents and humans can navigate them predictably.
 
 ## Applicability
 
@@ -40,33 +40,26 @@ Recipes MUST follow this section order. Optional sections (marked MAY) can be om
 1. YAML frontmatter
 2. `# Title`
 3. `## Overview`
-4. `## Behavioral Requirements`
-5. `## Appearance`
-6. `## States`
-7. `## Accessibility`
-8. `## Conformance Test Vectors`
+4. `## Ingredients`
+5. `## Integration Requirements`
+6. `## Layout`
+7. `## Shared State`
+8. `## Integration Test Vectors`
 9. `## Edge Cases`
-10. `## Deep Linking` (MAY omit)
-11. `## Localization` (MAY omit)
-12. `## Accessibility Options` (MAY omit)
-13. `## Feature Flags` (MAY omit)
-14. `## Analytics` (MAY omit)
-15. `## Privacy` (MAY omit)
-16. `## Logging`
-17. `## Platform Notes`
-18. `## Design Decisions`
-19. `## Compliance`
-20. `## Change History`
+10. `## Platform Notes`
+11. `## Design Decisions`
+12. `## Compliance`
+13. `## Change History`
 
 ## Checks
 
 ### rf-frontmatter-complete
 
-All required YAML frontmatter fields MUST be present per `introduction/conventions.md`.
+All required YAML frontmatter fields MUST be present per `introduction/conventions.md`. Additionally, the `ingredients` field MUST be present and list at least one ingredient domain.
 
 **Applies when:** always.
 
-**Required fields:** id, title, domain, type, version, status, language, created, modified, author, copyright, license, summary, platforms, tags, depends-on, related, references.
+**Required fields:** id, title, domain, type, version, status, language, created, modified, author, copyright, license, summary, platforms, tags, ingredients, depends-on, related, references.
 
 **Guidelines:**
 - [Conventions](agentic-cookbook://introduction/conventions)
@@ -91,15 +84,15 @@ The first H1 heading MUST match the frontmatter `title` field exactly.
 
 ### rf-overview
 
-The recipe MUST have a `## Overview` section with a brief description of what the component is and when to use it.
+The recipe MUST have a `## Overview` section describing what the composition is and when to use it.
 
 **Applies when:** always.
 
 ---
 
-### rf-behavioral-requirements
+### rf-ingredients
 
-The recipe MUST have a `## Behavioral Requirements` section containing named requirements using RFC 2119 keywords. Requirements use kebab-case names in bold: `**must-do-something**: Component MUST ...`
+The recipe MUST have a `## Ingredients` section with a table containing columns: Name, Domain, Role, Required, Configuration. Each ingredient MUST reference a valid `agentic-cookbook://ingredients/` domain.
 
 **Applies when:** always.
 
@@ -108,33 +101,36 @@ The recipe MUST have a `## Behavioral Requirements` section containing named req
 
 ---
 
-### rf-appearance
+### rf-integration-requirements
 
-The recipe MUST have a `## Appearance` section defining visual properties: corner radius, padding, font, background, foreground, border, shadow, and size constraints.
+The recipe MUST have a `## Integration Requirements` section containing named requirements using RFC 2119 keywords for how ingredients wire together.
 
-**Applies when:** UI recipes (components, panels, windows). MAY be omitted for infrastructure recipes.
+**Applies when:** always.
 
----
-
-### rf-states
-
-The recipe MUST have a `## States` section with a table defining visual state changes (default, pressed, disabled, focused, loading, etc.).
-
-**Applies when:** UI recipes with interactive states. MAY be omitted for infrastructure recipes.
+**Guidelines:**
+- [Conventions](agentic-cookbook://introduction/conventions)
 
 ---
 
-### rf-accessibility
+### rf-layout
 
-The recipe MUST have a `## Accessibility` section defining: role/trait, label requirements, state change announcements, and minimum tap target size.
+The recipe MUST have a `## Layout` section describing spatial or logical arrangement of ingredients. UI recipes SHOULD include an ASCII diagram.
 
-**Applies when:** always. Infrastructure recipes define accessibility as "not applicable" with justification.
+**Applies when:** always.
 
 ---
 
-### rf-test-vectors
+### rf-shared-state
 
-The recipe MUST have a `## Conformance Test Vectors` section with a table containing columns: ID, Requirements, Input, Expected. Each test vector maps to one or more named requirements from `## Behavioral Requirements`.
+The recipe MUST have a `## Shared State` section with a table defining state flow between ingredients: State, Source, Consumer, Direction, Mechanism.
+
+**Applies when:** always.
+
+---
+
+### rf-integration-test-vectors
+
+The recipe MUST have a `## Integration Test Vectors` section with a table containing columns: ID, Requirements, Input, Expected. Tests validate ingredient interactions, not individual ingredient behavior.
 
 **Applies when:** always.
 
@@ -142,26 +138,15 @@ The recipe MUST have a `## Conformance Test Vectors` section with a table contai
 
 ### rf-edge-cases
 
-The recipe MUST have a `## Edge Cases` section describing boundary conditions, error states, and unexpected input scenarios.
+The recipe MUST have a `## Edge Cases` section describing composition-level boundary conditions.
 
 **Applies when:** always.
-
----
-
-### rf-logging
-
-The recipe MUST have a `## Logging` section defining: subsystem, category, and a table of log events with columns: Event, Level, Message.
-
-**Applies when:** always.
-
-**Guidelines:**
-- [Structured Logging](agentic-cookbook://guidelines/logging/structured-logging)
 
 ---
 
 ### rf-platform-notes
 
-The recipe MUST have a `## Platform Notes` section with per-platform implementation guidance. At minimum: SwiftUI, Compose, React/Web.
+The recipe MUST have a `## Platform Notes` section with per-platform integration guidance. At minimum: SwiftUI, Compose, React/Web.
 
 **Applies when:** always. Single-platform recipes list only the target platform.
 
@@ -200,3 +185,4 @@ The file MUST end with a `## Change History` section containing a table with col
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-04-04 | Mike Fullerton | Initial creation |
+| 2.0.0 | 2026-04-05 | Mike Fullerton | Rewrite for composition-focused recipe format |

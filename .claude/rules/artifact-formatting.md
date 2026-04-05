@@ -12,7 +12,7 @@ Each artifact type has a compliance file that defines its required structure:
 |------|----------------|--------|
 | Principle | `compliance/artifact-formatting/principle-formatting.md` | 7 |
 | Guideline | `compliance/artifact-formatting/guideline-formatting.md` | 8 |
-| Recipe | `compliance/artifact-formatting/recipe-formatting.md` | 15 |
+| Recipe | `compliance/artifact-formatting/recipe-formatting.md` | 14 |
 
 Before writing or modifying an artifact, read the compliance file for that artifact's type. Follow every MUST check. Address every SHOULD check unless there is a documented reason to skip it.
 
