@@ -152,7 +152,7 @@ Every document has a globally unique URL-based domain identifier. The scheme ide
 
 **Derivation rules:**
 1. Scheme is the repo/project name (kebab-case)
-2. Path starts from the content root directory (e.g., `recipes/ui/panels/file-tree-browser`)
+2. Path starts from the content root directory (e.g., `ingredients/ui/panels/file-tree-browser`)
 3. Drop the `.md` extension
 4. Fragment addresses sections within the document
 

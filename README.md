@@ -66,11 +66,11 @@ Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition ov
 | Feature Management | Feature flags, A/B testing, debug mode |
 | Code Quality | Linting, atomic commits |
 
-### Ingredients (atomic specs)
+### Ingredients (18 files)
 
 *The building blocks.* Atomic component specs defining individual UI components, panels, or infrastructure patterns with full detail: behavioral requirements, appearance, states, accessibility, configuration options, test vectors, and platform notes. Located in `ingredients/`.
 
-### Recipes (compositions)
+### Recipes (11 files)
 
 *How things combine.* Compositions of configured ingredients into coherent features. Define how ingredients wire together: integration requirements, layout, shared state, and integration test vectors. Located in `recipes/`.
 

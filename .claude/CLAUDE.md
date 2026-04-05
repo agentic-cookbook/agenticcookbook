@@ -30,8 +30,8 @@ A **cookbook artifact** is any content item in the cookbook: a principle, guidel
 |------|-------|------|-------------|
 | Principle | 18 | `principles/` | Foundational engineering ideas that guide design decisions |
 | Guideline | 88 | `guidelines/` | Topic-organized rules for planning and implementation |
-| Ingredient | 0 | `ingredients/` | Atomic component specs — the building blocks of recipes |
-| Recipe | 0 | `recipes/` | Compositions of configured ingredients into coherent features |
+| Ingredient | 18 | `ingredients/` | Atomic component specs — the building blocks of recipes |
+| Recipe | 11 | `recipes/` | Compositions of configured ingredients into coherent features |
 
 A **concoction** (`concoction.json`) assembles recipes and ingredients into a complete application, plugin, or widget. See `reference/concoction.schema.json` for the JSON Schema.
 

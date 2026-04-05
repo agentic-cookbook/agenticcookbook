@@ -3,7 +3,7 @@ id: 00000000-0000-0000-0000-000000000001
 title: "Agentic Cookbook"
 domain: agentic-cookbook://index
 type: reference
-version: 3.0.0
+version: 3.1.0
 status: accepted
 language: en
 created: 2026-03-27
@@ -86,28 +86,26 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 
 *The building blocks.* Atomic component specs for UI components, panels, and infrastructure patterns.
 
-No ingredients yet — existing recipes will be reclassified in a future pass.
+| Category | Description |
+|----------|-------------|
+| [UI Components](ingredients/ui/components/) | Leaf building blocks — ai-chat-control, collapsible-pane-header, color-profile, empty-state, git-status-indicator, metadata-line, status-bar |
+| [Panels](ingredients/ui/panels/) | Content panes — ai-settings-panel, code-editor-pane, debug-panel, file-tree-browser, inspector-panel, terminal-pane |
+| [Infrastructure](ingredients/infrastructure/) | Non-visual patterns — logging, settings-keys, window-frame-persistence |
+| [Developer Tools](ingredients/developer-tools/) | Claude Code workarounds — yolo-mode |
+| [Web Controls](ingredients/web/) | Web UI controls — appearance-mode-toggle |
 
 ## Recipes
 
 *How things combine.* Compositions of configured ingredients into coherent features.
 
-No recipes yet — existing recipes will be reclassified in a future pass.
-
-## Legacy Recipes (Pending Reclassification)
-
-The following recipes predate the ingredient/recipe split and will be reclassified as either ingredients or recipes in a future pass.
-
 | Category | Description |
 |----------|-------------|
-| [UI Components](recipes/ui/components/) | Leaf building blocks — empty state, status bar, metadata line |
-| [Panels](recipes/ui/panels/) | Content panes — file browser, editor, terminal, inspector |
-| [Windows](recipes/ui/windows/) | Top-level layouts — project, workspace, settings |
-| [Infrastructure](recipes/infrastructure/) | Non-visual patterns — logging, persistence, sync |
+| [Windows](recipes/ui/windows/) | Top-level layouts — project-window, workspace-window, settings-window, standalone-terminal-window |
+| [Apps](recipes/ui/apps/) | Application-level UI — apple test app suite |
 | [App-Level](recipes/app/) | Lifecycle, menus, commands |
-| [Autonomous Dev Bots](recipes/autonomous-dev-bots/) | Long-running agent processes — PR review, CI verification, code review |
-| [Developer Tools](recipes/developer-tools/) | Claude Code workarounds, hooks, and developer environment recipes |
-| [Web Controls](recipes/web/) | Web UI control recipes |
+| [Autonomous Dev Bots](recipes/autonomous-dev-bots/) | Long-running agent processes — pr-review-pipeline |
+| [Developer Tools](recipes/developer-tools/) | Claude Code pipelines — claude-rule-optimization-pipeline |
+| [Infrastructure](recipes/infrastructure/) | Non-visual patterns — directory-sync, package-document |
 
 ## Workflows
 
@@ -171,5 +169,6 @@ The following recipes predate the ingredient/recipe split and will be reclassifi
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
+| 3.1.0 | 2026-04-05 | Mike Fullerton | Populate ingredients and recipes sections after reclassification of 18 ingredients from legacy recipes |
 | 3.0.0 | 2026-04-05 | Mike Fullerton | Add ingredient/recipe/concoction hierarchy; mark existing recipes as legacy pending reclassification |
 | 2.0.0 | 2026-04-02 | Mike Fullerton | Reorganize as book structure — flatten cookbook/ to top level, add introduction/ and appendix/ |
