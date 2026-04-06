@@ -82,15 +82,15 @@ Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition ov
 
 *How to work.* Branching, planning, implementation, verification, review.
 
-## Concoctions
+## Cookbooks
 
-A **concoction** (`concoction.json`) is a self-contained, platform-agnostic project definition. It defines *what* an app is — its structure, resources, and context — as a hierarchical manifest. Generation tools produce native, best-of-class code for any target platform (Swift/SwiftUI, Kotlin, C#/WinUI, etc.).
+A **cookbook** (`cookbook.json`) is a self-contained, platform-agnostic project definition. It defines *what* an app is — its structure, resources, and context — as a hierarchical manifest. Generation tools produce native, best-of-class code for any target platform (Swift/SwiftUI, Kotlin, C#/WinUI, etc.).
 
-The manifest is the **single source of truth**. Ingredients and recipes are forked from the cookbook, customized for the concoction, and can be contributed back upstream. Resources (localization, icons, app config) are defined in platform-neutral JSON that generates to native formats per platform.
+The manifest is the **single source of truth**. Ingredients and recipes are forked from this repo (the top-level cookbook), customized for the cookbook, and can be contributed back upstream. Resources (localization, icons, app config) are defined in platform-neutral JSON that generates to native formats per platform.
 
 ```
-my-app-concoction/
-├── concoction.json             # the manifest — defines everything
+my-app-cookbook/
+├── cookbook.json                # the manifest — defines everything
 ├── app/
 │   ├── app.md                  # spec: app entry point
 │   └── document-window/
@@ -106,7 +106,7 @@ my-app-concoction/
     └── research/               # design research and evaluations
 ```
 
-See `reference/concoction.schema.json` for the JSON Schema. A complete example lives at `reference/examples/my-document-editor-concoction/`.
+See `reference/cookbook.schema.json` for the JSON Schema. A complete example lives at `reference/examples/my-document-editor-cookbook/`.
 
 ## Sibling Projects
 

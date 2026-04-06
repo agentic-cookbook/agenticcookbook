@@ -3,11 +3,11 @@ id: 00000000-0000-0000-0000-000000000001
 title: "Agentic Cookbook"
 domain: agentic-cookbook://index
 type: reference
-version: 3.1.0
+version: 3.2.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-05
+modified: 2026-04-06
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -152,7 +152,7 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 | [Testing](reference/best-practices/testing.md) | Google SWE Book, Fowler, Kent Beck |
 | [Cross-Platform](reference/best-practices/cross-platform.md) | Nielsen Norman, MASVS, MASTG |
 | [References](reference/references.md) | Additional reference materials |
-| [Example Concoction](reference/examples/) | My Document Editor — complete concoction example |
+| [Example Cookbook](reference/examples/) | My Document Editor — complete cookbook example |
 
 ## Appendix
 
@@ -170,5 +170,6 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 |---------|------|--------|---------|
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
 | 3.1.0 | 2026-04-05 | Mike Fullerton | Populate ingredients and recipes sections after reclassification of 18 ingredients from legacy recipes |
+| 3.2.0 | 2026-04-06 | Mike Fullerton | Rename concoction to cookbook |
 | 3.0.0 | 2026-04-05 | Mike Fullerton | Add ingredient/recipe/concoction hierarchy; mark existing recipes as legacy pending reclassification |
 | 2.0.0 | 2026-04-02 | Mike Fullerton | Reorganize as book structure — flatten cookbook/ to top level, add introduction/ and appendix/ |

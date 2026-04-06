@@ -1,6 +1,6 @@
 {
-  "$schema": "../../concoction.schema.json",
-  "type": "concoction",
+  "$schema": "../../cookbook.schema.json",
+  "type": "cookbook",
   "schema_version": "1.0.0",
   "name": "My Document Editor",
   "id": "e6cf99be-cec3-4011-9cbe-a4a6f8c28524",

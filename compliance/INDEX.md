@@ -51,7 +51,7 @@ Recipes/Guidelines  →  Compliance Checks  →  Guidelines  →  External Stand
 | Platform Compliance | [platform-compliance.md](platform-compliance.md) | 8 | App Store, Google Play, design language |
 | Reliability | [reliability.md](reliability.md) | 8 | Error recovery, degradation, state, idempotency |
 | Internationalization | [internationalization.md](internationalization.md) | 7 | Strings, RTL, locale formatting, Unicode |
-| Artifact Formatting | [artifact-formatting/INDEX.md](artifact-formatting/INDEX.md) | 55 | Required structure for principles (7), guidelines (8), ingredients (16), recipes (14), concoctions (10) |
+| Artifact Formatting | [artifact-formatting/INDEX.md](artifact-formatting/INDEX.md) | 55 | Required structure for principles (7), guidelines (8), ingredients (16), recipes (14), cookbooks (10) |
 
 ## Per-Item Compliance Section Format
 

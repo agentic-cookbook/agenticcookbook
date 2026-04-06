@@ -1,7 +1,7 @@
 # Examples
 
-Example concoctions demonstrating the concoction format.
+Example cookbooks demonstrating the cookbook format.
 
 | Section | Description |
 |---------|-------------|
-| [my-document-editor-concoction/](my-document-editor-concoction/) | Sample document editor concoction showing the concoction format in action |
+| [my-document-editor-cookbook/](my-document-editor-cookbook/) | Sample document editor cookbook showing the format in action |
