@@ -66,7 +66,7 @@ Key rules:
 
 ## Git Workflow
 
-**Owner edits** go direct to main. **Claude Code sessions** go through a branch + PR via worktree.
+**Owner edits** go direct to main. **Claude Code sessions** go through a branch + PR via worktree. Worktree directory: `.claude/worktrees/`.
 
 | Change type | Branch pattern | Example |
 |---|---|---|
