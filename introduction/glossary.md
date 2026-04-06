@@ -3,11 +3,11 @@ id: a7c3e1f2-9b4d-4e6a-8c5f-2d3e4f5a6b7c
 title: "Glossary"
 domain: agentic-cookbook://introduction/glossary
 type: reference
-version: 1.2.0
+version: 1.3.0
 status: accepted
 language: en
 created: 2026-03-28
-modified: 2026-04-05
+modified: 2026-04-06
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -30,7 +30,7 @@ Definitions of terms used throughout the agentic cookbook.
 
 **Conformance** — Verified match between an implementation and a recipe's requirements. Measured by a conformance checklist mapping each named requirement to its implementing code and test.
 
-**Concoction** — A full application, plugin, or widget definition that assembles recipes and ingredients into a complete project. Defined by a `concoction.json` manifest in a directory with a `-concoction` suffix. Contains a hierarchical structure of structural elements, resources, and context. Replaces the former "cookbook-project" concept.
+**Project Cookbook** — A full application, plugin, or widget definition that assembles recipes and ingredients into a complete project. Defined by a `cookbook.json` manifest in a directory with a `-cookbook` suffix. Contains a hierarchical structure of structural elements, resources, and context. Distinguished from the top-level cookbook (this repo), which provides the source principles, guidelines, ingredients, and recipes. Replaces the former "concoction" concept.
 
 **Cookbook Artifact** — A general term for any content item in the cookbook: a principle, guideline, ingredient, or recipe. Each artifact is a standalone markdown file with YAML frontmatter, named requirements, and a change history. The artifact's `type` field identifies which kind it is.
 
@@ -50,7 +50,9 @@ Definitions of terms used throughout the agentic cookbook.
 
 **Rule** — An imperative markdown file that enforces behavior during planning or implementation. Installed into a project's `.claude/rules/` directory. Uses RFC 2119 keywords, explicit file paths, and MUST NOT sections. Located in `rules/`.
 
-**Structural Element** — A named node in a concoction's structure tree. Each structural element has a spec (referencing an ingredient or recipe), a description, optional platform overrides, dependencies on sibling elements, and child structural elements. The recursive nesting of structural elements defines the architecture of a concoction.
+**Structural Element** — A named node in a project cookbook's structure tree. Each structural element has a spec (referencing an ingredient or recipe), a description, optional platform overrides, dependencies on sibling elements, and child structural elements. The recursive nesting of structural elements defines the architecture of a project cookbook.
+
+**Top-Level Cookbook** — The source repository of principles, guidelines, ingredients, and recipes. This repo (`agentic-cookbook/cookbook`) is the top-level cookbook. Distinguished from project cookbooks, which assemble its artifacts into complete applications.
 
 **Skill** — A Claude Code extension that performs a specific task when invoked by name (e.g., `/validate-cookbook`, `/lint-recipe`). Defined by a `SKILL.md` file in a directory under `skills/`.
 
@@ -66,6 +68,7 @@ Definitions of terms used throughout the agentic cookbook.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.3.0 | 2026-04-06 | Mike Fullerton | Rename Concoction to Project Cookbook; add Top-Level Cookbook term |
 | 1.2.0 | 2026-04-05 | Mike Fullerton | Add Ingredient, Concoction, Structural Element terms; update Recipe and Cookbook Artifact definitions |
 | 1.1.0 | 2026-04-04 | Mike Fullerton | Add Cookbook Artifact term |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial glossary |

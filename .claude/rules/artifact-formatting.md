@@ -14,7 +14,7 @@ Each artifact type has a compliance file that defines its required structure:
 | Guideline | `compliance/artifact-formatting/guideline-formatting.md` | 8 |
 | Ingredient | `compliance/artifact-formatting/ingredient-formatting.md` | 16 |
 | Recipe | `compliance/artifact-formatting/recipe-formatting.md` | 14 |
-| Concoction | `compliance/artifact-formatting/concoction-formatting.md` | 10 |
+| Project Cookbook | `compliance/artifact-formatting/cookbook-formatting.md` | 10 |
 
 Before writing or modifying an artifact, read the compliance file for that artifact's type. Follow every MUST check. Address every SHOULD check unless there is a documented reason to skip it.
 

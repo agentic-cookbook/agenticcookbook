@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://agentic-cookbook.com/schemas/concoction.schema.json",
-  "title": "Concoction",
-  "description": "Schema for concoction.json — a platform-agnostic project definition format that assembles recipes and ingredients into a complete application, plugin, or widget",
+  "$id": "https://agentic-cookbook.com/schemas/cookbook.schema.json",
+  "title": "Project Cookbook",
+  "description": "Schema for cookbook.json — a platform-agnostic project definition format that assembles recipes and ingredients into a complete application, plugin, or widget",
   "type": "object",
   "required": [
     "type", "schema_version", "name", "id", "version",
@@ -15,31 +15,31 @@
       "description": "Optional JSON Schema reference for editor support"
     },
     "type": {
-      "const": "concoction",
-      "description": "Identifies this file as a concoction"
+      "const": "cookbook",
+      "description": "Identifies this file as a project cookbook"
     },
     "schema_version": {
       "type": "string",
       "pattern": "^\\d+\\.\\d+\\.\\d+$",
-      "description": "Version of the concoction format itself (semver)"
+      "description": "Version of the project cookbook format itself (semver)"
     },
     "name": {
       "type": "string",
-      "description": "Human-readable concoction name"
+      "description": "Human-readable project cookbook name"
     },
     "id": {
       "type": "string",
       "format": "uuid",
-      "description": "UUID — stable identity even if the directory is renamed"
+      "description": "UUID — stable identity even if the project cookbook directory is renamed"
     },
     "version": {
       "type": "string",
       "pattern": "^\\d+\\.\\d+\\.\\d+$",
-      "description": "Concoction version (semver)"
+      "description": "Project cookbook version (semver)"
     },
     "description": {
       "type": "string",
-      "description": "One-line description of the concoction"
+      "description": "One-line description of the project cookbook"
     },
     "author": {
       "type": "string",
@@ -62,7 +62,7 @@
     "platforms": {
       "type": "array",
       "items": { "type": "string" },
-      "description": "Target platforms. Concoction-level default; structural elements can override"
+      "description": "Target platforms. Project cookbook-level default; structural elements can override"
     },
     "cookbook": {
       "type": "object",
@@ -116,7 +116,7 @@
       "properties": {
         "spec": {
           "type": "string",
-          "description": "Relative path to the markdown spec (ingredient or recipe)"
+          "description": "Relative path to the markdown spec file (ingredient or recipe)"
         },
         "description": {
           "type": "string",

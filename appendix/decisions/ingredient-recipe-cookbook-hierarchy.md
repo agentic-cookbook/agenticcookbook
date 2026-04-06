@@ -1,17 +1,17 @@
 ---
 id: 4F351323-DB4C-4C7A-9972-AF89A6982E3F
-title: "Ingredient / Recipe / Concoction Artifact Hierarchy"
-domain: agentic-cookbook://appendix/decisions/ingredient-recipe-concoction-hierarchy
+title: "Ingredient / Recipe / Cookbook Artifact Hierarchy"
+domain: agentic-cookbook://appendix/decisions/ingredient-recipe-cookbook-hierarchy
 type: reference
-version: 1.0.0
+version: 1.1.0
 status: draft
 language: en
 created: 2026-04-05
-modified: 2026-04-05
+modified: 2026-04-06
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "Three-tier artifact hierarchy — ingredients (atomic specs), recipes (compositions), concoctions (app assemblies) — replacing the flat recipe model and cookbook-project naming."
+summary: "Three-tier artifact hierarchy — ingredients (atomic specs), recipes (compositions), project cookbooks (app assemblies) — replacing the flat recipe model and cookbook-project naming."
 platforms: []
 tags:
   - architecture
@@ -25,7 +25,7 @@ related:
 references: []
 ---
 
-# Ingredient / Recipe / Concoction Artifact Hierarchy
+# Ingredient / Recipe / Cookbook Artifact Hierarchy
 
 ## Problem
 
@@ -43,7 +43,7 @@ Introduce a three-tier hierarchy:
 |------|------|--------|---------|
 | Atom | `ingredient` | Markdown (21 sections) | Individual component spec with behavioral requirements, appearance, states, configuration options, test vectors, and platform notes |
 | Composition | `recipe` | Markdown (13 sections) | Combines configured ingredients into a coherent feature — defines integration requirements, layout, shared state, and integration test vectors |
-| Assembly | `concoction` | JSON manifest (`concoction.json`) | Full app/plugin/widget definition — a hierarchical structure of structural elements with resources and context |
+| Assembly | `cookbook` | JSON manifest (`cookbook.json`) | Full app/plugin/widget definition — a hierarchical structure of structural elements with resources and context |
 
 ### Key design choices
 
@@ -51,9 +51,9 @@ Introduce a three-tier hierarchy:
 
 **Recipes are integration-focused.** A recipe does not repeat per-component detail (appearance, states, accessibility) — that lives in the ingredients. A recipe answers: how do these ingredients wire together? What state flows between them? What breaks at the integration boundaries?
 
-**Concoctions use "structure" not "components."** The manifest's top-level field is `"structure"` (a single object representing the thing being built), with `"structural-elements"` for children. Each node references a `"spec"` file (not `"recipe"`), since it could be based on either an ingredient or a recipe.
+**Project cookbooks use "structure" not "components."** The manifest's top-level field is `"structure"` (a single object representing the thing being built), with `"structural-elements"` for children. Each node references a `"spec"` file (not `"recipe"`), since it could be based on either an ingredient or a recipe.
 
-**Principles and guidelines are unchanged.** They sit alongside the ingredient/recipe/concoction hierarchy as reference material, not part of the cooking metaphor.
+**Principles and guidelines are unchanged.** They sit alongside the ingredient/recipe/cookbook hierarchy as reference material, not part of the cooking metaphor.
 
 ## Alternatives Considered
 
@@ -71,16 +71,16 @@ One markdown format with conditional compliance checks: "applies when type is in
 
 ## Schema Changes
 
-The `cookbook-project.schema.json` is superseded by `concoction.schema.json`. Key renames:
+The `cookbook-project.schema.json` is superseded by `cookbook.schema.json`. Key renames:
 
 | Old | New |
 |-----|-----|
-| `"type": "cookbook-project"` | `"type": "concoction"` |
+| `"type": "cookbook-project"` | `"type": "cookbook"` |
 | `"components"` (top-level dict) | `"structure"` (single object) |
 | `"components"` (nested) | `"structural-elements"` |
 | `"recipe"` (spec path) | `"spec"` |
 | `$defs/component` | `$defs/structural-element` |
-| `*-cookbook-project/` directory suffix | `*-concoction/` |
+| `*-cookbook-project/` directory suffix | `*-cookbook/` |
 
 ## Scope
 
@@ -93,7 +93,7 @@ This decision defines the formats and schema only. Reclassification of the exist
 Will need updates to recognize the three artifact tiers:
 - New route structure for `/ingredients/`
 - Updated navigation to show ingredients vs recipes
-- Concoction rendering (if the web app shows project definitions)
+- Project cookbook rendering (if the web app shows project definitions)
 
 ### dev-team
 
@@ -110,4 +110,5 @@ These are documented here as future work items, not part of this decision's impl
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-04-06 | Mike Fullerton | Rename concoction to project cookbook throughout |
 | 1.0.0 | 2026-04-05 | Mike Fullerton | Initial decision |
