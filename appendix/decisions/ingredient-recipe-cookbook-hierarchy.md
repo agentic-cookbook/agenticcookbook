@@ -11,7 +11,7 @@ modified: 2026-04-06
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "Three-tier artifact hierarchy — ingredients (atomic specs), recipes (compositions), project cookbooks (app assemblies) — replacing the flat recipe model and cookbook-project naming."
+summary: "Three-tier artifact hierarchy — ingredients (atomic specs), recipes (compositions), cookbooks (app assemblies) — replacing the flat recipe model and cookbook-project naming."
 platforms: []
 tags:
   - architecture
@@ -51,7 +51,7 @@ Introduce a three-tier hierarchy:
 
 **Recipes are integration-focused.** A recipe does not repeat per-component detail (appearance, states, accessibility) — that lives in the ingredients. A recipe answers: how do these ingredients wire together? What state flows between them? What breaks at the integration boundaries?
 
-**Project cookbooks use "structure" not "components."** The manifest's top-level field is `"structure"` (a single object representing the thing being built), with `"structural-elements"` for children. Each node references a `"spec"` file (not `"recipe"`), since it could be based on either an ingredient or a recipe.
+**Cookbooks use "structure" not "components."** The manifest's top-level field is `"structure"` (a single object representing the thing being built), with `"structural-elements"` for children. Each node references a `"spec"` file (not `"recipe"`), since it could be based on either an ingredient or a recipe.
 
 **Principles and guidelines are unchanged.** They sit alongside the ingredient/recipe/cookbook hierarchy as reference material, not part of the cooking metaphor.
 
@@ -93,7 +93,7 @@ This decision defines the formats and schema only. Reclassification of the exist
 Will need updates to recognize the three artifact tiers:
 - New route structure for `/ingredients/`
 - Updated navigation to show ingredients vs recipes
-- Project cookbook rendering (if the web app shows project definitions)
+- Cookbook rendering (if the web app shows project definitions)
 
 ### dev-team
 
@@ -110,5 +110,5 @@ These are documented here as future work items, not part of this decision's impl
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
-| 1.1.0 | 2026-04-06 | Mike Fullerton | Rename concoction to project cookbook throughout |
+| 1.1.0 | 2026-04-06 | Mike Fullerton | Rename concoction to cookbook throughout |
 | 1.0.0 | 2026-04-05 | Mike Fullerton | Initial decision |

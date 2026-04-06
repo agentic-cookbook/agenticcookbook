@@ -82,11 +82,11 @@ Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition ov
 
 *How to work.* Branching, planning, implementation, verification, review.
 
-## Project Cookbooks
+## Cookbooks
 
-A **project cookbook** (`cookbook.json`) is a self-contained, platform-agnostic project definition. It defines *what* an app is — its structure, resources, and context — as a hierarchical manifest. Generation tools produce native, best-of-class code for any target platform (Swift/SwiftUI, Kotlin, C#/WinUI, etc.).
+A **cookbook** (`cookbook.json`) is a self-contained, platform-agnostic project definition. It defines *what* an app is — its structure, resources, and context — as a hierarchical manifest. Generation tools produce native, best-of-class code for any target platform (Swift/SwiftUI, Kotlin, C#/WinUI, etc.).
 
-The manifest is the **single source of truth**. Ingredients and recipes are forked from the top-level cookbook (this repo), customized for the project cookbook, and can be contributed back upstream. Resources (localization, icons, app config) are defined in platform-neutral JSON that generates to native formats per platform.
+The manifest is the **single source of truth**. Ingredients and recipes are forked from this repo (the top-level cookbook), customized for the cookbook, and can be contributed back upstream. Resources (localization, icons, app config) are defined in platform-neutral JSON that generates to native formats per platform.
 
 ```
 my-app-cookbook/

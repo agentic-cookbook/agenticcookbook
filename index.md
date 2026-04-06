@@ -152,7 +152,7 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 | [Testing](reference/best-practices/testing.md) | Google SWE Book, Fowler, Kent Beck |
 | [Cross-Platform](reference/best-practices/cross-platform.md) | Nielsen Norman, MASVS, MASTG |
 | [References](reference/references.md) | Additional reference materials |
-| [Example Project Cookbook](reference/examples/) | My Document Editor — complete project cookbook example |
+| [Example Cookbook](reference/examples/) | My Document Editor — complete cookbook example |
 
 ## Appendix
 

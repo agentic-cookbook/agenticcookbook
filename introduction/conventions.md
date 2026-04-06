@@ -239,9 +239,9 @@ Within the same document: `Validates: #requirements/ordered-list`
 - **`.md` extension** for all content files
 - **`index.md`** for landing pages (lowercase)
 
-### Project Cookbook Directory Naming
+### Cookbook Directory Naming
 
-Project cookbook directories MUST use the suffix `-cookbook`. For a source repository named `my-app`, the project cookbook directory is `my-app-cookbook/`. This distinguishes project cookbooks from other directories and makes the project type immediately recognizable.
+Cookbook directories MUST use the suffix `-cookbook`. For a source repository named `my-app`, the cookbook directory is `my-app-cookbook/`. This distinguishes cookbooks from other directories and makes the project type immediately recognizable.
 
 ```
 my-app-cookbook/

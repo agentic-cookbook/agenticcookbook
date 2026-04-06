@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://agentic-cookbook.com/schemas/cookbook.schema.json",
-  "title": "Project Cookbook",
+  "title": "Cookbook",
   "description": "Schema for cookbook.json — a platform-agnostic project definition format that assembles recipes and ingredients into a complete application, plugin, or widget",
   "type": "object",
   "required": [
@@ -16,30 +16,30 @@
     },
     "type": {
       "const": "cookbook",
-      "description": "Identifies this file as a project cookbook"
+      "description": "Identifies this file as a cookbook"
     },
     "schema_version": {
       "type": "string",
       "pattern": "^\\d+\\.\\d+\\.\\d+$",
-      "description": "Version of the project cookbook format itself (semver)"
+      "description": "Version of the cookbook format itself (semver)"
     },
     "name": {
       "type": "string",
-      "description": "Human-readable project cookbook name"
+      "description": "Human-readable cookbook name"
     },
     "id": {
       "type": "string",
       "format": "uuid",
-      "description": "UUID — stable identity even if the project cookbook directory is renamed"
+      "description": "UUID — stable identity even if the cookbook directory is renamed"
     },
     "version": {
       "type": "string",
       "pattern": "^\\d+\\.\\d+\\.\\d+$",
-      "description": "Project cookbook version (semver)"
+      "description": "Cookbook version (semver)"
     },
     "description": {
       "type": "string",
-      "description": "One-line description of the project cookbook"
+      "description": "One-line description of the cookbook"
     },
     "author": {
       "type": "string",
@@ -62,7 +62,7 @@
     "platforms": {
       "type": "array",
       "items": { "type": "string" },
-      "description": "Target platforms. Project cookbook-level default; structural elements can override"
+      "description": "Target platforms. Cookbook-level default; structural elements can override"
     },
     "cookbook": {
       "type": "object",
@@ -75,7 +75,7 @@
         "version": {
           "type": "string",
           "pattern": "^\\d+\\.\\d+\\.\\d+$",
-          "description": "Cookbook version the concoction is based on"
+          "description": "Top-level cookbook version this cookbook is based on"
         }
       },
       "additionalProperties": false

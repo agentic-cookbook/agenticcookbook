@@ -11,7 +11,7 @@ modified: 2026-04-05
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "Index of structural formatting checks for cookbook artifacts — principles, guidelines, ingredients, recipes, and project cookbooks."
+summary: "Index of structural formatting checks for cookbook artifacts — principles, guidelines, ingredients, recipes, and cookbooks."
 platforms: []
 tags:
   - compliance
@@ -26,7 +26,7 @@ references: []
 
 # Artifact Formatting Compliance
 
-Structural formatting checks for cookbook artifacts. Each artifact type (principle, guideline, ingredient, recipe, project cookbook) has its own set of checks defining the required sections, ordering, and content rules. These checks are the authoritative spec that `/lint-artifact` and `/approve-artifact` evaluate against.
+Structural formatting checks for cookbook artifacts. Each artifact type (principle, guideline, ingredient, recipe, cookbook) has its own set of checks defining the required sections, ordering, and content rules. These checks are the authoritative spec that `/lint-artifact` and `/approve-artifact` evaluate against.
 
 ## Architecture
 
@@ -47,12 +47,12 @@ Structural formatting checks for cookbook artifacts. Each artifact type (princip
 | Guideline Formatting | [guideline-formatting.md](guideline-formatting.md) | 8 | Required structure for guideline artifacts |
 | Ingredient Formatting | [ingredient-formatting.md](ingredient-formatting.md) | 16 | Required structure for ingredient artifacts |
 | Recipe Formatting | [recipe-formatting.md](recipe-formatting.md) | 14 | Required structure for recipe artifacts (compositions) |
-| Project Cookbook Formatting | [cookbook-formatting.md](cookbook-formatting.md) | 10 | Required structure for project cookbook manifests (JSON) |
+| Cookbook Formatting | [cookbook-formatting.md](cookbook-formatting.md) | 10 | Required structure for cookbook manifests (JSON) |
 
 ## Change History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
-| 1.2.0 | 2026-04-06 | Mike Fullerton | Rename concoction to project cookbook |
+| 1.2.0 | 2026-04-06 | Mike Fullerton | Rename concoction to cookbook |
 | 1.1.0 | 2026-04-05 | Mike Fullerton | Add ingredient and concoction formatting categories |
 | 1.0.0 | 2026-04-04 | Mike Fullerton | Initial creation |
