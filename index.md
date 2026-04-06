@@ -170,6 +170,6 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 |---------|------|--------|---------|
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
 | 3.1.0 | 2026-04-05 | Mike Fullerton | Populate ingredients and recipes sections after reclassification of 18 ingredients from legacy recipes |
-| 3.2.0 | 2026-04-06 | Mike Fullerton | Rename concoction to project cookbook |
+| 3.2.0 | 2026-04-06 | Mike Fullerton | Rename concoction to cookbook |
 | 3.0.0 | 2026-04-05 | Mike Fullerton | Add ingredient/recipe/concoction hierarchy; mark existing recipes as legacy pending reclassification |
 | 2.0.0 | 2026-04-02 | Mike Fullerton | Reorganize as book structure — flatten cookbook/ to top level, add introduction/ and appendix/ |

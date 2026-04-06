@@ -308,6 +308,6 @@ Format:
 |---------|------|--------|---------|
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial consolidation from 5 separate convention files |
 | 1.2.0 | 2026-04-04 | Mike Fullerton | Add approved-by and approved-date frontmatter fields |
-| 1.4.0 | 2026-04-06 | Mike Fullerton | Rename concoction to project cookbook; add cookbook type to enum |
+| 1.4.0 | 2026-04-06 | Mike Fullerton | Rename concoction to cookbook; add cookbook type to enum |
 | 1.3.0 | 2026-04-05 | Mike Fullerton | Add ingredient, recipe (composition), and concoction types; rename cookbook-project to concoction |
 | 1.1.0 | 2026-04-02 | Mike Fullerton | Add cookbook project directory naming convention (-cookbook-project suffix) |
