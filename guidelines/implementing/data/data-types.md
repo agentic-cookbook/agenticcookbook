@@ -4,7 +4,7 @@ id: ABF5A7D8-1FBF-419C-AD43-888D08813F09
 title: "Data types and type affinity"
 domain: agentic-cookbook://guidelines/implementing/data/data-types
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -31,6 +31,9 @@ references:
   - https://www.sqlite.org/flextypegood.html
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - database-operations
+  - schema-design
 ---
 
 # Data types and type affinity
@@ -43,6 +46,7 @@ Every value belongs to exactly one storage class:
 
 | Storage Class | Description |
 |---------------|-------------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | `NULL` | Null value |
 | `INTEGER` | Signed integer (1–8 bytes, variable) |

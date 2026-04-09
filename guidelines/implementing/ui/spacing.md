@@ -4,7 +4,7 @@ id: 536c1e46-36f9-4a44-b8f4-c9e4db94cf53
 title: "Spacing"
 domain: agentic-cookbook://guidelines/implementing/ui/spacing
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -26,6 +26,8 @@ references:
   - https://m3.material.io/foundations/layout/overview
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - ui-implementation
 ---
 
 # Spacing
@@ -54,5 +56,6 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

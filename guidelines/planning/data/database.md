@@ -4,7 +4,7 @@ id: e3a209f8-1b89-4d6e-bf7f-78a8aecf69cb
 title: "Database"
 domain: agentic-cookbook://guidelines/planning/data/database
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -26,6 +26,8 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - database-operations
 ---
 
 # Database
@@ -41,5 +43,6 @@ conn.execute("PRAGMA journal_mode=WAL")
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

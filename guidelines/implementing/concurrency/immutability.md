@@ -4,7 +4,7 @@ id: 50ea8b39-813d-4325-be31-0ae19b8a3baf
 title: "Immutability"
 domain: agentic-cookbook://guidelines/implementing/concurrency/immutability
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -24,6 +24,9 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - concurrency
+  - data-modeling
 ---
 
 # Immutability
@@ -66,5 +69,6 @@ public readonly record struct Point(double X, double Y);
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

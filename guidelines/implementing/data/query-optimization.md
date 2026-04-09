@@ -4,7 +4,7 @@ id: 7FD21483-AD0B-407E-8A7F-103992403D36
 title: "Query Optimization"
 domain: agentic-cookbook://guidelines/implementing/data/query-optimization
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -31,6 +31,9 @@ references:
   - https://sqlite.org/queryplanner.html
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - database-operations
+  - performance-optimization
 ---
 
 # Query Optimization
@@ -211,5 +214,6 @@ SHOULD run `PRAGMA optimize` on connection open for long-lived connections. SHOU
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

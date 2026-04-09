@@ -4,7 +4,7 @@ id: b153d73b-9623-4fca-be5c-c3ac2b88f439
 title: "Transport Security"
 domain: agentic-cookbook://guidelines/reviewing/security/transport-security
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -28,6 +28,9 @@ references:
   - https://wiki.mozilla.org/Security/Server_Side_TLS
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - networking
+  - security-review
 ---
 
 # Transport Security
@@ -60,5 +63,6 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

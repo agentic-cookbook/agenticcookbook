@@ -4,7 +4,7 @@ id: becd68d0-3275-4da9-a703-7cf361fbfb8c
 title: "Relationship patterns"
 domain: agentic-cookbook://guidelines/planning/data/relationships
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -31,6 +31,9 @@ references:
   - https://www.bytebase.com/blog/database-design-patterns/
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - database-operations
+  - schema-design
 ---
 
 # Relationship patterns
@@ -176,6 +179,7 @@ SELECT * FROM descendants;
 
 | Pattern | Read performance | Write complexity | Storage | Best for |
 |---------|-----------------|-----------------|---------|----------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Adjacency list | Moderate (recursive) | Simple | Minimal | Dynamic trees with occasional depth queries |
 | Closure table | Excellent | Moderate | High | Read-heavy, deep hierarchies |

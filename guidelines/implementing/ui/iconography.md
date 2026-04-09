@@ -4,7 +4,7 @@ id: 98c5c5c2-5a45-4425-97b7-31932cb6af0c
 title: "Iconography"
 domain: agentic-cookbook://guidelines/implementing/ui/iconography
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -26,6 +26,8 @@ references:
   - https://m3.material.io/styles/icons/overview
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - ui-implementation
 ---
 
 # Iconography
@@ -51,5 +53,6 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -4,7 +4,7 @@ id: 3d970d6a-2d71-48f3-9f84-69c1d823d6e8
 title: "Accessibility from day one"
 domain: agentic-cookbook://guidelines/implementing/accessibility/accessibility
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -31,6 +31,10 @@ references:
   - https://www.w3.org/WAI/ARIA/apg/
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - accessibility
+  - ui-implementation
+  - pre-pr
 ---
 
 # Accessibility from day one
@@ -71,6 +75,7 @@ Components MUST respond to these SwiftUI environment values:
 
 | Setting | Environment Key | Action |
 |---------|----------------|--------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Reduce Motion | `\.accessibilityReduceMotion` | Replace animations with crossfades or instant transitions |
 | Reduce Transparency | `\.accessibilityReduceTransparency` | Use opaque backgrounds instead of blurs/vibrancy |

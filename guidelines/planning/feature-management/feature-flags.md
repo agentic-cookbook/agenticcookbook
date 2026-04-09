@@ -4,7 +4,7 @@ id: 588b5eae-b70e-4302-a52f-9287265ad03c
 title: "Feature flags"
 domain: agentic-cookbook://guidelines/planning/feature-management/feature-flags
 type: guideline
-version: 1.1.0
+version: 1.1.1
 status: accepted
 language: en
 created: 2026-03-27
@@ -26,6 +26,9 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - feature-flags
+  - new-module
 ---
 
 # Feature flags
@@ -49,6 +52,7 @@ Plan for feature flag architecture from the start. All features MUST be gated be
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.1 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.1.0 | 2026-04-09 | Mike Fullerton | Tailor for planning use case — focus on architecture decisions |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

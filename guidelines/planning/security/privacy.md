@@ -4,7 +4,7 @@ id: e29555dd-a4e6-4973-8bde-365b8d60bf9f
 title: "Privacy and security by default"
 domain: agentic-cookbook://guidelines/planning/security/privacy
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -25,6 +25,9 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - security-review
+  - data-modeling
 ---
 
 # Privacy and security by default
@@ -90,5 +93,6 @@ Respect scoped storage, support per-app language preferences, and honor permissi
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

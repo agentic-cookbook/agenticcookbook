@@ -4,7 +4,7 @@ id: 433b4c9d-fe44-4fec-af0d-83bba9c51c6f
 title: "Background tasks"
 domain: agentic-cookbook://guidelines/implementing/platform-integration/background-tasks
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-02
@@ -30,6 +30,9 @@ related:
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - platform-integration
+  - concurrency
 ---
 
 # Background tasks
@@ -61,5 +64,6 @@ Use Service Workers for background sync (`BackgroundSyncManager`) and push notif
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-02 | Mike Fullerton | Initial creation |

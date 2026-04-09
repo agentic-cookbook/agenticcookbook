@@ -4,7 +4,7 @@ id: a7192ade-023d-43b5-b68c-eb2b7024a3fd
 title: "Purpose Classification"
 domain: agentic-cookbook://guidelines/planning/code-quality/purpose-classification
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-07
@@ -25,6 +25,9 @@ tags:
 depends-on: []
 related: []
 references: []
+triggers:
+  - new-module
+  - code-review
 ---
 
 # Purpose Classification

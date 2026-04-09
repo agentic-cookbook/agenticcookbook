@@ -4,7 +4,7 @@ id: 43dbf61b-96ff-45f8-a11c-924e2f4359e0
 title: "Rule Structure Reference"
 domain: agentic-cookbook://guidelines/cookbook/skills-and-agents/rule-structure-reference
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-02
@@ -26,6 +26,8 @@ related:
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - skill-authoring
 ---
 
 # Rule Structure Reference
@@ -96,6 +98,7 @@ Rules in `.claude/rules/` are injected into the system prompt on **every turn** 
 
 | Aspect | Skill | Agent | Rule |
 |--------|-------|-------|------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Format | Directory with `SKILL.md` | Single `.md` with agent frontmatter | Single `.md`, plain markdown |
 | Frontmatter | Skill-specific (name, description, allowed-tools, etc.) | Agent-specific (tools, permissionMode, maxTurns, etc.) | None required |

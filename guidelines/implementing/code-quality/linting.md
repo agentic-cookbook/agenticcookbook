@@ -4,7 +4,7 @@ id: 775da457-30c7-47de-b179-0fae8a8b779d
 title: "Linting from day one"
 domain: agentic-cookbook://guidelines/implementing/code-quality/linting
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -36,6 +36,9 @@ references:
   - https://stylelint.io/
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - pre-commit
+  - new-module
 ---
 
 # Linting from day one
@@ -44,6 +47,7 @@ All projects MUST include linting configured from initial generation:
 
 | Platform | Linter | Formatter |
 |----------|--------|-----------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Swift | SwiftLint | swift-format |
 | Kotlin | ktlint | ktlint |

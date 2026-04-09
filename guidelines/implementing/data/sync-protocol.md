@@ -4,7 +4,7 @@ id: 3B88BB39-A15D-488F-A967-B7FA2DBA2BE7
 title: "Sync Protocol"
 domain: agentic-cookbook://guidelines/implementing/data/sync-protocol
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -33,6 +33,10 @@ references:
   - https://www.milanjovanovic.tech/blog/implementing-the-outbox-pattern
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - offline-support
+  - networking
+  - database-operations
 ---
 
 # Sync Protocol
@@ -110,6 +114,7 @@ Recommended batch sizes:
 
 | Context | Batch Size |
 |---------|-----------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Mobile (unstable network) | 50–100 records |
 | Desktop (stable network) | 500–1000 records |

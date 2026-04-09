@@ -4,7 +4,7 @@ id: 392d9205-6a50-4815-80a0-7d148880d43b
 title: "Rule Lint Checklist"
 domain: agentic-cookbook://guidelines/cookbook/skills-and-agents/rule-checklist
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-02
@@ -27,6 +27,9 @@ related:
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - skill-authoring
+  - pre-pr
 ---
 
 # Rule Lint Checklist
@@ -46,6 +49,7 @@ Severity levels:
 
 | ID  | Criterion | How to check | Severity |
 |-----|-----------|-------------|----------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | C01 | Single responsibility | Rule addresses one coherent concern — not a grab-bag of unrelated instructions | WARN |
 | C07 | Instructions are actionable and specific | Every instruction tells the LLM what to do concretely, not vague directives like "handle errors appropriately" | WARN |

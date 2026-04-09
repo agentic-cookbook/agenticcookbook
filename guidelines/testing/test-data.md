@@ -4,7 +4,7 @@ id: 38969d3a-884a-4d6e-adae-5398464ee0de
 title: "Test Data"
 domain: agentic-cookbook://guidelines/testing/test-data
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -22,6 +22,9 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - writing-tests
+  - data-modeling
 ---
 
 # Test Data
@@ -41,5 +44,6 @@ Build test data inline using builders or factories so every test declares exactl
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -4,7 +4,7 @@ id: e761c71a-eb90-44c8-8149-3062da19ad37
 title: "Skill Lint Checklist"
 domain: agentic-cookbook://guidelines/reviewing/skills-and-agents/skill-checklist
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-02
@@ -26,6 +26,9 @@ related:
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - skill-authoring
+  - pre-pr
 ---
 
 # Skill Lint Checklist
@@ -46,6 +49,7 @@ Severity levels:
 
 | ID  | Criterion | How to check | Severity |
 |-----|-----------|-------------|----------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | S01 | YAML frontmatter present | File starts with `---`, has closing `---` | FAIL |
 | S02 | `name` field present | Frontmatter contains `name:` | WARN |

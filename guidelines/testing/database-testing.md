@@ -4,7 +4,7 @@ id: 183D07F2-ECFC-4DA3-9A21-96953EFEFA91
 title: "Database testing"
 domain: agentic-cookbook://guidelines/testing/database-testing
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -30,6 +30,9 @@ references:
   - https://oneuptime.com/blog/post/2026-02-02-sqlite-testing/view
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - writing-tests
+  - database-operations
 ---
 
 # Database testing
@@ -209,6 +212,7 @@ SQLite in tests does not behave identically to PostgreSQL or MySQL in production
 
 | Behavior | SQLite | PostgreSQL |
 |----------|--------|------------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Type enforcement | Permissive | Strict |
 | Boolean | `INTEGER 0/1` | Native `BOOLEAN` |

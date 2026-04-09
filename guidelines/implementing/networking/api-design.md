@@ -4,7 +4,7 @@ id: 49399746-a81f-4163-8b07-0cfa11d87c2e
 title: "API Design"
 domain: agentic-cookbook://guidelines/implementing/networking/api-design
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -22,6 +22,9 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - api-integration
+  - new-module
 ---
 
 # API Design
@@ -41,6 +44,7 @@ Zalando) for details — the essentials below are consensus across all three.
 
 | Method | Semantics | Idempotent | Success Code |
 |--------|-----------|------------|-------------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | GET | Read | Yes | 200 |
 | POST | Create | No | 201 + Location |

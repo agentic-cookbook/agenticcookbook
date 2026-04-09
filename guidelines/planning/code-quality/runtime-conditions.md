@@ -4,7 +4,7 @@ id: 7b713210-43ee-4f7f-be9e-b096edb782ba
 title: "Runtime Conditions"
 domain: agentic-cookbook://guidelines/planning/code-quality/runtime-conditions
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-07
@@ -25,6 +25,9 @@ tags:
 depends-on: []
 related: []
 references: []
+triggers:
+  - code-review
+  - new-module
 ---
 
 # Runtime Conditions

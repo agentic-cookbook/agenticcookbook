@@ -4,7 +4,7 @@ id: 2212a394-68d8-4588-a587-2fc637280deb
 title: "Handoff and continuity"
 domain: agentic-cookbook://guidelines/implementing/platform-integration/handoff-and-continuity
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-02
@@ -30,6 +30,9 @@ related:
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - platform-integration
+  - offline-support
 ---
 
 # Handoff and continuity
@@ -57,5 +60,6 @@ Use shared URLs as the primary continuity mechanism — a well-constructed URL w
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-02 | Mike Fullerton | Initial creation |

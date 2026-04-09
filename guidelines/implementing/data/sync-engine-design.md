@@ -4,7 +4,7 @@ id: A0CB2815-8FDD-450A-AF46-8FCA80BA1ABA
 title: "Sync Engine Design"
 domain: agentic-cookbook://guidelines/implementing/data/sync-engine-design
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -30,6 +30,9 @@ related:
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - offline-support
+  - database-operations
 ---
 
 # Sync Engine Design
@@ -164,6 +167,7 @@ Typical values: `BASE_DELAY = 1s`, `MAX_DELAY = 15min`, `JITTER = 0–1s`.
 
 | Error | Action |
 |-------|--------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Network timeout, 503 | Retry with backoff |
 | 400, 401, 403 | Do not retry — surface to user |

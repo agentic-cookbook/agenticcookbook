@@ -4,7 +4,7 @@ id: AB416D40-2688-4531-95FB-613F0D2FA8CF
 title: "Transactions and Concurrency"
 domain: agentic-cookbook://guidelines/implementing/data/transactions-and-concurrency
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -32,6 +32,9 @@ references:
   - https://sqlite.org/pragma.html
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - database-operations
+  - concurrency
 ---
 
 # Transactions and Concurrency
@@ -71,6 +74,7 @@ WAL mode persists in the database header — it survives reconnects. Set it once
 
 | Mode | Concurrent Reads | Write Speed | Durability | Use When |
 |------|-----------------|-------------|------------|----------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | WAL | Yes | Fast (sequential) | Full (with NORMAL) | Default for most apps |
 | DELETE | No | Slow | Full | Network file systems, max compatibility |

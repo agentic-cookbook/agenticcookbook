@@ -4,7 +4,7 @@ id: 59ffd7c7-2bdc-4f7b-b6f3-07d1f24599a3
 title: "Unit Test Patterns"
 domain: agentic-cookbook://guidelines/cookbook/testing/unit-test-patterns
 type: guideline
-version: 1.1.0
+version: 1.1.1
 status: accepted
 language: en
 created: 2026-03-27
@@ -22,6 +22,8 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - writing-tests
 ---
 
 # Unit Test Patterns
@@ -55,6 +57,7 @@ These names will be used verbatim by code generators, so they MUST be clear enou
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.1 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.1.0 | 2026-04-09 | Mike Fullerton | Tailor for cookbook use case — reframe for test vector authoring |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

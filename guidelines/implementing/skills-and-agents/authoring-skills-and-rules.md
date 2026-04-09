@@ -4,7 +4,7 @@ id: dccc22a6-94f3-4cfc-8b30-bae18c56f6f0
 title: "Authoring Skills and Rules"
 domain: agentic-cookbook://guidelines/implementing/skills-and-agents/authoring-skills-and-rules
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-28
@@ -25,6 +25,8 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - skill-authoring
 ---
 
 # Authoring Skills and Rules
@@ -101,5 +103,6 @@ Agent authoring is less mature than skill and rule authoring. The following prac
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation from lessons learned building cookbook skills |

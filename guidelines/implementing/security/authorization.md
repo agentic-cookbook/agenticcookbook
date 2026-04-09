@@ -4,7 +4,7 @@ id: 2609037a-fb89-4b49-88b0-7e4295e5d6f6
 title: "Authorization"
 domain: agentic-cookbook://guidelines/implementing/security/authorization
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -26,6 +26,9 @@ references:
   - https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - authentication
+  - security-review
 ---
 
 # Authorization
@@ -52,5 +55,6 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

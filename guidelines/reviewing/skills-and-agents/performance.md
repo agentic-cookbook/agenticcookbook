@@ -4,7 +4,7 @@ id: f7d33c40-8dbd-4503-827f-92e4c3da4b8f
 title: "Performance: Speed and Token Efficiency"
 domain: agentic-cookbook://guidelines/reviewing/skills-and-agents/performance
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-02
@@ -31,6 +31,9 @@ related:
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - skill-authoring
+  - performance-optimization
 ---
 
 # Performance: Speed and Token Efficiency
@@ -133,5 +136,6 @@ The agentic-cookbook's own rules went from 381 lines / 17,689 bytes per turn to 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-02 | Mike Fullerton | Initial creation combining shell script, model selection, and progressive disclosure principles |

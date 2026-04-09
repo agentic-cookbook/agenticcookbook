@@ -4,7 +4,7 @@ id: 1b259fdc-1aba-48c5-a89a-b9ca01dc3351
 title: "Feature flags"
 domain: agentic-cookbook://guidelines/shipping/feature-flags
 type: guideline
-version: 1.1.0
+version: 1.1.1
 status: accepted
 language: en
 created: 2026-03-27
@@ -26,6 +26,9 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - feature-flags
+  - new-module
 ---
 
 # Feature flags
@@ -44,6 +47,7 @@ Before shipping, verify that all new features are properly gated behind feature 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.1 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.1.0 | 2026-04-09 | Mike Fullerton | Tailor for shipping use case — focus on pre-ship flag verification |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

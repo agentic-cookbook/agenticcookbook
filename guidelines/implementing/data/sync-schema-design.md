@@ -4,7 +4,7 @@ id: A899AEAE-D561-4FCD-ABD7-DF109FE2362C
 title: "Sync Schema Design"
 domain: agentic-cookbook://guidelines/implementing/data/sync-schema-design
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -33,6 +33,9 @@ references:
   - https://vlcn.io/docs/cr-sqlite
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - offline-support
+  - schema-design
 ---
 
 # Sync Schema Design
@@ -77,6 +80,7 @@ Every synced table MUST have three timestamp columns:
 
 | Column | Purpose |
 |--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | `created_at` | Record creation time (set once, never updated) |
 | `updated_at` | Last modification time (updated on every change) |

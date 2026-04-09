@@ -4,7 +4,7 @@ id: 7bf2aa67-7260-4d95-9da9-1b79ad9095c1
 title: "Small, atomic commits"
 domain: agentic-cookbook://guidelines/shipping/atomic-commits
 type: guideline
-version: 1.1.1
+version: 1.1.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -24,6 +24,8 @@ related:
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - pre-commit
 ---
 
 # Small, atomic commits
@@ -61,6 +63,7 @@ Batched, uncommitted changes create compound failures that are difficult to debu
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.1.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.1.0 | 2026-03-28 | Mike Fullerton | Add build-verify-commit loop, expand guidance |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -4,7 +4,7 @@ id: ef2d2757-132a-403b-8e98-bbeca9c42deb
 title: "Framework Conventions"
 domain: agentic-cookbook://guidelines/planning/code-quality/framework-conventions
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-07
@@ -25,6 +25,9 @@ tags:
 depends-on: []
 related: []
 references: []
+triggers:
+  - new-module
+  - code-review
 ---
 
 # Framework Conventions

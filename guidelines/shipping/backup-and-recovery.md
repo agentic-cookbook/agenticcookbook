@@ -4,7 +4,7 @@ id: 04b47c8b-e076-47a0-a541-6937bdc64abb
 title: "Database backup and recovery"
 domain: agentic-cookbook://guidelines/shipping/backup-and-recovery
 type: guideline
-version: 1.1.0
+version: 1.1.1
 status: accepted
 language: en
 created: 2026-04-06
@@ -34,6 +34,9 @@ references:
   - https://sqlite.org/wal.html
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - database-operations
+  - configuration
 ---
 
 # Database backup and recovery
@@ -73,6 +76,7 @@ After a migration completes:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.1 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.1.0 | 2026-04-09 | Mike Fullerton | Tailor for shipping use case — focus on pre-deploy backup verification |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

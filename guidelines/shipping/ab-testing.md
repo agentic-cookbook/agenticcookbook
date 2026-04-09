@@ -4,7 +4,7 @@ id: cadf17c9-e809-4324-acb3-a430c54a81b4
 title: "A/B testing"
 domain: agentic-cookbook://guidelines/shipping/ab-testing
 type: guideline
-version: 1.1.0
+version: 1.1.1
 status: accepted
 language: en
 created: 2026-03-27
@@ -22,6 +22,9 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - feature-flags
+  - logging
 ---
 
 # A/B testing
@@ -38,6 +41,7 @@ Before shipping a feature with experiment support, verify the A/B testing config
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.1 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.1.0 | 2026-04-09 | Mike Fullerton | Tailor for shipping use case — focus on pre-ship experiment verification |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

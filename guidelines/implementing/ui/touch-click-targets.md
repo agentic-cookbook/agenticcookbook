@@ -4,7 +4,7 @@ id: 73b254b4-c611-434a-a9f4-67c8a7155576
 title: "Touch & Click Targets"
 domain: agentic-cookbook://guidelines/implementing/ui/touch-click-targets
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -32,6 +32,9 @@ references:
   - https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - ui-implementation
+  - accessibility
 ---
 
 # Touch & Click Targets
@@ -41,6 +44,7 @@ HIG first — each prescribes its own minimum:
 
 | Platform | Minimum Target | Recommended |
 |----------|---------------|-------------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Apple (iOS) | 44x44 pt | 44x44 pt |
 | Android (Material) | 48x48 dp | 48x48 dp |

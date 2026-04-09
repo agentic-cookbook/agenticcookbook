@@ -4,7 +4,7 @@ id: 34f13883-8905-4b5c-9299-82602687e98d
 title: "Linting from day one"
 domain: agentic-cookbook://guidelines/testing/linting
 type: guideline
-version: 1.1.0
+version: 1.1.1
 status: accepted
 language: en
 created: 2026-03-27
@@ -36,6 +36,9 @@ references:
   - https://stylelint.io/
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - pre-commit
+  - new-module
 ---
 
 # Linting as automated verification
@@ -60,6 +63,7 @@ Linting MUST run as part of the automated verification process:
 
 | Platform | Linter | Formatter |
 |----------|--------|-----------|
+| 1.1.1 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | Swift | SwiftLint | swift-format |
 | Kotlin | ktlint | ktlint |
 | TypeScript | ESLint | Prettier |

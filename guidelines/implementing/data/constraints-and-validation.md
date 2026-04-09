@@ -4,7 +4,7 @@ id: F28A4638-C2AE-4A9B-817F-0F19B5712168
 title: "Constraints and validation"
 domain: agentic-cookbook://guidelines/implementing/data/constraints-and-validation
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -29,6 +29,9 @@ references:
   - https://www.sqlite.org/lang_createtable.html
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - database-operations
+  - schema-design
 ---
 
 # Constraints and validation
@@ -136,6 +139,7 @@ These are explicitly prohibited:
 
 | Prohibited | Alternative |
 |------------|-------------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Subqueries (`SELECT ...`) | Use triggers for cross-row validation |
 | `CURRENT_TIME` | Application-level validation |

@@ -4,7 +4,7 @@ id: f3ae65a6-f51d-4e42-8f79-fa8097dd3480
 title: "Test Pyramid"
 domain: agentic-cookbook://guidelines/testing/test-pyramid
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -22,6 +22,9 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - writing-tests
+  - pre-pr
 ---
 
 # Test Pyramid
@@ -41,5 +44,6 @@ cover the behavior (e.g., database queries, UI rendering), escalate to integrati
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

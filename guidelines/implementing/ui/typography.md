@@ -4,7 +4,7 @@ id: 1971d5c6-592d-4959-aa2c-33ea4ff17d0d
 title: "Typography"
 domain: agentic-cookbook://guidelines/implementing/ui/typography
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -33,6 +33,8 @@ references:
   - https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - ui-implementation
 ---
 
 # Typography
@@ -69,5 +71,6 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

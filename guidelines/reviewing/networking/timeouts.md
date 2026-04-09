@@ -4,7 +4,7 @@ id: 02eb7d39-cdd4-4c2e-a304-7442f3d98ff7
 title: "Timeouts"
 domain: agentic-cookbook://guidelines/reviewing/networking/timeouts
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -22,6 +22,9 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - networking
+  - api-integration
 ---
 
 # Timeouts
@@ -30,6 +33,7 @@ Every request MUST set both connection and read timeouts. Infinite timeouts MUST
 
 | Timeout | Purpose | Default |
 |---------|---------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Connection | TCP + TLS handshake | 10 seconds |
 | Read / Response | Time to first byte | 30 seconds |

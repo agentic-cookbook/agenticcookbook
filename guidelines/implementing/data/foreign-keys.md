@@ -4,7 +4,7 @@ id: B16E64A4-462D-4F46-AFEB-1A06952E5E65
 title: "Foreign keys and referential integrity"
 domain: agentic-cookbook://guidelines/implementing/data/foreign-keys
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -28,6 +28,9 @@ references:
   - https://sqlite.org/foreignkeys.html
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - database-operations
+  - schema-design
 ---
 
 # Foreign keys and referential integrity
@@ -80,6 +83,7 @@ Configure what happens to child rows when a referenced parent row is deleted or 
 
 | Action | Behavior |
 |--------|----------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | `NO ACTION` | Fail if child rows exist (checked at statement end) |
 | `RESTRICT` | Fail immediately, even with deferred constraints |

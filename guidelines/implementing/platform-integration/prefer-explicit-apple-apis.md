@@ -4,7 +4,7 @@ id: 095b33a1-2835-4ed5-bf01-f1e492148819
 title: "Use AppKit and UIKit, not SwiftUI"
 domain: agentic-cookbook://guidelines/implementing/platform-integration/prefer-explicit-apple-apis
 type: guideline
-version: 2.0.1
+version: 2.0.2
 status: accepted
 language: en
 created: 2026-04-02
@@ -30,6 +30,9 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - platform-integration
+  - ui-implementation
 ---
 
 # Use AppKit and UIKit, not SwiftUI
@@ -63,6 +66,7 @@ In these cases, the SwiftUI layer SHOULD be kept as thin as possible. Pin the mi
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 2.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 2.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-02 | Mike Fullerton | Initial creation |
 | 2.0.0 | 2026-04-02 | Mike Fullerton | Strengthen position: use AppKit/UIKit for all UI, SwiftUI only when required by Apple |

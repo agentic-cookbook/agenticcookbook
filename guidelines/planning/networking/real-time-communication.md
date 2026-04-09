@@ -4,7 +4,7 @@ id: 08ca2fd9-d466-4bdc-aea0-1af0c23ef09d
 title: "Real-Time Communication"
 domain: agentic-cookbook://guidelines/planning/networking/real-time-communication
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -26,6 +26,9 @@ references:
   - https://www.rfc-editor.org/rfc/rfc6455
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - networking
+  - concurrency
 ---
 
 # Real-Time Communication
@@ -34,6 +37,7 @@ Choose the simplest technique that meets your needs.
 
 | Technique | Direction | Use When |
 |-----------|-----------|----------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Polling | Client-pull | Low frequency (<1/min), simplicity paramount |
 | SSE | Server-push | Notifications, live feeds, dashboards, progress |

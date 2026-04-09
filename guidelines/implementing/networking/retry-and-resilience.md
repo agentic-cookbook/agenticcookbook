@@ -4,7 +4,7 @@ id: cef41f52-bfc6-4ff0-bb67-eb52521c7391
 title: "Retry and Resilience"
 domain: agentic-cookbook://guidelines/implementing/networking/retry-and-resilience
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -27,6 +27,9 @@ references:
   - https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - networking
+  - error-handling
 ---
 
 # Retry and Resilience
@@ -40,6 +43,7 @@ delay = random(0, min(max_delay, base * 2^attempt))
 
 | Parameter | Default |
 |-----------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Base delay | 1 second |
 | Max delay cap | 30 seconds |

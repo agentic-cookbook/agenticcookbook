@@ -4,7 +4,7 @@ id: e48a04d7-c479-427d-9d8e-fe9e9b990c77
 title: "Template Conformance"
 domain: agentic-cookbook://guidelines/cookbook/recipe-quality/template-conformance
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-07
@@ -25,6 +25,8 @@ tags:
 depends-on: []
 related: []
 references: []
+triggers:
+  - recipe-authoring
 ---
 
 # Template Conformance

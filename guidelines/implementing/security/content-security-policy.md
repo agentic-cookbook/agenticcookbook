@@ -4,7 +4,7 @@ id: 6f4cfd55-cb09-4ede-a53c-feaeb5781127
 title: "Content Security Policy"
 domain: agentic-cookbook://guidelines/implementing/security/content-security-policy
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -27,6 +27,9 @@ references:
   - https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - security-review
+  - ui-implementation
 ---
 
 # Content Security Policy
@@ -50,5 +53,6 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

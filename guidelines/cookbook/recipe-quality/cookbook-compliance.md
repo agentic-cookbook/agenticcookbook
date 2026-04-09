@@ -4,7 +4,7 @@ id: 0d3aaa29-0ce3-4803-8f8a-a7023713b574
 title: "Cookbook Compliance"
 domain: agentic-cookbook://guidelines/cookbook/recipe-quality/cookbook-compliance
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-07
@@ -25,6 +25,8 @@ tags:
 depends-on: []
 related: []
 references: []
+triggers:
+  - recipe-authoring
 ---
 
 # Cookbook Compliance

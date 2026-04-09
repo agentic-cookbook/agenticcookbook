@@ -4,7 +4,7 @@ id: 991e72d0-477b-4fd5-bdfa-08680efc0cf9
 title: "Scriptable and automatable"
 domain: agentic-cookbook://guidelines/implementing/platform-integration/shortcuts-and-automation
 type: guideline
-version: 1.1.1
+version: 1.1.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -30,6 +30,9 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - platform-integration
+  - configuration
 ---
 
 # Scriptable and automatable
@@ -60,6 +63,7 @@ Use `AppActions` for Google Assistant integration. Support `Intent`-based automa
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.1.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
 | 1.1.0 | 2026-04-02 | Mike Fullerton | Moved from ui/ to platform/ — system integration, not UI design |

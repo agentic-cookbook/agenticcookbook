@@ -4,7 +4,7 @@ id: ccffa426-5556-4bbe-8dd6-b43c8e195f64
 title: "Property-Based Testing"
 domain: agentic-cookbook://guidelines/testing/property-based-testing
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -31,6 +31,8 @@ references:
   - https://jqwik.net/
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - writing-tests
 ---
 
 # Property-Based Testing
@@ -45,6 +47,7 @@ and let the framework generate hundreds of random inputs to try to falsify them.
 
 | Platform | Library | Install |
 |----------|---------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Python | [Hypothesis](https://github.com/HypothesisWorks/hypothesis) | `pip install hypothesis` |
 | TypeScript/JS | [fast-check](https://github.com/dubzzz/fast-check) | `npm install fast-check` |

@@ -4,7 +4,7 @@ id: 49acdf9f-e4cb-4492-a620-809438eefb37
 title: "Pagination"
 domain: agentic-cookbook://guidelines/implementing/networking/pagination
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -24,6 +24,9 @@ references:
   - https://opensource.zalando.com/restful-api-guidelines/#pagination
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - api-integration
+  - data-modeling
 ---
 
 # Pagination
@@ -63,5 +66,6 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

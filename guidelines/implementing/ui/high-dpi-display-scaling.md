@@ -4,7 +4,7 @@ id: 2b9e9fbb-6df8-4dc2-b02d-3b97f6e434fb
 title: "High DPI / Display Scaling"
 domain: agentic-cookbook://guidelines/implementing/ui/high-dpi-display-scaling
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -25,6 +25,9 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - ui-implementation
+  - accessibility
 ---
 
 # High DPI / Display Scaling
@@ -39,5 +42,6 @@ XAML layout uses effective pixels (epx) — scaling is automatic for all XAML-re
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

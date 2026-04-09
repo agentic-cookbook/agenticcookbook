@@ -4,7 +4,7 @@ id: 563aebde-52bf-4011-8907-ecc473fd942c
 title: "Post-generation verification"
 domain: agentic-cookbook://guidelines/testing/post-generation-verification
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -26,6 +26,9 @@ related:
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - pre-commit
+  - code-review
 ---
 
 # Post-generation verification
@@ -45,5 +48,6 @@ If any step fails, the issue MUST be fixed before considering the work complete.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

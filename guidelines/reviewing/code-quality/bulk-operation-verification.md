@@ -4,7 +4,7 @@ id: b4e8d2c3-9f5a-4b0e-c7d4-3e2f1a0b9c8d
 title: "Bulk operation verification"
 domain: agentic-cookbook://guidelines/reviewing/code-quality/bulk-operation-verification
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-28
@@ -25,6 +25,9 @@ related:
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - code-review
+  - pre-commit
 ---
 
 # Bulk operation verification
@@ -67,5 +70,6 @@ A bulk operation MUST NOT be marked complete until the verification pass returns
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

@@ -4,7 +4,7 @@ id: d02a65e0-652f-49b9-be3b-44fccc2f7888
 title: "Input Validation"
 domain: agentic-cookbook://guidelines/reviewing/security/input-validation
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -27,6 +27,10 @@ references:
   - https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - input-handling
+  - security-review
+  - api-integration
 ---
 
 # Input Validation
@@ -56,5 +60,6 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

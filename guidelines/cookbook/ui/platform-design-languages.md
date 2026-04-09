@@ -4,7 +4,7 @@ id: f26a9468-a15c-4cd2-b944-d39221e7eee2
 title: "Platform Design Languages"
 domain: agentic-cookbook://guidelines/cookbook/ui/platform-design-languages
 type: guideline
-version: 1.1.0
+version: 1.1.1
 status: accepted
 language: en
 created: 2026-03-27
@@ -29,6 +29,9 @@ references:
   - https://www.w3.org/TR/WCAG21/
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - ui-implementation
+  - platform-integration
 ---
 
 # Platform Design Languages
@@ -52,6 +55,7 @@ When writing UI ingredients or recipes, refer to these canonical platform design
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.1 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.1.0 | 2026-04-09 | Mike Fullerton | Tailor for cookbook use case — reframe for cookbook artifact authoring |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

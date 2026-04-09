@@ -4,7 +4,7 @@ id: 607B9F71-39DD-4B10-80FD-D8FD115CCE5F
 title: "Database backup and recovery"
 domain: agentic-cookbook://guidelines/implementing/data/backup-and-recovery
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -34,6 +34,9 @@ references:
   - https://sqlite.org/wal.html
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - database-operations
+  - configuration
 ---
 
 # Database backup and recovery
@@ -189,5 +192,6 @@ After large purges, run `PRAGMA incremental_vacuum` to reclaim the freed pages.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

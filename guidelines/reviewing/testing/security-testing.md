@@ -4,7 +4,7 @@ id: b9da0bd1-a7e4-491f-beb0-46f7b5c19d86
 title: "Security Testing"
 domain: agentic-cookbook://guidelines/reviewing/testing/security-testing
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -34,6 +34,9 @@ references:
   - https://www.zaproxy.org/
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - writing-tests
+  - security-review
 ---
 
 # Security Testing
@@ -61,5 +64,6 @@ See agentic-cookbook://guidelines/security/* (Security Guidelines) for the full 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -4,7 +4,7 @@ id: DB63C086-D082-4E20-AACA-154448C42D1D
 title: "SQLite Sync Tooling"
 domain: agentic-cookbook://guidelines/implementing/data/sync-tooling
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -38,6 +38,9 @@ references:
   - https://github.com/sqliteai/sqlite-sync
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - offline-support
+  - dependency-management
 ---
 
 # SQLite Sync Tooling
@@ -189,5 +192,6 @@ MUST evaluate maturity and support model before committing to a Beta tool in pro
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

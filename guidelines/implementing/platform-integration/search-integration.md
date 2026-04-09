@@ -4,7 +4,7 @@ id: b512282a-8174-426f-95dd-4a147222584d
 title: "Search integration"
 domain: agentic-cookbook://guidelines/implementing/platform-integration/search-integration
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-02
@@ -30,6 +30,8 @@ related:
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - platform-integration
 ---
 
 # Search integration
@@ -61,5 +63,6 @@ Use structured data (JSON-LD, Schema.org) for search engine discoverability. Imp
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-02 | Mike Fullerton | Initial creation |

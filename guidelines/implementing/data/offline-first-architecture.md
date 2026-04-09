@@ -4,7 +4,7 @@ id: 0D3E2D97-22D4-4781-A6C4-FA297B38030F
 title: "Offline-First Architecture"
 domain: agentic-cookbook://guidelines/implementing/data/offline-first-architecture
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -32,6 +32,9 @@ references:
   - https://www.powersync.com/blog/sqlite-optimizations-for-ultra-high-performance
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - offline-support
+  - database-operations
 ---
 
 # Offline-First Architecture
@@ -194,5 +197,6 @@ Never retry sync in a tight loop on reconnection. Apply exponential backoff star
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

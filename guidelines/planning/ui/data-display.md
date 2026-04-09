@@ -4,7 +4,7 @@ id: 31586bfd-4403-4a11-93d4-ac1a3e001c2f
 title: "Data Display"
 domain: agentic-cookbook://guidelines/planning/ui/data-display
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -25,6 +25,9 @@ references:
   - https://www.nngroup.com/articles/cards-component/
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - ui-implementation
+  - data-modeling
 ---
 
 # Data Display
@@ -55,5 +58,6 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

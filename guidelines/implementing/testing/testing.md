@@ -4,7 +4,7 @@ id: 42220186-4305-45cd-8e7d-a8d1172b6fbd
 title: "Comprehensive unit testing"
 domain: agentic-cookbook://guidelines/implementing/testing/testing
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -28,6 +28,9 @@ references:
   - https://xunit.net/
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - writing-tests
+  - pre-pr
 ---
 
 # Comprehensive unit testing
@@ -82,5 +85,6 @@ public void IsValidEmail_ReturnsExpected(string input, bool expected)
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

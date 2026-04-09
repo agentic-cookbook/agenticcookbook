@@ -4,7 +4,7 @@ id: 8b9def90-2153-45ba-9dcc-fa2aa3bf745e
 title: "Agent Structure Reference"
 domain: agentic-cookbook://guidelines/implementing/skills-and-agents/agent-structure-reference
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-02
@@ -26,6 +26,8 @@ related:
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - skill-authoring
 ---
 
 # Agent Structure Reference
@@ -48,6 +50,7 @@ The filename MUST be lowercase kebab-case (e.g., `build-runner.md`). Uppercase s
 
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | `name` | string | filename | Display name for the agent |
 | `description` | string | — | When to use this agent; helps Claude select the right agent |

@@ -4,7 +4,7 @@ id: 04fe1298-3880-4584-8a4a-c7a538eb5193
 title: "Behavioral Requirements"
 domain: agentic-cookbook://guidelines/cookbook/recipe-quality/behavioral-requirements
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-07
@@ -26,6 +26,8 @@ depends-on: []
 related: []
 references:
   - https://www.rfc-editor.org/rfc/rfc2119
+triggers:
+  - recipe-authoring
 ---
 
 # Behavioral Requirements

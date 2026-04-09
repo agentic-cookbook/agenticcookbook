@@ -4,7 +4,7 @@ id: c90e2ebe-2fbd-4f83-994e-5db46d53f16b
 title: "Primary key strategies"
 domain: agentic-cookbook://guidelines/planning/data/primary-keys
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -33,6 +33,9 @@ references:
   - https://www.bytebase.com/blog/choose-primary-key-uuid-or-auto-increment/
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - database-operations
+  - schema-design
 ---
 
 # Primary key strategies
@@ -139,6 +142,7 @@ CREATE TABLE word_counts (
 
 | Situation | Strategy |
 |-----------|----------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Default / general tables | `INTEGER PRIMARY KEY` |
 | Audit log or ledger — IDs must never reuse | `INTEGER PRIMARY KEY AUTOINCREMENT` |

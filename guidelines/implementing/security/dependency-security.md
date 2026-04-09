@@ -4,7 +4,7 @@ id: b712c766-af1f-4716-b8fb-34bf0bbb13eb
 title: "Dependency Security"
 domain: agentic-cookbook://guidelines/implementing/security/dependency-security
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -27,6 +27,9 @@ references:
   - https://www.sigstore.dev/
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - dependency-management
+  - security-review
 ---
 
 # Dependency Security
@@ -53,5 +56,6 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

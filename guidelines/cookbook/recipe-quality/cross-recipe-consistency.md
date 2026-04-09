@@ -4,7 +4,7 @@ id: 19648d85-adba-4f38-b513-a38ca58e9fb0
 title: "Cross-Recipe Consistency"
 domain: agentic-cookbook://guidelines/cookbook/recipe-quality/cross-recipe-consistency
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-07
@@ -25,6 +25,8 @@ tags:
 depends-on: []
 related: []
 references: []
+triggers:
+  - recipe-authoring
 ---
 
 # Cross-Recipe Consistency

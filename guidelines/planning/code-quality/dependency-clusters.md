@@ -4,7 +4,7 @@ id: 4de09db8-b6fe-4211-b7e4-c95619a12141
 title: "Dependency Clusters"
 domain: agentic-cookbook://guidelines/planning/code-quality/dependency-clusters
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-07
@@ -25,6 +25,9 @@ tags:
 depends-on: []
 related: []
 references: []
+triggers:
+  - code-review
+  - new-module
 ---
 
 # Dependency Clusters

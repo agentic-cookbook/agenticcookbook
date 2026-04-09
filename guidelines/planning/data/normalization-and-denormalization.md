@@ -4,7 +4,7 @@ id: 9ab8dd2d-c543-4490-af0e-e83c101fc28b
 title: "Normalization and denormalization"
 domain: agentic-cookbook://guidelines/planning/data/normalization-and-denormalization
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -31,6 +31,9 @@ references:
   - https://maximeblanc.fr/blog/sqlite-json-and-denormalization
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - database-operations
+  - schema-design
 ---
 
 # Normalization and denormalization
@@ -124,6 +127,7 @@ END;
 
 | Situation | Recommendation |
 |-----------|---------------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | New schema, unknown access patterns | Start at 3NF |
 | Read-heavy dashboard, measured join bottleneck | Denormalize the join |

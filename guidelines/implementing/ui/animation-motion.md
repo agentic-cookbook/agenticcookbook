@@ -4,7 +4,7 @@ id: 9f13dbec-cecb-482b-824b-f7d3e341878a
 title: "Animation & Motion"
 domain: agentic-cookbook://guidelines/implementing/ui/animation-motion
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -27,6 +27,9 @@ references:
   - https://m3.material.io/styles/motion/overview
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - ui-implementation
+  - accessibility
 ---
 
 # Animation & Motion
@@ -38,6 +41,7 @@ feedback. Never animate for decoration.
 
 | Interaction | Duration |
 |------------|----------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Micro-feedback (ripple, highlight) | 50-100ms |
 | State change (hover, toggle, press) | 100-200ms |

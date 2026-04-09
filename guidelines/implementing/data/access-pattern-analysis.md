@@ -4,7 +4,7 @@ id: AF78FFED-0E66-42BE-AB40-EF1BD6A49DD2
 title: "Access Pattern Analysis"
 domain: agentic-cookbook://guidelines/implementing/data/access-pattern-analysis
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -34,6 +34,10 @@ references:
   - https://www.powersync.com/blog/sqlite-optimizations-for-ultra-high-performance
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - database-operations
+  - schema-design
+  - performance-optimization
 ---
 
 # Access Pattern Analysis
@@ -173,6 +177,7 @@ Batch size is an access pattern decision: too small, and HTTP overhead dominates
 
 | Context | Recommended Batch Size | Rationale |
 |---------|----------------------|-----------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Mobile (unstable network) | 50–100 records | Smaller batches survive connection drops |
 | Desktop (stable network) | 500–1,000 records | Reduces HTTP round-trips |

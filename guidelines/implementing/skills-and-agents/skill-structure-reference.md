@@ -4,7 +4,7 @@ id: fe0daac0-1ba7-4c93-a47e-e42e75612cf6
 title: "Skill Structure Reference"
 domain: agentic-cookbook://guidelines/implementing/skills-and-agents/skill-structure-reference
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-02
@@ -26,6 +26,8 @@ related:
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - skill-authoring
 ---
 
 # Skill Structure Reference
@@ -46,6 +48,7 @@ approved-date: "2026-04-04"
 
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | `name` | string | directory name | Display name and slash-command trigger (kebab-case, lowercase, ≤64 chars) |
 | `description` | string | — | When to use this skill; shown in context for auto-invocation matching |

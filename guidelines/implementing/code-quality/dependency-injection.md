@@ -4,7 +4,7 @@ id: e80d67b3-813f-47fb-8894-aa4e6f6479f3
 title: "Dependency Injection"
 domain: agentic-cookbook://guidelines/implementing/code-quality/dependency-injection
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -25,6 +25,9 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - new-module
+  - code-review
 ---
 
 # Dependency Injection
@@ -51,5 +54,6 @@ public static IServiceCollection AddMyFeature(this IServiceCollection services)
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -4,7 +4,7 @@ id: 26c8e7d6-dde3-48d0-bde0-8a71a51a6674
 title: "Layout"
 domain: agentic-cookbook://guidelines/implementing/ui/layout
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -29,6 +29,8 @@ references:
   - https://www.nngroup.com/articles/mobile-first-not-mobile-only/
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - ui-implementation
 ---
 
 # Layout
@@ -59,5 +61,6 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

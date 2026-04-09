@@ -4,7 +4,7 @@ id: 1d4b2aa7-c30e-4d41-8bd8-892ff7ce7499
 title: "App Interactions"
 domain: agentic-cookbook://guidelines/planning/code-quality/app-interactions
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-07
@@ -25,6 +25,9 @@ tags:
 depends-on: []
 related: []
 references: []
+triggers:
+  - new-module
+  - code-review
 ---
 
 # App Interactions

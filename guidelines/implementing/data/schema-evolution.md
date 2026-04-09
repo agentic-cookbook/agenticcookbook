@@ -4,7 +4,7 @@ id: 25A3B827-1DA9-4600-98EC-F5C492A162E3
 title: "Schema evolution and migrations"
 domain: agentic-cookbook://guidelines/implementing/data/schema-evolution
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -31,6 +31,9 @@ references:
   - https://levlaz.org/sqlite-db-migrations-with-pragma-user_version/
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - database-operations
+  - schema-design
 ---
 
 # Schema evolution and migrations
@@ -175,5 +178,6 @@ This works well for additive changes and eliminates the need to write explicit `
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

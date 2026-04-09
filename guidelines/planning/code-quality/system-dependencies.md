@@ -4,7 +4,7 @@ id: 03539f34-3451-49d5-b90f-ba77430f2658
 title: "System Dependencies"
 domain: agentic-cookbook://guidelines/planning/code-quality/system-dependencies
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-07
@@ -25,6 +25,9 @@ tags:
 depends-on: []
 related: []
 references: []
+triggers:
+  - new-module
+  - dependency-management
 ---
 
 # System Dependencies

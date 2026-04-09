@@ -4,7 +4,7 @@ id: 2054b522-fd98-4320-95df-3d95d1a07d98
 title: "Deep linking"
 domain: agentic-cookbook://guidelines/reviewing/platform-integration/deep-linking
 type: guideline
-version: 1.1.1
+version: 1.1.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -27,6 +27,9 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - platform-integration
+  - configuration
 ---
 
 # Deep linking
@@ -63,6 +66,7 @@ Declare protocol handlers in `Package.appxmanifest` and handle activation throug
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.1.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
 | 1.1.0 | 2026-04-02 | Mike Fullerton | Moved from ui/ to platform/ — system integration, not UI design |

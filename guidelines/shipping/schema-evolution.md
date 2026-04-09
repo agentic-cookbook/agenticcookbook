@@ -4,7 +4,7 @@ id: a5228bfe-3caa-444b-9952-52ca5244f829
 title: "Schema evolution and migrations"
 domain: agentic-cookbook://guidelines/shipping/schema-evolution
 type: guideline
-version: 1.1.0
+version: 1.1.1
 status: accepted
 language: en
 created: 2026-04-06
@@ -31,6 +31,9 @@ references:
   - https://levlaz.org/sqlite-db-migrations-with-pragma-user_version/
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - database-operations
+  - schema-design
 ---
 
 # Schema evolution and migrations
@@ -74,6 +77,7 @@ Every migration MUST have a documented rollback path before shipping:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.1 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.1.0 | 2026-04-09 | Mike Fullerton | Tailor for shipping use case — focus on pre-deploy verification and rollback |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

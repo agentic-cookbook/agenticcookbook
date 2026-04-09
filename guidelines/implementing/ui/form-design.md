@@ -4,7 +4,7 @@ id: fdec6403-395b-4b98-b97d-b42e15cb77a6
 title: "Form Design"
 domain: agentic-cookbook://guidelines/implementing/ui/form-design
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -27,6 +27,9 @@ references:
   - https://www.nngroup.com/articles/web-form-design/
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - ui-implementation
+  - input-handling
 ---
 
 # Form Design
@@ -68,5 +71,6 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

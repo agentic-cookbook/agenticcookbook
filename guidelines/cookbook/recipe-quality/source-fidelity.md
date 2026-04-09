@@ -4,7 +4,7 @@ id: 47563e88-307b-4eef-a63c-ddc18e85a945
 title: "Source Fidelity"
 domain: agentic-cookbook://guidelines/cookbook/recipe-quality/source-fidelity
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-07
@@ -25,6 +25,8 @@ tags:
 depends-on: []
 related: []
 references: []
+triggers:
+  - recipe-authoring
 ---
 
 # Source Fidelity

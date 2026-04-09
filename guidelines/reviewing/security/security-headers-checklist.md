@@ -4,7 +4,7 @@ id: c82c02a1-ec15-4892-94b9-0a936eaf2ba7
 title: "Security Headers Checklist"
 domain: agentic-cookbook://guidelines/reviewing/security/security-headers-checklist
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -23,6 +23,9 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - security-review
+  - pre-pr
 ---
 
 # Security Headers Checklist
@@ -43,5 +46,6 @@ Cache-Control: no-store  (for sensitive responses)
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

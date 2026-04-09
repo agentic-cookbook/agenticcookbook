@@ -4,7 +4,7 @@ id: 193e5770-fd0b-45c9-91a4-6673bf6021ff
 title: "Share and inter-app data flow"
 domain: agentic-cookbook://guidelines/implementing/platform-integration/share-and-inter-app-data
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-02
@@ -31,6 +31,8 @@ related:
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - platform-integration
 ---
 
 # Share and inter-app data flow
@@ -62,5 +64,6 @@ Use the Web Share API (`navigator.share()`) to invoke the native share sheet. Re
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-02 | Mike Fullerton | Initial creation |

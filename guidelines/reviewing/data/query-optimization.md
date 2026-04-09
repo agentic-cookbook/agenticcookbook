@@ -4,7 +4,7 @@ id: 26a1a47f-f749-4477-ae04-c54c9a4c5117
 title: "Query Optimization"
 domain: agentic-cookbook://guidelines/reviewing/data/query-optimization
 type: guideline
-version: 1.1.0
+version: 1.1.1
 status: accepted
 language: en
 created: 2026-04-06
@@ -31,6 +31,9 @@ references:
   - https://sqlite.org/queryplanner.html
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - database-operations
+  - performance-optimization
 ---
 
 # Query Optimization
@@ -62,6 +65,7 @@ See the implementing copy of this guideline for detailed examples and fix patter
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.1 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.1.0 | 2026-04-09 | Mike Fullerton | Tailor for reviewing use case — trim to anti-pattern checklist |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

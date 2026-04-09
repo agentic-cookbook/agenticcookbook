@@ -4,7 +4,7 @@ id: 3416a359-e01c-40b2-8876-4a8634d4395e
 title: "Caching"
 domain: agentic-cookbook://guidelines/implementing/networking/caching
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -27,6 +27,9 @@ references:
   - https://www.rfc-editor.org/rfc/rfc9111
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - networking
+  - performance-optimization
 ---
 
 # Caching
@@ -67,5 +70,6 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

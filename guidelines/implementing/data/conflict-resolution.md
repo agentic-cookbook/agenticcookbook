@@ -4,7 +4,7 @@ id: 822A0912-FDA7-461F-85AB-F9C2C55F0039
 title: "Conflict Resolution"
 domain: agentic-cookbook://guidelines/implementing/data/conflict-resolution
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -33,6 +33,9 @@ references:
   - https://github.com/vlcn-io/cr-sqlite
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - offline-support
+  - database-operations
 ---
 
 # Conflict Resolution
@@ -45,6 +48,7 @@ No single strategy fits all data. Apply the simplest strategy that is correct fo
 
 | Strategy | When to Use |
 |----------|-------------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Last-Write-Wins (LWW) | Settings, preferences, low-contention single-user records |
 | Server-wins | Admin-pushed config, read-only replication |

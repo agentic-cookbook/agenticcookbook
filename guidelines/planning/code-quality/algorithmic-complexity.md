@@ -4,7 +4,7 @@ id: 02301325-6676-4b89-ac9f-e2cfe99a4172
 title: "Algorithmic Complexity"
 domain: agentic-cookbook://guidelines/planning/code-quality/algorithmic-complexity
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-07
@@ -25,6 +25,9 @@ tags:
 depends-on: []
 related: []
 references: []
+triggers:
+  - code-review
+  - performance-optimization
 ---
 
 # Algorithmic Complexity

@@ -4,7 +4,7 @@ id: 9a60a717-a031-4c1f-bf00-d531ca211252
 title: "JSON columns and generated columns"
 domain: agentic-cookbook://guidelines/planning/data/json-columns
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-04-06
@@ -31,6 +31,9 @@ references:
   - https://www.dbpro.app/blog/sqlite-json-virtual-columns-indexing
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-06"
+triggers:
+  - database-operations
+  - schema-design
 ---
 
 # JSON columns and generated columns
@@ -182,5 +185,6 @@ JSON is NOT appropriate for:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

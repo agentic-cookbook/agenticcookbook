@@ -4,7 +4,7 @@ id: 85d90939-4047-4b69-a76c-716de9fd5d38
 title: "Instrumented logging"
 domain: agentic-cookbook://guidelines/reviewing/observability/logging
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
@@ -30,6 +30,10 @@ references:
   - https://learn.microsoft.com/en-us/visualstudio/profiling/
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - logging
+  - new-module
+  - error-handling
 ---
 
 # Instrumented logging
@@ -123,5 +127,6 @@ logger.debug("Starting roadmap sync for %s", roadmap_id)
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

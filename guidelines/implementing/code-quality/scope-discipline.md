@@ -4,7 +4,7 @@ id: a3f7c1d2-8e4b-4a9f-b6c3-2d1e0f9a8b7c
 title: "Scope discipline"
 domain: agentic-cookbook://guidelines/implementing/code-quality/scope-discipline
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-28
@@ -26,6 +26,9 @@ related:
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - code-review
+  - new-module
 ---
 
 # Scope discipline
@@ -65,5 +68,6 @@ Small, focused changes are easier to review, easier to revert, and easier to und
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |
