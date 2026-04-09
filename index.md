@@ -3,11 +3,11 @@ id: 00000000-0000-0000-0000-000000000001
 title: "Agentic Cookbook"
 domain: agentic-cookbook://index
 type: reference
-version: 3.2.0
+version: 4.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-06
+modified: 2026-04-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -62,25 +62,16 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 
 ## Guidelines
 
-*What rules apply when building.* Topic-oriented guidance organized by the problem you're solving.
+*What rules apply when building.* Organized by **use case** — the phase of work where they apply. See the [full index](guidelines/INDEX.md) for every guideline.
 
-| Topic | Description |
-|-------|-------------|
-| [Testing](guidelines/testing/) | Writing and running tests — pyramid, patterns, doubles, mutation testing |
-| [Security](guidelines/security/) | Protecting data and users — auth, tokens, CORS, privacy, secure storage |
-| [UI](guidelines/ui/) | Designing interfaces — typography, spacing, color, layout, accessibility |
-| [Networking](guidelines/networking/) | Talking to servers — API design, caching, retries, timeouts |
-| [Accessibility](guidelines/accessibility/) | Making apps usable by everyone |
-| [Internationalization](guidelines/internationalization/) | Supporting multiple languages and regions |
-| [Concurrency](guidelines/concurrency/) | Doing work in the background safely |
-| [Logging](guidelines/logging/) | Tracking what happens at runtime |
-| [Feature Management](guidelines/feature-management/) | Feature flags, A/B testing, debug mode |
-| [Code Quality](guidelines/code-quality/) | Linting, atomic commits |
-| [Language-Specific](guidelines/language/) | Swift, Kotlin, C#, Python — truly language-only guidance |
-| [Platform Integration](guidelines/platform/) | System integration — deep linking, search, widgets, notifications, sharing, background tasks, continuity |
-| [Platform-Specific: Windows](guidelines/platform/windows/) | Windows-only — Fluent Design, MSIX, DPI scaling, theming |
-| [Database Design](guidelines/database-design/) | SQLite best practices — schema design, performance, device-to-server sync, production operations |
-| [Skills and Agents](guidelines/skills-and-agents/) | Authoring skills, rules, and agents — checklists, structure references, performance |
+| Use Case | Guidelines | When to use |
+|----------|-----------|-------------|
+| [Planning](guidelines/planning/) | 42 | Architecture, data modeling, choosing patterns |
+| [Implementing](guidelines/implementing/) | 122 | Writing new code |
+| [Testing](guidelines/testing/) | 23 | Writing and structuring tests |
+| [Reviewing](guidelines/reviewing/) | 42 | Checking code quality, security, accessibility |
+| [Shipping](guidelines/shipping/) | 9 | Pre-commit, pre-PR, packaging |
+| [Cookbook](guidelines/cookbook/) | 18 | Writing cookbook content (recipes, skills, agents) |
 
 ## Ingredients
 
@@ -168,6 +159,7 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 4.0.0 | 2026-04-09 | Mike Fullerton | Reorganize guidelines by use case (planning, implementing, testing, reviewing, shipping, cookbook) |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
 | 3.1.0 | 2026-04-05 | Mike Fullerton | Populate ingredients and recipes sections after reclassification of 18 ingredients from legacy recipes |
 | 3.2.0 | 2026-04-06 | Mike Fullerton | Rename concoction to cookbook |
