@@ -49,7 +49,6 @@ Severity levels:
 
 | ID  | Criterion | How to check | Severity |
 |-----|-----------|-------------|----------|
-| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | S01 | YAML frontmatter present | File starts with `---`, has closing `---` | FAIL |
 | S02 | `name` field present | Frontmatter contains `name:` | WARN |
@@ -106,4 +105,5 @@ Severity levels:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

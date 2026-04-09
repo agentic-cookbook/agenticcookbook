@@ -43,7 +43,6 @@ delay = random(0, min(max_delay, base * 2^attempt))
 
 | Parameter | Default |
 |-----------|---------|
-| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Base delay | 1 second |
 | Max delay cap | 30 seconds |
@@ -69,4 +68,5 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

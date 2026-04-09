@@ -50,7 +50,6 @@ The filename MUST be lowercase kebab-case (e.g., `build-runner.md`). Uppercase s
 
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
-| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | `name` | string | filename | Display name for the agent |
 | `description` | string | — | When to use this agent; helps Claude select the right agent |
@@ -105,4 +104,5 @@ The filename MUST be lowercase kebab-case (e.g., `build-runner.md`). Uppercase s
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

@@ -142,7 +142,6 @@ CREATE TABLE word_counts (
 
 | Situation | Strategy |
 |-----------|----------|
-| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Default / general tables | `INTEGER PRIMARY KEY` |
 | Audit log or ledger — IDs must never reuse | `INTEGER PRIMARY KEY AUTOINCREMENT` |
@@ -155,4 +154,5 @@ CREATE TABLE word_counts (
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

@@ -83,7 +83,6 @@ Configure what happens to child rows when a referenced parent row is deleted or 
 
 | Action | Behavior |
 |--------|----------|
-| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | `NO ACTION` | Fail if child rows exist (checked at statement end) |
 | `RESTRICT` | Fail immediately, even with deferred constraints |
@@ -161,4 +160,5 @@ ALTER TABLE tracks ADD COLUMN genre_id INTEGER REFERENCES genres(genre_id);
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

@@ -44,7 +44,6 @@ HIG first — each prescribes its own minimum:
 
 | Platform | Minimum Target | Recommended |
 |----------|---------------|-------------|
-| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Apple (iOS) | 44x44 pt | 44x44 pt |
 | Android (Material) | 48x48 dp | 48x48 dp |
@@ -70,4 +69,5 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

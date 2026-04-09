@@ -1,10 +1,10 @@
 ---
 
 id: 775da457-30c7-47de-b179-0fae8a8b779d
-title: "Linting from day one"
+title: "Linting before the first PR"
 domain: agentic-cookbook://guidelines/implementing/code-quality/linting
 type: guideline
-version: 1.0.2
+version: 1.1.0
 status: accepted
 language: en
 created: 2026-03-27
@@ -12,7 +12,7 @@ modified: 2026-04-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "All projects MUST include linting configured from initial generation:"
+summary: "All projects MUST have linting configured and passing before the first pull request."
 platforms: 
   - csharp
   - kotlin
@@ -41,26 +41,18 @@ triggers:
   - new-module
 ---
 
-# Linting from day one
+# Linting before the first PR
 
-All projects MUST include linting configured from initial generation:
+All projects MUST have linting configured and passing before the first pull request. Linting config SHOULD be set up early in the project, but during rapid prototyping, committing without lint-gating every commit is acceptable. Before any PR is opened, lint MUST be clean.
 
 | Platform | Linter | Formatter |
 |----------|--------|-----------|
-| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Swift | SwiftLint | swift-format |
 | Kotlin | ktlint | ktlint |
 | TypeScript | ESLint | Prettier |
 | C# / .NET | Roslyn Analyzers + .editorconfig | dotnet format |
 
 Linter config MUST be committed. Linting MUST run as part of the build or pre-commit process. Formatting MUST be auto-fixable.
-
----
-
-# Linting and Formatting
-
-All projects MUST include linting configured from initial generation. Linter config MUST be committed. Linting MUST run as part of the build or pre-commit process. Formatting MUST be auto-fixable.
 
 ## Swift
 
@@ -97,4 +89,5 @@ Use [ktlint](https://pinterest.github.io/ktlint/) for both linting and formattin
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-04-09 | Mike Fullerton | Soften timing to "before the first PR", add triggers |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

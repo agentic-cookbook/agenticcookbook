@@ -177,7 +177,6 @@ Batch size is an access pattern decision: too small, and HTTP overhead dominates
 
 | Context | Recommended Batch Size | Rationale |
 |---------|----------------------|-----------|
-| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Mobile (unstable network) | 50–100 records | Smaller batches survive connection drops |
 | Desktop (stable network) | 500–1,000 records | Reduces HTTP round-trips |
@@ -230,4 +229,5 @@ This connection strategy, combined with WAL mode, allows the sync writer to appl
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

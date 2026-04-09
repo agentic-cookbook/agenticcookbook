@@ -75,7 +75,6 @@ Components MUST respond to these SwiftUI environment values:
 
 | Setting | Environment Key | Action |
 |---------|----------------|--------|
-| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Reduce Motion | `\.accessibilityReduceMotion` | Replace animations with crossfades or instant transitions |
 | Reduce Transparency | `\.accessibilityReduceTransparency` | Use opaque backgrounds instead of blurs/vibrancy |
@@ -148,4 +147,5 @@ Components MUST respond to these Windows accessibility settings:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

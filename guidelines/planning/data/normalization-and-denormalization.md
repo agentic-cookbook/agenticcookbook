@@ -127,7 +127,6 @@ END;
 
 | Situation | Recommendation |
 |-----------|---------------|
-| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | New schema, unknown access patterns | Start at 3NF |
 | Read-heavy dashboard, measured join bottleneck | Denormalize the join |
@@ -139,4 +138,5 @@ END;
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

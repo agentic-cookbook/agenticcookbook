@@ -50,7 +50,6 @@ Use color with intention — never as the sole means of conveying information.
 
 | Element | AA Minimum | AAA Enhanced |
 |---------|-----------|-------------|
-| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Normal text (<18pt / <14pt bold) | 4.5:1 | 7:1 |
 | Large text (18pt+ or 14pt+ bold) | 3:1 | 4.5:1 |
@@ -69,4 +68,5 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

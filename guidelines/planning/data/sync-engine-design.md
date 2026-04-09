@@ -167,7 +167,6 @@ Typical values: `BASE_DELAY = 1s`, `MAX_DELAY = 15min`, `JITTER = 0–1s`.
 
 | Error | Action |
 |-------|--------|
-| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Network timeout, 503 | Retry with backoff |
 | 400, 401, 403 | Do not retry — surface to user |
@@ -182,4 +181,5 @@ MUST surface persistent sync failures to the user — never silently fail. A sta
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

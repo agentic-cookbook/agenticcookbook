@@ -63,7 +63,6 @@ Linting MUST run as part of the automated verification process:
 
 | Platform | Linter | Formatter |
 |----------|--------|-----------|
-| 1.1.1 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | Swift | SwiftLint | swift-format |
 | Kotlin | ktlint | ktlint |
 | TypeScript | ESLint | Prettier |

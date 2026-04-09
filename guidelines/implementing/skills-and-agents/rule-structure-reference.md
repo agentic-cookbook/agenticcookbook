@@ -98,7 +98,6 @@ Rules in `.claude/rules/` are injected into the system prompt on **every turn** 
 
 | Aspect | Skill | Agent | Rule |
 |--------|-------|-------|------|
-| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Format | Directory with `SKILL.md` | Single `.md` with agent frontmatter | Single `.md`, plain markdown |
 | Frontmatter | Skill-specific (name, description, allowed-tools, etc.) | Agent-specific (tools, permissionMode, maxTurns, etc.) | None required |
@@ -110,4 +109,5 @@ Rules in `.claude/rules/` are injected into the system prompt on **every turn** 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

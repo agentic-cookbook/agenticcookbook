@@ -47,7 +47,6 @@ and let the framework generate hundreds of random inputs to try to falsify them.
 
 | Platform | Library | Install |
 |----------|---------|---------|
-| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Python | [Hypothesis](https://github.com/HypothesisWorks/hypothesis) | `pip install hypothesis` |
 | TypeScript/JS | [fast-check](https://github.com/dubzzz/fast-check) | `npm install fast-check` |
@@ -74,4 +73,5 @@ def test_encode_decode_roundtrip(s):
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -45,7 +45,6 @@ Use [Martin Fowler's taxonomy](https://martinfowler.com/bliki/TestDouble.html):
 
 | Double | Purpose | Example |
 |--------|---------|---------|
-| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | **Dummy** | Fill a parameter, never used | `null` or empty object |
 | **Stub** | Return canned answers | `stub.getUser() → User("test")` |
@@ -71,4 +70,5 @@ insulates tests from upstream API changes.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -33,7 +33,6 @@ Every request MUST set both connection and read timeouts. Infinite timeouts MUST
 
 | Timeout | Purpose | Default |
 |---------|---------|---------|
-| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Connection | TCP + TLS handshake | 10 seconds |
 | Read / Response | Time to first byte | 30 seconds |
@@ -46,4 +45,5 @@ timeouts.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
