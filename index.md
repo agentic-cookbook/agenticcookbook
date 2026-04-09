@@ -66,12 +66,12 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 
 | Use Case | Guidelines | When to use |
 |----------|-----------|-------------|
-| [Planning](guidelines/planning/) | 42 | Architecture, data modeling, choosing patterns |
-| [Implementing](guidelines/implementing/) | 122 | Writing new code |
-| [Testing](guidelines/testing/) | 23 | Writing and structuring tests |
-| [Reviewing](guidelines/reviewing/) | 42 | Checking code quality, security, accessibility |
+| [Planning](guidelines/planning/) | 41 | Architecture, data modeling, choosing patterns |
+| [Implementing](guidelines/implementing/) | 109 | Writing new code |
+| [Testing](guidelines/testing/) | 16 | Writing and structuring tests |
+| [Reviewing](guidelines/reviewing/) | 41 | Checking code quality, security, accessibility |
 | [Shipping](guidelines/shipping/) | 9 | Pre-commit, pre-PR, packaging |
-| [Cookbook](guidelines/cookbook/) | 18 | Writing cookbook content (recipes, skills, agents) |
+| [Cookbook](guidelines/cookbook/) | 16 | Writing cookbook content (recipes, skills, agents) |
 
 ## Ingredients
 

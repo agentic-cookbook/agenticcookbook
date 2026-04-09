@@ -3,7 +3,7 @@ id: eb0764d5-aeac-40cc-9aa4-d84e4eaa652d
 title: "Guidelines Index"
 domain: agentic-cookbook://guidelines/INDEX
 type: reference
-version: 2.0.0
+version: 2.1.0
 status: accepted
 language: en
 created: 2026-03-27
@@ -27,18 +27,18 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 | Use Case | Guidelines | When to use |
 |----------|-----------|-------------|
-| [Planning](#planning-42-guidelines) | 42 | Architecture, data modeling, choosing patterns |
-| [Implementing](#implementing-122-guidelines) | 122 | Writing new code |
-| [Testing](#testing-23-guidelines) | 23 | Writing and structuring tests |
-| [Reviewing](#reviewing-42-guidelines) | 42 | Checking code quality, security, accessibility |
+| [Planning](#planning-41-guidelines) | 41 | Architecture, data modeling, choosing patterns |
+| [Implementing](#implementing-109-guidelines) | 109 | Writing new code |
+| [Testing](#testing-16-guidelines) | 16 | Writing and structuring tests |
+| [Reviewing](#reviewing-41-guidelines) | 41 | Checking code quality, security, accessibility |
 | [Shipping](#shipping-9-guidelines) | 9 | Pre-commit, pre-PR, packaging |
-| [Cookbook](#cookbook-18-guidelines) | 18 | Writing cookbook content (recipes, skills, agents) |
+| [Cookbook](#cookbook-16-guidelines) | 16 | Writing cookbook content (recipes, skills, agents) |
 
-141 unique guidelines, 256 total (with duplicates across use cases).
+140 unique guidelines, 232 total (with duplicates across use cases).
 
 ---
 
-### Planning (42 guidelines)
+### Planning (41 guidelines)
 
 **code-quality**
 - [Scope discipline](planning/code-quality/scope-discipline.md)
@@ -67,11 +67,10 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Offline-First Architecture](planning/database-design/offline-first-architecture.md)
 - [Primary key strategies](planning/database-design/primary-keys.md)
 - [Relationship patterns](planning/database-design/relationships.md)
-- [SQLite best practices](planning/database-design/sqlite-best-practices.md)
+- [SQLite Sync Tooling](planning/database-design/sync-tooling.md)
 - [Sync Engine Design](planning/database-design/sync-engine-design.md)
 - [Sync Protocol](planning/database-design/sync-protocol.md)
 - [Sync Schema Design](planning/database-design/sync-schema-design.md)
-- [SQLite Sync Tooling](planning/database-design/sync-tooling.md)
 - [Transactions and Concurrency](planning/database-design/transactions-and-concurrency.md)
 
 **feature-management**
@@ -102,56 +101,43 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Data Display](planning/ui/data-display.md)
 - [Platform Design Languages](planning/ui/platform-design-languages.md)
 
-### Implementing (122 guidelines)
+---
+
+### Implementing (109 guidelines)
 
 **accessibility**
 - [Accessibility from day one](implementing/accessibility/accessibility.md)
 
 **code-quality**
-- [Small, atomic commits](implementing/code-quality/atomic-commits.md)
 - [Linting from day one](implementing/code-quality/linting.md)
 - [Scope discipline](implementing/code-quality/scope-discipline.md)
-
-**codebase-decomposition**
-- [Algorithmic Complexity](implementing/codebase-decomposition/algorithmic-complexity.md)
-- [App Interactions](implementing/codebase-decomposition/app-interactions.md)
-- [Cross-Cutting Detection](implementing/codebase-decomposition/cross-cutting-detection.md)
-- [Dependency Clusters](implementing/codebase-decomposition/dependency-clusters.md)
-- [Framework Conventions](implementing/codebase-decomposition/framework-conventions.md)
-- [Interface Cohesion](implementing/codebase-decomposition/interface-cohesion.md)
-- [Lifecycle Patterns](implementing/codebase-decomposition/lifecycle-patterns.md)
-- [Module Boundaries](implementing/codebase-decomposition/module-boundaries.md)
-- [Purpose Classification](implementing/codebase-decomposition/purpose-classification.md)
-- [Runtime Conditions](implementing/codebase-decomposition/runtime-conditions.md)
-- [System Dependencies](implementing/codebase-decomposition/system-dependencies.md)
-- [System Interactions](implementing/codebase-decomposition/system-interactions.md)
+- [Small, atomic commits](implementing/code-quality/atomic-commits.md)
 
 **concurrency**
-- [No blocking the main thread](implementing/concurrency/concurrency.md)
 - [Immutability](implementing/concurrency/immutability.md)
+- [No blocking the main thread](implementing/concurrency/concurrency.md)
 
 **database-design**
 - [Access Pattern Analysis](implementing/database-design/access-pattern-analysis.md)
-- [Database backup and recovery](implementing/database-design/backup-and-recovery.md)
 - [Clock Systems for Sync](implementing/database-design/clock-systems.md)
 - [Conflict Resolution](implementing/database-design/conflict-resolution.md)
 - [Constraints and validation](implementing/database-design/constraints-and-validation.md)
 - [Data types and type affinity](implementing/database-design/data-types.md)
+- [Database backup and recovery](implementing/database-design/backup-and-recovery.md)
+- [Database naming conventions](implementing/database-design/naming-conventions.md)
 - [Foreign keys and referential integrity](implementing/database-design/foreign-keys.md)
 - [Indexing](implementing/database-design/indexing.md)
 - [JSON columns and generated columns](implementing/database-design/json-columns.md)
-- [Database naming conventions](implementing/database-design/naming-conventions.md)
 - [Normalization and denormalization](implementing/database-design/normalization-and-denormalization.md)
 - [Offline-First Architecture](implementing/database-design/offline-first-architecture.md)
 - [Primary key strategies](implementing/database-design/primary-keys.md)
 - [Query Optimization](implementing/database-design/query-optimization.md)
 - [Relationship patterns](implementing/database-design/relationships.md)
 - [Schema evolution and migrations](implementing/database-design/schema-evolution.md)
-- [SQLite best practices](implementing/database-design/sqlite-best-practices.md)
+- [SQLite Sync Tooling](implementing/database-design/sync-tooling.md)
 - [Sync Engine Design](implementing/database-design/sync-engine-design.md)
 - [Sync Protocol](implementing/database-design/sync-protocol.md)
 - [Sync Schema Design](implementing/database-design/sync-schema-design.md)
-- [SQLite Sync Tooling](implementing/database-design/sync-tooling.md)
 - [Transactions and Concurrency](implementing/database-design/transactions-and-concurrency.md)
 
 **feature-management**
@@ -207,9 +193,9 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Deep linking](implementing/platform/deep-linking.md)
 - [Handoff and continuity](implementing/platform/handoff-and-continuity.md)
 - [Notifications](implementing/platform/notifications.md)
+- [Scriptable and automatable](implementing/platform/shortcuts-and-automation.md)
 - [Search integration](implementing/platform/search-integration.md)
 - [Share and inter-app data flow](implementing/platform/share-and-inter-app-data.md)
-- [Scriptable and automatable](implementing/platform/shortcuts-and-automation.md)
 - [Widgets and glanceable surfaces](implementing/platform/widgets-and-glanceable-surfaces.md)
 
 **platform/windows**
@@ -241,10 +227,10 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Skill Structure Reference](implementing/skills-and-agents/skill-structure-reference.md)
 
 **testing**
+- [Comprehensive unit testing](implementing/testing/testing.md)
 - [Property-Based Testing](implementing/testing/property-based-testing.md)
 - [Test Data](implementing/testing/test-data.md)
 - [Test Doubles](implementing/testing/test-doubles.md)
-- [Comprehensive unit testing](implementing/testing/testing.md)
 - [Unit Test Patterns](implementing/testing/unit-test-patterns.md)
 
 **ui**
@@ -264,37 +250,21 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Typography](implementing/ui/typography.md)
 - [Visual Hierarchy](implementing/ui/visual-hierarchy.md)
 
-### Testing (23 guidelines)
+---
+
+### Testing (16 guidelines)
 
 **code-quality**
 - [Linting from day one](testing/code-quality/linting.md)
 
-**concurrency**
-- [Immutability](testing/concurrency/immutability.md)
-
 **database-design**
 - [Database testing](testing/database-design/testing.md)
 
-**feature-management**
-- [Debug mode](testing/feature-management/debug-mode.md)
-
-**language/csharp**
-- [Nullable Reference Types](testing/language/csharp/nullable-reference-types.md)
-
-**language/kotlin**
-- [Font Scaling](testing/language/kotlin/font-scaling.md)
-
-**language/swift**
-- [Dynamic Type](testing/language/swift/dynamic-type.md)
-
-**networking**
-- [Retry and Resilience](testing/networking/retry-and-resilience.md)
-
 **platform/windows**
 - [Design-Time Data](testing/platform/windows/design-time-data.md)
-- [High DPI / Display Scaling](testing/platform/windows/high-dpi-display-scaling.md)
 
 **testing**
+- [Comprehensive unit testing](testing/testing/testing.md)
 - [Flaky Test Prevention](testing/testing/flaky-test-prevention.md)
 - [Mutation Testing](testing/testing/mutation-testing.md)
 - [Post-generation verification](testing/testing/post-generation-verification.md)
@@ -304,14 +274,15 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Test Data](testing/testing/test-data.md)
 - [Test Doubles](testing/testing/test-doubles.md)
 - [Test Pyramid](testing/testing/test-pyramid.md)
-- [Comprehensive unit testing](testing/testing/testing.md)
 - [The Testing Workflow](testing/testing/the-testing-workflow.md)
 - [Unit Test Patterns](testing/testing/unit-test-patterns.md)
 
 **ui**
 - [Previews](testing/ui/previews.md)
 
-### Reviewing (42 guidelines)
+---
+
+### Reviewing (41 guidelines)
 
 **accessibility**
 - [Accessibility from day one](reviewing/accessibility/accessibility.md)
@@ -322,9 +293,6 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 **database-design**
 - [Query Optimization](reviewing/database-design/query-optimization.md)
-
-**feature-management**
-- [A/B testing](reviewing/feature-management/ab-testing.md)
 
 **internationalization**
 - [Localizability](reviewing/internationalization/localization.md)
@@ -385,11 +353,13 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Color](reviewing/ui/color.md)
 - [Touch & Click Targets](reviewing/ui/touch-click-targets.md)
 
+---
+
 ### Shipping (9 guidelines)
 
 **code-quality**
-- [Small, atomic commits](shipping/code-quality/atomic-commits.md)
 - [Bulk operation verification](shipping/code-quality/bulk-operation-verification.md)
+- [Small, atomic commits](shipping/code-quality/atomic-commits.md)
 
 **database-design**
 - [Database backup and recovery](shipping/database-design/backup-and-recovery.md)
@@ -406,10 +376,9 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Dependency Security](shipping/security/dependency-security.md)
 - [Transport Security](shipping/security/transport-security.md)
 
-### Cookbook (18 guidelines)
+---
 
-**database-design**
-- [SQLite best practices](cookbook/database-design/sqlite-best-practices.md)
+### Cookbook (16 guidelines)
 
 **recipe-quality**
 - [Behavioral Requirements](cookbook/recipe-quality/behavioral-requirements.md)
@@ -430,16 +399,18 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 **testing**
 - [Properties of Good Tests](cookbook/testing/properties-of-good-tests.md)
-- [The Testing Workflow](cookbook/testing/the-testing-workflow.md)
 - [Unit Test Patterns](cookbook/testing/unit-test-patterns.md)
 
 **ui**
 - [Platform Design Languages](cookbook/ui/platform-design-languages.md)
 
+---
+
 ## Change History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 2.1.0 | 2026-04-09 | Mike Fullerton | Pass 2: tailor guidelines to use cases, update counts (140 unique, 232 total) |
 | 2.0.0 | 2026-04-09 | Mike Fullerton | Reorganize by use case (planning, implementing, testing, reviewing, shipping, cookbook) |
 | 1.1.0 | 2026-04-04 | Mike Fullerton | Add database-design category with SQLite best practices |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
