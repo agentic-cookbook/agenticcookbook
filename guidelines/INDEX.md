@@ -1,9 +1,10 @@
 ---
+
 id: eb0764d5-aeac-40cc-9aa4-d84e4eaa652d
 title: "Guidelines Index"
 domain: agentic-cookbook://guidelines/INDEX
 type: reference
-version: 2.1.0
+version: 2.2.0
 status: accepted
 language: en
 created: 2026-03-27
@@ -40,45 +41,42 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 ### Planning (41 guidelines)
 
+
 **code-quality**
+- [Algorithmic Complexity](planning/code-quality/algorithmic-complexity.md)
+- [App Interactions](planning/code-quality/app-interactions.md)
+- [Architecture](planning/code-quality/architecture.md)
+- [Cross-Cutting Detection](planning/code-quality/cross-cutting-detection.md)
+- [Dependency Clusters](planning/code-quality/dependency-clusters.md)
+- [Framework Conventions](planning/code-quality/framework-conventions.md)
+- [Interface Cohesion](planning/code-quality/interface-cohesion.md)
+- [Lifecycle Patterns](planning/code-quality/lifecycle-patterns.md)
+- [Module Boundaries](planning/code-quality/module-boundaries.md)
+- [Purpose Classification](planning/code-quality/purpose-classification.md)
+- [Runtime Conditions](planning/code-quality/runtime-conditions.md)
 - [Scope discipline](planning/code-quality/scope-discipline.md)
+- [System Dependencies](planning/code-quality/system-dependencies.md)
+- [System Interactions](planning/code-quality/system-interactions.md)
 
-**codebase-decomposition**
-- [Algorithmic Complexity](planning/codebase-decomposition/algorithmic-complexity.md)
-- [App Interactions](planning/codebase-decomposition/app-interactions.md)
-- [Cross-Cutting Detection](planning/codebase-decomposition/cross-cutting-detection.md)
-- [Dependency Clusters](planning/codebase-decomposition/dependency-clusters.md)
-- [Framework Conventions](planning/codebase-decomposition/framework-conventions.md)
-- [Interface Cohesion](planning/codebase-decomposition/interface-cohesion.md)
-- [Lifecycle Patterns](planning/codebase-decomposition/lifecycle-patterns.md)
-- [Module Boundaries](planning/codebase-decomposition/module-boundaries.md)
-- [Purpose Classification](planning/codebase-decomposition/purpose-classification.md)
-- [Runtime Conditions](planning/codebase-decomposition/runtime-conditions.md)
-- [System Dependencies](planning/codebase-decomposition/system-dependencies.md)
-- [System Interactions](planning/codebase-decomposition/system-interactions.md)
-
-**database-design**
-- [Access Pattern Analysis](planning/database-design/access-pattern-analysis.md)
-- [Clock Systems for Sync](planning/database-design/clock-systems.md)
-- [Conflict Resolution](planning/database-design/conflict-resolution.md)
-- [Indexing](planning/database-design/indexing.md)
-- [JSON columns and generated columns](planning/database-design/json-columns.md)
-- [Normalization and denormalization](planning/database-design/normalization-and-denormalization.md)
-- [Offline-First Architecture](planning/database-design/offline-first-architecture.md)
-- [Primary key strategies](planning/database-design/primary-keys.md)
-- [Relationship patterns](planning/database-design/relationships.md)
-- [SQLite Sync Tooling](planning/database-design/sync-tooling.md)
-- [Sync Engine Design](planning/database-design/sync-engine-design.md)
-- [Sync Protocol](planning/database-design/sync-protocol.md)
-- [Sync Schema Design](planning/database-design/sync-schema-design.md)
-- [Transactions and Concurrency](planning/database-design/transactions-and-concurrency.md)
+**data**
+- [Access Pattern Analysis](planning/data/access-pattern-analysis.md)
+- [Clock Systems for Sync](planning/data/clock-systems.md)
+- [Conflict Resolution](planning/data/conflict-resolution.md)
+- [Database](planning/data/database.md)
+- [Indexing](planning/data/indexing.md)
+- [JSON columns and generated columns](planning/data/json-columns.md)
+- [Normalization and denormalization](planning/data/normalization-and-denormalization.md)
+- [Offline-First Architecture](planning/data/offline-first-architecture.md)
+- [Primary key strategies](planning/data/primary-keys.md)
+- [Relationship patterns](planning/data/relationships.md)
+- [Sync Engine Design](planning/data/sync-engine-design.md)
+- [Sync Protocol](planning/data/sync-protocol.md)
+- [Sync Schema Design](planning/data/sync-schema-design.md)
+- [SQLite Sync Tooling](planning/data/sync-tooling.md)
+- [Transactions and Concurrency](planning/data/transactions-and-concurrency.md)
 
 **feature-management**
 - [Feature flags](planning/feature-management/feature-flags.md)
-
-**language/python**
-- [Dashboard service is display-only](planning/language/python/dashboard-service-is-display-only.md)
-- [Database](planning/language/python/database.md)
 
 **networking**
 - [API Design](planning/networking/api-design.md)
@@ -86,9 +84,6 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Offline and Connectivity](planning/networking/offline-and-connectivity.md)
 - [Pagination](planning/networking/pagination.md)
 - [Real-Time Communication](planning/networking/real-time-communication.md)
-
-**platform/windows**
-- [Architecture](planning/platform/windows/architecture.md)
 
 **security**
 - [Authentication](planning/security/authentication.md)
@@ -98,6 +93,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Test Pyramid](planning/testing/test-pyramid.md)
 
 **ui**
+- [Dashboard service is display-only](planning/ui/dashboard-service-is-display-only.md)
 - [Data Display](planning/ui/data-display.md)
 - [Platform Design Languages](planning/ui/platform-design-languages.md)
 
@@ -105,40 +101,55 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 ### Implementing (109 guidelines)
 
+
 **accessibility**
 - [Accessibility from day one](implementing/accessibility/accessibility.md)
+- [Dynamic Type](implementing/accessibility/dynamic-type.md)
+- [Font Scaling](implementing/accessibility/font-scaling.md)
 
 **code-quality**
-- [Linting from day one](implementing/code-quality/linting.md)
-- [Scope discipline](implementing/code-quality/scope-discipline.md)
+- [Architecture](implementing/code-quality/architecture.md)
 - [Small, atomic commits](implementing/code-quality/atomic-commits.md)
+- [Dependency Injection](implementing/code-quality/dependency-injection.md)
+- [File paths](implementing/code-quality/file-paths.md)
+- [Linting from day one](implementing/code-quality/linting.md)
+- [Naming](implementing/code-quality/naming.md)
+- [No external dependencies in core libraries](implementing/code-quality/no-external-dependencies-in-core-librari.md)
+- [Nullable Reference Types](implementing/code-quality/nullable-reference-types.md)
+- [Scope discipline](implementing/code-quality/scope-discipline.md)
+- [Shell scripts](implementing/code-quality/shell-scripts.md)
+- [Type hints](implementing/code-quality/type-hints.md)
+- [Use roadmap_lib](implementing/code-quality/use-roadmaplib.md)
+- [YAML frontmatter](implementing/code-quality/yaml-frontmatter.md)
 
 **concurrency**
-- [Immutability](implementing/concurrency/immutability.md)
 - [No blocking the main thread](implementing/concurrency/concurrency.md)
+- [Immutability](implementing/concurrency/immutability.md)
 
-**database-design**
-- [Access Pattern Analysis](implementing/database-design/access-pattern-analysis.md)
-- [Clock Systems for Sync](implementing/database-design/clock-systems.md)
-- [Conflict Resolution](implementing/database-design/conflict-resolution.md)
-- [Constraints and validation](implementing/database-design/constraints-and-validation.md)
-- [Data types and type affinity](implementing/database-design/data-types.md)
-- [Database backup and recovery](implementing/database-design/backup-and-recovery.md)
-- [Database naming conventions](implementing/database-design/naming-conventions.md)
-- [Foreign keys and referential integrity](implementing/database-design/foreign-keys.md)
-- [Indexing](implementing/database-design/indexing.md)
-- [JSON columns and generated columns](implementing/database-design/json-columns.md)
-- [Normalization and denormalization](implementing/database-design/normalization-and-denormalization.md)
-- [Offline-First Architecture](implementing/database-design/offline-first-architecture.md)
-- [Primary key strategies](implementing/database-design/primary-keys.md)
-- [Query Optimization](implementing/database-design/query-optimization.md)
-- [Relationship patterns](implementing/database-design/relationships.md)
-- [Schema evolution and migrations](implementing/database-design/schema-evolution.md)
-- [SQLite Sync Tooling](implementing/database-design/sync-tooling.md)
-- [Sync Engine Design](implementing/database-design/sync-engine-design.md)
-- [Sync Protocol](implementing/database-design/sync-protocol.md)
-- [Sync Schema Design](implementing/database-design/sync-schema-design.md)
-- [Transactions and Concurrency](implementing/database-design/transactions-and-concurrency.md)
+**data**
+- [Access Pattern Analysis](implementing/data/access-pattern-analysis.md)
+- [Database backup and recovery](implementing/data/backup-and-recovery.md)
+- [Clock Systems for Sync](implementing/data/clock-systems.md)
+- [Conflict Resolution](implementing/data/conflict-resolution.md)
+- [Constraints and validation](implementing/data/constraints-and-validation.md)
+- [Data types and type affinity](implementing/data/data-types.md)
+- [Database](implementing/data/database.md)
+- [Deterministic IDs](implementing/data/deterministic-ids.md)
+- [Foreign keys and referential integrity](implementing/data/foreign-keys.md)
+- [Indexing](implementing/data/indexing.md)
+- [JSON columns and generated columns](implementing/data/json-columns.md)
+- [Database naming conventions](implementing/data/naming-conventions.md)
+- [Normalization and denormalization](implementing/data/normalization-and-denormalization.md)
+- [Offline-First Architecture](implementing/data/offline-first-architecture.md)
+- [Primary key strategies](implementing/data/primary-keys.md)
+- [Query Optimization](implementing/data/query-optimization.md)
+- [Relationship patterns](implementing/data/relationships.md)
+- [Schema evolution and migrations](implementing/data/schema-evolution.md)
+- [Sync Engine Design](implementing/data/sync-engine-design.md)
+- [Sync Protocol](implementing/data/sync-protocol.md)
+- [Sync Schema Design](implementing/data/sync-schema-design.md)
+- [SQLite Sync Tooling](implementing/data/sync-tooling.md)
+- [Transactions and Concurrency](implementing/data/transactions-and-concurrency.md)
 
 **feature-management**
 - [A/B testing](implementing/feature-management/ab-testing.md)
@@ -148,34 +159,6 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 **internationalization**
 - [Localizability](implementing/internationalization/localization.md)
 - [RTL layout support](implementing/internationalization/rtl-support.md)
-
-**language/csharp**
-- [Dependency Injection](implementing/language/csharp/dependency-injection.md)
-- [Naming](implementing/language/csharp/naming.md)
-- [Nullable Reference Types](implementing/language/csharp/nullable-reference-types.md)
-
-**language/kotlin**
-- [Font Scaling](implementing/language/kotlin/font-scaling.md)
-
-**language/python**
-- [Dashboard service is display-only](implementing/language/python/dashboard-service-is-display-only.md)
-- [Database](implementing/language/python/database.md)
-- [Deterministic IDs](implementing/language/python/deterministic-ids.md)
-- [File paths](implementing/language/python/file-paths.md)
-- [No external dependencies in core libraries](implementing/language/python/no-external-dependencies-in-core-librari.md)
-- [Shell scripts](implementing/language/python/shell-scripts.md)
-- [Type hints](implementing/language/python/type-hints.md)
-- [Use roadmap_lib](implementing/language/python/use-roadmaplib.md)
-- [Web services](implementing/language/python/web-services.md)
-- [YAML frontmatter](implementing/language/python/yaml-frontmatter.md)
-
-**language/swift**
-- [Dynamic Type](implementing/language/swift/dynamic-type.md)
-- [Use AppKit and UIKit, not SwiftUI](implementing/language/swift/prefer-explicit-apple-apis.md)
-
-**logging**
-- [Analytics](implementing/logging/analytics.md)
-- [Instrumented logging](implementing/logging/logging.md)
 
 **networking**
 - [API Design](implementing/networking/api-design.md)
@@ -187,23 +170,22 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Real-Time Communication](implementing/networking/real-time-communication.md)
 - [Retry and Resilience](implementing/networking/retry-and-resilience.md)
 - [Timeouts](implementing/networking/timeouts.md)
+- [Web services](implementing/networking/web-services.md)
 
-**platform**
-- [Background tasks](implementing/platform/background-tasks.md)
-- [Deep linking](implementing/platform/deep-linking.md)
-- [Handoff and continuity](implementing/platform/handoff-and-continuity.md)
-- [Notifications](implementing/platform/notifications.md)
-- [Scriptable and automatable](implementing/platform/shortcuts-and-automation.md)
-- [Search integration](implementing/platform/search-integration.md)
-- [Share and inter-app data flow](implementing/platform/share-and-inter-app-data.md)
-- [Widgets and glanceable surfaces](implementing/platform/widgets-and-glanceable-surfaces.md)
+**observability**
+- [Analytics](implementing/observability/analytics.md)
+- [Instrumented logging](implementing/observability/logging.md)
 
-**platform/windows**
-- [Architecture](implementing/platform/windows/architecture.md)
-- [Design-Time Data](implementing/platform/windows/design-time-data.md)
-- [Fluent Design](implementing/platform/windows/fluent-design.md)
-- [High DPI / Display Scaling](implementing/platform/windows/high-dpi-display-scaling.md)
-- [Theming](implementing/platform/windows/theming.md)
+**platform-integration**
+- [Background tasks](implementing/platform-integration/background-tasks.md)
+- [Deep linking](implementing/platform-integration/deep-linking.md)
+- [Handoff and continuity](implementing/platform-integration/handoff-and-continuity.md)
+- [Notifications](implementing/platform-integration/notifications.md)
+- [Use AppKit and UIKit, not SwiftUI](implementing/platform-integration/prefer-explicit-apple-apis.md)
+- [Search integration](implementing/platform-integration/search-integration.md)
+- [Share and inter-app data flow](implementing/platform-integration/share-and-inter-app-data.md)
+- [Scriptable and automatable](implementing/platform-integration/shortcuts-and-automation.md)
+- [Widgets and glanceable surfaces](implementing/platform-integration/widgets-and-glanceable-surfaces.md)
 
 **security**
 - [Authentication](implementing/security/authentication.md)
@@ -227,25 +209,30 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Skill Structure Reference](implementing/skills-and-agents/skill-structure-reference.md)
 
 **testing**
-- [Comprehensive unit testing](implementing/testing/testing.md)
 - [Property-Based Testing](implementing/testing/property-based-testing.md)
 - [Test Data](implementing/testing/test-data.md)
 - [Test Doubles](implementing/testing/test-doubles.md)
+- [Comprehensive unit testing](implementing/testing/testing.md)
 - [Unit Test Patterns](implementing/testing/unit-test-patterns.md)
 
 **ui**
 - [Always show progress](implementing/ui/always-show-progress.md)
 - [Animation & Motion](implementing/ui/animation-motion.md)
 - [Color](implementing/ui/color.md)
+- [Dashboard service is display-only](implementing/ui/dashboard-service-is-display-only.md)
 - [Data Display](implementing/ui/data-display.md)
+- [Design-Time Data](implementing/ui/design-time-data.md)
 - [Feedback Patterns](implementing/ui/feedback-patterns.md)
+- [Fluent Design](implementing/ui/fluent-design.md)
 - [Form Design](implementing/ui/form-design.md)
+- [High DPI / Display Scaling](implementing/ui/high-dpi-display-scaling.md)
 - [Iconography](implementing/ui/iconography.md)
 - [Layout](implementing/ui/layout.md)
 - [Platform Design Languages](implementing/ui/platform-design-languages.md)
 - [Previews](implementing/ui/previews.md)
 - [Spacing](implementing/ui/spacing.md)
 - [State Design](implementing/ui/state-design.md)
+- [Theming](implementing/ui/theming.md)
 - [Touch & Click Targets](implementing/ui/touch-click-targets.md)
 - [Typography](implementing/ui/typography.md)
 - [Visual Hierarchy](implementing/ui/visual-hierarchy.md)
@@ -254,75 +241,61 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 ### Testing (16 guidelines)
 
-**code-quality**
-- [Linting from day one](testing/code-quality/linting.md)
-
-**database-design**
-- [Database testing](testing/database-design/testing.md)
-
-**platform/windows**
-- [Design-Time Data](testing/platform/windows/design-time-data.md)
-
-**testing**
-- [Comprehensive unit testing](testing/testing/testing.md)
-- [Flaky Test Prevention](testing/testing/flaky-test-prevention.md)
-- [Mutation Testing](testing/testing/mutation-testing.md)
-- [Post-generation verification](testing/testing/post-generation-verification.md)
-- [Properties of Good Tests](testing/testing/properties-of-good-tests.md)
-- [Property-Based Testing](testing/testing/property-based-testing.md)
-- [Security Testing](testing/testing/security-testing.md)
-- [Test Data](testing/testing/test-data.md)
-- [Test Doubles](testing/testing/test-doubles.md)
-- [Test Pyramid](testing/testing/test-pyramid.md)
-- [The Testing Workflow](testing/testing/the-testing-workflow.md)
-- [Unit Test Patterns](testing/testing/unit-test-patterns.md)
-
-**ui**
-- [Previews](testing/ui/previews.md)
+- [Database testing](testing/database-testing.md)
+- [Design-Time Data](testing/design-time-data.md)
+- [Flaky Test Prevention](testing/flaky-test-prevention.md)
+- [Linting from day one](testing/linting.md)
+- [Mutation Testing](testing/mutation-testing.md)
+- [Post-generation verification](testing/post-generation-verification.md)
+- [Previews](testing/previews.md)
+- [Properties of Good Tests](testing/properties-of-good-tests.md)
+- [Property-Based Testing](testing/property-based-testing.md)
+- [Security Testing](testing/security-testing.md)
+- [Test Data](testing/test-data.md)
+- [Test Doubles](testing/test-doubles.md)
+- [Test Pyramid](testing/test-pyramid.md)
+- [Comprehensive unit testing](testing/testing.md)
+- [The Testing Workflow](testing/the-testing-workflow.md)
+- [Unit Test Patterns](testing/unit-test-patterns.md)
 
 ---
 
 ### Reviewing (41 guidelines)
+
 
 **accessibility**
 - [Accessibility from day one](reviewing/accessibility/accessibility.md)
 
 **code-quality**
 - [Bulk operation verification](reviewing/code-quality/bulk-operation-verification.md)
+- [Dependency Injection](reviewing/code-quality/dependency-injection.md)
+- [File paths](reviewing/code-quality/file-paths.md)
+- [Naming](reviewing/code-quality/naming.md)
+- [No external dependencies in core libraries](reviewing/code-quality/no-external-dependencies-in-core-librari.md)
 - [Scope discipline](reviewing/code-quality/scope-discipline.md)
+- [Shell scripts](reviewing/code-quality/shell-scripts.md)
+- [Type hints](reviewing/code-quality/type-hints.md)
+- [Use roadmap_lib](reviewing/code-quality/use-roadmaplib.md)
+- [YAML frontmatter](reviewing/code-quality/yaml-frontmatter.md)
 
-**database-design**
-- [Query Optimization](reviewing/database-design/query-optimization.md)
+**data**
+- [Query Optimization](reviewing/data/query-optimization.md)
 
 **internationalization**
 - [Localizability](reviewing/internationalization/localization.md)
 - [RTL layout support](reviewing/internationalization/rtl-support.md)
 
-**language/csharp**
-- [Dependency Injection](reviewing/language/csharp/dependency-injection.md)
-- [Naming](reviewing/language/csharp/naming.md)
-
-**language/python**
-- [File paths](reviewing/language/python/file-paths.md)
-- [No external dependencies in core libraries](reviewing/language/python/no-external-dependencies-in-core-librari.md)
-- [Shell scripts](reviewing/language/python/shell-scripts.md)
-- [Type hints](reviewing/language/python/type-hints.md)
-- [Use roadmap_lib](reviewing/language/python/use-roadmaplib.md)
-- [YAML frontmatter](reviewing/language/python/yaml-frontmatter.md)
-
-**language/swift**
-- [Use AppKit and UIKit, not SwiftUI](reviewing/language/swift/prefer-explicit-apple-apis.md)
-
-**logging**
-- [Analytics](reviewing/logging/analytics.md)
-- [Instrumented logging](reviewing/logging/logging.md)
-
 **networking**
 - [Rate Limiting](reviewing/networking/rate-limiting.md)
 - [Timeouts](reviewing/networking/timeouts.md)
 
-**platform**
-- [Deep linking](reviewing/platform/deep-linking.md)
+**observability**
+- [Analytics](reviewing/observability/analytics.md)
+- [Instrumented logging](reviewing/observability/logging.md)
+
+**platform-integration**
+- [Deep linking](reviewing/platform-integration/deep-linking.md)
+- [Use AppKit and UIKit, not SwiftUI](reviewing/platform-integration/prefer-explicit-apple-apis.md)
 
 **security**
 - [Authentication](reviewing/security/authentication.md)
@@ -357,28 +330,20 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 ### Shipping (9 guidelines)
 
-**code-quality**
-- [Bulk operation verification](shipping/code-quality/bulk-operation-verification.md)
-- [Small, atomic commits](shipping/code-quality/atomic-commits.md)
-
-**database-design**
-- [Database backup and recovery](shipping/database-design/backup-and-recovery.md)
-- [Schema evolution and migrations](shipping/database-design/schema-evolution.md)
-
-**feature-management**
-- [A/B testing](shipping/feature-management/ab-testing.md)
-- [Feature flags](shipping/feature-management/feature-flags.md)
-
-**platform/windows**
-- [MSIX Packaging](shipping/platform/windows/msix-packaging.md)
-
-**security**
-- [Dependency Security](shipping/security/dependency-security.md)
-- [Transport Security](shipping/security/transport-security.md)
+- [A/B testing](shipping/ab-testing.md)
+- [Small, atomic commits](shipping/atomic-commits.md)
+- [Database backup and recovery](shipping/backup-and-recovery.md)
+- [Bulk operation verification](shipping/bulk-operation-verification.md)
+- [Dependency Security](shipping/dependency-security.md)
+- [Feature flags](shipping/feature-flags.md)
+- [MSIX Packaging](shipping/msix-packaging.md)
+- [Schema evolution and migrations](shipping/schema-evolution.md)
+- [Transport Security](shipping/transport-security.md)
 
 ---
 
 ### Cookbook (16 guidelines)
+
 
 **recipe-quality**
 - [Behavioral Requirements](cookbook/recipe-quality/behavioral-requirements.md)
@@ -410,6 +375,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 2.2.0 | 2026-04-09 | Mike Fullerton | Recategorize: 20→12 categories, dissolve language/platform, flatten shipping/testing |
 | 2.1.0 | 2026-04-09 | Mike Fullerton | Pass 2: tailor guidelines to use cases, update counts (140 unique, 232 total) |
 | 2.0.0 | 2026-04-09 | Mike Fullerton | Reorganize by use case (planning, implementing, testing, reviewing, shipping, cookbook) |
 | 1.1.0 | 2026-04-04 | Mike Fullerton | Add database-design category with SQLite best practices |

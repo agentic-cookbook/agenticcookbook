@@ -21,7 +21,7 @@
 | `index/triggers.yaml` | Flat trigger → guideline-paths lookup (generated, not hand-edited) |
 | `scripts/generate-trigger-index.py` | Reads all guideline frontmatter, builds `index/triggers.yaml` |
 | `introduction/trigger-guide.md` | Documents the trigger system: canonical triggers, usage for agents, escalating checkpoint pattern |
-| `guidelines/logging/ai-provider-observability.md` | New guideline: structured logging for AI API calls |
+| `guidelines/observability/ai-provider-observability.md` | New guideline: structured logging for AI API calls |
 | `guidelines/networking/ai-cost-management.md` | New guideline: cost control for AI-powered systems |
 | `introduction/top-10-guidelines.md` | Curated shortlist of highest-signal guidelines |
 
@@ -379,8 +379,8 @@ FILE_OVERRIDES = {
     "guidelines/code-quality/bulk-operation-verification.md": ["code-review", "pre-commit"],
 
     # Logging
-    "guidelines/logging/logging.md": ["logging", "new-module", "error-handling"],
-    "guidelines/logging/analytics.md": ["logging", "ui-implementation"],
+    "guidelines/observability/logging.md": ["logging", "new-module", "error-handling"],
+    "guidelines/observability/analytics.md": ["logging", "ui-implementation"],
 
     # UI
     "guidelines/ui/layout.md": ["ui-implementation"],
@@ -416,18 +416,18 @@ FILE_OVERRIDES = {
 
     # Database design — all get database-operations + schema-design by default,
     # plus specific overrides
-    "guidelines/database-design/sqlite-best-practices.md": ["database-operations", "schema-design"],
-    "guidelines/database-design/indexing.md": ["database-operations", "performance-optimization", "schema-design"],
-    "guidelines/database-design/query-optimization.md": ["database-operations", "performance-optimization"],
-    "guidelines/database-design/transactions-and-concurrency.md": ["database-operations", "concurrency"],
-    "guidelines/database-design/backup-and-recovery.md": ["database-operations", "configuration"],
-    "guidelines/database-design/schema-evolution.md": ["database-operations", "schema-design"],
-    "guidelines/database-design/sync-engine-design.md": ["offline-support", "database-operations"],
-    "guidelines/database-design/sync-protocol.md": ["offline-support", "networking", "database-operations"],
-    "guidelines/database-design/sync-schema-design.md": ["offline-support", "schema-design"],
-    "guidelines/database-design/sync-tooling.md": ["offline-support", "dependency-management"],
-    "guidelines/database-design/offline-first-architecture.md": ["offline-support", "database-operations"],
-    "guidelines/database-design/conflict-resolution.md": ["offline-support", "database-operations"],
+    "guidelines/data/sqlite-best-practices.md": ["database-operations", "schema-design"],
+    "guidelines/data/indexing.md": ["database-operations", "performance-optimization", "schema-design"],
+    "guidelines/data/query-optimization.md": ["database-operations", "performance-optimization"],
+    "guidelines/data/transactions-and-concurrency.md": ["database-operations", "concurrency"],
+    "guidelines/data/backup-and-recovery.md": ["database-operations", "configuration"],
+    "guidelines/data/schema-evolution.md": ["database-operations", "schema-design"],
+    "guidelines/data/sync-engine-design.md": ["offline-support", "database-operations"],
+    "guidelines/data/sync-protocol.md": ["offline-support", "networking", "database-operations"],
+    "guidelines/data/sync-schema-design.md": ["offline-support", "schema-design"],
+    "guidelines/data/sync-tooling.md": ["offline-support", "dependency-management"],
+    "guidelines/data/offline-first-architecture.md": ["offline-support", "database-operations"],
+    "guidelines/data/conflict-resolution.md": ["offline-support", "database-operations"],
 
     # Language-specific
     "guidelines/language/python/type-hints.md": ["new-module", "code-review"],
@@ -669,19 +669,19 @@ git push
 ## Task 6: Create AI Provider Observability Guideline
 
 **Files:**
-- Create: `guidelines/logging/ai-provider-observability.md`
+- Create: `guidelines/observability/ai-provider-observability.md`
 
 - [ ] **Step 1: Create the guideline**
 
-Create `guidelines/logging/ai-provider-observability.md` with full frontmatter:
+Create `guidelines/observability/ai-provider-observability.md` with full frontmatter:
 - New UUID
-- domain: `agentic-cookbook://guidelines/logging/ai-provider-observability`
+- domain: `agentic-cookbook://guidelines/observability/ai-provider-observability`
 - type: guideline
 - version: 1.0.0
 - status: draft
 - tags: `[logging, ai, observability, llm]`
 - triggers: `[ai-api-integration, logging, api-integration]`
-- depends-on: `[agentic-cookbook://guidelines/logging/logging]`
+- depends-on: `[agentic-cookbook://guidelines/observability/logging]`
 - references: OpenTelemetry docs, Anthropic API docs
 
 Content requirements (the actual requirements the guideline must define):
@@ -701,7 +701,7 @@ Content requirements (the actual requirements the guideline must define):
 - [ ] **Step 2: Commit and push**
 
 ```bash
-git add guidelines/logging/ai-provider-observability.md
+git add guidelines/observability/ai-provider-observability.md
 git commit -m "feat: add AI provider observability guideline"
 git push
 ```
@@ -775,7 +775,7 @@ The top 10 (based on the feedback session's findings and cross-category impact):
 | 2 | [Input Validation](agentic-cookbook://guidelines/security/input-validation) | #1 security issue in generated code |
 | 3 | [Properties of Good Tests](agentic-cookbook://guidelines/testing/properties-of-good-tests) | AI-generated tests are often brittle — this fixes that |
 | 4 | [Linting before the first PR](agentic-cookbook://guidelines/code-quality/linting) | Catches style/format drift before it compounds |
-| 5 | [Logging](agentic-cookbook://guidelines/logging/logging) | AI agents skip logging unless told — this ensures observability |
+| 5 | [Logging](agentic-cookbook://guidelines/observability/logging) | AI agents skip logging unless told — this ensures observability |
 | 6 | [Error Responses](agentic-cookbook://guidelines/networking/error-responses) | Generated code often has incomplete error handling |
 | 7 | [Accessibility](agentic-cookbook://guidelines/accessibility/accessibility) | Never added by AI unless explicitly required |
 | 8 | [Atomic Commits](agentic-cookbook://guidelines/code-quality/atomic-commits) | Keeps AI-generated PRs reviewable |
@@ -870,7 +870,7 @@ git push
 Run on:
 - `introduction/trigger-guide.md`
 - `introduction/top-10-guidelines.md`
-- `guidelines/logging/ai-provider-observability.md`
+- `guidelines/observability/ai-provider-observability.md`
 - `guidelines/networking/ai-cost-management.md`
 
 Fix any issues and re-run until all pass.

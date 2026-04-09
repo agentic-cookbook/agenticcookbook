@@ -116,7 +116,7 @@ Long-running components SHOULD emit health metrics suitable for monitoring.
 **Applies when:** recipe runs as a long-lived process or background service.
 
 **Guidelines:**
-- [Logging](agentic-cookbook://guidelines/logging/logging)
+- [Logging](agentic-cookbook://guidelines/observability/logging)
 
 ## Change History
 

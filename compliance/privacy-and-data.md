@@ -74,7 +74,7 @@ Personally identifiable information MUST NOT appear in log output at any level.
 
 **Guidelines:**
 - [Sensitive Data](agentic-cookbook://guidelines/security/sensitive-data)
-- [Logging](agentic-cookbook://guidelines/logging/logging)
+- [Logging](agentic-cookbook://guidelines/observability/logging)
 
 ---
 

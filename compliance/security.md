@@ -95,7 +95,7 @@ Log messages MUST NOT contain credentials, tokens, or PII.
 
 **Guidelines:**
 - [Sensitive Data](agentic-cookbook://guidelines/security/sensitive-data)
-- [Logging](agentic-cookbook://guidelines/logging/logging)
+- [Logging](agentic-cookbook://guidelines/observability/logging)
 
 ---
 

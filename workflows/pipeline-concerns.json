@@ -214,7 +214,7 @@
     "apply": "ask",
     "default": "opt-in",
     "summary": "Structured logging for all components and flows",
-    "guideline_path": "../agentic-cookbook/cookbook/guidelines/logging/logging.md",
+    "guideline_path": "../agentic-cookbook/cookbook/guidelines/observability/logging.md",
     "prompt": "This feature will include structured logging. Any components that should be excluded?"
   },
   {
@@ -304,7 +304,7 @@
     "apply": "ask",
     "default": "ask",
     "summary": "Significant user actions instrumented for analytics",
-    "guideline_path": "../agentic-cookbook/cookbook/guidelines/logging/analytics.md",
+    "guideline_path": "../agentic-cookbook/cookbook/guidelines/observability/analytics.md",
     "prompt": "Which user actions in this feature should be tracked for analytics?"
   },
   {

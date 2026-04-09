@@ -165,7 +165,7 @@ The ingredient MUST have a `## Logging` section defining: subsystem, category, a
 **Applies when:** always.
 
 **Guidelines:**
-- [Structured Logging](agentic-cookbook://guidelines/logging/structured-logging)
+- [Structured Logging](agentic-cookbook://guidelines/observability/structured-logging)
 
 ---
 
