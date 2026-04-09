@@ -4,7 +4,7 @@ id: 34f13883-8905-4b5c-9299-82602687e98d
 title: "Linting from day one"
 domain: agentic-cookbook://guidelines/testing/code-quality/linting
 type: guideline
-version: 1.0.1
+version: 1.1.0
 status: accepted
 language: en
 created: 2026-03-27
@@ -12,7 +12,7 @@ modified: 2026-04-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "All projects MUST include linting configured from initial generation:"
+summary: "Run linting as part of your automated test and verification suite — it catches bugs that unit tests miss."
 platforms: 
   - csharp
   - kotlin
@@ -38,59 +38,39 @@ approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
 ---
 
-# Linting from day one
+# Linting as automated verification
 
-All projects MUST include linting configured from initial generation:
+Linting is part of your test suite — it catches categories of bugs that unit tests miss (unused imports, unreachable code, security anti-patterns, style violations that affect readability).
+
+## When to run
+
+Linting MUST run as part of the automated verification process:
+- **During development** — as part of the build or pre-commit hook
+- **In CI** — linting failures MUST block the build alongside test failures
+- **After code generation** — AI-generated code MUST pass linting before being accepted
+
+## What linting verifies that tests don't
+
+- Unused variables, imports, and dead code
+- Security anti-patterns (eval, innerHTML, SQL string concatenation)
+- Formatting inconsistencies that harm readability
+- Language-specific pitfalls (force-unwraps in Swift, non-null assertions in TypeScript)
+
+## Platform linters
 
 | Platform | Linter | Formatter |
 |----------|--------|-----------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Swift | SwiftLint | swift-format |
 | Kotlin | ktlint | ktlint |
 | TypeScript | ESLint | Prettier |
 | C# / .NET | Roslyn Analyzers + .editorconfig | dotnet format |
 
-Linter config MUST be committed. Linting MUST run as part of the build or pre-commit process. Formatting MUST be auto-fixable.
-
----
-
-# Linting and Formatting
-
-All projects MUST include linting configured from initial generation. Linter config MUST be committed. Linting MUST run as part of the build or pre-commit process. Formatting MUST be auto-fixable.
-
-## Swift
-
-1. [SwiftLint](https://github.com/realm/SwiftLint) with `.swiftlint.yml` at project root. Enable `strict` mode. Add as SPM plugin or Xcode build phase.
-2. [swift-format](https://github.com/swiftlang/swift-format) for auto-formatting.
-
-## Kotlin
-
-Use [ktlint](https://pinterest.github.io/ktlint/) for both linting and formatting. Configure via `.editorconfig` at project root. Add as a Gradle plugin (`org.jlleitschuh.gradle.ktlint`).
-
-## TypeScript
-
-1. [ESLint](https://eslint.org/) with `eslint.config.js`. Use `eslint-config-prettier` to avoid conflicts with the formatter.
-2. [Prettier](https://prettier.io/) with `.prettierrc` for auto-formatting.
-3. [Stylelint](https://stylelint.io/) with `.stylelintrc.json` for CSS linting.
-4. Add as `package.json` scripts and pre-commit hooks.
-
-## C#
-
-1. [`.editorconfig`](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/) at repo root for all code style rules.
-2. Enable Roslyn analyzers in `.csproj`:
-
-```xml
-<PropertyGroup>
-  <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-  <AnalysisLevel>latest-recommended</AnalysisLevel>
-</PropertyGroup>
-```
-
-3. Use `dotnet format` CLI for auto-fixing.
-4. Supplement with [Roslynator](https://github.com/dotnet/roslynator) or [Meziantou.Analyzer](https://github.com/meziantou/Meziantou.Analyzer) for additional rules.
+See the implementing copy of this guideline for platform-specific setup details.
 
 ## Change History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-04-09 | Mike Fullerton | Tailor for testing use case — reframe as automated verification tool |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
