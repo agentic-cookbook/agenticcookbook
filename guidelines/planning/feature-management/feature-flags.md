@@ -4,7 +4,7 @@ id: 588b5eae-b70e-4302-a52f-9287265ad03c
 title: "Feature flags"
 domain: agentic-cookbook://guidelines/planning/feature-management/feature-flags
 type: guideline
-version: 1.0.1
+version: 1.1.0
 status: accepted
 language: en
 created: 2026-03-27
@@ -12,7 +12,7 @@ modified: 2026-04-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "All features MUST be gated behind feature flags from initial implementation. Define a `FeatureFlagProvider` interface..."
+summary: "Plan for feature flag architecture from the start: define a FeatureFlagProvider interface, choose storage backend, and identify which features need gating."
 platforms: 
   - csharp
   - kotlin
@@ -30,35 +30,25 @@ approved-date: "2026-04-04"
 
 # Feature flags
 
-All features MUST be gated behind feature flags from initial implementation. Define a `FeatureFlagProvider` interface (`isEnabled(key) -> Bool`), provide a local default implementation (UserDefaults/SharedPreferences/localStorage), swap in a backend implementation later via DI.
+Plan for feature flag architecture from the start. All features MUST be gated behind flags from initial implementation.
 
-Each spec SHOULD list flag keys in a **Feature Flags** section.
+## Architecture decisions
 
----
+1. **Interface first** — define a `FeatureFlagProvider` interface (`isEnabled(key) -> Bool`) early. This is a dependency injection boundary — the provider can be swapped without touching feature code.
+2. **Local default** — start with a local storage backend (UserDefaults, SharedPreferences, localStorage, JSON config). Plan for a remote backend (LaunchDarkly, Firebase Remote Config, Azure App Configuration) as a later swap via DI.
+3. **Flag inventory** — each feature spec SHOULD list its flag keys in a **Feature Flags** section. Plan the flag naming convention upfront (e.g., `feature.auth.biometric`, `feature.editor.markdown`).
 
-# Feature Flags
+## What to gate
 
-All features MUST be gated behind feature flags from initial implementation. Define a `FeatureFlagProvider` interface (`isEnabled(key) -> Bool`), provide a local default implementation, and swap in a backend implementation later via dependency injection. Each spec SHOULD list flag keys in a **Feature Flags** section.
-
-## Swift
-
-Protocol + `UserDefaults`-backed implementation as the default.
-
-## Kotlin
-
-Interface + `SharedPreferences`-backed implementation as the default.
-
-## TypeScript
-
-TypeScript interface + `localStorage`-backed implementation as the default.
-
-## C#
-
-`IFeatureManager` interface + local JSON config as the default. Use the `Microsoft.FeatureManagement` NuGet package. Swap in Azure App Configuration for server-side flag evaluation later.
+- All new user-visible features (default: off in production)
+- Major refactors that change behavior (gradual rollout)
+- Integrations with external services (kill switch)
+- NOT: bug fixes, internal refactors, or non-behavioral changes
 
 ## Change History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-04-09 | Mike Fullerton | Tailor for planning use case — focus on architecture decisions |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
