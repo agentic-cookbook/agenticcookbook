@@ -4,7 +4,7 @@ id: b76e80c2-7e24-43cf-b971-5d405e80e748
 title: "Transport Security"
 domain: agentic-cookbook://guidelines/shipping/security/transport-security
 type: guideline
-version: 1.0.1
+version: 1.1.0
 status: accepted
 language: en
 created: 2026-03-27
@@ -12,7 +12,7 @@ modified: 2026-04-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "**TLS 1.2 minimum**, prefer TLS 1.3. Disable TLS 1.0 and 1.1 entirely."
+summary: "Pre-deploy transport security verification: TLS 1.2+, HSTS enabled, cipher suites audited, certificate pinning validated."
 platforms: 
   - typescript
   - web
@@ -32,24 +32,20 @@ approved-date: "2026-04-04"
 
 # Transport Security
 
-Require TLS 1.2+ on every connection, enable HSTS on all production domains, and pin certificates for high-value mobile traffic.
+Before deploying, verify transport security meets these requirements.
 
-**TLS 1.2 minimum** is REQUIRED, TLS 1.3 SHOULD be preferred. TLS 1.0 and 1.1 MUST be disabled entirely.
+## Pre-deploy checklist
 
-**HSTS:** Enable on all production domains:
-```
-Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-```
-Submit to the [HSTS preload list](https://hstspreload.org/).
+1. **TLS version** — TLS 1.2 minimum is REQUIRED, TLS 1.3 SHOULD be preferred. Verify TLS 1.0 and 1.1 are disabled entirely.
+2. **HSTS** — all production domains MUST have the header: `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`. Submit to the [HSTS preload list](https://hstspreload.org/).
+3. **Cipher suites** — verify the server uses Mozilla's "Intermediate" or "Modern" TLS configuration. Prefer AEAD ciphers (AES-GCM, ChaCha20-Poly1305).
+4. **Certificate pinning** (mobile apps only) — pin to the intermediate CA (not the leaf). Verify backup pins are included and a recovery plan exists. Consider Certificate Transparency monitoring as a lighter alternative.
 
-**Certificate pinning — use with caution:**
-- Pin to the intermediate CA, not the leaf (leaf certificates rotate)
-- Acceptable for mobile apps; generally avoid for web (HPKP is deprecated)
-- Backup pins MUST be included along with a recovery plan
-- Consider Certificate Transparency monitoring as an alternative
+## Verification tools
 
-**Cipher suites:** Use Mozilla's "Intermediate" or "Modern" TLS configuration. Prefer AEAD
-ciphers (AES-GCM, ChaCha20-Poly1305).
+- `curl -vI https://yourdomain.com` — check TLS version and certificate chain
+- [SSL Labs Server Test](https://www.ssllabs.com/ssltest/) — comprehensive TLS audit
+- Mozilla Observatory — checks HSTS, CSP, and other security headers
 
 References:
 - [OWASP TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html)
@@ -60,5 +56,6 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-04-09 | Mike Fullerton | Tailor for shipping use case — focus on pre-deploy verification checklist |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
