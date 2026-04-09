@@ -3,7 +3,7 @@ id: 00000000-0000-0000-0000-000000000001
 title: "Agentic Cookbook"
 domain: agentic-cookbook://index
 type: reference
-version: 4.0.0
+version: 4.1.0
 status: accepted
 language: en
 created: 2026-03-27
@@ -33,6 +33,8 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 | [Getting Started](introduction/getting-started.md) | Setup and first steps |
 | [Conventions](introduction/conventions.md) | File format, naming, cross-referencing |
 | [Glossary](introduction/glossary.md) | Term definitions |
+| [Trigger Guide](introduction/trigger-guide.md) | Activity-based trigger system for AI agents |
+| [Top 10 Guidelines](introduction/top-10-guidelines.md) | Highest-signal guidelines shortlist |
 
 ## Principles
 
@@ -62,12 +64,12 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 
 ## Guidelines
 
-*What rules apply when building.* Organized by **use case** — the phase of work where they apply. See the [full index](guidelines/INDEX.md) for every guideline.
+*What rules apply when building.* Organized by **use case** — the phase of work where they apply. [Trigger-based filtering](introduction/trigger-guide.md) lets AI agents load only relevant guidelines. See the [full index](guidelines/INDEX.md) for every guideline.
 
 | Use Case | Guidelines | When to use |
 |----------|-----------|-------------|
 | [Planning](guidelines/planning/) | 41 | Architecture, data modeling, choosing patterns |
-| [Implementing](guidelines/implementing/) | 109 | Writing new code |
+| [Implementing](guidelines/implementing/) | 111 | Writing new code |
 | [Testing](guidelines/testing/) | 16 | Writing and structuring tests |
 | [Reviewing](guidelines/reviewing/) | 41 | Checking code quality, security, accessibility |
 | [Shipping](guidelines/shipping/) | 9 | Pre-commit, pre-PR, packaging |
@@ -159,6 +161,7 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 4.1.0 | 2026-04-09 | Mike Fullerton | Add trigger system, top-10 shortlist, AI guidelines; recategorize 20→12 |
 | 4.0.0 | 2026-04-09 | Mike Fullerton | Reorganize guidelines by use case (planning, implementing, testing, reviewing, shipping, cookbook) |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
 | 3.1.0 | 2026-04-05 | Mike Fullerton | Populate ingredients and recipes sections after reclassification of 18 ingredients from legacy recipes |

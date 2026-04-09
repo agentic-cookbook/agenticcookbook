@@ -1,10 +1,11 @@
 ---
 
+
 id: eb0764d5-aeac-40cc-9aa4-d84e4eaa652d
 title: "Guidelines Index"
 domain: agentic-cookbook://guidelines/INDEX
 type: reference
-version: 2.2.0
+version: 2.3.0
 status: accepted
 language: en
 created: 2026-03-27
@@ -29,13 +30,13 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 | Use Case | Guidelines | When to use |
 |----------|-----------|-------------|
 | [Planning](#planning-41-guidelines) | 41 | Architecture, data modeling, choosing patterns |
-| [Implementing](#implementing-109-guidelines) | 109 | Writing new code |
+| [Implementing](#implementing-111-guidelines) | 111 | Writing new code |
 | [Testing](#testing-16-guidelines) | 16 | Writing and structuring tests |
 | [Reviewing](#reviewing-41-guidelines) | 41 | Checking code quality, security, accessibility |
 | [Shipping](#shipping-9-guidelines) | 9 | Pre-commit, pre-PR, packaging |
 | [Cookbook](#cookbook-16-guidelines) | 16 | Writing cookbook content (recipes, skills, agents) |
 
-140 unique guidelines, 232 total (with duplicates across use cases).
+142 unique guidelines, 234 total (with duplicates across use cases).
 
 ---
 
@@ -99,7 +100,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 ---
 
-### Implementing (109 guidelines)
+### Implementing (111 guidelines)
 
 
 **accessibility**
@@ -112,7 +113,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Small, atomic commits](implementing/code-quality/atomic-commits.md)
 - [Dependency Injection](implementing/code-quality/dependency-injection.md)
 - [File paths](implementing/code-quality/file-paths.md)
-- [Linting from day one](implementing/code-quality/linting.md)
+- [Linting before the first PR](implementing/code-quality/linting.md)
 - [Naming](implementing/code-quality/naming.md)
 - [No external dependencies in core libraries](implementing/code-quality/no-external-dependencies-in-core-librari.md)
 - [Nullable Reference Types](implementing/code-quality/nullable-reference-types.md)
@@ -161,6 +162,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [RTL layout support](implementing/internationalization/rtl-support.md)
 
 **networking**
+- [AI Cost Management](implementing/networking/ai-cost-management.md)
 - [API Design](implementing/networking/api-design.md)
 - [Caching](implementing/networking/caching.md)
 - [Error Responses](implementing/networking/error-responses.md)
@@ -173,6 +175,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Web services](implementing/networking/web-services.md)
 
 **observability**
+- [AI Provider Observability](implementing/observability/ai-provider-observability.md)
 - [Analytics](implementing/observability/analytics.md)
 - [Instrumented logging](implementing/observability/logging.md)
 
@@ -375,7 +378,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
-| 2.2.0 | 2026-04-09 | Mike Fullerton | Recategorize: 20→12 categories, dissolve language/platform, flatten shipping/testing |
+| 2.3.0 | 2026-04-09 | Mike Fullerton | Recategorize: 20→12 categories, dissolve language/platform, flatten shipping/testing |
 | 2.1.0 | 2026-04-09 | Mike Fullerton | Pass 2: tailor guidelines to use cases, update counts (140 unique, 232 total) |
 | 2.0.0 | 2026-04-09 | Mike Fullerton | Reorganize by use case (planning, implementing, testing, reviewing, shipping, cookbook) |
 | 1.1.0 | 2026-04-04 | Mike Fullerton | Add database-design category with SQLite best practices |
