@@ -3,7 +3,7 @@ id: 39931D07-F23F-4980-A055-6916E722A01F
 title: "Guideline Formatting Compliance"
 domain: agentic-cookbook://compliance/artifact-formatting/guideline-formatting
 type: compliance
-version: 1.0.0
+version: 1.1.0
 status: draft
 language: en
 created: 2026-04-04
@@ -105,8 +105,21 @@ The guideline MAY include a `## Compliance` section listing evaluated compliance
 
 **Applies when:** the guideline is referenced by one or more compliance check definitions.
 
+---
+
+### gf-triggers-field
+
+The `triggers` field SHOULD be present in guideline frontmatter. It MUST be a YAML list of trigger names from the canonical taxonomy defined in `introduction/trigger-guide.md`. Empty list `[]` is acceptable for guidelines not yet classified.
+
+**Applies when:** always.
+
+**Guidelines:**
+- [Trigger Guide](agentic-cookbook://introduction/trigger-guide)
+- [Conventions](agentic-cookbook://introduction/conventions)
+
 ## Change History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-04-09 | Mike Fullerton | Add triggers field compliance check |
 | 1.0.0 | 2026-04-04 | Mike Fullerton | Initial creation |

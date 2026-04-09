@@ -14,3 +14,6 @@ Tests/Projects/
 
 # Playwright MCP
 .playwright-mcp/
+
+# Generated trigger index
+index/triggers.yaml

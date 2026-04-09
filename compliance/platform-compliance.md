@@ -107,7 +107,7 @@ Components MUST support platform theming (dark mode, high contrast, accent color
 **Applies when:** a component renders UI that should adapt to system appearance settings.
 
 **Guidelines:**
-- [Theming](agentic-cookbook://guidelines/platform/windows/theming)
+- [Theming](agentic-cookbook://guidelines/ui/theming)
 - [Color](agentic-cookbook://guidelines/ui/color)
 
 ## Change History

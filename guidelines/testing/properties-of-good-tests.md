@@ -1,13 +1,14 @@
 ---
-id: d2c1aaaf-3fc7-4410-ab9a-06c264aa3208
+
+id: e5af9ba5-f484-40c3-9738-470090f5241c
 title: "Properties of Good Tests"
 domain: agentic-cookbook://guidelines/testing/properties-of-good-tests
 type: guideline
-version: 1.0.0
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -21,6 +22,9 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - writing-tests
+  - code-review
 ---
 
 # Properties of Good Tests
@@ -44,4 +48,6 @@ From Kent Beck's Test Desiderata — tests should be:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -1,13 +1,14 @@
 ---
-id: 098af491-bb61-48b2-b98b-4a4cf4099c1d
+
+id: 05d00147-5c49-42d8-bdbd-cf8fd7dc2379
 title: "Flaky Test Prevention"
 domain: agentic-cookbook://guidelines/testing/flaky-test-prevention
 type: guideline
-version: 1.0.0
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -25,6 +26,9 @@ references:
   - https://testing.googleblog.com/
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - writing-tests
+  - pre-pr
 ---
 
 # Flaky Test Prevention
@@ -48,4 +52,6 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

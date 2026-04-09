@@ -50,21 +50,20 @@ The cookbook contains four types of **cookbook artifacts** — standalone markdo
 
 Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition over Inheritance, Separation of Concerns, Design for Deletion, Explicit over Implicit, Small Reversible Decisions, Tight Feedback Loops, Manage Complexity Through Boundaries, Least Astonishment, Idempotency, Native Controls, Open Source Preference, Make It Work/Right/Fast, Optimize for Change.
 
-### Guidelines (88 files)
+### Guidelines (142 unique, 234 with use-case duplicates)
 
-*What rules apply when building.* Organized by topic:
+*What rules apply when building.* Organized by **use case** — the phase of work where they apply, with [trigger-based filtering](introduction/trigger-guide.md) for AI agents:
 
-| Topic | Covers |
-|-------|--------|
-| Testing | Test pyramid, patterns, doubles, mutation testing, security testing |
-| Security | Auth, tokens, CORS, privacy, secure storage, input validation |
-| UI | Typography, spacing, color, layout, accessibility, progress |
-| Accessibility | Screen readers, keyboard nav, Dynamic Type, display options |
-| Internationalization | Localization, RTL support |
-| Concurrency | Background work, main thread safety |
-| Logging | Structured logging, analytics |
-| Feature Management | Feature flags, A/B testing, debug mode |
-| Code Quality | Linting, atomic commits |
+| Use Case | Guidelines | When to use |
+|----------|-----------|-------------|
+| Planning | 41 | Architecture, data modeling, choosing patterns |
+| Implementing | 111 | Writing new code |
+| Testing | 16 | Writing and structuring tests |
+| Reviewing | 41 | Checking code quality, security, accessibility |
+| Shipping | 9 | Pre-commit, pre-PR, packaging |
+| Cookbook | 16 | Writing cookbook content (recipes, skills, agents) |
+
+Guidelines that apply to multiple use cases are duplicated so each use-case directory is self-contained.
 
 ### Ingredients (18 files)
 
@@ -139,7 +138,7 @@ Repo: [agentic-cookbook/cookbook-web](https://github.com/agentic-cookbook/cookbo
 ```
 introduction/          # getting started, conventions, glossary
 principles/            # 18 engineering principles
-guidelines/            # 88 topic-organized guidelines
+guidelines/            # 142 use-case-organized guidelines
 ingredients/           # atomic component specs (building blocks)
 recipes/               # compositions of ingredients into features
 compliance/            # 10 compliance categories (81 checks)

@@ -1,13 +1,14 @@
 ---
-id: 734f7c30-8cf2-4284-8276-267d62c3c49c
+
+id: eec76082-a68b-4a2b-8f02-5ea3bfdc0a76
 title: "Test Doubles"
 domain: agentic-cookbook://guidelines/testing/test-doubles
 type: guideline
-version: 1.0.0
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -34,6 +35,8 @@ references:
   - https://vitest.dev/guide/mocking.html
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - writing-tests
 ---
 
 # Test Doubles
@@ -42,6 +45,7 @@ Use [Martin Fowler's taxonomy](https://martinfowler.com/bliki/TestDouble.html):
 
 | Double | Purpose | Example |
 |--------|---------|---------|
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | **Dummy** | Fill a parameter, never used | `null` or empty object |
 | **Stub** | Return canned answers | `stub.getUser() → User("test")` |
 | **Spy** | Record calls for later verification | `spy.wasCalled("save")` |
@@ -66,4 +70,5 @@ insulates tests from upstream API changes.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

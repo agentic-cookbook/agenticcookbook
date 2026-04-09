@@ -61,8 +61,8 @@ Text MUST scale with system font size settings on all platforms.
 **Applies when:** a component displays text content.
 
 **Guidelines:**
-- [Dynamic Type](agentic-cookbook://guidelines/language/swift/dynamic-type)
-- [Font Scaling](agentic-cookbook://guidelines/language/kotlin/font-scaling)
+- [Dynamic Type](agentic-cookbook://guidelines/accessibility/dynamic-type)
+- [Font Scaling](agentic-cookbook://guidelines/accessibility/font-scaling)
 
 ---
 

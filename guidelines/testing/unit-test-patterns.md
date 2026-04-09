@@ -1,13 +1,14 @@
 ---
-id: 59ffd7c7-2bdc-4f7b-b6f3-07d1f24599a3
+
+id: 4b60fa16-a4cc-4376-97c3-e455681bffb6
 title: "Unit Test Patterns"
 domain: agentic-cookbook://guidelines/testing/unit-test-patterns
 type: guideline
-version: 1.0.0
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-04-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -21,6 +22,8 @@ related: []
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
+triggers:
+  - writing-tests
 ---
 
 # Unit Test Patterns
@@ -50,4 +53,6 @@ Structure every unit test as Arrange-Act-Assert with one assertion concept per t
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

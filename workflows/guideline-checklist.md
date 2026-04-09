@@ -20,12 +20,12 @@ related:
   - agentic-cookbook://guidelines/feature-management/ab-testing
   - agentic-cookbook://guidelines/accessibility/accessibility
   - agentic-cookbook://guidelines/ui/always-show-progress
-  - agentic-cookbook://guidelines/logging/analytics
+  - agentic-cookbook://guidelines/observability/analytics
   - agentic-cookbook://guidelines/testing/testing
   - agentic-cookbook://guidelines/feature-management/debug-mode
   - agentic-cookbook://guidelines/platform/deep-linking
   - agentic-cookbook://guidelines/feature-management/feature-flags
-  - agentic-cookbook://guidelines/logging/logging
+  - agentic-cookbook://guidelines/observability/logging
   - agentic-cookbook://guidelines/code-quality/linting
   - agentic-cookbook://guidelines/internationalization/localization
   - agentic-cookbook://guidelines/concurrency/concurrency
@@ -55,7 +55,7 @@ related:
   - agentic-cookbook://guidelines/testing/test-pyramid
   - agentic-cookbook://guidelines/testing/the-testing-workflow
   - agentic-cookbook://guidelines/testing/unit-test-patterns
-  - agentic-cookbook://guidelines/database-design/sqlite-best-practices
+  - agentic-cookbook://guidelines/data/sqlite-best-practices
 references: []
 ---
 
@@ -133,7 +133,7 @@ These concerns apply to many but not all features. Claude Code MUST ask the user
 | File | Guideline | Summary | Default | Prompt Template | Workflow Phases |
 |------|-----------|---------|---------|-----------------|-----------------|
 | `../agentic-cookbook/cookbook/guidelines/ui/always-show-progress.md` | Show progress | Determinate or indeterminate progress for async work | Opt-in | "Does this feature involve async operations that need progress indication?" | WF-2, WF-3 |
-| `../agentic-cookbook/cookbook/guidelines/logging/logging.md` | Instrumented logging | Structured logging for all components and flows | Opt-in | "This feature will include structured logging. Any components that should be excluded?" | WF-2, WF-3, WF-4 |
+| `../agentic-cookbook/cookbook/guidelines/observability/logging.md` | Instrumented logging | Structured logging for all components and flows | Opt-in | "This feature will include structured logging. Any components that should be excluded?" | WF-2, WF-3, WF-4 |
 | `../agentic-cookbook/cookbook/guidelines/platform/deep-linking.md` | Deep linking | All significant views must be deep linkable | Ask | "Should the views in this feature be deep linkable?" | WF-2, WF-3 |
 | `../agentic-cookbook/cookbook/guidelines/platform/shortcuts-and-automation.md` | Scriptable/automatable | Components scriptable via platform mechanisms | Opt-out | "Does this feature need scripting/automation support (Shortcuts, intents)?" | WF-2, WF-3 |
 | `../agentic-cookbook/cookbook/guidelines/accessibility/accessibility.md` | Accessibility | Platform accessibility APIs from day one | Opt-in | "This feature will include full accessibility support. Any constraints?" | WF-2, WF-3, WF-4 |
@@ -142,13 +142,13 @@ These concerns apply to many but not all features. Claude Code MUST ask the user
 | `../agentic-cookbook/cookbook/guidelines/accessibility/accessibility.md` | Accessibility display options | Respond to reduced motion, high contrast, etc. | Opt-in | "This feature will respect accessibility display options. Confirm or opt out." | WF-2, WF-3 |
 | `../agentic-cookbook/cookbook/guidelines/security/privacy.md` | Privacy/security | Data minimization, secure storage, no PII logging | Opt-in | "Does this feature collect, store, or transmit user data?" | WF-2, WF-3, WF-5 |
 | `../agentic-cookbook/cookbook/guidelines/feature-management/feature-flags.md` | Feature flags | All features gated behind feature flags | Opt-in | "This feature will be gated behind a feature flag. Confirm or opt out." | WF-2, WF-3 |
-| `../agentic-cookbook/cookbook/guidelines/logging/analytics.md` | Analytics | Significant user actions instrumented | Ask | "Which user actions in this feature should be tracked for analytics?" | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/observability/analytics.md` | Analytics | Significant user actions instrumented | Ask | "Which user actions in this feature should be tracked for analytics?" | WF-2, WF-3 |
 | `../agentic-cookbook/cookbook/guidelines/feature-management/ab-testing.md` | A/B testing | Variant assignment support | Opt-out | "Does this feature need A/B testing / experimentation support?" | WF-2, WF-3 |
 | `../agentic-cookbook/cookbook/guidelines/feature-management/debug-mode.md` | Debug mode | Debug panel entries for flags, analytics, experiments | Opt-in | "This feature will include debug panel entries. Confirm or opt out." | WF-2, WF-3 |
 | `../agentic-cookbook/cookbook/guidelines/testing/property-based-testing.md` | Property-based testing | For parsers, serializers, data transformers | Ask | "Does this feature include data transformations that would benefit from property-based testing?" | WF-2, WF-3 |
 | `../agentic-cookbook/cookbook/guidelines/testing/mutation-testing.md` | Mutation testing | Validate tests catch bugs | Ask | "Should we run mutation testing to validate test quality?" | WF-4 |
 | `../agentic-cookbook/cookbook/guidelines/testing/security-testing.md` | Security testing | SAST, dependency scanning | Ask | "Should we run security scans (Semgrep, dependency audit)?" | WF-4 |
-| `../agentic-cookbook/cookbook/guidelines/database-design/sqlite-best-practices.md` | SQLite best practices | Schema design, performance, sync, PRAGMA settings | Ask | "Does this feature use SQLite? If so, the SQLite best practices guideline covers schema design, performance, sync, and operations." | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/data/sqlite-best-practices.md` | SQLite best practices | Schema design, performance, sync, PRAGMA settings | Ask | "Does this feature use SQLite? If so, the SQLite best practices guideline covers schema design, performance, sync, and operations." | WF-2, WF-3 |
 
 ## How to Use This Checklist
 
