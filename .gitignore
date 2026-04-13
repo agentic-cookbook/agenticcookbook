@@ -17,3 +17,6 @@ Tests/Projects/
 
 # Generated trigger index
 index/triggers.yaml
+
+# graphify output (generated)
+graphify-out/
