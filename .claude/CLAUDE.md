@@ -66,7 +66,7 @@ Key rules:
 
 ## Git Workflow
 
-**Owner edits** go direct to main. **Claude Code sessions** go through a branch + PR via worktree. Worktree location: `~/projects/worktrees/cookbook/<branch>/`.
+**Owner edits** go direct to main. **Claude Code sessions** go through a branch + PR via worktree.
 
 | Change type | Branch pattern | Example |
 |---|---|---|
@@ -75,12 +75,12 @@ Key rules:
 
 ### Worktree flow
 
-1. `git worktree add ~/projects/worktrees/cookbook/<branch-name> -b <branch>`
+1. Create a worktree with `EnterWorktree` (Claude Code) or `git worktree add <path> -b <branch>`
 2. Do all work in the worktree
 3. Update `index.md` if adding new content
 4. Commit, push, create PR with `gh pr create`
 5. Squash merge: `gh pr merge --squash`
-6. Clean up: `git worktree remove ~/projects/worktrees/cookbook/<branch-name>`
+6. Clean up: `ExitWorktree action:remove` (Claude Code) or `git worktree remove <path>`
 7. Pull main: `git pull`
 
 **Fork-based contributions**: External contributors who don't have push access use a fork. The workflow is the same (worktree, branch, commit, push, PR), but `origin` points to the fork and the PR targets `agentic-cookbook/cookbook` via `--head <user>:<branch>`. The `/contribute-to-cookbook` skill (in dev-team) detects this automatically.
