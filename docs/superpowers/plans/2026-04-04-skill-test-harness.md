@@ -372,7 +372,7 @@ export function createTestCookbook(name: string): string {
 }
 
 export function createTestWebsite(name: string): string {
-  const dest = mkdtempSync(join(tmpdir(), `cookbook-web-test-${name}-`));
+  const dest = mkdtempSync(join(tmpdir(), `agenticcookbookweb-test-${name}-`));
   mkdirSync(join(dest, "cookbook"), { recursive: true });
   return dest;
 }

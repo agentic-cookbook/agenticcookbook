@@ -1,7 +1,7 @@
 # Cookbook Principles & Guidelines — Feedback
 
 **Date:** 2026-04-08
-**Context:** Applied cookbook principles during persona-creator visual generator build (~300 lines of code, 46 tests)
+**Context:** Applied cookbook principles during personacreator visual generator build (~300 lines of code, 46 tests)
 
 ## What Worked Well
 

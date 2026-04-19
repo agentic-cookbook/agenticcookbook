@@ -96,12 +96,12 @@ Documentation updates:
 
 ## Step 4: Website Sync
 
-Run `/update-website` to sync all cookbook content to the cookbook-web project. This performs a full rsync ensuring the website matches the source.
+Run `/update-website` to sync all cookbook content to the agenticcookbookweb project. This performs a full rsync ensuring the website matches the source.
 
-If cookbook-web is not available locally, `/update-website` will report an error. Print:
+If agenticcookbookweb is not available locally, `/update-website` will report an error. Print:
 
 ```
-[SKIP] Website sync — cookbook-web not found locally
+[SKIP] Website sync — agenticcookbookweb not found locally
 ```
 
 ## Step 5: Summary

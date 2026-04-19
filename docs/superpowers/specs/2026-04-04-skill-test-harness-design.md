@@ -105,7 +105,7 @@ Creates a temp directory with a minimal cookbook structure:
 
 ### createTestWebsite(name: string): string
 
-Creates a temp directory mimicking `cookbook-web/cookbook/` for update-website tests. Initially empty — tests verify files appear after sync.
+Creates a temp directory mimicking `agenticcookbookweb/cookbook/` for update-website tests. Initially empty — tests verify files appear after sync.
 
 ### cleanup(dir: string): void
 

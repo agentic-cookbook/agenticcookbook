@@ -1,7 +1,7 @@
 ---
 name: update-website
 version: "1.0.0"
-description: "Sync all cookbook content to the cookbook-web project. Full rsync of the cookbook directory, ensuring the website reflects the current state."
+description: "Sync all cookbook content to the agenticcookbookweb project. Full rsync of the cookbook directory, ensuring the website reflects the current state."
 argument-hint: "[--dry-run]"
 allowed-tools: Read, Glob, Bash(rsync *), Bash(find *), Bash(wc *), Bash(diff *), Bash(ls *), AskUserQuestion
 context: fork
@@ -9,7 +9,7 @@ context: fork
 
 # Update Website v1.0.0
 
-Sync the full cookbook content to the cookbook-web project so the website reflects the current state. This is the canonical way to push content changes to the website — other skills (like `/add-artifact`) invoke this instead of doing their own file copies.
+Sync the full cookbook content to the agenticcookbookweb project so the website reflects the current state. This is the canonical way to push content changes to the website — other skills (like `/add-artifact`) invoke this instead of doing their own file copies.
 
 ## Startup
 
@@ -38,13 +38,13 @@ Determine the source and destination paths.
    ERROR: Cannot find cookbook content root. Run from the cookbook repo or an adjacent directory.
    ```
 
-**Destination**: The cookbook-web content directory. Check these paths relative to the source repo root:
-1. `../cookbook-web/cookbook/`
-2. `../../cookbook-web/cookbook/`
+**Destination**: The agenticcookbookweb content directory. Check these paths relative to the source repo root:
+1. `../agenticcookbookweb/cookbook/`
+2. `../../agenticcookbookweb/cookbook/`
 
 If not found, print error and stop:
 ```
-ERROR: Cannot find cookbook-web/cookbook/ directory. Is cookbook-web cloned as a sibling project?
+ERROR: Cannot find agenticcookbookweb/cookbook/ directory. Is agenticcookbookweb cloned as a sibling project?
 ```
 
 Print:

@@ -891,7 +891,7 @@ Spot-check that all `agentic-cookbook://` URIs resolve to real files.
 
 - [ ] **Step 4: Run `/update-website`**
 
-Sync all changes to cookbook-web.
+Sync all changes to agenticcookbookweb.
 
 - [ ] **Step 5: Mark PR ready and merge**
 

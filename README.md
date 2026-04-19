@@ -127,11 +127,11 @@ All user-facing cookbook skills are provided by dev-team:
 
 Repo: [agentic-cookbook/dev-team](https://github.com/agentic-cookbook/dev-team)
 
-### cookbook-web
+### agenticcookbookweb
 
 Cloudflare Workers web app for browsing the cookbook. React 19, TypeScript, Tailwind CSS 4. Serves as the public-facing website.
 
-Repo: [agentic-cookbook/cookbook-web](https://github.com/agentic-cookbook/cookbook-web)
+Repo: [agentic-cookbook/agenticcookbookweb](https://github.com/agentic-cookbook/agenticcookbookweb)
 
 ## Repository Structure
 

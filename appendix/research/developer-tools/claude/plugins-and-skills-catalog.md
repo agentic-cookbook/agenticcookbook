@@ -431,7 +431,7 @@ Professional marketplace with production-ready skills and a built-in skill-revie
 - [Pinecone Plugin](https://www.pinecone.io/blog/pinecone-plugin-for-claude-code/)
 - [Neon Plugin Docs](https://neon.com/docs/ai/ai-claude-code-plugin)
 - [Semgrep Plugin](https://semgrep.dev/docs/mcp)
-- [Aikido Plugin](https://help.aikido.dev/ai-and-dev-tools/aikido-mcp/anthropic-claude-code-mcp)
+- [Aikido Plugin](https://help.aikido.dev/ai-and-devtools/aikido-mcp/anthropic-claude-code-mcp)
 - [CodeRabbit Plugin](https://docs.coderabbit.ai/cli/claude-code-integration)
 - [PostHog Plugin](https://github.com/PostHog/posthog-for-claude)
 - [PlanetScale Plugin](https://github.com/planetscale/claude-plugin)

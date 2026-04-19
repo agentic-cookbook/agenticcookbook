@@ -88,7 +88,7 @@ This decision defines the formats and schema only. Reclassification of the exist
 
 ## Sibling Project Impact
 
-### cookbook-web
+### agenticcookbookweb
 
 Will need updates to recognize the three artifact tiers:
 - New route structure for `/ingredients/`

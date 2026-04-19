@@ -67,4 +67,4 @@ The frontmatter `type` field value changes from `concoction` to `cookbook` in:
 
 - No changes to the artifact hierarchy (ingredient → recipe → cookbook remains the same structure)
 - No changes to `cookbook.json` schema fields beyond renaming
-- No changes to sibling projects (dev-team, cookbook-web) — those will be updated separately
+- No changes to sibling projects (dev-team, agenticcookbookweb) — those will be updated separately
