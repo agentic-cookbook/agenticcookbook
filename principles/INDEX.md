@@ -7,6 +7,7 @@ Core engineering principles that guide all cookbook decisions and implementation
 | [meta-principle-optimize-for-change.md](meta-principle-optimize-for-change.md) | Every principle is a strategy for making future change cheaper and safer |
 | [simplicity.md](simplicity.md) | Simple means no interleaving of concerns; optimize for simplicity over ease |
 | [separation-of-concerns.md](separation-of-concerns.md) | A module should have one reason to change |
+| [srp.md](srp.md) | A module should be answerable to one and only one actor |
 | [composition-over-inheritance.md](composition-over-inheritance.md) | Default to composing behaviors from small, focused pieces |
 | [dependency-injection.md](dependency-injection.md) | A component should receive its dependencies from the outside |
 | [explicit-over-implicit.md](explicit-over-implicit.md) | Hidden behavior, magic, and implicit coupling create bugs that take days to find |
@@ -15,6 +16,7 @@ Core engineering principles that guide all cookbook decisions and implementation
 | [immutability-by-default.md](immutability-by-default.md) | Default to immutable values; introduce mutability only when profiling demands it |
 | [manage-complexity-through-boundaries.md](manage-complexity-through-boundaries.md) | Well-defined boundaries between subsystems let each side evolve independently |
 | [design-for-deletion.md](design-for-deletion.md) | Every line of code is a maintenance liability; build disposable software |
+| [dry.md](dry.md) | Every piece of knowledge should have a single, authoritative representation |
 | [native-controls.md](native-controls.md) | Always use the platform's built-in frameworks before custom implementations |
 | [open-source-preference.md](open-source-preference.md) | When no native solution exists, research battle-tested open-source libraries first |
 | [principle-of-least-astonishment.md](principle-of-least-astonishment.md) | APIs, UI, and system behavior should match what users and callers expect |

@@ -3,11 +3,11 @@ id: 00000000-0000-0000-0000-000000000001
 title: "Agentic Cookbook"
 domain: agentic-cookbook://index
 type: reference
-version: 4.1.0
+version: 4.2.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-09
+modified: 2026-04-21
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -50,7 +50,9 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 | [Immutability by Default](principles/immutability-by-default.md) | Default to immutable values; mutate only when necessary. |
 | [Composition over Inheritance](principles/composition-over-inheritance.md) | Compose small pieces over deep hierarchies. |
 | [Separation of Concerns](principles/separation-of-concerns.md) | One reason to change per module. |
+| [SRP](principles/srp.md) | A module should be answerable to one and only one actor. |
 | [Design for Deletion](principles/design-for-deletion.md) | Build disposable software, not reusable software. |
+| [DRY](principles/dry.md) | Every piece of knowledge has a single, authoritative representation. |
 | [Explicit over Implicit](principles/explicit-over-implicit.md) | Visible dependencies, clear intent. |
 | [Small, Reversible Decisions](principles/small-reversible-decisions.md) | Cheap to reverse? Decide fast. Expensive? Invest in understanding. |
 | [Tight Feedback Loops](principles/tight-feedback-loops.md) | The speed of your feedback loop is the speed of your learning. |
@@ -161,6 +163,7 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 4.2.0 | 2026-04-21 | Mike Fullerton | Add DRY and SRP principles |
 | 4.1.0 | 2026-04-09 | Mike Fullerton | Add trigger system, top-10 shortlist, AI guidelines; recategorize 20→12 |
 | 4.0.0 | 2026-04-09 | Mike Fullerton | Reorganize guidelines by use case (planning, implementing, testing, reviewing, shipping, cookbook) |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
