@@ -44,11 +44,11 @@ Code built with the agentic cookbook is **trusted**. That means:
 
 The cookbook contains four types of **cookbook artifacts** — standalone markdown files with YAML frontmatter, named requirements, and change history:
 
-### Principles (18 files)
+### Principles (21 files)
 
 *How to think about engineering.* Foundational ideas that guide all technical decisions.
 
-Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition over Inheritance, Separation of Concerns, Design for Deletion, Explicit over Implicit, Small Reversible Decisions, Tight Feedback Loops, Manage Complexity Through Boundaries, Least Astonishment, Idempotency, Native Controls, Open Source Preference, Make It Work/Right/Fast, Optimize for Change.
+Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition over Inheritance, Separation of Concerns, SRP, Design for Deletion, DRY, Explicit over Implicit, Small Reversible Decisions, Tight Feedback Loops, Manage Complexity Through Boundaries, Least Astonishment, Idempotency, Native Controls, Open Source Preference, Make It Work/Right/Fast, Optimize for Change.
 
 ### Guidelines (142 unique, 234 with use-case duplicates)
 
@@ -137,7 +137,7 @@ Repo: [agentic-cookbook/agenticcookbookweb](https://github.com/agentic-cookbook/
 
 ```
 introduction/          # getting started, conventions, glossary
-principles/            # 18 engineering principles
+principles/            # 21 engineering principles
 guidelines/            # 142 use-case-organized guidelines
 ingredients/           # atomic component specs (building blocks)
 recipes/               # compositions of ingredients into features

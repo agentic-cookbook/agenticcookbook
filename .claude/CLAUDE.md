@@ -6,7 +6,7 @@ A structured cookbook of principles, guidelines, recipes, and workflows for AI-a
 
 ```
 introduction/          # getting started, conventions, glossary
-principles/            # 18 engineering principles
+principles/            # 21 engineering principles
 guidelines/            # 88 topic-organized guidelines
 ingredients/           # atomic component specs (building blocks)
 recipes/               # compositions of ingredients into features
