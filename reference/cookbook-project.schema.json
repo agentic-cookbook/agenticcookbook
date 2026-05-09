@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://agentic-cookbook.com/schemas/cookbook-project.schema.json",
+  "$id": "https://agenticcookbook.dev/schemas/cookbook-project.schema.json",
   "title": "Cookbook Project",
   "description": "Schema for cookbook-project.json — a platform-agnostic project definition format",
   "type": "object",
