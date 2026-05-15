@@ -1,13 +1,32 @@
 #!/usr/bin/env python3
-"""Regenerate cookbook/guidelines/INDEX.md from the actual file structure."""
+"""Regenerate cookbook/guidelines/INDEX.md from the actual file structure.
+
+Run from the repo root (contains `cookbook/`) or from inside the cookbook
+content root (contains `guidelines/`).
+"""
 
 import re
+import sys
 from pathlib import Path
 
 import yaml
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-COOKBOOK_ROOT = REPO_ROOT / "cookbook"
+
+def resolve_cookbook_root() -> Path:
+    """Locate the cookbook content root relative to the current working directory."""
+    cwd = Path.cwd()
+    if (cwd / "cookbook" / "guidelines").is_dir():
+        return cwd / "cookbook"
+    if (cwd / "guidelines").is_dir():
+        return cwd
+    sys.exit(
+        "ERROR: cannot find cookbook content root from "
+        f"{cwd}. Run from the repo root (contains `cookbook/`) or from "
+        "inside the cookbook content root (contains `guidelines/`)."
+    )
+
+
+COOKBOOK_ROOT = resolve_cookbook_root()
 GUIDELINES_DIR = COOKBOOK_ROOT / "guidelines"
 INDEX_PATH = GUIDELINES_DIR / "INDEX.md"
 
