@@ -16,7 +16,7 @@ Tests/Projects/
 .playwright-mcp/
 
 # Generated trigger index
-index/triggers.yaml
+cookbook/index/triggers.yaml
 
 # graphify output (generated)
 graphify-out/

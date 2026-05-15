@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate guidelines/INDEX.md from the actual file structure."""
+"""Regenerate cookbook/guidelines/INDEX.md from the actual file structure."""
 
 import re
 from pathlib import Path
@@ -7,7 +7,8 @@ from pathlib import Path
 import yaml
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-GUIDELINES_DIR = REPO_ROOT / "guidelines"
+COOKBOOK_ROOT = REPO_ROOT / "cookbook"
+GUIDELINES_DIR = COOKBOOK_ROOT / "guidelines"
 INDEX_PATH = GUIDELINES_DIR / "INDEX.md"
 
 USE_CASE_ORDER = ["planning", "implementing", "testing", "reviewing", "shipping", "cookbook"]

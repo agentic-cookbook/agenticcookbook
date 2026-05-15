@@ -32,8 +32,9 @@ def parse_frontmatter(path: Path) -> dict:
 
 def main() -> None:
     repo_root = Path(__file__).resolve().parent.parent
-    guidelines_dir = repo_root / "guidelines"
-    output_path = repo_root / "index" / "triggers.yaml"
+    cookbook_root = repo_root / "cookbook"
+    guidelines_dir = cookbook_root / "guidelines"
+    output_path = cookbook_root / "index" / "triggers.yaml"
 
     skip_names = {"INDEX.md", "index.md", "references.md"}
     trigger_map: dict[str, list[str]] = defaultdict(list)
