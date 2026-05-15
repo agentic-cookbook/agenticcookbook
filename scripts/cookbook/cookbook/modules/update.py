@@ -6,6 +6,7 @@ the filesystem requires.
 
 from __future__ import annotations
 
+import getpass
 from datetime import date
 from pathlib import Path
 
@@ -68,7 +69,8 @@ def run(args, ctx) -> int:
 
     if not args.no_frontmatter:
         ctx.ui.section("Frontmatter")
-        files_touched, fields_added = _fill_frontmatter(root, args.author, ctx.ui)
+        author = args.author or getpass.getuser()
+        files_touched, fields_added = _fill_frontmatter(root, author, ctx.ui)
         if files_touched:
             ctx.ui.ok(f"{files_touched} files updated · {fields_added} fields added")
         else:
