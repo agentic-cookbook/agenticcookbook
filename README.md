@@ -52,7 +52,7 @@ Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition ov
 
 ### Guidelines (142 unique, 234 with use-case duplicates)
 
-*What rules apply when building.* Organized by **use case** — the phase of work where they apply, with [trigger-based filtering](introduction/trigger-guide.md) for AI agents:
+*What rules apply when building.* Organized by **use case** — the phase of work where they apply, with [trigger-based filtering](cookbook/introduction/trigger-guide.md) for AI agents:
 
 | Use Case | Guidelines | When to use |
 |----------|-----------|-------------|
@@ -67,11 +67,11 @@ Guidelines that apply to multiple use cases are duplicated so each use-case dire
 
 ### Ingredients (18 files)
 
-*The building blocks.* Atomic component specs defining individual UI components, panels, or infrastructure patterns with full detail: behavioral requirements, appearance, states, accessibility, configuration options, test vectors, and platform notes. Located in `ingredients/`.
+*The building blocks.* Atomic component specs defining individual UI components, panels, or infrastructure patterns with full detail: behavioral requirements, appearance, states, accessibility, configuration options, test vectors, and platform notes. Located in `cookbook/ingredients/`.
 
 ### Recipes (11 files)
 
-*How things combine.* Compositions of configured ingredients into coherent features. Define how ingredients wire together: integration requirements, layout, shared state, and integration test vectors. Located in `recipes/`.
+*How things combine.* Compositions of configured ingredients into coherent features. Define how ingredients wire together: integration requirements, layout, shared state, and integration test vectors. Located in `cookbook/recipes/`.
 
 ### Compliance (10 categories, 81 checks)
 
@@ -105,7 +105,7 @@ my-app-cookbook/
     └── research/               # design research and evaluations
 ```
 
-See `reference/cookbook.schema.json` for the JSON Schema. A complete example lives at `reference/examples/my-document-editor-cookbook/`.
+See `cookbook/reference/cookbook.schema.json` for the JSON Schema. A complete example lives at `cookbook/reference/examples/my-document-editor-cookbook/`.
 
 ## Sibling Projects
 
@@ -136,17 +136,18 @@ Repo: [agentic-cookbook/agenticcookbookweb](https://github.com/agentic-cookbook/
 ## Repository Structure
 
 ```
-introduction/          # getting started, conventions, glossary
-principles/            # 21 engineering principles
-guidelines/            # 142 use-case-organized guidelines
-ingredients/           # atomic component specs (building blocks)
-recipes/               # compositions of ingredients into features
-compliance/            # 10 compliance categories (81 checks)
-workflows/             # 6 workflow specs (plan, implement, verify, review)
-reference/             # external best-practices links, schemas, examples
-appendix/              # research materials
-index.md               # table of contents
-README.md              # this file
+cookbook/                # cookbook content root
+  introduction/          # getting started, conventions, glossary
+  principles/            # 21 engineering principles
+  guidelines/            # 142 use-case-organized guidelines
+  ingredients/           # atomic component specs (building blocks)
+  recipes/               # compositions of ingredients into features
+  compliance/            # 10 compliance categories (81 checks)
+  workflows/             # 6 workflow specs (plan, implement, verify, review)
+  reference/             # external best-practices links, schemas, examples
+  appendix/              # research materials
+  index.md               # table of contents
+README.md                # this file
 ```
 
 ## Contributing
