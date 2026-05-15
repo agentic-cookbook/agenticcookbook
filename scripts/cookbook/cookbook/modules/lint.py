@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
+import subprocess
 from pathlib import Path
 
 from ..core import refs
 from ..core.checks import phase_a
 from ..core.errors import NoCookbookRootError
 from ..core.markdown import iter_markdown
-from ..core.shell import claude_available, claude_p
+from ..core.shell import claude_available, claude_p, git_changed_markdown
 
 NAME = "lint"
 HELP = "Lint a cookbook: deterministic checks + LLM-driven recipe-quality pass."
@@ -19,6 +20,12 @@ def register(parser) -> None:
         "--no-llm",
         action="store_true",
         help="Skip the `claude -p` quality pass; run deterministic checks only.",
+    )
+    parser.add_argument(
+        "--since",
+        metavar="REF",
+        default=None,
+        help="Limit Phase B to markdown files changed since the given git ref (e.g. `--since main`).",
     )
     parser.add_argument(
         "files",
@@ -40,9 +47,35 @@ def _phase_a(root: Path, ui) -> int:
     return 1
 
 
-def _phase_b(root: Path, files: list[Path], ui) -> int:
+def _resolve_phase_b_targets(
+    root: Path, files: list[Path], since: str | None, ui
+) -> list[Path] | None:
+    """Return the file list for Phase B, or None on a fatal error."""
+    if files and since:
+        ui.error("Pass either explicit files or --since, not both.")
+        return None
+    if files:
+        return files
+    if since:
+        try:
+            changed = git_changed_markdown(root, since)
+        except subprocess.CalledProcessError as e:
+            ui.error(f"git diff failed: {e.stderr.strip() or e}")
+            return None
+        except FileNotFoundError:
+            ui.error("`git` not found on PATH; cannot resolve --since.")
+            return None
+        ui.info(f"--since {since}: {len(changed)} changed markdown file(s).")
+        return changed
+    return iter_markdown(root)
+
+
+def _phase_b(root: Path, targets: list[Path], ui) -> int:
     if not claude_available():
         ui.warn("`claude` not found on PATH — skipping LLM pass.")
+        return 0
+    if not targets:
+        ui.info("No files to review.")
         return 0
 
     ui.section("Phase B: LLM quality pass")
@@ -60,7 +93,6 @@ def _phase_b(root: Path, files: list[Path], ui) -> int:
             return "(not bundled)"
         return "\n".join(f"- {p.name}" for p in sorted(principles_dir.glob("*.md")))
 
-    targets = files or iter_markdown(root)
     failed = 0
     for f in targets:
         rel = f.relative_to(root) if f.is_absolute() else f
@@ -97,5 +129,8 @@ def run(args, ctx) -> int:
     exit_a = _phase_a(root, ctx.ui)
     exit_b = 0
     if not args.no_llm:
-        exit_b = _phase_b(root, list(args.files or []), ctx.ui)
+        targets = _resolve_phase_b_targets(root, list(args.files or []), args.since, ctx.ui)
+        if targets is None:
+            return 2
+        exit_b = _phase_b(root, targets, ctx.ui)
     return exit_a or exit_b
