@@ -31,14 +31,15 @@ Then stop.
 Determine the source and destination paths.
 
 **Source**: The cookbook content root. Detect by checking for `principles/` and `guidelines/` directories:
-1. If they exist in the current working directory, use `.` as source.
-2. If not, check `../cookbook/` and `../../cookbook/`.
-3. If not found, print error and stop:
+1. If `cookbook/principles/` and `cookbook/guidelines/` exist relative to the current working directory, use `./cookbook` as source.
+2. Otherwise, if `principles/` and `guidelines/` exist directly in the current working directory (already inside the cookbook content root), use `.` as source.
+3. Otherwise, check `../agenticcookbook/cookbook/` and `../../agenticcookbook/cookbook/`.
+4. If not found, print error and stop:
    ```
    ERROR: Cannot find cookbook content root. Run from the cookbook repo or an adjacent directory.
    ```
 
-**Destination**: The agenticcookbookweb content directory. Check these paths relative to the source repo root:
+**Destination**: The agenticcookbookweb content directory. Check these paths relative to the source repo:
 1. `../agenticcookbookweb/cookbook/`
 2. `../../agenticcookbookweb/cookbook/`
 

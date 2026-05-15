@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Generate index/triggers.yaml from guideline frontmatter triggers fields."""
+"""Generate cookbook/index/triggers.yaml from guideline frontmatter triggers fields.
+
+Run from the repo root (contains `cookbook/`) or from inside the cookbook
+content root (contains `guidelines/`).
+"""
 
 import sys
 from collections import defaultdict
@@ -7,6 +11,20 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import yaml
+
+
+def resolve_cookbook_root() -> Path:
+    """Locate the cookbook content root relative to the current working directory."""
+    cwd = Path.cwd()
+    if (cwd / "cookbook" / "guidelines").is_dir():
+        return cwd / "cookbook"
+    if (cwd / "guidelines").is_dir():
+        return cwd
+    sys.exit(
+        "ERROR: cannot find cookbook content root from "
+        f"{cwd}. Run from the repo root (contains `cookbook/`) or from "
+        "inside the cookbook content root (contains `guidelines/`)."
+    )
 
 
 CANONICAL_TRIGGERS = {
@@ -31,9 +49,9 @@ def parse_frontmatter(path: Path) -> dict:
 
 
 def main() -> None:
-    repo_root = Path(__file__).resolve().parent.parent
-    guidelines_dir = repo_root / "guidelines"
-    output_path = repo_root / "index" / "triggers.yaml"
+    cookbook_root = resolve_cookbook_root()
+    guidelines_dir = cookbook_root / "guidelines"
+    output_path = cookbook_root / "index" / "triggers.yaml"
 
     skip_names = {"INDEX.md", "index.md", "references.md"}
     trigger_map: dict[str, list[str]] = defaultdict(list)
@@ -50,7 +68,7 @@ def main() -> None:
         if not triggers:
             continue
         with_triggers += 1
-        rel_path = str(md_file.relative_to(repo_root))
+        rel_path = str(md_file.relative_to(cookbook_root))
         for trigger in triggers:
             if trigger not in CANONICAL_TRIGGERS:
                 warnings.append(f"  WARNING: non-canonical trigger '{trigger}' in {rel_path}")

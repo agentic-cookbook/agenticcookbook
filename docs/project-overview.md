@@ -19,31 +19,32 @@ Structured knowledge base of principles, guidelines, ingredients, recipes, and w
 │   ├── skills/            # add-artifact, approve-artifact, create-artifact, install-cookbook-global, lint-artifact, repair-cookbook, update-website
 │   ├── CLAUDE.md
 │   └── settings.json
-├── appendix/              # contributing/, decisions/, research/
-├── compliance/            # 10 categories (security, accessibility, etc.), artifact-formatting/
+├── cookbook/                # cookbook content root
+│   ├── appendix/            # contributing/, decisions/, research/
+│   ├── compliance/          # 10 categories (security, accessibility, etc.), artifact-formatting/
+│   ├── guidelines/          # cookbook/, implementing/, planning/, reviewing/, shipping/, testing/
+│   ├── ingredients/         # developer-tools/, infrastructure/, ui/, web/
+│   ├── introduction/        # conventions.md, glossary.md, trigger-guide.md, top-10-guidelines.md
+│   ├── principles/          # 21 .md files
+│   ├── recipes/             # app/, autonomous-dev-bots/, developer-tools/, infrastructure/, ui/, web/
+│   ├── reference/           # best-practices/, examples/, schemas
+│   ├── workflows/           # 6 .md files
+│   └── index.md
 ├── docs/feedback/, docs/project/, docs/superpowers/plans/, docs/superpowers/specs/
-├── guidelines/            # cookbook/, implementing/, planning/, reviewing/, shipping/, testing/
-├── ingredients/           # developer-tools/, infrastructure/, ui/, web/
-├── introduction/          # conventions.md, glossary.md, trigger-guide.md, top-10-guidelines.md
-├── principles/            # 21 .md files
-├── recipes/               # app/, autonomous-dev-bots/, developer-tools/, infrastructure/, ui/, web/
-├── reference/             # best-practices/, examples/, schemas
-├── scripts/               # Python: generate-trigger-index, recategorize-guidelines, etc.
-├── workflows/             # 6 .md files
-├── index.md
+├── scripts/                 # Python: generate-trigger-index, recategorize-guidelines, etc.
 └── README.md
 ```
 
 ## Key Files & Components
-- `principles/` — 21 engineering principles (simplicity, YAGNI, fail-fast, DRY, SRP, optimize-for-change, etc.)
-- `guidelines/` — 142 unique guidelines organized by use case (planning/implementing/testing/reviewing/shipping/cookbook); trigger-tagged for agent filtering
-- `introduction/trigger-guide.md` — 28 canonical triggers mapping activities → guideline paths; escalating checkpoint pattern
-- `index/triggers.yaml` (generated) — flat trigger→guideline-paths lookup for agent queries
+- `cookbook/principles/` — 21 engineering principles (simplicity, YAGNI, fail-fast, DRY, SRP, optimize-for-change, etc.)
+- `cookbook/guidelines/` — 142 unique guidelines organized by use case (planning/implementing/testing/reviewing/shipping/cookbook); trigger-tagged for agent filtering
+- `cookbook/introduction/trigger-guide.md` — 28 canonical triggers mapping activities → guideline paths; escalating checkpoint pattern
+- `cookbook/index/triggers.yaml` (generated) — flat trigger→guideline-paths lookup for agent queries
 - `scripts/generate-trigger-index.py` — walks guideline frontmatter, builds triggers.yaml
 - `.claude/skills/lint-artifact/SKILL.md` — validates artifact structure/frontmatter against compliance specs
 - `.claude/skills/approve-artifact/SKILL.md` — runs lint, stamps `approved-by`/`approved-date`
 - `.claude/skills/repair-cookbook/SKILL.md` — scans for broken cross-references, dead index links, structural issues; parallel agents, batch fix flow
-- `compliance/artifact-formatting/` — per-type formatting specs (principle, guideline, recipe, cookbook)
+- `cookbook/compliance/artifact-formatting/` — per-type formatting specs (principle, guideline, recipe, cookbook)
 
 ## Claude Configuration
 - **Rules:** `after-adding-an-artifact.md` (lint→approve→update indexes→sync website after every change), `always-use-worktrees-and-prs.md` (worktree + draft PR workflow), `artifact-formatting.md` (read compliance spec before writing any artifact)

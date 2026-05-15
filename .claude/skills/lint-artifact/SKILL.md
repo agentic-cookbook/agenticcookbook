@@ -10,7 +10,7 @@ model: sonnet
 
 # Lint Artifact v1.0.0
 
-Validate a cookbook artifact for structural completeness, frontmatter correctness, and convention compliance. Auto-detects the artifact type from the `type` frontmatter field and runs the corresponding checks from `compliance/artifact-formatting/`.
+Validate a cookbook artifact for structural completeness, frontmatter correctness, and convention compliance. Auto-detects the artifact type from the `type` frontmatter field and runs the corresponding checks from `cookbook/compliance/artifact-formatting/`.
 
 ## Startup
 
@@ -37,7 +37,7 @@ Resolve `$ARGUMENTS` to an artifact `.md` file path using this flow:
    - If the file exists, use it.
    - If not, print "File not found: <path>" and stop.
 
-2. **Search string**: Otherwise, treat `$ARGUMENTS` as a search string. Use Glob to find all `.md` files under `principles/`, `guidelines/`, and `recipes/` (excluding `_template.md` and `INDEX.md`). Filter to files whose name contains the search string (case-insensitive).
+2. **Search string**: Otherwise, treat `$ARGUMENTS` as a search string. Use Glob to find all `.md` files under `cookbook/principles/`, `cookbook/guidelines/`, and `cookbook/recipes/` (excluding `_template.md` and `INDEX.md`). Filter to files whose name contains the search string (case-insensitive).
    - **1 match** -> Use it. Print: "Found: <path>"
    - **Multiple matches** -> Show up to 4 matches with AskUserQuestion. Each option label is the filename, description is the relative path. The user picks one.
    - **0 matches** -> Print "No artifacts matching '<string>'" and stop.
@@ -56,9 +56,9 @@ Read the target file's YAML frontmatter. Extract the `type` field.
 
 | Type | Compliance File |
 |------|----------------|
-| `principle` | `compliance/artifact-formatting/principle-formatting.md` |
-| `guideline` | `compliance/artifact-formatting/guideline-formatting.md` |
-| `recipe` | `compliance/artifact-formatting/recipe-formatting.md` |
+| `principle` | `cookbook/compliance/artifact-formatting/principle-formatting.md` |
+| `guideline` | `cookbook/compliance/artifact-formatting/guideline-formatting.md` |
+| `recipe` | `cookbook/compliance/artifact-formatting/recipe-formatting.md` |
 
 If the `type` field is missing or not one of the three artifact types, print:
 
@@ -72,7 +72,7 @@ Print: `Type: <type> | Compliance: <compliance-file>`
 
 Before running checks, read:
 1. The compliance file for the detected type (from table above)
-2. `introduction/conventions.md` — format and frontmatter rules
+2. `cookbook/introduction/conventions.md` — format and frontmatter rules
 
 If either is missing, warn but continue with what's available.
 

@@ -41,23 +41,25 @@ You are a librarian auditing every shelf, cross-reference card, and index entry.
 
 ## Step 1: Detect Cookbook Root
 
-The cookbook uses a book structure with content directories at the top level:
+The cookbook content lives under a `cookbook/` subdirectory of the repo:
 
 ```
-introduction/     # conventions, glossary, getting started
-principles/       # engineering principles
-guidelines/       # topic-organized guidelines
-recipes/          # concrete specs (ui/, infrastructure/, app/, web/, etc.)
-workflows/        # development process specs
-compliance/       # verification checklists
-reference/        # external best-practices links
-appendix/         # contributing, decisions, research
-index.md          # master table of contents
+cookbook/
+  introduction/     # conventions, glossary, getting started
+  principles/       # engineering principles
+  guidelines/       # topic-organized guidelines
+  recipes/          # concrete specs (ui/, infrastructure/, app/, web/, etc.)
+  workflows/        # development process specs
+  compliance/       # verification checklists
+  reference/        # external best-practices links
+  appendix/         # contributing, decisions, research
+  index.md          # master table of contents
 ```
 
-1. If `principles/` and `guidelines/` exist in the current working directory, set `$ROOT` to the current directory.
-2. If `../agentic-cookbook/cookbook/` exists and contains `principles/`, set `$ROOT` to `../agentic-cookbook/cookbook`.
-3. Otherwise, print an error and **STOP**:
+1. If `cookbook/principles/` and `cookbook/guidelines/` exist relative to the current working directory, set `$ROOT` to `./cookbook`.
+2. Otherwise, if `principles/` and `guidelines/` exist directly in the current working directory (already inside the cookbook content root), set `$ROOT` to the current directory.
+3. Otherwise, if `../agenticcookbook/cookbook/` exists and contains `principles/`, set `$ROOT` to `../agenticcookbook/cookbook`.
+4. Otherwise, print an error and **STOP**:
    ```
    ERROR: Cannot find cookbook. Run from the cookbook repo root or an adjacent project.
    ```
