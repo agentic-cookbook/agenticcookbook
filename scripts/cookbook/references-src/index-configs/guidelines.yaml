@@ -1,0 +1,25 @@
+name: guidelines
+strategy: use_case
+applies_when:
+  path_exists: guidelines
+target_dir: guidelines
+output: guidelines/INDEX.md
+title: "Guidelines Index"
+summary: "Use-case-organized guidelines."
+description: |
+  Guidelines are organized by **use case** — the phase of work where they apply.
+  Guidelines that apply to multiple use cases are duplicated into each so the agent
+  gets everything it needs by reading one directory.
+use_cases:
+  - name: planning
+    description: "Architecture, data modeling, choosing patterns"
+  - name: implementing
+    description: "Writing new code"
+  - name: testing
+    description: "Writing and structuring tests"
+  - name: reviewing
+    description: "Checking code quality, security, accessibility"
+  - name: shipping
+    description: "Pre-commit, pre-PR, packaging"
+  - name: cookbook
+    description: "Writing cookbook content (recipes, skills, agents)"
