@@ -1,0 +1,17 @@
+- id: cookbook-validate
+  name: cookbook validate
+  description: Read-only Phase A checks + index drift detection on a cookbook directory.
+  entry: cookbook validate
+  language: system
+  pass_filenames: false
+  always_run: true
+  types: [markdown]
+
+- id: cookbook-lint
+  name: cookbook lint --no-llm
+  description: Deterministic lint checks (no LLM pass). Same Phase A rules as validate.
+  entry: cookbook lint --no-llm
+  language: system
+  pass_filenames: false
+  always_run: true
+  types: [markdown]

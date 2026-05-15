@@ -1,20 +1,19 @@
-"""`cookbook plan` — guide the user through planning a recipe or project (v1 stub).
+"""`cookbook plan` — guide the user through planning a recipe or small project.
 
-v1 behavior:
-- Load the bundled plan prompt template.
-- Collect a goal via interactive prompt.
-- Shell to `claude -p` and stream the result.
-- Iteration of the prompt content itself is deferred — extend `references-src/prompts/plan.md`.
+Loads the bundled prompt template, fills in cookbook principles/conventions/glossary
+context, collects the goal (CLI flag or interactive prompt), and shells to `claude -p`.
 """
 
 from __future__ import annotations
+
+from pathlib import Path
 
 from ..core import prompts, refs
 from ..core.errors import NoCookbookRootError
 from ..core.shell import claude_available, claude_p
 
 NAME = "plan"
-HELP = "Plan a recipe or project with LLM assistance (stub)."
+HELP = "Plan a recipe or small project with LLM assistance."
 
 
 def register(parser) -> None:
@@ -23,6 +22,16 @@ def register(parser) -> None:
         default=None,
         help="Recipe/project goal (skip the interactive prompt).",
     )
+
+
+def _safe_read(p: Path) -> str:
+    return p.read_text(encoding="utf-8") if p.exists() else "(not bundled)"
+
+
+def _list_principles(principles_dir: Path) -> str:
+    if not principles_dir.is_dir():
+        return "(not bundled)"
+    return "\n".join(f"- {p.stem}" for p in sorted(principles_dir.glob("*.md")))
 
 
 def run(args, ctx) -> int:
@@ -41,9 +50,15 @@ def run(args, ctx) -> int:
         ctx.ui.warn("No goal provided. Nothing to plan.")
         return 0
 
+    refs_dir = ctx.references_dir
     template = refs.prompt_template("plan")
-    prompt = template.replace("{{goal}}", goal).replace(
-        "{{cookbook_root}}", str(ctx.cookbook_root)
+    prompt = (
+        template
+        .replace("{{goal}}", goal)
+        .replace("{{cookbook_root}}", str(ctx.cookbook_root))
+        .replace("{{principles}}", _list_principles(refs_dir / "principles"))
+        .replace("{{conventions}}", _safe_read(refs_dir / "conventions.md"))
+        .replace("{{glossary}}", _safe_read(refs_dir / "glossary.md"))
     )
 
     ctx.ui.section("Plan")

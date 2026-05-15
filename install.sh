@@ -116,6 +116,8 @@ mkdir -p "${PKG_DIR}"
 cp -R "${PKG_SRC}/cookbook" "${PKG_DIR}/"
 cp -R "${PKG_SRC}/references" "${PKG_DIR}/"
 cp "${PKG_SRC}/reference-manifest.json" "${PKG_DIR}/"
+# Stamp the source path so `cookbook self update` can re-run install.sh from here.
+printf '%s\n' "${REPO_ROOT}" > "${PKG_DIR}/.install_source"
 ok "package → ${PKG_DIR}"
 
 # 5. Write the shim

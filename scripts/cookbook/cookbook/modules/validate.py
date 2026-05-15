@@ -4,12 +4,15 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from ..core.checks import phase_a
+from ..core.checks import fix_for, phase_a
 from ..core.errors import NoCookbookRootError
 from ..indexing import engine
 
 NAME = "validate"
 HELP = "Read-only validation: frontmatter + link checks + index drift."
+
+_DRIFT_FIX = "Run `cookbook update` to regenerate this index."
+_MISSING_FIX = "Run `cookbook update` to create this index."
 
 
 def register(parser) -> None:
@@ -47,6 +50,8 @@ def _drift(root: Path, configs_dir: Path, ui) -> int:
             rows.append([c.get("name", "?"), c["strategy"], "ok", str(out.relative_to(root))])
 
     ui.table(["config", "strategy", "result", "output"], rows)
+    if drift_found:
+        ui.info(f"Fix: {_DRIFT_FIX}")
     return 1 if drift_found else 0
 
 
@@ -64,8 +69,8 @@ def run(args, ctx) -> int:
         ctx.ui.ok(f"All {report.files_checked} artifacts passed deterministic checks.")
         a_exit = 0
     else:
-        rows = [[i.file, i.rule, i.detail] for i in report.issues]
-        ctx.ui.table(["file", "rule", "issue"], rows)
+        rows = [[i.file, i.rule, i.detail, fix_for(i.rule)] for i in report.issues]
+        ctx.ui.table(["file", "rule", "issue", "fix"], rows)
         ctx.ui.error(f"{len(report.issues)} issue(s) across {report.files_checked} files.")
         a_exit = 1
 
