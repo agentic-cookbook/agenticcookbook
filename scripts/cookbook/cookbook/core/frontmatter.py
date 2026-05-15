@@ -142,7 +142,7 @@ def fill_defaults(
         "author": author,
         "copyright": f"{today.year} {author}".strip(),
         "license": "MIT",
-        "summary": "",
+        "summary": title,
         "platforms": [],
         "tags": [],
         "depends-on": [],

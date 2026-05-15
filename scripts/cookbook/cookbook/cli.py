@@ -19,15 +19,19 @@ from .registry import discover
 
 
 def _build_parser(modules):
-    parser = argparse.ArgumentParser(
-        prog="cookbook",
-        description="Create and maintain cookbook directories (recipes, reference, indexes).",
-    )
-    parser.add_argument(
+    # Shared parent so `-p / --path` works either before OR after the subcommand.
+    common = argparse.ArgumentParser(add_help=False)
+    common.add_argument(
         "-p", "--path",
         type=Path,
         default=None,
         help="Path to the cookbook dir (defaults to discovery from cwd).",
+    )
+
+    parser = argparse.ArgumentParser(
+        prog="cookbook",
+        description="Create and maintain cookbook directories (recipes, reference, indexes).",
+        parents=[common],
     )
     parser.add_argument(
         "--version",
@@ -36,7 +40,9 @@ def _build_parser(modules):
     )
     sub = parser.add_subparsers(dest="module", metavar="<module>", required=False)
     for mod in modules:
-        sp = sub.add_parser(mod.NAME, help=mod.HELP, description=mod.HELP)
+        sp = sub.add_parser(
+            mod.NAME, help=mod.HELP, description=mod.HELP, parents=[common],
+        )
         mod.register(sp)
         sp.set_defaults(_module=mod)
     return parser
