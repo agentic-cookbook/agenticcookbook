@@ -18,6 +18,39 @@ from .frontmatter import (
 from .markdown import iter_markdown
 
 
+# Per-rule fix-it hints. Keyed on the `rule` slug emitted by `_check_one` /
+# `phase_a` below. `required-field:<name>` is matched by prefix.
+_FIX_ITS: dict[str, str] = {
+    "frontmatter-present": (
+        "Add a YAML frontmatter block (between `---` lines) at the top of the file. "
+        "Run `cookbook update` to scaffold a minimal one."
+    ),
+    "id-uuid": "Replace `id` with a UUID4: `python -c 'import uuid; print(uuid.uuid4())'`.",
+    "id-unique": "Two artifacts share the same `id`. Regenerate one with `python -c 'import uuid; print(uuid.uuid4())'`.",
+    "version-semver": "Use a semver string for `version` (e.g. `1.0.0`).",
+    "type-valid": f"`type` must be one of: {', '.join(sorted(VALID_TYPES))}.",
+    "status-valid": f"`status` must be one of: {', '.join(sorted(VALID_STATUSES))}.",
+    "domain-matches-path": (
+        "Update `domain` so it ends with the file's path (without `.md`). "
+        "Example: `agentic-cookbook://recipes/auth-cookie`."
+    ),
+    "link-resolves": "Fix or remove the link target, or create the file it points to.",
+}
+
+
+def fix_for(rule: str) -> str:
+    """Return a one-line fix-it hint for a rule slug, or '' if none applies."""
+    if rule in _FIX_ITS:
+        return _FIX_ITS[rule]
+    if rule.startswith("required-field:"):
+        field_name = rule.split(":", 1)[1]
+        return (
+            f"Add the missing `{field_name}` field. "
+            f"`cookbook update` will fill required fields with sensible defaults."
+        )
+    return ""
+
+
 @dataclass
 class CheckIssue:
     file: str

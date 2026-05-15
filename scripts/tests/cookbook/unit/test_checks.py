@@ -150,3 +150,24 @@ def test_duplicate_id(tmp_path):
     report = phase_a(root)
     rules = {i.rule for i in report.issues}
     assert "id-unique" in rules
+
+
+def test_fix_for_known_rule_returns_hint():
+    from cookbook.core.checks import fix_for
+
+    assert "UUID" in fix_for("id-uuid")
+    assert "semver" in fix_for("version-semver").lower()
+
+
+def test_fix_for_required_field_includes_field_name():
+    from cookbook.core.checks import fix_for
+
+    hint = fix_for("required-field:title")
+    assert "title" in hint
+    assert "cookbook update" in hint
+
+
+def test_fix_for_unknown_rule_returns_empty():
+    from cookbook.core.checks import fix_for
+
+    assert fix_for("not-a-real-rule") == ""

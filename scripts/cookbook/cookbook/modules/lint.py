@@ -6,7 +6,7 @@ import subprocess
 from pathlib import Path
 
 from ..core import refs
-from ..core.checks import phase_a
+from ..core.checks import fix_for, phase_a
 from ..core.errors import NoCookbookRootError
 from ..core.markdown import iter_markdown
 from ..core.shell import claude_available, claude_p, git_changed_markdown
@@ -41,8 +41,8 @@ def _phase_a(root: Path, ui) -> int:
     if report.ok:
         ui.ok(f"All {report.files_checked} artifacts passed deterministic checks.")
         return 0
-    rows = [[i.file, i.rule, i.detail] for i in report.issues]
-    ui.table(["file", "rule", "issue"], rows)
+    rows = [[i.file, i.rule, i.detail, fix_for(i.rule)] for i in report.issues]
+    ui.table(["file", "rule", "issue", "fix"], rows)
     ui.error(f"{len(report.issues)} issue(s) across {report.files_checked} files.")
     return 1
 
