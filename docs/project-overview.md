@@ -31,7 +31,7 @@ Structured knowledge base of principles, guidelines, ingredients, recipes, and w
 │   ├── workflows/           # 6 .md files
 │   └── index.md
 ├── docs/feedback/, docs/project/, docs/superpowers/plans/, docs/superpowers/specs/
-├── scripts/                 # Python: generate-trigger-index, recategorize-guidelines, etc.
+├── scripts/cookbook/        # `cookbook` CLI source (installed via install.sh → ~/.local/bin/)
 └── README.md
 ```
 
@@ -40,7 +40,7 @@ Structured knowledge base of principles, guidelines, ingredients, recipes, and w
 - `cookbook/guidelines/` — 142 unique guidelines organized by use case (planning/implementing/testing/reviewing/shipping/cookbook); trigger-tagged for agent filtering
 - `cookbook/introduction/trigger-guide.md` — 28 canonical triggers mapping activities → guideline paths; escalating checkpoint pattern
 - `cookbook/index/triggers.yaml` (generated) — flat trigger→guideline-paths lookup for agent queries
-- `scripts/generate-trigger-index.py` — walks guideline frontmatter, builds triggers.yaml
+- `cookbook update` — fills missing frontmatter and regenerates all indexes (incl. `index/triggers.yaml`). Lives in `scripts/cookbook/`, installed globally via `./install.sh`.
 - `.claude/skills/lint-artifact/SKILL.md` — validates artifact structure/frontmatter against compliance specs
 - `.claude/skills/approve-artifact/SKILL.md` — runs lint, stamps `approved-by`/`approved-date`
 - `.claude/skills/repair-cookbook/SKILL.md` — scans for broken cross-references, dead index links, structural issues; parallel agents, batch fix flow
@@ -69,8 +69,8 @@ Structured knowledge base of principles, guidelines, ingredients, recipes, and w
 cd .claude/tests && npm test           # vitest run
 cd .claude/tests && npm run test:e2e   # longer timeout config
 
-# Trigger index regeneration
-python3 scripts/generate-trigger-index.py
+# Regenerate indexes (incl. triggers) + fill missing frontmatter
+cookbook update
 
 # Sync to agenticcookbookweb
 /update-website   # Claude Code skill
