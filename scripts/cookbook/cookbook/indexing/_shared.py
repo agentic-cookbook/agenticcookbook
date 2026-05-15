@@ -40,7 +40,8 @@ def merge_index_frontmatter(
     today: date,
     type_: str = "reference",
 ) -> dict:
-    """Return frontmatter dict for an INDEX.md. Preserves id+created when one exists."""
+    """Return frontmatter dict for an INDEX.md. Prefers existing values when present
+    so user edits to title/summary/domain survive regeneration."""
     data: dict = {}
     if output_path.exists():
         fm = parse(output_path.read_text(encoding="utf-8"))
@@ -49,8 +50,8 @@ def merge_index_frontmatter(
     today_s = today.isoformat()
     base = {
         "id": data.get("id") or str(uuid.uuid4()),
-        "title": title,
-        "domain": domain,
+        "title": data.get("title") or title,
+        "domain": data.get("domain") or domain,
         "type": type_,
         "version": data.get("version") or "1.0.0",
         "status": data.get("status") or "draft",
@@ -60,13 +61,27 @@ def merge_index_frontmatter(
         "author": data.get("author", ""),
         "copyright": data.get("copyright", f"{today.year}"),
         "license": data.get("license") or "MIT",
-        "summary": summary or data.get("summary", ""),
+        "summary": data.get("summary") or summary,
     }
     # preserve any extras
     for k, v in data.items():
         if k not in base:
             base[k] = v
     return base
+
+
+def extract_change_history(output_path: Path) -> str:
+    """If the existing INDEX.md has a trailing `## Change History` section, return
+    that section's text (heading + body) so we can append it verbatim after
+    regenerating the body. Returns "" when none exists."""
+    if not output_path.exists():
+        return ""
+    text = output_path.read_text(encoding="utf-8")
+    marker = "\n## Change History"
+    idx = text.find(marker)
+    if idx == -1:
+        return ""
+    return text[idx + 1 :].rstrip() + "\n"
 
 
 def render_frontmatter(data: dict) -> str:

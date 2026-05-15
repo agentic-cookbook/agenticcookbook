@@ -28,6 +28,7 @@ from pathlib import Path
 from ._shared import (
     SKIP_FILENAMES,
     cookbook_name,
+    extract_change_history,
     iter_artifacts,
     merge_index_frontmatter,
     render_frontmatter,
@@ -133,6 +134,9 @@ def generate(config: dict, root: Path, today: date) -> tuple[str, dict]:
         lines.append("")
 
     text = "\n".join(lines).rstrip() + "\n"
+    history = extract_change_history(output)
+    if history:
+        text += "\n---\n\n" + history
     counts = {
         "per_use_case": per_uc_counts,
         "unique": unique,
