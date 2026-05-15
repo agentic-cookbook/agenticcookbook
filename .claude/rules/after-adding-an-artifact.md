@@ -23,8 +23,8 @@ Check and update all files that reference or are referenced by the changed artif
 
 ### Index files
 
-- `index.md` MUST list every artifact. If an artifact was added, add its entry in the correct section. If removed, remove the entry.
-- Section-level index files (e.g., `guidelines/testing/index.md`) MUST be updated if they exist.
+- `cookbook/index.md` MUST list every artifact. If an artifact was added, add its entry in the correct section. If removed, remove the entry.
+- Section-level index files (e.g., `cookbook/guidelines/testing/INDEX.md`) MUST be updated if they exist.
 
 ### Cross-references in other artifacts
 
@@ -37,7 +37,7 @@ Check and update all files that reference or are referenced by the changed artif
 
 - `README.md` — update artifact counts if the total changed (e.g., "18 principles" becomes "19 principles"). Update category tables if a new category was added.
 - `.claude/CLAUDE.md` — update the Cookbook Artifacts table counts if totals changed.
-- `introduction/glossary.md` — update if the artifact introduces or changes a defined term.
+- `cookbook/introduction/glossary.md` — update if the artifact introduces or changes a defined term.
 
 ---
 
@@ -52,7 +52,7 @@ Run `/update-website` to sync all cookbook content to the agenticcookbookweb pro
 Before marking the work complete, confirm:
 
 - [ ] `/approve-artifact` passed on every new or modified artifact
-- [ ] `index.md` reflects the current set of artifacts — no missing entries, no dead links
+- [ ] `cookbook/index.md` reflects the current set of artifacts — no missing entries, no dead links
 - [ ] No broken `agentic-cookbook://` cross-references exist in any `.md` file
 - [ ] README.md and CLAUDE.md artifact counts are accurate
 - [ ] Changed files are synced to `../agenticcookbookweb/cookbook/`
@@ -62,7 +62,7 @@ Before marking the work complete, confirm:
 ## MUST NOT
 
 - Do not skip `/approve-artifact`. Every new or modified artifact MUST be approved.
-- Do not leave `index.md` out of sync. Every artifact addition or removal updates the index.
+- Do not leave `cookbook/index.md` out of sync. Every artifact addition or removal updates the index.
 - Do not ignore cross-references. A renamed or removed artifact with dangling references is a broken cookbook.
 - Do not skip the website sync. Run `/update-website` — the agenticcookbookweb copy MUST match the source after every change.
 - Do not update artifact counts in README.md or CLAUDE.md without verifying the actual count.

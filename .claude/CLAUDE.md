@@ -5,35 +5,36 @@ A structured cookbook of principles, guidelines, recipes, and workflows for AI-a
 ## Repository Structure
 
 ```
-introduction/          # getting started, conventions, glossary
-principles/            # 21 engineering principles
-guidelines/            # 88 topic-organized guidelines
-ingredients/           # atomic component specs (building blocks)
-recipes/               # compositions of ingredients into features
-compliance/            # 10 compliance categories (81 checks)
-workflows/             # 6 workflow specs (plan, implement, verify, review)
-reference/             # external best-practices links, schemas, examples
-appendix/              # research materials
-index.md               # table of contents
-README.md              # human-facing documentation
+cookbook/                # cookbook content root
+  introduction/          # getting started, conventions, glossary
+  principles/            # engineering principles
+  guidelines/            # use-case-organized guidelines
+  ingredients/           # atomic component specs (building blocks)
+  recipes/               # compositions of ingredients into features
+  compliance/            # compliance categories
+  workflows/             # workflow specs (plan, implement, verify, review)
+  reference/             # external best-practices links, schemas, examples
+  appendix/              # research materials
+  index.md               # table of contents
+README.md                # human-facing documentation
 .claude/
-  CLAUDE.md            # this file
-  rules/               # repo-specific rules
-  skills/              # repo-specific skills
+  CLAUDE.md              # this file
+  rules/                 # repo-specific rules
+  skills/                # repo-specific skills
 ```
 
 ## Cookbook Artifacts
 
-A **cookbook artifact** is any content item in the cookbook: a principle, guideline, ingredient, or recipe. Each artifact is a standalone markdown file with YAML frontmatter, named requirements, and a change history. See `introduction/glossary.md` for the full definition.
+A **cookbook artifact** is any content item in the cookbook: a principle, guideline, ingredient, or recipe. Each artifact is a standalone markdown file with YAML frontmatter, named requirements, and a change history. See `cookbook/introduction/glossary.md` for the full definition.
 
 | Type | Count | Path | Description |
 |------|-------|------|-------------|
-| Principle | 18 | `principles/` | Foundational engineering ideas that guide design decisions |
-| Guideline | 142 (234 with duplicates) | `guidelines/` | Use-case-organized rules: planning, implementing, testing, reviewing, shipping, cookbook |
-| Ingredient | 18 | `ingredients/` | Atomic component specs — the building blocks of recipes |
-| Recipe | 11 | `recipes/` | Compositions of configured ingredients into coherent features |
+| Principle | 21 | `cookbook/principles/` | Foundational engineering ideas that guide design decisions |
+| Guideline | 142 (234 with duplicates) | `cookbook/guidelines/` | Use-case-organized rules: planning, implementing, testing, reviewing, shipping, cookbook |
+| Ingredient | 18 | `cookbook/ingredients/` | Atomic component specs — the building blocks of recipes |
+| Recipe | 11 | `cookbook/recipes/` | Compositions of configured ingredients into coherent features |
 
-A **cookbook** (`cookbook.json`) assembles recipes and ingredients into a complete application, plugin, or widget. See `reference/cookbook.schema.json` for the JSON Schema.
+A **cookbook** (`cookbook.json`) assembles recipes and ingredients into a complete application, plugin, or widget. See `cookbook/reference/cookbook.schema.json` for the JSON Schema.
 
 Supporting content (not artifacts): compliance checks, workflows, reference material.
 
@@ -53,7 +54,7 @@ Repo: [agentic-cookbook/agenticcookbookweb](https://github.com/agentic-cookbook/
 
 ## Conventions
 
-Read `introduction/conventions.md` for the full format reference. See `introduction/glossary.md` for term definitions.
+Read `cookbook/introduction/conventions.md` for the full format reference. See `cookbook/introduction/glossary.md` for term definitions.
 
 Key rules:
 - All `.md` files have YAML frontmatter (id, title, domain, type, version, status, language, created, modified, author, copyright, license, summary, platforms, tags, depends-on, related, references)
@@ -77,7 +78,7 @@ Key rules:
 
 1. Create a worktree with `EnterWorktree` (Claude Code) or `git worktree add <path> -b <branch>`
 2. Do all work in the worktree
-3. Update `index.md` if adding new content
+3. Update `cookbook/index.md` if adding new content
 4. Commit, push, create PR with `gh pr create`
 5. Squash merge: `gh pr merge --squash`
 6. Clean up: `ExitWorktree action:remove` (Claude Code) or `git worktree remove <path>`
@@ -87,4 +88,4 @@ Key rules:
 
 ## Writing New Content
 
-Use `ingredients/_template.md` for new ingredients and `recipes/_template.md` for new recipes. Follow `introduction/conventions.md` for the frontmatter format. Every cookbook artifact needs a UUID, domain matching its path, and a Change History section.
+Use `cookbook/ingredients/_template.md` for new ingredients and `cookbook/recipes/_template.md` for new recipes. Follow `cookbook/introduction/conventions.md` for the frontmatter format. Every cookbook artifact needs a UUID, domain matching its path, and a Change History section.
