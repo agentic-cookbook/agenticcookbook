@@ -31,7 +31,7 @@ Then stop.
 Use the same argument resolution flow as `/lint-artifact`:
 
 1. If `$ARGUMENTS` is a path or ends with `.md`, treat as file path.
-2. If `$ARGUMENTS` is a search string, search `principles/`, `guidelines/`, `recipes/` for matching `.md` files.
+2. If `$ARGUMENTS` is a search string, search `cookbook/principles/`, `cookbook/guidelines/`, `cookbook/recipes/` for matching `.md` files.
 3. If `$ARGUMENTS` is empty, check session context or prompt the user.
 
 See `/lint-artifact` for the full resolution flow.

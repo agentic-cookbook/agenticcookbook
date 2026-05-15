@@ -31,7 +31,7 @@ Then stop.
 Use the same argument resolution flow as `/lint-artifact`:
 
 1. If `$ARGUMENTS` is a path or ends with `.md`, treat as file path.
-2. If `$ARGUMENTS` is a search string, search `principles/`, `guidelines/`, `recipes/` for matching `.md` files.
+2. If `$ARGUMENTS` is a search string, search `cookbook/principles/`, `cookbook/guidelines/`, `cookbook/recipes/` for matching `.md` files.
 3. If `$ARGUMENTS` is empty, check session context or prompt the user.
 
 See `/lint-artifact` for the full resolution flow.
@@ -47,12 +47,12 @@ Run `/approve-artifact` on the resolved file.
 
 ### Main index
 
-Read `index.md`. Check whether the artifact is listed.
+Read `cookbook/index.md`. Check whether the artifact is listed.
 
 - If the artifact is **new** (not in the index), add an entry in the correct section based on the artifact's path:
-  - `principles/` artifacts go in the Principles section
-  - `guidelines/` artifacts go in the Guidelines section (under the correct topic subsection)
-  - `recipes/` artifacts go in the Recipes section (under the correct category subsection)
+  - `cookbook/principles/` artifacts go in the Principles section
+  - `cookbook/guidelines/` artifacts go in the Guidelines section (under the correct topic subsection)
+  - `cookbook/recipes/` artifacts go in the Recipes section (under the correct category subsection)
 - If the artifact is **already listed**, verify the entry is correct (title, path). Update if stale.
 
 ### Section-level indexes
@@ -63,8 +63,8 @@ Print what was updated:
 
 ```
 Index updates:
-  [UPDATED] index.md — added <artifact-title>
-  [OK] guidelines/testing/INDEX.md — already listed
+  [UPDATED] cookbook/index.md — added <artifact-title>
+  [OK] cookbook/guidelines/testing/INDEX.md — already listed
 ```
 
 ## Step 3: Update Documentation

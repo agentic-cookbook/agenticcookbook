@@ -55,9 +55,9 @@ Ask the user (one question at a time):
 1. **Title**: If `--title` was provided in `$ARGUMENTS`, use it. Otherwise ask: "What's the title?" (short, descriptive, e.g., "Test Pyramid", "Empty State", "Idempotency")
 
 2. **Location**: Propose a file path based on the type and title:
-   - Principles: `principles/<kebab-case-title>.md`
-   - Guidelines: Ask which topic subdirectory (list existing ones from `guidelines/`), then `guidelines/<topic>/<kebab-case-title>.md`
-   - Recipes: Ask which category (list existing ones from `recipes/`), then `recipes/<category>/<kebab-case-title>.md`
+   - Principles: `cookbook/principles/<kebab-case-title>.md`
+   - Guidelines: Ask which topic subdirectory (list existing ones from `cookbook/guidelines/`), then `cookbook/guidelines/<topic>/<kebab-case-title>.md`
+   - Recipes: Ask which category (list existing ones from `cookbook/recipes/`), then `cookbook/recipes/<category>/<kebab-case-title>.md`
 
    Use AskUserQuestion to confirm or override the proposed path.
 
@@ -100,9 +100,9 @@ Read the compliance file for the artifact type:
 
 | Type | Compliance File |
 |------|----------------|
-| Principle | `compliance/artifact-formatting/principle-formatting.md` |
-| Guideline | `compliance/artifact-formatting/guideline-formatting.md` |
-| Recipe | `compliance/artifact-formatting/recipe-formatting.md` |
+| Principle | `cookbook/compliance/artifact-formatting/principle-formatting.md` |
+| Guideline | `cookbook/compliance/artifact-formatting/guideline-formatting.md` |
+| Recipe | `cookbook/compliance/artifact-formatting/recipe-formatting.md` |
 
 Walk through each required section defined in the compliance file, asking the user for content. For each section:
 
