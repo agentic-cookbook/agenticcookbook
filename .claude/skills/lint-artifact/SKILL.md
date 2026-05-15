@@ -10,7 +10,7 @@ model: sonnet
 
 # Lint Artifact v1.0.0
 
-Validate a cookbook artifact for structural completeness, frontmatter correctness, and convention compliance. Auto-detects the artifact type from the `type` frontmatter field and runs the corresponding checks from `compliance/artifact-formatting/`.
+Validate a cookbook artifact for structural completeness, frontmatter correctness, and convention compliance. Auto-detects the artifact type from the `type` frontmatter field and runs the corresponding checks from `cookbook/compliance/artifact-formatting/`.
 
 ## Startup
 
