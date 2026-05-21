@@ -1,6 +1,6 @@
 # Contributing
 
-Guides for authoring and contributing content to the Agentic Cookbook.
+Guides for authoring and contributing content to the Agentic Developer Cookbook.
 
 | File | Description |
 |------|-------------|

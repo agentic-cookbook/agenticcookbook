@@ -1,4 +1,4 @@
-# Agentic Cookbook
+# Agentic Developer Cookbook
 
 A structured cookbook of principles, guidelines, ingredients, recipes, and workflows for AI-assisted multi-platform development. All content is markdown consumed directly by AI agents (Claude Code).
 
@@ -23,7 +23,7 @@ This installs `cookbook.md` into your project's `.claude/rules/`, updates your C
 
 ## What "Trusted" Means
 
-Code built with the agentic cookbook is **trusted**. That means:
+Code built with the Agentic Developer Cookbook is **trusted**. That means:
 
 - **Complete** — every state handled, every edge case addressed, every platform considered. Not just the happy path.
 - **Precise** — exactly what you asked for. No scope creep, no unrequested refactoring. Design decisions surfaced and approved, not made silently.

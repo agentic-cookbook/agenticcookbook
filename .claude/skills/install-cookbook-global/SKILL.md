@@ -44,6 +44,6 @@ Print:
 ```
 ✓ /install-cookbook is now available globally.
 
-Run it from any project to onboard the agentic cookbook:
+Run it from any project to onboard the Agentic Developer Cookbook:
   /install-cookbook
 ```

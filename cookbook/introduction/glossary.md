@@ -11,7 +11,7 @@ modified: 2026-04-06
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "Definitions of terms used throughout the agentic cookbook."
+summary: "Definitions of terms used throughout the Agentic Developer Cookbook."
 platforms: []
 tags: [glossary, definitions, terminology]
 depends-on: []
@@ -22,7 +22,7 @@ references: []
 
 # Glossary
 
-Definitions of terms used throughout the agentic cookbook.
+Definitions of terms used throughout the Agentic Developer Cookbook.
 
 ---
 

@@ -11,7 +11,7 @@ modified: 2026-03-27
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "How to set up and start using the Agentic Cookbook in your projects."
+summary: "How to set up and start using the Agentic Developer Cookbook in your projects."
 platforms: []
 tags:
   - quickstart
@@ -23,7 +23,7 @@ references: []
 
 # Getting Started
 
-TODO: Quickstart guide for setting up and using the Agentic Cookbook.
+TODO: Quickstart guide for setting up and using the Agentic Developer Cookbook.
 
 ## Change History
 

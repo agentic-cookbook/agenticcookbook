@@ -119,7 +119,7 @@ The expected progression:
 
 ---
 
-## 8. Applying Self-Healing to the Agentic Cookbook
+## 8. Applying Self-Healing to the Agentic Developer Cookbook
 
 **Analysis date:** March 30, 2026
 

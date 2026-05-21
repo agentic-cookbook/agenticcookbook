@@ -1,4 +1,4 @@
-# Agentic Cookbook
+# Agentic Developer Cookbook
 
 A structured cookbook of principles, guidelines, recipes, and workflows for AI-assisted multi-platform development. All content is markdown consumed directly by AI agents.
 

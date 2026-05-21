@@ -1,6 +1,6 @@
 ---
 id: 00000000-0000-0000-0000-000000000001
-title: "Agentic Cookbook"
+title: "Agentic Developer Cookbook"
 domain: agentic-cookbook://index
 type: reference
 version: 4.2.0
@@ -20,7 +20,7 @@ references:
   - https://github.com/agentic-cookbook/cookbook
 ---
 
-# Agentic Cookbook
+# Agentic Developer Cookbook
 
 A library of principles, guidelines, ingredients, recipes, and workflows for building software with AI-assisted development.
 

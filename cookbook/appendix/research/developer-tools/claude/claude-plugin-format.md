@@ -45,7 +45,7 @@ Only `plugin.json` goes in `.claude-plugin/`. Everything else at root.
 - Direct: `claude --plugin-dir ./path` for local development
 - npm: `npm install @scope/plugin-name`
 
-## Should the Agentic Cookbook Be a Plugin?
+## Should the Agentic Developer Cookbook Be a Plugin?
 
 **Partial fit.** The 20+ skills could be a plugin, but:
 - Cookbook content (principles, guidelines, recipes) can't travel with a plugin

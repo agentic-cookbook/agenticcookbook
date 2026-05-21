@@ -1,4 +1,4 @@
-# Agentic Cookbook
+# Agentic Developer Cookbook
 
 ## Project Summary
 Structured knowledge base of principles, guidelines, ingredients, recipes, and workflows for AI-assisted multi-platform development. All content is markdown with YAML frontmatter, consumed directly by Claude Code agents.
