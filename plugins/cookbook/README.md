@@ -1,0 +1,32 @@
+# cookbook plugin
+
+Claude Code plugin shell for the Agentic Developer Cookbook.
+
+## Layout
+
+```
+plugins/cookbook/
+  .claude-plugin/
+    plugin.json    # plugin metadata
+  skills/          # assembled at install time from ../../skills/ (gitignored)
+```
+
+## How it ships
+
+The repo root contains `.claude-plugin/marketplace.json`, which registers this
+plugin under the `agenticcookbook` local directory marketplace.
+
+`./install.sh` from the repo root:
+1. Assembles `plugins/cookbook/skills/` by copying every directory under
+   `../../skills/` into it.
+2. Registers the marketplace with Claude Code and enables the plugin.
+
+Each skill ships as a plugin-namespaced skill: invokable by Claude via the
+`Skill` tool as `cookbook:<name>` and by the user as the `/cookbook:<name>`
+slash command.
+
+## Adding a skill
+
+1. Create `./skills/<name>/SKILL.md` at the repo root with YAML frontmatter.
+2. Re-run `./install.sh` (or `cookbook self update`) — it gets picked up
+   automatically.

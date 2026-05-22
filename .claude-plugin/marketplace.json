@@ -1,0 +1,20 @@
+{
+  "name": "agenticcookbook",
+  "owner": {
+    "name": "Agentic Developer Cookbook",
+    "email": "mike@mikefullerton.com"
+  },
+  "plugins": [
+    {
+      "name": "cookbook",
+      "source": "./plugins/cookbook",
+      "description": "Skills for creating and maintaining cookbook-shaped repos (recipes, reference, indexes).",
+      "version": "1.1.0",
+      "author": {
+        "name": "Mike Fullerton",
+        "email": "mike@mikefullerton.com"
+      },
+      "strict": false
+    }
+  ]
+}

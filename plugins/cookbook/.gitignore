@@ -1,0 +1,3 @@
+# skills/ is assembled from ../../skills/ at install time (see install.sh).
+# The source of truth is the top-level ./skills/ directory.
+skills/
