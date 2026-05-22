@@ -5,11 +5,11 @@
 #   (bundles cookbook content into the script so it's self-contained at runtime).
 # - Copies the Python package to ~/.local/bin/_cookbook_pkg/
 # - Writes a shim at ~/.local/bin/cookbook that runs `python3 -m cookbook`
-# - Assembles ./plugins/cookbook/skills/ from ./skills/ (every top-level
+# - Assembles ./plugins/adh/skills/ from ./skills/ (every top-level
 #   skill directory becomes a plugin-namespaced skill: invokable by Claude
-#   via the Skill tool as cookbook:<name> and by the user as /cookbook:<name>).
+#   via the Skill tool as adh:<name> and by the user as /adh:<name>).
 # - Registers the repo as a local directory marketplace ("agenticcookbook")
-#   with Claude Code and enables the cookbook plugin.
+#   with Claude Code and enables the adh plugin.
 # - Installs Python deps (rich, questionary, pyyaml) via `pip --user`
 #
 # Idempotent. Re-run to refresh after edits.
@@ -19,11 +19,11 @@ REPO_ROOT="$(cd -- "$(dirname -- "$0")" && pwd)"
 BIN_DIR="${HOME}/.local/bin"
 PKG_DIR="${BIN_DIR}/_cookbook_pkg"
 LEGACY_SKILL_DIR="${HOME}/.claude/skills/cookbook"
-PLUGIN_DIR="${REPO_ROOT}/plugins/cookbook"
+PLUGIN_DIR="${REPO_ROOT}/plugins/adh"
 PLUGIN_SKILLS_DIR="${PLUGIN_DIR}/skills"
 SKILLS_SRC="${REPO_ROOT}/skills"
 MARKETPLACE_NAME="agenticcookbook"
-PLUGIN_NAME="cookbook"
+PLUGIN_NAME="adh"
 CLAUDE_DIR="${HOME}/.claude"
 KNOWN_MARKETPLACES="${CLAUDE_DIR}/plugins/known_marketplaces.json"
 CLAUDE_SETTINGS="${CLAUDE_DIR}/settings.json"
@@ -151,7 +151,7 @@ else
     warn "Retry manually: python3 -m pip install --user rich questionary pyyaml"
 fi
 
-# 7. Assemble the plugin: copy ./skills/<name>/ → ./plugins/cookbook/skills/<name>/
+# 7. Assemble the plugin: copy ./skills/<name>/ → ./plugins/adh/skills/<name>/
 title "Assembling plugin"
 if [ ! -d "${SKILLS_SRC}" ]; then
     err "missing ${SKILLS_SRC} — nothing to assemble."
@@ -255,6 +255,6 @@ fi
 
 title "Done"
 ok "Run: cookbook --help"
-ok "Skills available as /cookbook:<name> (and Skill-tool 'cookbook:<name>')"
+ok "Skills available as /adh:<name> (and Skill-tool 'adh:<name>')"
 warn "If you just added ${BIN_DIR} to your PATH, open a new shell."
 warn "Restart your Claude Code session to pick up the plugin."

@@ -1,6 +1,6 @@
 {
-  "name": "cookbook",
-  "description": "The Agentic Developer Cookbook — skills for creating and maintaining cookbook-shaped repos (recipes, reference, indexes).",
+  "name": "adh",
+  "description": "Agentic Developer Hub — skills for creating and maintaining cookbook-shaped repos (recipes, reference, indexes).",
   "version": "1.1.0",
   "author": {
     "name": "Mike Fullerton",

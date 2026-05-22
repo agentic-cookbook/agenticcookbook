@@ -2,7 +2,7 @@
 # Remove everything install.sh placed on the system.
 # - Removes the cookbook CLI shim and package
 # - Unregisters the local marketplace and disables the plugin
-# - Wipes the assembled plugins/cookbook/skills/ directory
+# - Wipes the assembled plugins/adh/skills/ directory
 # - Removes any legacy ~/.claude/skills/cookbook/ location
 #
 # Does NOT uninstall pip-installed deps (rich, questionary, pyyaml) — those may
@@ -13,9 +13,9 @@ REPO_ROOT="$(cd -- "$(dirname -- "$0")" && pwd)"
 BIN_DIR="${HOME}/.local/bin"
 PKG_DIR="${BIN_DIR}/_cookbook_pkg"
 LEGACY_SKILL_DIR="${HOME}/.claude/skills/cookbook"
-PLUGIN_SKILLS_DIR="${REPO_ROOT}/plugins/cookbook/skills"
+PLUGIN_SKILLS_DIR="${REPO_ROOT}/plugins/adh/skills"
 MARKETPLACE_NAME="agenticcookbook"
-PLUGIN_NAME="cookbook"
+PLUGIN_NAME="adh"
 CLAUDE_DIR="${HOME}/.claude"
 KNOWN_MARKETPLACES="${CLAUDE_DIR}/plugins/known_marketplaces.json"
 CLAUDE_SETTINGS="${CLAUDE_DIR}/settings.json"
