@@ -12,6 +12,9 @@ import argparse
 import sys
 from pathlib import Path
 
+from .frontmatter import parse, params_from_frontmatter
+from .render import assemble_prompt, UnknownPlaceholderError
+
 NAME = "prompt"
 HELP = "Assemble an expert prompt for a specific module/action and print it."
 
@@ -72,7 +75,59 @@ def _list_actions(module: str, ctx) -> int:
     return 0
 
 
+def _module_dir(module: str) -> Path:
+    return PROMPTS_DIR / module
+
+
+def _action_path(module: str, action: str) -> Path:
+    return _module_dir(module) / "actions" / f"{action}.md"
+
+
 def _render_action(module: str, action: str, rest: list[str], ctx) -> int:
-    # Implementation lands in Task 9.
-    ctx.ui.error("prompt rendering not yet implemented.")
-    return 2
+    module_md = _module_dir(module) / "module.md"
+    action_md = _action_path(module, action)
+    refs_dir = _module_dir(module) / "references"
+
+    if not module_md.is_file():
+        ctx.ui.error(f"cookbook prompt: unknown module '{module}' (no module.md at {module_md}).")
+        return 2
+    if not action_md.is_file():
+        ctx.ui.error(f"cookbook prompt {module}: unknown action '{action}' (no file at {action_md}).")
+        return 2
+
+    action_parsed = parse(action_md.read_text(encoding="utf-8"))
+    specs = params_from_frontmatter(action_parsed.frontmatter)
+
+    sub = argparse.ArgumentParser(
+        prog=f"cookbook prompt {module} {action}",
+        description=action_parsed.frontmatter.get("description", ""),
+        add_help=True,
+    )
+    for spec in specs:
+        kwargs = {"help": spec.description}
+        if spec.required:
+            kwargs["required"] = True
+        else:
+            kwargs["default"] = spec.default
+        sub.add_argument(f"--{spec.name}", **kwargs)
+
+    parsed, leftover = sub.parse_known_args(rest)
+    params = {spec.name: getattr(parsed, spec.name) for spec in specs}
+    task = " ".join(leftover).strip()
+    if not task:
+        ctx.ui.warn("cookbook prompt: empty task — assembled prompt will be low quality.")
+
+    try:
+        prompt = assemble_prompt(
+            module_md_path=module_md,
+            references_dir=refs_dir,
+            action_md_path=action_md,
+            params=params,
+            task=task,
+        )
+    except UnknownPlaceholderError as e:
+        ctx.ui.error(f"cookbook prompt {module} {action}: template references unknown placeholder '{{{{{e}}}}}'.")
+        return 1
+
+    sys.stdout.write(prompt)
+    return 0
