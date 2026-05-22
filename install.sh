@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
-# Install the `cookbook` CLI and Claude Code skill globally for the current user.
+# Install the `cookbook` CLI and Claude Code plugin globally for the current user.
 #
 # - Materializes scripts/cookbook/references/ from reference-manifest.json
 #   (bundles cookbook content into the script so it's self-contained at runtime).
 # - Copies the Python package to ~/.local/bin/_cookbook_pkg/
 # - Writes a shim at ~/.local/bin/cookbook that runs `python3 -m cookbook`
-# - Installs the skill at ~/.claude/skills/cookbook/SKILL.md
+# - Assembles ./plugins/cookbook/skills/ from ./skills/ (every top-level
+#   skill directory becomes a plugin-namespaced skill: invokable by Claude
+#   via the Skill tool as cookbook:<name> and by the user as /cookbook:<name>).
+# - Registers the repo as a local directory marketplace ("agenticcookbook")
+#   with Claude Code and enables the cookbook plugin.
 # - Installs Python deps (rich, questionary, pyyaml) via `pip --user`
 #
 # Idempotent. Re-run to refresh after edits.
@@ -14,7 +18,15 @@ set -euo pipefail
 REPO_ROOT="$(cd -- "$(dirname -- "$0")" && pwd)"
 BIN_DIR="${HOME}/.local/bin"
 PKG_DIR="${BIN_DIR}/_cookbook_pkg"
-SKILLS_DIR="${HOME}/.claude/skills/cookbook"
+LEGACY_SKILL_DIR="${HOME}/.claude/skills/cookbook"
+PLUGIN_DIR="${REPO_ROOT}/plugins/cookbook"
+PLUGIN_SKILLS_DIR="${PLUGIN_DIR}/skills"
+SKILLS_SRC="${REPO_ROOT}/skills"
+MARKETPLACE_NAME="agenticcookbook"
+PLUGIN_NAME="cookbook"
+CLAUDE_DIR="${HOME}/.claude"
+KNOWN_MARKETPLACES="${CLAUDE_DIR}/plugins/known_marketplaces.json"
+CLAUDE_SETTINGS="${CLAUDE_DIR}/settings.json"
 MANIFEST="${REPO_ROOT}/scripts/cookbook/reference-manifest.json"
 PKG_SRC="${REPO_ROOT}/scripts/cookbook"
 
@@ -139,21 +151,110 @@ else
     warn "Retry manually: python3 -m pip install --user rich questionary pyyaml"
 fi
 
-# 7. Install skill
-title "Installing skill"
-mkdir -p "${SKILLS_DIR}"
-cp "${REPO_ROOT}/skills/cookbook/SKILL.md" "${SKILLS_DIR}/"
-ok "skill → ${SKILLS_DIR}/SKILL.md"
+# 7. Assemble the plugin: copy ./skills/<name>/ → ./plugins/cookbook/skills/<name>/
+title "Assembling plugin"
+if [ ! -d "${SKILLS_SRC}" ]; then
+    err "missing ${SKILLS_SRC} — nothing to assemble."
+    exit 1
+fi
+rm -rf "${PLUGIN_SKILLS_DIR}"
+mkdir -p "${PLUGIN_SKILLS_DIR}"
+assembled=0
+for skill in "${SKILLS_SRC}"/*/; do
+    [ -d "${skill}" ] || continue
+    name="$(basename "${skill}")"
+    cp -R "${skill}" "${PLUGIN_SKILLS_DIR}/${name}"
+    printf '  + %s\n' "${name}"
+    assembled=$((assembled + 1))
+done
+if [ "${assembled}" -eq 0 ]; then
+    warn "no skills found in ${SKILLS_SRC}"
+else
+    ok "assembled ${assembled} skill(s) → ${PLUGIN_SKILLS_DIR}"
+fi
 
-# 8. Verify
+# 8. Register the marketplace + enable the plugin
+title "Registering Claude Code plugin"
+mkdir -p "$(dirname "${KNOWN_MARKETPLACES}")"
+python3 - "$REPO_ROOT" "$KNOWN_MARKETPLACES" "$CLAUDE_SETTINGS" "$MARKETPLACE_NAME" "$PLUGIN_NAME" <<'PY'
+import json, os, sys, tempfile
+from datetime import datetime, timezone
+from pathlib import Path
+
+repo_root, known_path, settings_path, market_name, plugin_name = sys.argv[1:6]
+repo_root = str(Path(repo_root).resolve())
+plugin_id = f"{plugin_name}@{market_name}"
+
+def load(path):
+    p = Path(path)
+    if not p.exists() or p.stat().st_size == 0:
+        return {}
+    try:
+        return json.loads(p.read_text())
+    except json.JSONDecodeError as e:
+        print(f"  ! {path} is not valid JSON ({e}); refusing to overwrite.", file=sys.stderr)
+        sys.exit(1)
+
+def atomic_write(path, data):
+    p = Path(path)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp = tempfile.mkstemp(prefix=p.name + ".", dir=str(p.parent))
+    try:
+        with os.fdopen(fd, "w") as f:
+            json.dump(data, f, indent=2)
+            f.write("\n")
+        os.replace(tmp, p)
+    except Exception:
+        try: os.unlink(tmp)
+        except FileNotFoundError: pass
+        raise
+
+now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
+
+# known_marketplaces.json: register / refresh the directory marketplace.
+known = load(known_path)
+known[market_name] = {
+    "source": {"source": "directory", "path": repo_root},
+    "installLocation": repo_root,
+    "lastUpdated": now,
+}
+atomic_write(known_path, known)
+print(f"  + known_marketplaces.json: {market_name} → {repo_root}")
+
+# settings.json: persist marketplace in extraKnownMarketplaces + enable plugin.
+settings = load(settings_path)
+extra = settings.setdefault("extraKnownMarketplaces", {})
+extra[market_name] = {"source": {"source": "directory", "path": repo_root}}
+enabled = settings.setdefault("enabledPlugins", {})
+enabled[plugin_id] = True
+atomic_write(settings_path, settings)
+print(f"  + settings.json: enabled {plugin_id}")
+PY
+ok "marketplace ${MARKETPLACE_NAME} registered; plugin ${PLUGIN_NAME} enabled"
+
+# 9. Clean up legacy ~/.claude/skills/cookbook (now provided by the plugin)
+if [ -d "${LEGACY_SKILL_DIR}" ]; then
+    title "Cleaning up legacy skill location"
+    rm -rf "${LEGACY_SKILL_DIR}"
+    ok "removed ${LEGACY_SKILL_DIR} (now provided by the plugin)"
+fi
+
+# 10. Verify
 title "Verifying"
 if "${BIN_DIR}/cookbook" --version >/dev/null 2>&1; then
     ok "$(${BIN_DIR}/cookbook --version)"
 else
     warn "cookbook --version did not return cleanly. Check the install log above."
 fi
+if [ -f "${PLUGIN_DIR}/.claude-plugin/plugin.json" ]; then
+    ok "plugin manifest at ${PLUGIN_DIR}/.claude-plugin/plugin.json"
+else
+    err "plugin manifest missing — install did not complete cleanly."
+    exit 1
+fi
 
 title "Done"
 ok "Run: cookbook --help"
+ok "Skills available as /cookbook:<name> (and Skill-tool 'cookbook:<name>')"
 warn "If you just added ${BIN_DIR} to your PATH, open a new shell."
-warn "Restart your Claude Code session to pick up the new skill."
+warn "Restart your Claude Code session to pick up the plugin."
