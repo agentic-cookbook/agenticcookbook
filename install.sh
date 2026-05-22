@@ -65,7 +65,7 @@ repo_root = Path(sys.argv[1])
 manifest = json.loads(Path(sys.argv[2]).read_text())
 
 dest = repo_root / manifest["destination"]
-source_root = (repo_root / "skills/cookbook/cli" / manifest["source_root"]).resolve()
+source_root = (repo_root / manifest["source_root"]).resolve()
 
 # Wipe everything in dest except .gitkeep
 if dest.exists():
@@ -108,7 +108,7 @@ for entry in manifest.get("files", []):
 
 embedded = manifest.get("embedded_dir")
 if embedded:
-    embedded_src = repo_root / "skills/cookbook/cli" / embedded
+    embedded_src = Path(sys.argv[2]).resolve().parent / embedded
     if embedded_src.is_dir():
         for f in embedded_src.rglob("*"):
             if f.is_file():
