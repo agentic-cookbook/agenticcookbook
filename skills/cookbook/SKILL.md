@@ -86,6 +86,6 @@ cookbook lint -p cookbook --since main
 ## Behavior notes
 
 - Never `pip install` anything from inside this skill — `install.sh` handles deps.
-- Never edit files in `~/.local/bin/_cookbook_pkg/`. To change CLI behavior, edit the source under `scripts/cookbook/` in the agenticcookbook repo and run `cookbook self update` (or re-run `install.sh`).
+- Never edit files in `~/.local/bin/_cookbook_pkg/`. To change CLI behavior, edit the source under `skills/cookbook/cli/` in the agenticcookbook repo and run `cookbook self update` (or re-run `install.sh`).
 - Pass `cwd` as-is; only use `-p <path>` when the user explicitly supplies one.
 - `cookbook --version` reports the installed version. If it doesn't match the source the user is editing, run `cookbook self update`.
