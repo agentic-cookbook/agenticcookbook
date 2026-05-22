@@ -155,19 +155,34 @@ if [ ! -d "${SKILLS_SRC}" ]; then
 fi
 rm -rf "${PLUGIN_SKILLS_DIR}"
 mkdir -p "${PLUGIN_SKILLS_DIR}"
-assembled=0
-for skill in "${SKILLS_SRC}"/*/; do
-    [ -d "${skill}" ] || continue
-    name="$(basename "${skill}")"
-    cp -R "${skill}" "${PLUGIN_SKILLS_DIR}/${name}"
-    printf '  + %s\n' "${name}"
-    assembled=$((assembled + 1))
-done
-if [ "${assembled}" -eq 0 ]; then
-    warn "no skills found in ${SKILLS_SRC}"
-else
-    ok "assembled ${assembled} skill(s) → ${PLUGIN_SKILLS_DIR}"
-fi
+python3 - "$SKILLS_SRC" "$PLUGIN_SKILLS_DIR" <<'PY'
+import shutil, sys
+from pathlib import Path
+
+EXCLUDE = {"cli", "bin"}
+
+src_root = Path(sys.argv[1])
+dst_root = Path(sys.argv[2])
+
+assembled = 0
+for skill_src in sorted(src_root.iterdir()):
+    if not skill_src.is_dir():
+        continue
+    name = skill_src.name
+    skill_dst = dst_root / name
+    skill_dst.mkdir(parents=True, exist_ok=True)
+    for child in skill_src.iterdir():
+        if child.name in EXCLUDE:
+            continue
+        target = skill_dst / child.name
+        if child.is_dir():
+            shutil.copytree(child, target)
+        else:
+            shutil.copy2(child, target)
+    print(f"  + {name}")
+    assembled += 1
+print(f"  assembled {assembled} skill(s)")
+PY
 
 # 8. Register the marketplace + enable the plugin
 title "Registering Claude Code plugin"
