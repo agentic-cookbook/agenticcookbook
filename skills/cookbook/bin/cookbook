@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+export PYTHONPATH="${HOME}/.local/bin/_cookbook_pkg:${PYTHONPATH:-}"
+exec python3 -m cookbook "$@"

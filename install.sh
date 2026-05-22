@@ -132,13 +132,9 @@ cp "${PKG_SRC}/reference-manifest.json" "${PKG_DIR}/"
 printf '%s\n' "${REPO_ROOT}" > "${PKG_DIR}/.install_source"
 ok "package → ${PKG_DIR}"
 
-# 5. Write the shim
+# 5. Install the shim
 title "Installing shim"
-cat > "${BIN_DIR}/cookbook" <<EOF
-#!/usr/bin/env bash
-export PYTHONPATH="${PKG_DIR}:\${PYTHONPATH:-}"
-exec python3 -m cookbook "\$@"
-EOF
+cp "${REPO_ROOT}/skills/cookbook/bin/cookbook" "${BIN_DIR}/cookbook"
 chmod +x "${BIN_DIR}/cookbook"
 ok "shim → ${BIN_DIR}/cookbook"
 
