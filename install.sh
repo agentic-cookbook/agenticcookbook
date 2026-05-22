@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Install the `cookbook` CLI and Claude Code plugin globally for the current user.
 #
-# - Materializes scripts/cookbook/references/ from reference-manifest.json
+# - Materializes skills/cookbook/cli/references/ from reference-manifest.json
 #   (bundles cookbook content into the script so it's self-contained at runtime).
 # - Copies the Python package to ~/.local/bin/_cookbook_pkg/
 # - Writes a shim at ~/.local/bin/cookbook that runs `python3 -m cookbook`
@@ -27,8 +27,8 @@ PLUGIN_NAME="adh"
 CLAUDE_DIR="${HOME}/.claude"
 KNOWN_MARKETPLACES="${CLAUDE_DIR}/plugins/known_marketplaces.json"
 CLAUDE_SETTINGS="${CLAUDE_DIR}/settings.json"
-MANIFEST="${REPO_ROOT}/scripts/cookbook/reference-manifest.json"
-PKG_SRC="${REPO_ROOT}/scripts/cookbook"
+MANIFEST="${REPO_ROOT}/skills/cookbook/cli/reference-manifest.json"
+PKG_SRC="${REPO_ROOT}/skills/cookbook/cli"
 
 color() { printf '\033[1;%sm%s\033[0m\n' "$1" "$2"; }
 title() { printf '\n'; color 36 "› $*"; }
@@ -65,7 +65,7 @@ repo_root = Path(sys.argv[1])
 manifest = json.loads(Path(sys.argv[2]).read_text())
 
 dest = repo_root / manifest["destination"]
-source_root = (repo_root / "scripts/cookbook" / manifest["source_root"]).resolve()
+source_root = (repo_root / "skills/cookbook/cli" / manifest["source_root"]).resolve()
 
 # Wipe everything in dest except .gitkeep
 if dest.exists():
@@ -108,7 +108,7 @@ for entry in manifest.get("files", []):
 
 embedded = manifest.get("embedded_dir")
 if embedded:
-    embedded_src = repo_root / "scripts/cookbook" / embedded
+    embedded_src = repo_root / "skills/cookbook/cli" / embedded
     if embedded_src.is_dir():
         for f in embedded_src.rglob("*"):
             if f.is_file():

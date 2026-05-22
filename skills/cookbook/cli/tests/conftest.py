@@ -1,11 +1,11 @@
 """Shared fixtures for the `cookbook` test suite.
 
 Layout:
-    scripts/cookbook/cookbook/   the package under test
-    scripts/cookbook/references-src/   bundled configs + prompts
-    scripts/tests/cookbook/      this test suite (unit/ + functional/)
+    skills/cookbook/cli/cookbook/        the package under test
+    skills/cookbook/cli/references-src/  bundled configs + prompts
+    skills/cookbook/cli/tests/           this test suite (unit/ + functional/)
 
-We push `scripts/cookbook/` onto sys.path so `import cookbook` works without
+We push `skills/cookbook/cli/` onto sys.path so `import cookbook` works without
 running install.sh, and point `cookbook.core.refs.references_dir()` at a
 stand-in references/ built from references-src/.
 
@@ -23,8 +23,8 @@ from pathlib import Path
 
 import pytest
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
-PKG_PARENT = REPO_ROOT / "scripts" / "cookbook"
+REPO_ROOT = Path(__file__).resolve().parents[4]
+PKG_PARENT = REPO_ROOT / "skills" / "cookbook" / "cli"
 sys.path.insert(0, str(PKG_PARENT))
 
 FIXTURE_REPO_URL = os.environ.get(
