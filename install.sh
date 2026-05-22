@@ -120,6 +120,70 @@ if embedded:
 PY
 ok "references materialized"
 
+# 3b. Materialize each prompt-module's reference-manifest.json
+title "Materializing prompt-module references"
+python3 - "$REPO_ROOT" <<'PY'
+import json, shutil, sys
+from pathlib import Path
+
+repo_root = Path(sys.argv[1])
+glob_root = repo_root / "skills/cookbook/cli/cookbook/modules/prompt/prompts"
+
+if not glob_root.is_dir():
+    print("  (no prompt modules)")
+    raise SystemExit(0)
+
+count = 0
+for manifest_path in sorted(glob_root.glob("*/reference-manifest.json")):
+    manifest = json.loads(manifest_path.read_text())
+    dest = repo_root / manifest["destination"]
+    source_root = (repo_root / manifest["source_root"]).resolve()
+
+    # Wipe destination contents except .gitkeep.
+    if dest.exists():
+        for child in dest.iterdir():
+            if child.name == ".gitkeep":
+                continue
+            if child.is_dir():
+                shutil.rmtree(child)
+            else:
+                child.unlink()
+    else:
+        dest.mkdir(parents=True)
+
+    for entry in manifest.get("files", []):
+        src = (source_root / entry["src"]).resolve()
+        dst = dest / entry["dst"]
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        if entry["type"] == "file":
+            if not src.is_file():
+                print(f"  MISSING file: {src}", file=sys.stderr)
+                sys.exit(1)
+            shutil.copy2(src, dst)
+        elif entry["type"] == "tree":
+            if not src.is_dir():
+                print(f"  MISSING dir: {src}", file=sys.stderr)
+                sys.exit(1)
+            include = entry.get("include", "*")
+            dst.mkdir(parents=True, exist_ok=True)
+            for f in src.rglob(include):
+                if f.is_file():
+                    rel = f.relative_to(src)
+                    target = dst / rel
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(f, target)
+        else:
+            print(f"  unknown entry type: {entry['type']}", file=sys.stderr)
+            sys.exit(1)
+
+    rel_manifest = manifest_path.relative_to(repo_root)
+    print(f"  + {rel_manifest}")
+    count += 1
+
+print(f"  materialized {count} prompt-module manifest(s)")
+PY
+ok "prompt-module references materialized"
+
 # 4. Install package to ~/.local/bin/_cookbook_pkg
 title "Installing package"
 rm -rf "${PKG_DIR}"
