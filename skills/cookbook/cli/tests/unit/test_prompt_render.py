@@ -25,6 +25,40 @@ def test_render_template_raises_on_unknown_placeholder():
     assert "unknown" in str(exc.value)
 
 
+def test_render_template_none_value_renders_as_empty():
+    """A `None` value (e.g., from `default: null`) renders as empty string, not 'None'."""
+    out = render_template("X{{val}}Y", {"val": None})
+    assert out == "XY"
+
+
+def test_assemble_prompt_does_not_auto_inject_task_into_params(tmp_path):
+    """Templates that reference {{task}} when no `task` param is declared should raise.
+
+    Regression: previously `setdefault("task", task)` silently mixed the task
+    string into the params dict, which both (a) hid template errors and
+    (b) collided with any user-declared `task` param.
+    """
+    module_md = tmp_path / "module.md"
+    module_md.write_text("---\nrole: r\n---\nP.\n", encoding="utf-8")
+    refs_dir = tmp_path / "references"
+    refs_dir.mkdir()
+    action_md = tmp_path / "actions" / "do.md"
+    action_md.parent.mkdir()
+    action_md.write_text(
+        "---\ndescription: d\n---\nBody references {{task}}.\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(UnknownPlaceholderError):
+        assemble_prompt(
+            module_md_path=module_md,
+            references_dir=refs_dir,
+            action_md_path=action_md,
+            params={},
+            task="my task",
+        )
+
+
 def test_assemble_prompt_order(tmp_path):
     module_md = tmp_path / "module.md"
     module_md.write_text(
