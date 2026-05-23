@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-export PYTHONPATH="${HOME}/.local/bin/_cookbook_pkg:${PYTHONPATH:-}"
+DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+export PYTHONPATH="${DIR}/_cookbook_pkg:${PYTHONPATH:-}"
 exec python3 -m cookbook "$@"

@@ -61,11 +61,15 @@ python3 - "$REPO_ROOT" "$MANIFEST" <<'PY'
 import json, shutil, sys
 from pathlib import Path
 
-repo_root = Path(sys.argv[1])
-manifest = json.loads(Path(sys.argv[2]).read_text())
+repo_root = Path(sys.argv[1]).resolve()
+manifest = json.loads(Path(sys.argv[2]).read_text(encoding="utf-8"))
 
-dest = repo_root / manifest["destination"]
+dest = (repo_root / manifest["destination"]).resolve()
 source_root = (repo_root / manifest["source_root"]).resolve()
+
+if not dest.is_relative_to(repo_root):
+    print(f"  manifest destination escapes repo root: {dest}", file=sys.stderr)
+    sys.exit(1)
 
 # Wipe everything in dest except .gitkeep
 if dest.exists():
@@ -81,7 +85,13 @@ else:
 
 for entry in manifest.get("files", []):
     src = (source_root / entry["src"]).resolve()
-    dst = dest / entry["dst"]
+    dst = (dest / entry["dst"]).resolve()
+    if not src.is_relative_to(source_root):
+        print(f"  manifest src escapes source_root: {entry['src']}", file=sys.stderr)
+        sys.exit(1)
+    if not dst.is_relative_to(dest):
+        print(f"  manifest dst escapes destination: {entry['dst']}", file=sys.stderr)
+        sys.exit(1)
     dst.parent.mkdir(parents=True, exist_ok=True)
     if entry["type"] == "file":
         if not src.is_file():
@@ -126,18 +136,35 @@ python3 - "$REPO_ROOT" <<'PY'
 import json, shutil, sys
 from pathlib import Path
 
-repo_root = Path(sys.argv[1])
+repo_root = Path(sys.argv[1]).resolve()
 glob_root = repo_root / "skills/cookbook/cli/cookbook/modules/prompt/prompts"
 
 if not glob_root.is_dir():
     print("  (no prompt modules)")
     raise SystemExit(0)
 
+# Orphan cleanup: wipe every prompts/*/references/ tree (except .gitkeep) so
+# stale references from a deleted/renamed module don't survive re-runs.
+for refs_dir in sorted(glob_root.glob("*/references")):
+    if not refs_dir.is_dir():
+        continue
+    for child in refs_dir.iterdir():
+        if child.name == ".gitkeep":
+            continue
+        if child.is_dir():
+            shutil.rmtree(child)
+        else:
+            child.unlink()
+
 count = 0
 for manifest_path in sorted(glob_root.glob("*/reference-manifest.json")):
-    manifest = json.loads(manifest_path.read_text())
-    dest = repo_root / manifest["destination"]
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    dest = (repo_root / manifest["destination"]).resolve()
     source_root = (repo_root / manifest["source_root"]).resolve()
+
+    if not dest.is_relative_to(repo_root):
+        print(f"  manifest destination escapes repo root: {dest}", file=sys.stderr)
+        sys.exit(1)
 
     # Wipe destination contents except .gitkeep.
     if dest.exists():
@@ -153,7 +180,13 @@ for manifest_path in sorted(glob_root.glob("*/reference-manifest.json")):
 
     for entry in manifest.get("files", []):
         src = (source_root / entry["src"]).resolve()
-        dst = dest / entry["dst"]
+        dst = (dest / entry["dst"]).resolve()
+        if not src.is_relative_to(source_root):
+            print(f"  manifest src escapes source_root: {entry['src']}", file=sys.stderr)
+            sys.exit(1)
+        if not dst.is_relative_to(dest):
+            print(f"  manifest dst escapes destination: {entry['dst']}", file=sys.stderr)
+            sys.exit(1)
         dst.parent.mkdir(parents=True, exist_ok=True)
         if entry["type"] == "file":
             if not src.is_file():
@@ -223,7 +256,9 @@ python3 - "$SKILLS_SRC" "$PLUGIN_SKILLS_DIR" <<'PY'
 import shutil, sys
 from pathlib import Path
 
-EXCLUDE = {"cli", "bin"}
+# Per-skill excludes: keep CLI plumbing out of plugin-bundled skills so a
+# stray `cli/` or `bin/` directory in another skill ships normally.
+EXCLUDE_PER_SKILL = {"cookbook": {"cli", "bin"}}
 
 src_root = Path(sys.argv[1])
 dst_root = Path(sys.argv[2])
@@ -233,19 +268,24 @@ for skill_src in sorted(src_root.iterdir()):
     if not skill_src.is_dir():
         continue
     name = skill_src.name
+    exclude = EXCLUDE_PER_SKILL.get(name, set())
     skill_dst = dst_root / name
     skill_dst.mkdir(parents=True, exist_ok=True)
     for child in skill_src.iterdir():
-        if child.name in EXCLUDE:
+        if child.name in exclude:
             continue
         target = skill_dst / child.name
         if child.is_dir():
-            shutil.copytree(child, target)
+            shutil.copytree(child, target, symlinks=True)
         else:
             shutil.copy2(child, target)
     print(f"  + {name}")
     assembled += 1
 print(f"  assembled {assembled} skill(s)")
+if assembled == 0:
+    print("  ! no skills assembled — check that ./skills/ contains skill directories.",
+          file=sys.stderr)
+    sys.exit(1)
 PY
 
 # 8. Register the marketplace + enable the plugin
@@ -265,7 +305,7 @@ def load(path):
     if not p.exists() or p.stat().st_size == 0:
         return {}
     try:
-        return json.loads(p.read_text())
+        return json.loads(p.read_text(encoding="utf-8"))
     except json.JSONDecodeError as e:
         print(f"  ! {path} is not valid JSON ({e}); refusing to overwrite.", file=sys.stderr)
         sys.exit(1)
@@ -275,7 +315,7 @@ def atomic_write(path, data):
     p.parent.mkdir(parents=True, exist_ok=True)
     fd, tmp = tempfile.mkstemp(prefix=p.name + ".", dir=str(p.parent))
     try:
-        with os.fdopen(fd, "w") as f:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
             f.write("\n")
         os.replace(tmp, p)
