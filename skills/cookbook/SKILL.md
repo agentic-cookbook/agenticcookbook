@@ -30,6 +30,10 @@ If it is missing, tell the user:
 
 - **No args / `help` / `--help`** → run `cookbook --help` and present the module table verbatim.
 - **`<module> ...`** → run `cookbook <module> ...` (forwarding all flags including `-p` / `--path`).
+- **`prompt <module> <action> ...`** → run `cookbook prompt <module> <action> ...`
+  and treat the printed prompt as your working brief for this turn. The
+  CLI does not call an LLM; it emits the assembled prompt for you to act
+  on.
 - For interactive modules (`plan`, occasionally `update --author`) — let the CLI handle the prompts. Do not wrap them.
 
 ## Modules at a glance
@@ -42,6 +46,7 @@ If it is missing, tell the user:
 | `validate` | Read-only: Phase A checks + index drift detection. Exit non-zero on failure (CI-friendly). |
 | `plan` | Drafts a plan for a new recipe or small project via `claude -p`. `--goal "..."` skips the interactive prompt. |
 | `self` | `cookbook self update` re-runs `install.sh` from the source path stamped at install time. |
+| `prompt` | Assembles an expert prompt (role + module preamble + bundled cookbook references + action template + free-text task) and prints it to stdout. `prompt <module> <action> [--formal-flags ...] [task ...]`. |
 
 ## Interpreting failures
 
@@ -81,6 +86,6 @@ cookbook lint -p cookbook --since main
 ## Behavior notes
 
 - Never `pip install` anything from inside this skill — `install.sh` handles deps.
-- Never edit files in `~/.local/bin/_cookbook_pkg/`. To change CLI behavior, edit the source under `scripts/cookbook/` in the agenticcookbook repo and run `cookbook self update` (or re-run `install.sh`).
+- Never edit files in `~/.local/bin/_cookbook_pkg/`. To change CLI behavior, edit the source under `skills/cookbook/cli/` in the agenticcookbook repo and run `cookbook self update` (or re-run `install.sh`).
 - Pass `cwd` as-is; only use `-p <path>` when the user explicitly supplies one.
 - `cookbook --version` reports the installed version. If it doesn't match the source the user is editing, run `cookbook self update`.

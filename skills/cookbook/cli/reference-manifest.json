@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "source_root": "../..",
-  "destination": "scripts/cookbook/references",
+  "source_root": ".",
+  "destination": "skills/cookbook/cli/references",
   "files": [
     { "src": "cookbook/principles",                  "dst": "principles",            "type": "tree", "include": "*.md" },
     { "src": "cookbook/introduction/conventions.md", "dst": "conventions.md",        "type": "file" },

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Install the `cookbook` CLI and Claude Code plugin globally for the current user.
 #
-# - Materializes scripts/cookbook/references/ from reference-manifest.json
+# - Materializes skills/cookbook/cli/references/ from reference-manifest.json
 #   (bundles cookbook content into the script so it's self-contained at runtime).
 # - Copies the Python package to ~/.local/bin/_cookbook_pkg/
 # - Writes a shim at ~/.local/bin/cookbook that runs `python3 -m cookbook`
@@ -27,8 +27,8 @@ PLUGIN_NAME="adh"
 CLAUDE_DIR="${HOME}/.claude"
 KNOWN_MARKETPLACES="${CLAUDE_DIR}/plugins/known_marketplaces.json"
 CLAUDE_SETTINGS="${CLAUDE_DIR}/settings.json"
-MANIFEST="${REPO_ROOT}/scripts/cookbook/reference-manifest.json"
-PKG_SRC="${REPO_ROOT}/scripts/cookbook"
+MANIFEST="${REPO_ROOT}/skills/cookbook/cli/reference-manifest.json"
+PKG_SRC="${REPO_ROOT}/skills/cookbook/cli"
 
 color() { printf '\033[1;%sm%s\033[0m\n' "$1" "$2"; }
 title() { printf '\n'; color 36 "› $*"; }
@@ -61,11 +61,15 @@ python3 - "$REPO_ROOT" "$MANIFEST" <<'PY'
 import json, shutil, sys
 from pathlib import Path
 
-repo_root = Path(sys.argv[1])
-manifest = json.loads(Path(sys.argv[2]).read_text())
+repo_root = Path(sys.argv[1]).resolve()
+manifest = json.loads(Path(sys.argv[2]).read_text(encoding="utf-8"))
 
-dest = repo_root / manifest["destination"]
-source_root = (repo_root / "scripts/cookbook" / manifest["source_root"]).resolve()
+dest = (repo_root / manifest["destination"]).resolve()
+source_root = (repo_root / manifest["source_root"]).resolve()
+
+if not dest.is_relative_to(repo_root):
+    print(f"  manifest destination escapes repo root: {dest}", file=sys.stderr)
+    sys.exit(1)
 
 # Wipe everything in dest except .gitkeep
 if dest.exists():
@@ -81,7 +85,13 @@ else:
 
 for entry in manifest.get("files", []):
     src = (source_root / entry["src"]).resolve()
-    dst = dest / entry["dst"]
+    dst = (dest / entry["dst"]).resolve()
+    if not src.is_relative_to(source_root):
+        print(f"  manifest src escapes source_root: {entry['src']}", file=sys.stderr)
+        sys.exit(1)
+    if not dst.is_relative_to(dest):
+        print(f"  manifest dst escapes destination: {entry['dst']}", file=sys.stderr)
+        sys.exit(1)
     dst.parent.mkdir(parents=True, exist_ok=True)
     if entry["type"] == "file":
         if not src.is_file():
@@ -108,7 +118,7 @@ for entry in manifest.get("files", []):
 
 embedded = manifest.get("embedded_dir")
 if embedded:
-    embedded_src = repo_root / "scripts/cookbook" / embedded
+    embedded_src = Path(sys.argv[2]).resolve().parent / embedded
     if embedded_src.is_dir():
         for f in embedded_src.rglob("*"):
             if f.is_file():
@@ -119,6 +129,93 @@ if embedded:
         print(f"  + (overlay) {embedded}")
 PY
 ok "references materialized"
+
+# 3b. Materialize each prompt-module's reference-manifest.json
+title "Materializing prompt-module references"
+python3 - "$REPO_ROOT" <<'PY'
+import json, shutil, sys
+from pathlib import Path
+
+repo_root = Path(sys.argv[1]).resolve()
+glob_root = repo_root / "skills/cookbook/cli/cookbook/modules/prompt/prompts"
+
+if not glob_root.is_dir():
+    print("  (no prompt modules)")
+    raise SystemExit(0)
+
+# Orphan cleanup: wipe every prompts/*/references/ tree (except .gitkeep) so
+# stale references from a deleted/renamed module don't survive re-runs.
+for refs_dir in sorted(glob_root.glob("*/references")):
+    if not refs_dir.is_dir():
+        continue
+    for child in refs_dir.iterdir():
+        if child.name == ".gitkeep":
+            continue
+        if child.is_dir():
+            shutil.rmtree(child)
+        else:
+            child.unlink()
+
+count = 0
+for manifest_path in sorted(glob_root.glob("*/reference-manifest.json")):
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    dest = (repo_root / manifest["destination"]).resolve()
+    source_root = (repo_root / manifest["source_root"]).resolve()
+
+    if not dest.is_relative_to(repo_root):
+        print(f"  manifest destination escapes repo root: {dest}", file=sys.stderr)
+        sys.exit(1)
+
+    # Wipe destination contents except .gitkeep.
+    if dest.exists():
+        for child in dest.iterdir():
+            if child.name == ".gitkeep":
+                continue
+            if child.is_dir():
+                shutil.rmtree(child)
+            else:
+                child.unlink()
+    else:
+        dest.mkdir(parents=True)
+
+    for entry in manifest.get("files", []):
+        src = (source_root / entry["src"]).resolve()
+        dst = (dest / entry["dst"]).resolve()
+        if not src.is_relative_to(source_root):
+            print(f"  manifest src escapes source_root: {entry['src']}", file=sys.stderr)
+            sys.exit(1)
+        if not dst.is_relative_to(dest):
+            print(f"  manifest dst escapes destination: {entry['dst']}", file=sys.stderr)
+            sys.exit(1)
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        if entry["type"] == "file":
+            if not src.is_file():
+                print(f"  MISSING file: {src}", file=sys.stderr)
+                sys.exit(1)
+            shutil.copy2(src, dst)
+        elif entry["type"] == "tree":
+            if not src.is_dir():
+                print(f"  MISSING dir: {src}", file=sys.stderr)
+                sys.exit(1)
+            include = entry.get("include", "*")
+            dst.mkdir(parents=True, exist_ok=True)
+            for f in src.rglob(include):
+                if f.is_file():
+                    rel = f.relative_to(src)
+                    target = dst / rel
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(f, target)
+        else:
+            print(f"  unknown entry type: {entry['type']}", file=sys.stderr)
+            sys.exit(1)
+
+    rel_manifest = manifest_path.relative_to(repo_root)
+    print(f"  + {rel_manifest}")
+    count += 1
+
+print(f"  materialized {count} prompt-module manifest(s)")
+PY
+ok "prompt-module references materialized"
 
 # 4. Install package to ~/.local/bin/_cookbook_pkg
 title "Installing package"
@@ -132,13 +229,9 @@ cp "${PKG_SRC}/reference-manifest.json" "${PKG_DIR}/"
 printf '%s\n' "${REPO_ROOT}" > "${PKG_DIR}/.install_source"
 ok "package → ${PKG_DIR}"
 
-# 5. Write the shim
+# 5. Install the shim
 title "Installing shim"
-cat > "${BIN_DIR}/cookbook" <<EOF
-#!/usr/bin/env bash
-export PYTHONPATH="${PKG_DIR}:\${PYTHONPATH:-}"
-exec python3 -m cookbook "\$@"
-EOF
+cp "${REPO_ROOT}/skills/cookbook/bin/cookbook" "${BIN_DIR}/cookbook"
 chmod +x "${BIN_DIR}/cookbook"
 ok "shim → ${BIN_DIR}/cookbook"
 
@@ -159,19 +252,41 @@ if [ ! -d "${SKILLS_SRC}" ]; then
 fi
 rm -rf "${PLUGIN_SKILLS_DIR}"
 mkdir -p "${PLUGIN_SKILLS_DIR}"
-assembled=0
-for skill in "${SKILLS_SRC}"/*/; do
-    [ -d "${skill}" ] || continue
-    name="$(basename "${skill}")"
-    cp -R "${skill}" "${PLUGIN_SKILLS_DIR}/${name}"
-    printf '  + %s\n' "${name}"
-    assembled=$((assembled + 1))
-done
-if [ "${assembled}" -eq 0 ]; then
-    warn "no skills found in ${SKILLS_SRC}"
-else
-    ok "assembled ${assembled} skill(s) → ${PLUGIN_SKILLS_DIR}"
-fi
+python3 - "$SKILLS_SRC" "$PLUGIN_SKILLS_DIR" <<'PY'
+import shutil, sys
+from pathlib import Path
+
+# Per-skill excludes: keep CLI plumbing out of plugin-bundled skills so a
+# stray `cli/` or `bin/` directory in another skill ships normally.
+EXCLUDE_PER_SKILL = {"cookbook": {"cli", "bin"}}
+
+src_root = Path(sys.argv[1])
+dst_root = Path(sys.argv[2])
+
+assembled = 0
+for skill_src in sorted(src_root.iterdir()):
+    if not skill_src.is_dir():
+        continue
+    name = skill_src.name
+    exclude = EXCLUDE_PER_SKILL.get(name, set())
+    skill_dst = dst_root / name
+    skill_dst.mkdir(parents=True, exist_ok=True)
+    for child in skill_src.iterdir():
+        if child.name in exclude:
+            continue
+        target = skill_dst / child.name
+        if child.is_dir():
+            shutil.copytree(child, target, symlinks=True)
+        else:
+            shutil.copy2(child, target)
+    print(f"  + {name}")
+    assembled += 1
+print(f"  assembled {assembled} skill(s)")
+if assembled == 0:
+    print("  ! no skills assembled — check that ./skills/ contains skill directories.",
+          file=sys.stderr)
+    sys.exit(1)
+PY
 
 # 8. Register the marketplace + enable the plugin
 title "Registering Claude Code plugin"
@@ -190,7 +305,7 @@ def load(path):
     if not p.exists() or p.stat().st_size == 0:
         return {}
     try:
-        return json.loads(p.read_text())
+        return json.loads(p.read_text(encoding="utf-8"))
     except json.JSONDecodeError as e:
         print(f"  ! {path} is not valid JSON ({e}); refusing to overwrite.", file=sys.stderr)
         sys.exit(1)
@@ -200,7 +315,7 @@ def atomic_write(path, data):
     p.parent.mkdir(parents=True, exist_ok=True)
     fd, tmp = tempfile.mkstemp(prefix=p.name + ".", dir=str(p.parent))
     try:
-        with os.fdopen(fd, "w") as f:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
             f.write("\n")
         os.replace(tmp, p)
