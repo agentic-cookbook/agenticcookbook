@@ -12,8 +12,15 @@ import argparse
 import sys
 from pathlib import Path
 
+import yaml
+
 from .frontmatter import parse, params_from_frontmatter
 from .render import assemble_prompt, UnknownPlaceholderError
+
+# Global flags that the top-level parser already handles via parents=[common];
+# if they appear in REMAINDER it's because the user put them after the
+# subcommand. Strip them so they don't leak into the rendered task.
+_GLOBAL_FLAGS_WITH_VALUE = {"-p", "--path"}
 
 NAME = "prompt"
 HELP = "Assemble an expert prompt for a specific module/action and print it."
@@ -83,6 +90,31 @@ def _action_path(module: str, action: str) -> Path:
     return _module_dir(module) / "actions" / f"{action}.md"
 
 
+def _strip_global_flags(rest: list[str], ctx) -> list[str]:
+    out: list[str] = []
+    i = 0
+    while i < len(rest):
+        a = rest[i]
+        if a in _GLOBAL_FLAGS_WITH_VALUE:
+            consumed = rest[i : i + 2] if i + 1 < len(rest) else rest[i : i + 1]
+            ctx.ui.warn(
+                f"cookbook prompt: ignoring `{' '.join(consumed)}` after subcommand; "
+                "place global flags before `prompt`."
+            )
+            i += len(consumed)
+            continue
+        if any(a.startswith(f + "=") for f in _GLOBAL_FLAGS_WITH_VALUE):
+            ctx.ui.warn(
+                f"cookbook prompt: ignoring `{a}` after subcommand; "
+                "place global flags before `prompt`."
+            )
+            i += 1
+            continue
+        out.append(a)
+        i += 1
+    return out
+
+
 def _render_action(module: str, action: str, rest: list[str], ctx) -> int:
     module_md = _module_dir(module) / "module.md"
     action_md = _action_path(module, action)
@@ -95,13 +127,19 @@ def _render_action(module: str, action: str, rest: list[str], ctx) -> int:
         ctx.ui.error(f"cookbook prompt {module}: unknown action '{action}' (no file at {action_md}).")
         return 2
 
-    action_parsed = parse(action_md.read_text(encoding="utf-8"))
-    specs = params_from_frontmatter(action_parsed.frontmatter)
+    try:
+        action_parsed = parse(action_md.read_text(encoding="utf-8"))
+        specs = params_from_frontmatter(action_parsed.frontmatter)
+    except (ValueError, yaml.YAMLError) as e:
+        ctx.ui.error(f"cookbook prompt {module} {action}: invalid frontmatter — {e}")
+        return 1
 
     sub = argparse.ArgumentParser(
         prog=f"cookbook prompt {module} {action}",
         description=action_parsed.frontmatter.get("description", ""),
-        add_help=True,
+        # add_help=False so `--help` inside a task remainder is treated as
+        # text (joins into the task), not an argparse action that exits.
+        add_help=False,
     )
     for spec in specs:
         kwargs = {"help": spec.description}
@@ -111,8 +149,10 @@ def _render_action(module: str, action: str, rest: list[str], ctx) -> int:
             kwargs["default"] = spec.default
         sub.add_argument(f"--{spec.name}", **kwargs)
 
+    rest = _strip_global_flags(rest, ctx)
     parsed, leftover = sub.parse_known_args(rest)
-    params = {spec.name: getattr(parsed, spec.name) for spec in specs}
+    # argparse rewrites `--my-name` to attribute `my_name`; mirror that here.
+    params = {spec.name: getattr(parsed, spec.name.replace("-", "_")) for spec in specs}
     task = " ".join(leftover).strip()
     if not task:
         ctx.ui.warn("cookbook prompt: empty task — assembled prompt will be low quality.")
@@ -127,6 +167,9 @@ def _render_action(module: str, action: str, rest: list[str], ctx) -> int:
         )
     except UnknownPlaceholderError as e:
         ctx.ui.error(f"cookbook prompt {module} {action}: template references unknown placeholder '{{{{{e}}}}}'.")
+        return 1
+    except (ValueError, yaml.YAMLError) as e:
+        ctx.ui.error(f"cookbook prompt {module} {action}: invalid frontmatter — {e}")
         return 1
 
     sys.stdout.write(prompt)

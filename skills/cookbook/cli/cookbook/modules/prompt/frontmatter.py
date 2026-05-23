@@ -8,7 +8,7 @@ from typing import Any
 
 import yaml
 
-_FRONTMATTER_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*\n?(.*)\Z", re.DOTALL)
+_FRONTMATTER_RE = re.compile(r"\A---\s*\n(.*?)\n?---\s*\n?(.*)\Z", re.DOTALL)
 
 
 @dataclass
@@ -25,7 +25,13 @@ class ParamSpec:
     required: bool
 
     @classmethod
-    def from_dict(cls, name: str, raw: dict[str, Any]) -> "ParamSpec":
+    def from_dict(cls, name: str, raw: Any) -> "ParamSpec":
+        if raw is None:
+            raw = {}
+        if not isinstance(raw, dict):
+            raise ValueError(
+                f"param '{name}' must be a YAML mapping (got {type(raw).__name__})"
+            )
         return cls(
             name=name,
             description=str(raw.get("description", "")),
@@ -53,4 +59,8 @@ def parse(raw: str) -> ParsedFile:
 def params_from_frontmatter(fm: dict[str, Any]) -> list[ParamSpec]:
     """Build a list of ParamSpec from a frontmatter `params` mapping."""
     raw = fm.get("params") or {}
+    if not isinstance(raw, dict):
+        raise ValueError(
+            f"'params' must be a YAML mapping (got {type(raw).__name__})"
+        )
     return [ParamSpec.from_dict(name, body) for name, body in raw.items()]

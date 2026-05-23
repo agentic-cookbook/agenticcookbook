@@ -8,7 +8,7 @@ from typing import Any
 
 from .frontmatter import parse
 
-_PLACEHOLDER_RE = re.compile(r"\{\{\s*(\w+)\s*\}\}")
+_PLACEHOLDER_RE = re.compile(r"\{\{\s*([\w-]+)\s*\}\}")
 
 
 class UnknownPlaceholderError(RuntimeError):
@@ -26,7 +26,8 @@ def render_template(body: str, params: dict[str, Any]) -> str:
         name = match.group(1)
         if name not in params:
             raise UnknownPlaceholderError(name)
-        return str(params[name])
+        value = params[name]
+        return "" if value is None else str(value)
 
     return _PLACEHOLDER_RE.sub(sub, body)
 
@@ -41,10 +42,15 @@ def _load_references(refs_dir: Path) -> str:
         return ""
     chunks: list[str] = []
     for path in sorted(refs_dir.rglob("*")):
-        if not path.is_file() or path.name == ".gitkeep":
+        if not path.is_file():
+            continue
+        # Skip hidden files (.gitkeep, .DS_Store, editor swap files, ...).
+        if any(part.startswith(".") for part in path.relative_to(refs_dir).parts):
             continue
         rel = path.relative_to(refs_dir).as_posix()
-        body = path.read_text(encoding="utf-8")
+        # `errors="replace"` keeps a single non-UTF-8 file from crashing the
+        # whole prompt assembly; the offending bytes become U+FFFD.
+        body = path.read_text(encoding="utf-8", errors="replace")
         chunks.append(f"## reference: {rel}\n\n{body.rstrip()}")
     return "\n\n".join(chunks)
 
@@ -61,9 +67,6 @@ def assemble_prompt(
     module_parsed = parse(module_md_path.read_text(encoding="utf-8"))
     action_parsed = parse(action_md_path.read_text(encoding="utf-8"))
 
-    template_params = dict(params)
-    template_params.setdefault("task", task)
-
     parts: list[str] = []
     parts.append(_role_header(module_parsed.frontmatter))
     if module_parsed.body.strip():
@@ -71,6 +74,6 @@ def assemble_prompt(
     refs_text = _load_references(references_dir)
     if refs_text:
         parts.append(refs_text)
-    parts.append(render_template(action_parsed.body, template_params).strip())
+    parts.append(render_template(action_parsed.body, params).strip())
     parts.append(f"## Your task\n\n{task}")
     return "\n\n".join(parts) + "\n"
