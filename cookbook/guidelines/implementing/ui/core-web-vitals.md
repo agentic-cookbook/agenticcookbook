@@ -4,7 +4,7 @@ title: "Core Web Vitals and performance budgets"
 domain: agentic-cookbook://guidelines/implementing/ui/core-web-vitals
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

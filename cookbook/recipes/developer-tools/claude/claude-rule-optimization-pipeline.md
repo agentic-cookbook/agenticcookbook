@@ -4,10 +4,10 @@ title: "Claude Rule Optimization Pipeline"
 domain: agentic-cookbook://recipes/developer-tools/claude/claude-rule-optimization-pipeline
 type: recipe
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-03-30
-modified: 2026-03-30
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT

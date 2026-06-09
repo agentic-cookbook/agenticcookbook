@@ -5,7 +5,7 @@ title: "AI Cost Management"
 domain: agentic-cookbook://guidelines/implementing/networking/ai-cost-management
 type: guideline
 version: 1.0.1
-status: draft
+status: accepted
 language: en
 created: 2026-04-09
 modified: 2026-06-09

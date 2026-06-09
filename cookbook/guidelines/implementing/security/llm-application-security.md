@@ -4,7 +4,7 @@ title: "LLM and agentic application security"
 domain: agentic-cookbook://guidelines/implementing/security/llm-application-security
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

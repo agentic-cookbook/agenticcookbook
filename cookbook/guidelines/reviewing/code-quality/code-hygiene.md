@@ -4,7 +4,7 @@ title: "Code hygiene: remove the old thing"
 domain: agentic-cookbook://guidelines/reviewing/code-quality/code-hygiene
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

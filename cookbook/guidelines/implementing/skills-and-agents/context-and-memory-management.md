@@ -4,7 +4,7 @@ title: "Context and memory management for agents"
 domain: agentic-cookbook://guidelines/implementing/skills-and-agents/context-and-memory-management
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

@@ -4,7 +4,7 @@ title: "MCP tool"
 domain: agentic-cookbook://ingredients/developer-tools/mcp-tool
 type: ingredient
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

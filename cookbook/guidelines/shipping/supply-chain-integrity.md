@@ -4,7 +4,7 @@ title: "Software supply-chain integrity"
 domain: agentic-cookbook://guidelines/shipping/supply-chain-integrity
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

@@ -4,7 +4,7 @@ title: "Adopt Swift 6 strict concurrency incrementally"
 domain: agentic-cookbook://guidelines/implementing/concurrency/swift6-strict-concurrency
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

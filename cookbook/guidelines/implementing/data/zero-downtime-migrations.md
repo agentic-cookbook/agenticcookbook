@@ -4,7 +4,7 @@ title: "Zero-downtime migrations: expand and contract"
 domain: agentic-cookbook://guidelines/implementing/data/zero-downtime-migrations
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

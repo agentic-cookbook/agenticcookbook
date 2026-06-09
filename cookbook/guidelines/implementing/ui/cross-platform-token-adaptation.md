@@ -4,7 +4,7 @@ title: "Cross-platform token adaptation"
 domain: agentic-cookbook://guidelines/implementing/ui/cross-platform-token-adaptation
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

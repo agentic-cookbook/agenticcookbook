@@ -4,7 +4,7 @@ title: "Transaction isolation and serialization-failure retry"
 domain: agentic-cookbook://guidelines/implementing/data/transaction-isolation
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

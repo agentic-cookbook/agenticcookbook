@@ -4,7 +4,7 @@ title: "HTTP conditional requests and optimistic concurrency"
 domain: agentic-cookbook://guidelines/implementing/networking/http-conditional-requests
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

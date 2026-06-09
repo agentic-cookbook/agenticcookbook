@@ -4,7 +4,7 @@ title: "Make illegal states unrepresentable"
 domain: agentic-cookbook://principles/parse-dont-validate
 type: principle
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

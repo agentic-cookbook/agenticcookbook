@@ -5,7 +5,7 @@ title: "AI Provider Observability"
 domain: agentic-cookbook://guidelines/implementing/observability/ai-provider-observability
 type: guideline
 version: 1.0.1
-status: draft
+status: accepted
 language: en
 created: 2026-04-09
 modified: 2026-06-09

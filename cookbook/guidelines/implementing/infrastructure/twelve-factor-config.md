@@ -4,7 +4,7 @@ title: "Twelve-factor configuration"
 domain: agentic-cookbook://guidelines/implementing/infrastructure/twelve-factor-config
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

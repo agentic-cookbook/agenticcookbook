@@ -4,7 +4,7 @@ title: "Infrastructure as code"
 domain: agentic-cookbook://guidelines/planning/infrastructure/infrastructure-as-code
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

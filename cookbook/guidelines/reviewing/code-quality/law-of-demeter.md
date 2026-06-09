@@ -4,7 +4,7 @@ title: "Law of Demeter and Tell, Don't Ask"
 domain: agentic-cookbook://guidelines/reviewing/code-quality/law-of-demeter
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

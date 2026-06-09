@@ -4,7 +4,7 @@ title: "Deliberate, prudent technical debt"
 domain: agentic-cookbook://principles/deliberate-prudent-debt
 type: principle
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

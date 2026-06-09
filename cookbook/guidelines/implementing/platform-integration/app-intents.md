@@ -4,7 +4,7 @@ title: "App Intents"
 domain: agentic-cookbook://guidelines/implementing/platform-integration/app-intents
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

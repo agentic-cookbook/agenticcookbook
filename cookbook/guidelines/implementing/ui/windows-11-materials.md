@@ -4,7 +4,7 @@ title: "Windows 11 materials (Mica and Acrylic)"
 domain: agentic-cookbook://guidelines/implementing/ui/windows-11-materials
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

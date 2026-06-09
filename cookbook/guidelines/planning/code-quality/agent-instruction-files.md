@@ -4,7 +4,7 @@ title: "Agent instruction files (AGENTS.md / CLAUDE.md)"
 domain: agentic-cookbook://guidelines/planning/code-quality/agent-instruction-files
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

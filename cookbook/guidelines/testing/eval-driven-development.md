@@ -4,7 +4,7 @@ title: "Eval-driven development for agent behavior"
 domain: agentic-cookbook://guidelines/testing/eval-driven-development
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

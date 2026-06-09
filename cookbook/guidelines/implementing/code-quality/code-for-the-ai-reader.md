@@ -4,7 +4,7 @@ title: "Writing code for the AI reader"
 domain: agentic-cookbook://guidelines/implementing/code-quality/code-for-the-ai-reader
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

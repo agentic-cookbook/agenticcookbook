@@ -4,7 +4,7 @@ title: "Groundedness and hallucination checks"
 domain: agentic-cookbook://guidelines/testing/groundedness-and-hallucination
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

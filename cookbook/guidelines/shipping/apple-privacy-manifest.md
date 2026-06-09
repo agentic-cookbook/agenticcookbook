@@ -4,7 +4,7 @@ title: "Ship a privacy manifest and declare required-reason APIs"
 domain: agentic-cookbook://guidelines/shipping/apple-privacy-manifest
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

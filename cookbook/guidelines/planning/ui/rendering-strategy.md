@@ -4,7 +4,7 @@ title: "Choose a rendering strategy per route, minimize client JS"
 domain: agentic-cookbook://guidelines/planning/ui/rendering-strategy
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

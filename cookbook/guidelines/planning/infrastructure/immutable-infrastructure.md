@@ -4,7 +4,7 @@ title: "Immutable infrastructure"
 domain: agentic-cookbook://guidelines/planning/infrastructure/immutable-infrastructure
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

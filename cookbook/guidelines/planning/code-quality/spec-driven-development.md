@@ -4,7 +4,7 @@ title: "Spec-driven development (plan before code)"
 domain: agentic-cookbook://guidelines/planning/code-quality/spec-driven-development
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

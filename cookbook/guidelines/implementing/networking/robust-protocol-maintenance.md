@@ -4,7 +4,7 @@ title: "Be strict and maintain: Postel reconsidered (RFC 9413)"
 domain: agentic-cookbook://guidelines/implementing/networking/robust-protocol-maintenance
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

@@ -4,7 +4,7 @@ title: "Metrics instrumentation: RED and USE"
 domain: agentic-cookbook://guidelines/implementing/observability/metrics-red-use
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

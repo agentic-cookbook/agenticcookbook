@@ -4,7 +4,7 @@ title: "Swift Testing"
 domain: agentic-cookbook://guidelines/implementing/testing/swift-testing
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

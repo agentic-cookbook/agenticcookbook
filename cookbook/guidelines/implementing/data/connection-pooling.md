@@ -4,7 +4,7 @@ title: "Connection pooling for server and serverless backends"
 domain: agentic-cookbook://guidelines/implementing/data/connection-pooling
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

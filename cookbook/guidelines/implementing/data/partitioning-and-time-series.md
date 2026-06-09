@@ -4,7 +4,7 @@ title: "Table partitioning and time-series data"
 domain: agentic-cookbook://guidelines/implementing/data/partitioning-and-time-series
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

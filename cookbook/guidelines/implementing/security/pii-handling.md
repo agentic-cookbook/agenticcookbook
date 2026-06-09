@@ -4,7 +4,7 @@ title: "PII handling and classification"
 domain: agentic-cookbook://guidelines/implementing/security/pii-handling
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

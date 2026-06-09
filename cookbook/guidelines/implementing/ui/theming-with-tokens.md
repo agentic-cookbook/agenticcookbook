@@ -4,7 +4,7 @@ title: "Theming with tokens"
 domain: agentic-cookbook://guidelines/implementing/ui/theming-with-tokens
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

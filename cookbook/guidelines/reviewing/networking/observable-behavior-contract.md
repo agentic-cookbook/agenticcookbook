@@ -4,7 +4,7 @@ title: "Hyrum's Law: all observable behavior becomes contract"
 domain: agentic-cookbook://guidelines/reviewing/networking/observable-behavior-contract
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

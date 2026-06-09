@@ -4,7 +4,7 @@ title: "Advanced database indexing"
 domain: agentic-cookbook://guidelines/implementing/data/advanced-indexing
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

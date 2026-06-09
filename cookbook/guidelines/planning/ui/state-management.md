@@ -4,7 +4,7 @@ title: "Separate server state from client state"
 domain: agentic-cookbook://guidelines/planning/ui/state-management
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

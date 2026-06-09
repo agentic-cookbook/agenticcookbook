@@ -4,7 +4,7 @@ title: "Room persistence on Android"
 domain: agentic-cookbook://guidelines/implementing/data/room-persistence
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09

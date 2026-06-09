@@ -4,7 +4,7 @@ title: "LLM red teaming"
 domain: agentic-cookbook://guidelines/reviewing/security/llm-red-teaming
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-09
 modified: 2026-06-09
