@@ -2,7 +2,7 @@
 
 id: db58f79d-1040-4bb2-a862-93ebd390ee12
 title: "Mutation Testing"
-domain: agentic-cookbook://guidelines/testing/mutation-testing
+domain: agenticdevelopercookbook://guidelines/testing/mutation-testing
 type: guideline
 version: 1.0.2
 status: accepted
@@ -57,7 +57,6 @@ Mutation testing validates that your tests actually catch bugs — not just achi
 
 | Platform | Tool | Install | Run |
 |----------|------|---------|-----|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Python | [mutmut](https://github.com/boxed/mutmut) | `pip install mutmut` | `mutmut run` |
 | TypeScript/JS | [Stryker](https://stryker-mutator.io/) | `npm i -g stryker-cli` | `npx stryker run` |
 | .NET | [Stryker.NET](https://stryker-mutator.io/) | `dotnet tool install -g dotnet-stryker` | `dotnet stryker` |
@@ -69,4 +68,5 @@ Mutation testing validates that your tests actually catch bugs — not just achi
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

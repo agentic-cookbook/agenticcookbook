@@ -50,7 +50,7 @@ def test_fill_defaults_inserts_required():
     assert SEMVER_RE.match(new_fm.data["version"])
     assert new_fm.data["type"] == "recipe"
     assert new_fm.data["title"] == "Bare"
-    assert new_fm.data["domain"].startswith("agentic-cookbook://testcb/recipes/foo")
+    assert new_fm.data["domain"].startswith("agenticdevelopercookbook://testcb/recipes/foo")
     assert "id" in added
 
 

@@ -2,7 +2,7 @@
 
 id: cb92603e-093b-4691-b460-19df025ab664
 title: "Secure Storage"
-domain: agentic-cookbook://guidelines/reviewing/security/secure-storage
+domain: agenticdevelopercookbook://guidelines/reviewing/security/secure-storage
 type: guideline
 version: 1.0.2
 status: accepted

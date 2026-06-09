@@ -2,7 +2,7 @@
 
 id: C8B92187-7C2F-4D11-9AB3-EC806F3CDF26
 title: "Normalization and denormalization"
-domain: agentic-cookbook://guidelines/implementing/data/normalization-and-denormalization
+domain: agenticdevelopercookbook://guidelines/implementing/data/normalization-and-denormalization
 type: guideline
 version: 1.0.2
 status: accepted
@@ -127,7 +127,6 @@ END;
 
 | Situation | Recommendation |
 |-----------|---------------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | New schema, unknown access patterns | Start at 3NF |
 | Read-heavy dashboard, measured join bottleneck | Denormalize the join |
 | Audit log display_name | Denormalize onto supertype table |
@@ -139,4 +138,5 @@ END;
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

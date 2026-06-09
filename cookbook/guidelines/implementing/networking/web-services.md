@@ -2,7 +2,7 @@
 
 id: 06c2a767-cd24-4527-b939-df44161d7025
 title: "Web services"
-domain: agentic-cookbook://guidelines/implementing/networking/web-services
+domain: agenticdevelopercookbook://guidelines/implementing/networking/web-services
 type: guideline
 version: 1.0.2
 status: accepted

@@ -2,7 +2,7 @@
 
 id: 775da457-30c7-47de-b179-0fae8a8b779d
 title: "Linting before the first PR"
-domain: agentic-cookbook://guidelines/implementing/code-quality/linting
+domain: agenticdevelopercookbook://guidelines/implementing/code-quality/linting
 type: guideline
 version: 1.1.0
 status: accepted

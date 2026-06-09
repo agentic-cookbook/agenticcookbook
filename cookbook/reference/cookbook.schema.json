@@ -70,7 +70,7 @@
       "properties": {
         "repo": {
           "type": "string",
-          "description": "Path or URL to the agentic-cookbook"
+          "description": "Path or URL to the agenticdevelopercookbook"
         },
         "version": {
           "type": "string",

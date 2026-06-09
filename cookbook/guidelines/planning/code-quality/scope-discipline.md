@@ -2,13 +2,13 @@
 
 id: e6af82e8-0142-446b-977d-2f771a90bdff
 title: "Scope discipline"
-domain: agentic-cookbook://guidelines/planning/code-quality/scope-discipline
+domain: agenticdevelopercookbook://guidelines/planning/code-quality/scope-discipline
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-03-28
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -20,12 +20,12 @@ tags:
   - discipline
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/code-quality/atomic-commits
-  - agentic-cookbook://principles/yagni
-  - agentic-cookbook://principles/simplicity
+  - agenticdevelopercookbook://guidelines/implementing/code-quality/atomic-commits
+  - agenticdevelopercookbook://principles/yagni
+  - agenticdevelopercookbook://principles/simplicity
 references: []
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: "2026-06-09"
 triggers:
   - code-review
   - new-module
@@ -68,6 +68,7 @@ Small, focused changes are easier to review, easier to revert, and easier to und
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

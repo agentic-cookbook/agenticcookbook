@@ -2,7 +2,7 @@
 
 id: 138fe669-ae87-4338-923c-c7cf7496a49d
 title: "No external dependencies in core libraries"
-domain: agentic-cookbook://guidelines/reviewing/code-quality/no-external-dependencies-in-core-librari
+domain: agenticdevelopercookbook://guidelines/reviewing/code-quality/no-external-dependencies-in-core-librari
 type: guideline
 version: 1.0.2
 status: accepted

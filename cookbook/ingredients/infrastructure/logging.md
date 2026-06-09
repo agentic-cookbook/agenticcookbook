@@ -1,7 +1,7 @@
 ---
 id: 7c2049c7-89d9-4135-b657-dbd03cdd19a0
 title: "Logging"
-domain: agentic-cookbook://ingredients/infrastructure/logging
+domain: agenticdevelopercookbook://ingredients/infrastructure/logging
 type: ingredient
 version: 1.0.0
 status: accepted

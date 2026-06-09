@@ -32,7 +32,7 @@ _FIX_ITS: dict[str, str] = {
     "status-valid": f"`status` must be one of: {', '.join(sorted(VALID_STATUSES))}.",
     "domain-matches-path": (
         "Update `domain` so it ends with the file's path (without `.md`). "
-        "Example: `agentic-cookbook://recipes/auth-cookie`."
+        "Example: `agenticdevelopercookbook://recipes/auth-cookie`."
     ),
     "link-resolves": "Fix or remove the link target, or create the file it points to.",
 }
@@ -113,7 +113,7 @@ def _check_one(md: Path, root: Path, report: CheckReport, id_owners: dict[str, l
     # Resolve relative markdown links (skip absolute URLs and anchors).
     for m in _MD_LINK_RE.finditer(fm.body):
         target = m.group(1).split("#", 1)[0].strip()
-        if not target or target.startswith(("http://", "https://", "mailto:", "agentic-cookbook://")):
+        if not target or target.startswith(("http://", "https://", "mailto:", "agenticdevelopercookbook://")):
             continue
         if (md.parent / target).resolve().exists():
             continue

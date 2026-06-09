@@ -2,13 +2,13 @@
 
 id: 746b6b5e-11b9-48f7-a304-4b6755fd7f75
 title: "Interface Cohesion"
-domain: agentic-cookbook://guidelines/planning/code-quality/interface-cohesion
+domain: agenticdevelopercookbook://guidelines/planning/code-quality/interface-cohesion
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-07
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -25,6 +25,8 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: 2026-06-09
 triggers:
   - code-review
   - new-module
@@ -95,3 +97,8 @@ Recommended Scope Group Candidates:
 ```
 
 ## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Add Change History table and approval metadata |
+| 1.0.0 | 2026-04-07 | Mike Fullerton | Initial creation |

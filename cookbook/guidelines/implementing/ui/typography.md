@@ -2,13 +2,13 @@
 
 id: 1971d5c6-592d-4959-aa2c-33ea4ff17d0d
 title: "Typography"
-domain: agentic-cookbook://guidelines/implementing/ui/typography
+domain: agenticdevelopercookbook://guidelines/implementing/ui/typography
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -25,14 +25,14 @@ tags:
   - ui
 depends-on: []
 related: 
-  - agentic-cookbook://guidelines/accessibility/accessibility
+  - agenticdevelopercookbook://guidelines/implementing/accessibility/accessibility
 references: 
   - https://developer.apple.com/design/human-interface-guidelines/typography
   - https://learn.microsoft.com/en-us/windows/apps/design/style/typography
   - https://m3.material.io/styles/typography/type-scale-tokens
   - https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: "2026-06-09"
 triggers:
   - ui-implementation
 ---
@@ -59,7 +59,7 @@ General principles:
 - Limit to 2-3 font weights per screen (regular, medium/semibold, bold)
 - All-caps SHOULD be avoided for more than a few words — harms readability and screen reader experience
 - Paragraph width: 45-75 characters for comfortable reading
-- See agentic-cookbook://guidelines/accessibility/accessibility for Dynamic Type / font scaling requirements
+- See agenticdevelopercookbook://guidelines/implementing/accessibility/accessibility for Dynamic Type / font scaling requirements
 
 References:
 - [Apple HIG: Typography](https://developer.apple.com/design/human-interface-guidelines/typography)
@@ -71,6 +71,7 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -2,7 +2,7 @@
 
 id: 3B88BB39-A15D-488F-A967-B7FA2DBA2BE7
 title: "Sync Protocol"
-domain: agentic-cookbook://guidelines/implementing/data/sync-protocol
+domain: agenticdevelopercookbook://guidelines/implementing/data/sync-protocol
 type: guideline
 version: 1.0.2
 status: accepted
@@ -114,7 +114,6 @@ Recommended batch sizes:
 
 | Context | Batch Size |
 |---------|-----------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Mobile (unstable network) | 50–100 records |
 | Desktop (stable network) | 500–1000 records |
 | Initial bootstrap | 1000–5000 records |
@@ -209,4 +208,5 @@ After N consecutive failures, enter a circuit-breaker state: stop attempting syn
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

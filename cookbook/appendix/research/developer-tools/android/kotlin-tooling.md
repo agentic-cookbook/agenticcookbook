@@ -1,3 +1,23 @@
+---
+id: e1707869-629b-4732-b372-9fec499f92b6
+title: Kotlin & Android Development Tools
+domain: agenticdevelopercookbook://appendix/research/developer-tools/android/kotlin-tooling
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Kotlin & Android Development Tools
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Kotlin & Android Development Tools
 
 **Date:** 2026-03-29

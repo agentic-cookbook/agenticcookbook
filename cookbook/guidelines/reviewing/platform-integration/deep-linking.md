@@ -2,7 +2,7 @@
 
 id: 2054b522-fd98-4320-95df-3d95d1a07d98
 title: "Deep linking"
-domain: agentic-cookbook://guidelines/reviewing/platform-integration/deep-linking
+domain: agenticdevelopercookbook://guidelines/reviewing/platform-integration/deep-linking
 type: guideline
 version: 1.1.2
 status: accepted

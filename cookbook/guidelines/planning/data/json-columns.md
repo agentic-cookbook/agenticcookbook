@@ -2,7 +2,7 @@
 
 id: 9a60a717-a031-4c1f-bf00-d531ca211252
 title: "JSON columns and generated columns"
-domain: agentic-cookbook://guidelines/planning/data/json-columns
+domain: agenticdevelopercookbook://guidelines/planning/data/json-columns
 type: guideline
 version: 1.0.2
 status: accepted

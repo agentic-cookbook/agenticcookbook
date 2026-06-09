@@ -1,13 +1,13 @@
 ---
 id: 4325D8FF-ECB5-460B-836E-4F55309F2DC0
 title: "Performance Compliance"
-domain: agentic-cookbook://compliance/performance
+domain: agenticdevelopercookbook://compliance/performance
 type: compliance
-version: 1.0.0
+version: 1.0.1
 status: draft
 language: en
 created: 2026-03-28
-modified: 2026-03-28
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -16,9 +16,9 @@ platforms: []
 tags: [compliance, performance]
 depends-on: []
 related:
-  - agentic-cookbook://compliance/reliability
-  - agentic-cookbook://compliance/accessibility
-  - agentic-cookbook://compliance/access-patterns
+  - agenticdevelopercookbook://compliance/reliability
+  - agenticdevelopercookbook://compliance/accessibility
+  - agenticdevelopercookbook://compliance/access-patterns
 references: []
 ---
 
@@ -39,7 +39,7 @@ UI updates and rendering MUST NOT block the main thread.
 **Applies when:** recipe performs computation, I/O, or network calls alongside UI rendering.
 
 **Guidelines:**
-- [Concurrency](agentic-cookbook://guidelines/concurrency/concurrency)
+- [Concurrency](agenticdevelopercookbook://guidelines/implementing/concurrency/concurrency)
 
 ---
 
@@ -50,7 +50,7 @@ Animations MUST target 60fps; frames MUST NOT exceed 16ms.
 **Applies when:** recipe includes animations, transitions, or motion effects.
 
 **Guidelines:**
-- [Animation and Motion](agentic-cookbook://guidelines/ui/animation-motion)
+- [Animation and Motion](agenticdevelopercookbook://guidelines/implementing/ui/animation-motion)
 
 ---
 
@@ -61,8 +61,8 @@ Large data sets and heavy resources MUST use lazy loading or pagination.
 **Applies when:** recipe displays lists, grids, or collections of unbounded size.
 
 **Guidelines:**
-- [Data Display](agentic-cookbook://guidelines/ui/data-display)
-- [Pagination](agentic-cookbook://guidelines/networking/pagination)
+- [Data Display](agenticdevelopercookbook://guidelines/implementing/ui/data-display)
+- [Pagination](agenticdevelopercookbook://guidelines/implementing/networking/pagination)
 
 ---
 
@@ -97,7 +97,7 @@ Frequently accessed remote data SHOULD use a caching strategy with defined inval
 **Applies when:** recipe fetches data from a remote source that is accessed repeatedly.
 
 **Guidelines:**
-- [Caching](agentic-cookbook://guidelines/networking/caching)
+- [Caching](agenticdevelopercookbook://guidelines/implementing/networking/caching)
 
 ---
 
@@ -108,10 +108,11 @@ Operations exceeding 200ms MUST show progress indication.
 **Applies when:** recipe performs operations that may take a noticeable amount of time.
 
 **Guidelines:**
-- [Always Show Progress](agentic-cookbook://guidelines/ui/always-show-progress)
+- [Always Show Progress](agenticdevelopercookbook://guidelines/implementing/ui/always-show-progress)
 
 ## Change History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

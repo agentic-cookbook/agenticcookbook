@@ -2,13 +2,13 @@
 
 id: 433b4c9d-fe44-4fec-af0d-83bba9c51c6f
 title: "Background tasks"
-domain: agentic-cookbook://guidelines/implementing/platform-integration/background-tasks
+domain: agenticdevelopercookbook://guidelines/implementing/platform-integration/background-tasks
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-02
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -25,11 +25,11 @@ tags:
   - sync
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/platform/notifications
-  - agentic-cookbook://guidelines/networking/offline-and-connectivity
+  - agenticdevelopercookbook://guidelines/implementing/platform-integration/notifications
+  - agenticdevelopercookbook://guidelines/implementing/networking/offline-and-connectivity
 references: []
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: "2026-06-09"
 triggers:
   - platform-integration
   - concurrency
@@ -64,6 +64,7 @@ Use Service Workers for background sync (`BackgroundSyncManager`) and push notif
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-02 | Mike Fullerton | Initial creation |

@@ -2,7 +2,7 @@
 
 id: 26a1a47f-f749-4477-ae04-c54c9a4c5117
 title: "Query Optimization"
-domain: agentic-cookbook://guidelines/reviewing/data/query-optimization
+domain: agenticdevelopercookbook://guidelines/reviewing/data/query-optimization
 type: guideline
 version: 1.1.1
 status: accepted

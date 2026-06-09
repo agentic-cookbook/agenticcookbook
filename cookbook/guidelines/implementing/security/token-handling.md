@@ -2,13 +2,13 @@
 
 id: 2598f495-1820-47e7-b7e7-ce548d390148
 title: "Token Handling"
-domain: agentic-cookbook://guidelines/implementing/security/token-handling
+domain: agenticdevelopercookbook://guidelines/implementing/security/token-handling
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -28,7 +28,7 @@ references:
   - https://datatracker.ietf.org/doc/html/rfc6750
   - https://datatracker.ietf.org/doc/html/rfc7519
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: "2026-06-09"
 triggers:
   - authentication
   - security-review
@@ -56,7 +56,7 @@ Store server-side when possible.
 
 ### Secure storage per platform
 
-See also agentic-cookbook://guidelines/security/privacy
+See also agenticdevelopercookbook://guidelines/implementing/security/privacy
 
 - **Apple:** Keychain Services
 - **Android:** EncryptedSharedPreferences / Android Keystore
@@ -79,6 +79,7 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

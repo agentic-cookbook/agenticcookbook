@@ -1,7 +1,7 @@
 ---
 id: c3f7a9e2-1b5d-4c8e-a2d6-9e4f1c3b7a5d
 title: "PR Review Pipeline"
-domain: agentic-cookbook://recipes/autonomous-dev-bots/pr-review-pipeline
+domain: agenticdevelopercookbook://recipes/autonomous-dev-bots/pr-review-pipeline
 type: recipe
 version: 0.1.0
 status: wip
@@ -20,8 +20,8 @@ tags:
   - github
 depends-on: []
 related:
-  - agentic-cookbook://workflows/code-review
-  - agentic-cookbook://compliance/best-practices
+  - agenticdevelopercookbook://workflows/code-review
+  - agenticdevelopercookbook://compliance/best-practices
 references:
   - https://docs.github.com/en/rest/checks/runs
   - https://docs.github.com/en/apps/creating-github-apps
@@ -140,7 +140,7 @@ Each app requires:
 ### OpenClaw Configuration
 
 - **Trigger**: GitHub webhook configured to POST `pull_request` events to `http://<mac-ip>:18789/hooks/agent`
-- **Fallback**: OpenClaw cron job polling `gh pr list --repo agentic-cookbook/cookbook --state open` every 5 minutes
+- **Fallback**: OpenClaw cron job polling `gh pr list --repo agenticdevelopercookbook/cookbook --state open` every 5 minutes
 - **Session**: Isolated session per PR review run
 - **Model**: Claude Opus for Phase 2 (overlap/scoping requires strong reasoning) and Phase 3 (evaluation). Sonnet for Phase 1 (structural checks are more mechanical).
 - **Timeout**: 48 hours max per run

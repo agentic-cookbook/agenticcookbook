@@ -2,7 +2,7 @@
 
 id: 9f17b833-75ed-4c86-a6af-a4f277c23d21
 title: "Platform Design Languages"
-domain: agentic-cookbook://guidelines/planning/ui/platform-design-languages
+domain: agenticdevelopercookbook://guidelines/planning/ui/platform-design-languages
 type: guideline
 version: 1.0.2
 status: accepted

@@ -2,7 +2,7 @@
 
 id: 792f0b2d-c4b2-440f-9e58-33fa1e30a2c4
 title: "Shell scripts"
-domain: agentic-cookbook://guidelines/reviewing/code-quality/shell-scripts
+domain: agenticdevelopercookbook://guidelines/reviewing/code-quality/shell-scripts
 type: guideline
 version: 1.0.2
 status: accepted

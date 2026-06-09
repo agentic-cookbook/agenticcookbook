@@ -1,7 +1,7 @@
 ---
 id: 4814B42B-B202-41C5-A3C8-FCEF6F99F39D
 title: "Principle Formatting Compliance"
-domain: agentic-cookbook://compliance/artifact-formatting/principle-formatting
+domain: agenticdevelopercookbook://compliance/artifact-formatting/principle-formatting
 type: compliance
 version: 1.0.0
 status: draft
@@ -18,10 +18,10 @@ tags:
   - artifact-formatting
   - principle
 depends-on:
-  - agentic-cookbook://introduction/conventions
+  - agenticdevelopercookbook://introduction/conventions
 related:
-  - agentic-cookbook://compliance/artifact-formatting/guideline-formatting
-  - agentic-cookbook://compliance/artifact-formatting/recipe-formatting
+  - agenticdevelopercookbook://compliance/artifact-formatting/guideline-formatting
+  - agenticdevelopercookbook://compliance/artifact-formatting/recipe-formatting
 references: []
 ---
 
@@ -44,7 +44,7 @@ All required YAML frontmatter fields MUST be present per `introduction/conventio
 **Required fields:** id, title, domain, type, version, status, language, created, modified, author, copyright, license, summary, platforms, tags, depends-on, related, references.
 
 **Guidelines:**
-- [Conventions](agentic-cookbook://introduction/conventions)
+- [Conventions](agenticdevelopercookbook://introduction/conventions)
 
 ---
 
@@ -87,7 +87,7 @@ The file MUST end with a `## Change History` section containing a table with col
 **Applies when:** always.
 
 **Guidelines:**
-- [Conventions](agentic-cookbook://introduction/conventions)
+- [Conventions](agenticdevelopercookbook://introduction/conventions)
 
 ---
 

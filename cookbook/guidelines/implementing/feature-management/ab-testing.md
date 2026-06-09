@@ -2,7 +2,7 @@
 
 id: d991b992-07aa-47b9-9d36-4fd1ca81435f
 title: "A/B testing"
-domain: agentic-cookbook://guidelines/implementing/feature-management/ab-testing
+domain: agenticdevelopercookbook://guidelines/implementing/feature-management/ab-testing
 type: guideline
 version: 1.0.2
 status: accepted

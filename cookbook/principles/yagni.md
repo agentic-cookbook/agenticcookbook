@@ -1,7 +1,7 @@
 ---
 id: 793f491f-a352-4478-876d-7c5d871488f7
 title: "YAGNI"
-domain: agentic-cookbook://principles/yagni
+domain: agenticdevelopercookbook://principles/yagni
 type: principle
 version: 1.0.0
 status: accepted

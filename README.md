@@ -8,12 +8,12 @@ A structured cookbook of principles, guidelines, ingredients, recipes, and workf
 
 ```bash
 cd ~/projects
-git clone git@github.com:agentic-cookbook/cookbook.git
+git clone git@github.com:agenticdevelopercookbook/cookbook.git
 ```
 
 ### 2. Install in your project
 
-From your project directory, run the onboarding wizard (requires the [dev-team plugin](https://github.com/agentic-cookbook/dev-team)):
+From your project directory, run the onboarding wizard (requires the [dev-team plugin](https://github.com/agenticdevelopercookbook/dev-team)):
 
 ```
 /install-cookbook
@@ -44,32 +44,32 @@ Code built with the Agentic Developer Cookbook is **trusted**. That means:
 
 The cookbook contains four types of **cookbook artifacts** — standalone markdown files with YAML frontmatter, named requirements, and change history:
 
-### Principles (21 files)
+### Principles (27 files)
 
 *How to think about engineering.* Foundational ideas that guide all technical decisions.
 
-Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition over Inheritance, Separation of Concerns, SRP, Design for Deletion, DRY, Explicit over Implicit, Small Reversible Decisions, Tight Feedback Loops, Manage Complexity Through Boundaries, Least Astonishment, Idempotency, Native Controls, Open Source Preference, Make It Work/Right/Fast, Optimize for Change.
+Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition over Inheritance, Separation of Concerns, SRP, Connascence, Conway's Law, Design for Deletion, DRY, Explicit over Implicit, Make Illegal States Unrepresentable, Errors as Values, Small Reversible Decisions, Tight Feedback Loops, Manage Complexity Through Boundaries, Least Astonishment, Idempotency, Native Controls, Open Source Preference, Make It Work/Right/Fast, Steel Thread First, Deliberate Prudent Technical Debt, Optimize for Change.
 
-### Guidelines (142 unique, 234 with use-case duplicates)
+### Guidelines (240 unique, 333 with use-case duplicates)
 
 *What rules apply when building.* Organized by **use case** — the phase of work where they apply, with [trigger-based filtering](cookbook/introduction/trigger-guide.md) for AI agents:
 
 | Use Case | Guidelines | When to use |
 |----------|-----------|-------------|
-| Planning | 41 | Architecture, data modeling, choosing patterns |
-| Implementing | 111 | Writing new code |
-| Testing | 16 | Writing and structuring tests |
-| Reviewing | 41 | Checking code quality, security, accessibility |
-| Shipping | 9 | Pre-commit, pre-PR, packaging |
+| Planning | 63 | Architecture, data modeling, choosing patterns |
+| Implementing | 165 | Writing new code |
+| Testing | 24 | Writing and structuring tests |
+| Reviewing | 48 | Checking code quality, security, accessibility |
+| Shipping | 17 | Pre-commit, pre-PR, packaging |
 | Cookbook | 16 | Writing cookbook content (recipes, skills, agents) |
 
 Guidelines that apply to multiple use cases are duplicated so each use-case directory is self-contained.
 
-### Ingredients (18 files)
+### Ingredients (19 files)
 
 *The building blocks.* Atomic component specs defining individual UI components, panels, or infrastructure patterns with full detail: behavioral requirements, appearance, states, accessibility, configuration options, test vectors, and platform notes. Located in `cookbook/ingredients/`.
 
-### Recipes (11 files)
+### Recipes (12 files)
 
 *How things combine.* Compositions of configured ingredients into coherent features. Define how ingredients wire together: integration requirements, layout, shared state, and integration test vectors. Located in `cookbook/recipes/`.
 
@@ -125,21 +125,21 @@ All user-facing cookbook skills are provided by dev-team:
 | `/cookbook-help` | Interactive guide — setup status, content overview, troubleshooting |
 | `/dev-team lint` | Lint artifacts against cookbook standards |
 
-Repo: [agentic-cookbook/dev-team](https://github.com/agentic-cookbook/dev-team)
+Repo: [agenticdevelopercookbook/dev-team](https://github.com/agenticdevelopercookbook/dev-team)
 
 ### agenticcookbookweb
 
 Cloudflare Workers web app for browsing the cookbook. React 19, TypeScript, Tailwind CSS 4. Serves as the public-facing website.
 
-Repo: [agentic-cookbook/agenticcookbookweb](https://github.com/agentic-cookbook/agenticcookbookweb)
+Repo: [agenticdevelopercookbook/agenticcookbookweb](https://github.com/agenticdevelopercookbook/agenticcookbookweb)
 
 ## Repository Structure
 
 ```
 cookbook/                # cookbook content root
   introduction/          # getting started, conventions, glossary
-  principles/            # 21 engineering principles
-  guidelines/            # 142 use-case-organized guidelines
+  principles/            # 27 engineering principles
+  guidelines/            # 240 use-case-organized guidelines
   ingredients/           # atomic component specs (building blocks)
   recipes/               # compositions of ingredients into features
   compliance/            # 10 compliance categories (81 checks)
@@ -152,7 +152,7 @@ README.md                # this file
 
 ## Contributing
 
-To contribute recipes, use `/contribute-to-cookbook` (via the [dev-team plugin](https://github.com/agentic-cookbook/dev-team)) — it handles both admin (push access) and external (fork-based) workflows automatically.
+To contribute recipes, use `/contribute-to-cookbook` (via the [dev-team plugin](https://github.com/agenticdevelopercookbook/dev-team)) — it handles both admin (push access) and external (fork-based) workflows automatically.
 
 ## License
 

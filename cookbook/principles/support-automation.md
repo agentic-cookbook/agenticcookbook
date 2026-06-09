@@ -1,13 +1,13 @@
 ---
 id: cf698150-45b0-4a20-881b-7d0f04208198
 title: "Support Automation"
-domain: agentic-cookbook://principles/support-automation
+domain: agenticdevelopercookbook://principles/support-automation
 type: principle
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-04-02
-modified: 2026-04-02
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -19,10 +19,10 @@ tags:
   - accessibility
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/platform/shortcuts-and-automation
+  - agenticdevelopercookbook://guidelines/implementing/platform-integration/shortcuts-and-automation
 references: []
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: "2026-06-09"
 ---
 
 # Support Automation
@@ -38,4 +38,5 @@ Applications should expose their capabilities through automation interfaces, not
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-04-02 | Mike Fullerton | Initial creation |

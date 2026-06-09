@@ -2,7 +2,7 @@
 
 id: 8ea0409f-405a-4f4d-9bbf-54bf21c86d33
 title: "CORS"
-domain: agentic-cookbook://guidelines/implementing/security/cors
+domain: agenticdevelopercookbook://guidelines/implementing/security/cors
 type: guideline
 version: 1.0.2
 status: accepted

@@ -1,13 +1,13 @@
 ---
 id: 7f72dfc4-21aa-458d-8b3f-590b735cfc4f
 title: "Branching Strategy"
-domain: agentic-cookbook://workflows/branching-strategy
+domain: agenticdevelopercookbook://workflows/branching-strategy
 type: workflow
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -17,7 +17,7 @@ tags:
   - branching-strategy
 depends-on: []
 related: 
-  - agentic-cookbook://guidelines/code-quality/atomic-commits
+  - agenticdevelopercookbook://guidelines/implementing/code-quality/atomic-commits
 references: []
 ---
 
@@ -142,9 +142,9 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 
 | Phase | Checklist Items | Notes |
 |-------|----------------|-------|
-| Phase 2 | agentic-cookbook://guidelines/code-quality/atomic-commits (atomic commits) | Every commit is one logical change |
+| Phase 2 | agenticdevelopercookbook://guidelines/implementing/code-quality/atomic-commits (atomic commits) | Every commit is one logical change |
 | Phase 3 | All opted-in items from WF-2 | Review verifies compliance |
-| Phase 4 | agentic-cookbook://guidelines/code-quality/atomic-commits (atomic commits) | Squash merge produces one clean commit on main |
+| Phase 4 | agenticdevelopercookbook://guidelines/implementing/code-quality/atomic-commits (atomic commits) | Squash merge produces one clean commit on main |
 
 ## Conformance Test Vectors
 
@@ -201,4 +201,5 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

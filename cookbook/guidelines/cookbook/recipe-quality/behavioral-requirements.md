@@ -2,13 +2,13 @@
 
 id: 04fe1298-3880-4584-8a4a-c7a538eb5193
 title: "Behavioral Requirements"
-domain: agentic-cookbook://guidelines/cookbook/recipe-quality/behavioral-requirements
+domain: agenticdevelopercookbook://guidelines/cookbook/recipe-quality/behavioral-requirements
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-07
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -26,6 +26,8 @@ depends-on: []
 related: []
 references:
   - https://www.rfc-editor.org/rfc/rfc2119
+approved-by: "approve-artifact v1.0.0"
+approved-date: 2026-06-09
 triggers:
   - recipe-authoring
 ---
@@ -96,3 +98,8 @@ A verifier MUST check each of the following items. The recipe PASSES behavioral 
 - [ ] Requirements do not describe internal state or memory layout — only observable behavior.
 
 ## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Add Change History table and approval metadata |
+| 1.0.0 | 2026-04-07 | Mike Fullerton | Initial creation |

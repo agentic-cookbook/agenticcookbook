@@ -10,7 +10,7 @@ Structured knowledge base of principles, guidelines, ingredients, recipes, and w
 - **Deployment:** None (content consumed by agents and synced to `agenticcookbookweb`)
 
 ## GitHub URL
-`git@github.com:agentic-cookbook/agenticcookbook.git`
+`git@github.com:agenticdevelopercookbook/agenticcookbook.git`
 
 ## Directory Structure
 ```

@@ -2,7 +2,7 @@
 
 id: 0D3E2D97-22D4-4781-A6C4-FA297B38030F
 title: "Offline-First Architecture"
-domain: agentic-cookbook://guidelines/implementing/data/offline-first-architecture
+domain: agenticdevelopercookbook://guidelines/implementing/data/offline-first-architecture
 type: guideline
 version: 1.0.2
 status: accepted

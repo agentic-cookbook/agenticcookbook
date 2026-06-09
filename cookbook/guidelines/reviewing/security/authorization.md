@@ -2,7 +2,7 @@
 
 id: 192c62b6-dec8-40e9-ae69-588f1c530dc8
 title: "Authorization"
-domain: agentic-cookbook://guidelines/reviewing/security/authorization
+domain: agenticdevelopercookbook://guidelines/reviewing/security/authorization
 type: guideline
 version: 1.0.2
 status: accepted

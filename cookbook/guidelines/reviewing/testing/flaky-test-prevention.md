@@ -2,7 +2,7 @@
 
 id: 098af491-bb61-48b2-b98b-4a4cf4099c1d
 title: "Flaky Test Prevention"
-domain: agentic-cookbook://guidelines/reviewing/testing/flaky-test-prevention
+domain: agenticdevelopercookbook://guidelines/reviewing/testing/flaky-test-prevention
 type: guideline
 version: 1.0.2
 status: accepted

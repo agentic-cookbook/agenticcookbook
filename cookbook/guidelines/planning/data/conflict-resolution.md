@@ -2,7 +2,7 @@
 
 id: 5e6161cd-6bab-46b5-a2c5-14de3527b035
 title: "Conflict Resolution"
-domain: agentic-cookbook://guidelines/planning/data/conflict-resolution
+domain: agenticdevelopercookbook://guidelines/planning/data/conflict-resolution
 type: guideline
 version: 1.0.2
 status: accepted
@@ -48,7 +48,6 @@ No single strategy fits all data. Apply the simplest strategy that is correct fo
 
 | Strategy | When to Use |
 |----------|-------------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Last-Write-Wins (LWW) | Settings, preferences, low-contention single-user records |
 | Server-wins | Admin-pushed config, read-only replication |
 | Client-wins | Personal notes, drafts owned by one user |
@@ -182,4 +181,5 @@ Apply the server version as an interim state while the conflict is pending, and 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

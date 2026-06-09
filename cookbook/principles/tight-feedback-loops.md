@@ -1,7 +1,7 @@
 ---
 id: b111a703-f4d7-4c1a-8206-d84e869791f4
 title: "Tight feedback loops"
-domain: agentic-cookbook://principles/tight-feedback-loops
+domain: agenticdevelopercookbook://principles/tight-feedback-loops
 type: principle
 version: 1.0.0
 status: accepted

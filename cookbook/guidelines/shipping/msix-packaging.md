@@ -2,7 +2,7 @@
 
 id: 4428deb0-05a8-4b52-a78f-3dec1e7f90a4
 title: "MSIX Packaging"
-domain: agentic-cookbook://guidelines/shipping/msix-packaging
+domain: agenticdevelopercookbook://guidelines/shipping/msix-packaging
 type: guideline
 version: 1.0.2
 status: accepted

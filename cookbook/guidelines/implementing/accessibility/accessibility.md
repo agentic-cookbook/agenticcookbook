@@ -2,13 +2,13 @@
 
 id: 3d970d6a-2d71-48f3-9f84-69c1d823d6e8
 title: "Accessibility from day one"
-domain: agentic-cookbook://guidelines/implementing/accessibility/accessibility
+domain: agenticdevelopercookbook://guidelines/implementing/accessibility/accessibility
 type: guideline
-version: 1.0.2
+version: 1.1.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -27,10 +27,10 @@ related: []
 references: 
   - https://accessibilityinsights.io/
   - https://learn.microsoft.com/en-us/windows/win32/winauto/uiauto-uiautomationoverview
-  - https://www.w3.org/TR/WCAG21/
+  - https://www.w3.org/TR/WCAG22/
   - https://www.w3.org/WAI/ARIA/apg/
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: "2026-06-09"
 triggers:
   - accessibility
   - ui-implementation
@@ -75,7 +75,6 @@ Components MUST respond to these SwiftUI environment values:
 
 | Setting | Environment Key | Action |
 |---------|----------------|--------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Reduce Motion | `\.accessibilityReduceMotion` | Replace animations with crossfades or instant transitions |
 | Reduce Transparency | `\.accessibilityReduceTransparency` | Use opaque backgrounds instead of blurs/vibrancy |
 | Differentiate Without Color | `\.accessibilityDifferentiateWithoutColor` | Add icons/shapes/patterns alongside color indicators |
@@ -102,7 +101,7 @@ Components MUST respond to these Android accessibility settings:
 
 ### Standards
 
-1. [WCAG 2.1](https://www.w3.org/TR/WCAG21/) — minimum AA conformance for all components.
+1. [WCAG 2.2](https://www.w3.org/TR/WCAG22/) — minimum AA conformance for all components. WCAG 2.2 is the current W3C Recommendation and supersedes 2.1; honor its new AA criteria: focus not obscured, focus appearance, a single-pointer alternative to dragging movements, **target size minimum 24×24 CSS px** (reconcile with the 44pt target in [touch-click-targets](agenticdevelopercookbook://guidelines/implementing/ui/touch-click-targets) — 44pt is the stricter Apple guidance), consistent help, redundant entry, and accessible authentication (no cognitive-function test). Treat WCAG 3.0 as a horizon Working Draft, not yet actionable.
 2. [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/) — correct ARIA roles, states, and properties.
 
 ### CSS Media Queries
@@ -147,5 +146,7 @@ Components MUST respond to these Windows accessibility settings:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-06-09 | Mike Fullerton | Update to WCAG 2.2 AA (new criteria, 24px target size); restore strayed 1.0.1 row |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -1,7 +1,7 @@
 ---
 id: 24eb3821-0f66-4acf-bff0-5797982bb60d
 title: "AI Settings Panel"
-domain: agentic-cookbook://ingredients/ui/panels/ai-settings-panel
+domain: agenticdevelopercookbook://ingredients/ui/panels/ai-settings-panel
 type: ingredient
 version: 1.0.0
 status: accepted

@@ -1,3 +1,23 @@
+---
+id: d465658a-3e5f-4b48-abe2-673ff3d0dba5
+title: Swift & SwiftUI Development Tools
+domain: agenticdevelopercookbook://appendix/research/developer-tools/apple/swift-tooling
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Swift & SwiftUI Development Tools
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Swift & SwiftUI Development Tools
 
 **Date:** 2026-03-29

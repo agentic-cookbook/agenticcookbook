@@ -2,7 +2,7 @@
 
 id: e29555dd-a4e6-4973-8bde-365b8d60bf9f
 title: "Privacy and security by default"
-domain: agentic-cookbook://guidelines/planning/security/privacy
+domain: agenticdevelopercookbook://guidelines/planning/security/privacy
 type: guideline
 version: 1.0.2
 status: accepted

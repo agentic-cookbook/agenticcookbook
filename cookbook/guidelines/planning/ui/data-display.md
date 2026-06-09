@@ -2,7 +2,7 @@
 
 id: 31586bfd-4403-4a11-93d4-ac1a3e001c2f
 title: "Data Display"
-domain: agentic-cookbook://guidelines/planning/ui/data-display
+domain: agenticdevelopercookbook://guidelines/planning/ui/data-display
 type: guideline
 version: 1.0.2
 status: accepted

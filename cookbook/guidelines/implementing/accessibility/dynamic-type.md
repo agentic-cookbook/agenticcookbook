@@ -2,7 +2,7 @@
 
 id: 9dae85c5-85ff-4dd1-9bc4-5e923452dba8
 title: "Dynamic Type"
-domain: agentic-cookbook://guidelines/implementing/accessibility/dynamic-type
+domain: agenticdevelopercookbook://guidelines/implementing/accessibility/dynamic-type
 type: guideline
 version: 1.0.2
 status: accepted

@@ -2,7 +2,7 @@
 
 id: b712c766-af1f-4716-b8fb-34bf0bbb13eb
 title: "Dependency Security"
-domain: agentic-cookbook://guidelines/implementing/security/dependency-security
+domain: agenticdevelopercookbook://guidelines/implementing/security/dependency-security
 type: guideline
 version: 1.0.2
 status: accepted

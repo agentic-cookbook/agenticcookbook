@@ -2,7 +2,7 @@
 
 id: acbfc5ff-4482-4982-a893-b792da0fbe4f
 title: "Deterministic IDs"
-domain: agentic-cookbook://guidelines/implementing/data/deterministic-ids
+domain: agenticdevelopercookbook://guidelines/implementing/data/deterministic-ids
 type: guideline
 version: 1.0.2
 status: accepted

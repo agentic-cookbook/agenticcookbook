@@ -1,3 +1,23 @@
+---
+id: 028b445c-ee5e-40ca-8272-ae0f5053d525
+title: Skill Testing Landscape
+domain: agenticdevelopercookbook://appendix/research/developer-tools/claude/skill-testing-landscape
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Skill Testing Landscape
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Skill Testing Landscape
 
 **Date**: 2026-03-30
@@ -41,7 +61,7 @@
 **Plain Vitest + Agent SDK** in a disposable sandbox.
 
 - Cookbook owns tests, fixtures, harness code
-- `tests/run.sh` copies everything to `../agentic-cookbook-tests/` (disposable)
+- `tests/run.sh` copies everything to `../agenticdevelopercookbook-tests/` (disposable)
 - Agent SDK runs skills in temp directories with synthetic fixtures
 - Assertions are filesystem-based (binary: did this file get created?) — not LLM-judged
 - Haiku by default (cheapest), configurable via TEST_MODEL env var

@@ -1,3 +1,23 @@
+---
+id: ce3ba3d5-be1d-4fa3-ab0f-166ab8a3213d
+title: 'Decision: Offline-First Architecture'
+domain: agenticdevelopercookbook://reference/examples/my-document-editor-cookbook/context/decisions/offline-first
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: 'Decision: Offline-First Architecture'
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Decision: Offline-First Architecture
 
 ## Status

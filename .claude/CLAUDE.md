@@ -29,10 +29,10 @@ A **cookbook artifact** is any content item in the cookbook: a principle, guidel
 
 | Type | Count | Path | Description |
 |------|-------|------|-------------|
-| Principle | 21 | `cookbook/principles/` | Foundational engineering ideas that guide design decisions |
-| Guideline | 142 (234 with duplicates) | `cookbook/guidelines/` | Use-case-organized rules: planning, implementing, testing, reviewing, shipping, cookbook |
-| Ingredient | 18 | `cookbook/ingredients/` | Atomic component specs — the building blocks of recipes |
-| Recipe | 11 | `cookbook/recipes/` | Compositions of configured ingredients into coherent features |
+| Principle | 27 | `cookbook/principles/` | Foundational engineering ideas that guide design decisions |
+| Guideline | 240 (333 with duplicates) | `cookbook/guidelines/` | Use-case-organized rules: planning, implementing, testing, reviewing, shipping, cookbook |
+| Ingredient | 19 | `cookbook/ingredients/` | Atomic component specs — the building blocks of recipes |
+| Recipe | 12 | `cookbook/recipes/` | Compositions of configured ingredients into coherent features |
 
 A **cookbook** (`cookbook.json`) assembles recipes and ingredients into a complete application, plugin, or widget. See `cookbook/reference/cookbook.schema.json` for the JSON Schema.
 
@@ -44,13 +44,13 @@ Supporting content (not artifacts): compliance checks, workflows, reference mate
 
 Multi-agent development system, distributed as a Claude Code plugin. Orchestrates teams of specialist agents (13 domain + 6 platform) for product discovery, code generation, and linting. All user-facing cookbook skills live here: `/install-cookbook`, `/configure-cookbook`, `/contribute-to-cookbook`, `/validate-cookbook`, `/cookbook-help`, `/dev-team lint`, and others.
 
-Repo: [agentic-cookbook/dev-team](https://github.com/agentic-cookbook/dev-team)
+Repo: [agenticdevelopercookbook/dev-team](https://github.com/agenticdevelopercookbook/dev-team)
 
 ### agenticcookbookweb
 
 Cloudflare Workers web app for browsing the cookbook. React 19, TypeScript, Tailwind CSS 4. Serves as the public-facing website for the cookbook.
 
-Repo: [agentic-cookbook/agenticcookbookweb](https://github.com/agentic-cookbook/agenticcookbookweb)
+Repo: [agenticdevelopercookbook/agenticcookbookweb](https://github.com/agenticdevelopercookbook/agenticcookbookweb)
 
 ## Conventions
 
@@ -58,7 +58,7 @@ Read `cookbook/introduction/conventions.md` for the full format reference. See `
 
 Key rules:
 - All `.md` files have YAML frontmatter (id, title, domain, type, version, status, language, created, modified, author, copyright, license, summary, platforms, tags, depends-on, related, references)
-- URL-based domain identifiers: `agentic-cookbook://guidelines/testing/test-pyramid`
+- URL-based domain identifiers: `agenticdevelopercookbook://guidelines/testing/test-pyramid`
 - Fragment references for within-document sections: `#requirements/ordered-list`
 - Named requirements (kebab-case, not REQ-NNN): `**ordered-list**: The control MUST...`
 - Version is semver, immutable once on main
@@ -84,7 +84,7 @@ Key rules:
 6. Clean up: `ExitWorktree action:remove` (Claude Code) or `git worktree remove <path>`
 7. Pull main: `git pull`
 
-**Fork-based contributions**: External contributors who don't have push access use a fork. The workflow is the same (worktree, branch, commit, push, PR), but `origin` points to the fork and the PR targets `agentic-cookbook/cookbook` via `--head <user>:<branch>`. The `/contribute-to-cookbook` skill (in dev-team) detects this automatically.
+**Fork-based contributions**: External contributors who don't have push access use a fork. The workflow is the same (worktree, branch, commit, push, PR), but `origin` points to the fork and the PR targets `agenticdevelopercookbook/cookbook` via `--head <user>:<branch>`. The `/contribute-to-cookbook` skill (in dev-team) detects this automatically.
 
 ## Writing New Content
 

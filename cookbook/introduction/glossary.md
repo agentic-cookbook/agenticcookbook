@@ -1,7 +1,7 @@
 ---
 id: a7c3e1f2-9b4d-4e6a-8c5f-2d3e4f5a6b7c
 title: "Glossary"
-domain: agentic-cookbook://introduction/glossary
+domain: agenticdevelopercookbook://introduction/glossary
 type: reference
 version: 1.3.0
 status: accepted
@@ -16,7 +16,7 @@ platforms: []
 tags: [glossary, definitions, terminology]
 depends-on: []
 related:
-  - agentic-cookbook://introduction/conventions
+  - agenticdevelopercookbook://introduction/conventions
 references: []
 ---
 
@@ -30,11 +30,11 @@ Definitions of terms used throughout the Agentic Developer Cookbook.
 
 **Conformance** — Verified match between an implementation and a recipe's requirements. Measured by a conformance checklist mapping each named requirement to its implementing code and test.
 
-**Cookbook** — Two distinct uses: (1) **Top-level cookbook** — the source repository of principles, guidelines, ingredients, and recipes (this repo, `agentic-cookbook/cookbook`). (2) **Project cookbook** — a full application, plugin, or widget definition that assembles recipes and ingredients into a complete project. Defined by a `cookbook.json` manifest in a directory with a `-cookbook` suffix. Contains a hierarchical structure of structural elements, resources, and context. Replaces the former "concoction" concept.
+**Cookbook** — Two distinct uses: (1) **Top-level cookbook** — the source repository of principles, guidelines, ingredients, and recipes (this repo, `agenticdevelopercookbook/cookbook`). (2) **Project cookbook** — a full application, plugin, or widget definition that assembles recipes and ingredients into a complete project. Defined by a `cookbook.json` manifest in a directory with a `-cookbook` suffix. Contains a hierarchical structure of structural elements, resources, and context. Replaces the former "concoction" concept.
 
 **Cookbook Artifact** — A general term for any content item in the cookbook: a principle, guideline, ingredient, or recipe. Each artifact is a standalone markdown file with YAML frontmatter, named requirements, and a change history. The artifact's `type` field identifies which kind it is.
 
-**Domain** — A URL-based identifier for any cookbook content. Format: `<scheme>://<path>#<fragment>`. Example: `agentic-cookbook://ingredients/ui/components/empty-state#requirements/centered-layout`.
+**Domain** — A URL-based identifier for any cookbook content. Format: `<scheme>://<path>#<fragment>`. Example: `agenticdevelopercookbook://ingredients/ui/components/empty-state#requirements/centered-layout`.
 
 **Fragment** — A `#section/item` reference to a specific section or item within a document. Used for within-document and cross-document references. Example: `#requirements/ordered-list`.
 
@@ -42,7 +42,7 @@ Definitions of terms used throughout the Agentic Developer Cookbook.
 
 **Ingredient** — An atomic component spec — the building block of recipes. Defines a single UI component, panel, or infrastructure pattern with full detail: behavioral requirements, appearance, states, accessibility, test vectors, configuration options, and platform notes. Located in `cookbook/ingredients/`.
 
-**Principle** — A foundational engineering idea that guides all design decisions. 18 principles in `cookbook/principles/` including simplicity, YAGNI, fail-fast, dependency injection, immutability, composition over inheritance, and others.
+**Principle** — A foundational engineering idea that guides all design decisions. 27 principles in `cookbook/principles/` including simplicity, YAGNI, fail-fast, dependency injection, immutability, composition over inheritance, connascence, and others.
 
 **Recipe** — A composition of configured ingredients into a coherent feature. Defines how ingredients wire together: integration requirements, layout, shared state, and integration test vectors. Recipes reference ingredients by domain and specify configuration values for each. Located in `cookbook/recipes/`.
 

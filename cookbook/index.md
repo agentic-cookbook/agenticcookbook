@@ -1,7 +1,7 @@
 ---
 id: 00000000-0000-0000-0000-000000000001
 title: "Agentic Developer Cookbook"
-domain: agentic-cookbook://index
+domain: agenticdevelopercookbook://index
 type: reference
 version: 4.2.0
 status: accepted
@@ -17,7 +17,7 @@ tags: []
 depends-on: []
 related: []
 references:
-  - https://github.com/agentic-cookbook/cookbook
+  - https://github.com/agenticdevelopercookbook/cookbook
 ---
 
 # Agentic Developer Cookbook
@@ -45,12 +45,18 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 | [Simplicity](principles/simplicity.md) | No interleaving of concerns. Simple beats easy. |
 | [Make It Work, Make It Right, Make It Fast](principles/make-it-work-make-it-right-make-it-fast.md) | Three sequential phases — never skip phase 2. |
 | [YAGNI](principles/yagni.md) | Build for today's known requirements. |
+| [Steel Thread First](principles/steel-thread-first.md) | Build the thinnest end-to-end slice through every boundary before breadth. |
+| [Deliberate, Prudent Technical Debt](principles/deliberate-prudent-debt.md) | Trade rigor for speed only as a deliberate, recorded choice with a payback trigger. |
 | [Fail Fast](principles/fail-fast.md) | Detect invalid state at the point of origin. |
+| [Make Illegal States Unrepresentable](principles/parse-dont-validate.md) | Parse untrusted input once into a type that proves its validity. |
+| [Errors as Values](principles/errors-as-values.md) | Recoverable failures are values in signatures, not hidden throws. |
 | [Dependency Injection](principles/dependency-injection.md) | Receive dependencies from outside. |
 | [Immutability by Default](principles/immutability-by-default.md) | Default to immutable values; mutate only when necessary. |
 | [Composition over Inheritance](principles/composition-over-inheritance.md) | Compose small pieces over deep hierarchies. |
 | [Separation of Concerns](principles/separation-of-concerns.md) | One reason to change per module. |
 | [SRP](principles/srp.md) | A module should be answerable to one and only one actor. |
+| [Connascence](principles/connascence.md) | Coupling has a rankable strength; weaken strong forms, especially as distance grows. |
+| [Conway's Law](principles/conways-law.md) | Architecture mirrors the communication structure — or agent topology — that builds it. |
 | [Design for Deletion](principles/design-for-deletion.md) | Build disposable software, not reusable software. |
 | [DRY](principles/dry.md) | Every piece of knowledge has a single, authoritative representation. |
 | [Explicit over Implicit](principles/explicit-over-implicit.md) | Visible dependencies, clear intent. |
@@ -70,11 +76,11 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 
 | Use Case | Guidelines | When to use |
 |----------|-----------|-------------|
-| [Planning](guidelines/planning/) | 41 | Architecture, data modeling, choosing patterns |
-| [Implementing](guidelines/implementing/) | 111 | Writing new code |
-| [Testing](guidelines/testing/) | 16 | Writing and structuring tests |
-| [Reviewing](guidelines/reviewing/) | 41 | Checking code quality, security, accessibility |
-| [Shipping](guidelines/shipping/) | 9 | Pre-commit, pre-PR, packaging |
+| [Planning](guidelines/planning/) | 63 | Architecture, data modeling, choosing patterns |
+| [Implementing](guidelines/implementing/) | 165 | Writing new code |
+| [Testing](guidelines/testing/) | 24 | Writing and structuring tests |
+| [Reviewing](guidelines/reviewing/) | 48 | Checking code quality, security, accessibility |
+| [Shipping](guidelines/shipping/) | 17 | Pre-commit, pre-PR, packaging |
 | [Cookbook](guidelines/cookbook/) | 16 | Writing cookbook content (recipes, skills, agents) |
 
 ## Ingredients
@@ -86,7 +92,7 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 | [UI Components](ingredients/ui/components/) | Leaf building blocks — ai-chat-control, collapsible-pane-header, color-profile, empty-state, git-status-indicator, metadata-line, status-bar |
 | [Panels](ingredients/ui/panels/) | Content panes — ai-settings-panel, code-editor-pane, debug-panel, file-tree-browser, inspector-panel, terminal-pane |
 | [Infrastructure](ingredients/infrastructure/) | Non-visual patterns — logging, settings-keys, window-frame-persistence |
-| [Developer Tools](ingredients/developer-tools/) | Claude Code workarounds — yolo-mode |
+| [Developer Tools](ingredients/developer-tools/) | Claude Code workarounds — yolo-mode; MCP building blocks — mcp-tool |
 | [Web Controls](ingredients/web/) | Web UI controls — appearance-mode-toggle |
 
 ## Recipes
@@ -99,7 +105,7 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 | [Apps](recipes/ui/apps/) | Application-level UI — apple test app suite |
 | [App-Level](recipes/app/) | Lifecycle, menus, commands |
 | [Autonomous Dev Bots](recipes/autonomous-dev-bots/) | Long-running agent processes — pr-review-pipeline |
-| [Developer Tools](recipes/developer-tools/) | Claude Code pipelines — claude-rule-optimization-pipeline |
+| [Developer Tools](recipes/developer-tools/) | Claude Code pipelines — claude-rule-optimization-pipeline; MCP — mcp-server |
 | [Infrastructure](recipes/infrastructure/) | Non-visual patterns — directory-sync, package-document |
 
 ## Workflows

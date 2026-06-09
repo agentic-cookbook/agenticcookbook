@@ -2,7 +2,7 @@
 
 id: e5af9ba5-f484-40c3-9738-470090f5241c
 title: "Properties of Good Tests"
-domain: agentic-cookbook://guidelines/testing/properties-of-good-tests
+domain: agenticdevelopercookbook://guidelines/testing/properties-of-good-tests
 type: guideline
 version: 1.0.2
 status: accepted

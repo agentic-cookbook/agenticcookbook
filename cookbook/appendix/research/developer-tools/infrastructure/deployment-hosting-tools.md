@@ -1,3 +1,23 @@
+---
+id: 9edd68fb-29e3-44d6-951a-e668a2e9dfda
+title: Deployment & Hosting Tools
+domain: agenticdevelopercookbook://appendix/research/developer-tools/infrastructure/deployment-hosting-tools
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Deployment & Hosting Tools
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Deployment & Hosting Tools
 
 **Date:** 2026-03-29

@@ -1,7 +1,7 @@
 ---
 id: 39931D07-F23F-4980-A055-6916E722A01F
 title: "Guideline Formatting Compliance"
-domain: agentic-cookbook://compliance/artifact-formatting/guideline-formatting
+domain: agenticdevelopercookbook://compliance/artifact-formatting/guideline-formatting
 type: compliance
 version: 1.1.0
 status: draft
@@ -18,10 +18,10 @@ tags:
   - artifact-formatting
   - guideline
 depends-on:
-  - agentic-cookbook://introduction/conventions
+  - agenticdevelopercookbook://introduction/conventions
 related:
-  - agentic-cookbook://compliance/artifact-formatting/principle-formatting
-  - agentic-cookbook://compliance/artifact-formatting/recipe-formatting
+  - agenticdevelopercookbook://compliance/artifact-formatting/principle-formatting
+  - agenticdevelopercookbook://compliance/artifact-formatting/recipe-formatting
 references: []
 ---
 
@@ -44,7 +44,7 @@ All required YAML frontmatter fields MUST be present per `introduction/conventio
 **Required fields:** id, title, domain, type, version, status, language, created, modified, author, copyright, license, summary, platforms, tags, depends-on, related, references.
 
 **Guidelines:**
-- [Conventions](agentic-cookbook://introduction/conventions)
+- [Conventions](agenticdevelopercookbook://introduction/conventions)
 
 ---
 
@@ -95,7 +95,7 @@ The file MUST end with a `## Change History` section containing a table with col
 **Applies when:** always.
 
 **Guidelines:**
-- [Conventions](agentic-cookbook://introduction/conventions)
+- [Conventions](agenticdevelopercookbook://introduction/conventions)
 
 ---
 
@@ -114,8 +114,8 @@ The `triggers` field SHOULD be present in guideline frontmatter. It MUST be a YA
 **Applies when:** always.
 
 **Guidelines:**
-- [Trigger Guide](agentic-cookbook://introduction/trigger-guide)
-- [Conventions](agentic-cookbook://introduction/conventions)
+- [Trigger Guide](agenticdevelopercookbook://introduction/trigger-guide)
+- [Conventions](agenticdevelopercookbook://introduction/conventions)
 
 ## Change History
 

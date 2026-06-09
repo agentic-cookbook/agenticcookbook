@@ -2,7 +2,7 @@
 
 id: b68ca5dd-7053-4b8b-ba49-90881de1b55a
 title: "Indexing"
-domain: agentic-cookbook://guidelines/planning/data/indexing
+domain: agenticdevelopercookbook://guidelines/planning/data/indexing
 type: guideline
 version: 1.0.2
 status: accepted

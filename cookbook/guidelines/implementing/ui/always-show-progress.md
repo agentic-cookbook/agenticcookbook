@@ -2,7 +2,7 @@
 
 id: 8d52028b-d358-4965-93a1-030fc8405068
 title: "Always show progress"
-domain: agentic-cookbook://guidelines/implementing/ui/always-show-progress
+domain: agenticdevelopercookbook://guidelines/implementing/ui/always-show-progress
 type: guideline
 version: 1.0.2
 status: accepted

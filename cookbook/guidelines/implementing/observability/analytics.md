@@ -2,7 +2,7 @@
 
 id: 17216748-46e9-4e92-af3a-f4deeb843a8d
 title: "Analytics"
-domain: agentic-cookbook://guidelines/implementing/observability/analytics
+domain: agenticdevelopercookbook://guidelines/implementing/observability/analytics
 type: guideline
 version: 1.0.2
 status: accepted

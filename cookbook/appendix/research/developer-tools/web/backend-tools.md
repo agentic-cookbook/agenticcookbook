@@ -1,3 +1,23 @@
+---
+id: 6a81c776-d327-4ea6-9814-585e5cf85bc7
+title: Web Backend Development Tools
+domain: agenticdevelopercookbook://appendix/research/developer-tools/web/backend-tools
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Web Backend Development Tools
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Web Backend Development Tools
 
 **Date:** 2026-03-29

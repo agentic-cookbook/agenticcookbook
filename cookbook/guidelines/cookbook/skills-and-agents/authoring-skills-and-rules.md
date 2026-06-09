@@ -2,7 +2,7 @@
 
 id: d4e7a91c-3f28-4b5e-a6c1-9e8d2f7b4a3c
 title: "Authoring Skills and Rules"
-domain: agentic-cookbook://guidelines/cookbook/skills-and-agents/authoring-skills-and-rules
+domain: agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/authoring-skills-and-rules
 type: guideline
 version: 1.0.2
 status: accepted
@@ -47,7 +47,7 @@ This guideline captures lessons learned from building the Agentic Developer Cook
 
 4. **Use `$ARGUMENTS`** -- Do not describe argument handling in prose. Use `$ARGUMENTS`, `$0`, `$1` for input. If the `argument-hint` frontmatter field is declared, the skill body MUST reference these variables.
 
-5. **Use `${CLAUDE_SKILL_DIR}`** -- Reference the skill's own supporting files with `${CLAUDE_SKILL_DIR}`. Use repo-relative paths or `../agentic-cookbook/` paths for cookbook content.
+5. **Use `${CLAUDE_SKILL_DIR}`** -- Reference the skill's own supporting files with `${CLAUDE_SKILL_DIR}`. Use repo-relative paths or `../agenticdevelopercookbook/` paths for cookbook content.
 
 6. **Description under 200 characters** -- The skill description is loaded into every session's context window. Keep it short and include natural trigger keywords so the model invokes the skill when appropriate.
 

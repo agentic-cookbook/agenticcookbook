@@ -2,13 +2,13 @@
 
 id: 28e0fd80-be0a-4f85-ac42-1e423623b242
 title: "Bulk operation verification"
-domain: agentic-cookbook://guidelines/shipping/bulk-operation-verification
+domain: agenticdevelopercookbook://guidelines/shipping/bulk-operation-verification
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-03-28
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -19,12 +19,12 @@ tags:
   - verification
   - code-quality
 depends-on:
-  - agentic-cookbook://guidelines/code-quality/atomic-commits
+  - agenticdevelopercookbook://guidelines/implementing/code-quality/atomic-commits
 related:
-  - agentic-cookbook://guidelines/testing/post-generation-verification
+  - agenticdevelopercookbook://guidelines/testing/post-generation-verification
 references: []
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: "2026-06-09"
 triggers:
   - code-review
   - pre-commit
@@ -70,6 +70,7 @@ A bulk operation MUST NOT be marked complete until the verification pass returns
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

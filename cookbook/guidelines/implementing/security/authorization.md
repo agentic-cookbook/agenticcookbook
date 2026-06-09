@@ -2,7 +2,7 @@
 
 id: 2609037a-fb89-4b49-88b0-7e4295e5d6f6
 title: "Authorization"
-domain: agentic-cookbook://guidelines/implementing/security/authorization
+domain: agenticdevelopercookbook://guidelines/implementing/security/authorization
 type: guideline
 version: 1.0.2
 status: accepted

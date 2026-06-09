@@ -1,3 +1,23 @@
+---
+id: d3238319-55ad-45cd-b9d7-e0aff0841320
+title: MCP Servers for Development
+domain: agenticdevelopercookbook://appendix/research/developer-tools/claude/mcp-servers
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: MCP Servers for Development
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # MCP Servers for Development
 
 **Date:** 2026-03-29

@@ -2,7 +2,7 @@
 
 id: 607B9F71-39DD-4B10-80FD-D8FD115CCE5F
 title: "Database backup and recovery"
-domain: agentic-cookbook://guidelines/implementing/data/backup-and-recovery
+domain: agenticdevelopercookbook://guidelines/implementing/data/backup-and-recovery
 type: guideline
 version: 1.0.2
 status: accepted

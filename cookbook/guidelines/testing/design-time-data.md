@@ -2,7 +2,7 @@
 
 id: 73b87332-8024-4a21-95ab-1e08f1cbd1a1
 title: "Design-Time Data"
-domain: agentic-cookbook://guidelines/testing/design-time-data
+domain: agenticdevelopercookbook://guidelines/testing/design-time-data
 type: guideline
 version: 1.1.1
 status: accepted

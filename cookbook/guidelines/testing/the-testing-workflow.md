@@ -2,7 +2,7 @@
 
 id: 8ab7452a-09b8-4f4e-abfc-f7fd700765db
 title: "The Testing Workflow"
-domain: agentic-cookbook://guidelines/testing/the-testing-workflow
+domain: agenticdevelopercookbook://guidelines/testing/the-testing-workflow
 type: guideline
 version: 1.0.2
 status: accepted

@@ -2,7 +2,7 @@
 
 id: 246D87C8-213A-4DE1-9452-6E683D3D75E3
 title: "Relationship patterns"
-domain: agentic-cookbook://guidelines/implementing/data/relationships
+domain: agenticdevelopercookbook://guidelines/implementing/data/relationships
 type: guideline
 version: 1.0.2
 status: accepted
@@ -179,7 +179,6 @@ SELECT * FROM descendants;
 
 | Pattern | Read performance | Write complexity | Storage | Best for |
 |---------|-----------------|-----------------|---------|----------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Adjacency list | Moderate (recursive) | Simple | Minimal | Dynamic trees with occasional depth queries |
 | Closure table | Excellent | Moderate | High | Read-heavy, deep hierarchies |
 | Nested sets | Excellent | High (renumbering) | Low | Static / rarely-modified hierarchies |
@@ -212,4 +211,5 @@ Tradeoff: O(n²) worst-case storage and complex insert/delete maintenance.
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

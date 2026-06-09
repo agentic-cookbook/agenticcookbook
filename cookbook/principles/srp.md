@@ -1,7 +1,7 @@
 ---
 id: 9096c8f4-5f89-41cf-b06c-954861117d69
 title: "SRP"
-domain: agentic-cookbook://principles/srp
+domain: agenticdevelopercookbook://principles/srp
 type: principle
 version: 1.0.0
 status: accepted

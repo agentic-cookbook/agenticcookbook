@@ -2,7 +2,7 @@
 
 id: 4b60fa16-a4cc-4376-97c3-e455681bffb6
 title: "Unit Test Patterns"
-domain: agentic-cookbook://guidelines/testing/unit-test-patterns
+domain: agenticdevelopercookbook://guidelines/testing/unit-test-patterns
 type: guideline
 version: 1.0.2
 status: accepted

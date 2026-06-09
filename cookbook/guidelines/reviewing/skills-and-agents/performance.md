@@ -2,13 +2,13 @@
 
 id: f7d33c40-8dbd-4503-827f-92e4c3da4b8f
 title: "Performance: Speed and Token Efficiency"
-domain: agentic-cookbook://guidelines/reviewing/skills-and-agents/performance
+domain: agenticdevelopercookbook://guidelines/reviewing/skills-and-agents/performance
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-02
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -22,15 +22,15 @@ tags:
   - shell-scripts
   - model-selection
 depends-on:
-  - agentic-cookbook://guidelines/skills-and-agents/authoring-skills-and-rules
+  - agenticdevelopercookbook://guidelines/implementing/skills-and-agents/authoring-skills-and-rules
 related:
-  - agentic-cookbook://principles/simplicity
-  - agentic-cookbook://principles/yagni
-  - agentic-cookbook://principles/separation-of-concerns
-  - agentic-cookbook://principles/manage-complexity-through-boundaries
+  - agenticdevelopercookbook://principles/simplicity
+  - agenticdevelopercookbook://principles/yagni
+  - agenticdevelopercookbook://principles/separation-of-concerns
+  - agenticdevelopercookbook://principles/manage-complexity-through-boundaries
 references: []
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: "2026-06-09"
 triggers:
   - skill-authoring
   - performance-optimization
@@ -130,12 +130,13 @@ Target: rule files SHOULD be under 200 lines / ~8KB. Rules that apply to narrow 
 
 ### Real-World Impact
 
-The agentic-cookbook's own rules went from 381 lines / 17,689 bytes per turn to 10 lines / 358 bytes per turn — a 97% reduction — by applying progressive disclosure. The behavioral constraints were preserved; only the delivery mechanism changed.
+The agenticdevelopercookbook's own rules went from 381 lines / 17,689 bytes per turn to 10 lines / 358 bytes per turn — a 97% reduction — by applying progressive disclosure. The behavioral constraints were preserved; only the delivery mechanism changed.
 
 ## Change History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-02 | Mike Fullerton | Initial creation combining shell script, model selection, and progressive disclosure principles |

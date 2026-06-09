@@ -2,13 +2,13 @@
 
 id: 8075b95b-2678-4893-9a5a-eb77aa9232aa
 title: "Small, atomic commits"
-domain: agentic-cookbook://guidelines/implementing/code-quality/atomic-commits
+domain: agenticdevelopercookbook://guidelines/implementing/code-quality/atomic-commits
 type: guideline
-version: 1.1.2
+version: 1.2.1
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -19,11 +19,11 @@ tags:
   - code-quality
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/code-quality/scope-discipline
-  - agentic-cookbook://guidelines/testing/post-generation-verification
+  - agenticdevelopercookbook://guidelines/implementing/code-quality/scope-discipline
+  - agenticdevelopercookbook://guidelines/testing/post-generation-verification
 references: []
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: "2026-06-09"
 triggers:
   - pre-commit
 ---
@@ -55,6 +55,10 @@ A single logical change is the smallest unit of work that makes sense on its own
 
 A change may touch multiple files if they are part of the same concept — an interface and its implementation, a component and its test file.
 
+## Small diffs for agent-generated changes
+
+Work SHOULD be planned into small, reviewable pull requests **before** writing code, not carved down afterward. Large diffs degrade both human and AI reviewers: once a change exceeds what fits in a reviewer's working context, review collapses into shallow pattern-matching rather than reasoning about correctness. AI-generated code SHOULD receive more per-line scrutiny, not less — which makes small, frequent diffs more important for agent-authored work, not a luxury to be skipped under time pressure. When a planned unit of work looks like it will produce a large diff, it SHOULD be split into a sequence of smaller PRs.
+
 ## Why this matters
 
 Batched, uncommitted changes create compound failures that are difficult to debug. When three changes interact in a broken build, isolating which change caused the failure requires significantly more effort than catching each failure as it occurs. Small, committed changes are also individually revertible, bisectable, and reviewable.
@@ -63,6 +67,8 @@ Batched, uncommitted changes create compound failures that are difficult to debu
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.2.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
+| 1.2.0 | 2026-06-09 | Mike Fullerton | Add small-diff discipline for agent-generated changes |
 | 1.1.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.1.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.1.0 | 2026-03-28 | Mike Fullerton | Add build-verify-commit loop, expand guidance |

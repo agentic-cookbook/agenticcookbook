@@ -2,7 +2,7 @@
 
 id: DDE1B6FD-773C-4F9F-A328-51150468BC99
 title: "Database naming conventions"
-domain: agentic-cookbook://guidelines/implementing/data/naming-conventions
+domain: agenticdevelopercookbook://guidelines/implementing/data/naming-conventions
 type: guideline
 version: 1.0.2
 status: accepted
@@ -119,7 +119,6 @@ SQLite has 147 reserved keywords. These are common traps:
 
 | Avoid | Use instead |
 |-------|-------------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | `order` | `sort_order`, `display_order` |
 | `group` | `team`, `grouping` |
 | `index` | `position`, `sort_index` |
@@ -160,4 +159,5 @@ The prefix makes object type immediately clear in schema dumps and `sqlite_schem
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

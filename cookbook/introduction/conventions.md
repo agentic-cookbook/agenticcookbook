@@ -1,7 +1,7 @@
 ---
 id: 7a3e1f2c-8b4d-4e6a-9c5f-1d2e3f4a5b6c
 title: "Conventions"
-domain: agentic-cookbook://introduction/conventions
+domain: agenticdevelopercookbook://introduction/conventions
 type: reference
 version: 1.5.0
 status: accepted
@@ -118,8 +118,8 @@ Recipes and guidelines include a `## Compliance` section listing the compliance 
 
 | Check | Status | Category |
 |-------|--------|----------|
-| [secure-log-output](agentic-cookbook://compliance/security#secure-log-output) | passed | Security |
-| [keyboard-navigable](agentic-cookbook://compliance/accessibility#keyboard-navigable) | passed | Accessibility |
+| [secure-log-output](agenticdevelopercookbook://compliance/security#secure-log-output) | passed | Security |
+| [keyboard-navigable](agenticdevelopercookbook://compliance/accessibility#keyboard-navigable) | passed | Accessibility |
 ```
 
 **Rules:**
@@ -148,7 +148,7 @@ Every document has a globally unique URL-based domain identifier. The scheme ide
 
 | Component | Description |
 |-----------|-------------|
-| **Scheme** | Identifies the source repo (`agentic-cookbook`, `temporal`, `my-company`) |
+| **Scheme** | Identifies the source repo (`agenticdevelopercookbook`, `temporal`, `my-company`) |
 | **Path** | Filesystem path from content root, without `.md` extension |
 | **Fragment** | Section or item within the document, `/`-delimited (optional) |
 
@@ -160,15 +160,15 @@ Every document has a globally unique URL-based domain identifier. The scheme ide
 
 | File path | Domain |
 |-----------|--------|
-| `cookbook/principles/simplicity.md` | `agentic-cookbook://principles/simplicity` |
-| `cookbook/guidelines/testing/test-pyramid.md` | `agentic-cookbook://guidelines/testing/test-pyramid` |
-| `cookbook/ingredients/ui/components/empty-state.md` | `agentic-cookbook://ingredients/ui/components/empty-state` |
-| `cookbook/recipes/ui/windows/settings-window.md` | `agentic-cookbook://recipes/ui/windows/settings-window` |
+| `cookbook/principles/simplicity.md` | `agenticdevelopercookbook://principles/simplicity` |
+| `cookbook/guidelines/testing/test-pyramid.md` | `agenticdevelopercookbook://guidelines/testing/test-pyramid` |
+| `cookbook/ingredients/ui/components/empty-state.md` | `agenticdevelopercookbook://ingredients/ui/components/empty-state` |
+| `cookbook/recipes/ui/windows/settings-window.md` | `agenticdevelopercookbook://recipes/ui/windows/settings-window` |
 
 **Cross-repo references:**
 
 ```
-agentic-cookbook://ingredients/ui/components/empty-state
+agenticdevelopercookbook://ingredients/ui/components/empty-state
 temporal://recipes/ui/server-config-window
 ```
 
@@ -177,9 +177,9 @@ temporal://recipes/ui/server-config-window
 Use `#` fragments to reference sections and items within a document:
 
 ```
-agentic-cookbook://recipes/ui/windows/workspace-window#requirements/ordered-list
-agentic-cookbook://recipes/ui/windows/workspace-window#platforms/swift
-agentic-cookbook://recipes/ui/windows/workspace-window#states/error
+agenticdevelopercookbook://recipes/ui/windows/workspace-window#requirements/ordered-list
+agenticdevelopercookbook://recipes/ui/windows/workspace-window#platforms/swift
+agenticdevelopercookbook://recipes/ui/windows/workspace-window#states/error
 ```
 
 Within the same document, use the short form:
@@ -229,7 +229,7 @@ Constraints:
 
 **Cross-referencing requirements:**
 
-Between documents: `See agentic-cookbook://ingredients/ui/components/ai-chat-control#requirements/ordered-list`
+Between documents: `See agenticdevelopercookbook://ingredients/ui/components/ai-chat-control#requirements/ordered-list`
 
 Within the same document: `Validates: #requirements/ordered-list`
 
@@ -256,7 +256,7 @@ my-app-cookbook/
 
 ### Cross-Referencing
 
-Use the full URL for cross-document references: `See agentic-cookbook://guidelines/testing/test-pyramid`
+Use the full URL for cross-document references: `See agenticdevelopercookbook://guidelines/testing/test-pyramid`
 
 Use short-form fragments for within-document references: `See #requirements/ordered-list`
 
@@ -264,10 +264,10 @@ In frontmatter `depends-on` and `related` fields, use full URLs:
 
 ```yaml
 depends-on:
-  - agentic-cookbook://ingredients/ui/components/empty-state
-  - agentic-cookbook://ingredients/ui/components/status-bar
+  - agenticdevelopercookbook://ingredients/ui/components/empty-state
+  - agenticdevelopercookbook://ingredients/ui/components/status-bar
 related:
-  - agentic-cookbook://guidelines/testing/test-pyramid
+  - agenticdevelopercookbook://guidelines/testing/test-pyramid
 ```
 
 ## RFC 2119 Keywords

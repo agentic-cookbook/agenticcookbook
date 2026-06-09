@@ -2,13 +2,13 @@
 
 id: 392d9205-6a50-4815-80a0-7d148880d43b
 title: "Rule Lint Checklist"
-domain: agentic-cookbook://guidelines/cookbook/skills-and-agents/rule-checklist
+domain: agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/rule-checklist
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-02
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -22,8 +22,8 @@ tags:
   - optimization
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/skills-and-agents/authoring-skills-and-rules
-  - agentic-cookbook://guidelines/skills-and-agents/rule-structure-reference
+  - agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/authoring-skills-and-rules
+  - agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/rule-structure-reference
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
@@ -49,7 +49,6 @@ Severity levels:
 
 | ID  | Criterion | How to check | Severity |
 |-----|-----------|-------------|----------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | C01 | Single responsibility | Rule addresses one coherent concern — not a grab-bag of unrelated instructions | WARN |
 | C07 | Instructions are actionable and specific | Every instruction tells the LLM what to do concretely, not vague directives like "handle errors appropriately" | WARN |
 | C08 | No conflicting instructions | Rule does not contradict itself (e.g., "always do X" then later "never do X") | FAIL |
@@ -104,5 +103,7 @@ Rules in `.claude/rules/` are injected into the system prompt on **every turn** 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

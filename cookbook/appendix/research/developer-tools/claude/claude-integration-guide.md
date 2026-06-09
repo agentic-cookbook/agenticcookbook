@@ -1,3 +1,23 @@
+---
+id: 844c1c91-4fbe-4a5b-a435-6282b5faf3db
+title: Claude Integration & Customization Guide
+domain: agenticdevelopercookbook://appendix/research/developer-tools/claude/claude-integration-guide
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Claude Integration & Customization Guide
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Claude Integration & Customization Guide
 
 ## Ways to Integrate with Claude

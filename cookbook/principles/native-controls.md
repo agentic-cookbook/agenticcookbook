@@ -1,7 +1,7 @@
 ---
 id: dec7cf4a-449b-47fa-9d6e-f7e9376383a7
 title: "Prefer native controls and libraries"
-domain: agentic-cookbook://principles/native-controls
+domain: agenticdevelopercookbook://principles/native-controls
 type: principle
 version: 1.0.0
 status: accepted

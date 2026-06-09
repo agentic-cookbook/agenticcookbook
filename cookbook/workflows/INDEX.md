@@ -1,7 +1,7 @@
 ---
 id: 922655fa-e37c-44e3-828f-4799c1b83ff4
 title: "Workflow Index"
-domain: agentic-cookbook://workflows/INDEX
+domain: agenticdevelopercookbook://workflows/INDEX
 type: workflow
 version: 1.0.0
 status: accepted

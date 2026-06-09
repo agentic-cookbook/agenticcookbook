@@ -1,7 +1,7 @@
 ---
 id: 1dd2111a-eb05-40e4-b469-1aecd79c5863
 title: "Collapsible Pane Header"
-domain: agentic-cookbook://ingredients/ui/components/collapsible-pane-header
+domain: agenticdevelopercookbook://ingredients/ui/components/collapsible-pane-header
 type: ingredient
 version: 1.0.0
 status: accepted

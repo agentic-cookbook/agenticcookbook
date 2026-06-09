@@ -2,7 +2,7 @@
 
 id: 87a35f08-4896-485e-8bb2-4683b916aaa1
 title: "Clock Systems for Sync"
-domain: agentic-cookbook://guidelines/planning/data/clock-systems
+domain: agenticdevelopercookbook://guidelines/planning/data/clock-systems
 type: guideline
 version: 1.0.2
 status: accepted
@@ -123,7 +123,6 @@ WHERE id = ?;
 
 | Scenario | Recommended Clock |
 |----------|------------------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Server assigns all timestamps | Physical clock (server-side) |
 | Client-server sync with server authority | Server-assigned monotonic versions |
 | Multi-device, causal ordering needed | Hybrid Logical Clocks (HLC) |
@@ -138,4 +137,5 @@ MUST NOT rely on SQLite's `datetime('now')` for conflict ordering in multi-devic
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

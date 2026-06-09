@@ -1,7 +1,7 @@
 ---
 id: 66376D65-F0FD-40CF-9614-6A94F2C022C7
 title: "Cookbook Formatting Compliance"
-domain: agentic-cookbook://compliance/artifact-formatting/cookbook-formatting
+domain: agenticdevelopercookbook://compliance/artifact-formatting/cookbook-formatting
 type: compliance
 version: 1.0.0
 status: draft
@@ -18,10 +18,10 @@ tags:
   - artifact-formatting
   - cookbook
 depends-on:
-  - agentic-cookbook://introduction/conventions
+  - agenticdevelopercookbook://introduction/conventions
 related:
-  - agentic-cookbook://compliance/artifact-formatting/ingredient-formatting
-  - agentic-cookbook://compliance/artifact-formatting/recipe-formatting
+  - agenticdevelopercookbook://compliance/artifact-formatting/ingredient-formatting
+  - agenticdevelopercookbook://compliance/artifact-formatting/recipe-formatting
 references: []
 ---
 
@@ -101,7 +101,7 @@ Every `spec` field in the structure tree MUST reference an existing markdown fil
 
 ### cf-source-domains
 
-Every `source.domain` field MUST be a valid `agentic-cookbook://ingredients/` or `agentic-cookbook://recipes/` domain. Source provenance ties forked specs back to their cookbook origin.
+Every `source.domain` field MUST be a valid `agenticdevelopercookbook://ingredients/` or `agenticdevelopercookbook://recipes/` domain. Source provenance ties forked specs back to their cookbook origin.
 
 **Applies when:** any structural element contains a `source` object.
 

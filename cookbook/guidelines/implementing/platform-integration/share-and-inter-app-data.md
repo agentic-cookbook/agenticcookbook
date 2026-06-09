@@ -2,13 +2,13 @@
 
 id: 193e5770-fd0b-45c9-91a4-6673bf6021ff
 title: "Share and inter-app data flow"
-domain: agentic-cookbook://guidelines/implementing/platform-integration/share-and-inter-app-data
+domain: agenticdevelopercookbook://guidelines/implementing/platform-integration/share-and-inter-app-data
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-02
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -25,12 +25,12 @@ tags:
   - inter-app
   - drag-and-drop
 depends-on:
-  - agentic-cookbook://principles/support-automation
+  - agenticdevelopercookbook://principles/support-automation
 related:
-  - agentic-cookbook://guidelines/platform/deep-linking
+  - agenticdevelopercookbook://guidelines/implementing/platform-integration/deep-linking
 references: []
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: "2026-06-09"
 triggers:
   - platform-integration
 ---
@@ -64,6 +64,7 @@ Use the Web Share API (`navigator.share()`) to invoke the native share sheet. Re
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-02 | Mike Fullerton | Initial creation |

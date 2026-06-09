@@ -1,3 +1,23 @@
+---
+id: 0abbafa8-9bbb-4f52-996d-9069ffd4c5d6
+title: WinUI, WPF & MAUI Build Tools
+domain: agenticdevelopercookbook://appendix/research/developer-tools/windows/winui-and-build
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: WinUI, WPF & MAUI Build Tools
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # WinUI, WPF & MAUI Build Tools
 
 **Date:** 2026-03-29

@@ -2,7 +2,7 @@
 
 id: 1aef5b69-c5d5-4b9f-907e-285ee03cb079
 title: "File paths"
-domain: agentic-cookbook://guidelines/implementing/code-quality/file-paths
+domain: agenticdevelopercookbook://guidelines/implementing/code-quality/file-paths
 type: guideline
 version: 1.0.2
 status: accepted

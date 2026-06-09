@@ -4,7 +4,7 @@
 
 Rename the "concoction" concept to "project cookbook" across the entire repo. Introduce a clear distinction between two kinds of cookbooks:
 
-- **Top-level cookbook** — this repo (`agentic-cookbook/cookbook`), the source of principles, guidelines, ingredients, and recipes.
+- **Top-level cookbook** — this repo (`agenticdevelopercookbook/cookbook`), the source of principles, guidelines, ingredients, and recipes.
 - **Project cookbook** — an assembly of recipes and ingredients into a complete application, plugin, or widget. Defined by a `cookbook.json` manifest in a directory with a `-cookbook` suffix. Replaces the former "concoction" concept.
 
 ## Motivation
@@ -52,7 +52,7 @@ The glossary and conventions will document two cookbook types:
 
 ### Domain identifier changes
 
-Any `agentic-cookbook://` domain paths that include "concoction" in the path update accordingly:
+Any `agenticdevelopercookbook://` domain paths that include "concoction" in the path update accordingly:
 - `compliance/artifact-formatting/concoction-formatting` → `compliance/artifact-formatting/cookbook-formatting`
 - `appendix/decisions/ingredient-recipe-concoction-hierarchy` → `appendix/decisions/ingredient-recipe-cookbook-hierarchy`
 

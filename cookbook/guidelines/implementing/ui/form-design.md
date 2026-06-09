@@ -2,7 +2,7 @@
 
 id: fdec6403-395b-4b98-b97d-b42e15cb77a6
 title: "Form Design"
-domain: agentic-cookbook://guidelines/implementing/ui/form-design
+domain: agenticdevelopercookbook://guidelines/implementing/ui/form-design
 type: guideline
 version: 1.0.2
 status: accepted

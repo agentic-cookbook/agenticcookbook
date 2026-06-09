@@ -1,7 +1,7 @@
 ---
 id: 97f55007-2eb6-4ffd-ab2c-c7247191627d
 title: "References"
-domain: agentic-cookbook://reference/references
+domain: agenticdevelopercookbook://reference/references
 type: reference
 version: 1.0.0
 status: accepted

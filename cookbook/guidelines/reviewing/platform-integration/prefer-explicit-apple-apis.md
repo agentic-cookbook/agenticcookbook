@@ -2,7 +2,7 @@
 
 id: dfe12d14-4deb-4a64-b78a-d04db713f72b
 title: "Use AppKit and UIKit, not SwiftUI"
-domain: agentic-cookbook://guidelines/reviewing/platform-integration/prefer-explicit-apple-apis
+domain: agenticdevelopercookbook://guidelines/reviewing/platform-integration/prefer-explicit-apple-apis
 type: guideline
 version: 2.0.2
 status: accepted
@@ -25,7 +25,7 @@ tags:
   - swiftui
   - agentic
 depends-on:
-  - agentic-cookbook://principles/native-controls
+  - agenticdevelopercookbook://principles/native-controls
 related: []
 references: []
 approved-by: "approve-artifact v1.0.0"

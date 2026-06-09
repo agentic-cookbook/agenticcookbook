@@ -1,7 +1,7 @@
 ---
 id: 29faa7e6-7925-4db9-af90-81dcc80f4a03
 title: "Perf Deep Dive: Rule Pipelines"
-domain: agentic-cookbook://appendix/decisions/rule-pipeline-architecture
+domain: agenticdevelopercookbook://appendix/decisions/rule-pipeline-architecture
 type: reference
 version: 1.0.0
 status: accepted
@@ -20,11 +20,13 @@ tags:
   - architecture
 depends-on: []
 related:
-  - agentic-cookbook://workflows/guideline-checklist
+  - agenticdevelopercookbook://workflows/guideline-checklist
 references: []
 ---
 
 # Perf Deep Dive: Rule Pipelines
+
+> **Status note (2026-06-09):** This is a historical decision record, written when the cookbook had **18 principles** and ~141 guidelines. The cookbook now has **27 principles** and **240 guidelines**. The "18 principle files" references and line-count figures below are the measurements taken at that time; they are preserved as the historical basis for the decision rather than retro-fitted, and the conclusions (frontmatter-heavy reads, the inline-summary win) still hold at the larger counts.
 
 ## Summary
 
@@ -133,7 +135,7 @@ Analysis of the generated rule template against the 6 original issues:
 | 5 | MUST NOT duplication | 23 items, 5+ redundant | 6 items, all unique | **74%** |
 | 6 | Full ceremony for every task | Monolithic 38-item checklist evaluated at once | Iterative per-concern pipeline with fast N/A passes | **Resolved** |
 
-The only mandatory external file read is `../agentic-cookbook/cookbook/workflow/guideline-checklist.md` — read once per planning session, not per turn.
+The only mandatory external file read is `../agenticdevelopercookbook/cookbook/workflow/guideline-checklist.md` — read once per planning session, not per turn.
 
 ## Phase 2: Minimal Rule + Step-by-Step Pipeline
 
@@ -176,7 +178,7 @@ When planning or implementing features, use /cookbook-start.
 
 ### Phase 2 Additional Changes
 
-- Guideline checklist (`cookbook/workflow/guideline-checklist.md`) updated to use file paths instead of `agentic-cookbook://` domain URLs
+- Guideline checklist (`cookbook/workflow/guideline-checklist.md`) updated to use file paths instead of `agenticdevelopercookbook://` domain URLs
 - `code-verification.md` removed from reference table (inline checks are sufficient)
 - `/install-cookbook` simplified (v8.0.0) — generates ~10-line rule, no longer produces principles table or pipeline sections
 - `/configure-cookbook` simplified (v4.0.0) — preferences managed via JSON, rule rarely needs regeneration

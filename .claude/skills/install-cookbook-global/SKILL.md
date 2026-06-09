@@ -16,8 +16,8 @@ to onboard the full cookbook there.
 ## Step 1: Locate the cookbook repo
 
 The cookbook repo is the current working directory (this skill is only present when
-running from within the agentic-cookbook repo). Verify `skills/install-cookbook/SKILL.md`
-exists. If not, print: "Run this skill from within the agentic-cookbook repo." and stop.
+running from within the agenticdevelopercookbook repo). Verify `skills/install-cookbook/SKILL.md`
+exists. If not, print: "Run this skill from within the agenticdevelopercookbook repo." and stop.
 
 ## Step 2: Check if already installed
 

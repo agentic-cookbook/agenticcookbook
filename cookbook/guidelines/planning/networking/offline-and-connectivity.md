@@ -2,7 +2,7 @@
 
 id: 66735bd3-65de-44a9-b449-ba3df79b5373
 title: "Offline and Connectivity"
-domain: agentic-cookbook://guidelines/planning/networking/offline-and-connectivity
+domain: agenticdevelopercookbook://guidelines/planning/networking/offline-and-connectivity
 type: guideline
 version: 1.0.2
 status: accepted

@@ -1,3 +1,23 @@
+---
+id: b82b575f-673a-4d48-affb-71334d82ee47
+title: CLI & Terminal Application Development Tools
+domain: agenticdevelopercookbook://appendix/research/developer-tools/cli/cli-development-tools
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: CLI & Terminal Application Development Tools
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # CLI & Terminal Application Development Tools
 
 **Date:** 2026-03-29

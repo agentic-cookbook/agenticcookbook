@@ -1,7 +1,7 @@
 ---
 id: 4F351323-DB4C-4C7A-9972-AF89A6982E3F
 title: "Ingredient / Recipe / Cookbook Artifact Hierarchy"
-domain: agentic-cookbook://appendix/decisions/ingredient-recipe-cookbook-hierarchy
+domain: agenticdevelopercookbook://appendix/decisions/ingredient-recipe-cookbook-hierarchy
 type: reference
 version: 1.1.0
 status: draft
@@ -18,10 +18,10 @@ tags:
   - artifact-types
   - naming
 depends-on:
-  - agentic-cookbook://appendix/decisions/cookbook-project-format
+  - agenticdevelopercookbook://appendix/decisions/cookbook-project-format
 related:
-  - agentic-cookbook://introduction/conventions
-  - agentic-cookbook://introduction/glossary
+  - agenticdevelopercookbook://introduction/conventions
+  - agenticdevelopercookbook://introduction/glossary
 references: []
 ---
 

@@ -2,7 +2,7 @@
 
 id: c90e2ebe-2fbd-4f83-994e-5db46d53f16b
 title: "Primary key strategies"
-domain: agentic-cookbook://guidelines/planning/data/primary-keys
+domain: agenticdevelopercookbook://guidelines/planning/data/primary-keys
 type: guideline
 version: 1.0.2
 status: accepted
@@ -142,7 +142,6 @@ CREATE TABLE word_counts (
 
 | Situation | Strategy |
 |-----------|----------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Default / general tables | `INTEGER PRIMARY KEY` |
 | Audit log or ledger — IDs must never reuse | `INTEGER PRIMARY KEY AUTOINCREMENT` |
 | Distributed / multi-device sync | UUIDv7 as TEXT or BLOB |
@@ -155,4 +154,5 @@ CREATE TABLE word_counts (
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

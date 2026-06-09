@@ -1,3 +1,23 @@
+---
+id: ba32d761-5ddd-4883-b230-dde1362a55f5
+title: Apple UI Verification Tools
+domain: agenticdevelopercookbook://appendix/research/developer-tools/apple/ui-verification
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Apple UI Verification Tools
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Apple UI Verification Tools
 
 **Date:** 2026-03-29

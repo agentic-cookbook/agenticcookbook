@@ -2,7 +2,7 @@
 
 id: e446ee3e-b8f2-40e7-b93d-3113e6a95e5d
 title: "Debug mode"
-domain: agentic-cookbook://guidelines/implementing/feature-management/debug-mode
+domain: agenticdevelopercookbook://guidelines/implementing/feature-management/debug-mode
 type: guideline
 version: 1.0.2
 status: accepted

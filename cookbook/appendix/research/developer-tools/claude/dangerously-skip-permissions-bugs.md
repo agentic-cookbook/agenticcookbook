@@ -1,3 +1,23 @@
+---
+id: 06366dd1-63fb-4b89-86c8-31feff8bc2c4
+title: --dangerously-skip-permissions Known Bugs & Workaround
+domain: agenticdevelopercookbook://appendix/research/developer-tools/claude/dangerously-skip-permissions-bugs
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: --dangerously-skip-permissions Known Bugs & Workaround
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # --dangerously-skip-permissions Known Bugs & Workaround
 
 **Date:** 2026-03-30

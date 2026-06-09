@@ -2,13 +2,13 @@
 
 id: 0d3aaa29-0ce3-4803-8f8a-a7023713b574
 title: "Cookbook Compliance"
-domain: agentic-cookbook://guidelines/cookbook/recipe-quality/cookbook-compliance
+domain: agenticdevelopercookbook://guidelines/cookbook/recipe-quality/cookbook-compliance
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-07
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -27,6 +27,8 @@ related: []
 references: []
 triggers:
   - recipe-authoring
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-06-09"
 ---
 
 # Cookbook Compliance
@@ -44,7 +46,7 @@ A recipe does not exist in isolation. The cookbook defines platform-wide guideli
 ### Referencing Applicable Guidelines
 
 - When a cookbook guideline directly applies to the recipe's domain, the recipe SHOULD cite the guideline in the `depends-on` or `references` frontmatter field.
-- When a requirement in the recipe is derived from or constrained by a guideline, the requirement SHOULD include an inline reference (e.g., `per agentic-cookbook://guidelines/accessibility/touch-targets`).
+- When a requirement in the recipe is derived from or constrained by a guideline, the requirement SHOULD include an inline reference (e.g., `per agenticdevelopercookbook://guidelines/implementing/ui/touch-click-targets`).
 - Authors MUST NOT silently incorporate guideline content without attribution. Duplicating guideline text verbatim into a recipe without reference creates maintenance drift when the guideline changes.
 
 ### Security-Relevant Recipes
@@ -96,3 +98,7 @@ A verifier MUST check each of the following items. The recipe PASSES cookbook co
 - [ ] No guideline content is reproduced verbatim without a reference back to the source guideline.
 
 ## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |

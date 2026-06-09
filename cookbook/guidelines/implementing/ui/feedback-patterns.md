@@ -2,7 +2,7 @@
 
 id: ca9874ea-07ed-4585-8692-33a29bc6411a
 title: "Feedback Patterns"
-domain: agentic-cookbook://guidelines/implementing/ui/feedback-patterns
+domain: agenticdevelopercookbook://guidelines/implementing/ui/feedback-patterns
 type: guideline
 version: 1.0.2
 status: accepted

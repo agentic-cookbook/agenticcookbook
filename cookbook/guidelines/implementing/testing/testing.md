@@ -2,7 +2,7 @@
 
 id: 42220186-4305-45cd-8e7d-a8d1172b6fbd
 title: "Comprehensive unit testing"
-domain: agentic-cookbook://guidelines/implementing/testing/testing
+domain: agenticdevelopercookbook://guidelines/implementing/testing/testing
 type: guideline
 version: 1.0.2
 status: accepted

@@ -17,7 +17,7 @@ GOOD_FRONTMATTER = """\
 ---
 id: 11111111-2222-3333-4444-555555555555
 title: T
-domain: agentic-cookbook://cookbook/recipes/r
+domain: agenticdevelopercookbook://cookbook/recipes/r
 type: recipe
 version: 1.0.0
 status: draft
@@ -100,8 +100,8 @@ def test_bad_status(tmp_path):
 
 def test_domain_mismatch(tmp_path):
     body = GOOD_FRONTMATTER.replace(
-        "domain: agentic-cookbook://cookbook/recipes/r",
-        "domain: agentic-cookbook://cookbook/recipes/wrong",
+        "domain: agenticdevelopercookbook://cookbook/recipes/r",
+        "domain: agenticdevelopercookbook://cookbook/recipes/wrong",
     )
     root = _cookbook_with(tmp_path, "r.md", body)
     report = phase_a(root)
@@ -123,7 +123,7 @@ def test_broken_link(tmp_path):
 def test_external_links_ignored(tmp_path):
     body = GOOD_FRONTMATTER.replace(
         "Body.",
-        "Links: [a](https://example.com) [b](mailto:x@y) [c](agentic-cookbook://x/y).",
+        "Links: [a](https://example.com) [b](mailto:x@y) [c](agenticdevelopercookbook://x/y).",
     )
     root = _cookbook_with(tmp_path, "r.md", body)
     report = phase_a(root)
@@ -135,15 +135,15 @@ def test_duplicate_id(tmp_path):
     (root / "recipes").mkdir(parents=True)
     (root / "recipes" / "a.md").write_text(
         GOOD_FRONTMATTER.replace(
-            "domain: agentic-cookbook://cookbook/recipes/r",
-            "domain: agentic-cookbook://cookbook/recipes/a",
+            "domain: agenticdevelopercookbook://cookbook/recipes/r",
+            "domain: agenticdevelopercookbook://cookbook/recipes/a",
         ),
         encoding="utf-8",
     )
     (root / "recipes" / "b.md").write_text(
         GOOD_FRONTMATTER.replace(
-            "domain: agentic-cookbook://cookbook/recipes/r",
-            "domain: agentic-cookbook://cookbook/recipes/b",
+            "domain: agenticdevelopercookbook://cookbook/recipes/r",
+            "domain: agenticdevelopercookbook://cookbook/recipes/b",
         ),
         encoding="utf-8",
     )

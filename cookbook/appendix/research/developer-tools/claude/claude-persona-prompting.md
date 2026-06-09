@@ -1,3 +1,23 @@
+---
+id: dadb5e63-df6f-42e2-8f58-d7265958d29a
+title: Claude Persona / Role Prompting — Research Notes
+domain: agenticdevelopercookbook://appendix/research/developer-tools/claude/claude-persona-prompting
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Claude Persona / Role Prompting — Research Notes
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Claude Persona / Role Prompting — Research Notes
 *April 2, 2026*
 

@@ -2,13 +2,13 @@
 
 id: 7b713210-43ee-4f7f-be9e-b096edb782ba
 title: "Runtime Conditions"
-domain: agentic-cookbook://guidelines/planning/code-quality/runtime-conditions
+domain: agenticdevelopercookbook://guidelines/planning/code-quality/runtime-conditions
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-07
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -25,6 +25,8 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: 2026-06-09
 triggers:
   - code-review
   - new-module
@@ -116,3 +118,8 @@ Recommended Scope Group Candidates:
 ```
 
 ## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Add Change History table and approval metadata |
+| 1.0.0 | 2026-04-07 | Mike Fullerton | Initial creation |

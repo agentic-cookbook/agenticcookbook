@@ -2,7 +2,7 @@
 
 id: 02E9042D-0D15-47AC-9361-2F16980A03CA
 title: "Indexing"
-domain: agentic-cookbook://guidelines/implementing/data/indexing
+domain: agenticdevelopercookbook://guidelines/implementing/data/indexing
 type: guideline
 version: 1.0.2
 status: accepted

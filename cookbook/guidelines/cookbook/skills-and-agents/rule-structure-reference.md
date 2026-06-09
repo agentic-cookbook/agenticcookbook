@@ -2,13 +2,13 @@
 
 id: 43dbf61b-96ff-45f8-a11c-924e2f4359e0
 title: "Rule Structure Reference"
-domain: agentic-cookbook://guidelines/cookbook/skills-and-agents/rule-structure-reference
+domain: agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/rule-structure-reference
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-02
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -21,8 +21,8 @@ tags:
   - optimization
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/skills-and-agents/authoring-skills-and-rules
-  - agentic-cookbook://guidelines/skills-and-agents/rule-checklist
+  - agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/authoring-skills-and-rules
+  - agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/rule-checklist
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"
@@ -98,7 +98,6 @@ Rules in `.claude/rules/` are injected into the system prompt on **every turn** 
 
 | Aspect | Skill | Agent | Rule |
 |--------|-------|-------|------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Format | Directory with `SKILL.md` | Single `.md` with agent frontmatter | Single `.md`, plain markdown |
 | Frontmatter | Skill-specific (name, description, allowed-tools, etc.) | Agent-specific (tools, permissionMode, maxTurns, etc.) | None required |
 | Invocation | `/command` or auto-invoked | Via Agent tool or `--agent` CLI | Loaded into context passively |
@@ -109,5 +108,7 @@ Rules in `.claude/rules/` are injected into the system prompt on **every turn** 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

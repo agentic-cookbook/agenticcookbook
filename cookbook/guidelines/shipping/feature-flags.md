@@ -2,7 +2,7 @@
 
 id: 1b259fdc-1aba-48c5-a89a-b9ca01dc3351
 title: "Feature flags"
-domain: agentic-cookbook://guidelines/shipping/feature-flags
+domain: agenticdevelopercookbook://guidelines/shipping/feature-flags
 type: guideline
 version: 1.1.1
 status: accepted

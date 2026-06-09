@@ -1,3 +1,23 @@
+---
+id: a7bf2e35-f66d-4dd2-a900-89c4edae6ef9
+title: DevOps & Infrastructure Tools
+domain: agenticdevelopercookbook://appendix/research/developer-tools/infrastructure/devops-tools
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: DevOps & Infrastructure Tools
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # DevOps & Infrastructure Tools
 
 **Date:** 2026-03-29

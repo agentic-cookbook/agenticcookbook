@@ -1,3 +1,23 @@
+---
+id: 45cd3ab2-836d-4db2-8ef8-f7addca69065
+title: Deployment Verification Tools
+domain: agenticdevelopercookbook://appendix/research/developer-tools/infrastructure/deployment-verification
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Deployment Verification Tools
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Deployment Verification Tools
 
 **Date:** 2026-03-29

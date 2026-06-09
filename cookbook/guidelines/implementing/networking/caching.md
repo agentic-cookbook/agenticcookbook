@@ -2,7 +2,7 @@
 
 id: 3416a359-e01c-40b2-8876-4a8634d4395e
 title: "Caching"
-domain: agentic-cookbook://guidelines/implementing/networking/caching
+domain: agenticdevelopercookbook://guidelines/implementing/networking/caching
 type: guideline
 version: 1.0.2
 status: accepted

@@ -1,3 +1,23 @@
+---
+id: dddcffe6-5366-4f03-9218-73da330877e1
+title: Windows UI Verification Tools
+domain: agenticdevelopercookbook://appendix/research/developer-tools/windows/ui-verification
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Windows UI Verification Tools
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Windows UI Verification Tools
 
 **Date:** 2026-03-29

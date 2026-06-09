@@ -1,7 +1,7 @@
 ---
 id: 9250b0f3-b101-422b-8d40-9596493ef3b5
 title: "Trigger Guide"
-domain: agentic-cookbook://introduction/trigger-guide
+domain: agenticdevelopercookbook://introduction/trigger-guide
 type: reference
 version: 1.0.0
 status: draft
@@ -18,7 +18,7 @@ tags:
   - agent-workflow
   - guidelines
 depends-on:
-  - agentic-cookbook://introduction/conventions
+  - agenticdevelopercookbook://introduction/conventions
 related: []
 references: []
 approved-by: ""
@@ -27,13 +27,13 @@ approved-date: ""
 
 # Trigger Guide
 
-Activity-based trigger system for filtering guidelines by what an AI agent is currently doing. Instead of loading all 141+ guidelines into context, agents query by activity to get the 10-20 that matter right now.
+Activity-based trigger system for filtering guidelines by what an AI agent is currently doing. Instead of loading all 240 guidelines into context, agents query by activity to get the 10-20 that matter right now.
 
 ## Purpose
 
-The cookbook has 141+ guidelines across 16 categories. Principles (18 items) are small and universal — they fit in agent context. Guidelines are the opposite: numerous, specific, and most are irrelevant to any given task. Loading all of them wastes context and dilutes signal.
+The cookbook has 240 guidelines across 16 categories. Principles (27 items) are small and universal — they fit in agent context. Guidelines are the opposite: numerous, specific, and most are irrelevant to any given task. Loading all of them wastes context and dilutes signal.
 
-Triggers solve this. Each guideline declares the activities where it's relevant. An agent about to write tests queries `writing-tests` and gets ~12 guidelines instead of 141.
+Triggers solve this. Each guideline declares the activities where it's relevant. An agent about to write tests queries `writing-tests` and gets ~12 guidelines instead of 240.
 
 ## Canonical Triggers
 
@@ -74,7 +74,7 @@ Triggers solve this. Each guideline declares the activities where it's relevant.
 
 The most effective usage is graduated — lightweight guardrails during active work, thorough review at natural checkpoints:
 
-1. **Principles** — always loaded into context. Small (18 items), universal, load-bearing. These are the foundation that applies to every task.
+1. **Principles** — always loaded into context. Small (27 items), universal, load-bearing. These are the foundation that applies to every task.
 
 2. **Trigger-filtered guidelines** — loaded on demand based on current activity. When an agent is about to write tests, it queries `writing-tests` and gets ~12 specific testing guidelines. When it's about to call an API, it queries `api-integration` and gets the relevant networking and security guidelines.
 

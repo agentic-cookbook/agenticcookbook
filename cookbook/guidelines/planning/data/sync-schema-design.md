@@ -2,7 +2,7 @@
 
 id: 5a57e599-ca8e-44b9-9be7-109f7c176feb
 title: "Sync Schema Design"
-domain: agentic-cookbook://guidelines/planning/data/sync-schema-design
+domain: agenticdevelopercookbook://guidelines/planning/data/sync-schema-design
 type: guideline
 version: 1.0.2
 status: accepted
@@ -80,7 +80,6 @@ Every synced table MUST have three timestamp columns:
 
 | Column | Purpose |
 |--------|---------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | `created_at` | Record creation time (set once, never updated) |
 | `updated_at` | Last modification time (updated on every change) |
 | `last_synced_at` | Last successful server sync (NULL until first sync) |
@@ -191,4 +190,5 @@ Always use UTC. Convert to local time only at the display layer.
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

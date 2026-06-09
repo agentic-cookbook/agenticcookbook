@@ -2,7 +2,7 @@
 
 id: 49acdf9f-e4cb-4492-a620-809438eefb37
 title: "Pagination"
-domain: agentic-cookbook://guidelines/implementing/networking/pagination
+domain: agenticdevelopercookbook://guidelines/implementing/networking/pagination
 type: guideline
 version: 1.0.2
 status: accepted

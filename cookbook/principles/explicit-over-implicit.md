@@ -1,7 +1,7 @@
 ---
 id: e114c41c-d203-454c-bc7c-cc128f6ebadd
 title: "Explicit over implicit"
-domain: agentic-cookbook://principles/explicit-over-implicit
+domain: agenticdevelopercookbook://principles/explicit-over-implicit
 type: principle
 version: 1.0.0
 status: accepted

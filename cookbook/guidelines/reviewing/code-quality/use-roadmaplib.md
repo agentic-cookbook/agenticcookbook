@@ -2,7 +2,7 @@
 
 id: 21c0a0b9-2be4-4209-a648-083ec7272fd7
 title: "Use roadmap_lib"
-domain: agentic-cookbook://guidelines/reviewing/code-quality/use-roadmaplib
+domain: agenticdevelopercookbook://guidelines/reviewing/code-quality/use-roadmaplib
 type: guideline
 version: 1.0.2
 status: accepted

@@ -2,7 +2,7 @@
 
 id: eec76082-a68b-4a2b-8f02-5ea3bfdc0a76
 title: "Test Doubles"
-domain: agentic-cookbook://guidelines/testing/test-doubles
+domain: agenticdevelopercookbook://guidelines/testing/test-doubles
 type: guideline
 version: 1.0.2
 status: accepted
@@ -45,7 +45,6 @@ Use [Martin Fowler's taxonomy](https://martinfowler.com/bliki/TestDouble.html):
 
 | Double | Purpose | Example |
 |--------|---------|---------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | **Dummy** | Fill a parameter, never used | `null` or empty object |
 | **Stub** | Return canned answers | `stub.getUser() → User("test")` |
 | **Spy** | Record calls for later verification | `spy.wasCalled("save")` |
@@ -71,4 +70,5 @@ insulates tests from upstream API changes.
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -1,3 +1,23 @@
+---
+id: 1567149c-6265-4846-9c19-66e939c0e61f
+title: YOLO Per-Session Architecture Design
+domain: agenticdevelopercookbook://appendix/research/developer-tools/claude/yolo-per-session-design
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: YOLO Per-Session Architecture Design
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # YOLO Per-Session Architecture Design
 
 **Date:** 2026-03-30
@@ -33,7 +53,7 @@ Each session file:
 {
   "session_id": "550e8400-...",
   "enabled_at": "2026-03-30T14:23:00Z",
-  "project": "/Users/.../agentic-cookbook",
+  "project": "/Users/.../agenticdevelopercookbook",
   "deny_list": "~/.claude/yolo-deny.json"
 }
 ```

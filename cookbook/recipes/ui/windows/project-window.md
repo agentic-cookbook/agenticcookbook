@@ -1,7 +1,7 @@
 ---
 id: 338cb220-483c-4f9e-ae9d-e1dd79e59289
 title: "Project Window"
-domain: agentic-cookbook://recipes/ui/windows/project-window
+domain: agenticdevelopercookbook://recipes/ui/windows/project-window
 type: recipe
 version: 1.0.0
 status: accepted
@@ -130,11 +130,11 @@ The primary IDE-style project window that composes multiple sub-components into 
 
 ### Delegation to sub-components
 
-- **delegate-file-tree**: The file tree panel MUST delegate to [file-tree-browser.md](../panel/file-tree-browser.md) for all file browsing behavior.
-- **delegate-terminal**: The terminal pane MUST delegate to [terminal-pane.md](../panel/terminal-pane.md) for all terminal behavior.
-- **delegate-inspector**: The inspector panel MUST delegate to [inspector-panel.md](../panel/inspector-panel.md) for all inspector behavior.
-- **delegate-editor**: The code editor pane MUST delegate to [code-editor-pane.md](../panel/code-editor-pane.md) for all editor behavior.
-- **delegate-pane-headers**: Collapsible pane headers MUST delegate to [collapsible-pane-header.md](../component/collapsible-pane-header.md) for toggle and animation behavior.
+- **delegate-file-tree**: The file tree panel MUST delegate to [file-tree-browser.md](../../../ingredients/ui/panels/file-tree-browser.md) for all file browsing behavior.
+- **delegate-terminal**: The terminal pane MUST delegate to [terminal-pane.md](../../../ingredients/ui/panels/terminal-pane.md) for all terminal behavior.
+- **delegate-inspector**: The inspector panel MUST delegate to [inspector-panel.md](../../../ingredients/ui/panels/inspector-panel.md) for all inspector behavior.
+- **delegate-editor**: The code editor pane MUST delegate to [code-editor-pane.md](../../../ingredients/ui/panels/code-editor-pane.md) for all editor behavior.
+- **delegate-pane-headers**: Collapsible pane headers MUST delegate to [collapsible-pane-header.md](../../../ingredients/ui/components/collapsible-pane-header.md) for toggle and animation behavior.
 
 ## Appearance
 

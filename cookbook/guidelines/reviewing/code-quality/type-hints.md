@@ -2,7 +2,7 @@
 
 id: d504d699-ec44-4195-bdd7-628e475eb313
 title: "Type hints"
-domain: agentic-cookbook://guidelines/reviewing/code-quality/type-hints
+domain: agenticdevelopercookbook://guidelines/reviewing/code-quality/type-hints
 type: guideline
 version: 1.0.2
 status: accepted
