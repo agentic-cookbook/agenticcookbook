@@ -50,26 +50,26 @@ The cookbook contains four types of **cookbook artifacts** — standalone markdo
 
 Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition over Inheritance, Separation of Concerns, SRP, Connascence, Conway's Law, Design for Deletion, DRY, Explicit over Implicit, Make Illegal States Unrepresentable, Errors as Values, Small Reversible Decisions, Tight Feedback Loops, Manage Complexity Through Boundaries, Least Astonishment, Idempotency, Native Controls, Open Source Preference, Make It Work/Right/Fast, Steel Thread First, Deliberate Prudent Technical Debt, Optimize for Change.
 
-### Guidelines (188 unique, 281 with use-case duplicates)
+### Guidelines (218 unique, 311 with use-case duplicates)
 
 *What rules apply when building.* Organized by **use case** — the phase of work where they apply, with [trigger-based filtering](cookbook/introduction/trigger-guide.md) for AI agents:
 
 | Use Case | Guidelines | When to use |
 |----------|-----------|-------------|
-| Planning | 53 | Architecture, data modeling, choosing patterns |
-| Implementing | 136 | Writing new code |
-| Testing | 18 | Writing and structuring tests |
-| Reviewing | 44 | Checking code quality, security, accessibility |
-| Shipping | 14 | Pre-commit, pre-PR, packaging |
+| Planning | 58 | Architecture, data modeling, choosing patterns |
+| Implementing | 153 | Writing new code |
+| Testing | 21 | Writing and structuring tests |
+| Reviewing | 46 | Checking code quality, security, accessibility |
+| Shipping | 17 | Pre-commit, pre-PR, packaging |
 | Cookbook | 16 | Writing cookbook content (recipes, skills, agents) |
 
 Guidelines that apply to multiple use cases are duplicated so each use-case directory is self-contained.
 
-### Ingredients (18 files)
+### Ingredients (19 files)
 
 *The building blocks.* Atomic component specs defining individual UI components, panels, or infrastructure patterns with full detail: behavioral requirements, appearance, states, accessibility, configuration options, test vectors, and platform notes. Located in `cookbook/ingredients/`.
 
-### Recipes (11 files)
+### Recipes (12 files)
 
 *How things combine.* Compositions of configured ingredients into coherent features. Define how ingredients wire together: integration requirements, layout, shared state, and integration test vectors. Located in `cookbook/recipes/`.
 
@@ -139,7 +139,7 @@ Repo: [agentic-cookbook/agenticcookbookweb](https://github.com/agentic-cookbook/
 cookbook/                # cookbook content root
   introduction/          # getting started, conventions, glossary
   principles/            # 27 engineering principles
-  guidelines/            # 188 use-case-organized guidelines
+  guidelines/            # 218 use-case-organized guidelines
   ingredients/           # atomic component specs (building blocks)
   recipes/               # compositions of ingredients into features
   compliance/            # 10 compliance categories (81 checks)

@@ -42,7 +42,7 @@ Definitions of terms used throughout the Agentic Developer Cookbook.
 
 **Ingredient** — An atomic component spec — the building block of recipes. Defines a single UI component, panel, or infrastructure pattern with full detail: behavioral requirements, appearance, states, accessibility, test vectors, configuration options, and platform notes. Located in `cookbook/ingredients/`.
 
-**Principle** — A foundational engineering idea that guides all design decisions. 18 principles in `cookbook/principles/` including simplicity, YAGNI, fail-fast, dependency injection, immutability, composition over inheritance, and others.
+**Principle** — A foundational engineering idea that guides all design decisions. 27 principles in `cookbook/principles/` including simplicity, YAGNI, fail-fast, dependency injection, immutability, composition over inheritance, connascence, and others.
 
 **Recipe** — A composition of configured ingredients into a coherent feature. Defines how ingredients wire together: integration requirements, layout, shared state, and integration test vectors. Recipes reference ingredients by domain and specify configuration values for each. Located in `cookbook/recipes/`.
 

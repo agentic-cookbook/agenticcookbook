@@ -1,26 +1,24 @@
 ---
-
-
 id: eb0764d5-aeac-40cc-9aa4-d84e4eaa652d
-title: "Guidelines Index"
+title: Guidelines Index
 domain: agentic-cookbook://guidelines/INDEX
 type: reference
 version: 2.5.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-06-09
+modified: '2026-06-09'
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "Complete index of all guidelines, organized by use case."
+summary: Complete index of all guidelines, organized by use case.
 platforms: []
 tags: []
 depends-on: []
 related: []
 references: []
-approved-by: ""
-approved-date: ""
+approved-by: ''
+approved-date: ''
 ---
 
 # Guidelines Index
@@ -29,18 +27,18 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 | Use Case | Guidelines | When to use |
 |----------|-----------|-------------|
-| [Planning](#planning-53-guidelines) | 53 | Architecture, data modeling, choosing patterns |
-| [Implementing](#implementing-136-guidelines) | 136 | Writing new code |
-| [Testing](#testing-18-guidelines) | 18 | Writing and structuring tests |
-| [Reviewing](#reviewing-44-guidelines) | 44 | Checking code quality, security, accessibility |
-| [Shipping](#shipping-14-guidelines) | 14 | Pre-commit, pre-PR, packaging |
+| [Planning](#planning-58-guidelines) | 58 | Architecture, data modeling, choosing patterns |
+| [Implementing](#implementing-153-guidelines) | 153 | Writing new code |
+| [Testing](#testing-21-guidelines) | 21 | Writing and structuring tests |
+| [Reviewing](#reviewing-46-guidelines) | 46 | Checking code quality, security, accessibility |
+| [Shipping](#shipping-17-guidelines) | 17 | Pre-commit, pre-PR, packaging |
 | [Cookbook](#cookbook-16-guidelines) | 16 | Writing cookbook content (recipes, skills, agents) |
 
-188 unique guidelines, 281 total (with duplicates across use cases).
+218 unique guidelines, 311 total (with duplicates across use cases).
 
 ---
 
-### Planning (53 guidelines)
+### Planning (58 guidelines)
 
 
 **code-quality**
@@ -50,9 +48,11 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Architecture](planning/code-quality/architecture.md)
 - [Cross-Cutting Detection](planning/code-quality/cross-cutting-detection.md)
 - [Dependency Clusters](planning/code-quality/dependency-clusters.md)
+- [Choosing a .NET target framework](planning/code-quality/dotnet-target-framework.md)
 - [Essential vs accidental complexity](planning/code-quality/essential-vs-accidental-complexity.md)
 - [Framework Conventions](planning/code-quality/framework-conventions.md)
 - [Interface Cohesion](planning/code-quality/interface-cohesion.md)
+- [Kotlin Multiplatform](planning/code-quality/kotlin-multiplatform.md)
 - [Lifecycle Patterns](planning/code-quality/lifecycle-patterns.md)
 - [Module Boundaries](planning/code-quality/module-boundaries.md)
 - [Purpose Classification](planning/code-quality/purpose-classification.md)
@@ -68,6 +68,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Access Pattern Analysis](planning/data/access-pattern-analysis.md)
 - [Clock Systems for Sync](planning/data/clock-systems.md)
 - [Conflict Resolution](planning/data/conflict-resolution.md)
+- [CQRS and event sourcing](planning/data/cqrs-and-event-sourcing.md)
 - [Database](planning/data/database.md)
 - [Choosing a primary datastore](planning/data/datastore-selection.md)
 - [Indexing](planning/data/indexing.md)
@@ -90,6 +91,8 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 **networking**
 - [Design-first API development with OpenAPI](planning/networking/api-design-first.md)
 - [API Design](planning/networking/api-design.md)
+- [Choosing an API style (REST, gRPC, GraphQL)](planning/networking/api-style-selection.md)
+- [API versioning and deprecation](planning/networking/api-versioning-and-deprecation.md)
 - [Caching](planning/networking/caching.md)
 - [Offline and Connectivity](planning/networking/offline-and-connectivity.md)
 - [Pagination](planning/networking/pagination.md)
@@ -112,7 +115,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 ---
 
-### Implementing (136 guidelines)
+### Implementing (153 guidelines)
 
 
 **accessibility**
@@ -149,6 +152,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 **data**
 - [Access Pattern Analysis](implementing/data/access-pattern-analysis.md)
+- [Advanced database indexing](implementing/data/advanced-indexing.md)
 - [Database backup and recovery](implementing/data/backup-and-recovery.md)
 - [Clock Systems for Sync](implementing/data/clock-systems.md)
 - [Conflict Resolution](implementing/data/conflict-resolution.md)
@@ -163,6 +167,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Database naming conventions](implementing/data/naming-conventions.md)
 - [Normalization and denormalization](implementing/data/normalization-and-denormalization.md)
 - [Offline-First Architecture](implementing/data/offline-first-architecture.md)
+- [Table partitioning and time-series data](implementing/data/partitioning-and-time-series.md)
 - [Primary key strategies](implementing/data/primary-keys.md)
 - [Query Optimization](implementing/data/query-optimization.md)
 - [Relationship patterns](implementing/data/relationships.md)
@@ -190,6 +195,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [API Design](implementing/networking/api-design.md)
 - [Caching](implementing/networking/caching.md)
 - [Error Responses](implementing/networking/error-responses.md)
+- [HTTP conditional requests and optimistic concurrency](implementing/networking/http-conditional-requests.md)
 - [Idempotency keys for write APIs](implementing/networking/idempotency-keys.md)
 - [MCP server design](implementing/networking/mcp-server-design.md)
 - [Offline and Connectivity](implementing/networking/offline-and-connectivity.md)
@@ -204,12 +210,14 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 **observability**
 - [AI Provider Observability](implementing/observability/ai-provider-observability.md)
 - [Analytics](implementing/observability/analytics.md)
+- [Continuous profiling](implementing/observability/continuous-profiling.md)
 - [Distributed tracing and context propagation](implementing/observability/distributed-tracing.md)
 - [Instrumented logging](implementing/observability/logging.md)
 - [Metrics instrumentation: RED and USE](implementing/observability/metrics-red-use.md)
 - [Service-level objectives and error budgets](implementing/observability/service-level-objectives.md)
 
 **platform-integration**
+- [App Intents](implementing/platform-integration/app-intents.md)
 - [Background tasks](implementing/platform-integration/background-tasks.md)
 - [Deep linking](implementing/platform-integration/deep-linking.md)
 - [Handoff and continuity](implementing/platform-integration/handoff-and-continuity.md)
@@ -228,10 +236,13 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Dependency Security](implementing/security/dependency-security.md)
 - [Input Validation](implementing/security/input-validation.md)
 - [LLM and agentic application security](implementing/security/llm-application-security.md)
+- [MCP tool input validation](implementing/security/mcp-input-validation.md)
 - [MCP server security](implementing/security/mcp-server-security.md)
+- [Passkeys and WebAuthn](implementing/security/passkeys-and-webauthn.md)
 - [Privacy and security by default](implementing/security/privacy.md)
 - [Secure Storage](implementing/security/secure-storage.md)
 - [Security Headers Checklist](implementing/security/security-headers-checklist.md)
+- [Sender-constrained access tokens](implementing/security/sender-constrained-tokens.md)
 - [Sensitive Data](implementing/security/sensitive-data.md)
 - [Token Handling](implementing/security/token-handling.md)
 - [Transport Security](implementing/security/transport-security.md)
@@ -246,6 +257,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 **testing**
 - [Property-Based Testing](implementing/testing/property-based-testing.md)
+- [Swift Testing](implementing/testing/swift-testing.md)
 - [Test Data](implementing/testing/test-data.md)
 - [Test Doubles](implementing/testing/test-doubles.md)
 - [Comprehensive unit testing](implementing/testing/testing.md)
@@ -254,8 +266,13 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 **ui**
 - [Always show progress](implementing/ui/always-show-progress.md)
 - [Android edge-to-edge and window insets](implementing/ui/android-edge-to-edge.md)
+- [Android navigation in Compose](implementing/ui/android-navigation.md)
+- [Android predictive back](implementing/ui/android-predictive-back.md)
 - [Animation & Motion](implementing/ui/animation-motion.md)
+- [Apple design language and widgets](implementing/ui/apple-liquid-glass-and-widgets.md)
 - [Color](implementing/ui/color.md)
+- [Jetpack Compose performance and stability](implementing/ui/compose-performance-and-stability.md)
+- [Jetpack Compose side effects](implementing/ui/compose-side-effects.md)
 - [Jetpack Compose: state hoisting and unidirectional data flow](implementing/ui/compose-state-and-udf.md)
 - [Core Web Vitals and performance budgets](implementing/ui/core-web-vitals.md)
 - [Dashboard service is display-only](implementing/ui/dashboard-service-is-display-only.md)
@@ -267,25 +284,30 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [High DPI / Display Scaling](implementing/ui/high-dpi-display-scaling.md)
 - [Iconography](implementing/ui/iconography.md)
 - [Layout](implementing/ui/layout.md)
+- [Material 3 theming on Android](implementing/ui/material3-theming.md)
 - [Modern CSS layout and Baseline-driven adoption](implementing/ui/modern-css.md)
 - [Platform Design Languages](implementing/ui/platform-design-languages.md)
 - [Previews](implementing/ui/previews.md)
+- [Progressive Web App installability](implementing/ui/progressive-web-app.md)
 - [Spacing](implementing/ui/spacing.md)
 - [State Design](implementing/ui/state-design.md)
 - [Theming](implementing/ui/theming.md)
 - [Touch & Click Targets](implementing/ui/touch-click-targets.md)
 - [Typography](implementing/ui/typography.md)
 - [Visual Hierarchy](implementing/ui/visual-hierarchy.md)
+- [Windows 11 materials (Mica and Acrylic)](implementing/ui/windows-11-materials.md)
 
 ---
 
-### Testing (18 guidelines)
+### Testing (21 guidelines)
 
 - [Contract testing for services](testing/contract-testing.md)
 - [Database testing](testing/database-testing.md)
 - [Design-Time Data](testing/design-time-data.md)
 - [Eval-driven development for agent behavior](testing/eval-driven-development.md)
 - [Flaky Test Prevention](testing/flaky-test-prevention.md)
+- [Flaky test quarantine lifecycle](testing/flaky-test-quarantine.md)
+- [Fuzz testing](testing/fuzzing.md)
 - [Linting from day one](testing/linting.md)
 - [Mutation Testing](testing/mutation-testing.md)
 - [Post-generation verification](testing/post-generation-verification.md)
@@ -293,6 +315,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Properties of Good Tests](testing/properties-of-good-tests.md)
 - [Property-Based Testing](testing/property-based-testing.md)
 - [Security Testing](testing/security-testing.md)
+- [Snapshot testing discipline](testing/snapshot-testing.md)
 - [Test Data](testing/test-data.md)
 - [Test Doubles](testing/test-doubles.md)
 - [Test Pyramid](testing/test-pyramid.md)
@@ -302,7 +325,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 ---
 
-### Reviewing (44 guidelines)
+### Reviewing (46 guidelines)
 
 
 **accessibility**
@@ -330,6 +353,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [RTL layout support](reviewing/internationalization/rtl-support.md)
 
 **networking**
+- [MCP server review checklist](reviewing/networking/mcp-server-checklist.md)
 - [Hyrum's Law: all observable behavior becomes contract](reviewing/networking/observable-behavior-contract.md)
 - [Rate Limiting](reviewing/networking/rate-limiting.md)
 - [Timeouts](reviewing/networking/timeouts.md)
@@ -355,6 +379,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Sensitive Data](reviewing/security/sensitive-data.md)
 - [Token Handling](reviewing/security/token-handling.md)
 - [Transport Security](reviewing/security/transport-security.md)
+- [Vulnerability prioritization by exploitability](reviewing/security/vulnerability-prioritization.md)
 
 **skills-and-agents**
 - [Agent Lint Checklist](reviewing/skills-and-agents/agent-checklist.md)
@@ -373,7 +398,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 ---
 
-### Shipping (14 guidelines)
+### Shipping (17 guidelines)
 
 - [A/B testing](shipping/ab-testing.md)
 - [Ship a privacy manifest and declare required-reason APIs](shipping/apple-privacy-manifest.md)
@@ -382,13 +407,16 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Bulk operation verification](shipping/bulk-operation-verification.md)
 - [Continuous delivery](shipping/continuous-delivery.md)
 - [Dependency Security](shipping/dependency-security.md)
+- [Ephemeral preview environments](shipping/ephemeral-environments.md)
 - [Feature flags](shipping/feature-flags.md)
 - [Incident response and blameless postmortems](shipping/incident-response.md)
 - [MSIX Packaging](shipping/msix-packaging.md)
+- [Progressive delivery](shipping/progressive-delivery.md)
 - [Schema evolution and migrations](shipping/schema-evolution.md)
 - [Software supply-chain integrity](shipping/supply-chain-integrity.md)
 - [Transport Security](shipping/transport-security.md)
 - [Trunk-based development](shipping/trunk-based-development.md)
+- [Windows ARM64 and Native AOT](shipping/windows-arm64-and-aot.md)
 
 ---
 

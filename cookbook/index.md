@@ -76,11 +76,11 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 
 | Use Case | Guidelines | When to use |
 |----------|-----------|-------------|
-| [Planning](guidelines/planning/) | 53 | Architecture, data modeling, choosing patterns |
-| [Implementing](guidelines/implementing/) | 136 | Writing new code |
-| [Testing](guidelines/testing/) | 18 | Writing and structuring tests |
-| [Reviewing](guidelines/reviewing/) | 44 | Checking code quality, security, accessibility |
-| [Shipping](guidelines/shipping/) | 14 | Pre-commit, pre-PR, packaging |
+| [Planning](guidelines/planning/) | 58 | Architecture, data modeling, choosing patterns |
+| [Implementing](guidelines/implementing/) | 153 | Writing new code |
+| [Testing](guidelines/testing/) | 21 | Writing and structuring tests |
+| [Reviewing](guidelines/reviewing/) | 46 | Checking code quality, security, accessibility |
+| [Shipping](guidelines/shipping/) | 17 | Pre-commit, pre-PR, packaging |
 | [Cookbook](guidelines/cookbook/) | 16 | Writing cookbook content (recipes, skills, agents) |
 
 ## Ingredients
@@ -92,7 +92,7 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 | [UI Components](ingredients/ui/components/) | Leaf building blocks — ai-chat-control, collapsible-pane-header, color-profile, empty-state, git-status-indicator, metadata-line, status-bar |
 | [Panels](ingredients/ui/panels/) | Content panes — ai-settings-panel, code-editor-pane, debug-panel, file-tree-browser, inspector-panel, terminal-pane |
 | [Infrastructure](ingredients/infrastructure/) | Non-visual patterns — logging, settings-keys, window-frame-persistence |
-| [Developer Tools](ingredients/developer-tools/) | Claude Code workarounds — yolo-mode |
+| [Developer Tools](ingredients/developer-tools/) | Claude Code workarounds — yolo-mode; MCP building blocks — mcp-tool |
 | [Web Controls](ingredients/web/) | Web UI controls — appearance-mode-toggle |
 
 ## Recipes
@@ -105,7 +105,7 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 | [Apps](recipes/ui/apps/) | Application-level UI — apple test app suite |
 | [App-Level](recipes/app/) | Lifecycle, menus, commands |
 | [Autonomous Dev Bots](recipes/autonomous-dev-bots/) | Long-running agent processes — pr-review-pipeline |
-| [Developer Tools](recipes/developer-tools/) | Claude Code pipelines — claude-rule-optimization-pipeline |
+| [Developer Tools](recipes/developer-tools/) | Claude Code pipelines — claude-rule-optimization-pipeline; MCP — mcp-server |
 | [Infrastructure](recipes/infrastructure/) | Non-visual patterns — directory-sync, package-document |
 
 ## Workflows
