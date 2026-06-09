@@ -26,7 +26,7 @@ references: []
 
 # Perf Deep Dive: Rule Pipelines
 
-> **Status note (2026-06-09):** This is a historical decision record, written when the cookbook had **18 principles** and ~141 guidelines. The cookbook now has **27 principles** and **218 guidelines**. The "18 principle files" references and line-count figures below are the measurements taken at that time; they are preserved as the historical basis for the decision rather than retro-fitted, and the conclusions (frontmatter-heavy reads, the inline-summary win) still hold at the larger counts.
+> **Status note (2026-06-09):** This is a historical decision record, written when the cookbook had **18 principles** and ~141 guidelines. The cookbook now has **27 principles** and **240 guidelines**. The "18 principle files" references and line-count figures below are the measurements taken at that time; they are preserved as the historical basis for the decision rather than retro-fitted, and the conclusions (frontmatter-heavy reads, the inline-summary win) still hold at the larger counts.
 
 ## Summary
 

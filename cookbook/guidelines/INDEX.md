@@ -27,18 +27,18 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 | Use Case | Guidelines | When to use |
 |----------|-----------|-------------|
-| [Planning](#planning-58-guidelines) | 58 | Architecture, data modeling, choosing patterns |
-| [Implementing](#implementing-153-guidelines) | 153 | Writing new code |
-| [Testing](#testing-21-guidelines) | 21 | Writing and structuring tests |
-| [Reviewing](#reviewing-46-guidelines) | 46 | Checking code quality, security, accessibility |
+| [Planning](#planning-63-guidelines) | 63 | Architecture, data modeling, choosing patterns |
+| [Implementing](#implementing-165-guidelines) | 165 | Writing new code |
+| [Testing](#testing-24-guidelines) | 24 | Writing and structuring tests |
+| [Reviewing](#reviewing-48-guidelines) | 48 | Checking code quality, security, accessibility |
 | [Shipping](#shipping-17-guidelines) | 17 | Pre-commit, pre-PR, packaging |
 | [Cookbook](#cookbook-16-guidelines) | 16 | Writing cookbook content (recipes, skills, agents) |
 
-218 unique guidelines, 311 total (with duplicates across use cases).
+240 unique guidelines, 333 total (with duplicates across use cases).
 
 ---
 
-### Planning (58 guidelines)
+### Planning (63 guidelines)
 
 
 **code-quality**
@@ -88,6 +88,10 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 **feature-management**
 - [Feature flags](planning/feature-management/feature-flags.md)
 
+**infrastructure**
+- [Immutable infrastructure](planning/infrastructure/immutable-infrastructure.md)
+- [Infrastructure as code](planning/infrastructure/infrastructure-as-code.md)
+
 **networking**
 - [Design-first API development with OpenAPI](planning/networking/api-design-first.md)
 - [API Design](planning/networking/api-design.md)
@@ -100,6 +104,8 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 **security**
 - [Authentication](planning/security/authentication.md)
+- [Data privacy regulations](planning/security/data-privacy-regulations.md)
+- [Privacy by design](planning/security/privacy-by-design.md)
 - [Privacy and security by default](planning/security/privacy.md)
 - [Threat modeling](planning/security/threat-modeling.md)
 
@@ -109,13 +115,14 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 **ui**
 - [Dashboard service is display-only](planning/ui/dashboard-service-is-display-only.md)
 - [Data Display](planning/ui/data-display.md)
+- [Design tokens](planning/ui/design-tokens.md)
 - [Platform Design Languages](planning/ui/platform-design-languages.md)
 - [Choose a rendering strategy per route, minimize client JS](planning/ui/rendering-strategy.md)
 - [Separate server state from client state](planning/ui/state-management.md)
 
 ---
 
-### Implementing (153 guidelines)
+### Implementing (165 guidelines)
 
 
 **accessibility**
@@ -158,6 +165,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Conflict Resolution](implementing/data/conflict-resolution.md)
 - [Connection pooling for server and serverless backends](implementing/data/connection-pooling.md)
 - [Constraints and validation](implementing/data/constraints-and-validation.md)
+- [Data retention and deletion](implementing/data/data-retention-and-deletion.md)
 - [Data types and type affinity](implementing/data/data-types.md)
 - [Database](implementing/data/database.md)
 - [Deterministic IDs](implementing/data/deterministic-ids.md)
@@ -185,6 +193,12 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [A/B testing](implementing/feature-management/ab-testing.md)
 - [Debug mode](implementing/feature-management/debug-mode.md)
 - [Feature flags](implementing/feature-management/feature-flags.md)
+
+**infrastructure**
+- [Containerization](implementing/infrastructure/containerization.md)
+- [Kubernetes configuration and secrets](implementing/infrastructure/kubernetes-configuration.md)
+- [Kubernetes workloads](implementing/infrastructure/kubernetes-workloads.md)
+- [Twelve-factor configuration](implementing/infrastructure/twelve-factor-config.md)
 
 **internationalization**
 - [Localizability](implementing/internationalization/localization.md)
@@ -229,16 +243,20 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Widgets and glanceable surfaces](implementing/platform-integration/widgets-and-glanceable-surfaces.md)
 
 **security**
+- [Agent guardrails](implementing/security/agent-guardrails.md)
 - [Authentication](implementing/security/authentication.md)
 - [Authorization](implementing/security/authorization.md)
+- [Consent management](implementing/security/consent-management.md)
 - [Content Security Policy](implementing/security/content-security-policy.md)
 - [CORS](implementing/security/cors.md)
+- [Data subject rights (DSAR)](implementing/security/data-subject-rights.md)
 - [Dependency Security](implementing/security/dependency-security.md)
 - [Input Validation](implementing/security/input-validation.md)
 - [LLM and agentic application security](implementing/security/llm-application-security.md)
 - [MCP tool input validation](implementing/security/mcp-input-validation.md)
 - [MCP server security](implementing/security/mcp-server-security.md)
 - [Passkeys and WebAuthn](implementing/security/passkeys-and-webauthn.md)
+- [PII handling and classification](implementing/security/pii-handling.md)
 - [Privacy and security by default](implementing/security/privacy.md)
 - [Secure Storage](implementing/security/secure-storage.md)
 - [Security Headers Checklist](implementing/security/security-headers-checklist.md)
@@ -275,9 +293,11 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Jetpack Compose side effects](implementing/ui/compose-side-effects.md)
 - [Jetpack Compose: state hoisting and unidirectional data flow](implementing/ui/compose-state-and-udf.md)
 - [Core Web Vitals and performance budgets](implementing/ui/core-web-vitals.md)
+- [Cross-platform token adaptation](implementing/ui/cross-platform-token-adaptation.md)
 - [Dashboard service is display-only](implementing/ui/dashboard-service-is-display-only.md)
 - [Data Display](implementing/ui/data-display.md)
 - [Design-Time Data](implementing/ui/design-time-data.md)
+- [Design token distribution](implementing/ui/design-token-distribution.md)
 - [Feedback Patterns](implementing/ui/feedback-patterns.md)
 - [Fluent Design](implementing/ui/fluent-design.md)
 - [Form Design](implementing/ui/form-design.md)
@@ -291,6 +311,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Progressive Web App installability](implementing/ui/progressive-web-app.md)
 - [Spacing](implementing/ui/spacing.md)
 - [State Design](implementing/ui/state-design.md)
+- [Theming with tokens](implementing/ui/theming-with-tokens.md)
 - [Theming](implementing/ui/theming.md)
 - [Touch & Click Targets](implementing/ui/touch-click-targets.md)
 - [Typography](implementing/ui/typography.md)
@@ -299,8 +320,9 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 ---
 
-### Testing (21 guidelines)
+### Testing (24 guidelines)
 
+- [Agent evaluation and safety](testing/agent-evaluation-and-safety.md)
 - [Contract testing for services](testing/contract-testing.md)
 - [Database testing](testing/database-testing.md)
 - [Design-Time Data](testing/design-time-data.md)
@@ -308,6 +330,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Flaky Test Prevention](testing/flaky-test-prevention.md)
 - [Flaky test quarantine lifecycle](testing/flaky-test-quarantine.md)
 - [Fuzz testing](testing/fuzzing.md)
+- [Groundedness and hallucination checks](testing/groundedness-and-hallucination.md)
 - [Linting from day one](testing/linting.md)
 - [Mutation Testing](testing/mutation-testing.md)
 - [Post-generation verification](testing/post-generation-verification.md)
@@ -321,11 +344,12 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Test Pyramid](testing/test-pyramid.md)
 - [Comprehensive unit testing](testing/testing.md)
 - [The Testing Workflow](testing/the-testing-workflow.md)
+- [Tool-call evaluation](testing/tool-call-evaluation.md)
 - [Unit Test Patterns](testing/unit-test-patterns.md)
 
 ---
 
-### Reviewing (46 guidelines)
+### Reviewing (48 guidelines)
 
 
 **accessibility**
@@ -347,6 +371,9 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 **data**
 - [Query Optimization](reviewing/data/query-optimization.md)
+
+**infrastructure**
+- [Container image security](reviewing/infrastructure/container-image-security.md)
 
 **internationalization**
 - [Localizability](reviewing/internationalization/localization.md)
@@ -373,6 +400,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [CORS](reviewing/security/cors.md)
 - [Dependency Security](reviewing/security/dependency-security.md)
 - [Input Validation](reviewing/security/input-validation.md)
+- [LLM red teaming](reviewing/security/llm-red-teaming.md)
 - [Privacy and security by default](reviewing/security/privacy.md)
 - [Secure Storage](reviewing/security/secure-storage.md)
 - [Security Headers Checklist](reviewing/security/security-headers-checklist.md)

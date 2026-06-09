@@ -27,13 +27,13 @@ approved-date: ""
 
 # Trigger Guide
 
-Activity-based trigger system for filtering guidelines by what an AI agent is currently doing. Instead of loading all 218 guidelines into context, agents query by activity to get the 10-20 that matter right now.
+Activity-based trigger system for filtering guidelines by what an AI agent is currently doing. Instead of loading all 240 guidelines into context, agents query by activity to get the 10-20 that matter right now.
 
 ## Purpose
 
-The cookbook has 218 guidelines across 16 categories. Principles (27 items) are small and universal — they fit in agent context. Guidelines are the opposite: numerous, specific, and most are irrelevant to any given task. Loading all of them wastes context and dilutes signal.
+The cookbook has 240 guidelines across 16 categories. Principles (27 items) are small and universal — they fit in agent context. Guidelines are the opposite: numerous, specific, and most are irrelevant to any given task. Loading all of them wastes context and dilutes signal.
 
-Triggers solve this. Each guideline declares the activities where it's relevant. An agent about to write tests queries `writing-tests` and gets ~12 guidelines instead of 218.
+Triggers solve this. Each guideline declares the activities where it's relevant. An agent about to write tests queries `writing-tests` and gets ~12 guidelines instead of 240.
 
 ## Canonical Triggers
 
