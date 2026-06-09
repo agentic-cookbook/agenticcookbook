@@ -16,7 +16,7 @@ Structured knowledge base of principles, guidelines, ingredients, recipes, and w
 ```
 ├── .claude/
 │   ├── rules/             # after-adding-an-artifact, always-use-worktrees-and-prs, artifact-formatting
-│   ├── skills/            # add-artifact, approve-artifact, create-artifact, install-cookbook-global, lint-artifact, repair-cookbook, update-website
+│   ├── skills/            # add-artifact, approve-artifact, create-artifact, install-cookbook-global, lint-artifact, repair-cookbook
 │   ├── CLAUDE.md
 │   └── settings.json
 ├── cookbook/                # cookbook content root
@@ -47,8 +47,8 @@ Structured knowledge base of principles, guidelines, ingredients, recipes, and w
 - `cookbook/compliance/artifact-formatting/` — per-type formatting specs (principle, guideline, recipe, cookbook)
 
 ## Claude Configuration
-- **Rules:** `after-adding-an-artifact.md` (lint→approve→update indexes→sync website after every change), `always-use-worktrees-and-prs.md` (worktree + draft PR workflow), `artifact-formatting.md` (read compliance spec before writing any artifact)
-- **Skills:** `add-artifact`, `approve-artifact`, `create-artifact`, `install-cookbook-global`, `lint-artifact`, `repair-cookbook`, `update-website`
+- **Rules:** `after-adding-an-artifact.md` (lint→approve→update indexes after every change), `always-use-worktrees-and-prs.md` (worktree + draft PR workflow), `artifact-formatting.md` (read compliance spec before writing any artifact)
+- **Skills:** `add-artifact`, `approve-artifact`, `create-artifact`, `install-cookbook-global`, `lint-artifact`, `repair-cookbook`
 - `settings.json`: broad Bash permission allowlist; graphify PreToolUse hook
 
 ## Planning & Research Documents
@@ -71,9 +71,6 @@ cd .claude/tests && npm run test:e2e   # longer timeout config
 
 # Regenerate indexes (incl. triggers) + fill missing frontmatter
 cookbook update
-
-# Sync to agenticcookbookweb
-/update-website   # Claude Code skill
 ```
 
 ## Notes

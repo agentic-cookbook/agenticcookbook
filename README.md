@@ -127,11 +127,9 @@ All user-facing cookbook skills are provided by dev-team:
 
 Repo: [agenticdevelopercookbook/dev-team](https://github.com/agenticdevelopercookbook/dev-team)
 
-### agenticcookbookweb
+### agenticcookbookweb (moved to the adh monorepo)
 
-Cloudflare Workers web app for browsing the cookbook. React 19, TypeScript, Tailwind CSS 4. Serves as the public-facing website.
-
-Repo: [agenticdevelopercookbook/agenticcookbookweb](https://github.com/agenticdevelopercookbook/agenticcookbookweb)
+The cookbook's public-facing website (React 19, TypeScript, Tailwind CSS 4) and the `update-website` sync skill have **moved into the `adh` monorepo** at `adh/websites/cookbook/`. The standalone `agenticcookbookweb` repo is deprecated, and this repo no longer ships an `update-website` skill or an automatic website-sync step.
 
 ## Repository Structure
 
