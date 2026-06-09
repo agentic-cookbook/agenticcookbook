@@ -1,7 +1,7 @@
 ---
 id: 1567149c-6265-4846-9c19-66e939c0e61f
 title: YOLO Per-Session Architecture Design
-domain: agentic-cookbook://cookbook/appendix/research/developer-tools/claude/yolo-per-session-design
+domain: agentic-cookbook://appendix/research/developer-tools/claude/yolo-per-session-design
 type: reference
 version: 1.0.0
 status: draft

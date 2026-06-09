@@ -1,7 +1,7 @@
 ---
 id: 850594f9-e186-4361-a4b3-f0b2510ada9a
 title: Xcode & Apple Build Tools
-domain: agentic-cookbook://cookbook/appendix/research/developer-tools/apple/xcode-and-build
+domain: agentic-cookbook://appendix/research/developer-tools/apple/xcode-and-build
 type: reference
 version: 1.0.0
 status: draft

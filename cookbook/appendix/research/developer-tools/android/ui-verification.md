@@ -1,7 +1,7 @@
 ---
 id: ef81bdb5-e189-44ed-be6e-867bff16f45b
 title: Android UI Verification Tools
-domain: agentic-cookbook://cookbook/appendix/research/developer-tools/android/ui-verification
+domain: agentic-cookbook://appendix/research/developer-tools/android/ui-verification
 type: reference
 version: 1.0.0
 status: draft

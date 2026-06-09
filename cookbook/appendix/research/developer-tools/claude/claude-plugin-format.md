@@ -1,7 +1,7 @@
 ---
 id: ab7d8ab3-e7e4-4fcc-8f18-69c91a9fb437
 title: Claude Code Plugin Format
-domain: agentic-cookbook://cookbook/appendix/research/developer-tools/claude/claude-plugin-format
+domain: agentic-cookbook://appendix/research/developer-tools/claude/claude-plugin-format
 type: reference
 version: 1.0.0
 status: draft

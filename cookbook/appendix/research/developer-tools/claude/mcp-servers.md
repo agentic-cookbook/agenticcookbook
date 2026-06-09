@@ -1,7 +1,7 @@
 ---
 id: d3238319-55ad-45cd-b9d7-e0aff0841320
 title: MCP Servers for Development
-domain: agentic-cookbook://cookbook/appendix/research/developer-tools/claude/mcp-servers
+domain: agentic-cookbook://appendix/research/developer-tools/claude/mcp-servers
 type: reference
 version: 1.0.0
 status: draft

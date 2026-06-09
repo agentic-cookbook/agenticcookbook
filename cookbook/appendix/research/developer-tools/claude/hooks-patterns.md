@@ -1,7 +1,7 @@
 ---
 id: b0d9b45b-452d-44ff-ac48-025d3909f683
 title: Claude Code Hook Patterns
-domain: agentic-cookbook://cookbook/appendix/research/developer-tools/claude/hooks-patterns
+domain: agentic-cookbook://appendix/research/developer-tools/claude/hooks-patterns
 type: reference
 version: 1.0.0
 status: draft
