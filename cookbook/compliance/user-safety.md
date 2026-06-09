@@ -3,11 +3,11 @@ id: B8ABAA15-35E6-4C51-9735-9A405CC7336C
 title: "User Safety Compliance"
 domain: agentic-cookbook://compliance/user-safety
 type: compliance
-version: 1.0.0
+version: 1.0.1
 status: draft
 language: en
 created: 2026-03-28
-modified: 2026-03-28
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -92,4 +92,5 @@ Features MUST default to the safest configuration; riskier options require expli
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

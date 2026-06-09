@@ -4,11 +4,11 @@ id: e3aa9294-61cf-4a3a-9fbf-0528a1404094
 title: "Widgets and glanceable surfaces"
 domain: agentic-cookbook://guidelines/implementing/platform-integration/widgets-and-glanceable-surfaces
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-02
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -28,7 +28,7 @@ related:
   - agentic-cookbook://guidelines/implementing/platform-integration/notifications
 references: []
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: "2026-06-09"
 triggers:
   - platform-integration
   - ui-implementation
@@ -61,6 +61,7 @@ Use the Badging API for app icon notification counts. Support periodic backgroun
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-02 | Mike Fullerton | Initial creation |

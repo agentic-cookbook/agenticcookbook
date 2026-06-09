@@ -3,11 +3,11 @@ id: a5dc2751-9332-46be-86aa-649e51c237dc
 title: "Code Review"
 domain: agentic-cookbook://workflows/code-review
 type: workflow
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -255,4 +255,5 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

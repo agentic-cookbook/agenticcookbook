@@ -3,11 +3,11 @@ id: 6a98612f-9f43-4903-87e4-40c964801bbc
 title: "Code Verification"
 domain: agentic-cookbook://workflows/code-verification
 type: workflow
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -279,4 +279,5 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

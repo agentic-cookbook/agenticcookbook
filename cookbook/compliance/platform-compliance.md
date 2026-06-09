@@ -3,11 +3,11 @@ id: 9D54950C-FED8-40DA-8F68-B01508884D6C
 title: "Platform Compliance"
 domain: agentic-cookbook://compliance/platform-compliance
 type: compliance
-version: 1.0.0
+version: 1.0.1
 status: draft
 language: en
 created: 2026-03-28
-modified: 2026-03-28
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -114,4 +114,5 @@ Components MUST support platform theming (dark mode, high contrast, accent color
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

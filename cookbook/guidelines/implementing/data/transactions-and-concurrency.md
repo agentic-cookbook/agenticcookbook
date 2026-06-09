@@ -74,7 +74,6 @@ WAL mode persists in the database header — it survives reconnects. Set it once
 
 | Mode | Concurrent Reads | Write Speed | Durability | Use When |
 |------|-----------------|-------------|------------|----------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | WAL | Yes | Fast (sequential) | Full (with NORMAL) | Default for most apps |
 | DELETE | No | Slow | Full | Network file systems, max compatibility |
 | MEMORY | No | Fast | None | Ephemeral/rebuildable data only |
@@ -238,4 +237,5 @@ Restore safe settings immediately after the bulk load completes. MUST NOT use th
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

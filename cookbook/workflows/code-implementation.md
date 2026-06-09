@@ -3,11 +3,11 @@ id: f4f25f6d-cb87-428d-9140-f2bf97aa420a
 title: "Code Implementation"
 domain: agentic-cookbook://workflows/code-implementation
 type: workflow
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -199,4 +199,5 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -4,11 +4,11 @@ id: fe0daac0-1ba7-4c93-a47e-e42e75612cf6
 title: "Skill Structure Reference"
 domain: agentic-cookbook://guidelines/implementing/skills-and-agents/skill-structure-reference
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-02
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -48,7 +48,6 @@ triggers:
 
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | `name` | string | directory name | Display name and slash-command trigger (kebab-case, lowercase, ≤64 chars) |
 | `description` | string | — | When to use this skill; shown in context for auto-invocation matching |
 | `argument-hint` | string | — | Hint for expected arguments (e.g., `<path>`, `<issue-number>`) |
@@ -107,5 +106,7 @@ triggers:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

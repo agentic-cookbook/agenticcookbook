@@ -82,7 +82,6 @@ Some code appears everywhere. Logging calls exist in every file. Error handling 
 
 | Concern | Cross-cutting (do NOT isolate) | Shared infrastructure (IS its own scope group) |
 |---|---|---|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Logging | Log call sites throughout code | Logger configuration, log routing, log formatters |
 | Analytics | Event tracking call sites | Analytics SDK wrapper, event schema definitions |
 | Error handling | Try/catch at call sites | Centralized error router, custom error taxonomy |

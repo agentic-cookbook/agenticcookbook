@@ -4,11 +4,11 @@ id: 27f0e59e-6080-435a-865d-79ed95a0b9ae
 title: "Agent Lint Checklist"
 domain: agentic-cookbook://guidelines/reviewing/skills-and-agents/agent-checklist
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-02
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -25,7 +25,7 @@ related:
   - agentic-cookbook://guidelines/implementing/skills-and-agents/agent-structure-reference
 references: []
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: "2026-06-09"
 triggers:
   - skill-authoring
   - pre-pr
@@ -49,7 +49,6 @@ Severity levels:
 
 | ID  | Criterion | How to check | Severity |
 |-----|-----------|-------------|----------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | S01 | YAML frontmatter present | File starts with `---`, has closing `---` | FAIL |
 | S02 | `name` field present | Frontmatter contains `name:` | WARN |
 | S03 | `name` is kebab-case, lowercase, ≤64 chars | Regex: `^[a-z][a-z0-9-]{0,63}$` | FAIL |
@@ -105,5 +104,7 @@ Severity levels:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

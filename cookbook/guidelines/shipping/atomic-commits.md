@@ -4,7 +4,7 @@ id: 7bf2aa67-7260-4d95-9da9-1b79ad9095c1
 title: "Small, atomic commits"
 domain: agentic-cookbook://guidelines/shipping/atomic-commits
 type: guideline
-version: 1.2.0
+version: 1.2.1
 status: accepted
 language: en
 created: 2026-03-27
@@ -69,6 +69,7 @@ Batched, uncommitted changes create compound failures that are difficult to debu
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.2.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.2.0 | 2026-06-09 | Mike Fullerton | Add small-diff discipline for agent-generated changes |
 | 1.1.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.1.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |

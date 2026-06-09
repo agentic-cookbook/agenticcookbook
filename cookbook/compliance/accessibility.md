@@ -3,11 +3,11 @@ id: 27846525-7E10-49F1-B1ED-06840FAF6120
 title: "Accessibility"
 domain: agentic-cookbook://compliance/accessibility
 type: compliance
-version: 1.0.0
+version: 1.0.1
 status: draft
 language: en
 created: 2026-03-28
-modified: 2026-03-28
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -124,4 +124,5 @@ Web components MUST use correct ARIA roles, states, and properties.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

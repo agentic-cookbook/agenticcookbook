@@ -4,11 +4,11 @@ id: d73a9715-cab5-4ccd-8c14-1a941ff095d6
 title: "Touch & Click Targets"
 domain: agentic-cookbook://guidelines/reviewing/ui/touch-click-targets
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -31,7 +31,7 @@ references:
   - https://m3.material.io/foundations/accessible-design/accessibility-basics
   - https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: "2026-06-09"
 triggers:
   - ui-implementation
   - accessibility
@@ -44,7 +44,6 @@ HIG first — each prescribes its own minimum:
 
 | Platform | Minimum Target | Recommended |
 |----------|---------------|-------------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Apple (iOS) | 44x44 pt | 44x44 pt |
 | Android (Material) | 48x48 dp | 48x48 dp |
 | Windows (Fluent) | 32x32 epx | 40x40 epx |
@@ -69,5 +68,7 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -212,7 +212,6 @@ SQLite in tests does not behave identically to PostgreSQL or MySQL in production
 
 | Behavior | SQLite | PostgreSQL |
 |----------|--------|------------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | Type enforcement | Permissive | Strict |
 | Boolean | `INTEGER 0/1` | Native `BOOLEAN` |
 | LIKE case sensitivity | Case-sensitive (ASCII) | Case-insensitive (`ILIKE`) |
@@ -225,4 +224,5 @@ Use SQLite for unit tests where dialect differences do not affect the logic unde
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

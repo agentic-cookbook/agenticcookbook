@@ -3,11 +3,11 @@ id: 8A9E6D0E-CC26-497C-867B-3171A0213F5A
 title: "Privacy and Data"
 domain: agentic-cookbook://compliance/privacy-and-data
 type: compliance
-version: 1.0.0
+version: 1.0.1
 status: draft
 language: en
 created: 2026-03-28
-modified: 2026-03-28
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -125,4 +125,5 @@ Sensitive data stored locally MUST be encrypted at rest.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

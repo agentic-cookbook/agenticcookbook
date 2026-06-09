@@ -4,11 +4,11 @@ id: e5799ba8-98b0-4df9-9413-cdad03e76aab
 title: "AI Cost Management"
 domain: agentic-cookbook://guidelines/implementing/networking/ai-cost-management
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: draft
 language: en
 created: 2026-04-09
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -25,8 +25,8 @@ depends-on:
 related:
   - agentic-cookbook://guidelines/implementing/observability/ai-provider-observability
 references: []
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-06-09"
 triggers:
   - ai-api-integration
   - networking
@@ -57,4 +57,5 @@ AI API calls cost $0.01-$0.10+ each. Systems MUST treat AI calls as a managed re
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-04-09 | Mike Fullerton | Initial creation |

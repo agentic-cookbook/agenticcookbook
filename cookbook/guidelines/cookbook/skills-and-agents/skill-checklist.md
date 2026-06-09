@@ -4,11 +4,11 @@ id: 2945503d-8e92-44ca-bc64-20285eb29296
 title: "Skill Lint Checklist"
 domain: agentic-cookbook://guidelines/cookbook/skills-and-agents/skill-checklist
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-02
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -49,7 +49,6 @@ Severity levels:
 
 | ID  | Criterion | How to check | Severity |
 |-----|-----------|-------------|----------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | S01 | YAML frontmatter present | File starts with `---`, has closing `---` | FAIL |
 | S02 | `name` field present | Frontmatter contains `name:` | WARN |
 | S03 | `name` is kebab-case, lowercase, ≤64 chars | Regex: `^[a-z][a-z0-9-]{0,63}$` | FAIL |
@@ -105,5 +104,7 @@ Severity levels:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

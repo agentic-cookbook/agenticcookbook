@@ -3,11 +3,11 @@ id: 6b29562c-4185-4411-aa66-092206d6bfa5
 title: "Guideline Applicability Checklist"
 domain: agentic-cookbook://workflows/guideline-checklist
 type: workflow
-version: 1.1.0
+version: 1.1.1
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-03-27
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -192,5 +192,6 @@ These concerns apply to many but not all features. Claude Code MUST ask the user
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
 | 1.1.0 | 2026-03-29 | Mike Fullerton | Replace domain URLs with file paths for pipeline compatibility |

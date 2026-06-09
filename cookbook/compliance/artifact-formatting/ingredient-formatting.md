@@ -3,11 +3,11 @@ id: E10E9785-E7D9-47F9-BA8C-A85E745BF294
 title: "Ingredient Formatting Compliance"
 domain: agentic-cookbook://compliance/artifact-formatting/ingredient-formatting
 type: compliance
-version: 1.0.0
+version: 1.0.1
 status: draft
 language: en
 created: 2026-04-05
-modified: 2026-04-05
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -209,4 +209,5 @@ The file MUST end with a `## Change History` section containing a table with col
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-04-05 | Mike Fullerton | Initial creation |

@@ -3,11 +3,11 @@ id: D931B5B1-F54F-46F1-894F-420957C6D2AE
 title: "Best Practices Compliance"
 domain: agentic-cookbook://compliance/best-practices
 type: compliance
-version: 1.0.0
+version: 1.0.1
 status: draft
 language: en
 created: 2026-03-28
-modified: 2026-03-28
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -123,4 +123,5 @@ Tests MUST be fast, isolated, repeatable, and self-validating.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

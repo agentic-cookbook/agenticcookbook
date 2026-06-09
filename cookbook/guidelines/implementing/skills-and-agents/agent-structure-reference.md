@@ -4,11 +4,11 @@ id: 8b9def90-2153-45ba-9dcc-fa2aa3bf745e
 title: "Agent Structure Reference"
 domain: agentic-cookbook://guidelines/implementing/skills-and-agents/agent-structure-reference
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-02
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -50,7 +50,6 @@ The filename MUST be lowercase kebab-case (e.g., `build-runner.md`). Uppercase s
 
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
-| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | `name` | string | filename | Display name for the agent |
 | `description` | string | — | When to use this agent; helps Claude select the right agent |
 | `tools` | list | all tools | Allowlist of tools the agent can use |
@@ -104,5 +103,7 @@ The filename MUST be lowercase kebab-case (e.g., `build-runner.md`). Uppercase s
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
+| 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

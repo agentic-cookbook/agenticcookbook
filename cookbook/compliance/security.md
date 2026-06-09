@@ -3,11 +3,11 @@ id: 5CECB56F-B15C-42F0-BEB2-58861B33EC8B
 title: "Security Compliance"
 domain: agentic-cookbook://compliance/security
 type: compliance
-version: 1.0.0
+version: 1.0.1
 status: draft
 language: en
 created: 2026-03-28
-modified: 2026-03-28
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -167,4 +167,5 @@ Verification MUST include static analysis (SAST) and dependency scanning.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

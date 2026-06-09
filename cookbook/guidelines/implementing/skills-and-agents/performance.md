@@ -4,11 +4,11 @@ id: 7b3e2f91-a84c-4d6e-b1f5-c9a8d3e6f2b7
 title: "Performance: Speed and Token Efficiency"
 domain: agentic-cookbook://guidelines/implementing/skills-and-agents/performance
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-02
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -30,7 +30,7 @@ related:
   - agentic-cookbook://principles/manage-complexity-through-boundaries
 references: []
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: "2026-06-09"
 triggers:
   - skill-authoring
   - performance-optimization
@@ -136,6 +136,7 @@ The agentic-cookbook's own rules went from 381 lines / 17,689 bytes per turn to 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-02 | Mike Fullerton | Initial creation combining shell script, model selection, and progressive disclosure principles |

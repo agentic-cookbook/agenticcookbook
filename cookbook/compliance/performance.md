@@ -3,11 +3,11 @@ id: 4325D8FF-ECB5-460B-836E-4F55309F2DC0
 title: "Performance Compliance"
 domain: agentic-cookbook://compliance/performance
 type: compliance
-version: 1.0.0
+version: 1.0.1
 status: draft
 language: en
 created: 2026-03-28
-modified: 2026-03-28
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -114,4 +114,5 @@ Operations exceeding 200ms MUST show progress indication.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

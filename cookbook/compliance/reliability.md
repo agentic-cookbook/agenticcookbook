@@ -3,11 +3,11 @@ id: 3182E2CF-BBFC-4933-93EC-6ACE057E0B43
 title: "Reliability"
 domain: agentic-cookbook://compliance/reliability
 type: compliance
-version: 1.0.0
+version: 1.0.1
 status: draft
 language: en
 created: 2026-03-28
-modified: 2026-03-28
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -122,4 +122,5 @@ Long-running components SHOULD emit health metrics suitable for monitoring.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |

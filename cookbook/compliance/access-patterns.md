@@ -3,11 +3,11 @@ id: 2FF8FEE9-3EAC-4CF3-9B0E-F88BD3CAFF58
 title: "Access Patterns"
 domain: agentic-cookbook://compliance/access-patterns
 type: compliance
-version: 1.0.0
+version: 1.0.1
 status: draft
 language: en
 created: 2026-03-28
-modified: 2026-03-28
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -122,4 +122,5 @@ Clients MUST handle all documented error response codes gracefully.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-09 | Mike Fullerton | Repair stale cross-reference link scheme |
 | 1.0.0 | 2026-03-28 | Mike Fullerton | Initial creation |
