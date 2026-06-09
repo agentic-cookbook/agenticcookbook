@@ -55,7 +55,7 @@ related:
   - agentic-cookbook://guidelines/testing/test-pyramid
   - agentic-cookbook://guidelines/testing/the-testing-workflow
   - agentic-cookbook://guidelines/testing/unit-test-patterns
-  - agentic-cookbook://guidelines/data/sqlite-best-practices
+  - agentic-cookbook://guidelines/implementing/data/database
 references: []
 ---
 
@@ -148,7 +148,7 @@ These concerns apply to many but not all features. Claude Code MUST ask the user
 | `../agentic-cookbook/cookbook/guidelines/testing/property-based-testing.md` | Property-based testing | For parsers, serializers, data transformers | Ask | "Does this feature include data transformations that would benefit from property-based testing?" | WF-2, WF-3 |
 | `../agentic-cookbook/cookbook/guidelines/testing/mutation-testing.md` | Mutation testing | Validate tests catch bugs | Ask | "Should we run mutation testing to validate test quality?" | WF-4 |
 | `../agentic-cookbook/cookbook/guidelines/testing/security-testing.md` | Security testing | SAST, dependency scanning | Ask | "Should we run security scans (Semgrep, dependency audit)?" | WF-4 |
-| `../agentic-cookbook/cookbook/guidelines/data/sqlite-best-practices.md` | SQLite best practices | Schema design, performance, sync, PRAGMA settings | Ask | "Does this feature use SQLite? If so, the SQLite best practices guideline covers schema design, performance, sync, and operations." | WF-2, WF-3 |
+| `../agentic-cookbook/cookbook/guidelines/implementing/data/database.md` | Database | Schema design, performance, sync, PRAGMA settings | Ask | "Does this feature use a database? The database guideline covers schema design, performance, sync, and operations." | WF-2, WF-3 |
 
 ## How to Use This Checklist
 

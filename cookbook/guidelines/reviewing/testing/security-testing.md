@@ -58,7 +58,7 @@ Claude Code can invoke directly.
 **Dynamic Analysis (DAST):**
 - [OWASP ZAP](https://www.zaproxy.org/) — scan running web services: `zap-cli quick-scan http://localhost:8888`
 
-See agentic-cookbook://guidelines/security/* (Security Guidelines) for the full security reference.
+See agentic-cookbook://guidelines/implementing/security/* (Security Guidelines) for the full security reference.
 
 ## Change History
 
