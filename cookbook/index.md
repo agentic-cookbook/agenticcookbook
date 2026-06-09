@@ -17,7 +17,7 @@ tags: []
 depends-on: []
 related: []
 references:
-  - https://github.com/agentic-cookbook/cookbook
+  - https://github.com/agenticdevelopercookbook/cookbook
 ---
 
 # Agentic Developer Cookbook

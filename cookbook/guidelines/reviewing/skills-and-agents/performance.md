@@ -130,7 +130,7 @@ Target: rule files SHOULD be under 200 lines / ~8KB. Rules that apply to narrow 
 
 ### Real-World Impact
 
-The agentic-cookbook's own rules went from 381 lines / 17,689 bytes per turn to 10 lines / 358 bytes per turn — a 97% reduction — by applying progressive disclosure. The behavioral constraints were preserved; only the delivery mechanism changed.
+The agenticdevelopercookbook's own rules went from 381 lines / 17,689 bytes per turn to 10 lines / 358 bytes per turn — a 97% reduction — by applying progressive disclosure. The behavioral constraints were preserved; only the delivery mechanism changed.
 
 ## Change History
 

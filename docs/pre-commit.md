@@ -19,7 +19,7 @@ against what the indexing engine would generate now.
 
 ```yaml
 repos:
-  - repo: https://github.com/agentic-cookbook/agenticcookbook
+  - repo: https://github.com/agenticdevelopercookbook/agenticcookbook
     rev: <pin a tag or commit sha>
     hooks:
       - id: cookbook-validate

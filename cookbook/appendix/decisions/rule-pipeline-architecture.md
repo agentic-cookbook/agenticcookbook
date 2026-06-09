@@ -135,7 +135,7 @@ Analysis of the generated rule template against the 6 original issues:
 | 5 | MUST NOT duplication | 23 items, 5+ redundant | 6 items, all unique | **74%** |
 | 6 | Full ceremony for every task | Monolithic 38-item checklist evaluated at once | Iterative per-concern pipeline with fast N/A passes | **Resolved** |
 
-The only mandatory external file read is `../agentic-cookbook/cookbook/workflow/guideline-checklist.md` — read once per planning session, not per turn.
+The only mandatory external file read is `../agenticdevelopercookbook/cookbook/workflow/guideline-checklist.md` — read once per planning session, not per turn.
 
 ## Phase 2: Minimal Rule + Step-by-Step Pipeline
 

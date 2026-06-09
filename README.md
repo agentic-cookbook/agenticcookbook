@@ -8,12 +8,12 @@ A structured cookbook of principles, guidelines, ingredients, recipes, and workf
 
 ```bash
 cd ~/projects
-git clone git@github.com:agentic-cookbook/cookbook.git
+git clone git@github.com:agenticdevelopercookbook/cookbook.git
 ```
 
 ### 2. Install in your project
 
-From your project directory, run the onboarding wizard (requires the [dev-team plugin](https://github.com/agentic-cookbook/dev-team)):
+From your project directory, run the onboarding wizard (requires the [dev-team plugin](https://github.com/agenticdevelopercookbook/dev-team)):
 
 ```
 /install-cookbook
@@ -125,13 +125,13 @@ All user-facing cookbook skills are provided by dev-team:
 | `/cookbook-help` | Interactive guide — setup status, content overview, troubleshooting |
 | `/dev-team lint` | Lint artifacts against cookbook standards |
 
-Repo: [agentic-cookbook/dev-team](https://github.com/agentic-cookbook/dev-team)
+Repo: [agenticdevelopercookbook/dev-team](https://github.com/agenticdevelopercookbook/dev-team)
 
 ### agenticcookbookweb
 
 Cloudflare Workers web app for browsing the cookbook. React 19, TypeScript, Tailwind CSS 4. Serves as the public-facing website.
 
-Repo: [agentic-cookbook/agenticcookbookweb](https://github.com/agentic-cookbook/agenticcookbookweb)
+Repo: [agenticdevelopercookbook/agenticcookbookweb](https://github.com/agenticdevelopercookbook/agenticcookbookweb)
 
 ## Repository Structure
 
@@ -152,7 +152,7 @@ README.md                # this file
 
 ## Contributing
 
-To contribute recipes, use `/contribute-to-cookbook` (via the [dev-team plugin](https://github.com/agentic-cookbook/dev-team)) — it handles both admin (push access) and external (fork-based) workflows automatically.
+To contribute recipes, use `/contribute-to-cookbook` (via the [dev-team plugin](https://github.com/agenticdevelopercookbook/dev-team)) — it handles both admin (push access) and external (fork-based) workflows automatically.
 
 ## License
 

@@ -4,7 +4,7 @@ A structured knowledge base of principles, guidelines, ingredients, recipes, and
 
 ## Purpose
 
-The Agentic Developer Cookbook is the foundation of the agentic-cookbook ecosystem. Written entirely in markdown with YAML frontmatter, it serves as the knowledge base consumed directly by AI agents (particularly Claude Code) to build complete, tested, accessible, secure applications across multiple platforms. Code built with the cookbook is "trusted" — complete, precise, consistent, verified, secure by default, accessible, tested, predictable, maintainable, native to each platform, incremental, documented, observable, and performant.
+The Agentic Developer Cookbook is the foundation of the agenticdevelopercookbook ecosystem. Written entirely in markdown with YAML frontmatter, it serves as the knowledge base consumed directly by AI agents (particularly Claude Code) to build complete, tested, accessible, secure applications across multiple platforms. Code built with the cookbook is "trusted" — complete, precise, consistent, verified, secure by default, accessible, tested, predictable, maintainable, native to each platform, incremental, documented, observable, and performant.
 
 ## Key Features
 

@@ -61,7 +61,7 @@ references: []
 **Plain Vitest + Agent SDK** in a disposable sandbox.
 
 - Cookbook owns tests, fixtures, harness code
-- `tests/run.sh` copies everything to `../agentic-cookbook-tests/` (disposable)
+- `tests/run.sh` copies everything to `../agenticdevelopercookbook-tests/` (disposable)
 - Agent SDK runs skills in temp directories with synthetic fixtures
 - Assertions are filesystem-based (binary: did this file get created?) — not LLM-judged
 - Haiku by default (cheapest), configurable via TEST_MODEL env var

@@ -44,13 +44,13 @@ Supporting content (not artifacts): compliance checks, workflows, reference mate
 
 Multi-agent development system, distributed as a Claude Code plugin. Orchestrates teams of specialist agents (13 domain + 6 platform) for product discovery, code generation, and linting. All user-facing cookbook skills live here: `/install-cookbook`, `/configure-cookbook`, `/contribute-to-cookbook`, `/validate-cookbook`, `/cookbook-help`, `/dev-team lint`, and others.
 
-Repo: [agentic-cookbook/dev-team](https://github.com/agentic-cookbook/dev-team)
+Repo: [agenticdevelopercookbook/dev-team](https://github.com/agenticdevelopercookbook/dev-team)
 
 ### agenticcookbookweb
 
 Cloudflare Workers web app for browsing the cookbook. React 19, TypeScript, Tailwind CSS 4. Serves as the public-facing website for the cookbook.
 
-Repo: [agentic-cookbook/agenticcookbookweb](https://github.com/agentic-cookbook/agenticcookbookweb)
+Repo: [agenticdevelopercookbook/agenticcookbookweb](https://github.com/agenticdevelopercookbook/agenticcookbookweb)
 
 ## Conventions
 
@@ -84,7 +84,7 @@ Key rules:
 6. Clean up: `ExitWorktree action:remove` (Claude Code) or `git worktree remove <path>`
 7. Pull main: `git pull`
 
-**Fork-based contributions**: External contributors who don't have push access use a fork. The workflow is the same (worktree, branch, commit, push, PR), but `origin` points to the fork and the PR targets `agentic-cookbook/cookbook` via `--head <user>:<branch>`. The `/contribute-to-cookbook` skill (in dev-team) detects this automatically.
+**Fork-based contributions**: External contributors who don't have push access use a fork. The workflow is the same (worktree, branch, commit, push, PR), but `origin` points to the fork and the PR targets `agenticdevelopercookbook/cookbook` via `--head <user>:<branch>`. The `/contribute-to-cookbook` skill (in dev-team) detects this automatically.
 
 ## Writing New Content
 

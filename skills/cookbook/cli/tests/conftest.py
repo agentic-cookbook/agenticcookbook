@@ -29,7 +29,7 @@ sys.path.insert(0, str(PKG_PARENT))
 
 FIXTURE_REPO_URL = os.environ.get(
     "COOKBOOK_TESTS_REPO",
-    "git@github.com:agentic-cookbook/cookbook-tests.git",
+    "git@github.com:agenticdevelopercookbook/cookbook-tests.git",
 )
 
 

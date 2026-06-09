@@ -21,7 +21,7 @@ references: []
 # Visual Regression & Design Verification Research
 
 **Date:** 2026-03-29
-**Context:** The agentic-cookbook documentation site needs a design-change-verification workflow loop and regression prevention. This research catalogs available plugins, tools, npm packages, and custom solutions.
+**Context:** The agenticdevelopercookbook documentation site needs a design-change-verification workflow loop and regression prevention. This research catalogs available plugins, tools, npm packages, and custom solutions.
 
 ---
 

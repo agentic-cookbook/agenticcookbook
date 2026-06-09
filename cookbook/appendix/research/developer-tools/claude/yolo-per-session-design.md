@@ -53,7 +53,7 @@ Each session file:
 {
   "session_id": "550e8400-...",
   "enabled_at": "2026-03-30T14:23:00Z",
-  "project": "/Users/.../agentic-cookbook",
+  "project": "/Users/.../agenticdevelopercookbook",
   "deny_list": "~/.claude/yolo-deny.json"
 }
 ```

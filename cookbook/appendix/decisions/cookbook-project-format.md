@@ -27,7 +27,7 @@ references: []
 
 ## Problem
 
-The agentic-cookbook contains principles, guidelines, and recipes that describe how to build software — but there's no structured way to define a specific application project that uses the cookbook. Developers need a self-contained, shareable project definition format that:
+The agenticdevelopercookbook contains principles, guidelines, and recipes that describe how to build software — but there's no structured way to define a specific application project that uses the cookbook. Developers need a self-contained, shareable project definition format that:
 
 - Captures what an app *is* (components, resources, context) in a platform-agnostic way
 - Serves as the source of truth from which native code is generated per platform
@@ -80,7 +80,7 @@ Recipes in a project start from cookbook recipes when available — forked, copi
   "modified": "2026-04-01",
   "platforms": ["ios", "macos", "windows"],
   "cookbook": {
-    "repo": "path/or/url/to/agentic-cookbook",
+    "repo": "path/or/url/to/agenticdevelopercookbook",
     "version": "1.0.0"
   }
 }
@@ -100,7 +100,7 @@ Recipes in a project start from cookbook recipes when available — forked, copi
 | `modified` | Yes | ISO 8601 date, updated on changes |
 | `platforms` | Yes | Target platforms (e.g., `["ios", "macos", "windows"]`). Project-level default; components can override |
 | `cookbook` | Yes | Reference to the cookbook this project was built against |
-| `cookbook.repo` | Yes | Path or URL to the agentic-cookbook |
+| `cookbook.repo` | Yes | Path or URL to the agenticdevelopercookbook |
 | `cookbook.version` | Yes | Cookbook version the project is based on |
 
 ### Component Tree

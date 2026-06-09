@@ -16,7 +16,7 @@ From the repo root:
 python3 -m pytest skills/cookbook/cli/tests/unit -q
 
 # Full suite — requires `./install.sh` first and SSH access to
-# git@github.com:agentic-cookbook/cookbook-tests.git
+# git@github.com:agenticdevelopercookbook/cookbook-tests.git
 python3 -m pytest skills/cookbook/cli/tests -q
 ```
 
