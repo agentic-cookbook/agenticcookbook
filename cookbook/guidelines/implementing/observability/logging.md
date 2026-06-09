@@ -4,11 +4,11 @@ id: 0f0c1da3-1c53-417b-890d-0259d7513c65
 title: "Instrumented logging"
 domain: agentic-cookbook://guidelines/implementing/observability/logging
 type: guideline
-version: 1.0.2
+version: 1.1.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -29,7 +29,7 @@ references:
   - https://github.com/JakeWharton/timber
   - https://learn.microsoft.com/en-us/visualstudio/profiling/
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: "2026-06-09"
 triggers:
   - logging
   - new-module
@@ -123,10 +123,22 @@ logger = logging.getLogger(__name__)
 logger.debug("Starting roadmap sync for %s", roadmap_id)
 ```
 
+## OpenTelemetry and trace correlation
+
+The per-platform loggers above remain the source of structured log lines; this subsection governs how those lines integrate with distributed telemetry. The PII guidance still applies — never emit personally identifiable information in any field, even at debug level.
+
+- Components **SHOULD** emit telemetry via [OpenTelemetry](https://opentelemetry.io/) and export over OTLP, treating it as the de-facto, CNCF-graduated standard, rather than relying on ad-hoc per-platform logging alone.
+- Every log line **SHOULD** carry a trace/correlation ID (e.g., `trace_id` and `span_id`) propagated through the request context, so logs correlate with distributed traces.
+- Log and span field names **SHOULD** follow the OpenTelemetry [semantic conventions](https://opentelemetry.io/docs/specs/semconv/) rather than ad-hoc names.
+- Production logs **SHOULD** be structured JSON to keep them machine-parseable for aggregation and trace correlation.
+
+See [distributed tracing](agentic-cookbook://guidelines/implementing/observability/distributed-tracing) for span propagation and exporter configuration.
+
 ## Change History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-06-09 | Mike Fullerton | Add OpenTelemetry, trace correlation, semantic conventions |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |
