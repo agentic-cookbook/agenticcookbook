@@ -35,10 +35,10 @@ Total: 16 artifacts.
 
 ## Examples
 
-- [App](examples/my-document-editor-cookbook/app/app.md)
+- [My Document Editor — App](examples/my-document-editor-cookbook/app/app.md)
 - [Document Window](examples/my-document-editor-cookbook/app/document-window/document-window.md)
 - [Editor](examples/my-document-editor-cookbook/app/document-window/editor/editor.md)
 - [Toolbar](examples/my-document-editor-cookbook/app/document-window/toolbar/toolbar.md)
 - [Settings](examples/my-document-editor-cookbook/app/settings/settings.md)
-- [Offline First](examples/my-document-editor-cookbook/context/decisions/offline-first.md)
-- [Text Engine Evaluation](examples/my-document-editor-cookbook/context/research/text-engine-evaluation.md)
+- [Decision: Offline-First Architecture](examples/my-document-editor-cookbook/context/decisions/offline-first.md)
+- [Research: Text Engine Evaluation](examples/my-document-editor-cookbook/context/research/text-engine-evaluation.md)

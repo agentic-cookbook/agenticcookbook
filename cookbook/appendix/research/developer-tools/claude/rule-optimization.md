@@ -1,3 +1,23 @@
+---
+id: fb333cb6-b3b9-494e-b133-d75124461778
+title: Claude Code Rule Optimization
+domain: agentic-cookbook://cookbook/appendix/research/developer-tools/claude/rule-optimization
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Claude Code Rule Optimization
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Claude Code Rule Optimization
 
 **Date:** 2026-03-29

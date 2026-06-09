@@ -1,3 +1,23 @@
+---
+id: 6445e312-9a50-44ef-809f-51e7aceb95aa
+title: Visual Regression & Design Verification Research
+domain: agentic-cookbook://cookbook/appendix/research/developer-tools/web/visual-regression-and-design-verification
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Visual Regression & Design Verification Research
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Visual Regression & Design Verification Research
 
 **Date:** 2026-03-29

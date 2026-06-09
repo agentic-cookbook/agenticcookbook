@@ -33,9 +33,9 @@ Load these when you need a lightweight quality gate without the full 140-guideli
 
 | # | Guideline | Why it's here |
 |---|-----------|--------------|
-| 1 | [Test Pyramid](../guidelines/implementing/testing/test-pyramid.md) | Prevents test-suite bloat. AI agents over-generate unit tests and under-generate integration tests — this sets the right ratio. |
+| 1 | [Test Pyramid](../guidelines/testing/test-pyramid.md) | Prevents test-suite bloat. AI agents over-generate unit tests and under-generate integration tests — this sets the right ratio. |
 | 2 | [Input Validation](../guidelines/implementing/security/input-validation.md) | The #1 security issue in generated code. AI rarely adds server-side validation unless explicitly told to. |
-| 3 | [Properties of Good Tests](../guidelines/implementing/testing/properties-of-good-tests.md) | AI-generated tests are often brittle, testing implementation details instead of behavior. This fixes that. |
+| 3 | [Properties of Good Tests](../guidelines/testing/properties-of-good-tests.md) | AI-generated tests are often brittle, testing implementation details instead of behavior. This fixes that. |
 | 4 | [Linting before the first PR](../guidelines/implementing/code-quality/linting.md) | Catches style and format drift before it compounds. Especially important when AI generates code in varying styles. |
 | 5 | [Logging](../guidelines/implementing/observability/logging.md) | AI agents skip logging unless told. This ensures every component has structured observability from the start. |
 | 6 | [Error Responses](../guidelines/implementing/networking/error-responses.md) | Generated code often has incomplete error handling — happy path only, with catch blocks that swallow errors. |

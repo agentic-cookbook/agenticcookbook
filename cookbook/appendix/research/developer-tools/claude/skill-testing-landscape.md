@@ -1,3 +1,23 @@
+---
+id: 028b445c-ee5e-40ca-8272-ae0f5053d525
+title: Skill Testing Landscape
+domain: agentic-cookbook://cookbook/appendix/research/developer-tools/claude/skill-testing-landscape
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Skill Testing Landscape
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Skill Testing Landscape
 
 **Date**: 2026-03-30

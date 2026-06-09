@@ -1,3 +1,23 @@
+---
+id: e79fe94e-cc8a-4fb8-985c-1b9bfc4c5c12
+title: .NET & Windows Development Tools
+domain: agentic-cookbook://cookbook/appendix/research/developer-tools/windows/dotnet-tooling
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: .NET & Windows Development Tools
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # .NET & Windows Development Tools
 
 **Date:** 2026-03-29

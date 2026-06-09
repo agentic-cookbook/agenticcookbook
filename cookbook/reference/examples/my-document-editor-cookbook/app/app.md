@@ -1,3 +1,23 @@
+---
+id: a9b0edec-ac60-4bcf-84d7-428d114a7b30
+title: My Document Editor — App
+domain: agentic-cookbook://cookbook/reference/examples/my-document-editor-cookbook/app/app
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: My Document Editor — App
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # My Document Editor — App
 
 ## Overview

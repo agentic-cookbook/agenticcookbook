@@ -1,3 +1,23 @@
+---
+id: 73b767b7-e870-45a9-b7ac-be09164db033
+title: Android Build & Emulator Tools
+domain: agentic-cookbook://cookbook/appendix/research/developer-tools/android/android-build-and-emulator
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Android Build & Emulator Tools
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Android Build & Emulator Tools
 
 **Date:** 2026-03-29

@@ -1,3 +1,23 @@
+---
+id: b3432143-1a99-4dda-9971-da3d411a9568
+title: Data & ML Pipeline Development Tools
+domain: agentic-cookbook://cookbook/appendix/research/developer-tools/data-ml/data-pipeline-tools
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Data & ML Pipeline Development Tools
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Data & ML Pipeline Development Tools
 
 **Date:** 2026-03-29

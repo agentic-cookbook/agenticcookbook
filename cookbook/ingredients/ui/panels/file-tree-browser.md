@@ -74,17 +74,17 @@ A hierarchical file browser that displays a project's directory structure using 
 
 ### Git status integration
 
-- **git-status-badge**: Each file row MUST display a git status badge when the file has a git status. The badge MUST be right-aligned, use a monospaced font, and be colored per status type. Badge rendering MUST delegate to [git-status-indicator.md](../component/git-status-indicator.md).
+- **git-status-badge**: Each file row MUST display a git status badge when the file has a git status. The badge MUST be right-aligned, use a monospaced font, and be colored per status type. Badge rendering MUST delegate to [git-status-indicator.md](../components/git-status-indicator.md).
 - **git-debounce-refresh**: Git status MUST refresh with a 0.5-second debounce after file changes to prevent thrashing.
 - **git-background-fetch**: Git status MUST be fetched on a background queue and MUST NOT block the main thread.
 
 ### Status bar integration
 
-- **sync-status-bar**: During directory sync operations, a status bar overlay MUST be shown. Display MUST delegate to [status-bar.md](../component/status-bar.md).
+- **sync-status-bar**: During directory sync operations, a status bar overlay MUST be shown. Display MUST delegate to [status-bar.md](../components/status-bar.md).
 
 ### Directory sync lifecycle
 
-- **delegate-directory-sync**: File system monitoring and sync behavior MUST delegate to [directory-sync.md](../../infrastructure/directory-sync.md).
+- **delegate-directory-sync**: File system monitoring and sync behavior MUST delegate to [directory-sync.md](../../../recipes/infrastructure/directory-sync.md).
 
 ## Appearance
 

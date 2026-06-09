@@ -1,3 +1,23 @@
+---
+id: abc3f187-3935-4c94-857f-5d02c79b9041
+title: Third-Party AI Coding Tools
+domain: agentic-cookbook://cookbook/appendix/research/developer-tools/third-party-integrations/ai-coding-tools
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Third-Party AI Coding Tools
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Third-Party AI Coding Tools
 
 **Date:** 2026-03-29

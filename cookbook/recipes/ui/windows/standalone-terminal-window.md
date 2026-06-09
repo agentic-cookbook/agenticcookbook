@@ -74,9 +74,9 @@ A standalone terminal window with a session sidebar and terminal view — distin
 
 ### Delegation to sub-components
 
-- **delegate-session-list**: The session list sidebar MUST delegate to [terminal-pane.md](../panel/terminal-pane.md) sidebar-session-list through row-context-menu for session list behavior (row display, selection binding, add button, context menu).
-- **delegate-terminal-view**: The terminal view MUST delegate to [terminal-pane.md](../panel/terminal-pane.md) nsview-representable through palette-color-structure for terminal rendering, reparenting, and profile application.
-- **delegate-empty-state**: The empty state MUST delegate to [terminal-pane.md](../panel/terminal-pane.md) empty-state-no-sessions for display when no sessions exist.
+- **delegate-session-list**: The session list sidebar MUST delegate to [terminal-pane.md](../../../ingredients/ui/panels/terminal-pane.md) sidebar-session-list through row-context-menu for session list behavior (row display, selection binding, add button, context menu).
+- **delegate-terminal-view**: The terminal view MUST delegate to [terminal-pane.md](../../../ingredients/ui/panels/terminal-pane.md) nsview-representable through palette-color-structure for terminal rendering, reparenting, and profile application.
+- **delegate-empty-state**: The empty state MUST delegate to [terminal-pane.md](../../../ingredients/ui/panels/terminal-pane.md) empty-state-no-sessions for display when no sessions exist.
 
 ## Appearance
 

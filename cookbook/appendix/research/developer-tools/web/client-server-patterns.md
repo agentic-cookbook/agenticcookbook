@@ -1,3 +1,23 @@
+---
+id: a8f464b3-6131-48d7-a312-83dfd10ab746
+title: Client-Server Development Tools
+domain: agentic-cookbook://cookbook/appendix/research/developer-tools/web/client-server-patterns
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Client-Server Development Tools
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Client-Server Development Tools
 
 **Date:** 2026-03-29

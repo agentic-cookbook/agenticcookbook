@@ -1,3 +1,23 @@
+---
+id: 850594f9-e186-4361-a4b3-f0b2510ada9a
+title: Xcode & Apple Build Tools
+domain: agentic-cookbook://cookbook/appendix/research/developer-tools/apple/xcode-and-build
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Xcode & Apple Build Tools
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Xcode & Apple Build Tools
 
 **Date:** 2026-03-29

@@ -1,3 +1,23 @@
+---
+id: 1b79426d-d01d-477a-95fa-ea5aaf03ba05
+title: 'SwiftUI: Pros, Cons, and the Agentic Development Question'
+domain: agentic-cookbook://cookbook/appendix/research/developer-tools/apple/swiftUI-pros-and-cons
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: 'SwiftUI: Pros, Cons, and the Agentic Development Question'
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # SwiftUI: Pros, Cons, and the Agentic Development Question
 
 ## The Core Premise

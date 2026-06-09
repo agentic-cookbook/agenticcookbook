@@ -1,3 +1,23 @@
+---
+id: ab7d8ab3-e7e4-4fcc-8f18-69c91a9fb437
+title: Claude Code Plugin Format
+domain: agentic-cookbook://cookbook/appendix/research/developer-tools/claude/claude-plugin-format
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Claude Code Plugin Format
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Claude Code Plugin Format
 
 **Date**: 2026-03-30

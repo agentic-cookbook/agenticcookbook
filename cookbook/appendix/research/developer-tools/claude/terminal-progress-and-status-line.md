@@ -1,3 +1,23 @@
+---
+id: a41c2b8e-74d4-415c-9727-f58dc703a7b2
+title: Terminal Progress & Status Line Research
+domain: agentic-cookbook://cookbook/appendix/research/developer-tools/claude/terminal-progress-and-status-line
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Terminal Progress & Status Line Research
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Terminal Progress & Status Line Research
 
 Research into displaying real-time progress from Claude Code rules/skills, covering the status line API, ANSI escape sequences, and terminal rendering limitations.

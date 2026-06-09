@@ -1,3 +1,23 @@
+---
+id: 9bf0d57b-0a3d-43fa-aa7e-33d7bdf24121
+title: Self-Healing in Agentic Coding Systems
+domain: agentic-cookbook://cookbook/appendix/research/developer-tools/claude/self-healing-research-summary
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Self-Healing in Agentic Coding Systems
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Self-Healing in Agentic Coding Systems
 **Research Summary — March 2026**
 

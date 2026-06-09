@@ -1,3 +1,23 @@
+---
+id: 06162d4d-c30c-4531-a1e0-0d1f97a05336
+title: Claude Code Plugins & Skills Catalog
+domain: agentic-cookbook://cookbook/appendix/research/developer-tools/claude/plugins-and-skills-catalog
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Claude Code Plugins & Skills Catalog
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Claude Code Plugins & Skills Catalog
 
 **Date:** 2026-03-29

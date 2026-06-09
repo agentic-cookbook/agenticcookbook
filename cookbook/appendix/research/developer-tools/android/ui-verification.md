@@ -1,3 +1,23 @@
+---
+id: ef81bdb5-e189-44ed-be6e-867bff16f45b
+title: Android UI Verification Tools
+domain: agentic-cookbook://cookbook/appendix/research/developer-tools/android/ui-verification
+type: reference
+version: 1.0.0
+status: draft
+language: en
+created: '2026-06-09'
+modified: '2026-06-09'
+author: Mike Fullerton
+copyright: 2026 Mike Fullerton
+license: MIT
+summary: Android UI Verification Tools
+platforms: []
+tags: []
+depends-on: []
+related: []
+references: []
+---
 # Android UI Verification Tools
 
 **Date:** 2026-03-29
