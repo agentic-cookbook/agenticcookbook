@@ -56,6 +56,7 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 | [Separation of Concerns](principles/separation-of-concerns.md) | One reason to change per module. |
 | [SRP](principles/srp.md) | A module should be answerable to one and only one actor. |
 | [Connascence](principles/connascence.md) | Coupling has a rankable strength; weaken strong forms, especially as distance grows. |
+| [Conway's Law](principles/conways-law.md) | Architecture mirrors the communication structure — or agent topology — that builds it. |
 | [Design for Deletion](principles/design-for-deletion.md) | Build disposable software, not reusable software. |
 | [DRY](principles/dry.md) | Every piece of knowledge has a single, authoritative representation. |
 | [Explicit over Implicit](principles/explicit-over-implicit.md) | Visible dependencies, clear intent. |
@@ -75,11 +76,11 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 
 | Use Case | Guidelines | When to use |
 |----------|-----------|-------------|
-| [Planning](guidelines/planning/) | 42 | Architecture, data modeling, choosing patterns |
-| [Implementing](guidelines/implementing/) | 113 | Writing new code |
-| [Testing](guidelines/testing/) | 16 | Writing and structuring tests |
-| [Reviewing](guidelines/reviewing/) | 42 | Checking code quality, security, accessibility |
-| [Shipping](guidelines/shipping/) | 9 | Pre-commit, pre-PR, packaging |
+| [Planning](guidelines/planning/) | 53 | Architecture, data modeling, choosing patterns |
+| [Implementing](guidelines/implementing/) | 136 | Writing new code |
+| [Testing](guidelines/testing/) | 18 | Writing and structuring tests |
+| [Reviewing](guidelines/reviewing/) | 44 | Checking code quality, security, accessibility |
+| [Shipping](guidelines/shipping/) | 14 | Pre-commit, pre-PR, packaging |
 | [Cookbook](guidelines/cookbook/) | 16 | Writing cookbook content (recipes, skills, agents) |
 
 ## Ingredients

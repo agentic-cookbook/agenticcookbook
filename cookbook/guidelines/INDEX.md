@@ -5,7 +5,7 @@ id: eb0764d5-aeac-40cc-9aa4-d84e4eaa652d
 title: "Guidelines Index"
 domain: agentic-cookbook://guidelines/INDEX
 type: reference
-version: 2.4.0
+version: 2.5.0
 status: accepted
 language: en
 created: 2026-03-27
@@ -29,58 +29,66 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 | Use Case | Guidelines | When to use |
 |----------|-----------|-------------|
-| [Planning](#planning-42-guidelines) | 42 | Architecture, data modeling, choosing patterns |
-| [Implementing](#implementing-113-guidelines) | 113 | Writing new code |
-| [Testing](#testing-16-guidelines) | 16 | Writing and structuring tests |
-| [Reviewing](#reviewing-42-guidelines) | 42 | Checking code quality, security, accessibility |
-| [Shipping](#shipping-9-guidelines) | 9 | Pre-commit, pre-PR, packaging |
+| [Planning](#planning-53-guidelines) | 53 | Architecture, data modeling, choosing patterns |
+| [Implementing](#implementing-136-guidelines) | 136 | Writing new code |
+| [Testing](#testing-18-guidelines) | 18 | Writing and structuring tests |
+| [Reviewing](#reviewing-44-guidelines) | 44 | Checking code quality, security, accessibility |
+| [Shipping](#shipping-14-guidelines) | 14 | Pre-commit, pre-PR, packaging |
 | [Cookbook](#cookbook-16-guidelines) | 16 | Writing cookbook content (recipes, skills, agents) |
 
-146 unique guidelines, 238 total (with duplicates across use cases).
+188 unique guidelines, 281 total (with duplicates across use cases).
 
 ---
 
-### Planning (42 guidelines)
+### Planning (53 guidelines)
 
 
 **code-quality**
+- [Agent instruction files (AGENTS.md / CLAUDE.md)](planning/code-quality/agent-instruction-files.md)
 - [Algorithmic Complexity](planning/code-quality/algorithmic-complexity.md)
 - [App Interactions](planning/code-quality/app-interactions.md)
 - [Architecture](planning/code-quality/architecture.md)
 - [Cross-Cutting Detection](planning/code-quality/cross-cutting-detection.md)
 - [Dependency Clusters](planning/code-quality/dependency-clusters.md)
+- [Essential vs accidental complexity](planning/code-quality/essential-vs-accidental-complexity.md)
 - [Framework Conventions](planning/code-quality/framework-conventions.md)
 - [Interface Cohesion](planning/code-quality/interface-cohesion.md)
 - [Lifecycle Patterns](planning/code-quality/lifecycle-patterns.md)
 - [Module Boundaries](planning/code-quality/module-boundaries.md)
 - [Purpose Classification](planning/code-quality/purpose-classification.md)
+- [Search for existing solutions before building](planning/code-quality/reuse-before-build.md)
 - [Runtime Conditions](planning/code-quality/runtime-conditions.md)
 - [Scope discipline](planning/code-quality/scope-discipline.md)
-- [Search for Existing Solutions Before Building](planning/code-quality/reuse-before-build.md)
+- [Spec-driven development (plan before code)](planning/code-quality/spec-driven-development.md)
 - [System Dependencies](planning/code-quality/system-dependencies.md)
 - [System Interactions](planning/code-quality/system-interactions.md)
+- [Choosing a Windows UI framework and deployment model](planning/code-quality/windows-ui-framework-and-deployment.md)
 
 **data**
 - [Access Pattern Analysis](planning/data/access-pattern-analysis.md)
 - [Clock Systems for Sync](planning/data/clock-systems.md)
 - [Conflict Resolution](planning/data/conflict-resolution.md)
 - [Database](planning/data/database.md)
+- [Choosing a primary datastore](planning/data/datastore-selection.md)
 - [Indexing](planning/data/indexing.md)
 - [JSON columns and generated columns](planning/data/json-columns.md)
 - [Normalization and denormalization](planning/data/normalization-and-denormalization.md)
 - [Offline-First Architecture](planning/data/offline-first-architecture.md)
 - [Primary key strategies](planning/data/primary-keys.md)
 - [Relationship patterns](planning/data/relationships.md)
+- [Choose SwiftData vs Core Data](planning/data/swiftdata-vs-core-data.md)
 - [Sync Engine Design](planning/data/sync-engine-design.md)
 - [Sync Protocol](planning/data/sync-protocol.md)
 - [Sync Schema Design](planning/data/sync-schema-design.md)
 - [SQLite Sync Tooling](planning/data/sync-tooling.md)
 - [Transactions and Concurrency](planning/data/transactions-and-concurrency.md)
+- [Vector search and retrieval](planning/data/vector-search-and-retrieval.md)
 
 **feature-management**
 - [Feature flags](planning/feature-management/feature-flags.md)
 
 **networking**
+- [Design-first API development with OpenAPI](planning/networking/api-design-first.md)
 - [API Design](planning/networking/api-design.md)
 - [Caching](planning/networking/caching.md)
 - [Offline and Connectivity](planning/networking/offline-and-connectivity.md)
@@ -90,6 +98,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 **security**
 - [Authentication](planning/security/authentication.md)
 - [Privacy and security by default](planning/security/privacy.md)
+- [Threat modeling](planning/security/threat-modeling.md)
 
 **testing**
 - [Test Pyramid](planning/testing/test-pyramid.md)
@@ -98,10 +107,12 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Dashboard service is display-only](planning/ui/dashboard-service-is-display-only.md)
 - [Data Display](planning/ui/data-display.md)
 - [Platform Design Languages](planning/ui/platform-design-languages.md)
+- [Choose a rendering strategy per route, minimize client JS](planning/ui/rendering-strategy.md)
+- [Separate server state from client state](planning/ui/state-management.md)
 
 ---
 
-### Implementing (113 guidelines)
+### Implementing (136 guidelines)
 
 
 **accessibility**
@@ -111,10 +122,12 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 **code-quality**
 - [Architecture](implementing/code-quality/architecture.md)
-- [Completeness: finish the work, don't defer by default](implementing/code-quality/completeness.md)
 - [Small, atomic commits](implementing/code-quality/atomic-commits.md)
+- [Writing code for the AI reader](implementing/code-quality/code-for-the-ai-reader.md)
+- [Completeness: finish the work, don't defer by default](implementing/code-quality/completeness.md)
 - [Dependency Injection](implementing/code-quality/dependency-injection.md)
 - [File paths](implementing/code-quality/file-paths.md)
+- [Hilt dependency injection for Android](implementing/code-quality/hilt-dependency-injection.md)
 - [Linting before the first PR](implementing/code-quality/linting.md)
 - [Naming](implementing/code-quality/naming.md)
 - [No external dependencies in core libraries](implementing/code-quality/no-external-dependencies-in-core-librari.md)
@@ -122,19 +135,24 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Scope discipline](implementing/code-quality/scope-discipline.md)
 - [Shell scripts](implementing/code-quality/shell-scripts.md)
 - [Type hints](implementing/code-quality/type-hints.md)
+- [TypeScript strictness configuration](implementing/code-quality/typescript-strictness.md)
 - [Use roadmap_lib](implementing/code-quality/use-roadmaplib.md)
 - [Value objects over primitive obsession](implementing/code-quality/value-objects.md)
+- [Verification harnesses as agent guardrails](implementing/code-quality/verification-harness.md)
 - [YAML frontmatter](implementing/code-quality/yaml-frontmatter.md)
 
 **concurrency**
 - [No blocking the main thread](implementing/concurrency/concurrency.md)
 - [Immutability](implementing/concurrency/immutability.md)
+- [Kotlin Flow and StateFlow: lifecycle-aware state exposure](implementing/concurrency/kotlin-flow-stateflow.md)
+- [Adopt Swift 6 strict concurrency incrementally](implementing/concurrency/swift6-strict-concurrency.md)
 
 **data**
 - [Access Pattern Analysis](implementing/data/access-pattern-analysis.md)
 - [Database backup and recovery](implementing/data/backup-and-recovery.md)
 - [Clock Systems for Sync](implementing/data/clock-systems.md)
 - [Conflict Resolution](implementing/data/conflict-resolution.md)
+- [Connection pooling for server and serverless backends](implementing/data/connection-pooling.md)
 - [Constraints and validation](implementing/data/constraints-and-validation.md)
 - [Data types and type affinity](implementing/data/data-types.md)
 - [Database](implementing/data/database.md)
@@ -148,12 +166,15 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Primary key strategies](implementing/data/primary-keys.md)
 - [Query Optimization](implementing/data/query-optimization.md)
 - [Relationship patterns](implementing/data/relationships.md)
+- [Room persistence on Android](implementing/data/room-persistence.md)
 - [Schema evolution and migrations](implementing/data/schema-evolution.md)
 - [Sync Engine Design](implementing/data/sync-engine-design.md)
 - [Sync Protocol](implementing/data/sync-protocol.md)
 - [Sync Schema Design](implementing/data/sync-schema-design.md)
 - [SQLite Sync Tooling](implementing/data/sync-tooling.md)
+- [Transaction isolation and serialization-failure retry](implementing/data/transaction-isolation.md)
 - [Transactions and Concurrency](implementing/data/transactions-and-concurrency.md)
+- [Zero-downtime migrations: expand and contract](implementing/data/zero-downtime-migrations.md)
 
 **feature-management**
 - [A/B testing](implementing/feature-management/ab-testing.md)
@@ -169,18 +190,24 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [API Design](implementing/networking/api-design.md)
 - [Caching](implementing/networking/caching.md)
 - [Error Responses](implementing/networking/error-responses.md)
+- [Idempotency keys for write APIs](implementing/networking/idempotency-keys.md)
+- [MCP server design](implementing/networking/mcp-server-design.md)
 - [Offline and Connectivity](implementing/networking/offline-and-connectivity.md)
 - [Pagination](implementing/networking/pagination.md)
 - [Rate Limiting](implementing/networking/rate-limiting.md)
 - [Real-Time Communication](implementing/networking/real-time-communication.md)
 - [Retry and Resilience](implementing/networking/retry-and-resilience.md)
+- [Be strict and maintain: Postel reconsidered (RFC 9413)](implementing/networking/robust-protocol-maintenance.md)
 - [Timeouts](implementing/networking/timeouts.md)
 - [Web services](implementing/networking/web-services.md)
 
 **observability**
 - [AI Provider Observability](implementing/observability/ai-provider-observability.md)
 - [Analytics](implementing/observability/analytics.md)
+- [Distributed tracing and context propagation](implementing/observability/distributed-tracing.md)
 - [Instrumented logging](implementing/observability/logging.md)
+- [Metrics instrumentation: RED and USE](implementing/observability/metrics-red-use.md)
+- [Service-level objectives and error budgets](implementing/observability/service-level-objectives.md)
 
 **platform-integration**
 - [Background tasks](implementing/platform-integration/background-tasks.md)
@@ -200,6 +227,8 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [CORS](implementing/security/cors.md)
 - [Dependency Security](implementing/security/dependency-security.md)
 - [Input Validation](implementing/security/input-validation.md)
+- [LLM and agentic application security](implementing/security/llm-application-security.md)
+- [MCP server security](implementing/security/mcp-server-security.md)
 - [Privacy and security by default](implementing/security/privacy.md)
 - [Secure Storage](implementing/security/secure-storage.md)
 - [Security Headers Checklist](implementing/security/security-headers-checklist.md)
@@ -210,6 +239,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 **skills-and-agents**
 - [Agent Structure Reference](implementing/skills-and-agents/agent-structure-reference.md)
 - [Authoring Skills and Rules](implementing/skills-and-agents/authoring-skills-and-rules.md)
+- [Context and memory management for agents](implementing/skills-and-agents/context-and-memory-management.md)
 - [Performance: Speed and Token Efficiency](implementing/skills-and-agents/performance.md)
 - [Rule Structure Reference](implementing/skills-and-agents/rule-structure-reference.md)
 - [Skill Structure Reference](implementing/skills-and-agents/skill-structure-reference.md)
@@ -223,8 +253,11 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 **ui**
 - [Always show progress](implementing/ui/always-show-progress.md)
+- [Android edge-to-edge and window insets](implementing/ui/android-edge-to-edge.md)
 - [Animation & Motion](implementing/ui/animation-motion.md)
 - [Color](implementing/ui/color.md)
+- [Jetpack Compose: state hoisting and unidirectional data flow](implementing/ui/compose-state-and-udf.md)
+- [Core Web Vitals and performance budgets](implementing/ui/core-web-vitals.md)
 - [Dashboard service is display-only](implementing/ui/dashboard-service-is-display-only.md)
 - [Data Display](implementing/ui/data-display.md)
 - [Design-Time Data](implementing/ui/design-time-data.md)
@@ -234,6 +267,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [High DPI / Display Scaling](implementing/ui/high-dpi-display-scaling.md)
 - [Iconography](implementing/ui/iconography.md)
 - [Layout](implementing/ui/layout.md)
+- [Modern CSS layout and Baseline-driven adoption](implementing/ui/modern-css.md)
 - [Platform Design Languages](implementing/ui/platform-design-languages.md)
 - [Previews](implementing/ui/previews.md)
 - [Spacing](implementing/ui/spacing.md)
@@ -245,10 +279,12 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 ---
 
-### Testing (16 guidelines)
+### Testing (18 guidelines)
 
+- [Contract testing for services](testing/contract-testing.md)
 - [Database testing](testing/database-testing.md)
 - [Design-Time Data](testing/design-time-data.md)
+- [Eval-driven development for agent behavior](testing/eval-driven-development.md)
 - [Flaky Test Prevention](testing/flaky-test-prevention.md)
 - [Linting from day one](testing/linting.md)
 - [Mutation Testing](testing/mutation-testing.md)
@@ -266,7 +302,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 ---
 
-### Reviewing (42 guidelines)
+### Reviewing (44 guidelines)
 
 
 **accessibility**
@@ -277,6 +313,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Code hygiene: remove the old thing](reviewing/code-quality/code-hygiene.md)
 - [Dependency Injection](reviewing/code-quality/dependency-injection.md)
 - [File paths](reviewing/code-quality/file-paths.md)
+- [Law of Demeter and Tell, Don't Ask](reviewing/code-quality/law-of-demeter.md)
 - [Naming](reviewing/code-quality/naming.md)
 - [No external dependencies in core libraries](reviewing/code-quality/no-external-dependencies-in-core-librari.md)
 - [Scope discipline](reviewing/code-quality/scope-discipline.md)
@@ -293,6 +330,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [RTL layout support](reviewing/internationalization/rtl-support.md)
 
 **networking**
+- [Hyrum's Law: all observable behavior becomes contract](reviewing/networking/observable-behavior-contract.md)
 - [Rate Limiting](reviewing/networking/rate-limiting.md)
 - [Timeouts](reviewing/networking/timeouts.md)
 
@@ -335,17 +373,22 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 ---
 
-### Shipping (9 guidelines)
+### Shipping (14 guidelines)
 
 - [A/B testing](shipping/ab-testing.md)
+- [Ship a privacy manifest and declare required-reason APIs](shipping/apple-privacy-manifest.md)
 - [Small, atomic commits](shipping/atomic-commits.md)
 - [Database backup and recovery](shipping/backup-and-recovery.md)
 - [Bulk operation verification](shipping/bulk-operation-verification.md)
+- [Continuous delivery](shipping/continuous-delivery.md)
 - [Dependency Security](shipping/dependency-security.md)
 - [Feature flags](shipping/feature-flags.md)
+- [Incident response and blameless postmortems](shipping/incident-response.md)
 - [MSIX Packaging](shipping/msix-packaging.md)
 - [Schema evolution and migrations](shipping/schema-evolution.md)
+- [Software supply-chain integrity](shipping/supply-chain-integrity.md)
 - [Transport Security](shipping/transport-security.md)
+- [Trunk-based development](shipping/trunk-based-development.md)
 
 ---
 
@@ -382,6 +425,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 2.5.0 | 2026-06-09 | Mike Fullerton | Add 43 guidelines across waves 2-4 (AI-native, security, backend, API/MCP, observability, delivery, platforms) |
 | 2.4.0 | 2026-06-09 | Mike Fullerton | Add code-hygiene, completeness, value-objects, reuse-before-build (146 unique, 238 total) |
 | 2.3.0 | 2026-04-09 | Mike Fullerton | Recategorize: 20→12 categories, dissolve language/platform, flatten shipping/testing |
 | 2.1.0 | 2026-04-09 | Mike Fullerton | Pass 2: tailor guidelines to use cases, update counts (140 unique, 232 total) |

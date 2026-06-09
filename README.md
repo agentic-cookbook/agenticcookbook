@@ -44,23 +44,23 @@ Code built with the Agentic Developer Cookbook is **trusted**. That means:
 
 The cookbook contains four types of **cookbook artifacts** — standalone markdown files with YAML frontmatter, named requirements, and change history:
 
-### Principles (26 files)
+### Principles (27 files)
 
 *How to think about engineering.* Foundational ideas that guide all technical decisions.
 
-Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition over Inheritance, Separation of Concerns, SRP, Connascence, Design for Deletion, DRY, Explicit over Implicit, Make Illegal States Unrepresentable, Errors as Values, Small Reversible Decisions, Tight Feedback Loops, Manage Complexity Through Boundaries, Least Astonishment, Idempotency, Native Controls, Open Source Preference, Make It Work/Right/Fast, Steel Thread First, Deliberate Prudent Technical Debt, Optimize for Change.
+Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition over Inheritance, Separation of Concerns, SRP, Connascence, Conway's Law, Design for Deletion, DRY, Explicit over Implicit, Make Illegal States Unrepresentable, Errors as Values, Small Reversible Decisions, Tight Feedback Loops, Manage Complexity Through Boundaries, Least Astonishment, Idempotency, Native Controls, Open Source Preference, Make It Work/Right/Fast, Steel Thread First, Deliberate Prudent Technical Debt, Optimize for Change.
 
-### Guidelines (146 unique, 238 with use-case duplicates)
+### Guidelines (188 unique, 281 with use-case duplicates)
 
 *What rules apply when building.* Organized by **use case** — the phase of work where they apply, with [trigger-based filtering](cookbook/introduction/trigger-guide.md) for AI agents:
 
 | Use Case | Guidelines | When to use |
 |----------|-----------|-------------|
-| Planning | 42 | Architecture, data modeling, choosing patterns |
-| Implementing | 113 | Writing new code |
-| Testing | 16 | Writing and structuring tests |
-| Reviewing | 42 | Checking code quality, security, accessibility |
-| Shipping | 9 | Pre-commit, pre-PR, packaging |
+| Planning | 53 | Architecture, data modeling, choosing patterns |
+| Implementing | 136 | Writing new code |
+| Testing | 18 | Writing and structuring tests |
+| Reviewing | 44 | Checking code quality, security, accessibility |
+| Shipping | 14 | Pre-commit, pre-PR, packaging |
 | Cookbook | 16 | Writing cookbook content (recipes, skills, agents) |
 
 Guidelines that apply to multiple use cases are duplicated so each use-case directory is self-contained.
@@ -138,8 +138,8 @@ Repo: [agentic-cookbook/agenticcookbookweb](https://github.com/agentic-cookbook/
 ```
 cookbook/                # cookbook content root
   introduction/          # getting started, conventions, glossary
-  principles/            # 26 engineering principles
-  guidelines/            # 146 use-case-organized guidelines
+  principles/            # 27 engineering principles
+  guidelines/            # 188 use-case-organized guidelines
   ingredients/           # atomic component specs (building blocks)
   recipes/               # compositions of ingredients into features
   compliance/            # 10 compliance categories (81 checks)

@@ -9,6 +9,7 @@ Core engineering principles that guide all cookbook decisions and implementation
 | [separation-of-concerns.md](separation-of-concerns.md) | A module should have one reason to change |
 | [srp.md](srp.md) | A module should be answerable to one and only one actor |
 | [connascence.md](connascence.md) | Coupling has a rankable strength; weaken strong forms, especially as distance grows |
+| [conways-law.md](conways-law.md) | A system's architecture mirrors the communication structure (or agent topology) that builds it |
 | [composition-over-inheritance.md](composition-over-inheritance.md) | Default to composing behaviors from small, focused pieces |
 | [dependency-injection.md](dependency-injection.md) | A component should receive its dependencies from the outside |
 | [explicit-over-implicit.md](explicit-over-implicit.md) | Hidden behavior, magic, and implicit coupling create bugs that take days to find |
