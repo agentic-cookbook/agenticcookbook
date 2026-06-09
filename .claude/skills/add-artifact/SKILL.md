@@ -94,17 +94,7 @@ Documentation updates:
   [OK] No broken cross-references
 ```
 
-## Step 4: Website Sync
-
-Run `/update-website` to sync all cookbook content to the agenticcookbookweb project. This performs a full rsync ensuring the website matches the source.
-
-If agenticcookbookweb is not available locally, `/update-website` will report an error. Print:
-
-```
-[SKIP] Website sync — agenticcookbookweb not found locally
-```
-
-## Step 5: Summary
+## Step 4: Summary
 
 Print:
 
@@ -115,7 +105,6 @@ Type: <type>
 Approved: yes (approve-artifact v<version>)
 Index updates: <n> files updated
 Documentation updates: <n> files updated
-Website sync: <n> files synced
 
 All integration steps complete.
 ```
@@ -124,4 +113,3 @@ All integration steps complete.
 
 - **Approval required** — never proceed past Step 1 if the artifact fails lint.
 - **Accurate counts** — always count actual files, never hardcode or guess artifact counts.
-- **Website sync** — always invoke `/update-website` rather than copying files manually.

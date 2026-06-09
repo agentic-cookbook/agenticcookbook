@@ -41,12 +41,6 @@ Check and update all files that reference or are referenced by the changed artif
 
 ---
 
-## Step 3: Website Sync
-
-Run `/update-website` to sync all cookbook content to the agenticcookbookweb project. This performs a full rsync ensuring the website reflects the current state. If agenticcookbookweb is not available locally, `/update-website` will report an error — this is non-blocking for the artifact addition but SHOULD be resolved before the work is considered fully complete.
-
----
-
 ## Verification
 
 Before marking the work complete, confirm:
@@ -55,7 +49,6 @@ Before marking the work complete, confirm:
 - [ ] `cookbook/index.md` reflects the current set of artifacts — no missing entries, no dead links
 - [ ] No broken `agentic-cookbook://` cross-references exist in any `.md` file
 - [ ] README.md and CLAUDE.md artifact counts are accurate
-- [ ] Changed files are synced to `../agenticcookbookweb/cookbook/`
 
 ---
 
@@ -64,5 +57,4 @@ Before marking the work complete, confirm:
 - Do not skip `/approve-artifact`. Every new or modified artifact MUST be approved.
 - Do not leave `cookbook/index.md` out of sync. Every artifact addition or removal updates the index.
 - Do not ignore cross-references. A renamed or removed artifact with dangling references is a broken cookbook.
-- Do not skip the website sync. Run `/update-website` — the agenticcookbookweb copy MUST match the source after every change.
 - Do not update artifact counts in README.md or CLAUDE.md without verifying the actual count.
