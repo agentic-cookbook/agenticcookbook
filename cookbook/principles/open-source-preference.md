@@ -22,7 +22,7 @@ related:
   - agentic-cookbook://guidelines/planning/code-quality/reuse-before-build
 references: []
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: "2026-06-09"
 ---
 
 # For novel components, prefer proven open-source solutions

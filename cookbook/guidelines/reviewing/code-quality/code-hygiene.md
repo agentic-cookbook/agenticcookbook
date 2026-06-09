@@ -24,8 +24,8 @@ related:
   - agentic-cookbook://guidelines/reviewing/code-quality/scope-discipline
   - agentic-cookbook://principles/deliberate-prudent-debt
 references: []
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-06-09"
 triggers:
   - code-review
   - pre-commit

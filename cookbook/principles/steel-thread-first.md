@@ -24,8 +24,8 @@ related:
   - agentic-cookbook://principles/manage-complexity-through-boundaries
   - agentic-cookbook://principles/make-it-work-make-it-right-make-it-fast
 references: []
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-06-09"
 ---
 
 # Steel thread first

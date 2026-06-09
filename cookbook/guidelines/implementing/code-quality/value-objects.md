@@ -23,8 +23,8 @@ related:
   - agentic-cookbook://principles/immutability-by-default
   - agentic-cookbook://guidelines/implementing/security/input-validation
 references: []
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-06-09"
 triggers:
   - data-modeling
   - new-module

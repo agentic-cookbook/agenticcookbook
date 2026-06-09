@@ -24,8 +24,8 @@ related:
   - agentic-cookbook://principles/fail-fast
   - agentic-cookbook://principles/steel-thread-first
 references: []
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-06-09"
 triggers:
   - code-review
   - pre-pr

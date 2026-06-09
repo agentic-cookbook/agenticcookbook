@@ -23,8 +23,8 @@ related:
   - agentic-cookbook://principles/explicit-over-implicit
   - agentic-cookbook://principles/immutability-by-default
 references: []
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-06-09"
 ---
 
 # Make illegal states unrepresentable

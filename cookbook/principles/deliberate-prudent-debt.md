@@ -22,8 +22,8 @@ related:
   - agentic-cookbook://principles/make-it-work-make-it-right-make-it-fast
   - agentic-cookbook://principles/small-reversible-decisions
 references: []
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-06-09"
 ---
 
 # Deliberate, prudent technical debt

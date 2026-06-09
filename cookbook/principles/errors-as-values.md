@@ -22,8 +22,8 @@ related:
   - agentic-cookbook://principles/explicit-over-implicit
   - agentic-cookbook://principles/parse-dont-validate
 references: []
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-06-09"
 ---
 
 # Errors as values

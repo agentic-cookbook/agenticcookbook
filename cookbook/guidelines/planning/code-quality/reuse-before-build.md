@@ -24,8 +24,8 @@ related:
   - agentic-cookbook://principles/dry
   - agentic-cookbook://guidelines/shipping/dependency-security
 references: []
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: "2026-06-09"
 triggers:
   - new-module
   - dependency-management

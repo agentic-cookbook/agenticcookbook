@@ -22,8 +22,8 @@ related:
   - agentic-cookbook://principles/manage-complexity-through-boundaries
   - agentic-cookbook://principles/explicit-over-implicit
 references: []
-approved-by: ""
-approved-date: ""
+approved-by: "approve-artifact v1.0.0"
+approved-date: 2026-06-09
 ---
 
 # Connascence
