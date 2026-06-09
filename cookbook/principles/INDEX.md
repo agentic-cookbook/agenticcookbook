@@ -8,10 +8,13 @@ Core engineering principles that guide all cookbook decisions and implementation
 | [simplicity.md](simplicity.md) | Simple means no interleaving of concerns; optimize for simplicity over ease |
 | [separation-of-concerns.md](separation-of-concerns.md) | A module should have one reason to change |
 | [srp.md](srp.md) | A module should be answerable to one and only one actor |
+| [connascence.md](connascence.md) | Coupling has a rankable strength; weaken strong forms, especially as distance grows |
 | [composition-over-inheritance.md](composition-over-inheritance.md) | Default to composing behaviors from small, focused pieces |
 | [dependency-injection.md](dependency-injection.md) | A component should receive its dependencies from the outside |
 | [explicit-over-implicit.md](explicit-over-implicit.md) | Hidden behavior, magic, and implicit coupling create bugs that take days to find |
 | [fail-fast.md](fail-fast.md) | Invalid state should be detected and surfaced immediately at the point of origin |
+| [parse-dont-validate.md](parse-dont-validate.md) | Encode invariants in types; parse untrusted input once into a value that proves its validity |
+| [errors-as-values.md](errors-as-values.md) | Represent expected failures as values so failure paths appear in signatures and must be handled |
 | [idempotency.md](idempotency.md) | User actions and system operations should be safe to repeat without duplicate side effects |
 | [immutability-by-default.md](immutability-by-default.md) | Default to immutable values; introduce mutability only when profiling demands it |
 | [manage-complexity-through-boundaries.md](manage-complexity-through-boundaries.md) | Well-defined boundaries between subsystems let each side evolve independently |
@@ -25,3 +28,5 @@ Core engineering principles that guide all cookbook decisions and implementation
 | [make-it-work-make-it-right-make-it-fast.md](make-it-work-make-it-right-make-it-fast.md) | Separate correctness, design quality, and performance into sequential phases |
 | [support-automation.md](support-automation.md) | Applications should expose their capabilities through automation interfaces |
 | [yagni.md](yagni.md) | Build for today's known requirements, not speculative generality |
+| [steel-thread-first.md](steel-thread-first.md) | Build the thinnest end-to-end slice through every boundary before breadth |
+| [deliberate-prudent-debt.md](deliberate-prudent-debt.md) | Trade rigor for speed only as a deliberate, recorded choice with a payback trigger |

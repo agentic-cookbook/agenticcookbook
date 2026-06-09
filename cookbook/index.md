@@ -45,12 +45,17 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 | [Simplicity](principles/simplicity.md) | No interleaving of concerns. Simple beats easy. |
 | [Make It Work, Make It Right, Make It Fast](principles/make-it-work-make-it-right-make-it-fast.md) | Three sequential phases — never skip phase 2. |
 | [YAGNI](principles/yagni.md) | Build for today's known requirements. |
+| [Steel Thread First](principles/steel-thread-first.md) | Build the thinnest end-to-end slice through every boundary before breadth. |
+| [Deliberate, Prudent Technical Debt](principles/deliberate-prudent-debt.md) | Trade rigor for speed only as a deliberate, recorded choice with a payback trigger. |
 | [Fail Fast](principles/fail-fast.md) | Detect invalid state at the point of origin. |
+| [Make Illegal States Unrepresentable](principles/parse-dont-validate.md) | Parse untrusted input once into a type that proves its validity. |
+| [Errors as Values](principles/errors-as-values.md) | Recoverable failures are values in signatures, not hidden throws. |
 | [Dependency Injection](principles/dependency-injection.md) | Receive dependencies from outside. |
 | [Immutability by Default](principles/immutability-by-default.md) | Default to immutable values; mutate only when necessary. |
 | [Composition over Inheritance](principles/composition-over-inheritance.md) | Compose small pieces over deep hierarchies. |
 | [Separation of Concerns](principles/separation-of-concerns.md) | One reason to change per module. |
 | [SRP](principles/srp.md) | A module should be answerable to one and only one actor. |
+| [Connascence](principles/connascence.md) | Coupling has a rankable strength; weaken strong forms, especially as distance grows. |
 | [Design for Deletion](principles/design-for-deletion.md) | Build disposable software, not reusable software. |
 | [DRY](principles/dry.md) | Every piece of knowledge has a single, authoritative representation. |
 | [Explicit over Implicit](principles/explicit-over-implicit.md) | Visible dependencies, clear intent. |
@@ -70,10 +75,10 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 
 | Use Case | Guidelines | When to use |
 |----------|-----------|-------------|
-| [Planning](guidelines/planning/) | 41 | Architecture, data modeling, choosing patterns |
-| [Implementing](guidelines/implementing/) | 111 | Writing new code |
+| [Planning](guidelines/planning/) | 42 | Architecture, data modeling, choosing patterns |
+| [Implementing](guidelines/implementing/) | 113 | Writing new code |
 | [Testing](guidelines/testing/) | 16 | Writing and structuring tests |
-| [Reviewing](guidelines/reviewing/) | 41 | Checking code quality, security, accessibility |
+| [Reviewing](guidelines/reviewing/) | 42 | Checking code quality, security, accessibility |
 | [Shipping](guidelines/shipping/) | 9 | Pre-commit, pre-PR, packaging |
 | [Cookbook](guidelines/cookbook/) | 16 | Writing cookbook content (recipes, skills, agents) |
 

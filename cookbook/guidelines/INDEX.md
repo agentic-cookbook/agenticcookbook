@@ -5,11 +5,11 @@ id: eb0764d5-aeac-40cc-9aa4-d84e4eaa652d
 title: "Guidelines Index"
 domain: agentic-cookbook://guidelines/INDEX
 type: reference
-version: 2.3.0
+version: 2.4.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -29,18 +29,18 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 | Use Case | Guidelines | When to use |
 |----------|-----------|-------------|
-| [Planning](#planning-41-guidelines) | 41 | Architecture, data modeling, choosing patterns |
-| [Implementing](#implementing-111-guidelines) | 111 | Writing new code |
+| [Planning](#planning-42-guidelines) | 42 | Architecture, data modeling, choosing patterns |
+| [Implementing](#implementing-113-guidelines) | 113 | Writing new code |
 | [Testing](#testing-16-guidelines) | 16 | Writing and structuring tests |
-| [Reviewing](#reviewing-41-guidelines) | 41 | Checking code quality, security, accessibility |
+| [Reviewing](#reviewing-42-guidelines) | 42 | Checking code quality, security, accessibility |
 | [Shipping](#shipping-9-guidelines) | 9 | Pre-commit, pre-PR, packaging |
 | [Cookbook](#cookbook-16-guidelines) | 16 | Writing cookbook content (recipes, skills, agents) |
 
-142 unique guidelines, 234 total (with duplicates across use cases).
+146 unique guidelines, 238 total (with duplicates across use cases).
 
 ---
 
-### Planning (41 guidelines)
+### Planning (42 guidelines)
 
 
 **code-quality**
@@ -56,6 +56,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Purpose Classification](planning/code-quality/purpose-classification.md)
 - [Runtime Conditions](planning/code-quality/runtime-conditions.md)
 - [Scope discipline](planning/code-quality/scope-discipline.md)
+- [Search for Existing Solutions Before Building](planning/code-quality/reuse-before-build.md)
 - [System Dependencies](planning/code-quality/system-dependencies.md)
 - [System Interactions](planning/code-quality/system-interactions.md)
 
@@ -100,7 +101,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 ---
 
-### Implementing (111 guidelines)
+### Implementing (113 guidelines)
 
 
 **accessibility**
@@ -110,6 +111,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 **code-quality**
 - [Architecture](implementing/code-quality/architecture.md)
+- [Completeness: finish the work, don't defer by default](implementing/code-quality/completeness.md)
 - [Small, atomic commits](implementing/code-quality/atomic-commits.md)
 - [Dependency Injection](implementing/code-quality/dependency-injection.md)
 - [File paths](implementing/code-quality/file-paths.md)
@@ -121,6 +123,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [Shell scripts](implementing/code-quality/shell-scripts.md)
 - [Type hints](implementing/code-quality/type-hints.md)
 - [Use roadmap_lib](implementing/code-quality/use-roadmaplib.md)
+- [Value objects over primitive obsession](implementing/code-quality/value-objects.md)
 - [YAML frontmatter](implementing/code-quality/yaml-frontmatter.md)
 
 **concurrency**
@@ -263,7 +266,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 ---
 
-### Reviewing (41 guidelines)
+### Reviewing (42 guidelines)
 
 
 **accessibility**
@@ -271,6 +274,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 **code-quality**
 - [Bulk operation verification](reviewing/code-quality/bulk-operation-verification.md)
+- [Code hygiene: remove the old thing](reviewing/code-quality/code-hygiene.md)
 - [Dependency Injection](reviewing/code-quality/dependency-injection.md)
 - [File paths](reviewing/code-quality/file-paths.md)
 - [Naming](reviewing/code-quality/naming.md)
@@ -378,6 +382,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 2.4.0 | 2026-06-09 | Mike Fullerton | Add code-hygiene, completeness, value-objects, reuse-before-build (146 unique, 238 total) |
 | 2.3.0 | 2026-04-09 | Mike Fullerton | Recategorize: 20→12 categories, dissolve language/platform, flatten shipping/testing |
 | 2.1.0 | 2026-04-09 | Mike Fullerton | Pass 2: tailor guidelines to use cases, update counts (140 unique, 232 total) |
 | 2.0.0 | 2026-04-09 | Mike Fullerton | Reorganize by use case (planning, implementing, testing, reviewing, shipping, cookbook) |
