@@ -39,7 +39,7 @@ Components MUST recover gracefully from transient errors without user interventi
 **Applies when:** recipe performs network calls, file I/O, or other operations subject to transient failure.
 
 **Guidelines:**
-- [Retry and Resilience](agentic-cookbook://guidelines/networking/retry-and-resilience)
+- [Retry and Resilience](agentic-cookbook://guidelines/implementing/networking/retry-and-resilience)
 
 ---
 
@@ -50,7 +50,7 @@ Components MUST degrade gracefully when dependencies are unavailable rather than
 **Applies when:** recipe depends on external services, APIs, or optional subsystems.
 
 **Guidelines:**
-- [Offline and Connectivity](agentic-cookbook://guidelines/networking/offline-and-connectivity)
+- [Offline and Connectivity](agentic-cookbook://guidelines/implementing/networking/offline-and-connectivity)
 
 ---
 
@@ -94,7 +94,7 @@ Operations that time out MUST leave the system in a consistent state.
 **Applies when:** recipe performs operations with configured or implicit timeouts.
 
 **Guidelines:**
-- [Timeouts](agentic-cookbook://guidelines/networking/timeouts)
+- [Timeouts](agentic-cookbook://guidelines/implementing/networking/timeouts)
 
 ---
 
@@ -116,7 +116,7 @@ Long-running components SHOULD emit health metrics suitable for monitoring.
 **Applies when:** recipe runs as a long-lived process or background service.
 
 **Guidelines:**
-- [Logging](agentic-cookbook://guidelines/observability/logging)
+- [Logging](agentic-cookbook://guidelines/implementing/observability/logging)
 
 ## Change History
 

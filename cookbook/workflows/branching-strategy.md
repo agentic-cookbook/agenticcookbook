@@ -17,7 +17,7 @@ tags:
   - branching-strategy
 depends-on: []
 related: 
-  - agentic-cookbook://guidelines/code-quality/atomic-commits
+  - agentic-cookbook://guidelines/implementing/code-quality/atomic-commits
 references: []
 ---
 
@@ -142,9 +142,9 @@ This workflow references the shared [guideline-checklist.md](guideline-checklist
 
 | Phase | Checklist Items | Notes |
 |-------|----------------|-------|
-| Phase 2 | agentic-cookbook://guidelines/code-quality/atomic-commits (atomic commits) | Every commit is one logical change |
+| Phase 2 | agentic-cookbook://guidelines/implementing/code-quality/atomic-commits (atomic commits) | Every commit is one logical change |
 | Phase 3 | All opted-in items from WF-2 | Review verifies compliance |
-| Phase 4 | agentic-cookbook://guidelines/code-quality/atomic-commits (atomic commits) | Squash merge produces one clean commit on main |
+| Phase 4 | agentic-cookbook://guidelines/implementing/code-quality/atomic-commits (atomic commits) | Squash merge produces one clean commit on main |
 
 ## Conformance Test Vectors
 

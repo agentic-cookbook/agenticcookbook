@@ -44,7 +44,7 @@ A recipe does not exist in isolation. The cookbook defines platform-wide guideli
 ### Referencing Applicable Guidelines
 
 - When a cookbook guideline directly applies to the recipe's domain, the recipe SHOULD cite the guideline in the `depends-on` or `references` frontmatter field.
-- When a requirement in the recipe is derived from or constrained by a guideline, the requirement SHOULD include an inline reference (e.g., `per agentic-cookbook://guidelines/accessibility/touch-targets`).
+- When a requirement in the recipe is derived from or constrained by a guideline, the requirement SHOULD include an inline reference (e.g., `per agentic-cookbook://guidelines/implementing/ui/touch-click-targets`).
 - Authors MUST NOT silently incorporate guideline content without attribution. Duplicating guideline text verbatim into a recipe without reference creates maintenance drift when the guideline changes.
 
 ### Security-Relevant Recipes

@@ -39,7 +39,7 @@ UI MUST follow the platform's native design language (HIG, Material, Fluent).
 **Applies when:** a component renders user interface on a specific platform.
 
 **Guidelines:**
-- [Platform Design Languages](agentic-cookbook://guidelines/ui/platform-design-languages)
+- [Platform Design Languages](agentic-cookbook://guidelines/implementing/ui/platform-design-languages)
 
 ---
 
@@ -61,7 +61,7 @@ Interactive elements MUST meet platform-specific minimum touch target sizes.
 **Applies when:** a component renders tappable or clickable elements on mobile or touch-enabled platforms.
 
 **Guidelines:**
-- [Touch and Click Targets](agentic-cookbook://guidelines/ui/touch-click-targets)
+- [Touch and Click Targets](agentic-cookbook://guidelines/implementing/ui/touch-click-targets)
 
 ---
 
@@ -72,7 +72,7 @@ Features with addressable content MUST support platform deep linking conventions
 **Applies when:** a component presents content that should be navigable via external links.
 
 **Guidelines:**
-- [Deep Linking](agentic-cookbook://guidelines/platform/deep-linking)
+- [Deep Linking](agentic-cookbook://guidelines/implementing/platform-integration/deep-linking)
 
 ---
 
@@ -107,8 +107,8 @@ Components MUST support platform theming (dark mode, high contrast, accent color
 **Applies when:** a component renders UI that should adapt to system appearance settings.
 
 **Guidelines:**
-- [Theming](agentic-cookbook://guidelines/ui/theming)
-- [Color](agentic-cookbook://guidelines/ui/color)
+- [Theming](agentic-cookbook://guidelines/implementing/ui/theming)
+- [Color](agentic-cookbook://guidelines/implementing/ui/color)
 
 ## Change History
 

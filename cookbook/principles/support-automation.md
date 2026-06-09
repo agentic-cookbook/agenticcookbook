@@ -19,7 +19,7 @@ tags:
   - accessibility
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/platform/shortcuts-and-automation
+  - agentic-cookbook://guidelines/implementing/platform-integration/shortcuts-and-automation
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"

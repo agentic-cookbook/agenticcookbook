@@ -19,7 +19,7 @@ tags:
   - verification
   - code-quality
 depends-on:
-  - agentic-cookbook://guidelines/code-quality/atomic-commits
+  - agentic-cookbook://guidelines/implementing/code-quality/atomic-commits
 related:
   - agentic-cookbook://guidelines/testing/post-generation-verification
 references: []

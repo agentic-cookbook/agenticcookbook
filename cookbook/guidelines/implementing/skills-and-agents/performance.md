@@ -22,7 +22,7 @@ tags:
   - shell-scripts
   - model-selection
 depends-on:
-  - agentic-cookbook://guidelines/skills-and-agents/authoring-skills-and-rules
+  - agentic-cookbook://guidelines/implementing/skills-and-agents/authoring-skills-and-rules
 related:
   - agentic-cookbook://principles/simplicity
   - agentic-cookbook://principles/yagni

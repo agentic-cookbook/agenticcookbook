@@ -22,8 +22,8 @@ tags:
   - optimization
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/skills-and-agents/authoring-skills-and-rules
-  - agentic-cookbook://guidelines/skills-and-agents/rule-structure-reference
+  - agentic-cookbook://guidelines/cookbook/skills-and-agents/authoring-skills-and-rules
+  - agentic-cookbook://guidelines/cookbook/skills-and-agents/rule-structure-reference
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"

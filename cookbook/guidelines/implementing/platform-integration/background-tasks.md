@@ -25,8 +25,8 @@ tags:
   - sync
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/platform/notifications
-  - agentic-cookbook://guidelines/networking/offline-and-connectivity
+  - agentic-cookbook://guidelines/implementing/platform-integration/notifications
+  - agentic-cookbook://guidelines/implementing/networking/offline-and-connectivity
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"

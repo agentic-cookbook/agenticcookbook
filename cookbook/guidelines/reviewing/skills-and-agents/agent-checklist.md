@@ -21,8 +21,8 @@ tags:
   - quality
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/skills-and-agents/authoring-skills-and-rules
-  - agentic-cookbook://guidelines/skills-and-agents/agent-structure-reference
+  - agentic-cookbook://guidelines/implementing/skills-and-agents/authoring-skills-and-rules
+  - agentic-cookbook://guidelines/implementing/skills-and-agents/agent-structure-reference
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"

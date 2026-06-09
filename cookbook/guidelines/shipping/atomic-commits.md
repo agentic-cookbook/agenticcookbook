@@ -19,7 +19,7 @@ tags:
   - code-quality
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/code-quality/scope-discipline
+  - agentic-cookbook://guidelines/implementing/code-quality/scope-discipline
   - agentic-cookbook://guidelines/testing/post-generation-verification
 references: []
 approved-by: "approve-artifact v1.0.0"

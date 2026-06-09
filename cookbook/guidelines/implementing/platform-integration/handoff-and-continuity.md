@@ -25,8 +25,8 @@ tags:
   - cross-device
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/platform/deep-linking
-  - agentic-cookbook://guidelines/platform/search-integration
+  - agentic-cookbook://guidelines/implementing/platform-integration/deep-linking
+  - agentic-cookbook://guidelines/implementing/platform-integration/search-integration
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"

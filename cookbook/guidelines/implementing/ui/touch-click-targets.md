@@ -24,7 +24,7 @@ tags:
   - ui
 depends-on: []
 related: 
-  - agentic-cookbook://guidelines/accessibility/accessibility
+  - agentic-cookbook://guidelines/implementing/accessibility/accessibility
 references: 
   - https://developer.apple.com/design/human-interface-guidelines/accessibility#User-interaction
   - https://learn.microsoft.com/en-us/windows/apps/design/input/guidelines-for-targeting
@@ -57,7 +57,7 @@ HIG first — each prescribes its own minimum:
 - Inline text links in paragraphs are exempt from size minimums but should have sufficient
   line height for comfortable tapping
 
-See agentic-cookbook://guidelines/accessibility/accessibility for full accessibility requirements.
+See agentic-cookbook://guidelines/implementing/accessibility/accessibility for full accessibility requirements.
 
 References:
 - [Apple HIG: Accessibility — User Interaction](https://developer.apple.com/design/human-interface-guidelines/accessibility#User-interaction)

@@ -39,7 +39,7 @@ Components MUST collect only the minimum data necessary for their functionality.
 **Applies when:** a component requests, collects, or stores user data.
 
 **Guidelines:**
-- [Privacy](agentic-cookbook://guidelines/security/privacy)
+- [Privacy](agentic-cookbook://guidelines/implementing/security/privacy)
 
 ---
 
@@ -50,7 +50,7 @@ Personal data collection MUST be preceded by informed user consent.
 **Applies when:** a component collects personal or identifiable information from the user.
 
 **Guidelines:**
-- [Privacy](agentic-cookbook://guidelines/security/privacy)
+- [Privacy](agentic-cookbook://guidelines/implementing/security/privacy)
 
 ---
 
@@ -61,8 +61,8 @@ Personal and sensitive data MUST be stored using platform-specific secure storag
 **Applies when:** a component persists personal or sensitive data locally or remotely.
 
 **Guidelines:**
-- [Secure Storage](agentic-cookbook://guidelines/security/secure-storage)
-- [Sensitive Data](agentic-cookbook://guidelines/security/sensitive-data)
+- [Secure Storage](agentic-cookbook://guidelines/implementing/security/secure-storage)
+- [Sensitive Data](agentic-cookbook://guidelines/implementing/security/sensitive-data)
 
 ---
 
@@ -73,8 +73,8 @@ Personally identifiable information MUST NOT appear in log output at any level.
 **Applies when:** a component writes log output and has access to personal data.
 
 **Guidelines:**
-- [Sensitive Data](agentic-cookbook://guidelines/security/sensitive-data)
-- [Logging](agentic-cookbook://guidelines/observability/logging)
+- [Sensitive Data](agentic-cookbook://guidelines/implementing/security/sensitive-data)
+- [Logging](agentic-cookbook://guidelines/implementing/observability/logging)
 
 ---
 
@@ -85,7 +85,7 @@ Components handling personal data MUST define retention duration and deletion be
 **Applies when:** a component stores personal data beyond the current session.
 
 **Guidelines:**
-- [Privacy](agentic-cookbook://guidelines/security/privacy)
+- [Privacy](agentic-cookbook://guidelines/implementing/security/privacy)
 
 ---
 
@@ -96,7 +96,7 @@ Users SHOULD be able to export their personal data in a standard format.
 **Applies when:** a component stores significant amounts of user-generated or personal data.
 
 **Guidelines:**
-- [Privacy](agentic-cookbook://guidelines/security/privacy)
+- [Privacy](agentic-cookbook://guidelines/implementing/security/privacy)
 
 ---
 
@@ -107,7 +107,7 @@ Data sharing with third parties MUST be disclosed and require user consent.
 **Applies when:** a component transmits user data to external services or analytics providers.
 
 **Guidelines:**
-- [Privacy](agentic-cookbook://guidelines/security/privacy)
+- [Privacy](agentic-cookbook://guidelines/implementing/security/privacy)
 
 ---
 
@@ -118,8 +118,8 @@ Sensitive data stored locally MUST be encrypted at rest.
 **Applies when:** a component persists sensitive data to the local filesystem or database.
 
 **Guidelines:**
-- [Sensitive Data](agentic-cookbook://guidelines/security/sensitive-data)
-- [Secure Storage](agentic-cookbook://guidelines/security/secure-storage)
+- [Sensitive Data](agentic-cookbook://guidelines/implementing/security/sensitive-data)
+- [Secure Storage](agentic-cookbook://guidelines/implementing/security/secure-storage)
 
 ## Change History
 

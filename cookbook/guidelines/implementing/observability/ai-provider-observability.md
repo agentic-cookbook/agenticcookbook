@@ -20,9 +20,9 @@ tags:
   - llm
   - logging
 depends-on:
-  - agentic-cookbook://guidelines/observability/logging
+  - agentic-cookbook://guidelines/implementing/observability/logging
 related:
-  - agentic-cookbook://guidelines/networking/ai-cost-management
+  - agentic-cookbook://guidelines/implementing/networking/ai-cost-management
 references:
   - https://opentelemetry.io/docs/
   - https://docs.anthropic.com/en/api/

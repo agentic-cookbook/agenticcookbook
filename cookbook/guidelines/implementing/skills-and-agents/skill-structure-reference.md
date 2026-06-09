@@ -21,8 +21,8 @@ tags:
   - frontmatter
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/skills-and-agents/authoring-skills-and-rules
-  - agentic-cookbook://guidelines/skills-and-agents/skill-checklist
+  - agentic-cookbook://guidelines/implementing/skills-and-agents/authoring-skills-and-rules
+  - agentic-cookbook://guidelines/reviewing/skills-and-agents/skill-checklist
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"

@@ -20,7 +20,7 @@ tags:
   - ui
 depends-on: []
 related: 
-  - agentic-cookbook://guidelines/accessibility/accessibility
+  - agentic-cookbook://guidelines/implementing/accessibility/accessibility
 references: 
   - https://developer.apple.com/design/human-interface-guidelines/motion
   - https://learn.microsoft.com/en-us/windows/apps/design/motion/timing-and-easing
@@ -50,7 +50,7 @@ feedback. Never animate for decoration.
 
 - Under 100ms feels instant. Over 500ms feels sluggish.
 - Platform-native spring/easing curves SHOULD be preferred over linear or custom beziers
-- **Reduced-motion preferences MUST be respected** — see agentic-cookbook://guidelines/accessibility/accessibility and each platform
+- **Reduced-motion preferences MUST be respected** — see agentic-cookbook://guidelines/implementing/accessibility/accessibility and each platform
   file's accessibility settings table. When reduced motion is enabled, replace animations
   with instant state changes or simple cross-fades.
 - Motion SHOULD NOT cover large distances, loop continuously, or flash

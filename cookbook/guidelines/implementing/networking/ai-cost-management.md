@@ -20,10 +20,10 @@ tags:
   - caching
   - rate-limiting
 depends-on:
-  - agentic-cookbook://guidelines/networking/caching
-  - agentic-cookbook://guidelines/networking/rate-limiting
+  - agentic-cookbook://guidelines/implementing/networking/caching
+  - agentic-cookbook://guidelines/implementing/networking/rate-limiting
 related:
-  - agentic-cookbook://guidelines/observability/ai-provider-observability
+  - agentic-cookbook://guidelines/implementing/observability/ai-provider-observability
 references: []
 approved-by: ""
 approved-date: ""

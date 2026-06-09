@@ -39,7 +39,7 @@ User-generated content MUST be moderated before public display.
 **Applies when:** recipe accepts and displays content submitted by users.
 
 **Guidelines:**
-- [Input Validation](agentic-cookbook://guidelines/security/input-validation)
+- [Input Validation](agentic-cookbook://guidelines/implementing/security/input-validation)
 
 ---
 
@@ -58,8 +58,8 @@ User-facing input surfaces MUST implement rate limiting and abuse prevention mea
 **Applies when:** recipe exposes input fields, forms, or APIs to end users.
 
 **Guidelines:**
-- [Rate Limiting](agentic-cookbook://guidelines/networking/rate-limiting)
-- [Input Validation](agentic-cookbook://guidelines/security/input-validation)
+- [Rate Limiting](agentic-cookbook://guidelines/implementing/networking/rate-limiting)
+- [Input Validation](agentic-cookbook://guidelines/implementing/security/input-validation)
 
 ---
 
@@ -70,7 +70,7 @@ Content pipelines MUST filter harmful, illegal, or policy-violating material.
 **Applies when:** recipe processes, transforms, or displays content from external or user sources.
 
 **Guidelines:**
-- [Input Validation](agentic-cookbook://guidelines/security/input-validation)
+- [Input Validation](agentic-cookbook://guidelines/implementing/security/input-validation)
 
 ---
 

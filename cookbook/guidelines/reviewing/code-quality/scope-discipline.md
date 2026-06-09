@@ -20,7 +20,7 @@ tags:
   - discipline
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/code-quality/atomic-commits
+  - agentic-cookbook://guidelines/implementing/code-quality/atomic-commits
   - agentic-cookbook://principles/yagni
   - agentic-cookbook://principles/simplicity
 references: []

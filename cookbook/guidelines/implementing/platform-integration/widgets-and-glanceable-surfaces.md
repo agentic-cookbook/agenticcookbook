@@ -25,7 +25,7 @@ tags:
 depends-on:
   - agentic-cookbook://principles/support-automation
 related:
-  - agentic-cookbook://guidelines/platform/notifications
+  - agentic-cookbook://guidelines/implementing/platform-integration/notifications
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"

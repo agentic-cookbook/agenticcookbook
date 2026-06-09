@@ -22,7 +22,7 @@ tags:
   - ui
 depends-on: []
 related: 
-  - agentic-cookbook://guidelines/accessibility/accessibility
+  - agentic-cookbook://guidelines/reviewing/accessibility/accessibility
 references: 
   - https://developer.apple.com/design/human-interface-guidelines/color
   - https://learn.microsoft.com/en-us/windows/apps/design/style/color
@@ -46,7 +46,7 @@ Use color with intention — never as the sole means of conveying information.
   success/warning/error. Avoid rainbow UIs.
 - **Not color alone** — color MUST be paired with a secondary indicator (icon, shape, text, pattern)
   for state changes, errors, and status.
-- **Contrast minimums** (WCAG AA, per agentic-cookbook://guidelines/accessibility/accessibility):
+- **Contrast minimums** (WCAG AA, per agentic-cookbook://guidelines/reviewing/accessibility/accessibility):
 
 | Element | AA Minimum | AAA Enhanced |
 |---------|-----------|-------------|

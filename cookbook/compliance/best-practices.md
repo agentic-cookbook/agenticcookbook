@@ -62,7 +62,7 @@ Changes MUST be committed atomically — one logical change per commit.
 **Applies when:** recipe describes a development workflow or commit strategy.
 
 **Guidelines:**
-- [Atomic Commits](agentic-cookbook://guidelines/code-quality/atomic-commits)
+- [Atomic Commits](agentic-cookbook://guidelines/implementing/code-quality/atomic-commits)
 
 ---
 
@@ -73,7 +73,7 @@ Code MUST pass configured linting rules without suppression.
 **Applies when:** recipe produces source code in any language.
 
 **Guidelines:**
-- [Linting](agentic-cookbook://guidelines/code-quality/linting)
+- [Linting](agentic-cookbook://guidelines/implementing/code-quality/linting)
 
 ---
 
