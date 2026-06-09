@@ -1,7 +1,7 @@
 ---
 id: 9D54950C-FED8-40DA-8F68-B01508884D6C
 title: "Platform Compliance"
-domain: agentic-cookbook://compliance/platform-compliance
+domain: agenticdevelopercookbook://compliance/platform-compliance
 type: compliance
 version: 1.0.1
 status: draft
@@ -16,9 +16,9 @@ platforms: []
 tags: [compliance, platform]
 depends-on: []
 related:
-  - agentic-cookbook://compliance/accessibility
-  - agentic-cookbook://compliance/performance
-  - agentic-cookbook://compliance/user-safety
+  - agenticdevelopercookbook://compliance/accessibility
+  - agenticdevelopercookbook://compliance/performance
+  - agenticdevelopercookbook://compliance/user-safety
 references: []
 ---
 
@@ -39,7 +39,7 @@ UI MUST follow the platform's native design language (HIG, Material, Fluent).
 **Applies when:** a component renders user interface on a specific platform.
 
 **Guidelines:**
-- [Platform Design Languages](agentic-cookbook://guidelines/implementing/ui/platform-design-languages)
+- [Platform Design Languages](agenticdevelopercookbook://guidelines/implementing/ui/platform-design-languages)
 
 ---
 
@@ -50,7 +50,7 @@ Standard UI patterns SHOULD use native platform controls before custom implement
 **Applies when:** a component implements common UI patterns (lists, navigation, dialogs, pickers).
 
 **Guidelines:**
-- [Native Controls](agentic-cookbook://principles/native-controls)
+- [Native Controls](agenticdevelopercookbook://principles/native-controls)
 
 ---
 
@@ -61,7 +61,7 @@ Interactive elements MUST meet platform-specific minimum touch target sizes.
 **Applies when:** a component renders tappable or clickable elements on mobile or touch-enabled platforms.
 
 **Guidelines:**
-- [Touch and Click Targets](agentic-cookbook://guidelines/implementing/ui/touch-click-targets)
+- [Touch and Click Targets](agenticdevelopercookbook://guidelines/implementing/ui/touch-click-targets)
 
 ---
 
@@ -72,7 +72,7 @@ Features with addressable content MUST support platform deep linking conventions
 **Applies when:** a component presents content that should be navigable via external links.
 
 **Guidelines:**
-- [Deep Linking](agentic-cookbook://guidelines/implementing/platform-integration/deep-linking)
+- [Deep Linking](agenticdevelopercookbook://guidelines/implementing/platform-integration/deep-linking)
 
 ---
 
@@ -107,8 +107,8 @@ Components MUST support platform theming (dark mode, high contrast, accent color
 **Applies when:** a component renders UI that should adapt to system appearance settings.
 
 **Guidelines:**
-- [Theming](agentic-cookbook://guidelines/implementing/ui/theming)
-- [Color](agentic-cookbook://guidelines/implementing/ui/color)
+- [Theming](agenticdevelopercookbook://guidelines/implementing/ui/theming)
+- [Color](agenticdevelopercookbook://guidelines/implementing/ui/color)
 
 ## Change History
 

@@ -1,7 +1,7 @@
 ---
 id: 4a2898cf-34ed-4153-8d06-c795f80c19cd
 title: "Terminal Pane"
-domain: agentic-cookbook://ingredients/ui/panels/terminal-pane
+domain: agenticdevelopercookbook://ingredients/ui/panels/terminal-pane
 type: ingredient
 version: 1.0.0
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: f35cf9c3-7488-4192-93fb-12d95f7244e5
 title: "Choose a rendering strategy per route, minimize client JS"
-domain: agentic-cookbook://guidelines/planning/ui/rendering-strategy
+domain: agenticdevelopercookbook://guidelines/planning/ui/rendering-strategy
 type: guideline
 version: 1.0.0
 status: accepted
@@ -21,9 +21,9 @@ tags:
   - architecture
 depends-on: []
 related:
-  - agentic-cookbook://principles/simplicity
-  - agentic-cookbook://principles/meta-principle-optimize-for-change
-  - agentic-cookbook://guidelines/implementing/ui/core-web-vitals
+  - agenticdevelopercookbook://principles/simplicity
+  - agenticdevelopercookbook://principles/meta-principle-optimize-for-change
+  - agenticdevelopercookbook://guidelines/implementing/ui/core-web-vitals
 references:
   - https://react.dev/reference/rsc/server-components
 approved-by: "approve-artifact v1.0.0"

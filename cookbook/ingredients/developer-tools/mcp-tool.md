@@ -1,7 +1,7 @@
 ---
 id: 820b832f-6003-4fc1-b4b4-35cd2d57c2e5
 title: "MCP tool"
-domain: agentic-cookbook://ingredients/developer-tools/mcp-tool
+domain: agenticdevelopercookbook://ingredients/developer-tools/mcp-tool
 type: ingredient
 version: 1.0.0
 status: accepted
@@ -21,8 +21,8 @@ tags:
   - ai
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/networking/mcp-server-design
-  - agentic-cookbook://guidelines/implementing/security/mcp-server-security
+  - agenticdevelopercookbook://guidelines/implementing/networking/mcp-server-design
+  - agenticdevelopercookbook://guidelines/implementing/security/mcp-server-security
 references:
   - https://modelcontextprotocol.io/
 approved-by: "approve-artifact v1.0.0"
@@ -220,9 +220,9 @@ _None yet._
 
 | Check | Status | Category |
 |-------|--------|----------|
-| [validate-args-against-schema](agentic-cookbook://guidelines/implementing/security/mcp-input-validation) | partial | Security |
-| [tools-untrusted-input](agentic-cookbook://guidelines/implementing/security/mcp-server-security) | partial | Security |
-| [structured-output-schema](agentic-cookbook://guidelines/implementing/networking/mcp-server-design) | partial | Best Practices |
+| [validate-args-against-schema](agenticdevelopercookbook://guidelines/implementing/security/mcp-input-validation) | partial | Security |
+| [tools-untrusted-input](agenticdevelopercookbook://guidelines/implementing/security/mcp-server-security) | partial | Security |
+| [structured-output-schema](agenticdevelopercookbook://guidelines/implementing/networking/mcp-server-design) | partial | Best Practices |
 
 > Status is `partial`: this ingredient specifies the requirements that satisfy these checks, but compliance is verified per concrete tool implementation, not at the ingredient level.
 

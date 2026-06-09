@@ -2,7 +2,7 @@
 
 id: e8c8e3b9-64a0-4fb0-a27b-f3b733dc10c7
 title: "System Interactions"
-domain: agentic-cookbook://guidelines/planning/code-quality/system-interactions
+domain: agenticdevelopercookbook://guidelines/planning/code-quality/system-interactions
 type: guideline
 version: 1.0.3
 status: accepted

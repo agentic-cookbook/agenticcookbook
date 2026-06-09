@@ -1,7 +1,7 @@
 ---
 id: 256a827e-436e-4cde-895e-a56b9783edf2
 title: "DRY"
-domain: agentic-cookbook://principles/dry
+domain: agenticdevelopercookbook://principles/dry
 type: principle
 version: 1.0.0
 status: accepted

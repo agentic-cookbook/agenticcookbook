@@ -1,7 +1,7 @@
 ---
 id: 6f6ccc46-33fb-44ad-8dce-d65581d8dfe0
 title: "Kubernetes workloads"
-domain: agentic-cookbook://guidelines/implementing/infrastructure/kubernetes-workloads
+domain: agenticdevelopercookbook://guidelines/implementing/infrastructure/kubernetes-workloads
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - deployment
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/infrastructure/kubernetes-configuration
-  - agentic-cookbook://guidelines/planning/infrastructure/immutable-infrastructure
+  - agenticdevelopercookbook://guidelines/implementing/infrastructure/kubernetes-configuration
+  - agenticdevelopercookbook://guidelines/planning/infrastructure/immutable-infrastructure
 references:
   - https://kubernetes.io/docs/concepts/configuration/overview/
 approved-by: "approve-artifact v1.0.0"

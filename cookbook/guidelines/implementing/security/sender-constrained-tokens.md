@@ -1,7 +1,7 @@
 ---
 id: a8e6159f-0138-438c-9402-06fb346a6a09
 title: "Sender-constrained access tokens"
-domain: agentic-cookbook://guidelines/implementing/security/sender-constrained-tokens
+domain: agenticdevelopercookbook://guidelines/implementing/security/sender-constrained-tokens
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - tokens
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/security/token-handling
-  - agentic-cookbook://guidelines/implementing/security/authentication
+  - agenticdevelopercookbook://guidelines/implementing/security/token-handling
+  - agenticdevelopercookbook://guidelines/implementing/security/authentication
 references:
   - https://www.rfc-editor.org/rfc/rfc9700.html
 approved-by: "approve-artifact v1.0.0"

@@ -1,7 +1,7 @@
 ---
 id: caffd78b-1ba6-42a3-8805-1d224260588b
 title: "Conway's Law"
-domain: agentic-cookbook://principles/conways-law
+domain: agenticdevelopercookbook://principles/conways-law
 type: principle
 version: 1.0.0
 status: accepted
@@ -19,9 +19,9 @@ tags:
   - organization
 depends-on: []
 related:
-  - agentic-cookbook://principles/manage-complexity-through-boundaries
-  - agentic-cookbook://principles/separation-of-concerns
-  - agentic-cookbook://principles/meta-principle-optimize-for-change
+  - agenticdevelopercookbook://principles/manage-complexity-through-boundaries
+  - agenticdevelopercookbook://principles/separation-of-concerns
+  - agenticdevelopercookbook://principles/meta-principle-optimize-for-change
 references:
   - https://martinfowler.com/bliki/ConwaysLaw.html
 approved-by: "approve-artifact v1.0.0"
@@ -38,7 +38,7 @@ For a multi-agent dev system this is direct: how you partition work across speci
 - **Treat the inverse maneuver as a lens, not a deterministic law.** Aligning boundaries makes a target architecture *easier*; it does not guarantee it. Verify the emergent structure against the intended design rather than assuming alignment.
 - **Assign agents along the seams you want in the code.** Give each module or bounded context to one agent (or one tightly-coordinating cluster). Splitting a single coherent module across loosely-coupled agents tends to fracture it; forcing unrelated concerns onto one agent tends to fuse them.
 - **Watch for high-bandwidth handoffs.** Where two agents must exchange large, frequently-changing context to make progress, expect a tight coupling to appear at that boundary in the output. If that coupling is undesirable, restructure the assignment, not just the prompt.
-- **Re-partition when the architecture should change.** Because boundaries are sticky, a desired architectural shift usually requires reshaping who builds what — see `agentic-cookbook://principles/meta-principle-optimize-for-change`.
+- **Re-partition when the architecture should change.** Because boundaries are sticky, a desired architectural shift usually requires reshaping who builds what — see `agenticdevelopercookbook://principles/meta-principle-optimize-for-change`.
 
 ## Change History
 

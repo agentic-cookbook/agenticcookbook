@@ -2,7 +2,7 @@
 
 id: 433b4c9d-fe44-4fec-af0d-83bba9c51c6f
 title: "Background tasks"
-domain: agentic-cookbook://guidelines/implementing/platform-integration/background-tasks
+domain: agenticdevelopercookbook://guidelines/implementing/platform-integration/background-tasks
 type: guideline
 version: 1.0.3
 status: accepted
@@ -25,8 +25,8 @@ tags:
   - sync
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/platform-integration/notifications
-  - agentic-cookbook://guidelines/implementing/networking/offline-and-connectivity
+  - agenticdevelopercookbook://guidelines/implementing/platform-integration/notifications
+  - agenticdevelopercookbook://guidelines/implementing/networking/offline-and-connectivity
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

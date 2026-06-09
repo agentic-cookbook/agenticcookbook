@@ -1,7 +1,7 @@
 ---
 id: 355028de-c329-48dd-b609-41aba903e01c
 title: "MCP tool input validation"
-domain: agentic-cookbook://guidelines/implementing/security/mcp-input-validation
+domain: agenticdevelopercookbook://guidelines/implementing/security/mcp-input-validation
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - validation
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/networking/mcp-server-design
-  - agentic-cookbook://guidelines/implementing/security/mcp-server-security
+  - agenticdevelopercookbook://guidelines/implementing/networking/mcp-server-design
+  - agenticdevelopercookbook://guidelines/implementing/security/mcp-server-security
 references:
   - https://modelcontextprotocol.io/
 approved-by: "approve-artifact v1.0.0"

@@ -2,7 +2,7 @@
 
 id: fad53801-59d5-4471-855a-4dc689448d48
 title: "Authentication"
-domain: agentic-cookbook://guidelines/planning/security/authentication
+domain: agenticdevelopercookbook://guidelines/planning/security/authentication
 type: guideline
 version: 1.0.2
 status: accepted

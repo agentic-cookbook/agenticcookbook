@@ -12,7 +12,7 @@ def test_validate_green_then_drift(tmp_path, monkeypatch, patch_refs):
     # Induce drift by adding a new file without re-running update.
     (cb / "recipes" / "gamma.md").write_text(
         "---\ntitle: Gamma\nid: 22222222-3333-4444-5555-666666666666\n"
-        "domain: agentic-cookbook://cookbook/recipes/gamma\ntype: recipe\n"
+        "domain: agenticdevelopercookbook://cookbook/recipes/gamma\ntype: recipe\n"
         "version: 1.0.0\nstatus: draft\nlanguage: en\ncreated: 2026-05-15\n"
         "modified: 2026-05-15\nauthor: T\ncopyright: 2026 T\nlicense: MIT\nsummary: x\n"
         "---\n# Gamma\n",

@@ -1,7 +1,7 @@
 ---
 id: 81410d5e-e3df-4feb-a9b1-bbc97abfc798
 title: "Menu Commands"
-domain: agentic-cookbook://recipes/app/menu-commands
+domain: agenticdevelopercookbook://recipes/app/menu-commands
 type: recipe
 version: 1.0.0
 status: accepted

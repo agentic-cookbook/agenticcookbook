@@ -1,7 +1,7 @@
 ---
 id: 495000e6-a1fc-4b43-8999-23089505559c
 title: "For novel components, prefer proven open-source solutions"
-domain: agentic-cookbook://principles/open-source-preference
+domain: agenticdevelopercookbook://principles/open-source-preference
 type: principle
 version: 1.1.0
 status: accepted
@@ -17,9 +17,9 @@ tags:
   - open-source-preference
 depends-on: []
 related:
-  - agentic-cookbook://principles/native-controls
-  - agentic-cookbook://principles/dry
-  - agentic-cookbook://guidelines/planning/code-quality/reuse-before-build
+  - agenticdevelopercookbook://principles/native-controls
+  - agenticdevelopercookbook://principles/dry
+  - agenticdevelopercookbook://guidelines/planning/code-quality/reuse-before-build
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

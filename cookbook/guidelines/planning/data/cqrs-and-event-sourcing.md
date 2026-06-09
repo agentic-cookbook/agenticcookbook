@@ -1,7 +1,7 @@
 ---
 id: b5a1b4b6-c61c-4b45-825f-730bd782d0f3
 title: "CQRS and event sourcing"
-domain: agentic-cookbook://guidelines/planning/data/cqrs-and-event-sourcing
+domain: agenticdevelopercookbook://guidelines/planning/data/cqrs-and-event-sourcing
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - event-sourcing
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/planning/data/datastore-selection
-  - agentic-cookbook://principles/manage-complexity-through-boundaries
+  - agenticdevelopercookbook://guidelines/planning/data/datastore-selection
+  - agenticdevelopercookbook://principles/manage-complexity-through-boundaries
 references:
   - https://martinfowler.com/bliki/CQRS.html
 approved-by: "approve-artifact v1.0.0"

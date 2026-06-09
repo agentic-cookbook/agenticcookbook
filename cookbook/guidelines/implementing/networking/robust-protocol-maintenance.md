@@ -1,7 +1,7 @@
 ---
 id: 8445807b-5d0f-46f7-8024-b02586627779
 title: "Be strict and maintain: Postel reconsidered (RFC 9413)"
-domain: agentic-cookbook://guidelines/implementing/networking/robust-protocol-maintenance
+domain: agenticdevelopercookbook://guidelines/implementing/networking/robust-protocol-maintenance
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,9 +19,9 @@ tags:
   - networking
 depends-on: []
 related:
-  - agentic-cookbook://principles/fail-fast
-  - agentic-cookbook://principles/parse-dont-validate
-  - agentic-cookbook://guidelines/implementing/security/input-validation
+  - agenticdevelopercookbook://principles/fail-fast
+  - agenticdevelopercookbook://principles/parse-dont-validate
+  - agenticdevelopercookbook://guidelines/implementing/security/input-validation
 references:
   - https://datatracker.ietf.org/doc/html/rfc9413
 approved-by: "approve-artifact v1.0.0"

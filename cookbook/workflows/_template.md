@@ -1,7 +1,7 @@
 ---
 id: 25a31b86-8a76-4fac-b510-bacdedd4b885
 title: "Workflow Name"
-domain: agentic-cookbook://workflow/_template
+domain: agenticdevelopercookbook://workflow/_template
 type: workflow
 version: 1.0.0
 status: accepted

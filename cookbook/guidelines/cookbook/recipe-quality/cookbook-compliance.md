@@ -2,7 +2,7 @@
 
 id: 0d3aaa29-0ce3-4803-8f8a-a7023713b574
 title: "Cookbook Compliance"
-domain: agentic-cookbook://guidelines/cookbook/recipe-quality/cookbook-compliance
+domain: agenticdevelopercookbook://guidelines/cookbook/recipe-quality/cookbook-compliance
 type: guideline
 version: 1.0.3
 status: accepted
@@ -46,7 +46,7 @@ A recipe does not exist in isolation. The cookbook defines platform-wide guideli
 ### Referencing Applicable Guidelines
 
 - When a cookbook guideline directly applies to the recipe's domain, the recipe SHOULD cite the guideline in the `depends-on` or `references` frontmatter field.
-- When a requirement in the recipe is derived from or constrained by a guideline, the requirement SHOULD include an inline reference (e.g., `per agentic-cookbook://guidelines/implementing/ui/touch-click-targets`).
+- When a requirement in the recipe is derived from or constrained by a guideline, the requirement SHOULD include an inline reference (e.g., `per agenticdevelopercookbook://guidelines/implementing/ui/touch-click-targets`).
 - Authors MUST NOT silently incorporate guideline content without attribution. Duplicating guideline text verbatim into a recipe without reference creates maintenance drift when the guideline changes.
 
 ### Security-Relevant Recipes

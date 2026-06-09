@@ -2,7 +2,7 @@
 
 id: A0CB2815-8FDD-450A-AF46-8FCA80BA1ABA
 title: "Sync Engine Design"
-domain: agentic-cookbook://guidelines/implementing/data/sync-engine-design
+domain: agenticdevelopercookbook://guidelines/implementing/data/sync-engine-design
 type: guideline
 version: 1.0.2
 status: accepted

@@ -46,7 +46,7 @@
         "spec": "app/document-window/document-window.md",
         "description": "Main document editing window",
         "source": {
-          "domain": "agentic-cookbook://recipes/ui/windows/document-window",
+          "domain": "agenticdevelopercookbook://recipes/ui/windows/document-window",
           "version": "1.0.0"
         },
         "structural-elements": {

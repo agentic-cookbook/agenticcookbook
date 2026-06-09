@@ -1,7 +1,7 @@
 ---
 id: 1e7f8c3d-ece9-4c5c-b7ca-7703391995dd
 title: "Material 3 theming on Android"
-domain: agentic-cookbook://guidelines/implementing/ui/material3-theming
+domain: agenticdevelopercookbook://guidelines/implementing/ui/material3-theming
 type: guideline
 version: 1.0.0
 status: accepted
@@ -20,8 +20,8 @@ tags:
   - theming
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/ui/theming
-  - agentic-cookbook://guidelines/implementing/ui/color
+  - agenticdevelopercookbook://guidelines/implementing/ui/theming
+  - agenticdevelopercookbook://guidelines/implementing/ui/color
 references:
   - https://m3.material.io/
 approved-by: "approve-artifact v1.0.0"

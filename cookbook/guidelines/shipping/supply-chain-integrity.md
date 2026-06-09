@@ -1,7 +1,7 @@
 ---
 id: d3cb8f40-b142-447d-8176-8055d55868b1
 title: "Software supply-chain integrity"
-domain: agentic-cookbook://guidelines/shipping/supply-chain-integrity
+domain: agenticdevelopercookbook://guidelines/shipping/supply-chain-integrity
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,7 +19,7 @@ tags:
   - ci-cd
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/shipping/dependency-security
+  - agenticdevelopercookbook://guidelines/shipping/dependency-security
 references:
   - https://slsa.dev/
   - https://www.cisa.gov/sbom
@@ -69,7 +69,7 @@ Detection alone is insufficient — the gate is verification.
 
 ## Combine with pinning and lockfiles
 
-Attestation complements — does not replace — the controls in the dependency-security guideline (`agentic-cookbook://guidelines/shipping/dependency-security`):
+Attestation complements — does not replace — the controls in the dependency-security guideline (`agenticdevelopercookbook://guidelines/shipping/dependency-security`):
 
 - Commit lockfiles; install with the frozen/locked flag in CI so resolution is deterministic.
 - Pin dependencies (and CI actions) by version, ideally by digest/hash, not floating tags.

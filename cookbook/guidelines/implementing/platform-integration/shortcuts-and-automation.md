@@ -2,7 +2,7 @@
 
 id: 991e72d0-477b-4fd5-bdfa-08680efc0cf9
 title: "Scriptable and automatable"
-domain: agentic-cookbook://guidelines/implementing/platform-integration/shortcuts-and-automation
+domain: agenticdevelopercookbook://guidelines/implementing/platform-integration/shortcuts-and-automation
 type: guideline
 version: 1.1.2
 status: accepted
@@ -25,7 +25,7 @@ tags:
   - shortcuts-and-automation
   - platform
 depends-on:
-  - agentic-cookbook://principles/support-automation
+  - agenticdevelopercookbook://principles/support-automation
 related: []
 references: []
 approved-by: "approve-artifact v1.0.0"

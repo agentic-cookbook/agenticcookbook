@@ -2,7 +2,7 @@
 
 id: e6834069-95c2-49b9-8054-237ea302653c
 title: "Top 10 Guidelines"
-domain: agentic-cookbook://introduction/top-10-guidelines
+domain: agenticdevelopercookbook://introduction/top-10-guidelines
 type: reference
 version: 1.0.0
 status: draft
@@ -19,7 +19,7 @@ tags:
   - getting-started
 depends-on: []
 related:
-  - agentic-cookbook://introduction/trigger-guide
+  - agenticdevelopercookbook://introduction/trigger-guide
 references: []
 approved-by: ""
 approved-date: ""

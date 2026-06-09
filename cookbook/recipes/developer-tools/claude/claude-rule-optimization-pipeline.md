@@ -1,7 +1,7 @@
 ---
 id: aa81d10d-38d1-40d4-8be4-212b043e6410
 title: "Claude Rule Optimization Pipeline"
-domain: agentic-cookbook://recipes/developer-tools/claude/claude-rule-optimization-pipeline
+domain: agenticdevelopercookbook://recipes/developer-tools/claude/claude-rule-optimization-pipeline
 type: recipe
 version: 1.0.0
 status: accepted
@@ -24,8 +24,8 @@ tags:
   - pipeline
 depends-on: []
 related:
-  - agentic-cookbook://ingredients/developer-tools/claude/yolo-mode
-  - agentic-cookbook://recipes/autonomous-dev-bots/pr-review-pipeline
+  - agenticdevelopercookbook://ingredients/developer-tools/claude/yolo-mode
+  - agenticdevelopercookbook://recipes/autonomous-dev-bots/pr-review-pipeline
 references:
   - https://code.claude.com/docs/en/best-practices
 approved-by: "approve-artifact v1.0.0"
@@ -216,11 +216,11 @@ Not applicable — the pipeline produces its output via the report file, not log
 
 | Check | Status | Category |
 |-------|--------|----------|
-| [safe-defaults](agentic-cookbook://compliance/user-safety#safe-defaults) | passed | User Safety — pipeline defaults to confirmation before modifying rules |
-| [data-minimization](agentic-cookbook://compliance/privacy-and-data#data-minimization) | passed | Privacy — report contains only metrics and optimization descriptions, no PII |
-| [secure-log-output](agentic-cookbook://compliance/security#secure-log-output) | passed | Security — report does not include sensitive rule content verbatim |
-| [idempotent-operations](agentic-cookbook://compliance/reliability#idempotent-operations) | passed | Reliability — re-running on optimized rules produces same result |
-| [fault-tolerance](agentic-cookbook://compliance/reliability#fault-tolerance) | passed | Reliability — handles missing directories, empty rules, malformed frontmatter |
+| [safe-defaults](agenticdevelopercookbook://compliance/user-safety#safe-defaults) | passed | User Safety — pipeline defaults to confirmation before modifying rules |
+| [data-minimization](agenticdevelopercookbook://compliance/privacy-and-data#data-minimization) | passed | Privacy — report contains only metrics and optimization descriptions, no PII |
+| [secure-log-output](agenticdevelopercookbook://compliance/security#secure-log-output) | passed | Security — report does not include sensitive rule content verbatim |
+| [idempotent-operations](agenticdevelopercookbook://compliance/reliability#idempotent-operations) | passed | Reliability — re-running on optimized rules produces same result |
+| [fault-tolerance](agenticdevelopercookbook://compliance/reliability#fault-tolerance) | passed | Reliability — handles missing directories, empty rules, malformed frontmatter |
 
 ## Change History
 

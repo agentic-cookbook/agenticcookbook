@@ -1,7 +1,7 @@
 ---
 id: f34f83c0-3a3e-4a94-a0e9-08ce75ac9762
 title: "Zero-downtime migrations: expand and contract"
-domain: agentic-cookbook://guidelines/implementing/data/zero-downtime-migrations
+domain: agenticdevelopercookbook://guidelines/implementing/data/zero-downtime-migrations
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,9 +19,9 @@ tags:
   - deployment
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/shipping/schema-evolution
-  - agentic-cookbook://principles/small-reversible-decisions
-  - agentic-cookbook://principles/fail-fast
+  - agenticdevelopercookbook://guidelines/shipping/schema-evolution
+  - agenticdevelopercookbook://principles/small-reversible-decisions
+  - agenticdevelopercookbook://principles/fail-fast
 references:
   - https://www.postgresql.org/docs/current/sql-altertable.html
 approved-by: "approve-artifact v1.0.0"

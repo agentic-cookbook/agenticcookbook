@@ -2,7 +2,7 @@
 
 id: a4e2fa7e-91a7-4abe-b4c9-4b1933901e7d
 title: "Access Pattern Analysis"
-domain: agentic-cookbook://guidelines/planning/data/access-pattern-analysis
+domain: agenticdevelopercookbook://guidelines/planning/data/access-pattern-analysis
 type: guideline
 version: 1.0.2
 status: accepted

@@ -2,7 +2,7 @@
 
 id: af8a4221-90b7-434f-b2a4-64c86a072386
 title: "Nullable Reference Types"
-domain: agentic-cookbook://guidelines/implementing/code-quality/nullable-reference-types
+domain: agenticdevelopercookbook://guidelines/implementing/code-quality/nullable-reference-types
 type: guideline
 version: 1.0.2
 status: accepted

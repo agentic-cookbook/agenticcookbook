@@ -1,7 +1,7 @@
 ---
 id: 8a1d8274-cc46-4449-a824-7c7a79c0b1e2
 title: "Advanced database indexing"
-domain: agentic-cookbook://guidelines/implementing/data/advanced-indexing
+domain: agenticdevelopercookbook://guidelines/implementing/data/advanced-indexing
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - postgres
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/data/transaction-isolation
-  - agentic-cookbook://guidelines/implementing/data/query-optimization
+  - agenticdevelopercookbook://guidelines/implementing/data/transaction-isolation
+  - agenticdevelopercookbook://guidelines/implementing/data/query-optimization
 references:
   - https://www.postgresql.org/docs/current/indexes.html
 approved-by: "approve-artifact v1.0.0"

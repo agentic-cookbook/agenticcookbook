@@ -2,7 +2,7 @@
 
 id: 38969d3a-884a-4d6e-adae-5398464ee0de
 title: "Test Data"
-domain: agentic-cookbook://guidelines/testing/test-data
+domain: agenticdevelopercookbook://guidelines/testing/test-data
 type: guideline
 version: 1.0.2
 status: accepted

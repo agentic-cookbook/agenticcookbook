@@ -2,7 +2,7 @@
 
 id: 3890e8fb-9d2d-42db-9753-cf60b95152cc
 title: "AI Provider Observability"
-domain: agentic-cookbook://guidelines/implementing/observability/ai-provider-observability
+domain: agenticdevelopercookbook://guidelines/implementing/observability/ai-provider-observability
 type: guideline
 version: 1.0.1
 status: accepted
@@ -20,9 +20,9 @@ tags:
   - llm
   - logging
 depends-on:
-  - agentic-cookbook://guidelines/implementing/observability/logging
+  - agenticdevelopercookbook://guidelines/implementing/observability/logging
 related:
-  - agentic-cookbook://guidelines/implementing/networking/ai-cost-management
+  - agenticdevelopercookbook://guidelines/implementing/networking/ai-cost-management
 references:
   - https://opentelemetry.io/docs/
   - https://docs.anthropic.com/en/api/

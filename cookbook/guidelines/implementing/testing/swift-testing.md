@@ -1,7 +1,7 @@
 ---
 id: 2f199ad0-218e-41fe-b793-be7e8657f197
 title: "Swift Testing"
-domain: agentic-cookbook://guidelines/implementing/testing/swift-testing
+domain: agenticdevelopercookbook://guidelines/implementing/testing/swift-testing
 type: guideline
 version: 1.0.0
 status: accepted
@@ -20,7 +20,7 @@ tags:
   - apple
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/testing/unit-test-patterns
+  - agenticdevelopercookbook://guidelines/implementing/testing/unit-test-patterns
 references:
   - https://developer.apple.com/documentation/testing
 approved-by: "approve-artifact v1.0.0"
@@ -49,7 +49,7 @@ Swift Testing is the open-source test framework bundled with the Swift 6 toolcha
 ## Suites and organization
 
 - Group related tests with **`@Suite`** on a type (often a `struct`). A type containing `@Test` methods is treated as a suite implicitly, but you **SHOULD** annotate it to set a name or traits.
-- Per-test state lives in stored properties; fresh suite instances are created per test, so `init` is the setup and `deinit` is the teardown. You **SHOULD** prefer this over shared mutable static state to keep tests independent (see `agentic-cookbook://guidelines/implementing/testing/unit-test-patterns`).
+- Per-test state lives in stored properties; fresh suite instances are created per test, so `init` is the setup and `deinit` is the teardown. You **SHOULD** prefer this over shared mutable static state to keep tests independent (see `agenticdevelopercookbook://guidelines/implementing/testing/unit-test-patterns`).
 
 ## Parameterized tests
 

@@ -1,7 +1,7 @@
 ---
 id: 09b063bd-74e7-4636-baa6-23ee82ec224b
 title: "Privacy by design"
-domain: agentic-cookbook://guidelines/planning/security/privacy-by-design
+domain: agenticdevelopercookbook://guidelines/planning/security/privacy-by-design
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - compliance
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/planning/security/threat-modeling
-  - agentic-cookbook://guidelines/planning/security/data-privacy-regulations
+  - agenticdevelopercookbook://guidelines/planning/security/threat-modeling
+  - agenticdevelopercookbook://guidelines/planning/security/data-privacy-regulations
 references:
   - https://gdpr-info.eu/art-25-gdpr/
 approved-by: "approve-artifact v1.0.0"

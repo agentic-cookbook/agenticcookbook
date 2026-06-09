@@ -1,7 +1,7 @@
 ---
 id: b8fa0cf0-b15b-4eec-a161-7fbd6936f1d9
 title: "Connection pooling for server and serverless backends"
-domain: agentic-cookbook://guidelines/implementing/data/connection-pooling
+domain: agenticdevelopercookbook://guidelines/implementing/data/connection-pooling
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,7 +19,7 @@ tags:
   - backend
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/data/transaction-isolation
+  - agenticdevelopercookbook://guidelines/implementing/data/transaction-isolation
 references:
   - https://www.pgbouncer.org/
 approved-by: "approve-artifact v1.0.0"

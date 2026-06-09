@@ -1,7 +1,7 @@
 ---
 id: 788f1c1d-69af-4570-a279-748d89fcc0e0
 title: "MCP server design"
-domain: agentic-cookbook://guidelines/implementing/networking/mcp-server-design
+domain: agenticdevelopercookbook://guidelines/implementing/networking/mcp-server-design
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - ai
 depends-on: []
 related:
-  - agentic-cookbook://principles/explicit-over-implicit
-  - agentic-cookbook://principles/fail-fast
+  - agenticdevelopercookbook://principles/explicit-over-implicit
+  - agenticdevelopercookbook://principles/fail-fast
 references:
   - https://modelcontextprotocol.io/
 approved-by: "approve-artifact v1.0.0"

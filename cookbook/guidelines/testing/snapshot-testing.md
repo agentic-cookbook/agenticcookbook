@@ -1,7 +1,7 @@
 ---
 id: 3d9f5176-afaa-47a2-8a89-fc0402f3dff2
 title: "Snapshot testing discipline"
-domain: agentic-cookbook://guidelines/testing/snapshot-testing
+domain: agenticdevelopercookbook://guidelines/testing/snapshot-testing
 type: guideline
 version: 1.0.0
 status: accepted
@@ -18,8 +18,8 @@ tags:
   - snapshot
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/testing/properties-of-good-tests
-  - agentic-cookbook://guidelines/testing/test-doubles
+  - agenticdevelopercookbook://guidelines/testing/properties-of-good-tests
+  - agenticdevelopercookbook://guidelines/testing/test-doubles
 references:
   - https://kentcdodds.com/blog/effective-snapshot-testing
 approved-by: "approve-artifact v1.0.0"

@@ -2,7 +2,7 @@
 
 id: e3a209f8-1b89-4d6e-bf7f-78a8aecf69cb
 title: "Database"
-domain: agentic-cookbook://guidelines/planning/data/database
+domain: agenticdevelopercookbook://guidelines/planning/data/database
 type: guideline
 version: 1.0.2
 status: accepted

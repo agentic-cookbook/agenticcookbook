@@ -2,7 +2,7 @@
 
 id: CBFA06B6-EC22-4784-9E61-C99307064B72
 title: "JSON columns and generated columns"
-domain: agentic-cookbook://guidelines/implementing/data/json-columns
+domain: agenticdevelopercookbook://guidelines/implementing/data/json-columns
 type: guideline
 version: 1.0.2
 status: accepted

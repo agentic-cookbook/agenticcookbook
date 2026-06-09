@@ -2,7 +2,7 @@
 
 id: 28e0fd80-be0a-4f85-ac42-1e423623b242
 title: "Bulk operation verification"
-domain: agentic-cookbook://guidelines/shipping/bulk-operation-verification
+domain: agenticdevelopercookbook://guidelines/shipping/bulk-operation-verification
 type: guideline
 version: 1.0.3
 status: accepted
@@ -19,9 +19,9 @@ tags:
   - verification
   - code-quality
 depends-on:
-  - agentic-cookbook://guidelines/implementing/code-quality/atomic-commits
+  - agenticdevelopercookbook://guidelines/implementing/code-quality/atomic-commits
 related:
-  - agentic-cookbook://guidelines/testing/post-generation-verification
+  - agenticdevelopercookbook://guidelines/testing/post-generation-verification
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

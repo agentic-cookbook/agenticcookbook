@@ -2,7 +2,7 @@
 
 id: dc9fcecf-aac5-4845-9741-9445e626d7eb
 title: "SQLite Sync Tooling"
-domain: agentic-cookbook://guidelines/planning/data/sync-tooling
+domain: agenticdevelopercookbook://guidelines/planning/data/sync-tooling
 type: guideline
 version: 1.0.2
 status: accepted

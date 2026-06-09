@@ -1,7 +1,7 @@
 ---
 id: 9f07e740-097e-4814-badf-fa3ae8d7d1e9
 title: "Container image security"
-domain: agentic-cookbook://guidelines/reviewing/infrastructure/container-image-security
+domain: agenticdevelopercookbook://guidelines/reviewing/infrastructure/container-image-security
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,9 +19,9 @@ tags:
   - supply-chain
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/shipping/supply-chain-integrity
-  - agentic-cookbook://guidelines/reviewing/security/vulnerability-prioritization
-  - agentic-cookbook://guidelines/implementing/infrastructure/containerization
+  - agenticdevelopercookbook://guidelines/shipping/supply-chain-integrity
+  - agenticdevelopercookbook://guidelines/reviewing/security/vulnerability-prioritization
+  - agenticdevelopercookbook://guidelines/implementing/infrastructure/containerization
 references:
   - https://github.com/aquasecurity/trivy
 approved-by: "approve-artifact v1.0.0"
@@ -38,7 +38,7 @@ A container image is a deployable supply-chain artifact: its layers carry every 
 ## Scan and gate
 
 - Images **MUST** be scanned for vulnerabilities in CI before any push to a registry, using a maintained scanner (e.g. Trivy, Grype, or Snyk).
-- Gate on exploitability, not raw severity. Cross-reference `agentic-cookbook://guidelines/reviewing/security/vulnerability-prioritization`: builds **MUST** fail on findings in the CISA KEV catalog and **SHOULD** fail on high EPSS scores, rather than blocking on every high-CVSS CVE.
+- Gate on exploitability, not raw severity. Cross-reference `agenticdevelopercookbook://guidelines/reviewing/security/vulnerability-prioritization`: builds **MUST** fail on findings in the CISA KEV catalog and **SHOULD** fail on high EPSS scores, rather than blocking on every high-CVSS CVE.
 - Images **MUST NOT** ship with unaddressed known-exploited (KEV) vulnerabilities.
 - Re-scan published images on a schedule (e.g. daily). New CVEs are disclosed against images that were clean at build time, so point-in-time scanning is insufficient.
 - Suppressions (`.trivyignore` and equivalents) **MUST** carry a justification and an expiry/review date; permanent blanket ignores are forbidden.
@@ -53,7 +53,7 @@ A container image is a deployable supply-chain artifact: its layers carry every 
 ## Sign and verify provenance
 
 - Images **MUST** be signed (e.g. with Sigstore cosign, keyless via OIDC where available) and signatures **MUST** be verified at deploy time before the workload is admitted.
-- Each image **MUST** emit an SBOM (SPDX or CycloneDX) recording its contents. Cross-reference `agentic-cookbook://guidelines/shipping/supply-chain-integrity` for SBOM and attestation handling.
+- Each image **MUST** emit an SBOM (SPDX or CycloneDX) recording its contents. Cross-reference `agenticdevelopercookbook://guidelines/shipping/supply-chain-integrity` for SBOM and attestation handling.
 - Generate SLSA build provenance attestations and require them at admission where the platform supports it.
 - Admission enforcement (e.g. an admission controller verifying signature and provenance policy) is **adopt-when-measured-need-justifies** per YAGNI — start with deploy-time `cosign verify`, and add cluster-level enforcement when the threat model warrants it.
 

@@ -1,7 +1,7 @@
 ---
 id: B8ABAA15-35E6-4C51-9735-9A405CC7336C
 title: "User Safety Compliance"
-domain: agentic-cookbook://compliance/user-safety
+domain: agenticdevelopercookbook://compliance/user-safety
 type: compliance
 version: 1.0.1
 status: draft
@@ -16,9 +16,9 @@ platforms: []
 tags: [compliance, user-safety]
 depends-on: []
 related:
-  - agentic-cookbook://compliance/security
-  - agentic-cookbook://compliance/privacy-and-data
-  - agentic-cookbook://compliance/platform-compliance
+  - agenticdevelopercookbook://compliance/security
+  - agenticdevelopercookbook://compliance/privacy-and-data
+  - agenticdevelopercookbook://compliance/platform-compliance
 references: []
 ---
 
@@ -39,7 +39,7 @@ User-generated content MUST be moderated before public display.
 **Applies when:** recipe accepts and displays content submitted by users.
 
 **Guidelines:**
-- [Input Validation](agentic-cookbook://guidelines/implementing/security/input-validation)
+- [Input Validation](agenticdevelopercookbook://guidelines/implementing/security/input-validation)
 
 ---
 
@@ -58,8 +58,8 @@ User-facing input surfaces MUST implement rate limiting and abuse prevention mea
 **Applies when:** recipe exposes input fields, forms, or APIs to end users.
 
 **Guidelines:**
-- [Rate Limiting](agentic-cookbook://guidelines/implementing/networking/rate-limiting)
-- [Input Validation](agentic-cookbook://guidelines/implementing/security/input-validation)
+- [Rate Limiting](agenticdevelopercookbook://guidelines/implementing/networking/rate-limiting)
+- [Input Validation](agenticdevelopercookbook://guidelines/implementing/security/input-validation)
 
 ---
 
@@ -70,7 +70,7 @@ Content pipelines MUST filter harmful, illegal, or policy-violating material.
 **Applies when:** recipe processes, transforms, or displays content from external or user sources.
 
 **Guidelines:**
-- [Input Validation](agentic-cookbook://guidelines/implementing/security/input-validation)
+- [Input Validation](agenticdevelopercookbook://guidelines/implementing/security/input-validation)
 
 ---
 

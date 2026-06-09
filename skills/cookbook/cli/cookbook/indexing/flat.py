@@ -35,7 +35,7 @@ def generate(config: dict, root: Path, today: date) -> tuple[str, dict]:
     fm_data = merge_index_frontmatter(
         output,
         title=config.get("title", f"{target.name.title()} Index"),
-        domain=f"agentic-cookbook://{cookbook_name(root)}/{target.name}/index",
+        domain=f"agenticdevelopercookbook://{cookbook_name(root)}/{target.name}/index",
         summary=config.get("summary", f"Index of {target.name}."),
         today=today,
     )

@@ -1,7 +1,7 @@
 ---
 id: af911b49-ff36-439e-acb0-a08c80b87103
 title: "Agent guardrails"
-domain: agentic-cookbook://guidelines/implementing/security/agent-guardrails
+domain: agenticdevelopercookbook://guidelines/implementing/security/agent-guardrails
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - guardrails
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/security/llm-application-security
-  - agentic-cookbook://guidelines/testing/agent-evaluation-and-safety
+  - agenticdevelopercookbook://guidelines/implementing/security/llm-application-security
+  - agenticdevelopercookbook://guidelines/testing/agent-evaluation-and-safety
 references:
   - https://genai.owasp.org/llm-top-10/
 approved-by: "approve-artifact v1.0.0"
@@ -44,7 +44,7 @@ Validate and moderate everything reaching the model.
 
 ## Output guardrails
 
-Treat all model output as untrusted until it has passed checks (see `agentic-cookbook://guidelines/implementing/security/llm-application-security`).
+Treat all model output as untrusted until it has passed checks (see `agenticdevelopercookbook://guidelines/implementing/security/llm-application-security`).
 
 - **deterministic-output-checks**: Output guardrails **MUST** be enforced deterministically — schema/JSON validation, PII and secret detection, and unsafe-content moderation run in code, not by asking the model to self-certify.
 - **schema-conformance**: Structured output **MUST** be parsed and validated against an explicit schema; non-conforming output **MUST** be rejected or repaired, never passed downstream verbatim.

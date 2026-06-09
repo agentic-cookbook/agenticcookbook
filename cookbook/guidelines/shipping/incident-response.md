@@ -1,7 +1,7 @@
 ---
 id: 2041fbd9-d210-485e-9a3a-b2d8295ed924
 title: "Incident response and blameless postmortems"
-domain: agentic-cookbook://guidelines/shipping/incident-response
+domain: agenticdevelopercookbook://guidelines/shipping/incident-response
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,7 +19,7 @@ tags:
   - reliability
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/observability/service-level-objectives
+  - agenticdevelopercookbook://guidelines/implementing/observability/service-level-objectives
 references:
   - https://sre.google/sre-book/managing-incidents/
 approved-by: "approve-artifact v1.0.0"

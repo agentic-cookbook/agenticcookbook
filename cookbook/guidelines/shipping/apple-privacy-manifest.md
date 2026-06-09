@@ -1,7 +1,7 @@
 ---
 id: 6168eb9e-50be-4b84-940d-cb97f1e374d1
 title: "Ship a privacy manifest and declare required-reason APIs"
-domain: agentic-cookbook://guidelines/shipping/apple-privacy-manifest
+domain: agenticdevelopercookbook://guidelines/shipping/apple-privacy-manifest
 type: guideline
 version: 1.0.0
 status: accepted
@@ -22,7 +22,7 @@ tags:
   - app-store
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/security/privacy
+  - agenticdevelopercookbook://guidelines/implementing/security/privacy
 references:
   - https://developer.apple.com/documentation/bundleresources/privacy-manifest-files
 approved-by: "approve-artifact v1.0.0"

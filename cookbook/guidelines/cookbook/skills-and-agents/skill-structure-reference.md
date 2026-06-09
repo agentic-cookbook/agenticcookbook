@@ -2,7 +2,7 @@
 
 id: 2a996577-d417-4b1b-b468-6e93bf1a9b4f
 title: "Skill Structure Reference"
-domain: agentic-cookbook://guidelines/cookbook/skills-and-agents/skill-structure-reference
+domain: agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/skill-structure-reference
 type: guideline
 version: 1.0.3
 status: accepted
@@ -21,8 +21,8 @@ tags:
   - frontmatter
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/cookbook/skills-and-agents/authoring-skills-and-rules
-  - agentic-cookbook://guidelines/cookbook/skills-and-agents/skill-checklist
+  - agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/authoring-skills-and-rules
+  - agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/skill-checklist
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"

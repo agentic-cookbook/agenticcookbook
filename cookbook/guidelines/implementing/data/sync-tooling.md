@@ -2,7 +2,7 @@
 
 id: DB63C086-D082-4E20-AACA-154448C42D1D
 title: "SQLite Sync Tooling"
-domain: agentic-cookbook://guidelines/implementing/data/sync-tooling
+domain: agenticdevelopercookbook://guidelines/implementing/data/sync-tooling
 type: guideline
 version: 1.0.2
 status: accepted

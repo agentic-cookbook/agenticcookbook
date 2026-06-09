@@ -1,7 +1,7 @@
 ---
 id: b224ef56-65f5-45fd-8842-767b20df6736
 title: "Steel thread first"
-domain: agentic-cookbook://principles/steel-thread-first
+domain: agenticdevelopercookbook://principles/steel-thread-first
 type: principle
 version: 1.0.0
 status: accepted
@@ -19,10 +19,10 @@ tags:
   - architecture
 depends-on: []
 related:
-  - agentic-cookbook://principles/yagni
-  - agentic-cookbook://principles/small-reversible-decisions
-  - agentic-cookbook://principles/manage-complexity-through-boundaries
-  - agentic-cookbook://principles/make-it-work-make-it-right-make-it-fast
+  - agenticdevelopercookbook://principles/yagni
+  - agenticdevelopercookbook://principles/small-reversible-decisions
+  - agenticdevelopercookbook://principles/manage-complexity-through-boundaries
+  - agenticdevelopercookbook://principles/make-it-work-make-it-right-make-it-fast
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

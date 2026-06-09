@@ -111,7 +111,7 @@ def _infer_type(rel_path: Path) -> str:
 
 def _domain_from_path(cookbook_name: str, rel_path: Path) -> str:
     stem = rel_path.with_suffix("")
-    return f"agentic-cookbook://{cookbook_name}/{stem.as_posix()}"
+    return f"agenticdevelopercookbook://{cookbook_name}/{stem.as_posix()}"
 
 
 def fill_defaults(

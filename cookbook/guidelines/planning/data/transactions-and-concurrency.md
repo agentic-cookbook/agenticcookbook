@@ -2,7 +2,7 @@
 
 id: 71af85de-c618-4319-8150-f2f0015921dd
 title: "Transactions and Concurrency"
-domain: agentic-cookbook://guidelines/planning/data/transactions-and-concurrency
+domain: agenticdevelopercookbook://guidelines/planning/data/transactions-and-concurrency
 type: guideline
 version: 1.0.2
 status: accepted

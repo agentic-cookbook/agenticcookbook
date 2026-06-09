@@ -2,7 +2,7 @@
 
 id: ef7e17ea-a4c1-4946-aff7-a81cb27885a0
 title: "Agent Lint Checklist"
-domain: agentic-cookbook://guidelines/cookbook/skills-and-agents/agent-checklist
+domain: agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/agent-checklist
 type: guideline
 version: 1.0.3
 status: accepted
@@ -21,8 +21,8 @@ tags:
   - quality
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/cookbook/skills-and-agents/authoring-skills-and-rules
-  - agentic-cookbook://guidelines/cookbook/skills-and-agents/agent-structure-reference
+  - agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/authoring-skills-and-rules
+  - agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/agent-structure-reference
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"

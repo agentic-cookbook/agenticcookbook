@@ -2,7 +2,7 @@
 
 id: 746b6b5e-11b9-48f7-a304-4b6755fd7f75
 title: "Interface Cohesion"
-domain: agentic-cookbook://guidelines/planning/code-quality/interface-cohesion
+domain: agenticdevelopercookbook://guidelines/planning/code-quality/interface-cohesion
 type: guideline
 version: 1.0.3
 status: accepted

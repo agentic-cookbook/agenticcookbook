@@ -2,7 +2,7 @@
 
 id: a1d4578f-aceb-4a87-8fa4-b57a89e80763
 title: "Cross-Cutting Detection"
-domain: agentic-cookbook://guidelines/planning/code-quality/cross-cutting-detection
+domain: agenticdevelopercookbook://guidelines/planning/code-quality/cross-cutting-detection
 type: guideline
 version: 1.0.3
 status: accepted

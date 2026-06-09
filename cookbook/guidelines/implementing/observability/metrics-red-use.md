@@ -1,7 +1,7 @@
 ---
 id: 64bdf327-b4ac-4772-a3b6-cbaf7e8e5449
 title: "Metrics instrumentation: RED and USE"
-domain: agentic-cookbook://guidelines/implementing/observability/metrics-red-use
+domain: agenticdevelopercookbook://guidelines/implementing/observability/metrics-red-use
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,7 +19,7 @@ tags:
   - monitoring
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/observability/service-level-objectives
+  - agenticdevelopercookbook://guidelines/implementing/observability/service-level-objectives
 references:
   - https://www.brendangregg.com/usemethod.html
 approved-by: "approve-artifact v1.0.0"
@@ -70,7 +70,7 @@ For each resource, capture all three:
 
 - RED ≈ the Four Golden Signals minus Saturation; pair RED (service) with USE (resource) to recover full coverage including saturation.
 - RED was adapted from the USE method for the service/request domain — they are intentionally complementary, not alternatives.
-- Per-service RED metrics are the natural source for SLIs; see `agentic-cookbook://guidelines/implementing/observability/service-level-objectives`.
+- Per-service RED metrics are the natural source for SLIs; see `agenticdevelopercookbook://guidelines/implementing/observability/service-level-objectives`.
 
 ## Avoid
 

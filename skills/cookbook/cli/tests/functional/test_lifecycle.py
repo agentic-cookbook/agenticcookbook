@@ -70,7 +70,7 @@ def test_validate_detects_drift(tmp_path, run_cookbook):
     # update so the index goes stale. validate must detect drift.
     (cb / "recipes" / "gamma.md").write_text(
         "---\nid: 22222222-3333-4444-5555-666666666666\ntitle: Gamma\n"
-        "domain: agentic-cookbook://cookbook/recipes/gamma\ntype: recipe\n"
+        "domain: agenticdevelopercookbook://cookbook/recipes/gamma\ntype: recipe\n"
         "version: 1.0.0\nstatus: draft\nlanguage: en\ncreated: 2026-05-15\n"
         "modified: 2026-05-15\nauthor: T\ncopyright: 2026 T\nlicense: MIT\n"
         "summary: x\n---\n# Gamma\n",

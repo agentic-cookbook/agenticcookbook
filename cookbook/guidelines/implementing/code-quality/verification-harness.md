@@ -1,7 +1,7 @@
 ---
 id: a6bd5677-3e40-4480-942e-54c05e3bafc7
 title: "Verification harnesses as agent guardrails"
-domain: agentic-cookbook://guidelines/implementing/code-quality/verification-harness
+domain: agenticdevelopercookbook://guidelines/implementing/code-quality/verification-harness
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,9 +19,9 @@ tags:
   - testing
 depends-on: []
 related:
-  - agentic-cookbook://principles/tight-feedback-loops
-  - agentic-cookbook://principles/support-automation
-  - agentic-cookbook://guidelines/testing/post-generation-verification
+  - agenticdevelopercookbook://principles/tight-feedback-loops
+  - agenticdevelopercookbook://principles/support-automation
+  - agenticdevelopercookbook://guidelines/testing/post-generation-verification
 references:
   - https://code.claude.com/docs/en/best-practices
 approved-by: "approve-artifact v1.0.0"

@@ -1,7 +1,7 @@
 ---
 id: 51e1f37a-919e-4e42-b439-ffdf0c2ef2e8
 title: "Errors as values"
-domain: agentic-cookbook://principles/errors-as-values
+domain: agenticdevelopercookbook://principles/errors-as-values
 type: principle
 version: 1.0.0
 status: accepted
@@ -18,9 +18,9 @@ tags:
   - error-handling
 depends-on: []
 related:
-  - agentic-cookbook://principles/fail-fast
-  - agentic-cookbook://principles/explicit-over-implicit
-  - agentic-cookbook://principles/parse-dont-validate
+  - agenticdevelopercookbook://principles/fail-fast
+  - agenticdevelopercookbook://principles/explicit-over-implicit
+  - agenticdevelopercookbook://principles/parse-dont-validate
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

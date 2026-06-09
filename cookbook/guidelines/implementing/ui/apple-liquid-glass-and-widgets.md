@@ -1,7 +1,7 @@
 ---
 id: ae9559b5-4829-4349-b018-986e98c31d39
 title: "Apple design language and widgets"
-domain: agentic-cookbook://guidelines/implementing/ui/apple-liquid-glass-and-widgets
+domain: agenticdevelopercookbook://guidelines/implementing/ui/apple-liquid-glass-and-widgets
 type: guideline
 version: 1.0.0
 status: accepted
@@ -22,8 +22,8 @@ tags:
   - widgets
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/ui/platform-design-languages
-  - agentic-cookbook://guidelines/implementing/platform-integration/widgets-and-glanceable-surfaces
+  - agenticdevelopercookbook://guidelines/implementing/ui/platform-design-languages
+  - agenticdevelopercookbook://guidelines/implementing/platform-integration/widgets-and-glanceable-surfaces
 references:
   - https://developer.apple.com/design/human-interface-guidelines
 approved-by: "approve-artifact v1.0.0"

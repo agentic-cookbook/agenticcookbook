@@ -58,7 +58,7 @@ Read `cookbook/introduction/conventions.md` for the full format reference. See `
 
 Key rules:
 - All `.md` files have YAML frontmatter (id, title, domain, type, version, status, language, created, modified, author, copyright, license, summary, platforms, tags, depends-on, related, references)
-- URL-based domain identifiers: `agentic-cookbook://guidelines/testing/test-pyramid`
+- URL-based domain identifiers: `agenticdevelopercookbook://guidelines/testing/test-pyramid`
 - Fragment references for within-document sections: `#requirements/ordered-list`
 - Named requirements (kebab-case, not REQ-NNN): `**ordered-list**: The control MUST...`
 - Version is semver, immutable once on main

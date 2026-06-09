@@ -1,7 +1,7 @@
 ---
 id: 344b69da-c901-4650-b49d-c2df0234103b
 title: "Adopt Swift 6 strict concurrency incrementally"
-domain: agentic-cookbook://guidelines/implementing/concurrency/swift6-strict-concurrency
+domain: agenticdevelopercookbook://guidelines/implementing/concurrency/swift6-strict-concurrency
 type: guideline
 version: 1.0.0
 status: accepted
@@ -22,8 +22,8 @@ tags:
   - ios
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/concurrency/concurrency
-  - agentic-cookbook://principles/immutability-by-default
+  - agenticdevelopercookbook://guidelines/implementing/concurrency/concurrency
+  - agenticdevelopercookbook://principles/immutability-by-default
 references:
   - https://www.swift.org/migration/documentation/migrationguide/
 approved-by: "approve-artifact v1.0.0"
@@ -44,7 +44,7 @@ The Swift 6 language mode turns data-race safety into a **compile-time** guarant
 
 ## Making types Sendable
 
-- Prefer immutable value types (`struct`/`enum` with `let` `Sendable` stored properties) — they **SHOULD** be `Sendable` automatically; see `agentic-cookbook://principles/immutability-by-default`.
+- Prefer immutable value types (`struct`/`enum` with `let` `Sendable` stored properties) — they **SHOULD** be `Sendable` automatically; see `agenticdevelopercookbook://principles/immutability-by-default`.
 - A `final class` with only immutable `Sendable` state **MAY** declare `Sendable` conformance explicitly.
 - A class whose safety the compiler cannot prove but that you guarantee (e.g. internal locking) **MAY** use `@unchecked Sendable` — but this **MUST** be justified in a comment, and the class **MUST NOT** expose mutable state without synchronization.
 - Mutable shared state **SHOULD** be wrapped in an `actor`, not retrofitted with `@unchecked Sendable`.

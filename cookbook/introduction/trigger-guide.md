@@ -1,7 +1,7 @@
 ---
 id: 9250b0f3-b101-422b-8d40-9596493ef3b5
 title: "Trigger Guide"
-domain: agentic-cookbook://introduction/trigger-guide
+domain: agenticdevelopercookbook://introduction/trigger-guide
 type: reference
 version: 1.0.0
 status: draft
@@ -18,7 +18,7 @@ tags:
   - agent-workflow
   - guidelines
 depends-on:
-  - agentic-cookbook://introduction/conventions
+  - agenticdevelopercookbook://introduction/conventions
 related: []
 references: []
 approved-by: ""

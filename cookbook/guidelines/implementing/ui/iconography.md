@@ -2,7 +2,7 @@
 
 id: 98c5c5c2-5a45-4425-97b7-31932cb6af0c
 title: "Iconography"
-domain: agentic-cookbook://guidelines/implementing/ui/iconography
+domain: agenticdevelopercookbook://guidelines/implementing/ui/iconography
 type: guideline
 version: 1.0.2
 status: accepted

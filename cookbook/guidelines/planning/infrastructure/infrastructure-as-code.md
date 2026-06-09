@@ -1,7 +1,7 @@
 ---
 id: cc7f5ee6-a848-490a-9a28-e4acae0855b3
 title: "Infrastructure as code"
-domain: agentic-cookbook://guidelines/planning/infrastructure/infrastructure-as-code
+domain: agenticdevelopercookbook://guidelines/planning/infrastructure/infrastructure-as-code
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,9 +19,9 @@ tags:
   - devops
 depends-on: []
 related:
-  - agentic-cookbook://principles/explicit-over-implicit
-  - agentic-cookbook://principles/idempotency
-  - agentic-cookbook://principles/small-reversible-decisions
+  - agenticdevelopercookbook://principles/explicit-over-implicit
+  - agenticdevelopercookbook://principles/idempotency
+  - agenticdevelopercookbook://principles/small-reversible-decisions
 references:
   - https://opentofu.org/docs/
 approved-by: "approve-artifact v1.0.0"

@@ -1,7 +1,7 @@
 ---
 id: B6237653-7419-4587-B5D5-DA096956F4E3
 title: "Internationalization"
-domain: agentic-cookbook://compliance/internationalization
+domain: agenticdevelopercookbook://compliance/internationalization
 type: compliance
 version: 1.0.1
 status: draft
@@ -16,8 +16,8 @@ platforms: []
 tags: [compliance, internationalization]
 depends-on: []
 related:
-  - agentic-cookbook://compliance/accessibility
-  - agentic-cookbook://compliance/platform-compliance
+  - agenticdevelopercookbook://compliance/accessibility
+  - agenticdevelopercookbook://compliance/platform-compliance
 references: []
 ---
 
@@ -38,7 +38,7 @@ All user-visible strings MUST be externalized into localization resource files.
 **Applies when:** recipe displays text to users.
 
 **Guidelines:**
-- [Localization](agentic-cookbook://guidelines/implementing/internationalization/localization)
+- [Localization](agenticdevelopercookbook://guidelines/implementing/internationalization/localization)
 
 ---
 
@@ -49,7 +49,7 @@ Layout MUST adapt correctly for right-to-left languages.
 **Applies when:** recipe renders UI that may be used in RTL locales.
 
 **Guidelines:**
-- [RTL Support](agentic-cookbook://guidelines/implementing/internationalization/rtl-support)
+- [RTL Support](agenticdevelopercookbook://guidelines/implementing/internationalization/rtl-support)
 
 ---
 
@@ -60,7 +60,7 @@ Dates, numbers, and currencies MUST use locale-aware formatting APIs.
 **Applies when:** recipe displays dates, numbers, or currency values.
 
 **Guidelines:**
-- [Localization](agentic-cookbook://guidelines/implementing/internationalization/localization)
+- [Localization](agenticdevelopercookbook://guidelines/implementing/internationalization/localization)
 
 ---
 
@@ -71,7 +71,7 @@ Pluralized strings MUST use locale-appropriate plural rules, not simple singular
 **Applies when:** recipe displays counted or quantified items.
 
 **Guidelines:**
-- [Localization](agentic-cookbook://guidelines/implementing/internationalization/localization)
+- [Localization](agenticdevelopercookbook://guidelines/implementing/internationalization/localization)
 
 ---
 
@@ -82,7 +82,7 @@ Layout MUST accommodate text expansion of up to 200% without truncation or overf
 **Applies when:** recipe renders UI with translated text.
 
 **Guidelines:**
-- [Localization](agentic-cookbook://guidelines/implementing/internationalization/localization)
+- [Localization](agenticdevelopercookbook://guidelines/implementing/internationalization/localization)
 
 ---
 
@@ -93,7 +93,7 @@ All text processing MUST support the full Unicode character set including emoji.
 **Applies when:** recipe processes, stores, or displays user-provided or translated text.
 
 **Guidelines:**
-- [Localization](agentic-cookbook://guidelines/implementing/internationalization/localization)
+- [Localization](agenticdevelopercookbook://guidelines/implementing/internationalization/localization)
 
 ---
 
@@ -104,7 +104,7 @@ User-visible strings MUST NOT be hardcoded in source code.
 **Applies when:** recipe contains source code with user-facing text.
 
 **Guidelines:**
-- [Localization](agentic-cookbook://guidelines/implementing/internationalization/localization)
+- [Localization](agenticdevelopercookbook://guidelines/implementing/internationalization/localization)
 
 ## Change History
 

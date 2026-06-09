@@ -1,7 +1,7 @@
 ---
 id: f9f12465-9f73-40ef-b9f6-d124090781f5
 title: "AI Chat Control"
-domain: agentic-cookbook://ingredients/ui/components/ai-chat-control
+domain: agenticdevelopercookbook://ingredients/ui/components/ai-chat-control
 type: ingredient
 version: 1.0.0
 status: accepted

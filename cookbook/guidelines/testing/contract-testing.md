@@ -1,7 +1,7 @@
 ---
 id: abdcd282-5b81-4ab2-ab1e-3ed288a4aee5
 title: "Contract testing for services"
-domain: agentic-cookbook://guidelines/testing/contract-testing
+domain: agenticdevelopercookbook://guidelines/testing/contract-testing
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - services
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/testing/test-pyramid
-  - agentic-cookbook://principles/manage-complexity-through-boundaries
+  - agenticdevelopercookbook://guidelines/testing/test-pyramid
+  - agenticdevelopercookbook://principles/manage-complexity-through-boundaries
 references:
   - https://docs.pact.io/
 approved-by: "approve-artifact v1.0.0"

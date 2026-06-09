@@ -1,7 +1,7 @@
 ---
 id: ea5ccc72-7b6e-4aa8-a599-40837f722f38
 title: "Modern CSS layout and Baseline-driven adoption"
-domain: agentic-cookbook://guidelines/implementing/ui/modern-css
+domain: agenticdevelopercookbook://guidelines/implementing/ui/modern-css
 type: guideline
 version: 1.0.0
 status: accepted
@@ -20,8 +20,8 @@ tags:
   - ui
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/ui/layout
-  - agentic-cookbook://guidelines/implementing/ui/theming
+  - agenticdevelopercookbook://guidelines/implementing/ui/layout
+  - agenticdevelopercookbook://guidelines/implementing/ui/theming
 references:
   - https://web.dev/baseline
   - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries

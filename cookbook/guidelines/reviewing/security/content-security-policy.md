@@ -2,7 +2,7 @@
 
 id: 55c65fc6-aa2b-4410-99ab-4bb037313e05
 title: "Content Security Policy"
-domain: agentic-cookbook://guidelines/reviewing/security/content-security-policy
+domain: agenticdevelopercookbook://guidelines/reviewing/security/content-security-policy
 type: guideline
 version: 1.1.0
 status: accepted

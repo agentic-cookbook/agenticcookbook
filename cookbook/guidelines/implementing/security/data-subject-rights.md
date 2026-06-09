@@ -1,7 +1,7 @@
 ---
 id: f0f9bc0c-7195-42fd-95eb-2405e81fb1ea
 title: "Data subject rights (DSAR)"
-domain: agentic-cookbook://guidelines/implementing/security/data-subject-rights
+domain: agenticdevelopercookbook://guidelines/implementing/security/data-subject-rights
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - dsar
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/data/data-retention-and-deletion
-  - agentic-cookbook://guidelines/implementing/security/pii-handling
+  - agenticdevelopercookbook://guidelines/implementing/data/data-retention-and-deletion
+  - agenticdevelopercookbook://guidelines/implementing/security/pii-handling
 references:
   - https://gdpr-info.eu/chapter-3/
 approved-by: "approve-artifact v1.0.0"

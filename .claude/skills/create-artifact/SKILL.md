@@ -73,7 +73,7 @@ Generate the YAML frontmatter:
 ---
 id: <generate with uuidgen>
 title: "<title>"
-domain: agentic-cookbook://<path-without-.md>
+domain: agenticdevelopercookbook://<path-without-.md>
 type: <type>
 version: 1.0.0
 status: draft

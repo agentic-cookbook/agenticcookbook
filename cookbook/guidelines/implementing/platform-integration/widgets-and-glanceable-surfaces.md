@@ -2,7 +2,7 @@
 
 id: e3aa9294-61cf-4a3a-9fbf-0528a1404094
 title: "Widgets and glanceable surfaces"
-domain: agentic-cookbook://guidelines/implementing/platform-integration/widgets-and-glanceable-surfaces
+domain: agenticdevelopercookbook://guidelines/implementing/platform-integration/widgets-and-glanceable-surfaces
 type: guideline
 version: 1.0.3
 status: accepted
@@ -23,9 +23,9 @@ tags:
   - platform
   - glanceable
 depends-on:
-  - agentic-cookbook://principles/support-automation
+  - agenticdevelopercookbook://principles/support-automation
 related:
-  - agentic-cookbook://guidelines/implementing/platform-integration/notifications
+  - agenticdevelopercookbook://guidelines/implementing/platform-integration/notifications
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

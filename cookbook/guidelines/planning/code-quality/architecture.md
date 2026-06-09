@@ -2,7 +2,7 @@
 
 id: fa8f5801-5c3f-44b3-bb51-cb04e918527f
 title: "Architecture"
-domain: agentic-cookbook://guidelines/planning/code-quality/architecture
+domain: agenticdevelopercookbook://guidelines/planning/code-quality/architecture
 type: guideline
 version: 1.0.2
 status: accepted

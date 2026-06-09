@@ -2,7 +2,7 @@
 
 id: 1123eb5a-b38a-41f8-8ae9-ec899f15707f
 title: "Sync Engine Design"
-domain: agentic-cookbook://guidelines/planning/data/sync-engine-design
+domain: agenticdevelopercookbook://guidelines/planning/data/sync-engine-design
 type: guideline
 version: 1.0.2
 status: accepted

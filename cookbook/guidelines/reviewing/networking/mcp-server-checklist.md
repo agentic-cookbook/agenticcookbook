@@ -1,7 +1,7 @@
 ---
 id: 555d659d-6272-4ad3-90f7-3efc8ee6031e
 title: "MCP server review checklist"
-domain: agentic-cookbook://guidelines/reviewing/networking/mcp-server-checklist
+domain: agenticdevelopercookbook://guidelines/reviewing/networking/mcp-server-checklist
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - checklist
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/networking/mcp-server-design
-  - agentic-cookbook://guidelines/implementing/security/mcp-server-security
+  - agenticdevelopercookbook://guidelines/implementing/networking/mcp-server-design
+  - agenticdevelopercookbook://guidelines/implementing/security/mcp-server-security
 references:
   - https://modelcontextprotocol.io/
 approved-by: "approve-artifact v1.0.0"

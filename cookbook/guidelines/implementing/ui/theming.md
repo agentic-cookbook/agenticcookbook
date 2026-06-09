@@ -2,7 +2,7 @@
 
 id: 5cc9773e-78de-493e-891c-2a819baf9b60
 title: "Theming"
-domain: agentic-cookbook://guidelines/implementing/ui/theming
+domain: agenticdevelopercookbook://guidelines/implementing/ui/theming
 type: guideline
 version: 1.0.2
 status: accepted

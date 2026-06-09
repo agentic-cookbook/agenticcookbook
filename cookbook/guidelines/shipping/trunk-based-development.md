@@ -1,7 +1,7 @@
 ---
 id: 86866beb-319a-45b2-bdfa-24f0e3f7ae58
 title: "Trunk-based development"
-domain: agentic-cookbook://guidelines/shipping/trunk-based-development
+domain: agenticdevelopercookbook://guidelines/shipping/trunk-based-development
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - delivery
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/shipping/atomic-commits
-  - agentic-cookbook://principles/small-reversible-decisions
+  - agenticdevelopercookbook://guidelines/shipping/atomic-commits
+  - agenticdevelopercookbook://principles/small-reversible-decisions
 references:
   - https://trunkbaseddevelopment.com/
 approved-by: "approve-artifact v1.0.0"

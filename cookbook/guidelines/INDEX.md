@@ -1,7 +1,7 @@
 ---
 id: eb0764d5-aeac-40cc-9aa4-d84e4eaa652d
 title: Guidelines Index
-domain: agentic-cookbook://guidelines/INDEX
+domain: agenticdevelopercookbook://guidelines/INDEX
 type: reference
 version: 2.5.0
 status: accepted

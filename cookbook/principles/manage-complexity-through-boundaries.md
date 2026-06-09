@@ -1,7 +1,7 @@
 ---
 id: 555ad5e1-800f-4848-8c58-6f726bdcb42b
 title: "Manage complexity through boundaries"
-domain: agentic-cookbook://principles/manage-complexity-through-boundaries
+domain: agenticdevelopercookbook://principles/manage-complexity-through-boundaries
 type: principle
 version: 1.1.0
 status: accepted
@@ -17,10 +17,10 @@ tags:
   - manage-complexity-through-boundaries
 depends-on: []
 related:
-  - agentic-cookbook://principles/composition-over-inheritance
-  - agentic-cookbook://principles/connascence
-  - agentic-cookbook://principles/steel-thread-first
-  - agentic-cookbook://principles/yagni
+  - agenticdevelopercookbook://principles/composition-over-inheritance
+  - agenticdevelopercookbook://principles/connascence
+  - agenticdevelopercookbook://principles/steel-thread-first
+  - agenticdevelopercookbook://principles/yagni
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

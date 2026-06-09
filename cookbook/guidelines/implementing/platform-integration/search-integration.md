@@ -2,7 +2,7 @@
 
 id: b512282a-8174-426f-95dd-4a147222584d
 title: "Search integration"
-domain: agentic-cookbook://guidelines/implementing/platform-integration/search-integration
+domain: agenticdevelopercookbook://guidelines/implementing/platform-integration/search-integration
 type: guideline
 version: 1.0.3
 status: accepted
@@ -24,9 +24,9 @@ tags:
   - platform
   - discoverability
 depends-on:
-  - agentic-cookbook://principles/support-automation
+  - agenticdevelopercookbook://principles/support-automation
 related:
-  - agentic-cookbook://guidelines/implementing/platform-integration/deep-linking
+  - agenticdevelopercookbook://guidelines/implementing/platform-integration/deep-linking
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

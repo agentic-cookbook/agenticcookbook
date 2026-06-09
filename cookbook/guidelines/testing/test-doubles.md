@@ -2,7 +2,7 @@
 
 id: eec76082-a68b-4a2b-8f02-5ea3bfdc0a76
 title: "Test Doubles"
-domain: agentic-cookbook://guidelines/testing/test-doubles
+domain: agenticdevelopercookbook://guidelines/testing/test-doubles
 type: guideline
 version: 1.0.2
 status: accepted

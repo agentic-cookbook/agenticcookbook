@@ -2,7 +2,7 @@
 
 id: f7d33c40-8dbd-4503-827f-92e4c3da4b8f
 title: "Performance: Speed and Token Efficiency"
-domain: agentic-cookbook://guidelines/reviewing/skills-and-agents/performance
+domain: agenticdevelopercookbook://guidelines/reviewing/skills-and-agents/performance
 type: guideline
 version: 1.0.3
 status: accepted
@@ -22,12 +22,12 @@ tags:
   - shell-scripts
   - model-selection
 depends-on:
-  - agentic-cookbook://guidelines/implementing/skills-and-agents/authoring-skills-and-rules
+  - agenticdevelopercookbook://guidelines/implementing/skills-and-agents/authoring-skills-and-rules
 related:
-  - agentic-cookbook://principles/simplicity
-  - agentic-cookbook://principles/yagni
-  - agentic-cookbook://principles/separation-of-concerns
-  - agentic-cookbook://principles/manage-complexity-through-boundaries
+  - agenticdevelopercookbook://principles/simplicity
+  - agenticdevelopercookbook://principles/yagni
+  - agenticdevelopercookbook://principles/separation-of-concerns
+  - agenticdevelopercookbook://principles/manage-complexity-through-boundaries
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

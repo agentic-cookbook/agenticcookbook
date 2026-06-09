@@ -1,7 +1,7 @@
 ---
 id: c4273664-4d26-477b-b778-ac1e9b51f385
 title: "API versioning and deprecation"
-domain: agentic-cookbook://guidelines/planning/networking/api-versioning-and-deprecation
+domain: agenticdevelopercookbook://guidelines/planning/networking/api-versioning-and-deprecation
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - lifecycle
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/planning/networking/api-design
-  - agentic-cookbook://guidelines/reviewing/networking/observable-behavior-contract
+  - agenticdevelopercookbook://guidelines/planning/networking/api-design
+  - agenticdevelopercookbook://guidelines/reviewing/networking/observable-behavior-contract
 references:
   - https://www.rfc-editor.org/rfc/rfc8594.html
 approved-by: "approve-artifact v1.0.0"

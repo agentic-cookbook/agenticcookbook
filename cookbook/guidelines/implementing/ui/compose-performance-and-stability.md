@@ -1,7 +1,7 @@
 ---
 id: 9f2ef6d5-c1a0-499b-855c-b8742c8efe62
 title: "Jetpack Compose performance and stability"
-domain: agentic-cookbook://guidelines/implementing/ui/compose-performance-and-stability
+domain: agenticdevelopercookbook://guidelines/implementing/ui/compose-performance-and-stability
 type: guideline
 version: 1.0.0
 status: accepted
@@ -20,7 +20,7 @@ tags:
   - performance
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/ui/compose-state-and-udf
+  - agenticdevelopercookbook://guidelines/implementing/ui/compose-state-and-udf
 references:
   - https://developer.android.com/develop/ui/compose/performance
 approved-by: "approve-artifact v1.0.0"

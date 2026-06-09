@@ -2,7 +2,7 @@
 
 id: 25A3B827-1DA9-4600-98EC-F5C492A162E3
 title: "Schema evolution and migrations"
-domain: agentic-cookbook://guidelines/implementing/data/schema-evolution
+domain: agenticdevelopercookbook://guidelines/implementing/data/schema-evolution
 type: guideline
 version: 1.0.2
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: 2fd49a5f-4be1-4b0d-b2e7-41cbcbab66ee
 title: "Choosing a Windows UI framework and deployment model"
-domain: agentic-cookbook://guidelines/planning/code-quality/windows-ui-framework-and-deployment
+domain: agenticdevelopercookbook://guidelines/planning/code-quality/windows-ui-framework-and-deployment
 type: guideline
 version: 1.0.0
 status: accepted
@@ -21,8 +21,8 @@ tags:
   - packaging
 depends-on: []
 related:
-  - agentic-cookbook://principles/small-reversible-decisions
-  - agentic-cookbook://principles/explicit-over-implicit
+  - agenticdevelopercookbook://principles/small-reversible-decisions
+  - agenticdevelopercookbook://principles/explicit-over-implicit
 references:
   - https://learn.microsoft.com/en-us/windows/apps/get-started/
 approved-by: "approve-artifact v1.0.0"
@@ -67,11 +67,11 @@ The deployment model determines whether the app has **package identity**, which 
 - New apps **SHOULD** default to **packaged MSIX** unless a deployment constraint rules it out.
 - Existing apps that must keep their installer **SHOULD** use **packaged with external location** to gain identity without replacing the installer.
 - Unpackaged apps **MUST** install the Windows App SDK runtime (or ship self-contained) and call `Bootstrap.Initialize()` at startup; set `<WindowsPackageType>None</WindowsPackageType>` in the project. Packaged apps **MUST NOT** set that property.
-- The chosen model **MUST** be recorded in the project's planning notes (per `agentic-cookbook://principles/explicit-over-implicit`) so the identity assumption is visible to every later decision.
+- The chosen model **MUST** be recorded in the project's planning notes (per `agenticdevelopercookbook://principles/explicit-over-implicit`) so the identity assumption is visible to every later decision.
 
 ## Make it reversible where you can
 
-- Defer the framework choice no later than the first UI module; defer the deployment choice no later than the first identity-gated feature. Both are costly to change once code depends on them (`agentic-cookbook://principles/small-reversible-decisions`).
+- Defer the framework choice no later than the first UI module; defer the deployment choice no later than the first identity-gated feature. Both are costly to change once code depends on them (`agenticdevelopercookbook://principles/small-reversible-decisions`).
 - When requirements are uncertain, agents **SHOULD** prefer packaged MSIX — adding identity-gated features later is free, removing the identity assumption is not.
 
 ## Change History

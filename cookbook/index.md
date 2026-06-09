@@ -1,7 +1,7 @@
 ---
 id: 00000000-0000-0000-0000-000000000001
 title: "Agentic Developer Cookbook"
-domain: agentic-cookbook://index
+domain: agenticdevelopercookbook://index
 type: reference
 version: 4.2.0
 status: accepted

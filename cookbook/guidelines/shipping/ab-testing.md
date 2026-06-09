@@ -2,7 +2,7 @@
 
 id: cadf17c9-e809-4324-acb3-a430c54a81b4
 title: "A/B testing"
-domain: agentic-cookbook://guidelines/shipping/ab-testing
+domain: agenticdevelopercookbook://guidelines/shipping/ab-testing
 type: guideline
 version: 1.1.1
 status: accepted

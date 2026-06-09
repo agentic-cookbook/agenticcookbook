@@ -1,7 +1,7 @@
 ---
 id: beea6f0b-f329-4780-9e9d-d276f0b98823
 title: "Hyrum's Law: all observable behavior becomes contract"
-domain: agentic-cookbook://guidelines/reviewing/networking/observable-behavior-contract
+domain: agenticdevelopercookbook://guidelines/reviewing/networking/observable-behavior-contract
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - coupling
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/planning/networking/api-design
-  - agentic-cookbook://principles/explicit-over-implicit
+  - agenticdevelopercookbook://guidelines/planning/networking/api-design
+  - agenticdevelopercookbook://principles/explicit-over-implicit
 references:
   - https://www.hyrumslaw.com/
 approved-by: "approve-artifact v1.0.0"

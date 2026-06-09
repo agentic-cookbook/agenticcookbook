@@ -1,7 +1,7 @@
 ---
 id: 3a6baa24-9bd3-45f8-aa6a-b32c61169ed3
 title: "Value objects over primitive obsession"
-domain: agentic-cookbook://guidelines/implementing/code-quality/value-objects
+domain: agenticdevelopercookbook://guidelines/implementing/code-quality/value-objects
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,9 +19,9 @@ tags:
   - code-quality
 depends-on: []
 related:
-  - agentic-cookbook://principles/parse-dont-validate
-  - agentic-cookbook://principles/immutability-by-default
-  - agentic-cookbook://guidelines/implementing/security/input-validation
+  - agenticdevelopercookbook://principles/parse-dont-validate
+  - agenticdevelopercookbook://principles/immutability-by-default
+  - agenticdevelopercookbook://guidelines/implementing/security/input-validation
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

@@ -2,7 +2,7 @@
 
 id: d73a9715-cab5-4ccd-8c14-1a941ff095d6
 title: "Touch & Click Targets"
-domain: agentic-cookbook://guidelines/reviewing/ui/touch-click-targets
+domain: agenticdevelopercookbook://guidelines/reviewing/ui/touch-click-targets
 type: guideline
 version: 1.0.3
 status: accepted
@@ -24,7 +24,7 @@ tags:
   - ui
 depends-on: []
 related: 
-  - agentic-cookbook://guidelines/reviewing/accessibility/accessibility
+  - agenticdevelopercookbook://guidelines/reviewing/accessibility/accessibility
 references: 
   - https://developer.apple.com/design/human-interface-guidelines/accessibility#User-interaction
   - https://learn.microsoft.com/en-us/windows/apps/design/input/guidelines-for-targeting
@@ -56,7 +56,7 @@ HIG first — each prescribes its own minimum:
 - Inline text links in paragraphs are exempt from size minimums but should have sufficient
   line height for comfortable tapping
 
-See agentic-cookbook://guidelines/reviewing/accessibility/accessibility for full accessibility requirements.
+See agenticdevelopercookbook://guidelines/reviewing/accessibility/accessibility for full accessibility requirements.
 
 References:
 - [Apple HIG: Accessibility — User Interaction](https://developer.apple.com/design/human-interface-guidelines/accessibility#User-interaction)

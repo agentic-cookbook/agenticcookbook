@@ -2,7 +2,7 @@
 
 id: 6302654b-8200-4e03-862d-4734d4960d19
 title: "No blocking the main thread"
-domain: agentic-cookbook://guidelines/implementing/concurrency/concurrency
+domain: agenticdevelopercookbook://guidelines/implementing/concurrency/concurrency
 type: guideline
 version: 1.0.2
 status: accepted

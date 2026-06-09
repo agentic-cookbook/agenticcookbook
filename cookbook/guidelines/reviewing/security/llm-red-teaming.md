@@ -1,7 +1,7 @@
 ---
 id: 709aabb0-c305-4a23-8748-9f57c5bbe93d
 title: "LLM red teaming"
-domain: agentic-cookbook://guidelines/reviewing/security/llm-red-teaming
+domain: agenticdevelopercookbook://guidelines/reviewing/security/llm-red-teaming
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - red-team
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/security/agent-guardrails
-  - agentic-cookbook://guidelines/implementing/security/llm-application-security
+  - agenticdevelopercookbook://guidelines/implementing/security/agent-guardrails
+  - agenticdevelopercookbook://guidelines/implementing/security/llm-application-security
 references:
   - https://genai.owasp.org/llm-top-10/
 approved-by: "approve-artifact v1.0.0"

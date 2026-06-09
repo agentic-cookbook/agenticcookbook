@@ -2,7 +2,7 @@
 
 id: 9e2f6a0b-d074-4ab2-b5f3-19a313bb75cc
 title: "Naming"
-domain: agentic-cookbook://guidelines/reviewing/code-quality/naming
+domain: agenticdevelopercookbook://guidelines/reviewing/code-quality/naming
 type: guideline
 version: 1.0.2
 status: accepted

@@ -2,7 +2,7 @@
 
 id: becd68d0-3275-4da9-a703-7cf361fbfb8c
 title: "Relationship patterns"
-domain: agentic-cookbook://guidelines/planning/data/relationships
+domain: agenticdevelopercookbook://guidelines/planning/data/relationships
 type: guideline
 version: 1.0.2
 status: accepted

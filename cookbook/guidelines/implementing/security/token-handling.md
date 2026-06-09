@@ -2,7 +2,7 @@
 
 id: 2598f495-1820-47e7-b7e7-ce548d390148
 title: "Token Handling"
-domain: agentic-cookbook://guidelines/implementing/security/token-handling
+domain: agenticdevelopercookbook://guidelines/implementing/security/token-handling
 type: guideline
 version: 1.0.3
 status: accepted
@@ -56,7 +56,7 @@ Store server-side when possible.
 
 ### Secure storage per platform
 
-See also agentic-cookbook://guidelines/implementing/security/privacy
+See also agenticdevelopercookbook://guidelines/implementing/security/privacy
 
 - **Apple:** Keychain Services
 - **Android:** EncryptedSharedPreferences / Android Keystore

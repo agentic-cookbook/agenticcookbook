@@ -1,7 +1,7 @@
 ---
 id: 6b8715f1-ece0-4db6-b691-19e9d0367ef3
 title: "Service-level objectives and error budgets"
-domain: agentic-cookbook://guidelines/implementing/observability/service-level-objectives
+domain: agenticdevelopercookbook://guidelines/implementing/observability/service-level-objectives
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - reliability
 depends-on: []
 related:
-  - agentic-cookbook://principles/tight-feedback-loops
-  - agentic-cookbook://guidelines/implementing/observability/logging
+  - agenticdevelopercookbook://principles/tight-feedback-loops
+  - agenticdevelopercookbook://guidelines/implementing/observability/logging
 references:
   - https://sre.google/workbook/implementing-slos/
 approved-by: "approve-artifact v1.0.0"

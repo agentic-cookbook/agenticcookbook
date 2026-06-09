@@ -2,7 +2,7 @@
 
 id: 34f13883-8905-4b5c-9299-82602687e98d
 title: "Linting from day one"
-domain: agentic-cookbook://guidelines/testing/linting
+domain: agenticdevelopercookbook://guidelines/testing/linting
 type: guideline
 version: 1.1.1
 status: accepted

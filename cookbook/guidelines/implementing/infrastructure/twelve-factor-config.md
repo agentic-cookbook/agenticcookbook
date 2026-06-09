@@ -1,7 +1,7 @@
 ---
 id: a127f652-728b-42f0-8d60-1017fccabdf3
 title: "Twelve-factor configuration"
-domain: agentic-cookbook://guidelines/implementing/infrastructure/twelve-factor-config
+domain: agenticdevelopercookbook://guidelines/implementing/infrastructure/twelve-factor-config
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - environment
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/planning/infrastructure/infrastructure-as-code
-  - agentic-cookbook://principles/explicit-over-implicit
+  - agenticdevelopercookbook://guidelines/planning/infrastructure/infrastructure-as-code
+  - agenticdevelopercookbook://principles/explicit-over-implicit
 references:
   - https://12factor.net/config
 approved-by: "approve-artifact v1.0.0"

@@ -2,7 +2,7 @@
 
 id: 074124ee-4490-40e0-aedb-9af8fbc880b5
 title: "Sensitive Data"
-domain: agentic-cookbook://guidelines/reviewing/security/sensitive-data
+domain: agenticdevelopercookbook://guidelines/reviewing/security/sensitive-data
 type: guideline
 version: 1.0.3
 status: accepted
@@ -43,7 +43,7 @@ Minimize what you collect, encrypt what you keep, never log what you shouldn't.
   application level with a KMS (AWS KMS, Azure Key Vault, GCP KMS). Separate from database-level
   encryption.
 - **No PII in logs** — tokens, passwords, credit card numbers, or PII MUST NOT be logged. Mask/redact
-  in all log outputs, including debug level. See agentic-cookbook://guidelines/reviewing/security/privacy
+  in all log outputs, including debug level. See agenticdevelopercookbook://guidelines/reviewing/security/privacy
 - **No internals in API responses** — internal IDs, stack traces, or database
   error messages MUST NOT be exposed in production. Return generic errors with correlation IDs.
 - **Cache-Control: no-store** on responses containing sensitive data.

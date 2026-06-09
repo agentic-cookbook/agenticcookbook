@@ -1,7 +1,7 @@
 ---
 id: d4875936-f6df-49b1-9b96-9c4a2147bc0d
 title: "Design token distribution"
-domain: agentic-cookbook://guidelines/implementing/ui/design-token-distribution
+domain: agenticdevelopercookbook://guidelines/implementing/ui/design-token-distribution
 type: guideline
 version: 1.0.0
 status: accepted
@@ -24,7 +24,7 @@ tags:
   - build
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/planning/ui/design-tokens
+  - agenticdevelopercookbook://guidelines/planning/ui/design-tokens
 references:
   - https://styledictionary.com/
 approved-by: "approve-artifact v1.0.0"

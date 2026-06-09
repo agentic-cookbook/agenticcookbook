@@ -1,7 +1,7 @@
 ---
 id: ed639d3f-02e5-42d1-bb87-f96908986025
 title: "Kubernetes configuration and secrets"
-domain: agentic-cookbook://guidelines/implementing/infrastructure/kubernetes-configuration
+domain: agenticdevelopercookbook://guidelines/implementing/infrastructure/kubernetes-configuration
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - secrets
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/infrastructure/containerization
-  - agentic-cookbook://guidelines/implementing/security/pii-handling
+  - agenticdevelopercookbook://guidelines/implementing/infrastructure/containerization
+  - agenticdevelopercookbook://guidelines/implementing/security/pii-handling
 references:
   - https://kubernetes.io/docs/concepts/configuration/secret/
 approved-by: "approve-artifact v1.0.0"

@@ -1,7 +1,7 @@
 ---
 id: 0f999db4-956a-4124-a142-367b1a570983
 title: "Context and memory management for agents"
-domain: agentic-cookbook://guidelines/implementing/skills-and-agents/context-and-memory-management
+domain: agenticdevelopercookbook://guidelines/implementing/skills-and-agents/context-and-memory-management
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - ai-workflow
 depends-on: []
 related:
-  - agentic-cookbook://principles/simplicity
-  - agentic-cookbook://principles/tight-feedback-loops
+  - agenticdevelopercookbook://principles/simplicity
+  - agenticdevelopercookbook://principles/tight-feedback-loops
 references:
   - https://code.claude.com/docs/en/best-practices
 approved-by: "approve-artifact v1.0.0"

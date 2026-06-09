@@ -2,7 +2,7 @@
 
 id: cf05e36f-ea8b-4af2-8df6-c5e772dc25b5
 title: "Security Testing"
-domain: agentic-cookbook://guidelines/testing/security-testing
+domain: agenticdevelopercookbook://guidelines/testing/security-testing
 type: guideline
 version: 1.0.3
 status: accepted
@@ -12,7 +12,7 @@ modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
-summary: "Run security scans as part of post-generation verification (agentic-cookbook://guidelines/testing/post-generation-verification). These a..."
+summary: "Run security scans as part of post-generation verification (agenticdevelopercookbook://guidelines/testing/post-generation-verification). These a..."
 platforms: 
   - csharp
   - kotlin
@@ -25,7 +25,7 @@ tags:
   - testing
 depends-on: []
 related: 
-  - agentic-cookbook://guidelines/testing/post-generation-verification
+  - agenticdevelopercookbook://guidelines/testing/post-generation-verification
 references: 
   - https://codeql.github.com/
   - https://github.com/PyCQA/bandit
@@ -41,7 +41,7 @@ triggers:
 
 # Security Testing
 
-Security scans MUST be run as part of post-generation verification (agentic-cookbook://guidelines/testing/post-generation-verification). These are CLI tools
+Security scans MUST be run as part of post-generation verification (agenticdevelopercookbook://guidelines/testing/post-generation-verification). These are CLI tools
 Claude Code can invoke directly.
 
 **Static Analysis (SAST):**
@@ -58,7 +58,7 @@ Claude Code can invoke directly.
 **Dynamic Analysis (DAST):**
 - [OWASP ZAP](https://www.zaproxy.org/) — scan running web services: `zap-cli quick-scan http://localhost:8888`
 
-See agentic-cookbook://guidelines/implementing/security/* (Security Guidelines) for the full security reference.
+See agenticdevelopercookbook://guidelines/implementing/security/* (Security Guidelines) for the full security reference.
 
 ## Change History
 

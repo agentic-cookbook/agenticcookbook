@@ -1,7 +1,7 @@
 ---
 id: 16d3e8e5-47fc-4f79-b403-c532e4f12f07
 title: "Windows 11 materials (Mica and Acrylic)"
-domain: agentic-cookbook://guidelines/implementing/ui/windows-11-materials
+domain: agenticdevelopercookbook://guidelines/implementing/ui/windows-11-materials
 type: guideline
 version: 1.0.0
 status: accepted
@@ -21,8 +21,8 @@ tags:
   - theming
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/ui/fluent-design
-  - agentic-cookbook://guidelines/implementing/ui/theming
+  - agenticdevelopercookbook://guidelines/implementing/ui/fluent-design
+  - agenticdevelopercookbook://guidelines/implementing/ui/theming
 references:
   - https://learn.microsoft.com/en-us/windows/apps/design/style/mica
 approved-by: "approve-artifact v1.0.0"

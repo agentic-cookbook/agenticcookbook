@@ -2,7 +2,7 @@
 
 id: 2212a394-68d8-4588-a587-2fc637280deb
 title: "Handoff and continuity"
-domain: agentic-cookbook://guidelines/implementing/platform-integration/handoff-and-continuity
+domain: agenticdevelopercookbook://guidelines/implementing/platform-integration/handoff-and-continuity
 type: guideline
 version: 1.0.3
 status: accepted
@@ -25,8 +25,8 @@ tags:
   - cross-device
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/platform-integration/deep-linking
-  - agentic-cookbook://guidelines/implementing/platform-integration/search-integration
+  - agenticdevelopercookbook://guidelines/implementing/platform-integration/deep-linking
+  - agenticdevelopercookbook://guidelines/implementing/platform-integration/search-integration
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

@@ -2,7 +2,7 @@
 
 id: 793bd9f6-b029-4c4e-aca5-d253f9fab48e
 title: "Dependency Security"
-domain: agentic-cookbook://guidelines/shipping/dependency-security
+domain: agenticdevelopercookbook://guidelines/shipping/dependency-security
 type: guideline
 version: 1.1.0
 status: accepted
@@ -61,7 +61,7 @@ An AI agent MUST NOT freely install packages. Constrain what it can pull:
   is added or merged.
 - **Verify existence and maintenance (anti-slopsquatting)** — before adding a candidate package,
   confirm it actually exists and is actively maintained; an agent MUST NOT install a hallucinated or
-  abandoned name. Cross-reference [reuse-before-build](agentic-cookbook://guidelines/planning/code-quality/reuse-before-build).
+  abandoned name. Cross-reference [reuse-before-build](agenticdevelopercookbook://guidelines/planning/code-quality/reuse-before-build).
 
 References:
 - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)

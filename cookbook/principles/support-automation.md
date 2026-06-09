@@ -1,7 +1,7 @@
 ---
 id: cf698150-45b0-4a20-881b-7d0f04208198
 title: "Support Automation"
-domain: agentic-cookbook://principles/support-automation
+domain: agenticdevelopercookbook://principles/support-automation
 type: principle
 version: 1.0.1
 status: accepted
@@ -19,7 +19,7 @@ tags:
   - accessibility
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/platform-integration/shortcuts-and-automation
+  - agenticdevelopercookbook://guidelines/implementing/platform-integration/shortcuts-and-automation
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

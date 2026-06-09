@@ -217,7 +217,7 @@ Requires `--test-mode` support in the skill (auto-approve AskUserQuestion).
 
 | Test | Input | Expected |
 |------|-------|----------|
-| detects broken reference | artifact with bad agentic-cookbook:// URI | output contains FAIL for cross-reference |
+| detects broken reference | artifact with bad agenticdevelopercookbook:// URI | output contains FAIL for cross-reference |
 | detects missing index entry | artifact not in index.md | output contains FAIL for missing entry |
 | dry-run mode | --dry-run | report printed, no files modified |
 

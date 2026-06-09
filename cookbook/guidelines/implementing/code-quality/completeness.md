@@ -1,7 +1,7 @@
 ---
 id: 3ca81fd0-7730-4049-bb0a-91514bb0d730
 title: "Completeness: finish the work, don't defer by default"
-domain: agentic-cookbook://guidelines/implementing/code-quality/completeness
+domain: agenticdevelopercookbook://guidelines/implementing/code-quality/completeness
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,10 +19,10 @@ tags:
   - discipline
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/code-quality/scope-discipline
-  - agentic-cookbook://principles/yagni
-  - agentic-cookbook://principles/fail-fast
-  - agentic-cookbook://principles/steel-thread-first
+  - agenticdevelopercookbook://guidelines/implementing/code-quality/scope-discipline
+  - agenticdevelopercookbook://principles/yagni
+  - agenticdevelopercookbook://principles/fail-fast
+  - agenticdevelopercookbook://principles/steel-thread-first
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

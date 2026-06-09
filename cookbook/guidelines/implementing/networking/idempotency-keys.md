@@ -1,7 +1,7 @@
 ---
 id: c6f45d8b-ed7e-483b-9f83-fc811635758f
 title: "Idempotency keys for write APIs"
-domain: agentic-cookbook://guidelines/implementing/networking/idempotency-keys
+domain: agenticdevelopercookbook://guidelines/implementing/networking/idempotency-keys
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - networking
 depends-on: []
 related:
-  - agentic-cookbook://principles/idempotency
-  - agentic-cookbook://guidelines/implementing/networking/retry-and-resilience
+  - agenticdevelopercookbook://principles/idempotency
+  - agenticdevelopercookbook://guidelines/implementing/networking/retry-and-resilience
 references:
   - https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/
 approved-by: "approve-artifact v1.0.0"
@@ -34,7 +34,7 @@ triggers:
 
 A client-supplied `Idempotency-Key` header lets a state-changing request (typically `POST`) be retried over an unreliable network without creating duplicate side effects. This is the widely-adopted pattern (Stripe, PayPal, others) and is being standardized as the IETF Internet-Draft `draft-ietf-httpapi-idempotency-key-header` — **treat the spec as in-progress/forecast, not a finalized RFC**.
 
-This differs from the cookbook's offline-sync outbox dedup (see `agentic-cookbook://principles/idempotency`): there the *server* derives a deterministic key from the operation; here the *client* supplies an opaque key it can reuse across retries.
+This differs from the cookbook's offline-sync outbox dedup (see `agenticdevelopercookbook://principles/idempotency`): there the *server* derives a deterministic key from the operation; here the *client* supplies an opaque key it can reuse across retries.
 
 ## When to use it
 
@@ -72,7 +72,7 @@ Process a write request carrying a key as follows:
 ## Anti-patterns
 
 - Deriving the key from a timestamp or auto-increment — low entropy invites collisions.
-- Treating a `409`/`422` from key handling as a transient error and retrying blindly (see `agentic-cookbook://guidelines/implementing/networking/retry-and-resilience`).
+- Treating a `409`/`422` from key handling as a transient error and retrying blindly (see `agenticdevelopercookbook://guidelines/implementing/networking/retry-and-resilience`).
 - Caching only the status code and not the body, so a replay returns an incomplete response.
 
 ## Change History

@@ -1,7 +1,7 @@
 ---
 id: 561a27f4-f019-4d3a-96eb-c18d37b16b61
 title: "Git Status Indicator"
-domain: agentic-cookbook://ingredients/ui/components/git-status-indicator
+domain: agenticdevelopercookbook://ingredients/ui/components/git-status-indicator
 type: ingredient
 version: 1.0.0
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: ec59e5cc-5591-4c0b-87f8-00df54394607
 title: "Connascence"
-domain: agentic-cookbook://principles/connascence
+domain: agenticdevelopercookbook://principles/connascence
 type: principle
 version: 1.0.0
 status: accepted
@@ -18,9 +18,9 @@ tags:
   - coupling
 depends-on: []
 related:
-  - agentic-cookbook://principles/separation-of-concerns
-  - agentic-cookbook://principles/manage-complexity-through-boundaries
-  - agentic-cookbook://principles/explicit-over-implicit
+  - agenticdevelopercookbook://principles/separation-of-concerns
+  - agenticdevelopercookbook://principles/manage-complexity-through-boundaries
+  - agenticdevelopercookbook://principles/explicit-over-implicit
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: 2026-06-09

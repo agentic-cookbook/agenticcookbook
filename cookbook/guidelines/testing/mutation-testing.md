@@ -2,7 +2,7 @@
 
 id: db58f79d-1040-4bb2-a862-93ebd390ee12
 title: "Mutation Testing"
-domain: agentic-cookbook://guidelines/testing/mutation-testing
+domain: agenticdevelopercookbook://guidelines/testing/mutation-testing
 type: guideline
 version: 1.0.2
 status: accepted

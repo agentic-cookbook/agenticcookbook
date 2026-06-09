@@ -1,7 +1,7 @@
 ---
 id: 967fe6f8-aa3a-4bcf-8415-7f996042c245
 title: "Continuous profiling"
-domain: agentic-cookbook://guidelines/implementing/observability/continuous-profiling
+domain: agenticdevelopercookbook://guidelines/implementing/observability/continuous-profiling
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - performance
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/observability/metrics-red-use
-  - agentic-cookbook://guidelines/implementing/observability/distributed-tracing
+  - agenticdevelopercookbook://guidelines/implementing/observability/metrics-red-use
+  - agenticdevelopercookbook://guidelines/implementing/observability/distributed-tracing
 references:
   - https://opentelemetry.io/blog/2024/profiling/
 approved-by: "approve-artifact v1.0.0"

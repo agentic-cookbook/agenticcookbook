@@ -2,7 +2,7 @@
 
 id: c2fc1edc-4bb8-44e3-b5d9-338cd146c22d
 title: "Scope discipline"
-domain: agentic-cookbook://guidelines/reviewing/code-quality/scope-discipline
+domain: agenticdevelopercookbook://guidelines/reviewing/code-quality/scope-discipline
 type: guideline
 version: 1.0.3
 status: accepted
@@ -20,9 +20,9 @@ tags:
   - discipline
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/code-quality/atomic-commits
-  - agentic-cookbook://principles/yagni
-  - agentic-cookbook://principles/simplicity
+  - agenticdevelopercookbook://guidelines/implementing/code-quality/atomic-commits
+  - agenticdevelopercookbook://principles/yagni
+  - agenticdevelopercookbook://principles/simplicity
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

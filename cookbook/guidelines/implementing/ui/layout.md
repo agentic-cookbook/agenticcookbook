@@ -2,7 +2,7 @@
 
 id: 26c8e7d6-dde3-48d0-bde0-8a71a51a6674
 title: "Layout"
-domain: agentic-cookbook://guidelines/implementing/ui/layout
+domain: agenticdevelopercookbook://guidelines/implementing/ui/layout
 type: guideline
 version: 1.0.2
 status: accepted

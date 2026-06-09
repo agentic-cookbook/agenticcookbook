@@ -2,7 +2,7 @@
 
 id: c90e2ebe-2fbd-4f83-994e-5db46d53f16b
 title: "Primary key strategies"
-domain: agentic-cookbook://guidelines/planning/data/primary-keys
+domain: agenticdevelopercookbook://guidelines/planning/data/primary-keys
 type: guideline
 version: 1.0.2
 status: accepted

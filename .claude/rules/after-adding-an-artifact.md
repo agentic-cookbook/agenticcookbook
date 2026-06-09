@@ -28,7 +28,7 @@ Check and update all files that reference or are referenced by the changed artif
 
 ### Cross-references in other artifacts
 
-- Search all `.md` files for `agentic-cookbook://` URIs that reference the changed artifact's domain.
+- Search all `.md` files for `agenticdevelopercookbook://` URIs that reference the changed artifact's domain.
 - If the artifact was renamed or moved, update every reference to the new domain.
 - If the artifact was removed, remove or replace every reference to it.
 - Check `depends-on` and `related` fields in other artifacts' frontmatter for stale references.
@@ -47,7 +47,7 @@ Before marking the work complete, confirm:
 
 - [ ] `/approve-artifact` passed on every new or modified artifact
 - [ ] `cookbook/index.md` reflects the current set of artifacts — no missing entries, no dead links
-- [ ] No broken `agentic-cookbook://` cross-references exist in any `.md` file
+- [ ] No broken `agenticdevelopercookbook://` cross-references exist in any `.md` file
 - [ ] README.md and CLAUDE.md artifact counts are accurate
 
 ---

@@ -1,7 +1,7 @@
 ---
 id: 06162d4d-c30c-4531-a1e0-0d1f97a05336
 title: Claude Code Plugins & Skills Catalog
-domain: agentic-cookbook://appendix/research/developer-tools/claude/plugins-and-skills-catalog
+domain: agenticdevelopercookbook://appendix/research/developer-tools/claude/plugins-and-skills-catalog
 type: reference
 version: 1.0.0
 status: draft

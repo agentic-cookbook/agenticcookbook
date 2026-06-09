@@ -1,7 +1,7 @@
 ---
 id: dee58e49-84e7-4ba5-b0f0-a308b2568327
 title: "Consent management"
-domain: agentic-cookbook://guidelines/implementing/security/consent-management
+domain: agenticdevelopercookbook://guidelines/implementing/security/consent-management
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,7 +19,7 @@ tags:
   - gdpr
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/planning/security/data-privacy-regulations
+  - agenticdevelopercookbook://guidelines/planning/security/data-privacy-regulations
 references:
   - https://gdpr-info.eu/art-7-gdpr/
 approved-by: "approve-artifact v1.0.0"

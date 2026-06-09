@@ -2,7 +2,7 @@
 
 id: c3883e6e-3bce-4bb9-a3be-61509a139288
 title: "Timeouts"
-domain: agentic-cookbook://guidelines/implementing/networking/timeouts
+domain: agenticdevelopercookbook://guidelines/implementing/networking/timeouts
 type: guideline
 version: 1.0.2
 status: accepted

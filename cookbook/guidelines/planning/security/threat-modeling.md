@@ -1,7 +1,7 @@
 ---
 id: cbfc3cd1-e0a0-44af-bcd8-0aa96eb2acda
 title: "Threat modeling"
-domain: agentic-cookbook://guidelines/planning/security/threat-modeling
+domain: agenticdevelopercookbook://guidelines/planning/security/threat-modeling
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - planning
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/planning/security/authentication
-  - agentic-cookbook://guidelines/planning/security/privacy
+  - agenticdevelopercookbook://guidelines/planning/security/authentication
+  - agenticdevelopercookbook://guidelines/planning/security/privacy
 references:
   - https://www.threatmodelingmanifesto.org/
 approved-by: "approve-artifact v1.0.0"

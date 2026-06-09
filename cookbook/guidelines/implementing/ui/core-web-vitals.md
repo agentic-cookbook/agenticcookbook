@@ -1,7 +1,7 @@
 ---
 id: c8bf92be-4b7b-4ed7-a9b5-9584c1878d63
 title: "Core Web Vitals and performance budgets"
-domain: agentic-cookbook://guidelines/implementing/ui/core-web-vitals
+domain: agenticdevelopercookbook://guidelines/implementing/ui/core-web-vitals
 type: guideline
 version: 1.0.0
 status: accepted
@@ -21,8 +21,8 @@ tags:
   - metrics
 depends-on: []
 related:
-  - agentic-cookbook://principles/tight-feedback-loops
-  - agentic-cookbook://principles/support-automation
+  - agenticdevelopercookbook://principles/tight-feedback-loops
+  - agenticdevelopercookbook://principles/support-automation
 references:
   - https://web.dev/articles/inp
   - https://web.dev/articles/vitals/

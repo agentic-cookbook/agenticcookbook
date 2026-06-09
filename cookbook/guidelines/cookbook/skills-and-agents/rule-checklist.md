@@ -2,7 +2,7 @@
 
 id: 392d9205-6a50-4815-80a0-7d148880d43b
 title: "Rule Lint Checklist"
-domain: agentic-cookbook://guidelines/cookbook/skills-and-agents/rule-checklist
+domain: agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/rule-checklist
 type: guideline
 version: 1.0.3
 status: accepted
@@ -22,8 +22,8 @@ tags:
   - optimization
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/cookbook/skills-and-agents/authoring-skills-and-rules
-  - agentic-cookbook://guidelines/cookbook/skills-and-agents/rule-structure-reference
+  - agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/authoring-skills-and-rules
+  - agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/rule-structure-reference
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"

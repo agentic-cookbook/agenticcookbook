@@ -1,7 +1,7 @@
 ---
 id: 647b7d54-41fc-4f31-96e4-3d23ae49f92b
 title: "PII handling and classification"
-domain: agentic-cookbook://guidelines/implementing/security/pii-handling
+domain: agenticdevelopercookbook://guidelines/implementing/security/pii-handling
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,9 +19,9 @@ tags:
   - security
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/security/sensitive-data
-  - agentic-cookbook://guidelines/implementing/security/secure-storage
-  - agentic-cookbook://guidelines/implementing/data/data-retention-and-deletion
+  - agenticdevelopercookbook://guidelines/implementing/security/sensitive-data
+  - agenticdevelopercookbook://guidelines/implementing/security/secure-storage
+  - agenticdevelopercookbook://guidelines/implementing/data/data-retention-and-deletion
 references:
   - https://gdpr-info.eu/art-9-gdpr/
 approved-by: "approve-artifact v1.0.0"

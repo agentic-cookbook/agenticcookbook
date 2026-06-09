@@ -1,7 +1,7 @@
 ---
 id: 3B566ED1-AD27-4E6C-8938-62C159DBC5FF
 title: "RecipeName"
-domain: agentic-cookbook://recipes/_template
+domain: agenticdevelopercookbook://recipes/_template
 type: recipe
 version: 1.0.0
 status: accepted
@@ -19,7 +19,7 @@ platforms:
   - web
 tags: []
 ingredients:
-  - agentic-cookbook://ingredients/...
+  - agenticdevelopercookbook://ingredients/...
 depends-on: []
 related: []
 references: []
@@ -35,7 +35,7 @@ Brief description of what this feature is and when to use it.
 
 | Name | Domain | Role | Required | Configuration |
 |------|--------|------|----------|---------------|
-| | `agentic-cookbook://ingredients/...` | | Yes/No | |
+| | `agenticdevelopercookbook://ingredients/...` | | Yes/No | |
 
 ## Integration Requirements
 
@@ -76,7 +76,7 @@ Record any decisions made during implementation that affect integration behavior
 
 | Check | Status | Category |
 |-------|--------|----------|
-| [check-name](agentic-cookbook://compliance/category#check-name) | passed | Category |
+| [check-name](agenticdevelopercookbook://compliance/category#check-name) | passed | Category |
 
 ## Change History
 

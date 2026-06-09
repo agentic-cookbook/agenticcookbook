@@ -1,7 +1,7 @@
 ---
 id: e2a99bf0-6b25-4769-9d1e-613b58b6f097
 title: "Agent evaluation and safety"
-domain: agentic-cookbook://guidelines/testing/agent-evaluation-and-safety
+domain: agenticdevelopercookbook://guidelines/testing/agent-evaluation-and-safety
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - safety
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/testing/eval-driven-development
-  - agentic-cookbook://guidelines/implementing/security/llm-application-security
+  - agenticdevelopercookbook://guidelines/testing/eval-driven-development
+  - agenticdevelopercookbook://guidelines/implementing/security/llm-application-security
 references:
   - https://platform.openai.com/docs/guides/evals
 approved-by: "approve-artifact v1.0.0"

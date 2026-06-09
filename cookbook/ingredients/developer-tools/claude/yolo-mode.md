@@ -1,7 +1,7 @@
 ---
 id: 92daec8c-4388-4a34-bc0c-d3ce0ab8c724
 title: "Yolo Mode (Permission Bypass Hook)"
-domain: agentic-cookbook://ingredients/developer-tools/claude/yolo-mode
+domain: agenticdevelopercookbook://ingredients/developer-tools/claude/yolo-mode
 type: ingredient
 version: 1.0.0
 status: accepted
@@ -240,9 +240,9 @@ Not applicable — the hook script produces no log output. The skill prints stat
 
 | Check | Status | Category |
 |-------|--------|----------|
-| [secure-log-output](agentic-cookbook://compliance/security#secure-log-output) | passed | Security — no credentials or PII in output |
-| [data-minimization](agentic-cookbook://compliance/privacy-and-data#data-minimization) | passed | Privacy — no user data collected |
-| [destructive-action-guard](agentic-cookbook://compliance/user-safety#destructive-action-guard) | passed | Safety — warning + confirmation before enable |
+| [secure-log-output](agenticdevelopercookbook://compliance/security#secure-log-output) | passed | Security — no credentials or PII in output |
+| [data-minimization](agenticdevelopercookbook://compliance/privacy-and-data#data-minimization) | passed | Privacy — no user data collected |
+| [destructive-action-guard](agenticdevelopercookbook://compliance/user-safety#destructive-action-guard) | passed | Safety — warning + confirmation before enable |
 
 ## Change History
 

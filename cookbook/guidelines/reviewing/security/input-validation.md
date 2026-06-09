@@ -2,7 +2,7 @@
 
 id: d02a65e0-652f-49b9-be3b-44fccc2f7888
 title: "Input Validation"
-domain: agentic-cookbook://guidelines/reviewing/security/input-validation
+domain: agenticdevelopercookbook://guidelines/reviewing/security/input-validation
 type: guideline
 version: 1.1.0
 status: accepted

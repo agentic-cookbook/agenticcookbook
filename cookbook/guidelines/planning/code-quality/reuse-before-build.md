@@ -1,7 +1,7 @@
 ---
 id: 2c605b36-da66-4eaf-b2d4-59ed5a3976b3
 title: "Search for existing solutions before building"
-domain: agentic-cookbook://guidelines/planning/code-quality/reuse-before-build
+domain: agenticdevelopercookbook://guidelines/planning/code-quality/reuse-before-build
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,10 +19,10 @@ tags:
   - research
 depends-on: []
 related:
-  - agentic-cookbook://principles/open-source-preference
-  - agentic-cookbook://principles/native-controls
-  - agentic-cookbook://principles/dry
-  - agentic-cookbook://guidelines/shipping/dependency-security
+  - agenticdevelopercookbook://principles/open-source-preference
+  - agenticdevelopercookbook://principles/native-controls
+  - agenticdevelopercookbook://principles/dry
+  - agenticdevelopercookbook://guidelines/shipping/dependency-security
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

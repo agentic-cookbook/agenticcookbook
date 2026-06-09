@@ -2,7 +2,7 @@
 
 id: C8B92187-7C2F-4D11-9AB3-EC806F3CDF26
 title: "Normalization and denormalization"
-domain: agentic-cookbook://guidelines/implementing/data/normalization-and-denormalization
+domain: agenticdevelopercookbook://guidelines/implementing/data/normalization-and-denormalization
 type: guideline
 version: 1.0.2
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: d39543f4-e1b9-4054-afa2-2a3087742a4c
 title: "Windows ARM64 and Native AOT"
-domain: agentic-cookbook://guidelines/shipping/windows-arm64-and-aot
+domain: agenticdevelopercookbook://guidelines/shipping/windows-arm64-and-aot
 type: guideline
 version: 1.0.0
 status: accepted
@@ -21,7 +21,7 @@ tags:
   - performance
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/shipping/continuous-delivery
+  - agenticdevelopercookbook://guidelines/shipping/continuous-delivery
 references:
   - https://learn.microsoft.com/en-us/windows/arm/overview
 approved-by: "approve-artifact v1.0.0"

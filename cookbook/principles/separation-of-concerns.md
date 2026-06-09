@@ -1,7 +1,7 @@
 ---
 id: 1357be12-5a58-4143-a570-849c114770c5
 title: "Separation of concerns"
-domain: agentic-cookbook://principles/separation-of-concerns
+domain: agenticdevelopercookbook://principles/separation-of-concerns
 type: principle
 version: 1.1.0
 status: accepted
@@ -17,8 +17,8 @@ tags:
   - separation-of-concerns
 depends-on: []
 related:
-  - agentic-cookbook://principles/srp
-  - agentic-cookbook://principles/connascence
+  - agenticdevelopercookbook://principles/srp
+  - agenticdevelopercookbook://principles/connascence
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

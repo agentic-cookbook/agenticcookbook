@@ -2,7 +2,7 @@
 
 id: 918c4cec-0bc5-45bf-86d0-5a795053400f
 title: "Lifecycle Patterns"
-domain: agentic-cookbook://guidelines/planning/code-quality/lifecycle-patterns
+domain: agenticdevelopercookbook://guidelines/planning/code-quality/lifecycle-patterns
 type: guideline
 version: 1.0.3
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: 36825f6a-eedc-4cc5-a857-e107133f7ce5
 title: "Distributed tracing and context propagation"
-domain: agentic-cookbook://guidelines/implementing/observability/distributed-tracing
+domain: agenticdevelopercookbook://guidelines/implementing/observability/distributed-tracing
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,7 +19,7 @@ tags:
   - opentelemetry
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/observability/metrics-red-use
+  - agenticdevelopercookbook://guidelines/implementing/observability/metrics-red-use
 references:
   - https://opentelemetry.io/
   - https://www.w3.org/TR/trace-context/
@@ -55,7 +55,7 @@ A distributed trace stitches the spans produced by every service that handles on
 
 ## Correlate logs, metrics, and traces
 
-- Log records **SHOULD** carry the active `trace_id` (and `span_id`) so a log line can be pivoted to its trace and back. See `agentic-cookbook://guidelines/implementing/observability/metrics-red-use` for the metric side.
+- Log records **SHOULD** carry the active `trace_id` (and `span_id`) so a log line can be pivoted to its trace and back. See `agenticdevelopercookbook://guidelines/implementing/observability/metrics-red-use` for the metric side.
 - Use the same `trace_id` field name across services; agents grep on it to correlate signals.
 - Exemplars (linking a metric data point to a sample `trace_id`) **MAY** be emitted to jump from a latency spike to a representative trace.
 

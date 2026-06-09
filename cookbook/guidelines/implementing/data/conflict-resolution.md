@@ -2,7 +2,7 @@
 
 id: 822A0912-FDA7-461F-85AB-F9C2C55F0039
 title: "Conflict Resolution"
-domain: agentic-cookbook://guidelines/implementing/data/conflict-resolution
+domain: agenticdevelopercookbook://guidelines/implementing/data/conflict-resolution
 type: guideline
 version: 1.0.2
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: 8a39c784-a101-434f-afe6-c92187ccf576
 title: "Android predictive back"
-domain: agentic-cookbook://guidelines/implementing/ui/android-predictive-back
+domain: agenticdevelopercookbook://guidelines/implementing/ui/android-predictive-back
 type: guideline
 version: 1.0.0
 status: accepted
@@ -20,7 +20,7 @@ tags:
   - ui
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/ui/android-edge-to-edge
+  - agenticdevelopercookbook://guidelines/implementing/ui/android-edge-to-edge
 references:
   - https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture
 approved-by: "approve-artifact v1.0.0"

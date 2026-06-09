@@ -1,7 +1,7 @@
 ---
 id: 6a81c776-d327-4ea6-9814-585e5cf85bc7
 title: Web Backend Development Tools
-domain: agentic-cookbook://appendix/research/developer-tools/web/backend-tools
+domain: agenticdevelopercookbook://appendix/research/developer-tools/web/backend-tools
 type: reference
 version: 1.0.0
 status: draft

@@ -1,7 +1,7 @@
 ---
 id: 72DAFECD-184A-4974-9EEC-3FCE8D9447A6
 title: "Artifact Formatting Compliance"
-domain: agentic-cookbook://compliance/artifact-formatting/INDEX
+domain: agenticdevelopercookbook://compliance/artifact-formatting/INDEX
 type: reference
 version: 1.2.0
 status: draft
@@ -18,9 +18,9 @@ tags:
   - artifact-formatting
   - index
 depends-on:
-  - agentic-cookbook://introduction/conventions
+  - agenticdevelopercookbook://introduction/conventions
 related:
-  - agentic-cookbook://compliance/INDEX
+  - agenticdevelopercookbook://compliance/INDEX
 references: []
 ---
 

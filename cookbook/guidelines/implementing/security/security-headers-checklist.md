@@ -2,7 +2,7 @@
 
 id: 12d6b9fe-d1a0-4b9f-b772-41d9b4aa0b8a
 title: "Security Headers Checklist"
-domain: agentic-cookbook://guidelines/implementing/security/security-headers-checklist
+domain: agenticdevelopercookbook://guidelines/implementing/security/security-headers-checklist
 type: guideline
 version: 1.0.2
 status: accepted

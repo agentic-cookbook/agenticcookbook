@@ -1,7 +1,7 @@
 ---
 id: 3af6830b-71c9-4e50-929d-38dec20dae24
 title: "Progressive Web App installability"
-domain: agentic-cookbook://guidelines/implementing/ui/progressive-web-app
+domain: agenticdevelopercookbook://guidelines/implementing/ui/progressive-web-app
 type: guideline
 version: 1.0.0
 status: accepted
@@ -21,8 +21,8 @@ tags:
   - offline
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/networking/offline-and-connectivity
-  - agentic-cookbook://guidelines/implementing/ui/modern-css
+  - agenticdevelopercookbook://guidelines/implementing/networking/offline-and-connectivity
+  - agenticdevelopercookbook://guidelines/implementing/ui/modern-css
 references:
   - https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
 approved-by: "approve-artifact v1.0.0"

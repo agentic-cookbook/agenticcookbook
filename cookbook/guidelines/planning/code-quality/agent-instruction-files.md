@@ -1,7 +1,7 @@
 ---
 id: 5aad79dd-4d0e-463e-8059-39da2fef63b3
 title: "Agent instruction files (AGENTS.md / CLAUDE.md)"
-domain: agentic-cookbook://guidelines/planning/code-quality/agent-instruction-files
+domain: agenticdevelopercookbook://guidelines/planning/code-quality/agent-instruction-files
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - ai-workflow
 depends-on: []
 related:
-  - agentic-cookbook://principles/explicit-over-implicit
-  - agentic-cookbook://guidelines/implementing/skills-and-agents/authoring-skills-and-rules
+  - agenticdevelopercookbook://principles/explicit-over-implicit
+  - agenticdevelopercookbook://guidelines/implementing/skills-and-agents/authoring-skills-and-rules
 references:
   - https://agents.md/
   - https://code.claude.com/docs/en/best-practices

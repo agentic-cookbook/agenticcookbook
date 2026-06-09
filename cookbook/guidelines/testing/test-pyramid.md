@@ -2,7 +2,7 @@
 
 id: f3ae65a6-f51d-4e42-8f79-fa8097dd3480
 title: "Test Pyramid"
-domain: agentic-cookbook://guidelines/testing/test-pyramid
+domain: agenticdevelopercookbook://guidelines/testing/test-pyramid
 type: guideline
 version: 1.1.0
 status: accepted

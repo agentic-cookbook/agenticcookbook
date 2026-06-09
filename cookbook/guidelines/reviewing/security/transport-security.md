@@ -2,7 +2,7 @@
 
 id: b153d73b-9623-4fca-be5c-c3ac2b88f439
 title: "Transport Security"
-domain: agentic-cookbook://guidelines/reviewing/security/transport-security
+domain: agenticdevelopercookbook://guidelines/reviewing/security/transport-security
 type: guideline
 version: 1.0.2
 status: accepted

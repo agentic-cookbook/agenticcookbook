@@ -1,7 +1,7 @@
 ---
 id: 0ce05d51-1d2b-4679-869a-fa1533be95ab
 title: "Vector search and retrieval"
-domain: agentic-cookbook://guidelines/planning/data/vector-search-and-retrieval
+domain: agenticdevelopercookbook://guidelines/planning/data/vector-search-and-retrieval
 type: guideline
 version: 1.0.0
 status: accepted
@@ -20,7 +20,7 @@ tags:
   - search
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/planning/data/datastore-selection
+  - agenticdevelopercookbook://guidelines/planning/data/datastore-selection
 references:
   - https://github.com/pgvector/pgvector
 approved-by: "approve-artifact v1.0.0"
@@ -32,7 +32,7 @@ triggers:
 
 # Vector search and retrieval
 
-Vector search is the data layer for the **retrieval** step of RAG (retrieval-augmented generation). This guideline covers how to store embeddings, index them, and retrieve relevant context for an LLM. It assumes the broader datastore choice is settled (see `agentic-cookbook://guidelines/planning/data/datastore-selection`).
+Vector search is the data layer for the **retrieval** step of RAG (retrieval-augmented generation). This guideline covers how to store embeddings, index them, and retrieve relevant context for an LLM. It assumes the broader datastore choice is settled (see `agenticdevelopercookbook://guidelines/planning/data/datastore-selection`).
 
 ## Default to pgvector inside Postgres
 

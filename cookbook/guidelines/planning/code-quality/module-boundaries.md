@@ -2,7 +2,7 @@
 
 id: 51038675-205b-4752-b826-4081b3729359
 title: "Module Boundaries"
-domain: agentic-cookbook://guidelines/planning/code-quality/module-boundaries
+domain: agenticdevelopercookbook://guidelines/planning/code-quality/module-boundaries
 type: guideline
 version: 1.0.3
 status: accepted

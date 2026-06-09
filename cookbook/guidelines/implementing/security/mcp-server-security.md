@@ -1,7 +1,7 @@
 ---
 id: ab8ed68c-949d-42c8-8c07-416674795a65
 title: "MCP server security"
-domain: agentic-cookbook://guidelines/implementing/security/mcp-server-security
+domain: agenticdevelopercookbook://guidelines/implementing/security/mcp-server-security
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - ai
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/networking/mcp-server-design
-  - agentic-cookbook://guidelines/implementing/security/llm-application-security
+  - agenticdevelopercookbook://guidelines/implementing/networking/mcp-server-design
+  - agenticdevelopercookbook://guidelines/implementing/security/llm-application-security
 references:
   - https://modelcontextprotocol.io/
 approved-by: "approve-artifact v1.0.0"

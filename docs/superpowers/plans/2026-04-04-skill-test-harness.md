@@ -401,7 +401,7 @@ export function cleanup(dir: string | undefined): void {
 ---
 id: 00000000-0000-0000-0000-000000000001
 title: "Test Principle"
-domain: agentic-cookbook://principles/test-principle
+domain: agenticdevelopercookbook://principles/test-principle
 type: principle
 version: 1.0.0
 status: accepted
@@ -443,7 +443,7 @@ Keep things simple. Every additional layer of abstraction is a cost that must be
 ---
 id: 00000000-0000-0000-0000-000000000002
 title: "Test Guideline"
-domain: agentic-cookbook://guidelines/testing/test-guideline
+domain: agenticdevelopercookbook://guidelines/testing/test-guideline
 type: guideline
 version: 1.0.0
 status: accepted
@@ -485,7 +485,7 @@ Every change MUST have tests. Every bug fix MUST include a regression test.
 ---
 id: 00000000-0000-0000-0000-000000000003
 title: "Test Recipe"
-domain: agentic-cookbook://recipes/infrastructure/test-recipe
+domain: agenticdevelopercookbook://recipes/infrastructure/test-recipe
 type: recipe
 version: 1.0.0
 status: accepted
@@ -562,7 +562,7 @@ Subsystem: `{{bundle_id}}` | Category: `TestRecipe`
 
 | Check | Status | Category |
 |-------|--------|----------|
-| [explicit-error-handling](agentic-cookbook://compliance/best-practices#explicit-error-handling) | passed | Best Practices |
+| [explicit-error-handling](agenticdevelopercookbook://compliance/best-practices#explicit-error-handling) | passed | Best Practices |
 
 ## Change History
 
@@ -576,7 +576,7 @@ Subsystem: `{{bundle_id}}` | Category: `TestRecipe`
 ```markdown
 ---
 title: "Bad Frontmatter"
-domain: agentic-cookbook://principles/bad-frontmatter
+domain: agenticdevelopercookbook://principles/bad-frontmatter
 type: document
 version: 1.0
 status: accepted
@@ -613,7 +613,7 @@ Missing: `id`, `approved-by`, `approved-date`. Wrong: `type` is "document", `ver
 ---
 id: 00000000-0000-0000-0000-000000000005
 title: "Bad Structure"
-domain: agentic-cookbook://recipes/infrastructure/bad-structure
+domain: agenticdevelopercookbook://recipes/infrastructure/bad-structure
 type: recipe
 version: 1.0.0
 status: accepted
@@ -1114,7 +1114,7 @@ describe("repair-cookbook", () => {
     const content = `---
 id: 00000000-0000-0000-0000-000000000001
 title: "Test Principle"
-domain: agentic-cookbook://principles/simplicity
+domain: agenticdevelopercookbook://principles/simplicity
 type: principle
 version: 1.0.0
 status: accepted
@@ -1128,7 +1128,7 @@ summary: "A test principle with a broken reference for testing repair-cookbook."
 platforms: []
 tags: [test]
 depends-on:
-  - agentic-cookbook://guidelines/nonexistent/broken-ref
+  - agenticdevelopercookbook://guidelines/nonexistent/broken-ref
 related: []
 references: []
 approved-by: ""

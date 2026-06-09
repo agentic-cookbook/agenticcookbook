@@ -1,7 +1,7 @@
 ---
 id: 0b40ebfd-823f-4283-bbeb-eb2bcf095ff8
 title: "Design-first API development with OpenAPI"
-domain: agentic-cookbook://guidelines/planning/networking/api-design-first
+domain: agenticdevelopercookbook://guidelines/planning/networking/api-design-first
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - contract
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/planning/networking/api-design
-  - agentic-cookbook://principles/support-automation
+  - agenticdevelopercookbook://guidelines/planning/networking/api-design
+  - agenticdevelopercookbook://principles/support-automation
 references:
   - https://spec.openapis.org/oas/v3.1.0
 approved-by: "approve-artifact v1.0.0"

@@ -1,7 +1,7 @@
 ---
 id: ecf27370-3cd4-47a2-a359-7b42575ef48f
 title: "Containerization"
-domain: agentic-cookbook://guidelines/implementing/infrastructure/containerization
+domain: agenticdevelopercookbook://guidelines/implementing/infrastructure/containerization
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - build
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/infrastructure/twelve-factor-config
-  - agentic-cookbook://guidelines/reviewing/infrastructure/container-image-security
+  - agenticdevelopercookbook://guidelines/implementing/infrastructure/twelve-factor-config
+  - agenticdevelopercookbook://guidelines/reviewing/infrastructure/container-image-security
 references:
   - https://docs.docker.com/build/building/best-practices/
 approved-by: "approve-artifact v1.0.0"

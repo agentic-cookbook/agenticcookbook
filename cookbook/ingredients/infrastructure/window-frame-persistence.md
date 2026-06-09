@@ -1,7 +1,7 @@
 ---
 id: 85d04a9b-5692-4025-a489-eac8bbb14663
 title: "Window Frame Persistence"
-domain: agentic-cookbook://ingredients/infrastructure/window-frame-persistence
+domain: agenticdevelopercookbook://ingredients/infrastructure/window-frame-persistence
 type: ingredient
 version: 1.0.0
 status: accepted

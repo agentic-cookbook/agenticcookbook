@@ -1,7 +1,7 @@
 ---
 id: b8e2c4a1-7f3d-4e9b-a6c8-2d1e5f4b3a7c
 title: "Autonomous Dev Bots"
-domain: agentic-cookbook://recipes/autonomous-dev-bots/INDEX
+domain: agenticdevelopercookbook://recipes/autonomous-dev-bots/INDEX
 type: reference
 version: 1.0.0
 status: accepted
@@ -20,7 +20,7 @@ tags:
   - review
 depends-on: []
 related:
-  - agentic-cookbook://workflows/code-review
+  - agenticdevelopercookbook://workflows/code-review
 references: []
 ---
 

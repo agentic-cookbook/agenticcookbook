@@ -2,7 +2,7 @@
 
 id: d4e7a91c-3f28-4b5e-a6c1-9e8d2f7b4a3c
 title: "Authoring Skills and Rules"
-domain: agentic-cookbook://guidelines/cookbook/skills-and-agents/authoring-skills-and-rules
+domain: agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/authoring-skills-and-rules
 type: guideline
 version: 1.0.2
 status: accepted

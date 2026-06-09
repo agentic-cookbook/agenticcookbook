@@ -1,7 +1,7 @@
 ---
 id: 80915bd6-f18c-4a51-b293-50cef7ead49f
 title: "Choosing a .NET target framework"
-domain: agentic-cookbook://guidelines/planning/code-quality/dotnet-target-framework
+domain: agenticdevelopercookbook://guidelines/planning/code-quality/dotnet-target-framework
 type: guideline
 version: 1.0.0
 status: accepted
@@ -20,7 +20,7 @@ tags:
   - build
 depends-on: []
 related:
-  - agentic-cookbook://principles/small-reversible-decisions
+  - agenticdevelopercookbook://principles/small-reversible-decisions
 references:
   - https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core
 approved-by: "approve-artifact v1.0.0"
@@ -69,7 +69,7 @@ Note: .NET 8 (LTS) and .NET 9 (STS) **both reach end of support on 2026-11-10**,
 4. Add or update `global.json` to pin the SDK feature band.
 5. Record the chosen version and its end-of-support date in the PR description.
 
-This keeps the choice a small, reversible decision (per `agentic-cookbook://principles/small-reversible-decisions`): a TFM bump is a single property edit plus a rebuild.
+This keeps the choice a small, reversible decision (per `agenticdevelopercookbook://principles/small-reversible-decisions`): a TFM bump is a single property edit plus a rebuild.
 
 ## Change History
 

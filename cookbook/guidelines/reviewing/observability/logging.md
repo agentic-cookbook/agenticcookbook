@@ -2,7 +2,7 @@
 
 id: 85d90939-4047-4b69-a76c-716de9fd5d38
 title: "Instrumented logging"
-domain: agentic-cookbook://guidelines/reviewing/observability/logging
+domain: agenticdevelopercookbook://guidelines/reviewing/observability/logging
 type: guideline
 version: 1.1.0
 status: accepted
@@ -125,7 +125,7 @@ logger.debug("Starting roadmap sync for %s", roadmap_id)
 
 ## OpenTelemetry and trace correlation
 
-Logs SHOULD be emitted through [OpenTelemetry](agentic-cookbook://guidelines/implementing/observability/distributed-tracing) and exported over OTLP, the de-facto cross-vendor standard for telemetry. Prefer this over per-platform-only logging frameworks so logs, traces, and metrics share one pipeline and one backend.
+Logs SHOULD be emitted through [OpenTelemetry](agenticdevelopercookbook://guidelines/implementing/observability/distributed-tracing) and exported over OTLP, the de-facto cross-vendor standard for telemetry. Prefer this over per-platform-only logging frameworks so logs, traces, and metrics share one pipeline and one backend.
 
 - Every log line SHOULD carry the active trace ID and span ID (a trace/correlation ID), so a log can be pivoted to its trace and vice versa. OpenTelemetry-aware logging integrations inject these automatically when a span is in scope.
 - Field names SHOULD follow OpenTelemetry semantic conventions (e.g. `service.name`, `trace_id`, `http.request.method`) rather than ad-hoc keys, so telemetry is portable across backends.

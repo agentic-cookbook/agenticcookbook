@@ -1,7 +1,7 @@
 ---
 id: 6b29562c-4185-4411-aa66-092206d6bfa5
 title: "Guideline Applicability Checklist"
-domain: agentic-cookbook://workflows/guideline-checklist
+domain: agenticdevelopercookbook://workflows/guideline-checklist
 type: workflow
 version: 1.1.1
 status: accepted
@@ -17,45 +17,45 @@ tags:
   - guideline-checklist
 depends-on: []
 related: 
-  - agentic-cookbook://guidelines/implementing/feature-management/ab-testing
-  - agentic-cookbook://guidelines/implementing/accessibility/accessibility
-  - agentic-cookbook://guidelines/implementing/ui/always-show-progress
-  - agentic-cookbook://guidelines/implementing/observability/analytics
-  - agentic-cookbook://guidelines/testing/testing
-  - agentic-cookbook://guidelines/implementing/feature-management/debug-mode
-  - agentic-cookbook://guidelines/implementing/platform-integration/deep-linking
-  - agentic-cookbook://guidelines/implementing/feature-management/feature-flags
-  - agentic-cookbook://guidelines/implementing/observability/logging
-  - agentic-cookbook://guidelines/implementing/code-quality/linting
-  - agentic-cookbook://guidelines/implementing/internationalization/localization
-  - agentic-cookbook://guidelines/implementing/concurrency/concurrency
-  - agentic-cookbook://guidelines/testing/post-generation-verification
-  - agentic-cookbook://principles/native-controls
-  - agentic-cookbook://guidelines/implementing/security/privacy
-  - agentic-cookbook://guidelines/implementing/accessibility/accessibility
-  - agentic-cookbook://guidelines/implementing/internationalization/rtl-support
-  - agentic-cookbook://guidelines/implementing/platform-integration/shortcuts-and-automation
-  - agentic-cookbook://guidelines/implementing/code-quality/atomic-commits
-  - agentic-cookbook://introduction/conventions
-  - agentic-cookbook://principles/dependency-injection
-  - agentic-cookbook://principles/design-for-deletion
-  - agentic-cookbook://principles/explicit-over-implicit
-  - agentic-cookbook://principles/fail-fast
-  - agentic-cookbook://principles/immutability-by-default
-  - agentic-cookbook://principles/make-it-work-make-it-right-make-it-fast
-  - agentic-cookbook://principles/separation-of-concerns
-  - agentic-cookbook://principles/simplicity
-  - agentic-cookbook://principles/yagni
-  - agentic-cookbook://guidelines/testing/flaky-test-prevention
-  - agentic-cookbook://guidelines/testing/mutation-testing
-  - agentic-cookbook://guidelines/testing/properties-of-good-tests
-  - agentic-cookbook://guidelines/testing/property-based-testing
-  - agentic-cookbook://guidelines/testing/security-testing
-  - agentic-cookbook://guidelines/testing/test-data
-  - agentic-cookbook://guidelines/testing/test-pyramid
-  - agentic-cookbook://guidelines/testing/the-testing-workflow
-  - agentic-cookbook://guidelines/testing/unit-test-patterns
-  - agentic-cookbook://guidelines/implementing/data/database
+  - agenticdevelopercookbook://guidelines/implementing/feature-management/ab-testing
+  - agenticdevelopercookbook://guidelines/implementing/accessibility/accessibility
+  - agenticdevelopercookbook://guidelines/implementing/ui/always-show-progress
+  - agenticdevelopercookbook://guidelines/implementing/observability/analytics
+  - agenticdevelopercookbook://guidelines/testing/testing
+  - agenticdevelopercookbook://guidelines/implementing/feature-management/debug-mode
+  - agenticdevelopercookbook://guidelines/implementing/platform-integration/deep-linking
+  - agenticdevelopercookbook://guidelines/implementing/feature-management/feature-flags
+  - agenticdevelopercookbook://guidelines/implementing/observability/logging
+  - agenticdevelopercookbook://guidelines/implementing/code-quality/linting
+  - agenticdevelopercookbook://guidelines/implementing/internationalization/localization
+  - agenticdevelopercookbook://guidelines/implementing/concurrency/concurrency
+  - agenticdevelopercookbook://guidelines/testing/post-generation-verification
+  - agenticdevelopercookbook://principles/native-controls
+  - agenticdevelopercookbook://guidelines/implementing/security/privacy
+  - agenticdevelopercookbook://guidelines/implementing/accessibility/accessibility
+  - agenticdevelopercookbook://guidelines/implementing/internationalization/rtl-support
+  - agenticdevelopercookbook://guidelines/implementing/platform-integration/shortcuts-and-automation
+  - agenticdevelopercookbook://guidelines/implementing/code-quality/atomic-commits
+  - agenticdevelopercookbook://introduction/conventions
+  - agenticdevelopercookbook://principles/dependency-injection
+  - agenticdevelopercookbook://principles/design-for-deletion
+  - agenticdevelopercookbook://principles/explicit-over-implicit
+  - agenticdevelopercookbook://principles/fail-fast
+  - agenticdevelopercookbook://principles/immutability-by-default
+  - agenticdevelopercookbook://principles/make-it-work-make-it-right-make-it-fast
+  - agenticdevelopercookbook://principles/separation-of-concerns
+  - agenticdevelopercookbook://principles/simplicity
+  - agenticdevelopercookbook://principles/yagni
+  - agenticdevelopercookbook://guidelines/testing/flaky-test-prevention
+  - agenticdevelopercookbook://guidelines/testing/mutation-testing
+  - agenticdevelopercookbook://guidelines/testing/properties-of-good-tests
+  - agenticdevelopercookbook://guidelines/testing/property-based-testing
+  - agenticdevelopercookbook://guidelines/testing/security-testing
+  - agenticdevelopercookbook://guidelines/testing/test-data
+  - agenticdevelopercookbook://guidelines/testing/test-pyramid
+  - agenticdevelopercookbook://guidelines/testing/the-testing-workflow
+  - agenticdevelopercookbook://guidelines/testing/unit-test-patterns
+  - agenticdevelopercookbook://guidelines/implementing/data/database
 references: []
 ---
 

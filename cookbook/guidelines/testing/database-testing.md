@@ -2,7 +2,7 @@
 
 id: 183D07F2-ECFC-4DA3-9A21-96953EFEFA91
 title: "Database testing"
-domain: agentic-cookbook://guidelines/testing/database-testing
+domain: agenticdevelopercookbook://guidelines/testing/database-testing
 type: guideline
 version: 1.0.2
 status: accepted

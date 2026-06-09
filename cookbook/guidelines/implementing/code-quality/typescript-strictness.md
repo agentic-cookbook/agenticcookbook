@@ -1,7 +1,7 @@
 ---
 id: 5662987f-fd56-4a3a-a519-672187207745
 title: "TypeScript strictness configuration"
-domain: agentic-cookbook://guidelines/implementing/code-quality/typescript-strictness
+domain: agenticdevelopercookbook://guidelines/implementing/code-quality/typescript-strictness
 type: guideline
 version: 1.0.0
 status: accepted
@@ -20,8 +20,8 @@ tags:
   - config
 depends-on: []
 related:
-  - agentic-cookbook://principles/fail-fast
-  - agentic-cookbook://principles/explicit-over-implicit
+  - agenticdevelopercookbook://principles/fail-fast
+  - agenticdevelopercookbook://principles/explicit-over-implicit
 references:
   - https://www.typescriptlang.org/tsconfig/strict.html
 approved-by: "approve-artifact v1.0.0"
@@ -59,7 +59,7 @@ Enable these on greenfield projects; they close gaps `strict` alone leaves open.
 
 ## Adopt incrementally on existing code
 
-The stricter flags surface real defects but generate large error volumes on legacy code. Per `agentic-cookbook://principles/small-reversible-decisions`:
+The stricter flags surface real defects but generate large error volumes on legacy code. Per `agenticdevelopercookbook://principles/small-reversible-decisions`:
 
 - Turn on `strict` first; land that as its own change.
 - Enable one stricter flag at a time (`noUncheckedIndexedAccess`, then `exactOptionalPropertyTypes`, etc.), fixing the fallout before moving on.

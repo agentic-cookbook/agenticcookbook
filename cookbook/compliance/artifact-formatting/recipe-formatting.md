@@ -1,7 +1,7 @@
 ---
 id: 328D96C6-20DE-495E-8977-733441B97F81
 title: "Recipe Formatting Compliance"
-domain: agentic-cookbook://compliance/artifact-formatting/recipe-formatting
+domain: agenticdevelopercookbook://compliance/artifact-formatting/recipe-formatting
 type: compliance
 version: 2.0.0
 status: draft
@@ -18,10 +18,10 @@ tags:
   - artifact-formatting
   - recipe
 depends-on:
-  - agentic-cookbook://introduction/conventions
+  - agenticdevelopercookbook://introduction/conventions
 related:
-  - agentic-cookbook://compliance/artifact-formatting/principle-formatting
-  - agentic-cookbook://compliance/artifact-formatting/guideline-formatting
+  - agenticdevelopercookbook://compliance/artifact-formatting/principle-formatting
+  - agenticdevelopercookbook://compliance/artifact-formatting/guideline-formatting
 references: []
 ---
 
@@ -62,7 +62,7 @@ All required YAML frontmatter fields MUST be present per `introduction/conventio
 **Required fields:** id, title, domain, type, version, status, language, created, modified, author, copyright, license, summary, platforms, tags, ingredients, depends-on, related, references.
 
 **Guidelines:**
-- [Conventions](agentic-cookbook://introduction/conventions)
+- [Conventions](agenticdevelopercookbook://introduction/conventions)
 
 ---
 
@@ -92,12 +92,12 @@ The recipe MUST have a `## Overview` section describing what the composition is 
 
 ### rf-ingredients
 
-The recipe MUST have a `## Ingredients` section with a table containing columns: Name, Domain, Role, Required, Configuration. Each ingredient MUST reference a valid `agentic-cookbook://ingredients/` domain.
+The recipe MUST have a `## Ingredients` section with a table containing columns: Name, Domain, Role, Required, Configuration. Each ingredient MUST reference a valid `agenticdevelopercookbook://ingredients/` domain.
 
 **Applies when:** always.
 
 **Guidelines:**
-- [Conventions](agentic-cookbook://introduction/conventions)
+- [Conventions](agenticdevelopercookbook://introduction/conventions)
 
 ---
 
@@ -108,7 +108,7 @@ The recipe MUST have a `## Integration Requirements` section containing named re
 **Applies when:** always.
 
 **Guidelines:**
-- [Conventions](agentic-cookbook://introduction/conventions)
+- [Conventions](agenticdevelopercookbook://introduction/conventions)
 
 ---
 
@@ -167,7 +167,7 @@ The recipe MUST have a `## Compliance` section with a table containing columns: 
 **Applies when:** always.
 
 **Guidelines:**
-- [Compliance INDEX](agentic-cookbook://compliance/INDEX)
+- [Compliance INDEX](agenticdevelopercookbook://compliance/INDEX)
 
 ---
 
@@ -178,7 +178,7 @@ The file MUST end with a `## Change History` section containing a table with col
 **Applies when:** always.
 
 **Guidelines:**
-- [Conventions](agentic-cookbook://introduction/conventions)
+- [Conventions](agenticdevelopercookbook://introduction/conventions)
 
 ## Change History
 

@@ -1,7 +1,7 @@
 ---
 id: 08f87323-4043-432f-8f29-936cfb4ed2e2
 title: "Standalone Terminal Window"
-domain: agentic-cookbook://recipes/ui/windows/standalone-terminal-window
+domain: agenticdevelopercookbook://recipes/ui/windows/standalone-terminal-window
 type: recipe
 version: 1.0.0
 status: accepted

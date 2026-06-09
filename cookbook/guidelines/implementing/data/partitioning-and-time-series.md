@@ -1,7 +1,7 @@
 ---
 id: 2b9b576c-1e17-4a15-b347-febf2ea3c312
 title: "Table partitioning and time-series data"
-domain: agentic-cookbook://guidelines/implementing/data/partitioning-and-time-series
+domain: agenticdevelopercookbook://guidelines/implementing/data/partitioning-and-time-series
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,7 +19,7 @@ tags:
   - time-series
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/data/advanced-indexing
+  - agenticdevelopercookbook://guidelines/implementing/data/advanced-indexing
 references:
   - https://www.postgresql.org/docs/current/ddl-partitioning.html
 approved-by: "approve-artifact v1.0.0"

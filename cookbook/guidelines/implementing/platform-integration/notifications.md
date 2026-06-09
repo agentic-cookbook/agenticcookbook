@@ -2,7 +2,7 @@
 
 id: 94e8caba-da27-4bb8-8f8e-38730b8b34e0
 title: "Notifications"
-domain: agentic-cookbook://guidelines/implementing/platform-integration/notifications
+domain: agenticdevelopercookbook://guidelines/implementing/platform-integration/notifications
 type: guideline
 version: 2.0.3
 status: accepted
@@ -23,9 +23,9 @@ tags:
   - notifications
   - platform
 depends-on:
-  - agentic-cookbook://principles/support-automation
+  - agenticdevelopercookbook://principles/support-automation
 related:
-  - agentic-cookbook://guidelines/implementing/platform-integration/deep-linking
+  - agenticdevelopercookbook://guidelines/implementing/platform-integration/deep-linking
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

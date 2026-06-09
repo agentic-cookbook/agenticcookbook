@@ -1,7 +1,7 @@
 ---
 id: 3b83a80f-d170-4ef6-a608-81f3a1476679
 title: "Workspace Window"
-domain: agentic-cookbook://recipes/ui/windows/workspace-window
+domain: agenticdevelopercookbook://recipes/ui/windows/workspace-window
 type: recipe
 version: 1.0.0
 status: accepted

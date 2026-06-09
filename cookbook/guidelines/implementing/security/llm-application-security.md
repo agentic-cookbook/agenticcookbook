@@ -1,7 +1,7 @@
 ---
 id: a8088a6a-4542-4f6c-b74a-7c7ef7dcc63d
 title: "LLM and agentic application security"
-domain: agentic-cookbook://guidelines/implementing/security/llm-application-security
+domain: agenticdevelopercookbook://guidelines/implementing/security/llm-application-security
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - ai
 depends-on: []
 related:
-  - agentic-cookbook://principles/fail-fast
-  - agentic-cookbook://guidelines/implementing/security/input-validation
+  - agenticdevelopercookbook://principles/fail-fast
+  - agenticdevelopercookbook://guidelines/implementing/security/input-validation
 references:
   - https://genai.owasp.org/llm-top-10/
 approved-by: "approve-artifact v1.0.0"

@@ -1,7 +1,7 @@
 ---
 id: aadd048b-da52-415d-949f-45160b970381
 title: "Meta-Principle: Optimize for Change"
-domain: agentic-cookbook://principles/meta-principle-optimize-for-change
+domain: agenticdevelopercookbook://principles/meta-principle-optimize-for-change
 type: principle
 version: 1.1.0
 status: accepted

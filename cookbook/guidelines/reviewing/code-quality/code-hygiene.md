@@ -1,7 +1,7 @@
 ---
 id: 1b79f7dc-16c4-40d7-ab9d-d03449bf21dc
 title: "Code hygiene: remove the old thing"
-domain: agentic-cookbook://guidelines/reviewing/code-quality/code-hygiene
+domain: agenticdevelopercookbook://guidelines/reviewing/code-quality/code-hygiene
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,10 +19,10 @@ tags:
   - hygiene
 depends-on: []
 related:
-  - agentic-cookbook://principles/design-for-deletion
-  - agentic-cookbook://principles/yagni
-  - agentic-cookbook://guidelines/reviewing/code-quality/scope-discipline
-  - agentic-cookbook://principles/deliberate-prudent-debt
+  - agenticdevelopercookbook://principles/design-for-deletion
+  - agenticdevelopercookbook://principles/yagni
+  - agenticdevelopercookbook://guidelines/reviewing/code-quality/scope-discipline
+  - agenticdevelopercookbook://principles/deliberate-prudent-debt
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

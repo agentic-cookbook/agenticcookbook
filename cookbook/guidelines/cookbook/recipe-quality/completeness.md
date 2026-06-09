@@ -2,7 +2,7 @@
 
 id: d65ed7a3-6125-4c9f-b3af-f3b26ad61dfb
 title: "Completeness"
-domain: agentic-cookbook://guidelines/cookbook/recipe-quality/completeness
+domain: agenticdevelopercookbook://guidelines/cookbook/recipe-quality/completeness
 type: guideline
 version: 1.0.3
 status: accepted

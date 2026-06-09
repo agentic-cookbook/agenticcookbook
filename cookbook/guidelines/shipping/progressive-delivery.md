@@ -1,7 +1,7 @@
 ---
 id: fff733d2-42ab-4123-b280-1a30b52e54a4
 title: "Progressive delivery"
-domain: agentic-cookbook://guidelines/shipping/progressive-delivery
+domain: agenticdevelopercookbook://guidelines/shipping/progressive-delivery
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - release
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/shipping/continuous-delivery
-  - agentic-cookbook://guidelines/shipping/feature-flags
+  - agenticdevelopercookbook://guidelines/shipping/continuous-delivery
+  - agenticdevelopercookbook://guidelines/shipping/feature-flags
 references:
   - https://martinfowler.com/bliki/CanaryRelease.html
 approved-by: "approve-artifact v1.0.0"

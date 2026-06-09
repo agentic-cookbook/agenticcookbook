@@ -1,7 +1,7 @@
 ---
 id: 42ed78a6-eea7-4b48-8b5f-be345682ffc3
 title: "Writing code for the AI reader"
-domain: agentic-cookbook://guidelines/implementing/code-quality/code-for-the-ai-reader
+domain: agenticdevelopercookbook://guidelines/implementing/code-quality/code-for-the-ai-reader
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,9 +19,9 @@ tags:
   - code-quality
 depends-on: []
 related:
-  - agentic-cookbook://principles/explicit-over-implicit
-  - agentic-cookbook://principles/principle-of-least-astonishment
-  - agentic-cookbook://guidelines/implementing/code-quality/naming
+  - agenticdevelopercookbook://principles/explicit-over-implicit
+  - agenticdevelopercookbook://principles/principle-of-least-astonishment
+  - agenticdevelopercookbook://guidelines/implementing/code-quality/naming
 references:
   - https://simonwillison.net/2025/Mar/11/using-llms-for-code/
 approved-by: "approve-artifact v1.0.0"

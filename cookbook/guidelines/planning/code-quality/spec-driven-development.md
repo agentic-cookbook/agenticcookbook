@@ -1,7 +1,7 @@
 ---
 id: 138eed2b-6b13-40ac-8c99-1f7860420b42
 title: "Spec-driven development (plan before code)"
-domain: agentic-cookbook://guidelines/planning/code-quality/spec-driven-development
+domain: agenticdevelopercookbook://guidelines/planning/code-quality/spec-driven-development
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,9 +19,9 @@ tags:
   - spec
 depends-on: []
 related:
-  - agentic-cookbook://principles/steel-thread-first
-  - agentic-cookbook://principles/small-reversible-decisions
-  - agentic-cookbook://guidelines/planning/code-quality/scope-discipline
+  - agenticdevelopercookbook://principles/steel-thread-first
+  - agenticdevelopercookbook://principles/small-reversible-decisions
+  - agenticdevelopercookbook://guidelines/planning/code-quality/scope-discipline
 references:
   - https://code.claude.com/docs/en/best-practices
   - https://github.com/github/spec-kit

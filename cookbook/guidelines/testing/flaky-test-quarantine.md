@@ -1,7 +1,7 @@
 ---
 id: 4f5fe9ef-1bf8-4354-92c7-92d9e28673b8
 title: "Flaky test quarantine lifecycle"
-domain: agentic-cookbook://guidelines/testing/flaky-test-quarantine
+domain: agenticdevelopercookbook://guidelines/testing/flaky-test-quarantine
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,7 +19,7 @@ tags:
   - ci
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/testing/flaky-test-prevention
+  - agenticdevelopercookbook://guidelines/testing/flaky-test-prevention
 references:
   - https://www.thoughtworks.com/insights/blog/quarantine
 approved-by: "approve-artifact v1.0.0"

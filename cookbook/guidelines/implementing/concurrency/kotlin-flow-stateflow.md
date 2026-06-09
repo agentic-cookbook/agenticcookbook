@@ -1,7 +1,7 @@
 ---
 id: d374c32a-b452-47cd-9250-7b7d34a63116
 title: "Kotlin Flow and StateFlow: lifecycle-aware state exposure"
-domain: agentic-cookbook://guidelines/implementing/concurrency/kotlin-flow-stateflow
+domain: agenticdevelopercookbook://guidelines/implementing/concurrency/kotlin-flow-stateflow
 type: guideline
 version: 1.0.0
 status: accepted
@@ -20,7 +20,7 @@ tags:
   - concurrency
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/ui/compose-state-and-udf
+  - agenticdevelopercookbook://guidelines/implementing/ui/compose-state-and-udf
 references:
   - https://developer.android.com/kotlin/flow/stateflow-and-sharedflow
 approved-by: "approve-artifact v1.0.0"

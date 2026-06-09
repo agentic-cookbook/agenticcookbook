@@ -1,7 +1,7 @@
 ---
 id: 10c66228-2141-484c-9286-2d62d43c7b70
 title: "Data privacy regulations"
-domain: agentic-cookbook://guidelines/planning/security/data-privacy-regulations
+domain: agenticdevelopercookbook://guidelines/planning/security/data-privacy-regulations
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - gdpr
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/planning/security/privacy
-  - agentic-cookbook://guidelines/planning/security/privacy-by-design
+  - agenticdevelopercookbook://guidelines/planning/security/privacy
+  - agenticdevelopercookbook://guidelines/planning/security/privacy-by-design
 references:
   - https://gdpr-info.eu/
 approved-by: "approve-artifact v1.0.0"
@@ -55,7 +55,7 @@ These appear across GDPR and most US state laws, so build to them once:
 - **purpose limitation**: You **MUST** use data only for the purposes disclosed at collection. New purpose requires new basis/notice.
 - **storage limitation**: You **MUST** define retention per data type and delete or anonymize when it expires.
 - **transparency**: You **MUST** disclose what is collected, why, and with whom it is shared, in plain language at the point of collection.
-- **data subject rights**: You **SHOULD** design for access, correction, deletion, and opt-out from the start (see `agentic-cookbook://guidelines/planning/security/privacy-by-design`).
+- **data subject rights**: You **SHOULD** design for access, correction, deletion, and opt-out from the start (see `agenticdevelopercookbook://guidelines/planning/security/privacy-by-design`).
 
 ## Controller vs processor
 

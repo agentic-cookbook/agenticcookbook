@@ -1,7 +1,7 @@
 ---
 id: d53b7623-38ee-4d9f-a99b-f54b6a64f7a6
 title: "Tool-call evaluation"
-domain: agentic-cookbook://guidelines/testing/tool-call-evaluation
+domain: agenticdevelopercookbook://guidelines/testing/tool-call-evaluation
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - evals
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/testing/agent-evaluation-and-safety
-  - agentic-cookbook://guidelines/implementing/networking/mcp-server-design
+  - agenticdevelopercookbook://guidelines/testing/agent-evaluation-and-safety
+  - agenticdevelopercookbook://guidelines/implementing/networking/mcp-server-design
 references:
   - https://gorilla.cs.berkeley.edu/leaderboard.html
 approved-by: "approve-artifact v1.0.0"

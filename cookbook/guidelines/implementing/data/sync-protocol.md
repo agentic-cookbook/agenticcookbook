@@ -2,7 +2,7 @@
 
 id: 3B88BB39-A15D-488F-A967-B7FA2DBA2BE7
 title: "Sync Protocol"
-domain: agentic-cookbook://guidelines/implementing/data/sync-protocol
+domain: agenticdevelopercookbook://guidelines/implementing/data/sync-protocol
 type: guideline
 version: 1.0.2
 status: accepted

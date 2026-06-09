@@ -1,7 +1,7 @@
 ---
 id: 4b58d4d6-f177-45d7-b7c1-bf50adcd13a3
 title: "Jetpack Compose side effects"
-domain: agentic-cookbook://guidelines/implementing/ui/compose-side-effects
+domain: agenticdevelopercookbook://guidelines/implementing/ui/compose-side-effects
 type: guideline
 version: 1.0.0
 status: accepted
@@ -20,8 +20,8 @@ tags:
   - concurrency
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/ui/compose-state-and-udf
-  - agentic-cookbook://guidelines/implementing/concurrency/kotlin-flow-stateflow
+  - agenticdevelopercookbook://guidelines/implementing/ui/compose-state-and-udf
+  - agenticdevelopercookbook://guidelines/implementing/concurrency/kotlin-flow-stateflow
 references:
   - https://developer.android.com/develop/ui/compose/side-effects
 approved-by: "approve-artifact v1.0.0"

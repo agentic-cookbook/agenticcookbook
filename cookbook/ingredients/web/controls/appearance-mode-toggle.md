@@ -1,7 +1,7 @@
 ---
 id: e01e2c5f-32fd-49e3-8f2a-1f64411160cb
 title: "Appearance Mode Toggle"
-domain: agentic-cookbook://ingredients/web/controls/appearance-mode-toggle
+domain: agenticdevelopercookbook://ingredients/web/controls/appearance-mode-toggle
 type: ingredient
 version: 1.1.0
 status: accepted

@@ -2,7 +2,7 @@
 
 id: e5799ba8-98b0-4df9-9413-cdad03e76aab
 title: "AI Cost Management"
-domain: agentic-cookbook://guidelines/implementing/networking/ai-cost-management
+domain: agenticdevelopercookbook://guidelines/implementing/networking/ai-cost-management
 type: guideline
 version: 1.0.1
 status: accepted
@@ -20,10 +20,10 @@ tags:
   - caching
   - rate-limiting
 depends-on:
-  - agentic-cookbook://guidelines/implementing/networking/caching
-  - agentic-cookbook://guidelines/implementing/networking/rate-limiting
+  - agenticdevelopercookbook://guidelines/implementing/networking/caching
+  - agenticdevelopercookbook://guidelines/implementing/networking/rate-limiting
 related:
-  - agentic-cookbook://guidelines/implementing/observability/ai-provider-observability
+  - agenticdevelopercookbook://guidelines/implementing/observability/ai-provider-observability
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

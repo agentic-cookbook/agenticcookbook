@@ -1,7 +1,7 @@
 ---
 id: db55507a-42ce-4c6d-bd8a-6ccdb6b2d152
 title: "HTTP conditional requests and optimistic concurrency"
-domain: agentic-cookbook://guidelines/implementing/networking/http-conditional-requests
+domain: agenticdevelopercookbook://guidelines/implementing/networking/http-conditional-requests
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - concurrency
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/networking/caching
-  - agentic-cookbook://guidelines/implementing/networking/idempotency-keys
+  - agenticdevelopercookbook://guidelines/implementing/networking/caching
+  - agenticdevelopercookbook://guidelines/implementing/networking/idempotency-keys
 references:
   - https://www.rfc-editor.org/rfc/rfc9110.html
 approved-by: "approve-artifact v1.0.0"

@@ -1,7 +1,7 @@
 ---
 id: d9b6e0aa-0b0e-4c88-94b1-80c305baaadd
 title: "Choosing an API style (REST, gRPC, GraphQL)"
-domain: agentic-cookbook://guidelines/planning/networking/api-style-selection
+domain: agenticdevelopercookbook://guidelines/planning/networking/api-style-selection
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,7 +19,7 @@ tags:
   - graphql
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/planning/networking/api-design
+  - agenticdevelopercookbook://guidelines/planning/networking/api-design
 references:
   - https://grpc.io/docs/what-is-grpc/introduction/
 approved-by: "approve-artifact v1.0.0"

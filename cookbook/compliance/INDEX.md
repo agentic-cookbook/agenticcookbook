@@ -1,7 +1,7 @@
 ---
 id: 0E83CCE2-6343-4E54-B125-86D58EB9AE45
 title: "Compliance"
-domain: agentic-cookbook://compliance/INDEX
+domain: agenticdevelopercookbook://compliance/INDEX
 type: reference
 version: 1.1.0
 status: draft

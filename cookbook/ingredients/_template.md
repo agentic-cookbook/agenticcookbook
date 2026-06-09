@@ -1,7 +1,7 @@
 ---
 id: 3DC1F9B4-3290-4F81-8903-EDA323DD4336
 title: "ComponentName"
-domain: agentic-cookbook://ingredients/_template
+domain: agenticdevelopercookbook://ingredients/_template
 type: ingredient
 version: 1.0.0
 status: accepted
@@ -144,7 +144,7 @@ Record any decisions made during implementation that affect visual or behavioral
 
 | Check | Status | Category |
 |-------|--------|----------|
-| [check-name](agentic-cookbook://compliance/category#check-name) | passed | Category |
+| [check-name](agenticdevelopercookbook://compliance/category#check-name) | passed | Category |
 
 ## Change History
 

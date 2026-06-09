@@ -1,7 +1,7 @@
 ---
 id: E10E9785-E7D9-47F9-BA8C-A85E745BF294
 title: "Ingredient Formatting Compliance"
-domain: agentic-cookbook://compliance/artifact-formatting/ingredient-formatting
+domain: agenticdevelopercookbook://compliance/artifact-formatting/ingredient-formatting
 type: compliance
 version: 1.0.1
 status: draft
@@ -18,11 +18,11 @@ tags:
   - artifact-formatting
   - ingredient
 depends-on:
-  - agentic-cookbook://introduction/conventions
+  - agenticdevelopercookbook://introduction/conventions
 related:
-  - agentic-cookbook://compliance/artifact-formatting/principle-formatting
-  - agentic-cookbook://compliance/artifact-formatting/guideline-formatting
-  - agentic-cookbook://compliance/artifact-formatting/recipe-formatting
+  - agenticdevelopercookbook://compliance/artifact-formatting/principle-formatting
+  - agenticdevelopercookbook://compliance/artifact-formatting/guideline-formatting
+  - agenticdevelopercookbook://compliance/artifact-formatting/recipe-formatting
 references: []
 ---
 
@@ -71,7 +71,7 @@ All required YAML frontmatter fields MUST be present per `introduction/conventio
 **Required fields:** id, title, domain, type, version, status, language, created, modified, author, copyright, license, summary, platforms, tags, depends-on, related, references.
 
 **Guidelines:**
-- [Conventions](agentic-cookbook://introduction/conventions)
+- [Conventions](agenticdevelopercookbook://introduction/conventions)
 
 ---
 
@@ -106,7 +106,7 @@ The ingredient MUST have a `## Behavioral Requirements` section containing named
 **Applies when:** always.
 
 **Guidelines:**
-- [Conventions](agentic-cookbook://introduction/conventions)
+- [Conventions](agenticdevelopercookbook://introduction/conventions)
 
 ---
 
@@ -165,7 +165,7 @@ The ingredient MUST have a `## Logging` section defining: subsystem, category, a
 **Applies when:** always.
 
 **Guidelines:**
-- [Structured Logging](agentic-cookbook://guidelines/implementing/observability/logging)
+- [Structured Logging](agenticdevelopercookbook://guidelines/implementing/observability/logging)
 
 ---
 
@@ -192,7 +192,7 @@ The ingredient MUST have a `## Compliance` section with a table containing colum
 **Applies when:** always.
 
 **Guidelines:**
-- [Compliance INDEX](agentic-cookbook://compliance/INDEX)
+- [Compliance INDEX](agenticdevelopercookbook://compliance/INDEX)
 
 ---
 
@@ -203,7 +203,7 @@ The file MUST end with a `## Change History` section containing a table with col
 **Applies when:** always.
 
 **Guidelines:**
-- [Conventions](agentic-cookbook://introduction/conventions)
+- [Conventions](agenticdevelopercookbook://introduction/conventions)
 
 ## Change History
 

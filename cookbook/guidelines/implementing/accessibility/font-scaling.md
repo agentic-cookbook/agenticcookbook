@@ -2,7 +2,7 @@
 
 id: 01fffa23-5b96-491f-9199-8878cf676683
 title: "Font Scaling"
-domain: agentic-cookbook://guidelines/implementing/accessibility/font-scaling
+domain: agenticdevelopercookbook://guidelines/implementing/accessibility/font-scaling
 type: guideline
 version: 1.0.2
 status: accepted

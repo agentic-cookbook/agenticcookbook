@@ -2,7 +2,7 @@
 
 id: 4c070e8f-332c-4831-95a1-d0776e7b7ce8
 title: "YAML frontmatter"
-domain: agentic-cookbook://guidelines/implementing/code-quality/yaml-frontmatter
+domain: agenticdevelopercookbook://guidelines/implementing/code-quality/yaml-frontmatter
 type: guideline
 version: 1.0.2
 status: accepted

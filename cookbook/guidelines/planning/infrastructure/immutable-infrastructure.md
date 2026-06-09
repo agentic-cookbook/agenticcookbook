@@ -1,7 +1,7 @@
 ---
 id: 60b3f760-f397-4762-b2d5-5aba80fd51f8
 title: "Immutable infrastructure"
-domain: agentic-cookbook://guidelines/planning/infrastructure/immutable-infrastructure
+domain: agenticdevelopercookbook://guidelines/planning/infrastructure/immutable-infrastructure
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,9 +19,9 @@ tags:
   - immutability
 depends-on: []
 related:
-  - agentic-cookbook://principles/immutability-by-default
-  - agentic-cookbook://principles/design-for-deletion
-  - agentic-cookbook://guidelines/planning/infrastructure/infrastructure-as-code
+  - agenticdevelopercookbook://principles/immutability-by-default
+  - agenticdevelopercookbook://principles/design-for-deletion
+  - agenticdevelopercookbook://guidelines/planning/infrastructure/infrastructure-as-code
 references:
   - https://martinfowler.com/bliki/ImmutableServer.html
 approved-by: "approve-artifact v1.0.0"

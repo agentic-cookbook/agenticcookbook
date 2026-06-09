@@ -2,7 +2,7 @@
 
 id: 376daf6c-f2bd-4a33-9ab4-2a2af140e725
 title: "Fluent Design"
-domain: agentic-cookbook://guidelines/implementing/ui/fluent-design
+domain: agenticdevelopercookbook://guidelines/implementing/ui/fluent-design
 type: guideline
 version: 1.0.2
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: 808fa004-9148-41f6-bc32-dae7ba23dcf1
 title: "Hilt dependency injection for Android"
-domain: agentic-cookbook://guidelines/implementing/code-quality/hilt-dependency-injection
+domain: agenticdevelopercookbook://guidelines/implementing/code-quality/hilt-dependency-injection
 type: guideline
 version: 1.0.0
 status: accepted
@@ -20,8 +20,8 @@ tags:
   - architecture
 depends-on: []
 related:
-  - agentic-cookbook://principles/dependency-injection
-  - agentic-cookbook://guidelines/implementing/code-quality/dependency-injection
+  - agenticdevelopercookbook://principles/dependency-injection
+  - agenticdevelopercookbook://guidelines/implementing/code-quality/dependency-injection
 references:
   - https://dagger.dev/hilt/
 approved-by: "approve-artifact v1.0.0"

@@ -1,7 +1,7 @@
 ---
 id: 703b1ec7-b940-46a5-8974-441b04a0bb9d
 title: "Continuous delivery"
-domain: agentic-cookbook://guidelines/shipping/continuous-delivery
+domain: agenticdevelopercookbook://guidelines/shipping/continuous-delivery
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,9 +19,9 @@ tags:
   - automation
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/shipping/trunk-based-development
-  - agentic-cookbook://principles/tight-feedback-loops
-  - agentic-cookbook://principles/small-reversible-decisions
+  - agenticdevelopercookbook://guidelines/shipping/trunk-based-development
+  - agenticdevelopercookbook://principles/tight-feedback-loops
+  - agenticdevelopercookbook://principles/small-reversible-decisions
 references:
   - https://dora.dev/
 approved-by: "approve-artifact v1.0.0"

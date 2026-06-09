@@ -2,7 +2,7 @@
 
 id: F28A4638-C2AE-4A9B-817F-0F19B5712168
 title: "Constraints and validation"
-domain: agentic-cookbook://guidelines/implementing/data/constraints-and-validation
+domain: agenticdevelopercookbook://guidelines/implementing/data/constraints-and-validation
 type: guideline
 version: 1.0.2
 status: accepted

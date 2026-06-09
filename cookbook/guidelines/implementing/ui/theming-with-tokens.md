@@ -1,7 +1,7 @@
 ---
 id: 70f2ab2f-a05f-4981-9fea-e9d169fc1753
 title: "Theming with tokens"
-domain: agentic-cookbook://guidelines/implementing/ui/theming-with-tokens
+domain: agenticdevelopercookbook://guidelines/implementing/ui/theming-with-tokens
 type: guideline
 version: 1.0.0
 status: accepted
@@ -24,9 +24,9 @@ tags:
   - tokens
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/ui/theming
-  - agentic-cookbook://guidelines/implementing/ui/color
-  - agentic-cookbook://guidelines/planning/ui/design-tokens
+  - agenticdevelopercookbook://guidelines/implementing/ui/theming
+  - agenticdevelopercookbook://guidelines/implementing/ui/color
+  - agenticdevelopercookbook://guidelines/planning/ui/design-tokens
 references:
   - https://www.designtokens.org/
 approved-by: "approve-artifact v1.0.0"
@@ -83,7 +83,7 @@ Keep three tiers so themes only rebind the middle one:
 - Contrast **MUST** be checked for each theme independently — a token pair that passes in light can
   fail in dark or high-contrast. Automate this against the value sets in CI; do not eyeball it.
 - Color **MUST NOT** be the sole signal for state (see
-  agentic-cookbook://guidelines/implementing/ui/color).
+  agenticdevelopercookbook://guidelines/implementing/ui/color).
 
 ## Notes
 

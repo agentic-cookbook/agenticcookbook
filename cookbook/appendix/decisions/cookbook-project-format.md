@@ -1,7 +1,7 @@
 ---
 id: b8e2d4f1-3a7c-4b9e-a1d5-6f2c8e9b3d4a
 title: "Format: Cookbook Project Definition (.acproj)"
-domain: agentic-cookbook://appendix/decisions/cookbook-project-format
+domain: agenticdevelopercookbook://appendix/decisions/cookbook-project-format
 type: reference
 version: 1.0.0
 status: draft
@@ -116,7 +116,7 @@ The `components` field defines the app's architecture as a nested tree. Each com
       "platforms": ["ios", "macos"],
       "depends-on": [],
       "source": {
-        "domain": "agentic-cookbook://recipes/ui/apps/apple",
+        "domain": "agenticdevelopercookbook://recipes/ui/apps/apple",
         "version": "1.0.0"
       },
       "components": {

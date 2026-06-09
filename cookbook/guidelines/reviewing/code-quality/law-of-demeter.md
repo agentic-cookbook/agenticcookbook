@@ -1,7 +1,7 @@
 ---
 id: f4acb6cd-1e5b-4175-9556-327506a188fe
 title: "Law of Demeter and Tell, Don't Ask"
-domain: agentic-cookbook://guidelines/reviewing/code-quality/law-of-demeter
+domain: agenticdevelopercookbook://guidelines/reviewing/code-quality/law-of-demeter
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - design
 depends-on: []
 related:
-  - agentic-cookbook://principles/connascence
-  - agentic-cookbook://principles/separation-of-concerns
+  - agenticdevelopercookbook://principles/connascence
+  - agenticdevelopercookbook://principles/separation-of-concerns
 references:
   - https://en.wikipedia.org/wiki/Law_of_Demeter
 approved-by: "approve-artifact v1.0.0"
@@ -53,7 +53,7 @@ A reviewer **MUST** treat a train wreck as a *refactor signal*, not an automatic
 
 ## Relationship to connascence
 
-A Demeter chain is **connascence of position across object boundaries**: the caller is coupled to the shape of intermediate objects, so a change to any link breaks the caller. Removing the chain (via a delegating method or by relocating behavior) converts strong, distant coupling into weaker, local coupling. See `agentic-cookbook://principles/connascence`.
+A Demeter chain is **connascence of position across object boundaries**: the caller is coupled to the shape of intermediate objects, so a change to any link breaks the caller. Removing the chain (via a delegating method or by relocating behavior) converts strong, distant coupling into weaker, local coupling. See `agenticdevelopercookbook://principles/connascence`.
 
 ## Refactoring a violation
 

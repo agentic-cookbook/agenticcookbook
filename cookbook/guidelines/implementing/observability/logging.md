@@ -2,7 +2,7 @@
 
 id: 0f0c1da3-1c53-417b-890d-0259d7513c65
 title: "Instrumented logging"
-domain: agentic-cookbook://guidelines/implementing/observability/logging
+domain: agenticdevelopercookbook://guidelines/implementing/observability/logging
 type: guideline
 version: 1.1.0
 status: accepted
@@ -132,7 +132,7 @@ The per-platform loggers above remain the source of structured log lines; this s
 - Log and span field names **SHOULD** follow the OpenTelemetry [semantic conventions](https://opentelemetry.io/docs/specs/semconv/) rather than ad-hoc names.
 - Production logs **SHOULD** be structured JSON to keep them machine-parseable for aggregation and trace correlation.
 
-See [distributed tracing](agentic-cookbook://guidelines/implementing/observability/distributed-tracing) for span propagation and exporter configuration.
+See [distributed tracing](agenticdevelopercookbook://guidelines/implementing/observability/distributed-tracing) for span propagation and exporter configuration.
 
 ## Change History
 

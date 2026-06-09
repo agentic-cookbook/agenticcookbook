@@ -2,7 +2,7 @@
 
 id: ce09e474-bb65-4449-a357-6d58be514622
 title: "Agent Structure Reference"
-domain: agentic-cookbook://guidelines/cookbook/skills-and-agents/agent-structure-reference
+domain: agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/agent-structure-reference
 type: guideline
 version: 1.0.3
 status: accepted
@@ -21,8 +21,8 @@ tags:
   - frontmatter
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/cookbook/skills-and-agents/authoring-skills-and-rules
-  - agentic-cookbook://guidelines/cookbook/skills-and-agents/agent-checklist
+  - agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/authoring-skills-and-rules
+  - agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/agent-checklist
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"

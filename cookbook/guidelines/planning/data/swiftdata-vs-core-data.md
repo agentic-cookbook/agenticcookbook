@@ -1,7 +1,7 @@
 ---
 id: 1138183b-296d-479b-9df7-7869a006c023
 title: "Choose SwiftData vs Core Data"
-domain: agentic-cookbook://guidelines/planning/data/swiftdata-vs-core-data
+domain: agenticdevelopercookbook://guidelines/planning/data/swiftdata-vs-core-data
 type: guideline
 version: 1.0.0
 status: accepted
@@ -22,7 +22,7 @@ tags:
   - data
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/planning/data/datastore-selection
+  - agenticdevelopercookbook://guidelines/planning/data/datastore-selection
 references:
   - https://developer.apple.com/documentation/swiftdata
 approved-by: "approve-artifact v1.0.0"

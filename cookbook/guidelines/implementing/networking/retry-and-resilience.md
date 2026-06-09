@@ -2,7 +2,7 @@
 
 id: cef41f52-bfc6-4ff0-bb67-eb52521c7391
 title: "Retry and Resilience"
-domain: agentic-cookbook://guidelines/implementing/networking/retry-and-resilience
+domain: agenticdevelopercookbook://guidelines/implementing/networking/retry-and-resilience
 type: guideline
 version: 1.0.2
 status: accepted

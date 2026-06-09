@@ -1,7 +1,7 @@
 ---
 id: D931B5B1-F54F-46F1-894F-420957C6D2AE
 title: "Best Practices Compliance"
-domain: agentic-cookbook://compliance/best-practices
+domain: agenticdevelopercookbook://compliance/best-practices
 type: compliance
 version: 1.0.1
 status: draft
@@ -16,9 +16,9 @@ platforms: []
 tags: [compliance, best-practices]
 depends-on: []
 related:
-  - agentic-cookbook://compliance/security
-  - agentic-cookbook://compliance/reliability
-  - agentic-cookbook://compliance/performance
+  - agenticdevelopercookbook://compliance/security
+  - agenticdevelopercookbook://compliance/reliability
+  - agenticdevelopercookbook://compliance/performance
 references: []
 ---
 
@@ -39,8 +39,8 @@ Business logic MUST have unit tests with meaningful assertions.
 **Applies when:** recipe implements business logic or utility functions.
 
 **Guidelines:**
-- [Testing](agentic-cookbook://guidelines/testing/testing)
-- [Unit Test Patterns](agentic-cookbook://guidelines/testing/unit-test-patterns)
+- [Testing](agenticdevelopercookbook://guidelines/testing/testing)
+- [Unit Test Patterns](agenticdevelopercookbook://guidelines/testing/unit-test-patterns)
 
 ---
 
@@ -51,7 +51,7 @@ Test distribution SHOULD follow the test pyramid (many unit, fewer integration, 
 **Applies when:** recipe defines a test strategy or test suite.
 
 **Guidelines:**
-- [Test Pyramid](agentic-cookbook://guidelines/testing/test-pyramid)
+- [Test Pyramid](agenticdevelopercookbook://guidelines/testing/test-pyramid)
 
 ---
 
@@ -62,7 +62,7 @@ Changes MUST be committed atomically — one logical change per commit.
 **Applies when:** recipe describes a development workflow or commit strategy.
 
 **Guidelines:**
-- [Atomic Commits](agentic-cookbook://guidelines/implementing/code-quality/atomic-commits)
+- [Atomic Commits](agenticdevelopercookbook://guidelines/implementing/code-quality/atomic-commits)
 
 ---
 
@@ -73,7 +73,7 @@ Code MUST pass configured linting rules without suppression.
 **Applies when:** recipe produces source code in any language.
 
 **Guidelines:**
-- [Linting](agentic-cookbook://guidelines/implementing/code-quality/linting)
+- [Linting](agenticdevelopercookbook://guidelines/implementing/code-quality/linting)
 
 ---
 
@@ -84,7 +84,7 @@ AI-generated code MUST pass build, test, lint, and log verification before accep
 **Applies when:** recipe involves AI-assisted code generation.
 
 **Guidelines:**
-- [Post-Generation Verification](agentic-cookbook://guidelines/testing/post-generation-verification)
+- [Post-Generation Verification](agenticdevelopercookbook://guidelines/testing/post-generation-verification)
 
 ---
 
@@ -95,7 +95,7 @@ Errors MUST be handled explicitly; MUST NOT be silently swallowed.
 **Applies when:** recipe includes error paths, exception handling, or Result/Optional unwrapping.
 
 **Guidelines:**
-- [Fail Fast](agentic-cookbook://principles/fail-fast) (principle)
+- [Fail Fast](agenticdevelopercookbook://principles/fail-fast) (principle)
 
 ---
 
@@ -106,7 +106,7 @@ Business logic MUST be separated from presentation and infrastructure.
 **Applies when:** recipe spans multiple architectural layers (UI, domain, data).
 
 **Guidelines:**
-- [Separation of Concerns](agentic-cookbook://principles/separation-of-concerns) (principle)
+- [Separation of Concerns](agenticdevelopercookbook://principles/separation-of-concerns) (principle)
 
 ---
 
@@ -117,7 +117,7 @@ Tests MUST be fast, isolated, repeatable, and self-validating.
 **Applies when:** recipe defines or includes test implementations.
 
 **Guidelines:**
-- [Properties of Good Tests](agentic-cookbook://guidelines/testing/properties-of-good-tests)
+- [Properties of Good Tests](agenticdevelopercookbook://guidelines/testing/properties-of-good-tests)
 
 ## Change History
 

@@ -1,7 +1,7 @@
 ---
 id: c41a4778-69df-4142-9b36-bafe28a6d363
 title: "Deliberate, prudent technical debt"
-domain: agentic-cookbook://principles/deliberate-prudent-debt
+domain: agenticdevelopercookbook://principles/deliberate-prudent-debt
 type: principle
 version: 1.0.0
 status: accepted
@@ -17,10 +17,10 @@ tags:
   - technical-debt
 depends-on: []
 related:
-  - agentic-cookbook://principles/yagni
-  - agentic-cookbook://principles/design-for-deletion
-  - agentic-cookbook://principles/make-it-work-make-it-right-make-it-fast
-  - agentic-cookbook://principles/small-reversible-decisions
+  - agenticdevelopercookbook://principles/yagni
+  - agenticdevelopercookbook://principles/design-for-deletion
+  - agenticdevelopercookbook://principles/make-it-work-make-it-right-make-it-fast
+  - agenticdevelopercookbook://principles/small-reversible-decisions
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

@@ -1,7 +1,7 @@
 ---
 id: a4f57a3c-f909-42aa-a85f-1ac76ac3ab24
 title: "Room persistence on Android"
-domain: agentic-cookbook://guidelines/implementing/data/room-persistence
+domain: agenticdevelopercookbook://guidelines/implementing/data/room-persistence
 type: guideline
 version: 1.0.0
 status: accepted
@@ -20,7 +20,7 @@ tags:
   - persistence
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/data/transaction-isolation
+  - agenticdevelopercookbook://guidelines/implementing/data/transaction-isolation
 references:
   - https://developer.android.com/training/data-storage/room
 approved-by: "approve-artifact v1.0.0"
@@ -56,7 +56,7 @@ Room is Google's recommended SQLite persistence layer for Android. It is the con
 
 - Any operation that issues **more than one statement and must be atomic** (read-modify-write, multi-table insert, batch upsert with dependent rows) **MUST** be wrapped in a single transaction — annotate the DAO method with `@Transaction`, or call `db.withTransaction { ... }` from suspend code.
 - `@Transaction` is also **REQUIRED** on `@Query` methods that return a `@Relation`-bearing POJO, so the parent and child reads see a consistent snapshot.
-- Keep transactions short; do no network or long CPU work inside `withTransaction`. See `agentic-cookbook://guidelines/implementing/data/transaction-isolation` for isolation semantics.
+- Keep transactions short; do no network or long CPU work inside `withTransaction`. See `agenticdevelopercookbook://guidelines/implementing/data/transaction-isolation` for isolation semantics.
 
 ## Schema and indexing
 

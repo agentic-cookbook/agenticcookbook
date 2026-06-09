@@ -1,7 +1,7 @@
 ---
 id: 6a653107-929d-418e-865d-636373a27b02
 title: "Choosing a primary datastore"
-domain: agentic-cookbook://guidelines/planning/data/datastore-selection
+domain: agenticdevelopercookbook://guidelines/planning/data/datastore-selection
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,9 +19,9 @@ tags:
   - backend
 depends-on: []
 related:
-  - agentic-cookbook://principles/yagni
-  - agentic-cookbook://principles/simplicity
-  - agentic-cookbook://guidelines/planning/data/database
+  - agenticdevelopercookbook://principles/yagni
+  - agenticdevelopercookbook://principles/simplicity
+  - agenticdevelopercookbook://guidelines/planning/data/database
 references:
   - https://www.postgresql.org/docs/
 approved-by: "approve-artifact v1.0.0"

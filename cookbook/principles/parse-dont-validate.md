@@ -1,7 +1,7 @@
 ---
 id: 2a22b563-afb5-4615-96ae-338eafd5eb81
 title: "Make illegal states unrepresentable"
-domain: agentic-cookbook://principles/parse-dont-validate
+domain: agenticdevelopercookbook://principles/parse-dont-validate
 type: principle
 version: 1.0.0
 status: accepted
@@ -19,9 +19,9 @@ tags:
   - invariants
 depends-on: []
 related:
-  - agentic-cookbook://principles/fail-fast
-  - agentic-cookbook://principles/explicit-over-implicit
-  - agentic-cookbook://principles/immutability-by-default
+  - agenticdevelopercookbook://principles/fail-fast
+  - agenticdevelopercookbook://principles/explicit-over-implicit
+  - agenticdevelopercookbook://principles/immutability-by-default
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

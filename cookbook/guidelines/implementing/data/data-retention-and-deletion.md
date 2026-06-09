@@ -1,7 +1,7 @@
 ---
 id: 6d8ae093-8610-468b-932a-be2fb19eb260
 title: "Data retention and deletion"
-domain: agentic-cookbook://guidelines/implementing/data/data-retention-and-deletion
+domain: agenticdevelopercookbook://guidelines/implementing/data/data-retention-and-deletion
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - privacy
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/security/data-subject-rights
-  - agentic-cookbook://guidelines/shipping/schema-evolution
+  - agenticdevelopercookbook://guidelines/implementing/security/data-subject-rights
+  - agenticdevelopercookbook://guidelines/shipping/schema-evolution
 references:
   - https://gdpr-info.eu/art-5-gdpr/
 approved-by: "approve-artifact v1.0.0"

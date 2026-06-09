@@ -2,7 +2,7 @@
 
 id: eeddf232-7bc1-4aa4-ab34-dbcbaebc102d
 title: "Dashboard service is display-only"
-domain: agentic-cookbook://guidelines/planning/ui/dashboard-service-is-display-only
+domain: agenticdevelopercookbook://guidelines/planning/ui/dashboard-service-is-display-only
 type: guideline
 version: 1.0.2
 status: accepted

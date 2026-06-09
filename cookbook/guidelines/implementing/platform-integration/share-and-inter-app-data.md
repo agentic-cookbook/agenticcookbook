@@ -2,7 +2,7 @@
 
 id: 193e5770-fd0b-45c9-91a4-6673bf6021ff
 title: "Share and inter-app data flow"
-domain: agentic-cookbook://guidelines/implementing/platform-integration/share-and-inter-app-data
+domain: agenticdevelopercookbook://guidelines/implementing/platform-integration/share-and-inter-app-data
 type: guideline
 version: 1.0.3
 status: accepted
@@ -25,9 +25,9 @@ tags:
   - inter-app
   - drag-and-drop
 depends-on:
-  - agentic-cookbook://principles/support-automation
+  - agenticdevelopercookbook://principles/support-automation
 related:
-  - agentic-cookbook://guidelines/implementing/platform-integration/deep-linking
+  - agenticdevelopercookbook://guidelines/implementing/platform-integration/deep-linking
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

@@ -1,7 +1,7 @@
 ---
 id: 26d10854-c903-40c5-8bef-18337c5ac71e
 title: "Design tokens"
-domain: agentic-cookbook://guidelines/planning/ui/design-tokens
+domain: agenticdevelopercookbook://guidelines/planning/ui/design-tokens
 type: guideline
 version: 1.0.0
 status: accepted
@@ -24,8 +24,8 @@ tags:
   - theming
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/ui/theming
-  - agentic-cookbook://guidelines/planning/ui/platform-design-languages
+  - agenticdevelopercookbook://guidelines/implementing/ui/theming
+  - agenticdevelopercookbook://guidelines/planning/ui/platform-design-languages
 references:
   - https://www.designtokens.org/
 approved-by: "approve-artifact v1.0.0"

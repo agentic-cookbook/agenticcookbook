@@ -1,7 +1,7 @@
 ---
 id: 3f442861-abec-4dfc-a2e2-a3761904d16d
 title: "Kotlin Multiplatform"
-domain: agentic-cookbook://guidelines/planning/code-quality/kotlin-multiplatform
+domain: agenticdevelopercookbook://guidelines/planning/code-quality/kotlin-multiplatform
 type: guideline
 version: 1.0.0
 status: accepted
@@ -20,7 +20,7 @@ tags:
   - architecture
 depends-on: []
 related:
-  - agentic-cookbook://principles/manage-complexity-through-boundaries
+  - agenticdevelopercookbook://principles/manage-complexity-through-boundaries
 references:
   - https://www.jetbrains.com/kotlin-multiplatform/
 approved-by: "approve-artifact v1.0.0"
@@ -38,7 +38,7 @@ Kotlin Multiplatform (KMP) shares non-UI logic — domain, data, networking — 
 - Teams **SHOULD** share the domain and data layers (use cases, repositories, models, networking, serialization) in `commonMain`. KMP has been Stable since November 2023, so this is durable, low-risk reuse.
 - The shared module **MUST NOT** depend on platform UI toolkits. Keep platform-idiomatic UI (SwiftUI, Jetpack Compose, web framework) on the consuming side unless a shared-UI decision is made deliberately.
 - A shared ViewModel/presentation layer **MAY** be shared when the team accepts coupling presentation state to KMP; treat it as a deliberate scope expansion, not a default.
-- Apply boundaries per `agentic-cookbook://principles/manage-complexity-through-boundaries`: expose narrow interfaces from the shared module so platforms stay swappable.
+- Apply boundaries per `agenticdevelopercookbook://principles/manage-complexity-through-boundaries`: expose narrow interfaces from the shared module so platforms stay swappable.
 
 ## expect / actual discipline
 

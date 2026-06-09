@@ -1,7 +1,7 @@
 ---
 id: d10d829f-bfff-4b8b-935f-eb30cdf66a43
 title: "Cross-platform token adaptation"
-domain: agentic-cookbook://guidelines/implementing/ui/cross-platform-token-adaptation
+domain: agenticdevelopercookbook://guidelines/implementing/ui/cross-platform-token-adaptation
 type: guideline
 version: 1.0.0
 status: accepted
@@ -24,8 +24,8 @@ tags:
   - tokens
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/planning/ui/design-tokens
-  - agentic-cookbook://guidelines/planning/ui/platform-design-languages
+  - agenticdevelopercookbook://guidelines/planning/ui/design-tokens
+  - agenticdevelopercookbook://guidelines/planning/ui/platform-design-languages
 references:
   - https://www.designtokens.org/
 approved-by: "approve-artifact v1.0.0"
@@ -69,7 +69,7 @@ Adapt the same numeric intent to each platform's density-independent unit. Do no
 
 ## Respect the platform design language
 
-- Adapt to the host idiom — navigation patterns, control shapes, default density, and haptics — rather than forcing one platform's look onto another. See `agentic-cookbook://guidelines/planning/ui/platform-design-languages`.
+- Adapt to the host idiom — navigation patterns, control shapes, default density, and haptics — rather than forcing one platform's look onto another. See `agenticdevelopercookbook://guidelines/planning/ui/platform-design-languages`.
 - Component-level tokens **MAY** diverge per platform (e.g., corner radius, elevation vs. shadow) while sharing the same semantic ancestor.
 - Centralized design-system tooling (token build pipelines, multi-target generators) is an adopt-when-measured-need-justifies investment (per YAGNI): start with a single shared file and per-platform transforms; add heavier infrastructure only when token volume or platform count makes it pay off.
 

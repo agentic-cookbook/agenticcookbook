@@ -2,7 +2,7 @@
 
 id: 43dbf61b-96ff-45f8-a11c-924e2f4359e0
 title: "Rule Structure Reference"
-domain: agentic-cookbook://guidelines/cookbook/skills-and-agents/rule-structure-reference
+domain: agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/rule-structure-reference
 type: guideline
 version: 1.0.3
 status: accepted
@@ -21,8 +21,8 @@ tags:
   - optimization
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/cookbook/skills-and-agents/authoring-skills-and-rules
-  - agentic-cookbook://guidelines/cookbook/skills-and-agents/rule-checklist
+  - agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/authoring-skills-and-rules
+  - agenticdevelopercookbook://guidelines/cookbook/skills-and-agents/rule-checklist
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-04-04"

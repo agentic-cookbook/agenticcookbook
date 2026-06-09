@@ -73,7 +73,7 @@ def test_lint_since_resolves_changed_files(tmp_path, monkeypatch, patch_refs):
     # can prove --since picks up exactly the new file.
     (cb / "recipes" / "new.md").write_text(
         "---\nid: 11111111-2222-3333-4444-555555555555\ntitle: New\n"
-        "domain: agentic-cookbook://cookbook/recipes/new\ntype: recipe\n"
+        "domain: agenticdevelopercookbook://cookbook/recipes/new\ntype: recipe\n"
         "version: 1.0.0\nstatus: draft\nlanguage: en\ncreated: 2026-05-15\n"
         "modified: 2026-05-15\nauthor: T\ncopyright: 2026 T\nlicense: MIT\n"
         "summary: a new one\n---\n# New\n",

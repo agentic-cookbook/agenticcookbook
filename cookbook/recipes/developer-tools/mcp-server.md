@@ -1,7 +1,7 @@
 ---
 id: ad61ee7f-47cf-4c48-a17a-9d7d3d6b7116
 title: "MCP server"
-domain: agentic-cookbook://recipes/developer-tools/mcp-server
+domain: agenticdevelopercookbook://recipes/developer-tools/mcp-server
 type: recipe
 version: 1.0.0
 status: accepted
@@ -20,12 +20,12 @@ tags:
   - ai
   - infrastructure
 ingredients:
-  - agentic-cookbook://ingredients/developer-tools/mcp-tool
+  - agenticdevelopercookbook://ingredients/developer-tools/mcp-tool
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/networking/mcp-server-design
-  - agentic-cookbook://guidelines/implementing/security/mcp-server-security
-  - agentic-cookbook://guidelines/reviewing/networking/mcp-server-checklist
+  - agenticdevelopercookbook://guidelines/implementing/networking/mcp-server-design
+  - agenticdevelopercookbook://guidelines/implementing/security/mcp-server-security
+  - agenticdevelopercookbook://guidelines/reviewing/networking/mcp-server-checklist
 references:
   - https://modelcontextprotocol.io/
 approved-by: "approve-artifact v1.0.0"
@@ -44,7 +44,7 @@ All protocol and transport guidance here is pinned to the MCP specification revi
 
 | Name | Domain | Role | Required | Configuration |
 |------|--------|------|----------|---------------|
-| MCP tool | `agentic-cookbook://ingredients/developer-tools/mcp-tool` | Each model-invocable operation the server exposes over `tools/list` and `tools/call` | Yes | One instance per tool. Each configures `name`, `description`, `inputSchema`, optional `outputSchema`, and behavior-hint `annotations`. At least one tool MUST be registered for the server to declare the `tools` capability. |
+| MCP tool | `agenticdevelopercookbook://ingredients/developer-tools/mcp-tool` | Each model-invocable operation the server exposes over `tools/list` and `tools/call` | Yes | One instance per tool. Each configures `name`, `description`, `inputSchema`, optional `outputSchema`, and behavior-hint `annotations`. At least one tool MUST be registered for the server to declare the `tools` capability. |
 
 ## Integration Requirements
 
@@ -160,10 +160,10 @@ The server is the composition point: the host speaks the protocol to the server 
 
 | Check | Status | Category |
 |-------|--------|----------|
-| [no-token-passthrough](agentic-cookbook://guidelines/implementing/security/mcp-server-security) | partial | Security |
-| [validate-token-audience](agentic-cookbook://guidelines/implementing/security/mcp-server-security) | partial | Security |
-| [rug-pull-hashed-approval](agentic-cookbook://guidelines/implementing/security/mcp-server-security) | partial | Security |
-| [mcp-server-checklist](agentic-cookbook://guidelines/reviewing/networking/mcp-server-checklist) | partial | Review |
+| [no-token-passthrough](agenticdevelopercookbook://guidelines/implementing/security/mcp-server-security) | partial | Security |
+| [validate-token-audience](agenticdevelopercookbook://guidelines/implementing/security/mcp-server-security) | partial | Security |
+| [rug-pull-hashed-approval](agenticdevelopercookbook://guidelines/implementing/security/mcp-server-security) | partial | Security |
+| [mcp-server-checklist](agenticdevelopercookbook://guidelines/reviewing/networking/mcp-server-checklist) | partial | Review |
 
 > Status is `partial`: this recipe specifies the integration-level requirements that satisfy these checks, but compliance is verified per concrete server implementation, not at the recipe level.
 

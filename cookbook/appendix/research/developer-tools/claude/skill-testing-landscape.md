@@ -1,7 +1,7 @@
 ---
 id: 028b445c-ee5e-40ca-8272-ae0f5053d525
 title: Skill Testing Landscape
-domain: agentic-cookbook://appendix/research/developer-tools/claude/skill-testing-landscape
+domain: agenticdevelopercookbook://appendix/research/developer-tools/claude/skill-testing-landscape
 type: reference
 version: 1.0.0
 status: draft

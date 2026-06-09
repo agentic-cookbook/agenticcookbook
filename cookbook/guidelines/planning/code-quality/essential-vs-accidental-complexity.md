@@ -1,7 +1,7 @@
 ---
 id: 36bdba1b-2759-45c6-80b9-374536efb7bb
 title: "Essential vs accidental complexity"
-domain: agentic-cookbook://guidelines/planning/code-quality/essential-vs-accidental-complexity
+domain: agenticdevelopercookbook://guidelines/planning/code-quality/essential-vs-accidental-complexity
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,9 +19,9 @@ tags:
   - ai
 depends-on: []
 related:
-  - agentic-cookbook://principles/simplicity
-  - agentic-cookbook://principles/yagni
-  - agentic-cookbook://guidelines/planning/code-quality/algorithmic-complexity
+  - agenticdevelopercookbook://principles/simplicity
+  - agenticdevelopercookbook://principles/yagni
+  - agenticdevelopercookbook://guidelines/planning/code-quality/algorithmic-complexity
 references:
   - https://en.wikipedia.org/wiki/No_Silver_Bullet
 approved-by: "approve-artifact v1.0.0"

@@ -2,7 +2,7 @@
 
 id: e80d67b3-813f-47fb-8894-aa4e6f6479f3
 title: "Dependency Injection"
-domain: agentic-cookbook://guidelines/implementing/code-quality/dependency-injection
+domain: agenticdevelopercookbook://guidelines/implementing/code-quality/dependency-injection
 type: guideline
 version: 1.0.2
 status: accepted

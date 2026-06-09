@@ -122,7 +122,7 @@ git push
 
 - [ ] **Step 1: Create the trigger guide**
 
-Create `introduction/trigger-guide.md` with full frontmatter (UUID, domain `agentic-cookbook://introduction/trigger-guide`, type `reference`, version `1.0.0`, status `draft`). Content sections:
+Create `introduction/trigger-guide.md` with full frontmatter (UUID, domain `agenticdevelopercookbook://introduction/trigger-guide`, type `reference`, version `1.0.0`, status `draft`). Content sections:
 
 **## Purpose** — Explain why triggers exist: 141 guidelines are too many to load into agent context. Triggers let agents query by activity to get ~10-20 relevant guidelines instead of all 141.
 
@@ -675,13 +675,13 @@ git push
 
 Create `guidelines/observability/ai-provider-observability.md` with full frontmatter:
 - New UUID
-- domain: `agentic-cookbook://guidelines/observability/ai-provider-observability`
+- domain: `agenticdevelopercookbook://guidelines/observability/ai-provider-observability`
 - type: guideline
 - version: 1.0.0
 - status: draft
 - tags: `[logging, ai, observability, llm]`
 - triggers: `[ai-api-integration, logging, api-integration]`
-- depends-on: `[agentic-cookbook://guidelines/observability/logging]`
+- depends-on: `[agenticdevelopercookbook://guidelines/observability/logging]`
 - references: OpenTelemetry docs, Anthropic API docs
 
 Content requirements (the actual requirements the guideline must define):
@@ -717,13 +717,13 @@ git push
 
 Create `guidelines/networking/ai-cost-management.md` with full frontmatter:
 - New UUID
-- domain: `agentic-cookbook://guidelines/networking/ai-cost-management`
+- domain: `agenticdevelopercookbook://guidelines/networking/ai-cost-management`
 - type: guideline
 - version: 1.0.0
 - status: draft
 - tags: `[cost-management, ai, caching, rate-limiting]`
 - triggers: `[ai-api-integration, networking, performance-optimization]`
-- depends-on: `[agentic-cookbook://guidelines/networking/caching, agentic-cookbook://guidelines/networking/rate-limiting]`
+- depends-on: `[agenticdevelopercookbook://guidelines/networking/caching, agenticdevelopercookbook://guidelines/networking/rate-limiting]`
 
 Content requirements:
 
@@ -759,7 +759,7 @@ git push
 
 Create `introduction/top-10-guidelines.md` with full frontmatter:
 - New UUID
-- domain: `agentic-cookbook://introduction/top-10-guidelines`
+- domain: `agenticdevelopercookbook://introduction/top-10-guidelines`
 - type: reference
 - version: 1.0.0
 - status: draft
@@ -771,16 +771,16 @@ The top 10 (based on the feedback session's findings and cross-category impact):
 
 | # | Guideline | Why it's here |
 |---|-----------|--------------|
-| 1 | [Test Pyramid](agentic-cookbook://guidelines/testing/test-pyramid) | Prevents test-suite bloat and gives the right ratio |
-| 2 | [Input Validation](agentic-cookbook://guidelines/security/input-validation) | #1 security issue in generated code |
-| 3 | [Properties of Good Tests](agentic-cookbook://guidelines/testing/properties-of-good-tests) | AI-generated tests are often brittle — this fixes that |
-| 4 | [Linting before the first PR](agentic-cookbook://guidelines/code-quality/linting) | Catches style/format drift before it compounds |
-| 5 | [Logging](agentic-cookbook://guidelines/observability/logging) | AI agents skip logging unless told — this ensures observability |
-| 6 | [Error Responses](agentic-cookbook://guidelines/networking/error-responses) | Generated code often has incomplete error handling |
-| 7 | [Accessibility](agentic-cookbook://guidelines/accessibility/accessibility) | Never added by AI unless explicitly required |
-| 8 | [Atomic Commits](agentic-cookbook://guidelines/code-quality/atomic-commits) | Keeps AI-generated PRs reviewable |
-| 9 | [Sensitive Data](agentic-cookbook://guidelines/security/sensitive-data) | Prevents PII/secrets in logs and responses |
-| 10 | [Scope Discipline](agentic-cookbook://guidelines/code-quality/scope-discipline) | Prevents AI from over-engineering or scope-creeping |
+| 1 | [Test Pyramid](agenticdevelopercookbook://guidelines/testing/test-pyramid) | Prevents test-suite bloat and gives the right ratio |
+| 2 | [Input Validation](agenticdevelopercookbook://guidelines/security/input-validation) | #1 security issue in generated code |
+| 3 | [Properties of Good Tests](agenticdevelopercookbook://guidelines/testing/properties-of-good-tests) | AI-generated tests are often brittle — this fixes that |
+| 4 | [Linting before the first PR](agenticdevelopercookbook://guidelines/code-quality/linting) | Catches style/format drift before it compounds |
+| 5 | [Logging](agenticdevelopercookbook://guidelines/observability/logging) | AI agents skip logging unless told — this ensures observability |
+| 6 | [Error Responses](agenticdevelopercookbook://guidelines/networking/error-responses) | Generated code often has incomplete error handling |
+| 7 | [Accessibility](agenticdevelopercookbook://guidelines/accessibility/accessibility) | Never added by AI unless explicitly required |
+| 8 | [Atomic Commits](agenticdevelopercookbook://guidelines/code-quality/atomic-commits) | Keeps AI-generated PRs reviewable |
+| 9 | [Sensitive Data](agenticdevelopercookbook://guidelines/security/sensitive-data) | Prevents PII/secrets in logs and responses |
+| 10 | [Scope Discipline](agenticdevelopercookbook://guidelines/code-quality/scope-discipline) | Prevents AI from over-engineering or scope-creeping |
 
 Each entry should have 2-3 sentences explaining why this guideline is in the top 10 and what it catches.
 
@@ -847,8 +847,8 @@ The `triggers` field SHOULD be present in guideline frontmatter. It MUST be a YA
 **Applies when:** always.
 
 **Guidelines:**
-- [Trigger Guide](agentic-cookbook://introduction/trigger-guide)
-- [Conventions](agentic-cookbook://introduction/conventions)
+- [Trigger Guide](agenticdevelopercookbook://introduction/trigger-guide)
+- [Conventions](agenticdevelopercookbook://introduction/conventions)
 ```
 
 Bump version, update modified date, add Change History row.
@@ -884,10 +884,10 @@ python scripts/generate-trigger-index.py
 - [ ] **Step 3: Verify no broken cross-references**
 
 ```bash
-grep -r "agentic-cookbook://" --include="*.md" | grep -v "node_modules" | head -50
+grep -r "agenticdevelopercookbook://" --include="*.md" | grep -v "node_modules" | head -50
 ```
 
-Spot-check that all `agentic-cookbook://` URIs resolve to real files.
+Spot-check that all `agenticdevelopercookbook://` URIs resolve to real files.
 
 - [ ] **Step 4: Run `/update-website`**
 

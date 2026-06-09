@@ -2,7 +2,7 @@
 
 id: 04fe1298-3880-4584-8a4a-c7a538eb5193
 title: "Behavioral Requirements"
-domain: agentic-cookbook://guidelines/cookbook/recipe-quality/behavioral-requirements
+domain: agenticdevelopercookbook://guidelines/cookbook/recipe-quality/behavioral-requirements
 type: guideline
 version: 1.0.3
 status: accepted

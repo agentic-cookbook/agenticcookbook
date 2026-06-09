@@ -1,7 +1,7 @@
 ---
 id: e0c6916b-4c1c-49f6-9111-69eb0ee64d2d
 title: "Separate server state from client state"
-domain: agentic-cookbook://guidelines/planning/ui/state-management
+domain: agenticdevelopercookbook://guidelines/planning/ui/state-management
 type: guideline
 version: 1.0.0
 status: accepted
@@ -21,8 +21,8 @@ tags:
   - architecture
 depends-on: []
 related:
-  - agentic-cookbook://principles/separation-of-concerns
-  - agentic-cookbook://principles/manage-complexity-through-boundaries
+  - agenticdevelopercookbook://principles/separation-of-concerns
+  - agenticdevelopercookbook://principles/manage-complexity-through-boundaries
 references:
   - https://tanstack.com/query/latest/docs/framework/react/guides/does-this-replace-client-state
 approved-by: "approve-artifact v1.0.0"

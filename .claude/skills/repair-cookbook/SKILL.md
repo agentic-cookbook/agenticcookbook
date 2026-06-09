@@ -27,7 +27,7 @@ If `$ARGUMENTS` contains `--test-mode`:
 
 # Repair Cookbook
 
-Scan the cookbook for integrity issues — broken `agentic-cookbook://` cross-references, stale frontmatter, dead index links, structural problems — then repair what can be fixed automatically and ask about the rest.
+Scan the cookbook for integrity issues — broken `agenticdevelopercookbook://` cross-references, stale frontmatter, dead index links, structural problems — then repair what can be fixed automatically and ask about the rest.
 
 You are a librarian auditing every shelf, cross-reference card, and index entry. You find what's broken, figure out what the correct target should be, and fix it — but you always show your work before writing.
 
@@ -94,7 +94,7 @@ Launch up to 3 agents in parallel. Each agent reads the checklist, receives `$RO
 - Category 3: Cross-References (X01-X08)
 - Category 4: Indexes and Documentation (I01-I04)
 
-This agent does the most critical work. For every broken `agentic-cookbook://` URI it finds, it must also:
+This agent does the most critical work. For every broken `agenticdevelopercookbook://` URI it finds, it must also:
 1. Record the source file and line
 2. Record the broken URI
 3. Attempt fuzzy-match resolution per the strategy in the checklist
@@ -163,10 +163,10 @@ Present them as a batch:
 === PROPOSED FIXES (<N> total) ===
 
  1. [F05] principles/foo.md — domain field mismatch
-    Fix: Update domain to "agentic-cookbook://principles/foo"
+    Fix: Update domain to "agenticdevelopercookbook://principles/foo"
 
- 2. [X01] compliance/security.md:47 — broken ref "agentic-cookbook://guidelines/general#post-gen"
-    Fix: Update to "agentic-cookbook://guidelines/testing/post-generation-verification"
+ 2. [X01] compliance/security.md:47 — broken ref "agenticdevelopercookbook://guidelines/general#post-gen"
+    Fix: Update to "agenticdevelopercookbook://guidelines/testing/post-generation-verification"
 
  3. [I03] index.md:23 — dead link to "guidelines/old-file.md"
     Fix: Remove stale entry
@@ -188,9 +188,9 @@ Apply all <N> fixes? (yes / no / review individually)
 For each issue that couldn't be auto-resolved, present individually:
 
 ```
-Cannot resolve: agentic-cookbook://guidelines/general#post-generation-verification
+Cannot resolve: agenticdevelopercookbook://guidelines/general#post-generation-verification
 Referenced from: compliance/best-practices.md (line 47)
-Context: "See [post-gen verification](agentic-cookbook://guidelines/general#post-generation-verification)"
+Context: "See [post-gen verification](agenticdevelopercookbook://guidelines/general#post-generation-verification)"
 
 Closest matches:
   a) guidelines/testing/post-generation-verification.md

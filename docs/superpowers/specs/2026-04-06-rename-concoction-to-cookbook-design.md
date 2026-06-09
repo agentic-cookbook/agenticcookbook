@@ -52,7 +52,7 @@ The glossary and conventions will document two cookbook types:
 
 ### Domain identifier changes
 
-Any `agentic-cookbook://` domain paths that include "concoction" in the path update accordingly:
+Any `agenticdevelopercookbook://` domain paths that include "concoction" in the path update accordingly:
 - `compliance/artifact-formatting/concoction-formatting` → `compliance/artifact-formatting/cookbook-formatting`
 - `appendix/decisions/ingredient-recipe-concoction-hierarchy` → `appendix/decisions/ingredient-recipe-cookbook-hierarchy`
 

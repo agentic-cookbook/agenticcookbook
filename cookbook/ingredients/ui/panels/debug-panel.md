@@ -1,7 +1,7 @@
 ---
 id: be66e9aa-6c54-4c6c-8026-050eb2286abb
 title: "Debug Panel"
-domain: agentic-cookbook://ingredients/ui/panels/debug-panel
+domain: agenticdevelopercookbook://ingredients/ui/panels/debug-panel
 type: ingredient
 version: 1.0.0
 status: accepted

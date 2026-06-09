@@ -1,7 +1,7 @@
 ---
 id: 736fac9a-56e0-449d-8dc0-b95cbfba7884
 title: "Jetpack Compose: state hoisting and unidirectional data flow"
-domain: agentic-cookbook://guidelines/implementing/ui/compose-state-and-udf
+domain: agenticdevelopercookbook://guidelines/implementing/ui/compose-state-and-udf
 type: guideline
 version: 1.0.0
 status: accepted
@@ -20,9 +20,9 @@ tags:
   - architecture
 depends-on: []
 related:
-  - agentic-cookbook://principles/separation-of-concerns
-  - agentic-cookbook://principles/immutability-by-default
-  - agentic-cookbook://principles/explicit-over-implicit
+  - agenticdevelopercookbook://principles/separation-of-concerns
+  - agenticdevelopercookbook://principles/immutability-by-default
+  - agenticdevelopercookbook://principles/explicit-over-implicit
 references:
   - https://developer.android.com/develop/ui/compose/architecture
 approved-by: "approve-artifact v1.0.0"

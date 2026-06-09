@@ -2,7 +2,7 @@
 
 id: 47563e88-307b-4eef-a63c-ddc18e85a945
 title: "Source Fidelity"
-domain: agentic-cookbook://guidelines/cookbook/recipe-quality/source-fidelity
+domain: agenticdevelopercookbook://guidelines/cookbook/recipe-quality/source-fidelity
 type: guideline
 version: 1.0.3
 status: accepted

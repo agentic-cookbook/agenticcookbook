@@ -2,7 +2,7 @@
 
 id: 7bf2aa67-7260-4d95-9da9-1b79ad9095c1
 title: "Small, atomic commits"
-domain: agentic-cookbook://guidelines/shipping/atomic-commits
+domain: agenticdevelopercookbook://guidelines/shipping/atomic-commits
 type: guideline
 version: 1.2.1
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - code-quality
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/code-quality/scope-discipline
-  - agentic-cookbook://guidelines/testing/post-generation-verification
+  - agenticdevelopercookbook://guidelines/implementing/code-quality/scope-discipline
+  - agenticdevelopercookbook://guidelines/testing/post-generation-verification
 references: []
 approved-by: "approve-artifact v1.0.0"
 approved-date: "2026-06-09"

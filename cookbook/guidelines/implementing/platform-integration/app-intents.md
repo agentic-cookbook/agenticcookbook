@@ -1,7 +1,7 @@
 ---
 id: e5768eed-0f7f-41d0-bcf7-5a4c18964032
 title: "App Intents"
-domain: agentic-cookbook://guidelines/implementing/platform-integration/app-intents
+domain: agenticdevelopercookbook://guidelines/implementing/platform-integration/app-intents
 type: guideline
 version: 1.0.0
 status: accepted
@@ -22,8 +22,8 @@ tags:
   - automation
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/platform-integration/shortcuts-and-automation
-  - agentic-cookbook://principles/support-automation
+  - agenticdevelopercookbook://guidelines/implementing/platform-integration/shortcuts-and-automation
+  - agenticdevelopercookbook://principles/support-automation
 references:
   - https://developer.apple.com/documentation/appintents
 approved-by: "approve-artifact v1.0.0"

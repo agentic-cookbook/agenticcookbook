@@ -1,7 +1,7 @@
 ---
 id: 4b85c8bc-e588-40ca-b5a5-453b7a16d710
 title: "Passkeys and WebAuthn"
-domain: agentic-cookbook://guidelines/implementing/security/passkeys-and-webauthn
+domain: agenticdevelopercookbook://guidelines/implementing/security/passkeys-and-webauthn
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - passkeys
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/security/authentication
-  - agentic-cookbook://guidelines/implementing/security/token-handling
+  - agenticdevelopercookbook://guidelines/implementing/security/authentication
+  - agenticdevelopercookbook://guidelines/implementing/security/token-handling
 references:
   - https://www.w3.org/TR/webauthn-3/
   - https://fidoalliance.org/passkeys/

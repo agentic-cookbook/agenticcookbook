@@ -1,7 +1,7 @@
 ---
 id: 7ee050d1-e070-473e-ad64-9152ea25e54f
 title: Recipe Index
-domain: agentic-cookbook://recipes/INDEX
+domain: agenticdevelopercookbook://recipes/INDEX
 type: reference
 version: 1.0.0
 status: accepted

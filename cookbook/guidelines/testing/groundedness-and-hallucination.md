@@ -1,7 +1,7 @@
 ---
 id: 33c3971e-84a3-4318-8674-b0ff60e7f8f3
 title: "Groundedness and hallucination checks"
-domain: agentic-cookbook://guidelines/testing/groundedness-and-hallucination
+domain: agenticdevelopercookbook://guidelines/testing/groundedness-and-hallucination
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - evals
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/testing/agent-evaluation-and-safety
-  - agentic-cookbook://guidelines/planning/data/vector-search-and-retrieval
+  - agenticdevelopercookbook://guidelines/testing/agent-evaluation-and-safety
+  - agenticdevelopercookbook://guidelines/planning/data/vector-search-and-retrieval
 references:
   - https://arxiv.org/abs/2305.14251
 approved-by: "approve-artifact v1.0.0"

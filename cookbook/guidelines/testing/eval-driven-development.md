@@ -1,7 +1,7 @@
 ---
 id: 7a942d3d-eb47-4eb2-8ed1-bebbcda6f7e6
 title: "Eval-driven development for agent behavior"
-domain: agentic-cookbook://guidelines/testing/eval-driven-development
+domain: agenticdevelopercookbook://guidelines/testing/eval-driven-development
 type: guideline
 version: 1.0.0
 status: accepted
@@ -19,8 +19,8 @@ tags:
   - testing
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/testing/the-testing-workflow
-  - agentic-cookbook://principles/tight-feedback-loops
+  - agenticdevelopercookbook://guidelines/testing/the-testing-workflow
+  - agenticdevelopercookbook://principles/tight-feedback-loops
 references:
   - https://code.claude.com/docs/en/best-practices
 approved-by: "approve-artifact v1.0.0"

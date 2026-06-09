@@ -2,7 +2,7 @@
 
 id: 19648d85-adba-4f38-b513-a38ca58e9fb0
 title: "Cross-Recipe Consistency"
-domain: agentic-cookbook://guidelines/cookbook/recipe-quality/cross-recipe-consistency
+domain: agenticdevelopercookbook://guidelines/cookbook/recipe-quality/cross-recipe-consistency
 type: guideline
 version: 1.0.3
 status: accepted
@@ -61,7 +61,7 @@ A cookbook is not a collection of isolated documents — it is a system. Recipes
 ### Cross-References
 
 - When a recipe references a sibling recipe in its `related` field or within its body, the reference MUST use the sibling's canonical `domain` URI, not its filename, title, or a freeform description.
-- Cross-references in the body text MUST be formatted consistently: if one sibling uses `[Button Recipe](agentic-cookbook://recipes/ui/button)`, all siblings MUST use the same link format — not bare URIs in some and formatted links in others.
+- Cross-references in the body text MUST be formatted consistently: if one sibling uses `[Button Recipe](agenticdevelopercookbook://recipes/ui/button)`, all siblings MUST use the same link format — not bare URIs in some and formatted links in others.
 - Cross-references MUST be verified at review time to ensure the target recipe exists and the domain URI is correct. Broken cross-references are a consistency failure.
 - When a new recipe is added that is relevant to an existing recipe, the existing recipe's `related` field SHOULD be updated to include the new entry. Unidirectional cross-references are acceptable but bidirectional is preferred.
 
@@ -71,7 +71,7 @@ A cookbook is not a collection of isolated documents — it is a system. Recipes
 - **Wildly different detail levels.** A "Text Input" recipe has 4 behavioral requirements and no state definitions. Its sibling "Select Dropdown" recipe has 22 behavioral requirements, 8 states, and 15 edge cases. Both are simple form controls of comparable complexity. The disparity signals that one recipe received significantly less authoring effort than the other.
 - **Inconsistent tag vocabulary.** One recipe uses `error-handling`, a sibling uses `errors`, and a third uses `error-states`. A tag-based search for any one term misses the other two. The cookbook's tag taxonomy is fragmented.
 - **Wrong platform identifier casing.** A recipe lists `iOS` in its platforms array. All siblings list `ios`. Automated tools that filter by exact platform name will exclude the inconsistent recipe.
-- **Broken cross-reference.** A recipe's `related` field includes `agentic-cookbook://recipes/ui/icon-button`. The `icon-button` recipe was renamed to `icon-action` in a previous version. The reference now points to a nonexistent artifact.
+- **Broken cross-reference.** A recipe's `related` field includes `agenticdevelopercookbook://recipes/ui/icon-button`. The `icon-button` recipe was renamed to `icon-action` in a previous version. The reference now points to a nonexistent artifact.
 - **Unidirectional reference when bidirectional is expected.** Recipe A lists Recipe B in its `related` field. Recipe B has no reference back to Recipe A. A developer reading Recipe B has no way to discover the connection without searching the cookbook.
 - **Non-canonical term introduced without justification.** All recipes in a forms family use "validation error" for inline error messages. A new recipe introduces "field-level feedback" for the same concept. No Design Decisions entry explains why a new term was needed.
 

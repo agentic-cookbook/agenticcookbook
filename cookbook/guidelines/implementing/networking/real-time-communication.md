@@ -2,7 +2,7 @@
 
 id: 2e317c68-384d-46b8-b3b3-0bcc6602e545
 title: "Real-Time Communication"
-domain: agentic-cookbook://guidelines/implementing/networking/real-time-communication
+domain: agenticdevelopercookbook://guidelines/implementing/networking/real-time-communication
 type: guideline
 version: 1.0.2
 status: accepted

@@ -1,7 +1,7 @@
 ---
 id: 9ea07f7d-1a0a-4f1d-8a56-0ee6d4d49111
 title: "Android edge-to-edge and window insets"
-domain: agentic-cookbook://guidelines/implementing/ui/android-edge-to-edge
+domain: agenticdevelopercookbook://guidelines/implementing/ui/android-edge-to-edge
 type: guideline
 version: 1.0.0
 status: accepted
@@ -20,7 +20,7 @@ tags:
   - compose
 depends-on: []
 related:
-  - agentic-cookbook://guidelines/implementing/ui/compose-state-and-udf
+  - agenticdevelopercookbook://guidelines/implementing/ui/compose-state-and-udf
 references:
   - https://developer.android.com/develop/ui/views/layout/edge-to-edge
 approved-by: "approve-artifact v1.0.0"
