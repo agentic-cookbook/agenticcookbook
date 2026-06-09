@@ -4,11 +4,11 @@ id: 47563e88-307b-4eef-a63c-ddc18e85a945
 title: "Source Fidelity"
 domain: agentic-cookbook://guidelines/cookbook/recipe-quality/source-fidelity
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-07
-modified: 2026-04-09
+modified: 2026-06-09
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -25,6 +25,8 @@ tags:
 depends-on: []
 related: []
 references: []
+approved-by: "approve-artifact v1.0.0"
+approved-date: 2026-06-09
 triggers:
   - recipe-authoring
 ---
@@ -89,3 +91,8 @@ A verifier MUST check each of the following items. The recipe PASSES source fide
 - [ ] Any "Recommended Improvements" content is clearly separated from normative requirements and is not written using RFC keywords.
 
 ## Change History
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| 1.0.3 | 2026-06-09 | Mike Fullerton | Add Change History table and approval metadata |
+| 1.0.0 | 2026-04-07 | Mike Fullerton | Initial creation |
