@@ -3,11 +3,11 @@ id: a127f652-728b-42f0-8d60-1017fccabdf3
 title: "Twelve-factor configuration"
 domain: agenticdevelopercookbook://guidelines/implementing/infrastructure/twelve-factor-config
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,9 @@ related:
   - agenticdevelopercookbook://principles/explicit-over-implicit
 references:
   - https://12factor.net/config
+  - https://12factor.net/
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - configuration
 ---
@@ -69,4 +70,5 @@ Handling credentials and personal data as config has legal implications. This is
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add 12-factor methodology home source |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

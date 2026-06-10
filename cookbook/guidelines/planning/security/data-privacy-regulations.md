@@ -3,11 +3,11 @@ id: 10c66228-2141-484c-9286-2d62d43c7b70
 title: "Data privacy regulations"
 domain: agenticdevelopercookbook://guidelines/planning/security/data-privacy-regulations
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,11 @@ related:
   - agenticdevelopercookbook://guidelines/planning/security/privacy-by-design
 references:
   - https://gdpr-info.eu/
+  - https://oag.ca.gov/privacy/ccpa
+  - https://iapp.org/resources/article/us-state-privacy-legislation-tracker/
+  - https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - security-review
   - data-modeling
@@ -41,7 +44,7 @@ This is engineering guidance for the obligations behind your privacy controls; i
 | GDPR (EU/EEA) | EU/EEA residents' personal data | Requires one of six named bases (consent, contract, legal obligation, vital interests, public task, legitimate interests) |
 | UK GDPR + DPA 2018 | UK residents | Mirrors GDPR post-Brexit |
 | CCPA/CPRA (California) | CA residents; only state law also covering employees and B2B contacts | Notice-at-collection + opt-out of sale/share; no consent-first gate |
-| Other US state laws | 20 states in effect by 2026 (e.g., VA, CO, TX, CT; IN/KY/RI live Jan 1 2026) | Mostly VA-template: opt-out + opt-in for sensitive data |
+| Other US state laws | 19 states in effect as of Jan 1 2026 (e.g., VA, CO, TX, CT; IN/KY/RI live Jan 1 2026) | Mostly VA-template: opt-out + opt-in for sensitive data |
 
 - You **MUST NOT** assume a single regime covers all users — most products are multi-jurisdictional.
 - Treat the US state landscape as a moving target: pin your applicability matrix to a dated revision and **SHOULD** re-check quarterly. Federal court injunctions and new effective dates change the picture (forecast: more states will join through 2026–2027).
@@ -74,4 +77,5 @@ These appear across GDPR and most US state laws, so build to them once:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Cite CCPA/IAPP/EUR-Lex; correct US state count to 19 (Jan 2026) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

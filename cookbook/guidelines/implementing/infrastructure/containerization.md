@@ -3,11 +3,11 @@ id: ecf27370-3cd4-47a2-a359-7b42575ef48f
 title: "Containerization"
 domain: agenticdevelopercookbook://guidelines/implementing/infrastructure/containerization
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,11 @@ related:
   - agenticdevelopercookbook://guidelines/reviewing/infrastructure/container-image-security
 references:
   - https://docs.docker.com/build/building/best-practices/
+  - https://docs.docker.com/build/building/secrets/
+  - https://github.com/GoogleContainerTools/distroless
+  - https://github.com/opencontainers/image-spec
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - new-module
   - configuration
@@ -77,4 +80,5 @@ Order instructions from least- to most-frequently changed so the dependency laye
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add BuildKit secrets, distroless, OCI image-spec sources |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

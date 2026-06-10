@@ -3,11 +3,11 @@ id: d53b7623-38ee-4d9f-a99b-f54b6a64f7a6
 title: "Tool-call evaluation"
 domain: agenticdevelopercookbook://guidelines/testing/tool-call-evaluation
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,11 @@ related:
   - agenticdevelopercookbook://guidelines/implementing/networking/mcp-server-design
 references:
   - https://gorilla.cs.berkeley.edu/leaderboard.html
+  - https://gorilla.cs.berkeley.edu/blogs/13_bfcl_v3_multi_turn.html
+  - https://proceedings.mlr.press/v267/patil25a.html
+  - https://modelcontextprotocol.io/specification/2025-06-18
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - ai-api-integration
   - writing-tests
@@ -72,4 +75,5 @@ A tool-call eval **SHOULD** report each dimension separately so failures are dia
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add BFCL v3 multi-turn, BFCL paper, MCP spec sources |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

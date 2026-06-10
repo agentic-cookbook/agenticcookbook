@@ -3,11 +3,11 @@ id: e2a99bf0-6b25-4769-9d1e-613b58b6f097
 title: "Agent evaluation and safety"
 domain: agenticdevelopercookbook://guidelines/testing/agent-evaluation-and-safety
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -22,9 +22,11 @@ related:
   - agenticdevelopercookbook://guidelines/testing/eval-driven-development
   - agenticdevelopercookbook://guidelines/implementing/security/llm-application-security
 references:
-  - https://platform.openai.com/docs/guides/evals
+  - https://developers.openai.com/api/docs/guides/evals
+  - https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf
+  - https://www.nist.gov/itl/ai-risk-management-framework
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - ai-api-integration
   - writing-tests
@@ -81,4 +83,5 @@ Heavy evaluation infrastructure (managed eval platforms, dedicated red-team serv
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Fix deprecated OpenAI evals URL; add NIST AI 600-1 + AI RMF |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

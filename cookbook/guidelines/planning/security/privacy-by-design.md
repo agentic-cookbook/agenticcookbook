@@ -3,11 +3,11 @@ id: 09b063bd-74e7-4636-baa6-23ee82ec224b
 title: "Privacy by design"
 domain: agenticdevelopercookbook://guidelines/planning/security/privacy-by-design
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,11 @@ related:
   - agenticdevelopercookbook://guidelines/planning/security/data-privacy-regulations
 references:
   - https://gdpr-info.eu/art-25-gdpr/
+  - https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-42019-article-25-data-protection-design-and_en
+  - https://gdpr-info.eu/art-35-gdpr/
+  - https://www.nist.gov/privacy-framework
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - security-review
   - data-modeling
@@ -77,4 +80,5 @@ Privacy-enhancing infrastructure (dedicated tokenization vaults, differential-pr
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add EDPB Art.25 guidelines, GDPR Art.35, NIST Privacy Framework |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

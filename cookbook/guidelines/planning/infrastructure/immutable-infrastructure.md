@@ -3,11 +3,11 @@ id: 60b3f760-f397-4762-b2d5-5aba80fd51f8
 title: "Immutable infrastructure"
 domain: agenticdevelopercookbook://guidelines/planning/infrastructure/immutable-infrastructure
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -24,8 +24,10 @@ related:
   - agenticdevelopercookbook://guidelines/planning/infrastructure/infrastructure-as-code
 references:
   - https://martinfowler.com/bliki/ImmutableServer.html
+  - https://docs.docker.com/build/building/best-practices/
+  - https://12factor.net/
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - configuration
 ---
@@ -74,4 +76,5 @@ Never patch a running server in place. Build a versioned, immutable artifact —
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add Docker build + 12-factor sources |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

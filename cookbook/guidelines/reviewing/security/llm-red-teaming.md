@@ -3,11 +3,11 @@ id: 709aabb0-c305-4a23-8748-9f57c5bbe93d
 title: "LLM red teaming"
 domain: agenticdevelopercookbook://guidelines/reviewing/security/llm-red-teaming
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,11 @@ related:
   - agenticdevelopercookbook://guidelines/implementing/security/llm-application-security
 references:
   - https://genai.owasp.org/llm-top-10/
+  - https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/
+  - https://arxiv.org/abs/2302.12173
+  - https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - security-review
 ---
@@ -75,4 +78,5 @@ Cover, at minimum, these attack classes:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add OWASP 2025 dated page, indirect-prompt-injection paper, NIST AI 600-1 |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |
