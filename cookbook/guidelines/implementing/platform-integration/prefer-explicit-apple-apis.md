@@ -4,11 +4,11 @@ id: 095b33a1-2835-4ed5-bf01-f1e492148819
 title: "Use AppKit and UIKit, not SwiftUI"
 domain: agenticdevelopercookbook://guidelines/implementing/platform-integration/prefer-explicit-apple-apis
 type: guideline
-version: 2.0.2
+version: 2.0.3
 status: accepted
 language: en
 created: 2026-04-02
-modified: 2026-04-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -27,9 +27,12 @@ tags:
 depends-on:
   - agenticdevelopercookbook://principles/native-controls
 related: []
-references: []
+references:
+  - https://developer.apple.com/documentation/SwiftUI/Migrating-from-the-observable-object-protocol-to-the-observable-macro
+  - https://www.jessesquires.com/blog/2024/09/09/swift-observable-macro/
+  - https://nilcoalescing.com/blog/ObservableInSwiftUI/
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: 2026-06-10
 triggers:
   - platform-integration
   - ui-implementation
@@ -66,6 +69,7 @@ In these cases, the SwiftUI layer SHOULD be kept as thin as possible. Pin the mi
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 2.0.3 | 2026-06-10 | Mike Fullerton | Cite recovered Tier-1 research sources (adversarially-audited) |
 | 2.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 2.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-02 | Mike Fullerton | Initial creation |

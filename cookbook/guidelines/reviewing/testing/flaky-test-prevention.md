@@ -4,11 +4,11 @@ id: 098af491-bb61-48b2-b98b-4a4cf4099c1d
 title: "Flaky Test Prevention"
 domain: agenticdevelopercookbook://guidelines/reviewing/testing/flaky-test-prevention
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -24,8 +24,11 @@ related: []
 references: 
   - https://martinfowler.com/articles/nonDeterminism.html
   - https://testing.googleblog.com/
+  - https://docs.datadoghq.com/tests/flaky_management/
+  - https://docs.datadoghq.com/tests/flaky_test_management/early_flake_detection/
+  - https://www.datadoghq.com/blog/datadog-flaky-tests/
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: 2026-06-10
 triggers:
   - writing-tests
   - pre-pr
@@ -52,6 +55,7 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

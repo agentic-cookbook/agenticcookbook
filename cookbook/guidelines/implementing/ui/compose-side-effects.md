@@ -3,11 +3,11 @@ id: 4b58d4d6-f177-45d7-b7c1-bf50adcd13a3
 title: "Jetpack Compose side effects"
 domain: agenticdevelopercookbook://guidelines/implementing/ui/compose-side-effects
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -24,8 +24,9 @@ related:
   - agenticdevelopercookbook://guidelines/implementing/concurrency/kotlin-flow-stateflow
 references:
   - https://developer.android.com/develop/ui/compose/side-effects
+  - https://developer.android.com/codelabs/jetpack-compose-advanced-state-side-effects
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - ui-implementation
   - concurrency
@@ -84,4 +85,5 @@ DisposableEffect(lifecycleOwner) {
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

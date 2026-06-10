@@ -3,11 +3,11 @@ id: 9f07e740-097e-4814-badf-fa3ae8d7d1e9
 title: "Container image security"
 domain: agenticdevelopercookbook://guidelines/reviewing/infrastructure/container-image-security
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -24,8 +24,11 @@ related:
   - agenticdevelopercookbook://guidelines/implementing/infrastructure/containerization
 references:
   - https://github.com/aquasecurity/trivy
+  - https://docs.sigstore.dev/cosign/signing/signing_with_containers/
+  - https://slsa.dev/spec/v1.0/provenance
+  - https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-190.pdf
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - security-review
   - dependency-management
@@ -70,4 +73,5 @@ A container image is a deployable supply-chain artifact: its layers carry every 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add cosign signing, SLSA provenance, NIST SP 800-190 sources |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

@@ -209,10 +209,16 @@ Round 1 drew on 27 sources; round 2 cited per-gap. Representative anchors:
 
 *Full machine-readable research outputs (findings, per-area gaps, sources,
 refuted claims, audit corrections) were produced by the deep-research and
-gap-analysis workflows during the June 2026 effort.*
+gap-analysis workflows during the June 2026 effort.* The recovered per-gap
+source list — **365 unique URLs across the 13 gap-analysis areas** — is in
+[`source-inventory.md`](source-inventory.md), which also records that the four
+completeness-critic clusters (design tokens, IaC/containers, privacy/regulatory,
+agent-eval) were authored with near-zero live research and flags them for
+verification.
 
 ## Change History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-06-10 | Mike Fullerton | Link recovered source inventory (365 URLs) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial research record |

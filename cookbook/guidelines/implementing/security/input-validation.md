@@ -4,11 +4,11 @@ id: 4ca8a3d5-cdcc-4f74-a2ec-3a198608b419
 title: "Input Validation"
 domain: agenticdevelopercookbook://guidelines/implementing/security/input-validation
 type: guideline
-version: 1.1.0
+version: 1.1.1
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -25,8 +25,11 @@ references:
   - https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
   - https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html
   - https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
+  - https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks
+  - https://simonwillison.net/2025/Apr/9/mcp-prompt-injection/
+  - https://arxiv.org/html/2508.14925v1
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-06-09"
+approved-date: 2026-06-10
 triggers:
   - input-handling
   - security-review
@@ -69,6 +72,7 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.1.0 | 2026-06-09 | Mike Fullerton | Extend validation to the server-render / server-action boundary |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |

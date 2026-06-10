@@ -3,11 +3,11 @@ id: ed639d3f-02e5-42d1-bb87-f96908986025
 title: "Kubernetes configuration and secrets"
 domain: agenticdevelopercookbook://guidelines/implementing/infrastructure/kubernetes-configuration
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,11 @@ related:
   - agenticdevelopercookbook://guidelines/implementing/security/pii-handling
 references:
   - https://kubernetes.io/docs/concepts/configuration/secret/
+  - https://kubernetes.io/docs/concepts/security/secrets-good-practices/
+  - https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/
+  - https://external-secrets.io/latest/introduction/overview/
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - configuration
   - authentication
@@ -76,4 +79,5 @@ Privacy note: handling credentials and PII in clusters is engineering guidance, 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add k8s secrets-good-practices, KMS provider, External Secrets sources |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

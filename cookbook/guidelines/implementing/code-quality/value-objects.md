@@ -3,11 +3,11 @@ id: 3a6baa24-9bd3-45f8-aa6a-b32c61169ed3
 title: "Value objects over primitive obsession"
 domain: agenticdevelopercookbook://guidelines/implementing/code-quality/value-objects
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -22,9 +22,12 @@ related:
   - agenticdevelopercookbook://principles/parse-dont-validate
   - agenticdevelopercookbook://principles/immutability-by-default
   - agenticdevelopercookbook://guidelines/implementing/security/input-validation
-references: []
+references:
+  - https://blog.ploeh.dk/2011/05/25/DesignSmellPrimitiveObsession/
+  - https://blog.ndepend.com/code-smell-primitive-obsession-and-refactoring-recipes/
+  - https://www.arhohuttunen.com/primitive-obsession/
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-06-09"
+approved-date: 2026-06-10
 triggers:
   - data-modeling
   - new-module
@@ -61,4 +64,5 @@ A primitive with none of these does not need wrapping — over-wrapping every fi
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Cite recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

@@ -3,11 +3,11 @@ id: b5a1b4b6-c61c-4b45-825f-730bd782d0f3
 title: "CQRS and event sourcing"
 domain: agenticdevelopercookbook://guidelines/planning/data/cqrs-and-event-sourcing
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,11 @@ related:
   - agenticdevelopercookbook://principles/manage-complexity-through-boundaries
 references:
   - https://martinfowler.com/bliki/CQRS.html
+  - https://microservices.io/patterns/data/event-sourcing.html
+  - https://www.usefulfunctions.co.uk/2025/11/06/cqrs-and-event-sourcing-when-to-use/
+  - https://www.ashrafmageed.com/cqrs-eventsourcing-and-the-cost-of-tooling-constraints/
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - data-modeling
   - schema-design
@@ -77,4 +80,5 @@ If no trigger holds, **MUST NOT** adopt; revisit when one does (`small-reversibl
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

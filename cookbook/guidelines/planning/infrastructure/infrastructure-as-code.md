@@ -3,11 +3,11 @@ id: cc7f5ee6-a848-490a-9a28-e4acae0855b3
 title: "Infrastructure as code"
 domain: agenticdevelopercookbook://guidelines/planning/infrastructure/infrastructure-as-code
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -24,8 +24,11 @@ related:
   - agenticdevelopercookbook://principles/small-reversible-decisions
 references:
   - https://opentofu.org/docs/
+  - https://opentofu.org/docs/language/settings/backends/s3/
+  - https://developer.hashicorp.com/terraform/cli/commands/plan
+  - https://developer.hashicorp.com/terraform/language/state
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - configuration
   - new-module
@@ -77,4 +80,5 @@ Infrastructure (compute, networking, DNS, IAM, managed services) MUST be defined
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add primary IaC sources (OpenTofu S3 backend, Terraform plan/state) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

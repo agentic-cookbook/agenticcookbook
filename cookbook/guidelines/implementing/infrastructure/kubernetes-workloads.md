@@ -3,11 +3,11 @@ id: 6f6ccc46-33fb-44ad-8dce-d65581d8dfe0
 title: "Kubernetes workloads"
 domain: agenticdevelopercookbook://guidelines/implementing/infrastructure/kubernetes-workloads
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,11 @@ related:
   - agenticdevelopercookbook://guidelines/planning/infrastructure/immutable-infrastructure
 references:
   - https://kubernetes.io/docs/concepts/configuration/overview/
+  - https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+  - https://kubernetes.io/docs/concepts/security/pod-security-standards/
+  - https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - configuration
   - performance-optimization
@@ -78,4 +81,5 @@ Guidance for running production workloads on Kubernetes. Adopt Kubernetes only w
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add k8s resource/PSA/PDB primary sources |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

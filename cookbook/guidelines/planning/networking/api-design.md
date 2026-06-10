@@ -4,11 +4,11 @@ id: 6079c539-f547-46de-9284-d404a76f6d9d
 title: "API Design"
 domain: agenticdevelopercookbook://guidelines/planning/networking/api-design
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -19,9 +19,15 @@ tags:
   - networking
 depends-on: []
 related: []
-references: []
+references:
+  - https://restfulapi.net/versioning/
+  - https://www.xmatters.com/blog/api-versioning-strategies
+  - https://www.rfc-editor.org/rfc/rfc8594.html
+  - https://restfulapi.net/richardson-maturity-model/
+  - https://www.rfc-editor.org/rfc/rfc8288.html
+  - https://www.speakeasy.com/api-design/pagination
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: 2026-06-10
 triggers:
   - api-integration
   - new-module
@@ -63,6 +69,7 @@ major version only for breaking changes.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-10 | Mike Fullerton | Cite recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

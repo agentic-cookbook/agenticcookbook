@@ -3,11 +3,11 @@ id: d3cb8f40-b142-447d-8176-8055d55868b1
 title: "Software supply-chain integrity"
 domain: agenticdevelopercookbook://guidelines/shipping/supply-chain-integrity
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,12 @@ related:
 references:
   - https://slsa.dev/
   - https://www.cisa.gov/sbom
+  - https://owasp.org/Top10/2025/0x00_2025-Introduction/
+  - https://slsa.dev/spec/v1.0/levels
+  - https://cyclonedx.org/specification/overview/
+  - https://docs.sigstore.dev/cosign/signing/overview/
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - dependency-management
   - pre-pr
@@ -92,4 +96,5 @@ These are *drivers*, not engineering requirements; confirm current applicability
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

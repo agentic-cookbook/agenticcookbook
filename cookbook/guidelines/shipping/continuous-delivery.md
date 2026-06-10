@@ -3,11 +3,11 @@ id: 703b1ec7-b940-46a5-8974-441b04a0bb9d
 title: "Continuous delivery"
 domain: agenticdevelopercookbook://guidelines/shipping/continuous-delivery
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -24,8 +24,10 @@ related:
   - agenticdevelopercookbook://principles/small-reversible-decisions
 references:
   - https://dora.dev/
+  - https://dora.dev/capabilities/continuous-delivery/
+  - https://dora.dev/capabilities/continuous-integration/
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - pre-pr
 ---
@@ -73,4 +75,5 @@ Raising deploy frequency *without* also improving architecture and test coverage
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

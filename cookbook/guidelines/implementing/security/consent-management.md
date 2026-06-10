@@ -3,11 +3,11 @@ id: dee58e49-84e7-4ba5-b0f0-a308b2568327
 title: "Consent management"
 domain: agenticdevelopercookbook://guidelines/implementing/security/consent-management
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -22,8 +22,11 @@ related:
   - agenticdevelopercookbook://guidelines/planning/security/data-privacy-regulations
 references:
   - https://gdpr-info.eu/art-7-gdpr/
+  - https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-052020-consent-under-regulation-2016679_en
+  - https://gdpr-info.eu/art-4-gdpr/
+  - https://oag.ca.gov/privacy/ccpa
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - authentication
   - ui-implementation
@@ -72,4 +75,5 @@ Per GDPR Art. 7 (and similar regimes), consent **MUST** be:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add EDPB consent guidelines, GDPR Art.4, CCPA |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

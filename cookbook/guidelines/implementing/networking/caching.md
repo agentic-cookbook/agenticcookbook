@@ -4,11 +4,11 @@ id: 3416a359-e01c-40b2-8876-4a8634d4395e
 title: "Caching"
 domain: agenticdevelopercookbook://guidelines/implementing/networking/caching
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -25,8 +25,11 @@ references:
   - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
   - https://web.dev/articles/http-cache
   - https://www.rfc-editor.org/rfc/rfc9111
+  - https://www.rfc-editor.org/rfc/rfc9110.html
+  - https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/If-None-Match
+  - https://www.rfc-editor.org/rfc/rfc9111.html
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: 2026-06-10
 triggers:
   - networking
   - performance-optimization
@@ -70,6 +73,7 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

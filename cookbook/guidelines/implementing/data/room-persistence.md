@@ -3,11 +3,11 @@ id: a4f57a3c-f909-42aa-a85f-1ac76ac3ab24
 title: "Room persistence on Android"
 domain: agenticdevelopercookbook://guidelines/implementing/data/room-persistence
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,10 @@ related:
   - agenticdevelopercookbook://guidelines/implementing/data/transaction-isolation
 references:
   - https://developer.android.com/training/data-storage/room
+  - https://android-developers.googleblog.com/2026/03/room-30-modernizing-room.html
+  - https://developer.android.com/kotlin/multiplatform/room
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - database-operations
   - data-modeling
@@ -79,4 +81,5 @@ Room is Google's recommended SQLite persistence layer for Android. It is the con
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

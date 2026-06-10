@@ -3,11 +3,11 @@ id: f0f9bc0c-7195-42fd-95eb-2405e81fb1ea
 title: "Data subject rights (DSAR)"
 domain: agenticdevelopercookbook://guidelines/implementing/security/data-subject-rights
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,11 @@ related:
   - agenticdevelopercookbook://guidelines/implementing/security/pii-handling
 references:
   - https://gdpr-info.eu/chapter-3/
+  - https://gdpr-info.eu/art-17-gdpr/
+  - https://gdpr-info.eu/art-12-gdpr/
+  - https://gdpr-info.eu/art-20-gdpr/
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - authentication
   - data-modeling
@@ -81,4 +84,5 @@ Deletion **MUST** reach every derived copy, not just the primary row:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add GDPR Art.17/12/20 article-level sources |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

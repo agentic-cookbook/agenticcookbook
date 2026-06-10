@@ -3,11 +3,11 @@ id: ec59e5cc-5591-4c0b-87f8-00df54394607
 title: "Connascence"
 domain: agenticdevelopercookbook://principles/connascence
 type: principle
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -21,9 +21,13 @@ related:
   - agenticdevelopercookbook://principles/separation-of-concerns
   - agenticdevelopercookbook://principles/manage-complexity-through-boundaries
   - agenticdevelopercookbook://principles/explicit-over-implicit
-references: []
+references:
+  - https://en.wikipedia.org/wiki/Connascence
+  - https://thoughtbot.com/blog/connascence-as-a-vocabulary-to-discuss-coupling
+  - https://connascence.io/pages/about.html
+  - https://coupling.dev/posts/related-topics/connascence/
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 ---
 
 # Connascence
@@ -40,4 +44,5 @@ Coupling is not binary — it has a *strength* you can rank, and a good refactor
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Cite recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

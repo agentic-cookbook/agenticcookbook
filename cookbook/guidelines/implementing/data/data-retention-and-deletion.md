@@ -3,11 +3,11 @@ id: 6d8ae093-8610-468b-932a-be2fb19eb260
 title: "Data retention and deletion"
 domain: agenticdevelopercookbook://guidelines/implementing/data/data-retention-and-deletion
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,11 @@ related:
   - agenticdevelopercookbook://guidelines/shipping/schema-evolution
 references:
   - https://gdpr-info.eu/art-5-gdpr/
+  - https://gdpr-info.eu/art-17-gdpr/
+  - https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng
+  - https://www.iso.org/standard/27701
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - data-modeling
   - schema-design
@@ -77,4 +80,5 @@ A deletion that misses a copy is not a deletion.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add GDPR Art.17, EUR-Lex, ISO 27701:2025 |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

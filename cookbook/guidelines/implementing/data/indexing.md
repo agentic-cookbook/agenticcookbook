@@ -4,11 +4,11 @@ id: 02E9042D-0D15-47AC-9361-2F16980A03CA
 title: "Indexing"
 domain: agenticdevelopercookbook://guidelines/implementing/data/indexing
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-06
-modified: 2026-04-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -30,8 +30,11 @@ references:
   - https://sqlite.org/partialindex.html
   - https://sqlite.org/expridx.html
   - https://www.sqlite.org/eqp.html
+  - https://www.postgresql.org/docs/current/indexes-types.html
+  - https://www.postgresql.org/docs/current/sql-createindex.html
+  - https://pganalyze.com/blog/gin-index
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-06"
+approved-date: 2026-06-10
 triggers:
   - database-operations
   - performance-optimization
@@ -184,6 +187,7 @@ Run `PRAGMA optimize` periodically to keep query planner statistics current. Mon
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

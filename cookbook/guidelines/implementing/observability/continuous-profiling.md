@@ -3,11 +3,11 @@ id: 967fe6f8-aa3a-4bcf-8415-7f996042c245
 title: "Continuous profiling"
 domain: agenticdevelopercookbook://guidelines/implementing/observability/continuous-profiling
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,12 @@ related:
   - agenticdevelopercookbook://guidelines/implementing/observability/distributed-tracing
 references:
   - https://opentelemetry.io/blog/2024/profiling/
+  - https://www.datadoghq.com/blog/continuous-profiling-fourth-pillar/
+  - https://charity.wtf/2025/10/30/the-pillar-is-a-lie/
+  - https://opentelemetry.io/docs/specs/status/
+  - https://thenewstack.io/elastic-profiling-agent-offers-a-4th-pillar-of-observability/
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - performance-optimization
   - logging
@@ -68,4 +72,5 @@ If a one-off `pprof`/perf capture or a load-test profile answers the question, *
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

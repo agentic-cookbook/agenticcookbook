@@ -4,11 +4,11 @@ id: 5e6161cd-6bab-46b5-a2c5-14de3527b035
 title: "Conflict Resolution"
 domain: agenticdevelopercookbook://guidelines/planning/data/conflict-resolution
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-06
-modified: 2026-04-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -31,8 +31,11 @@ references:
   - https://crdt.tech/implementations
   - https://thom.ee/blog/crdt-vs-operational-transformation/
   - https://github.com/vlcn-io/cr-sqlite
+  - https://www.pkgpulse.com/guides/yjs-vs-automerge-vs-loro-crdt-libraries-2026
+  - https://powersync.com/blog/why-cinapse-moved-away-from-crdts-for-sync
+  - https://stack.convex.dev/automerge-and-convex
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-06"
+approved-date: 2026-06-10
 triggers:
   - offline-support
   - database-operations
@@ -180,6 +183,7 @@ Apply the server version as an interim state while the conflict is pending, and 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

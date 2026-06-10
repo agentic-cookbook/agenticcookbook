@@ -3,11 +3,11 @@ id: e5768eed-0f7f-41d0-bcf7-5a4c18964032
 title: "App Intents"
 domain: agenticdevelopercookbook://guidelines/implementing/platform-integration/app-intents
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -26,8 +26,10 @@ related:
   - agenticdevelopercookbook://principles/support-automation
 references:
   - https://developer.apple.com/documentation/appintents
+  - https://developer.apple.com/videos/play/wwdc2025/275/
+  - https://developer.apple.com/documentation/appintents/integrating-actions-with-siri-and-apple-intelligence
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - platform-integration
 ---
@@ -75,4 +77,5 @@ To let intents accept or return your domain objects, make them discoverable.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

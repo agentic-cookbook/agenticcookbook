@@ -3,11 +3,11 @@ id: af911b49-ff36-439e-acb0-a08c80b87103
 title: "Agent guardrails"
 domain: agenticdevelopercookbook://guidelines/implementing/security/agent-guardrails
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,11 @@ related:
   - agenticdevelopercookbook://guidelines/testing/agent-evaluation-and-safety
 references:
   - https://genai.owasp.org/llm-top-10/
+  - https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/
+  - https://www.anthropic.com/research/building-effective-agents
+  - https://modelcontextprotocol.io/specification/2025-06-18
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - ai-api-integration
   - security-review
@@ -79,4 +82,5 @@ Constrain agency to the minimum required (OWASP LLM06:2025 Excessive Agency).
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add OWASP 2025 dated page, Anthropic agents, MCP spec sources |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

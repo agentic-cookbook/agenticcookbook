@@ -3,11 +3,11 @@ id: 647b7d54-41fc-4f31-96e4-3d23ae49f92b
 title: "PII handling and classification"
 domain: agenticdevelopercookbook://guidelines/implementing/security/pii-handling
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -24,8 +24,11 @@ related:
   - agenticdevelopercookbook://guidelines/implementing/data/data-retention-and-deletion
 references:
   - https://gdpr-info.eu/art-9-gdpr/
+  - https://gdpr-info.eu/art-4-gdpr/
+  - https://www.iso.org/standard/27701
+  - https://www.nist.gov/privacy-framework
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - data-modeling
   - logging
@@ -87,4 +90,5 @@ This is engineering guidance and NOT legal advice; confirm obligations with coun
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add GDPR Art.4 pseudonymisation, ISO 27701:2025, NIST Privacy Framework |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

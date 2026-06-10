@@ -3,11 +3,11 @@ id: ab8ed68c-949d-42c8-8c07-416674795a65
 title: "MCP server security"
 domain: agenticdevelopercookbook://guidelines/implementing/security/mcp-server-security
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,13 @@ related:
   - agenticdevelopercookbook://guidelines/implementing/security/llm-application-security
 references:
   - https://modelcontextprotocol.io/
+  - https://modelcontextprotocol.io/specification/2025-06-18/basic/security_best_practices
+  - https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks
+  - https://www.descope.com/blog/post/mcp-vulnerabilities
+  - https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html
+  - https://christian-schneider.net/blog/securing-mcp-defense-first-architecture/
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - security-review
   - ai-api-integration
@@ -94,4 +99,5 @@ A malicious server can populate discovery fields (`resource_metadata`, `authoriz
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

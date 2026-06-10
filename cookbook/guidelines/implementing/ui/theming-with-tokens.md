@@ -3,11 +3,11 @@ id: 70f2ab2f-a05f-4981-9fea-e9d169fc1753
 title: "Theming with tokens"
 domain: agenticdevelopercookbook://guidelines/implementing/ui/theming-with-tokens
 type: guideline
-version: 1.0.0
+version: 1.1.0
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -29,8 +29,10 @@ related:
   - agenticdevelopercookbook://guidelines/planning/ui/design-tokens
 references:
   - https://www.designtokens.org/
+  - https://www.w3.org/community/design-tokens/2025/10/28/design-tokens-specification-reaches-first-stable-version/
+  - https://www.w3.org/TR/WCAG22/
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - ui-implementation
   - accessibility
@@ -78,7 +80,7 @@ Keep three tiers so themes only rebind the middle one:
 
 ## Verify contrast per theme
 
-- Every theme **MUST** satisfy WCAG 2.1 AA contrast: 4.5:1 normal text, 3:1 large text (18pt+ or 14pt+
+- Every theme **MUST** satisfy WCAG 2.2 AA contrast: 4.5:1 normal text, 3:1 large text (18pt+ or 14pt+
   bold) and non-text UI/graphical components.
 - Contrast **MUST** be checked for each theme independently — a token pair that passes in light can
   fail in dark or high-contrast. Automate this against the value sets in CI; do not eyeball it.
@@ -87,19 +89,21 @@ Keep three tiers so themes only rebind the middle one:
 
 ## Notes
 
-- Pin the token spec: align names/types to the W3C Design Tokens Community Group Format Module
-  (Draft, designtokens.org). It is a **draft**; treat structural details as a moving target and isolate
-  the parser/build step so a spec revision is a localized change (forecast: ongoing revisions).
+- Pin the token spec: align names/types to the W3C Design Tokens Community Group Format Module,
+  whose first stable version is **2025.10** (designtokens.org). It continues to evolve, so pin to a
+  dated revision and isolate the parser/build step so a spec update is a localized change.
 - Adopt a token build pipeline (e.g., Style Dictionary) only when measured need justifies it — a small
   app may hand-author per-platform value sets (per YAGNI).
 
 References:
 - [Design Tokens Community Group](https://www.designtokens.org/)
-- [WCAG 1.4.3: Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)
-- [WCAG 1.4.11: Non-text Contrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html)
+- [Design Tokens spec — first stable version (2025.10)](https://www.w3.org/community/design-tokens/2025/10/28/design-tokens-specification-reaches-first-stable-version/)
+- [WCAG 2.2 — 1.4.3: Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html)
+- [WCAG 2.2 — 1.4.11: Non-text Contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html)
 
 ## Change History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-06-10 | Mike Fullerton | Reconcile contrast to WCAG 2.2; cite DTCG 2025.10 stable spec |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

@@ -3,11 +3,11 @@ id: 33c3971e-84a3-4318-8674-b0ff60e7f8f3
 title: "Groundedness and hallucination checks"
 domain: agenticdevelopercookbook://guidelines/testing/groundedness-and-hallucination
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,11 @@ related:
   - agenticdevelopercookbook://guidelines/planning/data/vector-search-and-retrieval
 references:
   - https://arxiv.org/abs/2305.14251
+  - https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/faithfulness/
+  - https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf
+  - https://arxiv.org/abs/2309.15217
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - ai-api-integration
   - writing-tests
@@ -44,7 +47,7 @@ For retrieval-grounded (RAG) systems, an answer is only trustworthy if each clai
 | Retrieval recall@k | Did retrieval surface the needed evidence? | Maximize |
 | Abstention correctness | Does it decline when context is insufficient? | Maximize |
 
-- Score groundedness at **claim granularity**, not whole-answer granularity: decompose the answer into atomic claims and label each `supported` / `partial` / `unsupported` (the FACTScore decomposition approach, [arxiv.org/abs/2305.14251](https://arxiv.org/abs/2305.14251)).
+- Score groundedness at **claim granularity**, not whole-answer granularity: decompose the answer into atomic claims and label each `supported` / `partial` / `unsupported` (the FActScore decomposition approach, [arxiv.org/abs/2305.14251](https://arxiv.org/abs/2305.14251)).
 - You **MUST** measure retrieval quality (recall@k, context precision) independently — most ungrounded answers trace to missing evidence, not generation, and fixing the generator cannot recover evidence that was never retrieved.
 
 ## Require and verify citations
@@ -75,4 +78,5 @@ For retrieval-grounded (RAG) systems, an answer is only trustworthy if each clai
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add RAGAS faithfulness, NIST AI 600-1, RAGAS paper; fix FActScore spelling |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

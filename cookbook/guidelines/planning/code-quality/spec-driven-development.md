@@ -3,11 +3,11 @@ id: 138eed2b-6b13-40ac-8c99-1f7860420b42
 title: "Spec-driven development (plan before code)"
 domain: agenticdevelopercookbook://guidelines/planning/code-quality/spec-driven-development
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -25,8 +25,9 @@ related:
 references:
   - https://code.claude.com/docs/en/best-practices
   - https://github.com/github/spec-kit
+  - https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - new-module
 ---
@@ -71,4 +72,5 @@ A common shape is **Spec -> Plan -> Tasks -> Implement -> Verify**: the spec cap
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

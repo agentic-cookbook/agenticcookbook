@@ -4,11 +4,11 @@ id: CBFA06B6-EC22-4784-9E61-C99307064B72
 title: "JSON columns and generated columns"
 domain: agenticdevelopercookbook://guidelines/implementing/data/json-columns
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-04-06
-modified: 2026-04-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -29,8 +29,11 @@ references:
   - https://sqlite.org/json1.html
   - https://sqlite.org/gencol.html
   - https://www.dbpro.app/blog/sqlite-json-virtual-columns-indexing
+  - https://www.postgresql.org/docs/current/datatype-json.html
+  - https://www.crunchydata.com/blog/indexing-jsonb-in-postgres
+  - https://vsevolod.net/postgresql-jsonb-index/
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-06"
+approved-date: 2026-06-10
 triggers:
   - database-operations
   - schema-design
@@ -185,6 +188,7 @@ JSON is NOT appropriate for:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-04-06 | Mike Fullerton | Initial version |

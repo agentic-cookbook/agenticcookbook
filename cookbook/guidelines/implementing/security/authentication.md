@@ -4,11 +4,11 @@ id: aec38334-67fa-4c7e-bca2-607932af3f22
 title: "Authentication"
 domain: agenticdevelopercookbook://guidelines/implementing/security/authentication
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -29,8 +29,14 @@ references:
   - https://datatracker.ietf.org/doc/html/rfc7636
   - https://datatracker.ietf.org/doc/html/rfc8252
   - https://openid.net/specs/openid-connect-core-1_0.html
+  - https://www.rfc-editor.org/info/rfc9700/
+  - https://oauth.net/2.1/
+  - https://workos.com/blog/oauth-best-practices
+  - https://fidoalliance.org/passkeys/
+  - https://pages.nist.gov/800-63-4/sp800-63b.html
+  - https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passkeys-fido2
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: 2026-06-10
 triggers:
   - authentication
   - security-review
@@ -64,6 +70,7 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

@@ -3,11 +3,11 @@ id: 6a653107-929d-418e-865d-636373a27b02
 title: "Choosing a primary datastore"
 domain: agenticdevelopercookbook://guidelines/planning/data/datastore-selection
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -24,8 +24,12 @@ related:
   - agenticdevelopercookbook://guidelines/planning/data/database
 references:
   - https://www.postgresql.org/docs/
+  - https://www.tigerdata.com/blog/its-2026-just-use-postgres
+  - https://news.ycombinator.com/item?id=46905555
+  - https://www.cockroachlabs.com/blog/document-store-vs-relational-database/
+  - https://aerospike.com/blog/sql-vs-nosql/
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - data-modeling
   - schema-design
@@ -74,4 +78,5 @@ Choose a specialist primary store **only** when a requirement below is concrete 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |
