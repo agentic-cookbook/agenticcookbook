@@ -614,9 +614,41 @@ All 18 pass `/approve-artifact` (zero FAIL/WARN) and are bumped to 1.0.1.
 
 ---
 
+## Tier-1 back-fill — dropped sources recovered into artifacts
+
+A reference audit of the whole cookbook (2026-06-10) found that the Tier-1
+research had produced sources that never reached the artifacts they belonged to.
+Mapping each gap's `proposedDomain` to its artifact surfaced two gaps, both now
+closed by wiring the recovered (adversarially-audited) sources in:
+
+| Situation | Artifacts | Sources wired in |
+|-----------|-----------|------------------|
+| Recovered sources, but artifact shipped with **zero** references | **12** (6 principles: connascence, parse-don't-validate, errors-as-values, separation-of-concerns, steel-thread-first, optimize-for-change; 6 guidelines incl. value-objects, api-design, test-pyramid) | ~44 |
+| Artifact had **1 from-memory** citation, but inventory held more | **41** guidelines (e.g. authentication +6, mcp-server-design/security +5, logging +5) | 126 |
+
+All 53 pass `/approve-artifact` (zero FAIL) and are patch/minor-bumped.
+
+**Audit results (clean):** zero old-scheme (`agentic-cookbook://`) stragglers;
+all artifact `domain`s match their paths; of 1,222 internal cross-references,
+**zero are genuinely broken** (the 7 flagged were illustrative examples in docs,
+template placeholders, a deliberately-shown anti-pattern, and one `/*` wildcard).
+
+**Remaining zero-reference artifacts (~167)** are intentionally uncited: the
+original foundational principles (simplicity, yagni, dry, fail-fast, …) and the
+ingredient/recipe composition specs (which reference other artifacts, not
+external URLs). No source was fabricated for them — only researched sources were
+wired in.
+
+These Tier-1 sources were **not re-fetched on 2026-06-10** (unlike the Tier-2 and
+design-token sources, which were re-verified live); they are the original
+adversarially-audited research links, one day old at back-fill time.
+
+---
+
 ## Change History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.2.0 | 2026-06-10 | Mike Fullerton | Reference audit: back-fill 53 artifacts (12 zero-ref + 41 enrich) with recovered Tier-1 sources |
 | 1.1.0 | 2026-06-10 | Mike Fullerton | Verify all 4 Tier-2 clusters live (22 files) and record sources added + fixes |
 | 1.0.0 | 2026-06-10 | Mike Fullerton | Recovered 365 Tier-1 sources from workflow journals; verified design-token cluster live |
