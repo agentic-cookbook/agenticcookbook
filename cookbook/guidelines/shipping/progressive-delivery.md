@@ -3,11 +3,11 @@ id: fff733d2-42ab-4123-b280-1a30b52e54a4
 title: "Progressive delivery"
 domain: agenticdevelopercookbook://guidelines/shipping/progressive-delivery
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,12 @@ related:
   - agenticdevelopercookbook://guidelines/shipping/feature-flags
 references:
   - https://martinfowler.com/bliki/CanaryRelease.html
+  - https://argo-rollouts.readthedocs.io/en/stable/concepts/
+  - https://www.getunleash.io/blog/canary-release-vs-progressive-delivery
+  - https://openfeature.dev/
+  - https://www.flagsmith.com/blog/progressive-delivery
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - pre-pr
   - feature-flags
@@ -75,4 +79,5 @@ Pick the lightest mechanism that fits the risk; do not stack all of them.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

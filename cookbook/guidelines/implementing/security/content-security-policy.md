@@ -4,11 +4,11 @@ id: 6f4cfd55-cb09-4ede-a53c-feaeb5781127
 title: "Content Security Policy"
 domain: agenticdevelopercookbook://guidelines/implementing/security/content-security-policy
 type: guideline
-version: 1.1.0
+version: 1.1.1
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -25,8 +25,10 @@ references:
   - https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html
   - https://csp-evaluator.withgoogle.com/
   - https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+  - https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for
+  - https://web.dev/articles/strict-csp
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-06-09"
+approved-date: 2026-06-10
 triggers:
   - security-review
   - ui-implementation
@@ -66,6 +68,7 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.1.0 | 2026-06-09 | Mike Fullerton | Add Trusted Types and DOM-XSS sink hardening |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |

@@ -4,11 +4,11 @@ id: ccffa426-5556-4bbe-8dd6-b43c8e195f64
 title: "Property-Based Testing"
 domain: agenticdevelopercookbook://guidelines/testing/property-based-testing
 type: guideline
-version: 1.0.2
+version: 1.0.3
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-04-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -29,8 +29,11 @@ references:
   - https://github.com/HypothesisWorks/hypothesis
   - https://github.com/dubzzz/fast-check
   - https://jqwik.net/
+  - https://red.anthropic.com/2026/property-based-testing/
+  - http://www.natpryce.com/articles/000714.html
+  - https://www.arhohuttunen.com/test-data-builders/
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-04-04"
+approved-date: 2026-06-10
 triggers:
   - writing-tests
 ---
@@ -72,6 +75,7 @@ def test_encode_decode_roundtrip(s):
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.3 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |
 | 1.0.0 | 2026-03-27 | Mike Fullerton | Initial creation |

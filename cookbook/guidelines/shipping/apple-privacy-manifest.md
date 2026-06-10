@@ -3,11 +3,11 @@ id: 6168eb9e-50be-4b84-940d-cb97f1e374d1
 title: "Ship a privacy manifest and declare required-reason APIs"
 domain: agenticdevelopercookbook://guidelines/shipping/apple-privacy-manifest
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -25,8 +25,11 @@ related:
   - agenticdevelopercookbook://guidelines/implementing/security/privacy
 references:
   - https://developer.apple.com/documentation/bundleresources/privacy-manifest-files
+  - https://developer.apple.com/documentation/technotes/tn3183-adding-required-reason-api-entries-to-your-privacy-manifest
+  - https://developer.apple.com/news/?id=pvszzano
+  - https://bitrise.io/blog/post/enforcement-of-apple-privacy-manifest-starting-from-may-1-2024
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - pre-pr
   - dependency-management
@@ -83,4 +86,5 @@ An agent can call these unknowingly through ordinary Foundation usage. Each cate
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

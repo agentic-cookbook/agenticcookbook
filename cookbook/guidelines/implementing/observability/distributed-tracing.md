@@ -3,11 +3,11 @@ id: 36825f6a-eedc-4cc5-a857-e107133f7ce5
 title: "Distributed tracing and context propagation"
 domain: agenticdevelopercookbook://guidelines/implementing/observability/distributed-tracing
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,11 @@ related:
 references:
   - https://opentelemetry.io/
   - https://www.w3.org/TR/trace-context/
+  - https://opentelemetry.io/docs/concepts/context-propagation/
+  - https://opentelemetry.io/blog/2025/sampling-milestones/
+  - https://uptrace.dev/opentelemetry/distributed-tracing
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - logging
   - networking
@@ -75,4 +78,5 @@ A distributed trace stitches the spans produced by every service that handles on
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

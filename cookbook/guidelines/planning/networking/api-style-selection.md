@@ -3,11 +3,11 @@ id: d9b6e0aa-0b0e-4c88-94b1-80c305baaadd
 title: "Choosing an API style (REST, gRPC, GraphQL)"
 domain: agenticdevelopercookbook://guidelines/planning/networking/api-style-selection
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -22,8 +22,10 @@ related:
   - agenticdevelopercookbook://guidelines/planning/networking/api-design
 references:
   - https://grpc.io/docs/what-is-grpc/introduction/
+  - https://www.designgurus.io/blog/rest-graphql-grpc-system-design
+  - https://blog.apilayer.com/graphql-vs-rest-vs-grpc-which-should-you-choose-and-when/
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - api-integration
   - new-module
@@ -84,4 +86,5 @@ Use when clients drive aggregation across many resources and over/under-fetching
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

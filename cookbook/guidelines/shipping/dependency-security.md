@@ -4,11 +4,11 @@ id: 793bd9f6-b029-4c4e-aca5-d253f9fab48e
 title: "Dependency Security"
 domain: agenticdevelopercookbook://guidelines/shipping/dependency-security
 type: guideline
-version: 1.1.0
+version: 1.1.1
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -25,8 +25,11 @@ references:
   - https://owasp.org/www-project-dependency-check/
   - https://slsa.dev/
   - https://www.sigstore.dev/
+  - https://www.infoq.com/news/2026/05/pip-261-dependency-cooldowns/
+  - https://safedep.io/mass-npm-supply-chain-attack-tanstack-mistral/
+  - https://dev.to/maxkrivich/ai-coding-agent-security-practical-guardrails-for-claude-code-copilot-and-codex-och
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-06-09"
+approved-date: 2026-06-10
 triggers:
   - dependency-management
   - security-review
@@ -72,6 +75,7 @@ References:
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.1.0 | 2026-06-09 | Mike Fullerton | Add agent dependency-install guardrails |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |

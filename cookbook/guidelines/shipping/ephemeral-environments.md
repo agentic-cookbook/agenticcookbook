@@ -3,11 +3,11 @@ id: 0de6da80-6793-4ef5-afd3-c7663da1d952
 title: "Ephemeral preview environments"
 domain: agenticdevelopercookbook://guidelines/shipping/ephemeral-environments
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,12 @@ related:
   - agenticdevelopercookbook://guidelines/testing/contract-testing
 references:
   - https://www.getambassador.io/docs/telepresence
+  - https://ephemeralenvironments.io/
+  - https://northflank.com/blog/the-what-and-why-of-ephemeral-preview-environments-on-kubernetes-sandbox-testing
+  - https://www.uffizzi.com/preview-environments-guide
+  - https://www.bunnyshell.com/blog/best-practices-for-end-to-end-testing-in-2025/
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - pre-pr
 ---
@@ -68,4 +72,5 @@ These environments are throwaway by design (per *design-for-deletion*). To preve
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

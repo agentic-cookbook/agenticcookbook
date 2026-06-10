@@ -4,11 +4,11 @@ id: 0f0c1da3-1c53-417b-890d-0259d7513c65
 title: "Instrumented logging"
 domain: agenticdevelopercookbook://guidelines/implementing/observability/logging
 type: guideline
-version: 1.1.0
+version: 1.1.1
 status: accepted
 language: en
 created: 2026-03-27
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -28,8 +28,13 @@ related: []
 references: 
   - https://github.com/JakeWharton/timber
   - https://learn.microsoft.com/en-us/visualstudio/profiling/
+  - https://opentelemetry.io/blog/2026/otel-graduates/
+  - https://www.cncf.io/announcements/2026/05/21/cloud-native-computing-foundation-announces-opentelemetrys-graduation-solidifying-status-as-the-de-facto-observability-standard/
+  - https://www.structlog.org/en/stable/logging-best-practices.html
+  - https://opentelemetry.io/docs/specs/semconv/
+  - https://docs.cloud.google.com/logging/docs/structured-logging
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-06-09"
+approved-date: 2026-06-10
 triggers:
   - logging
   - new-module
@@ -138,6 +143,7 @@ See [distributed tracing](agenticdevelopercookbook://guidelines/implementing/obs
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.1.0 | 2026-06-09 | Mike Fullerton | Add OpenTelemetry, trace correlation, semantic conventions |
 | 1.0.2 | 2026-04-09 | Mike Fullerton | Add trigger tags |
 | 1.0.1 | 2026-04-09 | Mike Fullerton | Reorganize into use-case directory |

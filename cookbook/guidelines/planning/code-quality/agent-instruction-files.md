@@ -3,11 +3,11 @@ id: 5aad79dd-4d0e-463e-8059-39da2fef63b3
 title: "Agent instruction files (AGENTS.md / CLAUDE.md)"
 domain: agenticdevelopercookbook://guidelines/planning/code-quality/agent-instruction-files
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -24,8 +24,10 @@ related:
 references:
   - https://agents.md/
   - https://code.claude.com/docs/en/best-practices
+  - https://aaif.io/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation-aaif-anchored-by-new-project-contributions-including-model-context-protocol-mcp-goose-and-agents-md/
+  - https://arxiv.org/pdf/2602.11988
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - new-module
   - configuration
@@ -65,4 +67,5 @@ A repository consumed by AI coding agents **MUST** ship a machine-targeted instr
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

@@ -3,11 +3,11 @@ id: 36bdba1b-2759-45c6-80b9-374536efb7bb
 title: "Essential vs accidental complexity"
 domain: agenticdevelopercookbook://guidelines/planning/code-quality/essential-vs-accidental-complexity
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -24,8 +24,10 @@ related:
   - agenticdevelopercookbook://guidelines/planning/code-quality/algorithmic-complexity
 references:
   - https://en.wikipedia.org/wiki/No_Silver_Bullet
+  - https://www.cs.unc.edu/techreports/86-020.pdf
+  - https://thenextweb.com/news/complexity-is-the-ceiling-software-design-in-the-age-of-ai-coding
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - new-module
 ---
@@ -61,4 +63,5 @@ Fred Brooks's *No Silver Bullet* (1986; reprinted in *The Mythical Man-Month*, 1
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

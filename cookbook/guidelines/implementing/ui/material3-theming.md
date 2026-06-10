@@ -3,11 +3,11 @@ id: 1e7f8c3d-ece9-4c5c-b7ca-7703391995dd
 title: "Material 3 theming on Android"
 domain: agenticdevelopercookbook://guidelines/implementing/ui/material3-theming
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -24,8 +24,11 @@ related:
   - agenticdevelopercookbook://guidelines/implementing/ui/color
 references:
   - https://m3.material.io/
+  - https://blog.google/products-and-platforms/platforms/android/material-3-expressive-android-wearos-launch/
+  - https://developer.android.com/jetpack/androidx/releases/compose-material3
+  - https://developer.android.com/develop/ui/compose/designsystems/material3
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - ui-implementation
 ---
@@ -75,4 +78,5 @@ Theme Jetpack Compose UIs through `MaterialTheme`, which exposes three subsystem
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

@@ -3,11 +3,11 @@ id: abdcd282-5b81-4ab2-ab1e-3ed288a4aee5
 title: "Contract testing for services"
 domain: agenticdevelopercookbook://guidelines/testing/contract-testing
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -23,8 +23,11 @@ related:
   - agenticdevelopercookbook://principles/manage-complexity-through-boundaries
 references:
   - https://docs.pact.io/
+  - https://docs.pact.io/consumer
+  - https://www.gravitee.io/blog/contract-testing-microservices-strategy
+  - https://www.sqaexperts.com/consumerdriven-contract-testing-with-pact-microservices-qa-guide-for-2026
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - writing-tests
   - api-integration
@@ -76,4 +79,5 @@ This lets consumer and provider deploy independently while keeping the boundary 
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |
