@@ -22,10 +22,12 @@ The expansion's sourcing came in **two tiers**, and they differ sharply in rigor
 | **Tier 1** | 13 parallel gap-analysis agents | ~100 gaps → most principles + waves 2/3/4 + backlog | 3–4 web sources/gap, adversarially audited. **365 unique URLs (below).** |
 | **Tier 2** | 4 completeness-critic clusters (design tokens, IaC/containers, privacy/regulatory, agent-eval) | 22 guidelines | Authored largely from model knowledge — the whole run made **~12 searches / 3 fetches total**. Citations were from memory. |
 
-Tier-2 is the gap: those 22 artifacts shipped citations that were never
-verified. The design-token cluster has since been verified live (see
-[Tier-2 verification](#tier-2-verification-design-token-cluster) below); the
-other three clusters remain to verify.
+Tier-2 was the gap: those 22 artifacts shipped citations that were never
+verified. **All four Tier-2 clusters have since been verified live** (June 2026)
+and now carry canonical primary-source citations — design tokens (see
+[Tier-2 verification](#tier-2-verification-design-token-cluster) below), plus
+IaC/containers, privacy/regulatory, and agent-eval & safety (see
+[Tier-2 verification — remaining clusters](#tier-2-verification-remaining-clusters)).
 
 ---
 
@@ -589,14 +591,26 @@ Net: the token cluster's claims were accurate but un-traceable. Verification
 upgraded them from "asserted from memory" to "confirmed," and the citations are
 now wired into the guideline files.
 
-### Other Tier-2 clusters — not yet verified
+### Tier-2 verification — remaining clusters
 
-`infrastructure-as-code`, `kubernetes-*`, `containerization`, `data-privacy-regulations`,
-`privacy-by-design`, `data-subject-rights`, `consent-management`, `pii-handling`,
-`data-retention-and-deletion`, `agent-evaluation-and-safety`, `groundedness-and-hallucination`,
-`tool-call-evaluation`, `llm-red-teaming`, `agent-guardrails` were authored the
-same way (near-zero live research). They are accurate-looking but unverified and
-should get the same live-citation pass before being treated as sourced.
+The other three Tier-2 clusters (18 files) were authored the same way (near-zero
+live research) and were verified live on 2026-06-10 via three parallel research
+agents — each read every file, checked its claims and existing citation against
+the live web, and recommended canonical primary sources (verified to resolve).
+All existing citations resolved; two factual fixes were found:
+
+| Cluster | Files | Sources added | Fixes |
+|---------|-------|---------------|-------|
+| IaC / containers | 7 | OpenTofu/Terraform state+plan, k8s resource/PSA/PDB/secrets-good-practices/KMS/External-Secrets, Docker BuildKit secrets, distroless, OCI image-spec, cosign, SLSA provenance, NIST SP 800-190 | none (all version claims — OpenTofu S3 `use_lockfile`, KMS v2 GA in 1.29, PSA `restricted` in 1.25+ — verified current) |
+| privacy / regulatory | 6 | CCPA (oag.ca.gov), IAPP state tracker, EUR-Lex Reg (EU) 2016/679, EDPB Art.25 & consent guidelines, GDPR Art.4/12/17/20/35, ISO 27701:2025, NIST Privacy Framework | "US state laws in effect" **20 → 19** (as of Jan 1 2026, per IAPP) |
+| agent-eval & safety | 5 | NIST AI 600-1 + AI RMF, OWASP LLM Top-10 2025 dated page, RAGAS faithfulness + paper, BFCL v3/paper, MCP spec 2025-06-18, indirect-prompt-injection paper (Greshake et al.) | deprecated `platform.openai.com/docs/guides/evals` → `developers.openai.com/...`; `FACTScore` → `FActScore` |
+
+All 18 pass `/approve-artifact` (zero FAIL/WARN) and are bumped to 1.0.1.
+
+> Notes from verification, left for the author: ISO/IEC 27701 is now the **2025**
+> stand-alone edition (`iso.org/standard/27701`); the CISA KEV catalog URL is
+> referenced in prose but returns HTTP 403 to automated fetches (live, but not
+> machine-verifiable), so it was deliberately not added as a formal citation.
 
 ---
 
@@ -604,4 +618,5 @@ should get the same live-citation pass before being treated as sourced.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.1.0 | 2026-06-10 | Mike Fullerton | Verify all 4 Tier-2 clusters live (22 files) and record sources added + fixes |
 | 1.0.0 | 2026-06-10 | Mike Fullerton | Recovered 365 Tier-1 sources from workflow journals; verified design-token cluster live |
