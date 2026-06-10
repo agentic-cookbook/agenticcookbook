@@ -30,7 +30,7 @@ references:
   - https://www.designtokens.org/
   - https://www.w3.org/community/design-tokens/2025/10/28/design-tokens-specification-reaches-first-stable-version/
 approved-by: "approve-artifact v1.0.0"
-approved-date: 2026-06-09
+approved-date: 2026-06-10
 triggers:
   - ui-implementation
 ---
