@@ -3,11 +3,11 @@ id: d4875936-f6df-49b1-9b96-9c4a2147bc0d
 title: "Design token distribution"
 domain: agenticdevelopercookbook://guidelines/implementing/ui/design-token-distribution
 type: guideline
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -27,6 +27,8 @@ related:
   - agenticdevelopercookbook://guidelines/planning/ui/design-tokens
 references:
   - https://styledictionary.com/
+  - https://www.designtokens.org/
+  - https://www.w3.org/community/design-tokens/2025/10/28/design-tokens-specification-reaches-first-stable-version/
 approved-by: "approve-artifact v1.0.0"
 approved-date: 2026-06-09
 triggers:
@@ -76,4 +78,5 @@ Design tokens have one source of truth. A build step transforms that source into
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Add DTCG source references (2025.10 stable) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |
