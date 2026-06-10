@@ -3,11 +3,11 @@ id: b224ef56-65f5-45fd-8842-767b20df6736
 title: "Steel thread first"
 domain: agenticdevelopercookbook://principles/steel-thread-first
 type: principle
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -23,9 +23,13 @@ related:
   - agenticdevelopercookbook://principles/small-reversible-decisions
   - agenticdevelopercookbook://principles/manage-complexity-through-boundaries
   - agenticdevelopercookbook://principles/make-it-work-make-it-right-make-it-fast
-references: []
+references:
+  - https://www.rubick.com/steel-threads/
+  - https://bryceyork.com/steel-threads/
+  - https://codeclimate.com/blog/kickstart-your-next-project-with-a-walking-skeleton
+  - https://news.ycombinator.com/item?id=35090989
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-06-09"
+approved-date: 2026-06-10
 ---
 
 # Steel thread first
@@ -41,4 +45,5 @@ Before building breadth, build the thinnest end-to-end slice that exercises ever
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Cite recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |

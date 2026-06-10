@@ -3,11 +3,11 @@ id: 2a22b563-afb5-4615-96ae-338eafd5eb81
 title: "Make illegal states unrepresentable"
 domain: agenticdevelopercookbook://principles/parse-dont-validate
 type: principle
-version: 1.0.0
+version: 1.0.1
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-09
+modified: 2026-06-10
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -22,9 +22,13 @@ related:
   - agenticdevelopercookbook://principles/fail-fast
   - agenticdevelopercookbook://principles/explicit-over-implicit
   - agenticdevelopercookbook://principles/immutability-by-default
-references: []
+references:
+  - https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/
+  - https://functional-architecture.org/make_illegal_states_unrepresentable/
+  - https://aipatternbook.com/make-illegal-states-unrepresentable
+  - https://deviq.com/practices/parse-dont-validate/
 approved-by: "approve-artifact v1.0.0"
-approved-date: "2026-06-09"
+approved-date: 2026-06-10
 ---
 
 # Make illegal states unrepresentable
@@ -41,4 +45,5 @@ Encode invariants in the type system so invalid values cannot be constructed, an
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.1 | 2026-06-10 | Mike Fullerton | Cite recovered Tier-1 research sources (adversarially-audited) |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |
