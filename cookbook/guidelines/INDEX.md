@@ -3,11 +3,11 @@ id: eb0764d5-aeac-40cc-9aa4-d84e4eaa652d
 title: Guidelines Index
 domain: agenticdevelopercookbook://guidelines/INDEX
 type: reference
-version: 2.5.0
+version: 2.6.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: '2026-06-09'
+modified: '2026-06-27'
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -33,8 +33,9 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 | [Reviewing](#reviewing-48-guidelines) | 48 | Checking code quality, security, accessibility |
 | [Shipping](#shipping-17-guidelines) | 17 | Pre-commit, pre-PR, packaging |
 | [Cookbook](#cookbook-16-guidelines) | 16 | Writing cookbook content (recipes, skills, agents) |
+| [Researching](#researching-5-guidelines) | 5 | Gathering, verifying, and recording trustworthy research |
 
-240 unique guidelines, 333 total (with duplicates across use cases).
+245 unique guidelines, 338 total (with duplicates across use cases).
 
 ---
 
@@ -475,12 +476,25 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 **ui**
 - [Platform Design Languages](cookbook/ui/platform-design-languages.md)
 
+### Researching (5 guidelines)
+
+
+**evidence**
+- [Research results document](researching/evidence/research-results-document.md)
+- [Verification and trust scoring](researching/evidence/verification-and-trust-scoring.md)
+
+**process**
+- [Agentic research design lessons](researching/process/agentic-research-design-lessons.md)
+- [Research methodology and sources](researching/process/research-methodology-and-sources.md)
+- [Research type taxonomy](researching/process/research-type-taxonomy.md)
+
 ---
 
 ## Change History
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 2.6.0 | 2026-06-27 | Mike Fullerton | Add Researching use case (5 guidelines): research-results-document, verification-and-trust-scoring, research-type-taxonomy, research-methodology-and-sources, agentic-research-design-lessons |
 | 2.5.0 | 2026-06-09 | Mike Fullerton | Add 43 guidelines across waves 2-4 (AI-native, security, backend, API/MCP, observability, delivery, platforms) |
 | 2.4.0 | 2026-06-09 | Mike Fullerton | Add code-hygiene, completeness, value-objects, reuse-before-build (146 unique, 238 total) |
 | 2.3.0 | 2026-04-09 | Mike Fullerton | Recategorize: 20→12 categories, dissolve language/platform, flatten shipping/testing |

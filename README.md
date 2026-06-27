@@ -44,13 +44,13 @@ Code built with the Agentic Developer Cookbook is **trusted**. That means:
 
 The cookbook contains four types of **cookbook artifacts** — standalone markdown files with YAML frontmatter, named requirements, and change history:
 
-### Principles (27 files)
+### Principles (33 files)
 
 *How to think about engineering.* Foundational ideas that guide all technical decisions.
 
-Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition over Inheritance, Separation of Concerns, SRP, Connascence, Conway's Law, Design for Deletion, DRY, Explicit over Implicit, Make Illegal States Unrepresentable, Errors as Values, Small Reversible Decisions, Tight Feedback Loops, Manage Complexity Through Boundaries, Least Astonishment, Idempotency, Native Controls, Open Source Preference, Make It Work/Right/Fast, Steel Thread First, Deliberate Prudent Technical Debt, Optimize for Change.
+Simplicity, YAGNI, Fail Fast, Dependency Injection, Immutability, Composition over Inheritance, Separation of Concerns, SRP, Connascence, Conway's Law, Design for Deletion, DRY, Explicit over Implicit, Make Illegal States Unrepresentable, Errors as Values, Small Reversible Decisions, Tight Feedback Loops, Manage Complexity Through Boundaries, Least Astonishment, Idempotency, Native Controls, Open Source Preference, Make It Work/Right/Fast, Steel Thread First, Deliberate Prudent Technical Debt, Optimize for Change, Type Precedes Method, Domain-Stratified Trust, Independence Before Corroboration, Provenance at Generation Time, Cite the Claim Not the Document, Suppress Unsupported Confidence.
 
-### Guidelines (240 unique, 333 with use-case duplicates)
+### Guidelines (245 unique, 338 with use-case duplicates)
 
 *What rules apply when building.* Organized by **use case** — the phase of work where they apply, with [trigger-based filtering](cookbook/introduction/trigger-guide.md) for AI agents:
 
@@ -136,8 +136,8 @@ The cookbook's public-facing website (React 19, TypeScript, Tailwind CSS 4) and 
 ```
 cookbook/                # cookbook content root
   introduction/          # getting started, conventions, glossary
-  principles/            # 27 engineering principles
-  guidelines/            # 240 use-case-organized guidelines
+  principles/            # 33 engineering principles
+  guidelines/            # 245 use-case-organized guidelines
   ingredients/           # atomic component specs (building blocks)
   recipes/               # compositions of ingredients into features
   compliance/            # 10 compliance categories (81 checks)

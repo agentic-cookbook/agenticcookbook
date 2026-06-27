@@ -31,3 +31,9 @@ Core engineering principles that guide all cookbook decisions and implementation
 | [yagni.md](yagni.md) | Build for today's known requirements, not speculative generality |
 | [steel-thread-first.md](steel-thread-first.md) | Build the thinnest end-to-end slice through every boundary before breadth |
 | [deliberate-prudent-debt.md](deliberate-prudent-debt.md) | Trade rigor for speed only as a deliberate, recorded choice with a payback trigger |
+| [type-precedes-method.md](type-precedes-method.md) | The research type sets the sources, the method, and the bar — classify before you research |
+| [domain-stratified-trust.md](domain-stratified-trust.md) | A claim's bar is set by its domain (the cost of being wrong), not by how it was asked |
+| [independence-before-corroboration.md](independence-before-corroboration.md) | Count sources by independence, not number — pages tracing to one origin are one source |
+| [provenance-at-generation-time.md](provenance-at-generation-time.md) | Capture source, quote, and access date as you gather — never reconstruct citations after |
+| [cite-the-claim-not-the-document.md](cite-the-claim-not-the-document.md) | Every claim carries its own citation and exact supporting quote; a bibliography is not auditable |
+| [suppress-unsupported-confidence.md](suppress-unsupported-confidence.md) | Confident language over thin evidence is itself a red flag |

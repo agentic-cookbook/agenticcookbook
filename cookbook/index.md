@@ -69,6 +69,12 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 | [Open Source Preference](principles/open-source-preference.md) | Prefer proven libraries over custom solutions. |
 | [Support Automation](principles/support-automation.md) | Expose capabilities through automation interfaces, not just interactive UI. |
 | [Optimize for Change](principles/meta-principle-optimize-for-change.md) | Every principle is a strategy for making future change cheaper. |
+| [Type Precedes Method](principles/type-precedes-method.md) | Classify what you're researching before deciding how. |
+| [Domain-Stratified Trust](principles/domain-stratified-trust.md) | The bar scales with the cost of being wrong, by domain. |
+| [Independence Before Corroboration](principles/independence-before-corroboration.md) | Many sources tracing to one origin are still one source. |
+| [Provenance at Generation Time](principles/provenance-at-generation-time.md) | Capture source, quote, and date as you gather — never after. |
+| [Cite the Claim, Not the Document](principles/cite-the-claim-not-the-document.md) | Claim-level citations with the supporting quote; bibliographies aren't auditable. |
+| [Suppress Unsupported Confidence](principles/suppress-unsupported-confidence.md) | Confident language over thin evidence is a red flag. |
 
 ## Guidelines
 
@@ -82,6 +88,7 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 | [Reviewing](guidelines/reviewing/) | 48 | Checking code quality, security, accessibility |
 | [Shipping](guidelines/shipping/) | 17 | Pre-commit, pre-PR, packaging |
 | [Cookbook](guidelines/cookbook/) | 16 | Writing cookbook content (recipes, skills, agents) |
+| [Researching](guidelines/researching/) | 5 | Gathering, verifying, and recording trustworthy research |
 
 ## Ingredients
 
