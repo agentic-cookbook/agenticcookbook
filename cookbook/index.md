@@ -75,6 +75,17 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 | [Provenance at Generation Time](principles/provenance-at-generation-time.md) | Capture source, quote, and date as you gather — never after. |
 | [Cite the Claim, Not the Document](principles/cite-the-claim-not-the-document.md) | Claim-level citations with the supporting quote; bibliographies aren't auditable. |
 | [Suppress Unsupported Confidence](principles/suppress-unsupported-confidence.md) | Confident language over thin evidence is a red flag. |
+| [Frame Before You Generate](principles/frame-before-you-generate.md) | Find the real problem before generating solutions. |
+| [Diverge Before You Converge](principles/diverge-before-you-converge.md) | Open the solution space wide before narrowing it. |
+| [Human-First Ideation](principles/human-first-ideation.md) | The human contributes before the AI injects ideas. |
+| [Defer Judgment, Go for Quantity](principles/defer-judgment-go-for-quantity.md) | Suspend evaluation during generation; volume unlocks quality. |
+| [Counteract Homogenization with Diversity](principles/counteract-homogenization-with-diversity.md) | Use structural diversity to escape the AI's mean. |
+| [Bridge Distant Domains](principles/bridge-distant-domains.md) | Import solution patterns from structurally similar but distant fields. |
+| [Constraints as Creative Fuel](principles/constraints-as-creative-fuel.md) | Deliberate constraints break fixation and spark novel directions. |
+| [Break Fixation Deliberately](principles/break-fixation-deliberately.md) | Interrupt mental lock-in with a structured break before continuing. |
+| [Critique Without Killing](principles/critique-without-killing.md) | Interrogate ideas productively without verdicts. |
+| [Keep the Human at the Wheel](principles/keep-the-human-at-the-wheel.md) | Selection, judgment, and direction belong to the human. |
+| [Document the Process, Not a Conclusion](principles/document-the-process-not-a-conclusion.md) | Record the journey, not just the destination. |
 
 ## Guidelines
 
@@ -89,6 +100,7 @@ A library of principles, guidelines, ingredients, recipes, and workflows for bui
 | [Shipping](guidelines/shipping/) | 17 | Pre-commit, pre-PR, packaging |
 | [Cookbook](guidelines/cookbook/) | 16 | Writing cookbook content (recipes, skills, agents) |
 | [Researching](guidelines/researching/) | 5 | Gathering, verifying, and recording trustworthy research |
+| [Brainstorming](guidelines/brainstorming/) | 4 | Facilitating idea generation sessions with framing-techniques, divergent-techniques, convergent-techniques, and facilitation-without-anchoring |
 
 ## Ingredients
 

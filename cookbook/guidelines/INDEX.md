@@ -33,9 +33,8 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 | [Reviewing](#reviewing-48-guidelines) | 48 | Checking code quality, security, accessibility |
 | [Shipping](#shipping-17-guidelines) | 17 | Pre-commit, pre-PR, packaging |
 | [Cookbook](#cookbook-16-guidelines) | 16 | Writing cookbook content (recipes, skills, agents) |
-| [Researching](#researching-5-guidelines) | 5 | Gathering, verifying, and recording trustworthy research |
 
-245 unique guidelines, 338 total (with duplicates across use cases).
+249 unique guidelines, 333 total (with duplicates across use cases).
 
 ---
 
@@ -475,18 +474,6 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 **ui**
 - [Platform Design Languages](cookbook/ui/platform-design-languages.md)
-
-### Researching (5 guidelines)
-
-
-**evidence**
-- [Research results document](researching/evidence/research-results-document.md)
-- [Verification and trust scoring](researching/evidence/verification-and-trust-scoring.md)
-
-**process**
-- [Agentic research design lessons](researching/process/agentic-research-design-lessons.md)
-- [Research methodology and sources](researching/process/research-methodology-and-sources.md)
-- [Research type taxonomy](researching/process/research-type-taxonomy.md)
 
 ---
 
