@@ -4,7 +4,7 @@ title: "Verification and trust scoring"
 domain: agenticdevelopercookbook://guidelines/researching/evidence/verification-and-trust-scoring
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-27
 modified: 2026-06-27
@@ -27,8 +27,8 @@ references:
   - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2981887/
   - https://beallslist.net/
   - https://www.ifcncodeofprinciples.poynter.org/
-approved-by: ''
-approved-date: ''
+approved-by: "approve-artifact v1.0.0"
+approved-date: '2026-06-27'
 triggers:
   - research
 ---

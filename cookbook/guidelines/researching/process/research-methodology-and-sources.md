@@ -4,7 +4,7 @@ title: "Research methodology and sources"
 domain: agenticdevelopercookbook://guidelines/researching/process/research-methodology-and-sources
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-27
 modified: 2026-06-27
@@ -27,8 +27,8 @@ references:
   - https://www.ncbi.nlm.nih.gov/books/NBK25501/
   - https://www.sec.gov/edgar/sec-api-documentation
   - https://www.prisma-statement.org/
-approved-by: ''
-approved-date: ''
+approved-by: "approve-artifact v1.0.0"
+approved-date: '2026-06-27'
 triggers:
   - research
 ---

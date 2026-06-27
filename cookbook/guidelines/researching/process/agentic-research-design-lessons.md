@@ -4,7 +4,7 @@ title: "Agentic research design lessons"
 domain: agenticdevelopercookbook://guidelines/researching/process/agentic-research-design-lessons
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-27
 modified: 2026-06-27
@@ -27,8 +27,8 @@ references:
   - https://github.com/stanford-oval/storm
   - https://github.com/langchain-ai/open_deep_research
   - https://huggingface.co/blog/open-deep-research
-approved-by: ''
-approved-date: ''
+approved-by: "approve-artifact v1.0.0"
+approved-date: '2026-06-27'
 triggers:
   - research
 ---

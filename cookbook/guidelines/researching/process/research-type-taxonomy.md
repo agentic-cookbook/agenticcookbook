@@ -4,7 +4,7 @@ title: "Research type taxonomy"
 domain: agenticdevelopercookbook://guidelines/researching/process/research-type-taxonomy
 type: guideline
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-27
 modified: 2026-06-27
@@ -25,8 +25,8 @@ related:
 references:
   - https://dl.acm.org/doi/10.1145/792550.792552
   - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1904193/
-approved-by: ''
-approved-date: ''
+approved-by: "approve-artifact v1.0.0"
+approved-date: '2026-06-27'
 triggers:
   - research
 ---

@@ -4,7 +4,7 @@ title: "Provenance at generation time"
 domain: agenticdevelopercookbook://principles/provenance-at-generation-time
 type: principle
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-27
 modified: 2026-06-27
@@ -23,8 +23,8 @@ related:
   - agenticdevelopercookbook://principles/fail-fast
   - agenticdevelopercookbook://guidelines/researching/evidence/research-results-document
 references: []
-approved-by: ''
-approved-date: ''
+approved-by: "approve-artifact v1.0.0"
+approved-date: '2026-06-27'
 ---
 
 # Provenance at generation time

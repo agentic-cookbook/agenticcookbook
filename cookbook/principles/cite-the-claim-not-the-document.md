@@ -4,7 +4,7 @@ title: "Cite the claim, not the document"
 domain: agenticdevelopercookbook://principles/cite-the-claim-not-the-document
 type: principle
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-27
 modified: 2026-06-27
@@ -22,8 +22,8 @@ related:
   - agenticdevelopercookbook://principles/provenance-at-generation-time
   - agenticdevelopercookbook://principles/independence-before-corroboration
 references: []
-approved-by: ''
-approved-date: ''
+approved-by: "approve-artifact v1.0.0"
+approved-date: '2026-06-27'
 ---
 
 # Cite the claim, not the document

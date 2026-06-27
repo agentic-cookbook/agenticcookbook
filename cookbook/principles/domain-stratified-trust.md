@@ -4,7 +4,7 @@ title: "Domain-stratified trust"
 domain: agenticdevelopercookbook://principles/domain-stratified-trust
 type: principle
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-27
 modified: 2026-06-27
@@ -24,8 +24,8 @@ related:
   - agenticdevelopercookbook://principles/suppress-unsupported-confidence
   - agenticdevelopercookbook://guidelines/researching/evidence/verification-and-trust-scoring
 references: []
-approved-by: ''
-approved-date: ''
+approved-by: "approve-artifact v1.0.0"
+approved-date: '2026-06-27'
 ---
 
 # Domain-stratified trust

@@ -4,7 +4,7 @@ title: "Suppress unsupported confidence"
 domain: agenticdevelopercookbook://principles/suppress-unsupported-confidence
 type: principle
 version: 1.0.0
-status: draft
+status: accepted
 language: en
 created: 2026-06-27
 modified: 2026-06-27
@@ -23,8 +23,8 @@ related:
   - agenticdevelopercookbook://principles/independence-before-corroboration
   - agenticdevelopercookbook://principles/explicit-over-implicit
 references: []
-approved-by: ''
-approved-date: ''
+approved-by: "approve-artifact v1.0.0"
+approved-date: '2026-06-27'
 ---
 
 # Suppress unsupported confidence
