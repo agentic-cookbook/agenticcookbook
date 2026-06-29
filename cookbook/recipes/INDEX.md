@@ -7,7 +7,7 @@ version: 1.0.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: '2026-06-27'
+modified: '2026-06-29'
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT

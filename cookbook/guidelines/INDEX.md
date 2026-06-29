@@ -7,7 +7,7 @@ version: 2.6.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: '2026-06-27'
+modified: '2026-06-29'
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -30,11 +30,11 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 | [Planning](#planning-63-guidelines) | 63 | Architecture, data modeling, choosing patterns |
 | [Implementing](#implementing-165-guidelines) | 165 | Writing new code |
 | [Testing](#testing-24-guidelines) | 24 | Writing and structuring tests |
-| [Reviewing](#reviewing-48-guidelines) | 48 | Checking code quality, security, accessibility |
+| [Reviewing](#reviewing-50-guidelines) | 50 | Checking code quality, security, accessibility |
 | [Shipping](#shipping-17-guidelines) | 17 | Pre-commit, pre-PR, packaging |
 | [Cookbook](#cookbook-16-guidelines) | 16 | Writing cookbook content (recipes, skills, agents) |
 
-249 unique guidelines, 333 total (with duplicates across use cases).
+257 unique guidelines, 335 total (with duplicates across use cases).
 
 ---
 
@@ -349,8 +349,10 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 ---
 
-### Reviewing (48 guidelines)
+### Reviewing (50 guidelines)
 
+- [Conformance: The Criterion Walk](reviewing/conformance-criterion-walk.md)
+- [Writing the Review Report](reviewing/review-report-writing.md)
 
 **accessibility**
 - [Accessibility from day one](reviewing/accessibility/accessibility.md)
