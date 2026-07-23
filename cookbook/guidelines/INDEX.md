@@ -3,11 +3,11 @@ id: eb0764d5-aeac-40cc-9aa4-d84e4eaa652d
 title: Guidelines Index
 domain: agenticdevelopercookbook://guidelines/INDEX
 type: reference
-version: 2.6.0
+version: 2.7.0
 status: accepted
 language: en
 created: 2026-03-27
-modified: '2026-06-29'
+modified: '2026-07-23'
 author: Mike Fullerton
 copyright: 2026 Mike Fullerton
 license: MIT
@@ -28,13 +28,13 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 | Use Case | Guidelines | When to use |
 |----------|-----------|-------------|
 | [Planning](#planning-63-guidelines) | 63 | Architecture, data modeling, choosing patterns |
-| [Implementing](#implementing-165-guidelines) | 165 | Writing new code |
+| [Implementing](#implementing-166-guidelines) | 166 | Writing new code |
 | [Testing](#testing-24-guidelines) | 24 | Writing and structuring tests |
 | [Reviewing](#reviewing-50-guidelines) | 50 | Checking code quality, security, accessibility |
 | [Shipping](#shipping-17-guidelines) | 17 | Pre-commit, pre-PR, packaging |
 | [Cookbook](#cookbook-16-guidelines) | 16 | Writing cookbook content (recipes, skills, agents) |
 
-257 unique guidelines, 335 total (with duplicates across use cases).
+258 unique guidelines, 336 total (with duplicates across use cases).
 
 ---
 
@@ -122,7 +122,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 ---
 
-### Implementing (165 guidelines)
+### Implementing (166 guidelines)
 
 
 **accessibility**
@@ -256,6 +256,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 - [MCP tool input validation](implementing/security/mcp-input-validation.md)
 - [MCP server security](implementing/security/mcp-server-security.md)
 - [Passkeys and WebAuthn](implementing/security/passkeys-and-webauthn.md)
+- [PII detection and redaction](implementing/security/pii-detection-and-redaction.md)
 - [PII handling and classification](implementing/security/pii-handling.md)
 - [Privacy and security by default](implementing/security/privacy.md)
 - [Secure Storage](implementing/security/secure-storage.md)
@@ -483,6 +484,7 @@ Guidelines are organized by **use case** — the phase of work where they apply.
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 2.7.0 | 2026-07-23 | Mike Fullerton | Add PII detection and redaction guideline (implementing/security) |
 | 2.6.0 | 2026-06-27 | Mike Fullerton | Add Researching use case (5 guidelines): research-results-document, verification-and-trust-scoring, research-type-taxonomy, research-methodology-and-sources, agentic-research-design-lessons |
 | 2.5.0 | 2026-06-09 | Mike Fullerton | Add 43 guidelines across waves 2-4 (AI-native, security, backend, API/MCP, observability, delivery, platforms) |
 | 2.4.0 | 2026-06-09 | Mike Fullerton | Add code-hygiene, completeness, value-objects, reuse-before-build (146 unique, 238 total) |

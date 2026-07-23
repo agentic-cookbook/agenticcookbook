@@ -3,11 +3,11 @@ id: 647b7d54-41fc-4f31-96e4-3d23ae49f92b
 title: "PII handling and classification"
 domain: agenticdevelopercookbook://guidelines/implementing/security/pii-handling
 type: guideline
-version: 1.0.1
+version: 1.0.2
 status: accepted
 language: en
 created: 2026-06-09
-modified: 2026-06-10
+modified: 2026-07-23
 author: Mike Fullerton
 copyright: "2026 Mike Fullerton"
 license: MIT
@@ -19,6 +19,7 @@ tags:
   - security
 depends-on: []
 related:
+  - agenticdevelopercookbook://guidelines/implementing/security/pii-detection-and-redaction
   - agenticdevelopercookbook://guidelines/implementing/security/sensitive-data
   - agenticdevelopercookbook://guidelines/implementing/security/secure-storage
   - agenticdevelopercookbook://guidelines/implementing/data/data-retention-and-deletion
@@ -90,5 +91,6 @@ This is engineering guidance and NOT legal advice; confirm obligations with coun
 
 | Version | Date | Author | Summary |
 |---------|------|--------|---------|
+| 1.0.2 | 2026-07-23 | Mike Fullerton | Cross-link to new pii-detection-and-redaction guideline |
 | 1.0.1 | 2026-06-10 | Mike Fullerton | Add GDPR Art.4 pseudonymisation, ISO 27701:2025, NIST Privacy Framework |
 | 1.0.0 | 2026-06-09 | Mike Fullerton | Initial creation |
