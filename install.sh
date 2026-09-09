@@ -10,7 +10,8 @@
 #   via the Skill tool as adh:<name> and by the user as /adh:<name>).
 # - Registers the repo as a local directory marketplace ("agenticcookbook")
 #   with Claude Code and enables the adh plugin.
-# - Installs Python deps (rich, questionary, pyyaml) via `pip --user`
+# - Installs any missing Python deps (rich, questionary, pyyaml), falling
+#   back to --break-system-packages on PEP 668 externally-managed pythons
 #
 # Idempotent. Re-run to refresh after edits.
 set -euo pipefail
@@ -236,12 +237,45 @@ chmod +x "${BIN_DIR}/cookbook"
 ok "shim → ${BIN_DIR}/cookbook"
 
 # 6. Install Python deps (user-level)
+#
+# The shim runs `python3 -m cookbook`, so the deps must be importable by
+# whichever python3 is on PATH. Note pyyaml imports as `yaml`.
+#
+# Homebrew/Debian pythons are PEP 668 "externally managed" and refuse
+# `pip install --user` outright, so a plain failure here is expected on a
+# stock macOS dev box rather than exceptional -- retry with
+# --break-system-packages, which is what --user was meant to do anyway.
 title "Installing Python deps"
-if python3 -m pip install --user --upgrade --quiet rich questionary pyyaml; then
-    ok "rich, questionary, pyyaml installed"
+missing_deps() {
+    python3 - <<'PYEOF'
+import importlib.util, sys
+pkgs = {"rich": "rich", "questionary": "questionary", "yaml": "pyyaml"}
+print(" ".join(dist for mod, dist in pkgs.items()
+                if importlib.util.find_spec(mod) is None))
+PYEOF
+}
+
+DEPS="$(missing_deps)"
+if [ -z "${DEPS}" ]; then
+    ok "rich, questionary, pyyaml already present"
 else
-    warn "pip install failed. Modules that need these will surface a clean error."
-    warn "Retry manually: python3 -m pip install --user rich questionary pyyaml"
+    pip_ok=0
+    if python3 -m pip install --user --upgrade --quiet ${DEPS} 2>/dev/null; then
+        pip_ok=1
+    elif python3 -m pip install --user --upgrade --quiet --break-system-packages ${DEPS} 2>/dev/null; then
+        pip_ok=1
+        warn "python3 is externally managed (PEP 668); installed with --break-system-packages"
+    fi
+
+    STILL_MISSING="$(missing_deps)"
+    if [ -z "${STILL_MISSING}" ]; then
+        ok "${DEPS} installed"
+    else
+        [ "${pip_ok}" -eq 1 ] && warn "pip reported success but ${STILL_MISSING} is still not importable."
+        warn "Could not install: ${STILL_MISSING}. Modules that need these will surface a clean error."
+        warn "Retry manually:  python3 -m pip install --user --break-system-packages ${STILL_MISSING}"
+        warn "  or with pipx:  brew install pipx && pipx install ${STILL_MISSING}"
+    fi
 fi
 
 # 7. Assemble the plugin: copy ./skills/<name>/ → ./plugins/adh/skills/<name>/
