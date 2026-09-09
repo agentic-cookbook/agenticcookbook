@@ -32,7 +32,7 @@ A **cookbook artifact** is any content item in the cookbook: a principle, guidel
 | Principle | 33 | `cookbook/principles/` | Foundational engineering ideas that guide design decisions |
 | Guideline | 245 (338 with duplicates) | `cookbook/guidelines/` | Use-case-organized rules: planning, implementing, testing, reviewing, shipping, cookbook, researching |
 | Ingredient | 19 | `cookbook/ingredients/` | Atomic component specs — the building blocks of recipes |
-| Recipe | 12 | `cookbook/recipes/` | Compositions of configured ingredients into coherent features |
+| Recipe | 13 | `cookbook/recipes/` | Compositions of configured ingredients into coherent features |
 
 A **cookbook** (`cookbook.json`) assembles recipes and ingredients into a complete application, plugin, or widget. See `cookbook/reference/cookbook.schema.json` for the JSON Schema.
 
