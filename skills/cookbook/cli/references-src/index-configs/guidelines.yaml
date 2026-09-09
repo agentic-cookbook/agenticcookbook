@@ -20,3 +20,5 @@ use_cases:
     description: "Pre-commit, pre-PR, packaging"
   - name: cookbook
     description: "Writing cookbook content (recipes, skills, agents)"
+  - name: researching
+    description: "Gathering, verifying, and recording trustworthy research"

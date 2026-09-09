@@ -30,7 +30,7 @@ A **cookbook artifact** is any content item in the cookbook: a principle, guidel
 | Type | Count | Path | Description |
 |------|-------|------|-------------|
 | Principle | 33 | `cookbook/principles/` | Foundational engineering ideas that guide design decisions |
-| Guideline | 245 (338 with duplicates) | `cookbook/guidelines/` | Use-case-organized rules: planning, implementing, testing, reviewing, shipping, cookbook, researching |
+| Guideline | 258 (341 with duplicates) | `cookbook/guidelines/` | Use-case-organized rules: planning, implementing, testing, reviewing, shipping, cookbook, researching |
 | Ingredient | 19 | `cookbook/ingredients/` | Atomic component specs — the building blocks of recipes |
 | Recipe | 13 | `cookbook/recipes/` | Compositions of configured ingredients into coherent features |
 
